@@ -780,6 +780,13 @@ const DEFAULT_PAGES = {
   <li><a onclick="navigateTo('Topismo')"><b>Topismo</b></a> — La religione dei Ludotopici. Fondata dal Topus Maximus nel 90 aM a Serrano.</li>
   <li><a onclick="navigateTo('Calendario Morello')"><b>Calendario Morello</b></a> — Il sistema di datazione usato in questa enciclopedia.</li>
 </ul>
+<p><b>Scienza e cosmologia</b></p>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><a onclick="navigateTo('Ermenegildo Spisso')"><b>Ermenegildo "Gildo" Spisso</b></a> — Fisico teorico del Clan Spisso. Autore delle F.O.N.D.A.M.E.N.T.A. (47 aM).</li>
+  <li><a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')"><b>F.O.N.D.A.M.E.N.T.A.</b></a> — <i>Fondamenti Ontologici della Natura, della Dimensione, dell'Architettura, della Materia, dell'Energia, dei Nessi, della Topologia e dell'Assoluto.</i></li>
+  <li><a onclick="navigateTo('L.E.G.G.I.')"><b>L.E.G.G.I.</b></a> — <i>Leggi Empiriche della Gravità, della Genesi, dell'Inerzia e dei Interscambi cosmici.</i> Autore: sconosciuto.</li>
+  <li><a onclick="navigateTo('Ignoto di Napoli')"><b>Ignoto di Napoli</b></a> — Il misterioso autore delle L.E.G.G.I. Probabilmente napoletano. Certamente geniale.</li>
+</ul>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Pagina principale</a> <a>Pocchiaciclopedia</a></div>`,
     wikitext: "Pagina principale di Pocchiaciclopedia.",
@@ -901,6 +908,30 @@ const DEFAULT_PAGES = {
     wikitext: "",
     history: [],
     content: ""
+  },
+  "Ermenegildo Spisso": {
+    title: "Ermenegildo Spisso",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "F.O.N.D.A.M.E.N.T.A.": {
+    title: "F.O.N.D.A.M.E.N.T.A.",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "L.E.G.G.I.": {
+    title: "L.E.G.G.I.",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "Ignoto di Napoli": {
+    title: "Ignoto di Napoli",
+    wikitext: "",
+    history: [],
+    content: ""
   }
 };
 
@@ -926,6 +957,173 @@ DEFAULT_PAGES["Topus Maximus"].content = buildTopusMaximus();
 DEFAULT_PAGES["Topismo"].content = buildTopismo();
 DEFAULT_PAGES["Serrano"].content = buildSerrano();
 DEFAULT_PAGES["Cheddar Mussolini"].content = buildCheddarMussolini();
+DEFAULT_PAGES["Ermenegildo Spisso"].content = buildErmenegildoSpisso();
+DEFAULT_PAGES["F.O.N.D.A.M.E.N.T.A."].content = buildFondamenta();
+DEFAULT_PAGES["L.E.G.G.I."].content = buildLeggi();
+DEFAULT_PAGES["Ignoto di Napoli"].content = buildIgnotoDiNapoli();
+
+function buildErmenegildoSpisso() {
+  return `<div class="wiki-notice"><span class="ni">🔬</span><span>Ermenegildo Spisso è l'unico membro del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> ad aver pubblicato su riviste scientifiche peer-reviewed. La famiglia lo considera un successo comunque.</span></div>
+<h1 class="page-title">Ermenegildo Spisso</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Ermenegildo "Gildo" Spisso</div>
+  <table>
+    <tr><td>Nato</td><td>14 febbraio 1931, Serrano (CE)</td></tr>
+    <tr><td>Morto</td><td>3 ottobre 78 aM, Serrano (CE)</td></tr>
+    <tr><td>Famiglia</td><td><a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> (per sangue, non per scelta)</td></tr>
+    <tr><td>Formazione</td><td>Università degli Studi di Napoli Federico II</td></tr>
+    <tr><td>Campo</td><td>Fisica teorica, cosmologia fondamentale</td></tr>
+    <tr><td>Opera principale</td><td><a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')">F.O.N.D.A.M.E.N.T.A.</a> (47 aM)</td></tr>
+    <tr><td>Rapporto con il clan</td><td>Parente. Non collaboratore.</td></tr>
+    <tr><td>Citazioni celebri</td><td>«La domanda non mi sembra interessante quanto le altre»</td></tr>
+  </table>
+</div>
+<p><b>Ermenegildo Spisso</b>, universalmente noto come <b>Gildo</b> (Serrano, 14 febbraio 1931 – Serrano, 3 ottobre 78 aM), è stato un fisico teorico italiano e la figura intellettualmente più singolare della storia del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a>. Non partecipò mai alle attività criminali della famiglia ma vi appartenne per sangue — fatto che non lo disturbò particolarmente, poiché era troppo occupato a studiare la struttura della realtà per occuparsi di questioni che giudicava «di portata limitata».</p>
+<p>La sua opera principale, la teoria <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')"><b>F.O.N.D.A.M.E.N.T.A.</b></a> — pubblicata nel 47 aM dopo trent'anni di ricerca — è considerata il primo tentativo sistematico di descrivere la struttura ontologica profonda del mondo creato da <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a>.</p>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#bio-g">Biografia</a></li>
+    <li><a href="#studi-g">Gli studi a Napoli</a></li>
+    <li><a href="#ricerca-g">La ricerca: trent'anni sulle fondamenta</a></li>
+    <li><a href="#fondamenta-g">La teoria F.O.N.D.A.M.E.N.T.A.</a></li>
+    <li><a href="#famiglia-g">Il rapporto con la famiglia Spisso</a></li>
+    <li><a href="#eredita-g">L'eredità</a></li>
+  </ol>
+</div>
+
+<h2 id="bio-g">Biografia <span class="edit-link" onclick="openEditor('Ermenegildo Spisso')">[modifica]</span></h2>
+<p>Gildo nacque a Serrano il 14 febbraio 1931, in quella che era già la casa di una famiglia con caratteristiche particolari. Terzo figlio di un cugino di Gennaro "o' Professore" Spisso, crebbe nell'orbita del clan senza che nessuno si aspettasse da lui nulla di straordinario — e sicuramente non una carriera accademica. Sua madre lo descriveva come «il bambino che guardava le cose troppo a lungo». Suo padre lo descriveva come «un problema che si sarebbe risolto da solo». Avevano torto entrambi, nel senso che era un bambino che guardava le cose troppo a lungo e che non si risolse da solo ma divenne uno dei più importanti fisici teorici del suo tempo.</p>
+
+<h2 id="studi-g">Gli studi a Napoli <span class="edit-link" onclick="openEditor('Ermenegildo Spisso')">[modifica]</span></h2>
+<p>Gildo lasciò Serrano a diciassette anni per iscriversi alla Facoltà di Fisica dell'Università degli Studi di Napoli Federico II. La famiglia Spisso non si oppose — non si opponeva a nulla che non toccasse direttamente i suoi affari, e un nipote all'università era, nel peggiore dei casi, un'opportunità di rispettabilità. Non fu quello che Gildo aveva in mente.</p>
+<p>Si laureò nel 1954 con una tesi sulla struttura quantistica dello spazio-tempo che il relatore definì «tecnicamente impeccabile e filosoficamente inquietante». Restò a Napoli per il dottorato, che completò nel 1958. Durante questi anni sviluppò la sua intuizione centrale: che la realtà non fosse semplicemente descritta da leggi fisiche, ma che quelle leggi fossero esse stesse la struttura architettonica di una creazione intenzionale — progettata, non emergente.</p>
+
+<h2 id="ricerca-g">La ricerca: trent'anni sulle fondamenta <span class="edit-link" onclick="openEditor('Ermenegildo Spisso')">[modifica]</span></h2>
+<p>Dal 1958 al 1987 — trent'anni esatti — Gildo lavorò senza interruzioni significative a quello che sarebbe diventato il suo capolavoro. Tornò a Serrano nel 1961, non per nostalgia ma perché il silenzio dell'entroterra campano era, a suo giudizio, più favorevole alla concentrazione del trambusto accademico napoletano. Visse e lavorò nella stessa casa in cui era nato, con una biblioteca di quattromila volumi e un quaderno di appunti che alla fine contava oltre ventiduemila pagine manoscritte.</p>
+<p>La famiglia Spisso lo lasciò in pace. Questo è probabilmente il contributo più sottovalutato del clan alla storia della fisica teorica.</p>
+
+<h2 id="fondamenta-g">La teoria F.O.N.D.A.M.E.N.T.A. <span class="edit-link" onclick="openEditor('Ermenegildo Spisso')">[modifica]</span></h2>
+<p>Nel 47 aM Gildo pubblicò il testo che avrebbe definito la sua eredità: <i>«Fondamenti Ontologici della Natura, della Dimensione, dell'Architettura, della Materia, dell'Energia, dei Nessi, della Topologia e dell'Assoluto»</i> — acronimo <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')"><b>F.O.N.D.A.M.E.N.T.A.</b></a> La scelta dell'acronimo non fu casuale. «Le fondamenta», scrisse nella prefazione, «sono ciò che nessuno vede e su cui tutto sta. Era giusto dargli un nome che lo ricordasse.» Il riferimento al padre di <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico</a> — l'Architetto <a onclick="navigateTo('VitoCarlo Tommasi')">VitoCarlo Tommasi</a> — fu subito colto dai Ludotopici come un omaggio. Gildo non confermò né smentì.</p>
+<p>La teoria descriveva le strutture fondamentali del cosmo come strati architettonici di un progetto razionale. Non citava Ludovico esplicitamente, ma la compatibilità con la cosmologia topista era talmente evidente che i Ludotopici la adottarono come testo sacro laico. Gildo rispose che «la verità non appartiene a chi la usa».</p>
+
+<h2 id="famiglia-g">Il rapporto con la famiglia Spisso <span class="edit-link" onclick="openEditor('Ermenegildo Spisso')">[modifica]</span></h2>
+<p>Gildo non parlò mai pubblicamente del clan. Non lo difese né lo condannò. Quando un giornalista, nel 1972, gli chiese se si vergognasse di appartenere a quella famiglia, rispose: «Mi chiedo se lei si vergogni di appartenere alla specie che ha inventato la bomba atomica. Anche quella è una questione di famiglia.» L'intervista fu pubblicata. Il giornalista non ottenne mai una seconda.  </p>
+
+<h2 id="eredita-g">L'eredità <span class="edit-link" onclick="openEditor('Ermenegildo Spisso')">[modifica]</span></h2>
+<p>Morì a Serrano il 3 ottobre del 78 aM, nella stessa casa in cui era nato, con il manoscritto del secondo volume delle F.O.N.D.A.M.E.N.T.A. sulla scrivania — incompiuto. Il manoscritto è conservato presso la biblioteca dell'Università di Napoli. Nessuno lo ha ancora finito di leggere completamente, il che lo rende simile alla maggior parte delle opere fondamentali della fisica teorica.</p>
+<p>La teoria <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')">F.O.N.D.A.M.E.N.T.A.</a> rimane il riferimento strutturale per chiunque voglia descrivere scientificamente il cosmo di <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a>. Le <a onclick="navigateTo('L.E.G.G.I.')">L.E.G.G.I.</a> dell'<a onclick="navigateTo('Ignoto di Napoli')">Ignoto di Napoli</a>, sviluppate in parallelo e pubblicate in forma anonima, sono considerate il complemento naturale del suo lavoro.</p>
+<div class="stub-box"><span style="font-size:22px">🔬</span><span>Il secondo volume delle F.O.N.D.A.M.E.N.T.A. è ancora inedito. Chi volesse completarlo può rivolgersi alla biblioteca dell'Università di Napoli e portare tanta pazienza.</span></div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Clan Spisso</a> <a>Fisici italiani</a> <a>F.O.N.D.A.M.E.N.T.A.</a> <a>Università di Napoli</a> <a>Persone di Serrano</a></div>`;
+}
+
+function buildFondamenta() {
+  return `<div class="wiki-notice"><span class="ni">🏗️</span><span>F.O.N.D.A.M.E.N.T.A. è la teoria che descrive la struttura profonda del cosmo creato da <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a>. I Ludotopici la usano come testo liturgico. I fisici la usano come testo di fisica. Nessuno dei due ha torto.</span></div>
+<h1 class="page-title">F.O.N.D.A.M.E.N.T.A.</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">F.O.N.D.A.M.E.N.T.A.</div>
+  <table>
+    <tr><td>Nome esteso</td><td><i>Fondamenti Ontologici della Natura, della Dimensione, dell'Architettura, della Materia, dell'Energia, dei Nessi, della Topologia e dell'Assoluto</i></td></tr>
+    <tr><td>Autore</td><td><a onclick="navigateTo('Ermenegildo Spisso')">Ermenegildo "Gildo" Spisso</a></td></tr>
+    <tr><td>Anno</td><td>47 aM</td></tr>
+    <tr><td>Campo</td><td>Fisica teorica, ontologia cosmica</td></tr>
+    <tr><td>Complemento</td><td><a onclick="navigateTo('L.E.G.G.I.')">L.E.G.G.I.</a> dell'<a onclick="navigateTo('Ignoto di Napoli')">Ignoto di Napoli</a></td></tr>
+    <tr><td>Adottato da</td><td>Comunità scientifica (con riserve) e <a onclick="navigateTo('Topismo')">Ludotopici</a> (senza riserve)</td></tr>
+  </table>
+</div>
+<p><b>F.O.N.D.A.M.E.N.T.A.</b> — acronimo di <i>Fondamenti Ontologici della Natura, della Dimensione, dell'Architettura, della Materia, dell'Energia, dei Nessi, della Topologia e dell'Assoluto</i> — è la teoria cosmologica sviluppata da <a onclick="navigateTo('Ermenegildo Spisso')">Ermenegildo "Gildo" Spisso</a> e pubblicata nel 47 aM. Descrive la struttura architettonica profonda del cosmo creato da <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> suddividendola in otto strati fondamentali, ciascuno corrispondente a una lettera dell'acronimo.</p>
+
+<h2>I otto strati <span class="edit-link" onclick="openEditor('F.O.N.D.A.M.E.N.T.A.')">[modifica]</span></h2>
+<ul style="margin:0 0 14px 24px;font-family:sans-serif;font-size:13px;line-height:2.3">
+  <li><b>F — Fondamento</b>: Il substrato primordiale dell'esistenza. La «pietra» su cui <a onclick="navigateTo('VitoCarlo Tommasi')">VitoCarlo Tommasi</a> costruì tutto il resto. Non ha proprietà fisiche osservabili perché precede la fisica stessa.</li>
+  <li><b>O — Ontologia</b>: Il principio per cui le cose esistono anziché non esistere. Gildo dedicò a questo strato settecento pagine. La conclusione è: «Perché Ludovico volle così».</li>
+  <li><b>N — Natura</b>: L'insieme delle leggi che regolano il comportamento della materia nel cosmo. Strettamente correlato alle <a onclick="navigateTo('L.E.G.G.I.')">L.E.G.G.I.</a> dell'<a onclick="navigateTo('Ignoto di Napoli')">Ignoto di Napoli</a>.</li>
+  <li><b>D — Dimensione</b>: La struttura spazio-temporale del cosmo. Tre dimensioni spaziali più una temporale, con una quinta dimensione «spirituale» che Gildo postulò ma non riuscì a misurare. I Ludotopici identificano la quinta dimensione con la presenza di Ludovico.</li>
+  <li><b>A — Architettura</b>: Il progetto razionale sottostante alla struttura del cosmo. «Il cosmo non è nato» scrisse Gildo, «è stato costruito. La differenza è fondamentale». Omaggio esplicito all'Architetto <a onclick="navigateTo('VitoCarlo Tommasi')">VitoCarlo Tommasi</a>.</li>
+  <li><b>M — Materia</b>: La sostanza fisica del cosmo e le sue forme. Include la materia ordinaria, la materia oscura, e quella che Gildo chiamò «materia sacra» — il substrato da cui sono fatte le entità divine. Non verificabile empiricamente ma «logicamente necessaria».</li>
+  <li><b>E — Energia</b>: Il principio dinamico del cosmo. Gildo dimostrò che l'energia totale del cosmo è esattamente uguale a zero — risultato che interpretò come prova che la creazione non costò nulla a Ludovico, «il che spiega perché ne abbia fatte così tante».</li>
+  <li><b>N — Nessi</b>: Le relazioni causali e non-causali tra le entità del cosmo. Include la causalità ordinaria, la sincronicità e quello che Gildo chiamò «il filo di Ludovico» — la connessione invisibile tra tutte le cose voluta dal Creatore.</li>
+  <li><b>T — Topologia</b>: La forma globale del cosmo. Gildo concluse che il cosmo ha la forma di un toro — una ciambella. I Ludotopici interpretarono questo come un riferimento alla natura ciclica del tempo divino. Gildo disse che era solo topologia.</li>
+  <li><b>A — Assoluto</b>: Il principio che trascende tutte le categorie precedenti. È <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> stesso — non come oggetto di studio ma come condizione di possibilità di ogni studio.</li>
+</ul>
+
+<h2>Ricezione <span class="edit-link" onclick="openEditor('F.O.N.D.A.M.E.N.T.A.')">[modifica]</span></h2>
+<p>La comunità scientifica accolse le F.O.N.D.A.M.E.N.T.A. con una divisione che non si è mai sanata: la parte fisicamente verificabile della teoria fu considerata brillante; la parte metafisica fu considerata «ambiziosa» (dagli entusiasti) o «fuori dai canoni» (dagli scettici). I Ludotopici la adottarono immediatamente come testo sacro laico. Gildo disse che «la verità non appartiene a chi la usa» e non aggiunse altro. Le <a onclick="navigateTo('L.E.G.G.I.')">L.E.G.G.I.</a> dell'<a onclick="navigateTo('Ignoto di Napoli')">Ignoto di Napoli</a>, pubblicate in forma anonima nello stesso decennio, forniscono il complemento empirico che le F.O.N.D.A.M.E.N.T.A. lasciano aperto.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Fisica teorica</a> <a>Cosmologia</a> <a>Ermenegildo Spisso</a> <a>Topismo</a> <a>Testi fondamentali</a></div>`;
+}
+
+function buildLeggi() {
+  return `<div class="wiki-notice"><span class="ni">⚖️</span><span>L.E.G.G.I. è l'opera di un autore sconosciuto. Si pensa che sia di Napoli. Nessuno è riuscito a confermare né a smentire questa ipotesi, il che a Napoli è considerato normale.</span></div>
+<h1 class="page-title">L.E.G.G.I.</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">L.E.G.G.I.</div>
+  <table>
+    <tr><td>Nome esteso</td><td><i>Leggi Empiriche della Gravità, della Genesi, dell'Inerzia e dei Interscambi cosmici</i></td></tr>
+    <tr><td>Autore</td><td><a onclick="navigateTo('Ignoto di Napoli')">Ignoto di Napoli</a></td></tr>
+    <tr><td>Anno</td><td>51 aM (pubblicazione anonima)</td></tr>
+    <tr><td>Campo</td><td>Fisica empirica, leggi naturali del cosmo</td></tr>
+    <tr><td>Complemento</td><td><a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')">F.O.N.D.A.M.E.N.T.A.</a> di <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a></td></tr>
+    <tr><td>Provenienza autore</td><td>Probabilmente <a onclick="navigateTo('Napoli')">Napoli</a> (non verificato)</td></tr>
+  </table>
+</div>
+<p><b>L.E.G.G.I.</b> — acronimo di <i>Leggi Empiriche della Gravità, della Genesi, dell'Inerzia e dei Interscambi cosmici</i> — è la raccolta delle leggi fisiche fondamentali dell'universo creato da <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a>, pubblicata nel 51 aM in forma completamente anonima. L'autore, noto come <a onclick="navigateTo('Ignoto di Napoli')">Ignoto di Napoli</a>, non si è mai rivelato. La provenienza napoletana è dedotta dallo stile, da alcune espressioni dialettali sublimate nel testo scientifico, e da quello che i critici descrivono come «una certa qual familiarità con il caos come condizione di base».</p>
+<p>Le L.E.G.G.I. sono considerate il complemento empirico delle <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')">F.O.N.D.A.M.E.N.T.A.</a> di <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a>: dove Gildo descriveva la struttura ontologica del cosmo, l'Ignoto ne codificava il funzionamento pratico.</p>
+
+<h2>Le cinque leggi <span class="edit-link" onclick="openEditor('L.E.G.G.I.')">[modifica]</span></h2>
+<ul style="margin:0 0 14px 24px;font-family:sans-serif;font-size:13px;line-height:2.3">
+  <li><b>L — Legge della Gravità Cosmica</b>: Ogni corpo nel cosmo è attratto verso ogni altro corpo con una forza proporzionale alla volontà di <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico</a> che le cose stiano insieme. La costante gravitazionale è, secondo l'Ignoto, «la misura dell'amore del Creatore». I fisici la usano ugualmente senza la nota teologica.</li>
+  <li><b>E — Legge dell'Equilibrio Energetico</b>: L'energia totale del cosmo si conserva in ogni trasformazione. Coerente con la dimostrazione di <a onclick="navigateTo('Ermenegildo Spisso')">Gildo</a> che l'energia totale è zero: nulla si crea, nulla si distrugge, tutto si trasforma per volontà del Creatore.</li>
+  <li><b>G — Legge della Genesi Continua</b>: Il cosmo non fu creato una volta sola ma è soggetto a una creazione continua — ogni istante esistente è un atto di volontà di Ludovico che sceglie di farlo continuare. Questa legge è la più dibattuta: i fisici la trovano non falsificabile; i Ludotopici la trovano ovvia.</li>
+  <li><b>G — Legge della Gravità dell'Informazione</b>: L'informazione nel cosmo tende a concentrarsi, non a disperdersi — principio opposto all'entropia termica classica. L'Ignoto postulò che esistesse un «pozzo informazionale» al centro del cosmo dove converge tutta la conoscenza. I Ludotopici lo identificano con Ludovico stesso.</li>
+  <li><b>I — Legge dell'Inerzia Spirituale</b>: Un sistema in stato di grazia tende a rimanere in stato di grazia; un sistema in stato di caos tende a rimanere in stato di caos, salvo intervento esterno. «Napoli» commentò un anonimo lettore del manoscritto originale, «è un caso di studio».</li>
+</ul>
+
+<h2>Il mistero dell'autore <span class="edit-link" onclick="openEditor('L.E.G.G.I.')">[modifica]</span></h2>
+<p>Nonostante decenni di ricerche, l'identità dell'<a onclick="navigateTo('Ignoto di Napoli')">Ignoto di Napoli</a> è rimasta sconosciuta. L'ipotesi più accreditata è che si tratti di un professore dell'Università di Napoli che scelse l'anonimato per ragioni accademiche — all'epoca, una teoria che citava esplicitamente la volontà divina come costante fisica non era esattamente un biglietto da visita per la carriera universitaria. La seconda ipotesi è che fosse un Ludotopico con formazione scientifica. La terza — sostenuta da una piccola ma appassionata scuola di pensiero — è che l'Ignoto fosse lo stesso <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a>, che avrebbe scritto il complemento empirico del proprio lavoro teorico sotto pseudonimo. Gildo non commentò mai questa ipotesi, il che è stato interpretato sia come smentita che come conferma, a seconda di chi lo interpreta.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Fisica empirica</a> <a>Leggi cosmiche</a> <a>Ignoto di Napoli</a> <a>Topismo</a> <a>Testi anonimi</a></div>`;
+}
+
+function buildIgnotoDiNapoli() {
+  return `<div class="wiki-notice"><span class="ni">❓</span><span>L'identità dell'Ignoto di Napoli è sconosciuta. Questa voce descrive ciò che si sa, che è poco, e ciò che si ipotizza, che è molto.</span></div>
+<h1 class="page-title">Ignoto di Napoli</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Ignoto di Napoli</div>
+  <table>
+    <tr><td>Identità</td><td><b>Sconosciuta</b></td></tr>
+    <tr><td>Provenienza presunta</td><td><a onclick="navigateTo('Napoli')">Napoli</a></td></tr>
+    <tr><td>Attivo</td><td>Intorno al 51 aM</td></tr>
+    <tr><td>Opera</td><td><a onclick="navigateTo('L.E.G.G.I.')">L.E.G.G.I.</a></td></tr>
+    <tr><td>Campo</td><td>Fisica empirica</td></tr>
+    <tr><td>Ipotesi sull'identità</td><td>Professore universitario / Ludotopico / <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a> sotto pseudonimo</td></tr>
+  </table>
+</div>
+<p>L'<b>Ignoto di Napoli</b> è il nome con cui è conosciuto l'autore anonimo delle <a onclick="navigateTo('L.E.G.G.I.')"><b>L.E.G.G.I.</b></a> — la raccolta delle leggi fisiche fondamentali del cosmo di <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a>, pubblicata nel 51 aM senza nome d'autore. La provenienza napoletana è dedotta dallo stile del testo, da alcune inflessioni dialettali sublimate nella prosa scientifica, e da quello che diversi critici hanno descritto come «una certa filosofia del caos produttivo» che ricorda da vicino il modo in cui i napoletani guardano il mondo: con affetto, lucidità e nessuna illusione.</p>
+<p>Nessuno sa chi fosse. Nessuno ha trovato prove decisive. Nessuno ha smesso di cercare.</p>
+
+<h2>Le teorie sull'identità <span class="edit-link" onclick="openEditor('Ignoto di Napoli')">[modifica]</span></h2>
+<p>Nel corso dei decenni sono emerse tre ipotesi principali, nessuna delle quali è stata confermata o definitivamente smentita:</p>
+<p><b>Ipotesi 1 — Il professore universitario:</b> La più semplice. Un accademico napoletano con idee troppo eterodosse per firmarle pubblicamente. L'anonimato come protezione della carriera. Spiegherebbe il rigore formale del testo e la sua familiarità con la letteratura scientifica contemporanea.</p>
+<p><b>Ipotesi 2 — Il Ludotopico scientificamente formato:</b> Un credente con una solida preparazione fisica che volle dare fondamento empirico alla cosmologia topista. Spiegherebbe il tono del testo, che tratta le entità divine come variabili fisiche con la stessa naturalezza con cui tratta la gravità.</p>
+<p><b>Ipotesi 3 — Gildo Spisso sotto pseudonimo:</b> La più affascinante e la meno provata. <a onclick="navigateTo('Ermenegildo Spisso')">Ermenegildo Spisso</a> avrebbe scritto le L.E.G.G.I. come complemento empirico delle sue <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')">F.O.N.D.A.M.E.N.T.A.</a> — il lavoro teorico e il lavoro empirico di un unico autore che non volle firmare entrambi. Gildo non commentò mai questa ipotesi. Questo è stato interpretato in tutti i modi possibili.</p>
+
+<h2>L'eredità <span class="edit-link" onclick="openEditor('Ignoto di Napoli')">[modifica]</span></h2>
+<p>Indipendentemente dall'identità dell'autore, le <a onclick="navigateTo('L.E.G.G.I.')">L.E.G.G.I.</a> sono considerate uno dei testi scientifici più importanti nella storia del cosmo di Ludovico. Insieme alle <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')">F.O.N.D.A.M.E.N.T.A.</a> di Gildo Spisso, formano il corpo teorico fondamentale della cosmologia di questo universo — uno scritto dalla persona più anomala di una famiglia criminale, l'altro da qualcuno che potrebbe essere chiunque. È il tipo di situazione in cui, se ci si pensa troppo, si smette di trovare normale.</p>
+<div class="stub-box"><span style="font-size:22px">❓</span><span>Se sai chi è l'Ignoto di Napoli, contattaci. Siamo seri.</span></div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Persone sconosciute</a> <a>Fisica empirica</a> <a>L.E.G.G.I.</a> <a>Napoli</a> <a>Misteri irrisolti</a></div>`;
+}
 
 function buildLudovicoPioTommasi() {
   return `<div class="wiki-notice"><span class="ni">🌍</span><span>Questa voce riguarda il Dio creatore di questo mondo. Chi non ci crede è libero di dirlo, ma i Ludotopici non saranno contenti.</span></div>
@@ -992,6 +1190,7 @@ function buildVitoCarlo() {
 <div class="wiki-article-body clearfix">
 <div class="infobox">
   <div class="infobox-title">VitoCarlo Tommasi</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="vitocarlo.jpg" alt="VitoCarlo Tommasi" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
   <table>
     <tr><td>Noto come</td><td><b>l'Architetto</b> (nessuno usa il nome vero)</td></tr>
     <tr><td>Figlio</td><td><a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a></td></tr>
@@ -1013,6 +1212,7 @@ function buildTopusMaximus() {
 <div class="wiki-article-body clearfix">
 <div class="infobox">
   <div class="infobox-title">Topus Maximus</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="topus.jpg" alt="Topus Maximus" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
   <table>
     <tr><td>Natura</td><td>Figlio di Dio — <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> fatto uomo</td></tr>
     <tr><td>Attivo a</td><td><a onclick="navigateTo('Serrano')">Serrano</a>, 90–105 aM</td></tr>
@@ -1132,6 +1332,10 @@ function buildCheddarMussolini() {
 <p><b>Cheddar Mussolini</b>, nota come la <b>Strega Cheddar</b>, è la leader dei <b>Ludotopici</b> che nel 106 aM organizzò e guidò la <b>Marcia su Serrano</b>, rovesciando il governo esistente e instaurando la dittatura topista. Il soprannome «Strega» non è un insulto nella tradizione topista — è un titolo che indica potere spirituale fuori dall'ordinario. Il cognome «Mussolini» è invece, secondo tutte le fonti disponibili, un caso di omonimia storicamente scomoda di cui nessuno ha voglia di parlare.</p>
 
 <h2>La Marcia su Serrano <span class="edit-link" onclick="openEditor('Cheddar Mussolini')">[modifica]</span></h2>
+<div style="float:right;clear:right;margin:0 0 16px 24px;width:260px;border:1px solid #a2a9b1;background:#f8f9fa;font-family:sans-serif;font-size:11.5px;text-align:center">
+  <img src="marcia_serrano.jpg" alt="La Marcia su Serrano, 106 aM" style="width:100%;display:block;border-bottom:1px solid #a2a9b1" onerror="this.style.display='none'">
+  <div style="padding:4px 8px;color:#54595d;font-style:italic">La Marcia su Serrano, 106 aM</div>
+</div>
 <p>Un anno dopo la scoppulazione del <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> per mano di eretici legati alla <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a>, Cheddar Mussolini radunò i Ludotopici e li guidò in marcia su <a onclick="navigateTo('Serrano')">Serrano</a>. L'obiettivo dichiarato era vendicare il martire e ripristinare il Topismo. L'obiettivo effettivo era la presa di potere. Nella storia delle marce su città, queste due cose si sovrappongono più spesso di quanto gli storici trovino confortante.</p>
 <p>La marcia riuscì. Serrano cadde. La dittatura topista fu instaurata. Cheddar Mussolini divenne la figura più potente di Serrano — nel nome di Dio, come si conviene, ma pur sempre la figura più potente.</p>
 
@@ -1240,6 +1444,7 @@ function buildClanSpisso() {
     <tr><td>Sede attuale</td><td>Serrano (CE)</td></tr>
     <tr><td>Rivale storico</td><td><a onclick="navigateTo('Camorra Salentina')" class="redlink">Camorra Salentina</a></td></tr>
     <tr><td>Membro illustre</td><td><a onclick="navigateTo('Alex Spisso')">Alex Spisso</a></td></tr>
+    <tr><td>Scienziato del clan</td><td><a onclick="navigateTo('Ermenegildo Spisso')">Ermenegildo "Gildo" Spisso</a></td></tr>
     <tr><td>Nipote americano</td><td><a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a></td></tr>
     <tr><td>Sito ufficiale</td><td>Nessuno. Ovviamente.</td></tr>
   </table>
@@ -1259,7 +1464,11 @@ function buildClanSpisso() {
     <li><a href="#scissione">La Scissione: Da Caserta a Serrano</a></li>
     <li><a href="#connessione-usa">Il Collegamento Americano</a></li>
     <li><a href="#rivalita-salentina">La Rivalità con la Camorra Salentina</a></li>
-    <li><a href="#membri">Membri Notevoli</a></li>
+    <li><a href="#membri">Membri Notevoli</a>
+      <ol>
+        <li><a href="#gildo">Ermenegildo "Gildo" Spisso — lo scienziato</a></li>
+      </ol>
+    </li>
     <li><a href="#stato">Stato Attuale</a></li>
   </ol>
 </div>
@@ -1288,6 +1497,9 @@ function buildClanSpisso() {
 <p>La rivalità precede il periodo di Serrano. Su cosa litigarono Morello e il patriarca degli Spisso — le teorie spaziano dal denaro al territorio a qualcosa di personale — il disaccordo era evidentemente del tipo che non si risolve col tempo.</p>
 
 <h2 id="membri">Membri Notevoli <span class="edit-link" onclick="openEditor('Clan Spisso')">[modifica]</span></h2>
+<h3 id="gildo">Ermenegildo "Gildo" Spisso — lo scienziato</h3>
+<p><a onclick="navigateTo('Ermenegildo Spisso')"><b>Ermenegildo Spisso</b></a>, detto <b>Gildo</b> (Serrano, 14 febbraio 1931 – Serrano, 3 ottobre 78 aM), è la figura più anomala dell'intera storia del clan: un fisico teorico di fama. Nipote di Gennaro, cugino di Salvatore, non partecipò mai alle attività criminali della famiglia ma vi appartenne per sangue — fatto che la famiglia considerava sufficiente e che lui non smentì mai esplicitamente. Non per omertà, spiegò una volta, ma perché «la domanda non mi sembra interessante quanto le altre».</p>
+<p>Gildo studiò fisica all'Università di Napoli e dedicò l'intera vita all'analisi della struttura profonda della realtà creata da <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a>. Il frutto di trent'anni di ricerca fu la teoria che chiamò <b>F.O.N.D.A.M.E.N.T.A.</b> — acronimo che i Ludotopici adottarono immediatamente come conferma scientifica della loro fede e che gli accademici adottarono con una certa riluttanza ma senza alternative migliori. Vedi la voce <a onclick="navigateTo('Ermenegildo Spisso')">Ermenegildo Spisso</a> e <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')">F.O.N.D.A.M.E.N.T.A.</a></p>
 <h3>Gennaro "o' Professore" Spisso</h3>
 <p>Fondatore. Contrabbandiere di sigarette. Strozzino. Non ha mai frequentato l'università. Ha costruito qualcosa che gli è sopravvissuto di settant'anni, che è più di quanto riesca alla maggior parte delle persone.</p>
 <h3>Salvatore Spisso</h3>
@@ -1676,6 +1888,7 @@ function buildAnnaPascali() {
 <div class="wiki-article-body clearfix">
 <div class="infobox">
   <div class="infobox-title">Anna Pascali</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="anna.jpg" alt="Anna Pascali" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
   <table>
     <tr><td>Famiglia</td><td><a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia (Pascali)</a></td></tr>
     <tr><td>Marito</td><td><a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali "il Pocchia"</a></td></tr>
@@ -1697,6 +1910,7 @@ function buildFilippoPascali() {
 <div class="wiki-article-body clearfix">
 <div class="infobox">
   <div class="infobox-title">Filippo Pascali</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="filippo.jpg" alt="Filippo Pascali" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
   <table>
     <tr><td>Famiglia</td><td><a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia (Pascali)</a></td></tr>
     <tr><td>Padre</td><td><a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali "il Pocchia"</a></td></tr>
@@ -1743,6 +1957,7 @@ function buildRiccardoPascali() {
 <div class="wiki-article-body clearfix">
 <div class="infobox">
   <div class="infobox-title">Riccardo Pascali</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="riccardo.jpg" alt="Riccardo Pascali" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
   <table>
     <tr><td>Famiglia</td><td><a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia (Pascali)</a></td></tr>
     <tr><td>Padre</td><td><a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali "il Pocchia"</a></td></tr>
