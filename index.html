@@ -767,6 +767,18 @@ const DEFAULT_PAGES = {
 <p><b>Figure storiche</b></p>
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
   <li><a onclick="navigateTo('Morello')"><b>Morello</b></a> — Co-governatore di Napoli. Scomparso nell'Anno 17 aM. Tornerà alla seconda eruzione del Vesuvio.</li>
+  <li><a onclick="navigateTo('Ludovico Pio Tommasi')"><b>Ludovico Pio Tommasi</b></a> — Il Dio creatore di questo mondo. Noto anche come il Pio, Cheddar, Strega, Re dei topi e Il più alto.</li>
+  <li><a onclick="navigateTo('Topus Maximus')"><b>Topus Maximus</b></a> — Figlio di Dio incarnato a Serrano. Fondatore del Topismo. Scoppulato a morte nel 105 aM.</li>
+  <li><a onclick="navigateTo('Cheddar Mussolini')"><b>Cheddar Mussolini</b></a> — Strega, leader dei Ludotopici. Guidò la Marcia su Serrano nel 106 aM.</li>
+</ul>
+<p><b>Luoghi</b></p>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><a onclick="navigateTo('Serrano')"><b>Serrano</b></a> — Città del Salento. Andò in fiamme nel 90 aM. Dal 106 aM sotto dittatura topista.</li>
+</ul>
+<p><b>Religioni e sistemi di datazione</b></p>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><a onclick="navigateTo('Topismo')"><b>Topismo</b></a> — La religione dei Ludotopici. Fondata dal Topus Maximus nel 90 aM a Serrano.</li>
+  <li><a onclick="navigateTo('Calendario Morello')"><b>Calendario Morello</b></a> — Il sistema di datazione usato in questa enciclopedia.</li>
 </ul>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Pagina principale</a> <a>Pocchiaciclopedia</a></div>`,
@@ -853,6 +865,42 @@ const DEFAULT_PAGES = {
     wikitext: "",
     history: [],
     content: ""
+  },
+  "Ludovico Pio Tommasi": {
+    title: "Ludovico Pio Tommasi",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "VitoCarlo Tommasi": {
+    title: "VitoCarlo Tommasi",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "Topus Maximus": {
+    title: "Topus Maximus",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "Topismo": {
+    title: "Topismo",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "Serrano": {
+    title: "Serrano",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "Cheddar Mussolini": {
+    title: "Cheddar Mussolini",
+    wikitext: "",
+    history: [],
+    content: ""
   }
 };
 
@@ -872,6 +920,227 @@ DEFAULT_PAGES["Gianluca Pascali"].content = buildGianlucaPascali();
 DEFAULT_PAGES["Riccardo Pascali"].content = buildRiccardoPascali();
 DEFAULT_PAGES["Morello"].content = buildMorello();
 DEFAULT_PAGES["Calendario Morello"].content = buildCalendarioMorello();
+DEFAULT_PAGES["Ludovico Pio Tommasi"].content = buildLudovicoPioTommasi();
+DEFAULT_PAGES["VitoCarlo Tommasi"].content = buildVitoCarlo();
+DEFAULT_PAGES["Topus Maximus"].content = buildTopusMaximus();
+DEFAULT_PAGES["Topismo"].content = buildTopismo();
+DEFAULT_PAGES["Serrano"].content = buildSerrano();
+DEFAULT_PAGES["Cheddar Mussolini"].content = buildCheddarMussolini();
+
+function buildLudovicoPioTommasi() {
+  return `<div class="wiki-notice"><span class="ni">🌍</span><span>Questa voce riguarda il Dio creatore di questo mondo. Chi non ci crede è libero di dirlo, ma i Ludotopici non saranno contenti.</span></div>
+<h1 class="page-title">Ludovico Pio Tommasi</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Ludovico Pio Tommasi</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="ludovico.jpg" alt="Ludovico Pio Tommasi" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <table>
+    <tr><td>Noto anche come</td><td><b>Il Pio</b>, <b>Cheddar</b>, <b>Strega</b>, <b>Re dei topi</b>, <b>Il più alto</b></td></tr>
+    <tr><td>Natura</td><td>Dio creatore di questo mondo</td></tr>
+    <tr><td>Padre</td><td><a onclick="navigateTo('VitoCarlo Tommasi')">VitoCarlo Tommasi</a> (l'Architetto)</td></tr>
+    <tr><td>Creazione del mondo</td><td>Anno 104670000 paM</td></tr>
+    <tr><td>Simbolo</td><td>Il topo (rappresenta i cittadini del mondo)</td></tr>
+    <tr><td>Incarnazione terrena</td><td><a onclick="navigateTo('Topus Maximus')">Topus Maximus</a></td></tr>
+    <tr><td>Religione fondata</td><td><a onclick="navigateTo('Topismo')">Topismo</a></td></tr>
+  </table>
+</div>
+<p><b>Ludovico Pio Tommasi</b>, conosciuto con i soprannomi <b>il Pio</b>, <b>Cheddar</b>, <b>Strega</b>, <b>Re dei topi</b> e <b>Il più alto</b>, è il Dio creatore di questo mondo. Secondo la tradizione topista, creò il mondo nell'anno <b>104670000 paM</b> con l'assistenza di suo padre <a onclick="navigateTo('VitoCarlo Tommasi')">VitoCarlo Tommasi</a>, detto l'Architetto — che si occupò della parte strutturale mentre Ludovico si occupò di tutto il resto, che è praticamente tutto.</p>
+<p>Il titolo di <b>Re dei topi</b> deriva dalla simbologia topista: i topi rappresentano i cittadini del mondo, e Ludovico ne è il sovrano assoluto e padre. Questa metafora è presa molto sul serio dai credenti e con una certa riserva dagli altri.</p>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#creazione-l">La creazione del mondo</a></li>
+    <li><a href="#padre-l">Il padre: VitoCarlo Tommasi</a></li>
+    <li><a href="#nomi-l">I soprannomi</a></li>
+    <li><a href="#incarnazione-l">L'incarnazione: il Topus Maximus</a></li>
+    <li><a href="#culto-l">Il Topismo</a></li>
+  </ol>
+</div>
+
+<h2 id="creazione-l">La creazione del mondo <span class="edit-link" onclick="openEditor('Ludovico Pio Tommasi')">[modifica]</span></h2>
+<p>Nell'anno 104670000 paM — un numero che i Ludotopici recitano ogni mattina e che i matematici trovano arbitrariamente preciso — Ludovico Pio Tommasi creò il mondo. Il processo esatto non è documentato. Quello che è documentato, nella tradizione topista, è che Ludovico non lo fece da solo: chiamò suo padre <a onclick="navigateTo('VitoCarlo Tommasi')">VitoCarlo Tommasi</a> per occuparsi delle fondamenta. «Un Dio può creare la luce», recita uno dei detti topisti, «ma per i muri portanti serve un padre».</p>
+<p>Il mondo creato da Ludovico è, secondo la cosmologia topista, governato da leggi fisiche che lui stesso ha stabilito e che si è poi tenuto il diritto di ignorare quando lo ritiene opportuno. I credenti chiamano questo «miracolo». I fisici non sono stati consultati.</p>
+
+<h2 id="padre-l">Il padre: VitoCarlo Tommasi <span class="edit-link" onclick="openEditor('Ludovico Pio Tommasi')">[modifica]</span></h2>
+<p>Il padre di Ludovico è <a onclick="navigateTo('VitoCarlo Tommasi')">VitoCarlo Tommasi</a>, noto universalmente come <b>l'Architetto</b>. Nessuno lo chiama con il suo vero nome — circostanza che VitoCarlo, si dice, trovi sia lusingante che leggermente frustrante. È responsabile della struttura fisica del mondo: la geologia, la gravità, la disposizione dei continenti. Il fatto che alcuni continenti si trovino dove si trovano è considerato, da alcune scuole topiste, un errore di progettazione. VitoCarlo non ha commentato.</p>
+
+<h2 id="nomi-l">I soprannomi <span class="edit-link" onclick="openEditor('Ludovico Pio Tommasi')">[modifica]</span></h2>
+<p>Ludovico Pio Tommasi è l'unico essere in questo universo con cinque soprannomi ufficiali, tutti in uso simultaneo in diversi contesti liturgici:</p>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><b>Il Pio</b> — usato nelle preghiere formali. Sottolinea la sua natura benevola.</li>
+  <li><b>Cheddar</b> — soprannome d'affezione, di origine sconosciuta. Usato informalmente dai credenti più devoti. I non credenti lo trovano sconcertante.</li>
+  <li><b>Strega</b> — soprannome di natura apotropaica, usato nei riti di protezione. Non indica natura malvagia: indica potere incomprensibile agli occhi umani.</li>
+  <li><b>Re dei topi</b> — titolo ufficiale nella gerarchia topista. I topi sono i cittadini del mondo.</li>
+  <li><b>Il più alto</b> — riferimento sia alla statura spirituale che, secondo alcune interpretazioni letterali, alla statura fisica. Nessuno ha misurato Ludovico.</li>
+</ul>
+
+<h2 id="incarnazione-l">L'incarnazione: il Topus Maximus <span class="edit-link" onclick="openEditor('Ludovico Pio Tommasi')">[modifica]</span></h2>
+<p>Nell'anno 90 aM, in seguito agli incendi di <a onclick="navigateTo('Serrano')">Serrano</a>, Ludovico Pio Tommasi scelse di incarnarsi nel mondo come <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> — Dio fatto uomo, o più precisamente: Re dei topi fatto topista. L'incarnazione aveva lo scopo di ripristinare l'ordine a Serrano, rivelare il vero Dio del mondo ai suoi abitanti e fondare il <a onclick="navigateTo('Topismo')">Topismo</a>. Due di queste tre cose riuscirono bene. La terza si concluse nel 105 aM con uno scoppulamento.</p>
+
+<h2 id="culto-l">Il Topismo <span class="edit-link" onclick="openEditor('Ludovico Pio Tommasi')">[modifica]</span></h2>
+<p>La religione fondata dal Topus Maximus in nome di Ludovico è il <a onclick="navigateTo('Topismo')">Topismo</a>. I fedeli, detti <b>Ludotopici</b>, venerano Ludovico come creatore e padre, il Topus Maximus come suo figlio incarnato e martire, e i topi come simbolo della condizione umana. Il Topismo è sopravvissuto alla morte del suo fondatore terreno con la solidità tipica delle religioni che hanno subìto un martirio spettacolare.</p>
+<div class="stub-box"><span style="font-size:22px">🐀</span><span>Questa voce è stata approvata dal Consiglio Ludotopico. I dissidenti possono rivolgersi alla <a onclick="navigateTo('Cheddar Mussolini')">Strega Cheddar Mussolini</a>.</span></div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Divinità</a> <a>Topismo</a> <a>Figure cosmologiche</a> <a>Re dei topi</a></div>`;
+}
+
+function buildVitoCarlo() {
+  return `<h1 class="page-title">VitoCarlo Tommasi</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">VitoCarlo Tommasi</div>
+  <table>
+    <tr><td>Noto come</td><td><b>l'Architetto</b> (nessuno usa il nome vero)</td></tr>
+    <tr><td>Figlio</td><td><a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a></td></tr>
+    <tr><td>Ruolo cosmologico</td><td>Progettazione strutturale del mondo</td></tr>
+    <tr><td>Anno operativo</td><td>104670000 paM</td></tr>
+  </table>
+</div>
+<p><b>VitoCarlo Tommasi</b> è il padre di <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> e l'Architetto del mondo. Si occupò delle fondamenta cosmologiche — la geologia, la fisica, la struttura portante della realtà — mentre suo figlio si prese la gloria per tutto il resto. Nessuno lo chiama con il suo vero nome. Tutti lo chiamano <b>l'Architetto</b>, il che è sia un rispetto professionale che una forma di oblio gentile.</p>
+<p>La teologia topista è piuttosto vaga sul suo conto al di là del suo ruolo costruttivo. Partecipò alla creazione del mondo, fece un ottimo lavoro con i muri portanti, e poi si fece da parte. Questo viene interpretato come umiltà divina. Potrebbe anche essere che avesse altro da fare.</p>
+<div class="stub-box"><span style="font-size:22px">🏗️</span><span>Questa voce è incompleta. Come le istruzioni di montaggio di un mobile — il pezzo più importante è descritto in tre righe.</span></div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Divinità</a> <a>Topismo</a> <a>Architetti cosmici</a></div>`;
+}
+
+function buildTopusMaximus() {
+  return `<div class="wiki-notice"><span class="ni">✝️</span><span>Questa voce contiene informazioni su un martirio. I Ludotopici sono pregati di non prendersela troppo durante la lettura.</span></div>
+<h1 class="page-title">Topus Maximus</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Topus Maximus</div>
+  <table>
+    <tr><td>Natura</td><td>Figlio di Dio — <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> fatto uomo</td></tr>
+    <tr><td>Attivo a</td><td><a onclick="navigateTo('Serrano')">Serrano</a>, 90–105 aM</td></tr>
+    <tr><td>Azioni principali</td><td>Spegnere (metaf.) gli incendi di Serrano, fondare il <a onclick="navigateTo('Topismo')">Topismo</a></td></tr>
+    <tr><td>Morte</td><td>Scoppulato a morte nel <b>105 aM</b></td></tr>
+    <tr><td>Responsabili</td><td>Eretici legati alla <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a></td></tr>
+    <tr><td>Eredità</td><td>Martire del Topismo</td></tr>
+  </table>
+</div>
+<p>Il <b>Topus Maximus</b> è il nome con cui è conosciuta l'incarnazione terrena di <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> — Dio fatto uomo, nella cosmologia topista. Apparve a <a onclick="navigateTo('Serrano')">Serrano</a> nell'anno 90 aM, un anno dopo che la città era andata letteralmente in fiamme in seguito alla caduta del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a>. Ripristinò l'ordine, rivelò al mondo il vero Dio, fondò il <a onclick="navigateTo('Topismo')">Topismo</a>. Poi, nel 105 aM, fu scoppulato a morte da eretici figli bastardi della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a>.</p>
+<p>Il suo martirio è diventato il fulcro della teologia topista. La scoppulazione — tecnicamente un gesto violento — è stata elevata a simbolo liturgico. I credenti ne parlano con la solennità riservata solitamente alle cose che fanno molto male.</p>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#serrano-tm">L'arrivo a Serrano</a></li>
+    <li><a href="#rivelazione-tm">La rivelazione e il Topismo</a></li>
+    <li><a href="#morte-tm">Il martirio (105 aM)</a></li>
+    <li><a href="#eredita-tm">L'eredità</a></li>
+  </ol>
+</div>
+
+<h2 id="serrano-tm">L'arrivo a Serrano <span class="edit-link" onclick="openEditor('Topus Maximus')">[modifica]</span></h2>
+<p>Nell'anno 89 aM il <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> fu smantellato da <a onclick="navigateTo('Riccardo Pascali')">Riccardo Pascali</a>. La sua caduta lasciò un vuoto di potere che <a onclick="navigateTo('Serrano')">Serrano</a> — città che aveva gravitato nell'orbita del clan — non riuscì a gestire. L'anno successivo, il 90 aM, Serrano andò in fiamme. Non metaforicamente: incendi, disordini, collasso delle strutture di controllo, la città come luogo che brucia nel senso più diretto del termine.</p>
+<p>Fu in questo contesto che apparve il Topus Maximus. Secondo i Ludotopici, l'apparizione non fu casuale: Ludovico scelse quel momento preciso, quella città precisa, perché un Dio rivelato nel caos è più credibile di un Dio rivelato nella tranquillità. I cinici notano che è anche più difficile da ignorare.</p>
+
+<h2 id="rivelazione-tm">La rivelazione e il Topismo <span class="edit-link" onclick="openEditor('Topus Maximus')">[modifica]</span></h2>
+<p>Il Topus Maximus riprese il controllo di Serrano, mostrò al mondo il vero Dio — ovvero Ludovico Pio Tommasi, suo padre celeste — e fondò il <a onclick="navigateTo('Topismo')">Topismo</a>, la religione dei topi. I cittadini di Serrano, in stato di shock post-incendio e probabilmente disponibili a credere in qualsiasi cosa portasse ordine, accolsero la nuova fede con la gratitudine di chi non ha molte alternative.</p>
+<p>Il Topismo si diffuse rapidamente. La metafora del topo risuonava: i cittadini come topi, piccoli e vulnerabili, governati da un Re dei topi benevolo. È il tipo di simbolismo che funziona meglio quando la tua città ha appena bruciato.</p>
+
+<h2 id="morte-tm">Il martirio: 105 aM <span class="edit-link" onclick="openEditor('Topus Maximus')">[modifica]</span></h2>
+<p>Nel 105 aM il Topus Maximus fu <b>scoppulato a morte</b> da un gruppo di eretici identificati come figli bastardi della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a>. La scoppulazione — un gesto di violenta umiliazione fisica, qui portata all'estremo — fu interpretata immediatamente come martirio dai fedeli. La Famiglia Pocchia ha sempre negato responsabilità istituzionale. I Ludotopici non hanno accettato questa smentita.</p>
+<p>La morte del Topus Maximus non uccise il Topismo. Al contrario. Come spesso accade con i martiri, l'uccisione trasformò una religione giovane in una causa. Il sangue versato divenne simbolo. La scoppulazione divenne, nella liturgia topista, l'atto fondativo della persecuzione — e quindi della resistenza.</p>
+
+<h2 id="eredita-tm">L'eredità <span class="edit-link" onclick="openEditor('Topus Maximus')">[modifica]</span></h2>
+<p>Un anno dopo la morte del Topus Maximus, nel 106 aM, i <b>Ludotopici</b> guidati dalla <a onclick="navigateTo('Cheddar Mussolini')">Strega Cheddar Mussolini</a> organizzarono la <b>Marcia su Serrano</b>, ripresero il controllo della città e instaurarono la <b>dittatura topista</b>. Era, nelle intenzioni dichiarate, una vendetta per il martirio. Era, nei fatti, una presa di potere. Queste due cose non si escludono necessariamente.</p>
+<div class="stub-box"><span style="font-size:22px">🐀</span><span>Il Topus Maximus è venerato come martire. Contestare questa classificazione è tecnicamente eretico secondo il diritto topista.</span></div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Topismo</a> <a>Martiri</a> <a>Incarnazioni divine</a> <a>Serrano</a> <a>Figure messianiche</a></div>`;
+}
+
+function buildTopismo() {
+  return `<h1 class="page-title">Topismo</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Topismo</div>
+  <table>
+    <tr><td>Fondatore</td><td><a onclick="navigateTo('Topus Maximus')">Topus Maximus</a></td></tr>
+    <tr><td>Dio venerato</td><td><a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a></td></tr>
+    <tr><td>Fondazione</td><td>90 aM, <a onclick="navigateTo('Serrano')">Serrano</a></td></tr>
+    <tr><td>Fedeli</td><td><b>Ludotopici</b></td></tr>
+    <tr><td>Simbolo</td><td>Il topo</td></tr>
+    <tr><td>Evento fondativo</td><td>Incendi di Serrano e rivelazione del Topus Maximus</td></tr>
+    <tr><td>Martirio</td><td>Scoppulazione del Topus Maximus, 105 aM</td></tr>
+    <tr><td>Stato attuale</td><td>Religione di stato a Serrano (dal 106 aM)</td></tr>
+  </table>
+</div>
+<p>Il <b>Topismo</b> è la religione fondata dal <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> a <a onclick="navigateTo('Serrano')">Serrano</a> nell'anno 90 aM. I suoi fedeli, detti <b>Ludotopici</b>, venerano <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> come Dio creatore del mondo, il Topus Maximus come suo figlio incarnato e martire, e il topo come simbolo dell'umanità — piccola, numerosa, e governata da un Re benevolo o almeno sufficientemente imponente da fare la differenza.</p>
+<p>Dal 106 aM il Topismo è la religione ufficiale di Serrano, instaurata come tale dalla <b>dittatura topista</b> seguita alla <b>Marcia su Serrano</b> guidata dalla <a onclick="navigateTo('Cheddar Mussolini')">Strega Cheddar Mussolini</a>.</p>
+
+<h2>Il simbolo del topo <span class="edit-link" onclick="openEditor('Topismo')">[modifica]</span></h2>
+<p>La scelta del topo come simbolo non fu casuale. Nel sistema cosmologico topista, i topi rappresentano i cittadini del mondo: esseri numerosi, spesso trascurati, capaci di sopravvivere in condizioni avverse, e tenuti insieme da una gerarchia naturale che culmina nel Re dei topi — Ludovico stesso. Offendere un topo, nella pratica popolare topista, è considerato quantomeno irrispettoso.</p>
+
+<h2>La Marcia su Serrano e la dittatura topista <span class="edit-link" onclick="openEditor('Topismo')">[modifica]</span></h2>
+<p>Dopo la morte del Topus Maximus nel 105 aM, i Ludotopici si riorganizzarono sotto la guida della <a onclick="navigateTo('Cheddar Mussolini')">Strega Cheddar Mussolini</a>. Nel 106 aM marciarono su Serrano, ripresero il controllo della città e instaurarono la dittatura topista. Il Topismo divenne religione obbligatoria. L'eresia fu formalmente proibita. La <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> fu dichiarata nemica del Dio.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Religioni</a> <a>Topismo</a> <a>Serrano</a> <a>Ludovico Pio Tommasi</a></div>`;
+}
+
+function buildSerrano() {
+  return `<h1 class="page-title">Serrano</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Serrano</div>
+  <table>
+    <tr><td>Regione</td><td>Salento / Puglia</td></tr>
+    <tr><td>Evento principale</td><td>Incendi del 90 aM</td></tr>
+    <tr><td>Causa incendi</td><td>Caduta del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> (89 aM)</td></tr>
+    <tr><td>Religione attuale</td><td><a onclick="navigateTo('Topismo')">Topismo</a> (dal 106 aM)</td></tr>
+    <tr><td>Regime attuale</td><td>Dittatura topista</td></tr>
+  </table>
+</div>
+<p><b>Serrano</b> è una città del Salento che ha attraversato, nel giro di due anni, un incendio, una rivelazione divina, un martirio e un colpo di stato religioso. Per i parametri locali, è considerato un periodo movimentato ma non eccezionale.</p>
+<p>La città gravitava nell'orbita del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a>. Quando il clan fu smantellato da <a onclick="navigateTo('Riccardo Pascali')">Riccardo Pascali</a> nell'89 aM, Serrano perse la struttura di controllo che la teneva in piedi. L'anno successivo, il 90 aM, andò in fiamme.</p>
+
+<h2>Gli incendi del 90 aM <span class="edit-link" onclick="openEditor('Serrano')">[modifica]</span></h2>
+<p>Un anno esatto dopo la fine del Clan Spisso, Serrano bruciò. La relazione causale è dibattuta: per i Ludotopici era la volontà di Ludovico che preparava il terreno per la rivelazione. Per gli storici laici era il collasso delle strutture di sicurezza seguito alla caduta del clan. Probabilmente entrambe le spiegazioni contengono qualcosa di vero, anche se i Ludotopici non lo ammetterebbero mai.</p>
+
+<h2>Il Topus Maximus e la rinascita <span class="edit-link" onclick="openEditor('Serrano')">[modifica]</span></h2>
+<p>Furono gli incendi a portare il <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> a Serrano. L'incarnazione terrena di <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> riprese il controllo della città, rivelò il vero Dio ai suoi abitanti e fondò il <a onclick="navigateTo('Topismo')">Topismo</a>. Serrano smise di bruciare. Cominciò a pregare.</p>
+
+<h2>La dittatura topista (106 aM) <span class="edit-link" onclick="openEditor('Serrano')">[modifica]</span></h2>
+<p>Dopo la morte del Topus Maximus nel 105 aM, i <b>Ludotopici</b> guidati dalla <a onclick="navigateTo('Cheddar Mussolini')">Strega Cheddar Mussolini</a> marciarono su Serrano nel 106 aM e instaurarono la dittatura topista. Il Topismo divenne religione di stato. La Famiglia Pocchia fu dichiarata nemica del Dio. Serrano, per la seconda volta in vent'anni, cambiò completamente natura — questa volta senza bruciare, il che fu considerato un progresso.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Città del Salento</a> <a>Topismo</a> <a>Serrano</a> <a>Dittature topiste</a></div>`;
+}
+
+function buildCheddarMussolini() {
+  return `<div class="wiki-notice"><span class="ni">🧙</span><span>Questa voce riguarda la Strega Cheddar Mussolini. I suoi sostenitori la considerano una liberatrice. I suoi oppositori la considerano una dittatoressa. Entrambi hanno buoni argomenti.</span></div>
+<h1 class="page-title">Cheddar Mussolini</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Cheddar Mussolini</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="cheddar.jpg" alt="Cheddar Mussolini" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <table>
+    <tr><td>Titolo</td><td><b>Strega Cheddar</b></td></tr>
+    <tr><td>Ruolo</td><td>Leader dei Ludotopici</td></tr>
+    <tr><td>Azione principale</td><td>Marcia su <a onclick="navigateTo('Serrano')">Serrano</a>, 106 aM</td></tr>
+    <tr><td>Regime instaurato</td><td>Dittatura topista</td></tr>
+    <tr><td>Religione</td><td><a onclick="navigateTo('Topismo')">Topismo</a></td></tr>
+    <tr><td>Rapporto con il Topus Maximus</td><td>Discepola e vendicatrice</td></tr>
+  </table>
+</div>
+<p><b>Cheddar Mussolini</b>, nota come la <b>Strega Cheddar</b>, è la leader dei <b>Ludotopici</b> che nel 106 aM organizzò e guidò la <b>Marcia su Serrano</b>, rovesciando il governo esistente e instaurando la dittatura topista. Il soprannome «Strega» non è un insulto nella tradizione topista — è un titolo che indica potere spirituale fuori dall'ordinario. Il cognome «Mussolini» è invece, secondo tutte le fonti disponibili, un caso di omonimia storicamente scomoda di cui nessuno ha voglia di parlare.</p>
+
+<h2>La Marcia su Serrano <span class="edit-link" onclick="openEditor('Cheddar Mussolini')">[modifica]</span></h2>
+<p>Un anno dopo la scoppulazione del <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> per mano di eretici legati alla <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a>, Cheddar Mussolini radunò i Ludotopici e li guidò in marcia su <a onclick="navigateTo('Serrano')">Serrano</a>. L'obiettivo dichiarato era vendicare il martire e ripristinare il Topismo. L'obiettivo effettivo era la presa di potere. Nella storia delle marce su città, queste due cose si sovrappongono più spesso di quanto gli storici trovino confortante.</p>
+<p>La marcia riuscì. Serrano cadde. La dittatura topista fu instaurata. Cheddar Mussolini divenne la figura più potente di Serrano — nel nome di Dio, come si conviene, ma pur sempre la figura più potente.</p>
+
+<h2>La dittatura topista <span class="edit-link" onclick="openEditor('Cheddar Mussolini')">[modifica]</span></h2>
+<p>Il regime instaurato da Cheddar Mussolini si caratterizza per tre elementi: l'obbligo di fede topista per tutti i cittadini di Serrano, la criminalizzazione dell'eresia, e la dichiarazione della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> come nemico del Dio e dello stato. I Ludotopici la descrivono come una teocrazia giusta. I dissidenti, da posizioni più difficili da raggiungere, dissentono.</p>
+<div class="stub-box"><span style="font-size:22px">🧙</span><span>Chi volesse aggiungere critiche a questa voce è pregato di farlo da fuori dalla giurisdizione topista.</span></div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Topismo</a> <a>Serrano</a> <a>Dittatori</a> <a>Streghe</a> <a>Ludotopici</a></div>`;
+}
 
 function buildNapoli() {
   return `<div class="wiki-notice"><span class="ni">⚠️</span><span>Questa voce potrebbe contenere informazioni disturbanti sulla gestione dei rifiuti. Proseguire a proprio rischio.</span></div>
@@ -1160,6 +1429,7 @@ function buildAlessioSpisso() {
 <div class="wiki-article-body clearfix">
 <div class="infobox">
   <div class="infobox-title">Alessio Spisso</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="alessio.jpg" alt="Alessio Spisso" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
   <table>
     <tr><td>Nascita</td><td>Serrano (CE)</td></tr>
     <tr><td>Padre</td><td>Salvatore Spisso</td></tr>
@@ -1232,6 +1502,7 @@ function buildMorello() {
 <div class="wiki-article-body clearfix">
 <div class="infobox">
   <div class="infobox-title">Morello</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="morello.jpg" alt="Morello" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
   <table>
     <tr><td>Noto anche come</td><td>Il Governatore, Il Primo, l'Atteso</td></tr>
     <tr><td>Padre presunto</td><td>Pierpaolo (conosciuto da <a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali</a>)</td></tr>
@@ -1261,7 +1532,7 @@ function buildMorello() {
 
 <h2 id="origini-m">Origini: Pierpaolo <span class="edit-link" onclick="openEditor('Morello')">[modifica]</span></h2>
 <p>Delle origini di Morello si sa pochissimo. Il padre presunto è <b>Pierpaolo</b>, uomo di cui la storia ricorda principalmente il fatto di essere il padre di Morello — circolarità che Pierpaolo stesso avrebbe trovato insoddisfacente, ma che è il destino comune dei padri di figure leggendarie.</p>
-<p>Pierpaolo è noto anche per essere stato conosciuto da <a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali "il Pocchia"</a> durante il suo servizio militare. Questo collegamento tra le due famiglie fu probabilmente alla base dell'amicizia tra il figlio di Gianluca, <a onclick="navigateTo('Filippo Pascali')">Filippo</a>, e Morello stesso.</p>
+<p>Pierpaolo è noto anche per essere stato conosciuto da <a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali "il Pocchia"</a> nel <b>6 paM</b> durante il servizio militare. Questo collegamento tra le due famiglie fu probabilmente alla base dell'amicizia tra il figlio di Gianluca, <a onclick="navigateTo('Filippo Pascali')">Filippo</a>, e Morello stesso.</p>
 <p>Chi fosse la madre di Morello non è noto. Chi fosse Pierpaolo al di là del suo ruolo paterno non è noto. Morello stesso non parlò mai delle sue origini — il che, nella logica delle figure leggendarie, è quasi sempre interpretato come significativo.</p>
 
 <h2 id="napoli-m">Il governo di Napoli <span class="edit-link" onclick="openEditor('Morello')">[modifica]</span></h2>
@@ -1275,7 +1546,7 @@ function buildMorello() {
 <p>La rivalità tra la Camorra Salentina e il <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> è antica e non ha mai trovato risoluzione — fino all'anno 89 aM, quando il clan fu smantellato da <a onclick="navigateTo('Riccardo Pascali')">Riccardo Pascali</a>.</p>
 
 <h2 id="filippo-m">L'amicizia con Filippo Pascali <span class="edit-link" onclick="openEditor('Morello')">[modifica]</span></h2>
-<p>Morello e <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a> si conobbero da bambini, verosimilmente attraverso il legame tra le famiglie: <a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali</a> conosceva Pierpaolo, padre di Morello, dai tempi del servizio militare. Crebbero insieme, con quella familiarità che si costruisce solo nell'infanzia.</p>
+<p>Morello e <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a> si conobbero da bambini, verosimilmente attraverso il legame tra le famiglie: <a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali</a> conosceva Pierpaolo, padre di Morello, dal <b>6 paM</b> — anni prima che entrambi i figli nascessero. Crebbero insieme, con quella familiarità che si costruisce solo nell'infanzia.</p>
 <p>Dopo la scomparsa di Morello, Filippo non ha mai commentato pubblicamente. Si dice — e in questo universo «si dice» vale più di molte conferme ufficiali — che i due siano ancora in contatto. In che forma e con quale frequenza non è noto.</p>
 
 <h2 id="religione-m">Il Morellanesimo <span class="edit-link" onclick="openEditor('Morello')">[modifica]</span></h2>
@@ -1329,14 +1600,19 @@ function buildCalendarioMorello() {
 <h2 id="struttura-cm">Struttura del calendario <span class="edit-link" onclick="openEditor('Calendario Morello')">[modifica]</span></h2>
 <p>Il Calendario Morello è un sistema lineare e decimale: conta gli anni in avanti dall'Anno 0 senza interruzioni, azzeramenti o riforme. Non ha mesi propri — si appoggia al calendario giuliano prima e gregoriano poi per le suddivisioni mensili — ma usa esclusivamente la numerazione aM per gli anni.</p>
 <p>La formula di conversione tra il calendario gregoriano e quello Morello non è nota con certezza, poiché l'anno zero non è stato mai fissato con precisione documentale. Le stime degli storici locali variano di circa un decennio, il che rende ogni conversione un esercizio di approssimazione ragionata. A Napoli questa incertezza non è considerata un problema. È considerata carattere.</p>
-<p>L'abbreviazione ufficiale — per quanto «ufficiale» possa applicarsi a qualcosa che nessuna istituzione ha mai riconosciuto — è <b>aM</b>, scritto minuscolo dopo il numero: <i>89 aM</i>, <i>104 aM</i>, e così via.</p>
+<p>L'abbreviazione ufficiale — per quanto «ufficiale» possa applicarsi a qualcosa che nessuna istituzione ha mai riconosciuto — è <b>aM</b>, scritto minuscolo dopo il numero: <i>89 aM</i>, <i>104 aM</i>, e così via. Per indicare gli anni precedenti all'Anno 0 — ovvero prima dell'arrivo di Morello a Napoli — si usa la notazione <b>paM</b> (<i>pre-anno-Morello</i>), con i numeri che crescono andando indietro nel tempo. L'anno 6 paM è quindi sei anni prima dell'Anno 0. L'anno 104670000 paM è, per capirci, molto prima.</p>
 
 <h2 id="eventi-cm">Date fondamentali nel Calendario Morello <span class="edit-link" onclick="openEditor('Calendario Morello')">[modifica]</span></h2>
 <ul style="margin:0 0 14px 24px;font-family:sans-serif;font-size:13px;line-height:2.2">
+  <li><b>Anno 104670000 paM</b> — Creazione del mondo da parte di <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a>, con l'assistenza dell'architetto <a onclick="navigateTo('VitoCarlo Tommasi')">VitoCarlo Tommasi</a>.</li>
+  <li><b>Anno 6 paM</b> — <a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali</a> conosce Pierpaolo, futuro padre di <a onclick="navigateTo('Morello')">Morello</a>, durante il servizio militare.</li>
   <li><b>Anno 0 aM</b> — Arrivo di <a onclick="navigateTo('Morello')">Morello</a> a Napoli. Inizio dell'Età dell'Oro.</li>
   <li><b>Anno 17 aM</b> — Eruzione del Vesuvio. Fine dell'Età dell'Oro. Scomparsa di Morello e <a onclick="navigateTo('Sal da Spicci')">Sal da Spicci</a>.</li>
   <li><b>Anno 89 aM</b> — Smantellamento del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> ad opera di <a onclick="navigateTo('Riccardo Pascali')">Riccardo Pascali</a>.</li>
+  <li><b>Anno 90 aM</b> — <a onclick="navigateTo('Serrano')">Serrano</a> va in fiamme un anno dopo la fine del Clan Spisso. Il <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> interviene e ripristina il controllo, fondando il <a onclick="navigateTo('Topismo')">Topismo</a>.</li>
   <li><b>Anno 104 aM</b> — Pensionamento di <a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali "il Pocchia"</a> dall'esercito.</li>
+  <li><b>Anno 105 aM</b> — Il <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> viene scoppulato a morte da eretici legati alla <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a>.</li>
+  <li><b>Anno 106 aM</b> — Marcia su Serrano dei <a onclick="navigateTo('Topismo')">Ludotopici</a> guidati da <a onclick="navigateTo('Cheddar Mussolini')">Cheddar Mussolini</a>. Instaurazione della dittatura topista.</li>
   <li><b>Anno ignoto aM</b> — Seconda eruzione del Vesuvio. Ritorno di Morello. (Data non ancora disponibile.)</li>
 </ul>
 
@@ -1359,22 +1635,23 @@ function buildGianlucaPascali() {
 <div class="wiki-article-body clearfix">
 <div class="infobox">
   <div class="infobox-title">Gianluca Pascali detto "il Pocchia"</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="gianluca.jpg" alt="Gianluca Pascali" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
   <table>
     <tr><td>Soprannome</td><td><b>il Pocchia</b></td></tr>
     <tr><td>Famiglia</td><td><a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia (Pascali)</a></td></tr>
     <tr><td>Moglie</td><td><a onclick="navigateTo('Anna Pascali')">Anna Pascali</a></td></tr>
     <tr><td>Figli</td><td><a onclick="navigateTo('Filippo Pascali')">Filippo</a>, <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a></td></tr>
     <tr><td>Professione</td><td>Militare (in pensione dall'anno 104 aM)</td></tr>
-    <tr><td>Persona nota incontrata</td><td>Pierpaolo, presunto padre di <a onclick="navigateTo('Morello')">Morello</a></td></tr>
+    <tr><td>Persona nota incontrata</td><td>Pierpaolo, presunto padre di <a onclick="navigateTo('Morello')">Morello</a> (6 paM)</td></tr>
   </table>
 </div>
-<p><b>Gianluca Pascali</b>, noto come <b>"il Pocchia"</b>, è il patriarca della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a>, marito di <a onclick="navigateTo('Anna Pascali')">Anna</a> e padre di <a onclick="navigateTo('Filippo Pascali')">Filippo</a> e <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a>. Fu militare fino alla pensione, avvenuta nell'anno 104 aM secondo il <a onclick="navigateTo('Calendario Morello')">Calendario Morello</a> — lo stesso calendario il cui fondatore, <a onclick="navigateTo('Morello')">Morello</a>, Gianluca aveva conosciuto indirettamente attraverso il padre Pierpaolo.</p>
+<p><b>Gianluca Pascali</b>, noto come <b>"il Pocchia"</b>, è il patriarca della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a>, marito di <a onclick="navigateTo('Anna Pascali')">Anna</a> e padre di <a onclick="navigateTo('Filippo Pascali')">Filippo</a> e <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a>. Fu militare fino alla pensione, avvenuta nell'anno 104 aM secondo il <a onclick="navigateTo('Calendario Morello')">Calendario Morello</a> — lo stesso calendario il cui fondatore, <a onclick="navigateTo('Morello')">Morello</a>, Gianluca aveva conosciuto indirettamente attraverso il padre Pierpaolo, incontrato nel <b>6 paM</b> (pre-anno-Morello) durante il servizio militare.</p>
 
 <h2>Il soprannome e il nome della famiglia <span class="edit-link" onclick="openEditor('Gianluca Pascali')">[modifica]</span></h2>
 <p>Il soprannome «il Pocchia» fu coniato dal padre di Gianluca, noto come <b>Gian Luca Pocchia</b>, che decise di trasformare un soprannome di origini oscure in un'identità familiare. «Se tutti ti chiamano così — disse, nella versione tramandataa — tanto vale chiamarsi così.» Da allora la famiglia è nota come Pocchia. Il nome anagrafico rimane Pascali, ma in questo angolo del mondo i soprannomi sopravvivono ai documenti.</p>
 
 <h2>La carriera militare e Pierpaolo <span class="edit-link" onclick="openEditor('Gianluca Pascali')">[modifica]</span></h2>
-<p>Gianluca trascorse buona parte della vita adulta nell'esercito, in parallelo con la carriera che avrebbe poi intrapreso il figlio <a onclick="navigateTo('Filippo Pascali')">Filippo</a>. Andò in pensione nell'anno 104 aM. Fu durante il servizio militare che conobbe <b>Pierpaolo</b>, presunto padre di <a onclick="navigateTo('Morello')">Morello</a>. Il loro fu il legame tipico dei commilitoni — solido, non necessariamente profondo — ma abbastanza da creare il canale attraverso cui, anni dopo, il figlio di Gianluca e il figlio di Pierpaolo sarebbero diventati amici d'infanzia.</p>
+<p>Gianluca trascorse buona parte della vita adulta nell'esercito, in parallelo con la carriera che avrebbe poi intrapreso il figlio <a onclick="navigateTo('Filippo Pascali')">Filippo</a>. Andò in pensione nell'anno 104 aM. Fu durante il servizio militare — precisamente nel <b>6 paM</b> (pre-anno-Morello) — che conobbe <b>Pierpaolo</b>, presunto padre di <a onclick="navigateTo('Morello')">Morello</a>. Il loro fu il legame tipico dei commilitoni — solido, non necessariamente profondo — ma abbastanza da creare il canale attraverso cui, anni dopo, il figlio di Gianluca e il figlio di Pierpaolo sarebbero diventati amici d'infanzia.</p>
 
 <h2>Il salvataggio di Riccardo <span class="edit-link" onclick="openEditor('Gianluca Pascali')">[modifica]</span></h2>
 <p>L'episodio più decisivo nella storia della Famiglia Pocchia fu semplice e assurdo insieme: alcuni affiliati del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> si accanirono sul piccolo <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> lanciandogli torte e mattoni. Gianluca intervenne, fece scappare gli aggressori e portò il figlio in salvo. Riccardo non fu ferito gravemente. Ma ricordò.</p>
