@@ -775,6 +775,11 @@ const DEFAULT_PAGES = {
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
   <li><a onclick="navigateTo('Serrano')"><b>Serrano</b></a> — Città del Salento. Andò in fiamme nel 90 aM. Dal 106 aM sotto dittatura topista.</li>
 </ul>
+<p><b>Organizzazioni criminali</b></p>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><a onclick="navigateTo('Camorra Salentina')"><b>Camorra Salentina</b></a> — Fondata presumibilmente da Morello dopo il 17 aM. Ancora attiva. Guidata da De Morellis.</li>
+  <li><a onclick="navigateTo('De Morellis')"><b>De Morellis</b></a> — Leader della Camorra Salentina. Anziano, enigmatico, inspiegabilmente simile a Morello.</li>
+</ul>
 <p><b>Religioni e sistemi di datazione</b></p>
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
   <li><a onclick="navigateTo('Topismo')"><b>Topismo</b></a> — La religione dei Ludotopici. Fondata dal Topus Maximus nel 90 aM a Serrano.</li>
@@ -932,6 +937,18 @@ const DEFAULT_PAGES = {
     wikitext: "",
     history: [],
     content: ""
+  },
+  "Camorra Salentina": {
+    title: "Camorra Salentina",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "De Morellis": {
+    title: "De Morellis",
+    wikitext: "",
+    history: [],
+    content: ""
   }
 };
 
@@ -961,6 +978,137 @@ DEFAULT_PAGES["Ermenegildo Spisso"].content = buildErmenegildoSpisso();
 DEFAULT_PAGES["F.O.N.D.A.M.E.N.T.A."].content = buildFondamenta();
 DEFAULT_PAGES["L.E.G.G.I."].content = buildLeggi();
 DEFAULT_PAGES["Ignoto di Napoli"].content = buildIgnotoDiNapoli();
+DEFAULT_PAGES["Camorra Salentina"].content = buildCamoraSalentina();
+DEFAULT_PAGES["De Morellis"].content = buildDeMorellis();
+
+function buildCamoraSalentina() {
+  return `<div class="wiki-notice"><span class="ni">🦁</span><span>Questa voce riguarda un'organizzazione che ufficialmente non esiste. Tutte le fonti citate sono state recuperate con difficoltà e alcune preferirebbero non essere citate.</span></div>
+<h1 class="page-title">Camorra Salentina</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Camorra Salentina</div>
+  <table>
+    <tr><td>Tipo</td><td>Organizzazione criminale</td></tr>
+    <tr><td>Fondatore presunto</td><td><a onclick="navigateTo('Morello')">Morello</a> (dopo il 17 aM)</td></tr>
+    <tr><td>Sede</td><td>Salento, Puglia</td></tr>
+    <tr><td>Leader attuale</td><td><a onclick="navigateTo('De Morellis')">De Morellis</a></td></tr>
+    <tr><td>Rivale storico</td><td><a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> (dissolto 89 aM)</td></tr>
+    <tr><td>Rapporto con il Topismo</td><td>Ambiguo — né alleato né nemico dichiarato</td></tr>
+    <tr><td>Stato</td><td>Attiva</td></tr>
+    <tr><td>Sito ufficiale</td><td>Nessuno. Come al solito.</td></tr>
+  </table>
+</div>
+<p>La <b>Camorra Salentina</b> è un'organizzazione criminale con base nel <b>Salento</b>, la punta dello stivale pugliese, operativa da almeno l'Anno 17 aM secondo le tradizioni orali locali. La sua fondazione è attribuita dalla maggior parte delle fonti — storiche, popolari e vagamente cospirazioniste — a <a onclick="navigateTo('Morello')">Morello</a>, il co-governatore di <a onclick="navigateTo('Napoli')">Napoli</a> scomparso dopo l'eruzione del Vesuvio. Gli storici chiamano questa attribuzione «non verificabile». I salentini la chiamano «ovvia». I napoletani la chiamano «ovviamente ovvia».</p>
+<p>A differenza del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> — struttura rigida, gerarchica, di stampo quasi ndranghetistico — la Camorra Salentina funziona secondo una logica più fluida, radicata nel territorio, quasi invisibile dall'esterno. Non esibisce forza: la esercita. È guidata attualmente da <a onclick="navigateTo('De Morellis')">De Morellis</a>, figura enigmatica la cui somiglianza con il fondatore leggendario ha alimentato più di una voce.</p>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#origini-cs2">Origini: Morello nel Salento</a></li>
+    <li><a href="#struttura-cs2">Struttura e metodi</a></li>
+    <li><a href="#rivalita-cs2">La rivalità con il Clan Spisso</a></li>
+    <li><a href="#topismo-cs2">Il rapporto con il Topismo</a></li>
+    <li><a href="#demorellis-cs2">De Morellis e la leadership attuale</a></li>
+    <li><a href="#territorio-cs2">Territorio e influenza</a></li>
+  </ol>
+</div>
+
+<h2 id="origini-cs2">Origini: Morello nel Salento <span class="edit-link" onclick="openEditor('Camorra Salentina')">[modifica]</span></h2>
+<p>La versione più diffusa della fondazione è la seguente: dopo la scomparsa di <a onclick="navigateTo('Napoli')">Napoli</a> nell'Anno 17 aM — quando il Vesuvio eruttò e l'Età dell'Oro finì — <a onclick="navigateTo('Morello')">Morello</a> non morì. Viaggiò verso sud. Raggiunse il Salento, che all'epoca era terra di confine, poco governata e permeabile a chi sapeva come muoversi. Lì costruì quello che aveva già costruito a Napoli, ma senza la luce: un sistema di controllo meticoloso, organizzato con l'attenzione di chi ha già gestito una città intera.</p>
+<p>La struttura che Morello fondò — se davvero fu lui — portava i segni del suo stile: niente violenza gratuita, tutto controllo. Le finanze prima di tutto. I porti. I mercati. Lo stesso schema che aveva applicato a Napoli, adattato alla scala minore e alla cultura diversa del Salento. La differenza è che a Napoli lo faceva alla luce del sole. Qui lo fece nell'ombra.</p>
+<p>Le prime tracce documentali dell'organizzazione risalgono all'Anno 30 aM circa — tredici anni dopo l'eruzione — quando atti notarili di alcune masserie del basso Salento mostrano clausole contrattuali di protezione che i giuristi locali non riescono a spiegare con le leggi ordinarie dell'epoca.</p>
+
+<h2 id="struttura-cs2">Struttura e metodi <span class="edit-link" onclick="openEditor('Camorra Salentina')">[modifica]</span></h2>
+<p>La Camorra Salentina non assomiglia alle organizzazioni criminali campane da cui prende il nome. Non è piramidale. Non ha un organigramma riconoscibile. Funziona per cerchi concentrici di fiducia, ognuno dei quali conosce soltanto il cerchio immediatamente interno. Il centro — il leader — è noto ai livelli più alti, ma raramente nominato esplicitamente. Viene chiamato semplicemente <b>«il vecchio»</b>, indipendentemente dall'età reale di chi occupa la posizione.</p>
+<p>I metodi privilegiati sono l'infiltrazione economica — controllo di masserie, frantoi oleari, piccoli porti pescherecchi — e la mediazione tra conflitti locali, attività che costruisce lealtà senza richiedere violenza. Quando la violenza si rende necessaria, è chirurgica e raramente rivendicata. La Camorra Salentina non spara per mandare messaggi. Spara — raramente — per risolvere problemi.</p>
+
+<h2 id="rivalita-cs2">La rivalità con il Clan Spisso <span class="edit-link" onclick="openEditor('Camorra Salentina')">[modifica]</span></h2>
+<p>Il conflitto tra la Camorra Salentina e il <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> è antico quanto entrambe le organizzazioni. Le origini sono oscure: la versione degli Spisso attribuisce la rottura a un tradimento di <a onclick="navigateTo('Morello')">Morello</a> nei confronti del capostipite della famiglia; la versione salentina — nella misura in cui esiste una versione salentina — è che non ci fu nessun tradimento, ma semplicemente due visioni incompatibili del territorio campano-pugliese.</p>
+<p>Per decenni i due clan si contesero aree di influenza nel basso Casertano e nella fascia ionica. Non fu una guerra aperta — entrambe le organizzazioni erano troppo intelligenti per quello — ma una serie di attrisioni economiche, intimidazioni reciproche e occasionali sparizioni di figure intermedie che nessuno ufficialmente rivendicò.</p>
+<p>La dissoluzione del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> nell'89 aM, per mano di <a onclick="navigateTo('Riccardo Pascali')">Riccardo Pascali</a>, ha eliminato il rivale storico della Camorra Salentina. Questo avrebbe dovuto rappresentare una vittoria. Invece ha creato un vuoto di potere nel Casertano che la Camorra Salentina non ha ancora deciso se riempire — il che, secondo alcuni osservatori, è già una risposta.</p>
+
+<h2 id="topismo-cs2">Il rapporto con il Topismo <span class="edit-link" onclick="openEditor('Camorra Salentina')">[modifica]</span></h2>
+<p>Il rapporto tra la Camorra Salentina e il <a onclick="navigateTo('Topismo')">Topismo</a> è uno dei più dibattuti nell'intera storia di questo universo. Da un lato, la Camorra usa il <a onclick="navigateTo('Calendario Morello')">Calendario Morello</a> — il sistema di datazione fondato da <a onclick="navigateTo('Morello')">Morello</a> stesso — con una coerenza che suggerisce qualcosa di più di una semplice convenzione. Dall'altro, non ha mai ufficialmente aderito alla fede topista né riconosciuto <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> come proprio Dio.</p>
+<p>La posizione è quella di una neutralità calcolata. La dittatura topista instaurata da <a onclick="navigateTo('Cheddar Mussolini')">Cheddar Mussolini</a> a <a onclick="navigateTo('Serrano')">Serrano</a> nel 106 aM non ha mai dichiarato la Camorra Salentina nemica — a differenza della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a>. I Ludotopici la trattano con rispetto cauto. La Camorra ricambia con silenzio diplomatico.</p>
+<p>Alcuni studiosi del Topismo hanno avanzato l'ipotesi che la Camorra Salentina sia, di fatto, la guardia secolare di <a onclick="navigateTo('Morello')">Morello</a> — l'organizzazione che custodisce il luogo in cui il co-governatore attende il momento del ritorno profetizzato. <a onclick="navigateTo('De Morellis')">De Morellis</a> non ha commentato.</p>
+
+<h2 id="demorellis-cs2">De Morellis e la leadership attuale <span class="edit-link" onclick="openEditor('Camorra Salentina')">[modifica]</span></h2>
+<p>L'attuale leader della Camorra Salentina è <a onclick="navigateTo('De Morellis')">De Morellis</a> — nome che è quasi certamente uno pseudonimo o un soprannome di lignaggio, non un cognome anagrafico. La sua somiglianza con le descrizioni storiche di <a onclick="navigateTo('Morello')">Morello</a> è stata documentata da almeno tre fonti indipendenti e ignorata da tutte le autorità competenti. Governa l'organizzazione con lo stesso stile che le fonti attribuiscono al fondatore: presenza silenziosa, autorità indiscussa, nessuna ostentazione.</p>
+<p>Vedi la voce <a onclick="navigateTo('De Morellis')">De Morellis</a> per i dettagli.</p>
+
+<h2 id="territorio-cs2">Territorio e influenza <span class="edit-link" onclick="openEditor('Camorra Salentina')">[modifica]</span></h2>
+<p>La Camorra Salentina controlla — nella misura in cui «controllare» è la parola giusta per una presenza così capillare e discreta — un territorio che va dalla penisola salentina fino alle aree ioniche del basso Casertano. I centri d'influenza principali sono i porti pescherecchi minori, i mercati oleari e una rete di masserie che fungono da nodi logistici.</p>
+<p>Il Salento, a differenza di Napoli o di Serrano, non ha mai vissuto un crollo drammatico dell'ordine pubblico. Questo è considerato, localmente, un merito dell'organizzazione. Considerarlo tale implica accettare la premessa che l'ordine possa essere garantito da chi opera fuori dalla legge — premessa che a Napoli troverebbero ovvia e che altrove troverebbero inquietante.</p>
+<div class="stub-box"><span style="font-size:22px">🦁</span><span>Questa voce è parzialmente abbozzata. Nessuna fonte ha voluto essere citata con nome e cognome. Questo, in Salento, è già una risposta.</span></div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Camorra</a> <a>Criminalità organizzata in Puglia</a> <a>Salento</a> <a>Organizzazioni fondate da Morello</a> <a>Rivali del Clan Spisso</a></div>`;
+}
+
+function buildDeMorellis() {
+  return `<div class="wiki-notice"><span class="ni">👁️</span><span>Questa voce riguarda una persona la cui identità è incerta, la cui età è sconosciuta e la cui somiglianza con <a onclick="navigateTo('Morello')">Morello</a> è stata documentata tre volte e ignorata altrettante. Procedere con le dovute cautele.</span></div>
+<h1 class="page-title">De Morellis</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">De Morellis</div>
+  <table>
+    <tr><td>Nome completo</td><td>Sconosciuto — «De Morellis» è probabilmente un soprannome di lignaggio</td></tr>
+    <tr><td>Età apparente</td><td>Molto avanzata — stima impossibile</td></tr>
+    <tr><td>Ruolo</td><td>Leader della <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a></td></tr>
+    <tr><td>Base operativa</td><td>Salento (zona imprecisata)</td></tr>
+    <tr><td>Somiglianza con Morello</td><td>Documentata da tre fonti indipendenti</td></tr>
+    <tr><td>Rapporto con <a onclick="navigateTo('Morello')">Morello</a></td><td>Sconosciuto — non commentato</td></tr>
+    <tr><td>Rapporto con il <a onclick="navigateTo('Topismo')">Topismo</a></td><td>Neutralità calcolata</td></tr>
+    <tr><td>Commenti pubblici rilasciati</td><td>Nessuno</td></tr>
+  </table>
+</div>
+<p><b>De Morellis</b> è il nome — o più probabilmente il soprannome di lignaggio — dell'attuale leader della <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a>. È un uomo molto anziano, la cui età reale nessuno conosce con certezza e che lui stesso non ha mai dichiarato. Governa l'organizzazione con uno stile che le fonti descrivono in modo quasi unanime: silenzioso, assoluto, senza ostentazione. Chiunque lo abbia incontrato riferisce la stessa sensazione — di trovarsi davanti a qualcuno che ha già visto tutto e che non è particolarmente sorpreso da nulla.</p>
+<p>La sua somiglianza con le descrizioni storiche di <a onclick="navigateTo('Morello')">Morello</a> — il co-governatore di <a onclick="navigateTo('Napoli')">Napoli</a> scomparso nell'Anno 17 aM — è stata documentata da tre fonti indipendenti. Nessuna autorità ha ritenuto opportuno indagare. De Morellis non ha commentato.</p>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#descrizione-dm">Descrizione fisica e carattere</a></li>
+    <li><a href="#somiglianza-dm">La somiglianza con Morello</a></li>
+    <li><a href="#leadership-dm">Lo stile di leadership</a></li>
+    <li><a href="#topismo-dm">Il rapporto con il Topismo e Serrano</a></li>
+    <li><a href="#pocchia-dm">Il rapporto con la Famiglia Pocchia</a></li>
+    <li><a href="#ipotesi-dm">Le ipotesi sull'identità</a></li>
+  </ol>
+</div>
+
+<h2 id="descrizione-dm">Descrizione fisica e carattere <span class="edit-link" onclick="openEditor('De Morellis')">[modifica]</span></h2>
+<p>Le descrizioni fisiche di De Morellis che circolano — nessuna accompagnata da fotografie, tutte provenienti da fonti che hanno chiesto l'anonimato — convergono su alcuni elementi. È un uomo alto, di corporatura asciutta, con capelli completamente bianchi e occhi scuri che, secondo chi li ha incontrati, «sembrano aver visto più storia di quanto una vita sola dovrebbe contenere». Cammina lentamente, non per debolezza ma per scelta — come chi sa che non c'è nulla che richieda fretta.</p>
+<p>Il carattere è descritto con una coerenza che suggerisce autenticità: austero, preciso, capace di stare in silenzio per periodi che la maggior parte delle persone troverebbero insopportabili. Non alza mai la voce. Non sorride spesso, ma quando lo fa la cosa viene ricordata. Parla pochissimo e sceglie le parole con un'attenzione che fa sembrare ogni sua frase una decisione ponderata.</p>
+<p>Queste caratteristiche, prese insieme, ricordano fedelmente le descrizioni che le fonti storiche napoletane danno di <a onclick="navigateTo('Morello')">Morello</a> durante il periodo dell'Età dell'Oro: «un'aria di totale autorità che faceva istintivamente fare un passo indietro alle persone».</p>
+
+<h2 id="somiglianza-dm">La somiglianza con Morello <span class="edit-link" onclick="openEditor('De Morellis')">[modifica]</span></h2>
+<p>Tre fonti indipendenti hanno documentato la somiglianza tra De Morellis e le rappresentazioni iconografiche di <a onclick="navigateTo('Morello')">Morello</a>. La prima è un anziano studioso del <a onclick="navigateTo('Morellanesimo')" class="redlink">Morellanesimo</a> che, dopo un incontro fortuito in un mercato di Lecce, scrisse nelle sue memorie: «Era lui. Non posso dimostrarlo. Ma era lui.» La seconda è un giornalista di una testata locale che pubblicò un pezzo nel 98 aM, ritirato dalla redazione dopo tre giorni senza spiegazioni. La terza è <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a>, che secondo fonti vicine alla <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> avrebbe riconosciuto De Morellis come «qualcuno che conosce da una vita» — senza elaborare.</p>
+<p>Il nome stesso è suggestivo: <b>De Morellis</b> suona come un cognome latinizzato derivato da <i>Morello</i>. Potrebbe essere un soprannome adottato per onorare il fondatore dell'organizzazione. Potrebbe essere qualcosa di più. La differenza tra le due interpretazioni è precisamente il tipo di differenza che questa enciclopedia non può risolvere.</p>
+
+<h2 id="leadership-dm">Lo stile di leadership <span class="edit-link" onclick="openEditor('De Morellis')">[modifica]</span></h2>
+<p>De Morellis guida la <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> con lo stesso metodo che le fonti attribuiscono a <a onclick="navigateTo('Morello')">Morello</a> nel governo di Napoli: controllo attraverso l'ordine, non attraverso la paura. Non si mostra in pubblico se non per ragioni precise. Non rilascia dichiarazioni. Non partecipa a cerimonie. La sua presenza nell'organizzazione è percepita più che vista — come la gravità, per usare un termine che <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a> avrebbe apprezzato: non si vede, ma tutto vi ruota intorno.</p>
+<p>Le decisioni vengono trasmesse attraverso intermediari fidati. Non ci sono documenti scritti che portino la sua firma. Non ci sono registrazioni della sua voce. Esiste come forza organizzativa, come principio, come nome che i membri pronunciano con un tono che non è esattamente rispetto ma non è neanche paura — è qualcosa nel mezzo che non ha un nome preciso.</p>
+
+<h2 id="topismo-dm">Il rapporto con il Topismo e Serrano <span class="edit-link" onclick="openEditor('De Morellis')">[modifica]</span></h2>
+<p>De Morellis non ha mai dichiarato adesione al <a onclick="navigateTo('Topismo')">Topismo</a>, né lo ha mai osteggiato. Quando <a onclick="navigateTo('Cheddar Mussolini')">Cheddar Mussolini</a> guidò la <b>Marcia su Serrano</b> nel 106 aM instaurando la dittatura topista, la Camorra Salentina rimase in silenzio — né approvazione né condanna. La dittatura topista ricambiò il silenzio: la Camorra Salentina non fu mai dichiarata nemica del regime, a differenza della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a>.</p>
+<p>Alcuni Ludotopici interpretano questa neutralità come una forma di rispetto implicito: De Morellis sarebbe consapevole della natura divina di <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> e del ruolo del <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a>, ma sceglierebbe di non renderlo esplicito. Una fede senza dichiarazione, come si conviene a chi è abituato a operare nell'ombra.</p>
+<p>Il fatto che la Camorra usi il <a onclick="navigateTo('Calendario Morello')">Calendario Morello</a> internamente — con la stessa naturalezza con cui lo usano i Ludotopici — è considerato da molti l'unica testimonianza pubblica involontaria di De Morellis su cosa pensi realmente.</p>
+
+<h2 id="pocchia-dm">Il rapporto con la Famiglia Pocchia <span class="edit-link" onclick="openEditor('De Morellis')">[modifica]</span></h2>
+<p>Il rapporto tra De Morellis e la <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> è complesso e non del tutto ostile — il che, data la storia tra la Camorra Salentina e le famiglie legate al Casertano, è già notevole. Da un lato, la Camorra non ha mai dichiarato guerra ai Pascali né si è mai allineata con i loro nemici. Dall'altro, la Famiglia Pocchia è nemica dichiarata del regime topista — e la Camorra Salentina non ha preso posizione su questo.</p>
+<p>La connessione più diretta passa per <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a>. Filippo è amico d'infanzia di <a onclick="navigateTo('Morello')">Morello</a>, e si dice che sia ancora in contatto con lui in qualche forma. Se De Morellis è Morello — o se ha un rapporto con lui — allora il collegamento tra De Morellis e Filippo Pascali potrebbe essere molto più diretto di quanto chiunque abbia dichiarato pubblicamente. Filippo non ha commentato. De Morellis nemmeno. Questo, in questo universo, è quasi una conferma.</p>
+
+<h2 id="ipotesi-dm">Le ipotesi sull'identità <span class="edit-link" onclick="openEditor('De Morellis')">[modifica]</span></h2>
+<p><b>Ipotesi 1 — Il successore:</b> De Morellis è un successore di Morello — qualcuno che ha ereditato il ruolo, il nome latinizzato e lo stile del fondatore. Un'interpretazione rassicurante che spiega tutto tranne la somiglianza fisica.</p>
+<p><b>Ipotesi 2 — Il discendente:</b> De Morellis è un discendente diretto di Morello — figlio, nipote, pronipote — che ha ereditato insieme al ruolo anche i tratti fisici del capostipite. Spiegherebbe la somiglianza senza richiedere il soprannaturale.</p>
+<p><b>Ipotesi 3 — Morello stesso:</b> De Morellis è <a onclick="navigateTo('Morello')">Morello</a>. Non è morto nell'Anno 17 aM. Non è scomparso. Ha semplicemente smesso di farsi chiamare con il suo vero nome e ha continuato a fare quello che ha sempre fatto: governare qualcosa, nell'ombra, aspettando. Il <a onclick="navigateTo('Morellanesimo')" class="redlink">Morellanesimo</a> profetizza il ritorno di Morello alla seconda eruzione del Vesuvio. Forse Morello non è mai andato via. Forse sta solo aspettando il momento giusto per farsi riconoscere.</p>
+<p>Nessuna delle tre ipotesi è verificabile. Tutte e tre sono prese sul serio da almeno una categoria di persone. De Morellis non ha commentato nessuna di esse.</p>
+<div class="stub-box"><span style="font-size:22px">👁️</span><span>Questa voce sarà aggiornata se e quando De Morellis deciderà di rilasciare una dichiarazione. Non trattenete il respiro.</span></div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Camorra Salentina</a> <a>Figure enigmatiche</a> <a>Possibili incarnazioni di Morello</a> <a>Leader criminali</a> <a>Persone di età sconosciuta</a></div>`;
+}
 
 function buildErmenegildoSpisso() {
   return `<div class="wiki-notice"><span class="ni">🔬</span><span>Ermenegildo Spisso è l'unico membro del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> ad aver pubblicato su riviste scientifiche peer-reviewed. La famiglia lo considera un successo comunque.</span></div>
@@ -1433,7 +1581,7 @@ function buildNapoli() {
 <p>Quando la cenere si depositò definitivamente, Napoli sembrava una città diversa. Perché lo era. Morello e Sal da Spicci non furono più visti dopo l'Anno 17.</p>
 
 <h3 id="dopo-morello">Cosa Successe a Morello</h3>
-<p>La voce più persistente — e a Napoli le voci sono una forma di documentazione storica — è che Morello non morì nell'eruzione. Si dice che viaggiò verso sud e riemerse nel Salento, dove fondò quella che sarebbe diventata la <a onclick="navigateTo('Camorra Salentina')" class="redlink"><b>Camorra Salentina</b></a> — un'organizzazione criminale operante in diretta concorrenza con il <a onclick="navigateTo('Clan Spisso')"><b>Clan Spisso</b></a> di Caserta. Gli storici chiamano questa teoria una coincidenza. I napoletani la chiamano ovvia.</p>
+<p>La voce più persistente — e a Napoli le voci sono una forma di documentazione storica — è che Morello non morì nell'eruzione. Si dice che viaggiò verso sud e riemerse nel Salento, dove fondò quella che sarebbe diventata la <a onclick="navigateTo('Camorra Salentina')"><b>Camorra Salentina</b></a> — un'organizzazione criminale operante in diretta concorrenza con il <a onclick="navigateTo('Clan Spisso')"><b>Clan Spisso</b></a> di Caserta. Gli storici chiamano questa teoria una coincidenza. I napoletani la chiamano ovvia.</p>
 
 <h3 id="dopo-sal">Cosa Successe a Sal da Spicci</h3>
 <p>La storia di Sal da Spicci prese una piega diversa. Secondo una versione degli eventi che circola a Napoli con sufficiente coerenza, Sal da Spicci non morì. Cambiò nome, diventando <a onclick="navigateTo('Sal da Vinci')" class="redlink"><b>Sal da Vinci</b></a> — un nome d'arte scelto per la sua risonanza e la rispettosa distanza dalla sua identità precedente. Con questo nome costruì una carriera come musicista di notorietà regionale, specializzandosi nel tipo di musica popolare meridionale emotivamente diretta che fa piangere ai matrimoni.</p>
@@ -1452,7 +1600,7 @@ function buildNapoli() {
   <li><a onclick="navigateTo('Morello')">Morello</a></li>
   <li><a onclick="navigateTo('Sal da Spicci')" class="redlink">Sal da Spicci</a></li>
   <li><a onclick="navigateTo('Sal da Vinci')" class="redlink">Sal da Vinci</a></li>
-  <li><a onclick="navigateTo('Camorra Salentina')" class="redlink">Camorra Salentina</a></li>
+  <li><a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a></li>
 </ul>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Città della Campania</a> <a>Napoli</a> <a>Criminalità organizzata in Italia</a> <a>Disastri vulcanici</a> <a>Posti che erano meglio prima</a></div>`;
@@ -1470,7 +1618,7 @@ function buildClanSpisso() {
     <tr><td>Fondatore</td><td>Gennaro "o' Professore" Spisso</td></tr>
     <tr><td>Fondazione</td><td>Anni '50, Caserta</td></tr>
     <tr><td>Sede attuale</td><td>Serrano (CE)</td></tr>
-    <tr><td>Rivale storico</td><td><a onclick="navigateTo('Camorra Salentina')" class="redlink">Camorra Salentina</a></td></tr>
+    <tr><td>Rivale storico</td><td><a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a></td></tr>
     <tr><td>Membro illustre</td><td><a onclick="navigateTo('Alex Spisso')">Alex Spisso</a></td></tr>
     <tr><td>Scienziato del clan</td><td><a onclick="navigateTo('Ermenegildo Spisso')">Ermenegildo "Gildo" Spisso</a></td></tr>
     <tr><td>Nipote americano</td><td><a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a></td></tr>
@@ -1508,7 +1656,7 @@ function buildClanSpisso() {
 <p>Ciò che Gennaro capì era che i veri soldi non stavano nella violenza ma nelle relazioni. Coltivò contatti con comunità italoamericane lungo la costa orientale degli Stati Uniti — contatti che avrebbero reso suo nipote un uomo molto utile.</p>
 
 <h3 id="rivalita-morello">La coalizione casertana e la rivalità con Morello</h3>
-<p>Durante il primo periodo, la famiglia Spisso operava all'interno della più ampia coalizione camoristica casertana. È in questo periodo che affondano le radici dell'odio secolare con quella che sarebbe poi diventata la <a onclick="navigateTo('Camorra Salentina')" class="redlink">Camorra Salentina</a>. L'origine precisa del conflitto è disputata. La versione degli Spisso la attribuisce a un tradimento di <a onclick="navigateTo('Morello')">Morello</a> — la figura semi-leggendaria che, prima dell'eruzione del Vesuvio nell'Anno 17 aM, co-governava <a onclick="navigateTo('Napoli')">Napoli</a> insieme a <a onclick="navigateTo('Sal da Spicci')" class="redlink">Sal da Spicci</a> durante l'età dell'oro della città.</p>
+<p>Durante il primo periodo, la famiglia Spisso operava all'interno della più ampia coalizione camoristica casertana. È in questo periodo che affondano le radici dell'odio secolare con quella che sarebbe poi diventata la <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a>. L'origine precisa del conflitto è disputata. La versione degli Spisso la attribuisce a un tradimento di <a onclick="navigateTo('Morello')">Morello</a> — la figura semi-leggendaria che, prima dell'eruzione del Vesuvio nell'Anno 17 aM, co-governava <a onclick="navigateTo('Napoli')">Napoli</a> insieme a <a onclick="navigateTo('Sal da Spicci')" class="redlink">Sal da Spicci</a> durante l'età dell'oro della città.</p>
 
 <h2 id="scissione">La Scissione: Da Caserta a Serrano <span class="edit-link" onclick="openEditor('Clan Spisso')">[modifica]</span></h2>
 <p>Il momento decisivo arrivò nel 1974, quando <b>Salvatore Spisso</b> — figlio di Gennaro, padre di Alex, uomo con una tolleranza notevolmente inferiore alla media per le opinioni altrui — decise di averne abbastanza del Consorzio di Caserta. Partecipò a una riunione nella primavera del 1974, ascoltò circa quaranta minuti di dibattito sulla spartizione dei proventi dell'eroina, e se ne andò senza salutare. Non fu più visto a un'altra riunione del Consorzio.<sup><a>[2]</a></sup></p>
@@ -1521,7 +1669,7 @@ function buildClanSpisso() {
 <p>Il collegamento tra il Clan Spisso e <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> riemerse nel 2017, quando intercettazioni telefoniche nell'ambito del procedimento penale n. 4471/R catturarono membri dell'organizzazione che discutevano del loro «nipote americano».<sup><a>[5]</a></sup> Quando Pete Hegseth fu confermato Segretario alla Difesa nel gennaio 2025, diversi giornali italiani rilanciano la storia. Il Pentagono la definisce infondata. Il Clan Spisso non dice assolutamente nulla.</p>
 
 <h2 id="rivalita-salentina">La Rivalità con la Camorra Salentina <span class="edit-link" onclick="openEditor('Clan Spisso')">[modifica]</span></h2>
-<p>Il conflitto tra il Clan Spisso e la <a onclick="navigateTo('Camorra Salentina')" class="redlink">Camorra Salentina</a> è uno dei contenziosi criminali più antichi e meno documentati dell'Italia meridionale. La Camorra Salentina è ampiamente creduta essere stata fondata da <a onclick="navigateTo('Morello')">Morello</a>, lo stesso Morello che co-governava <a onclick="navigateTo('Napoli')">Napoli</a> durante l'età dell'oro prima dell'eruzione del Vesuvio nell'Anno 17 aM.</p>
+<p>Il conflitto tra il Clan Spisso e la <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> è uno dei contenziosi criminali più antichi e meno documentati dell'Italia meridionale. La Camorra Salentina è ampiamente creduta essere stata fondata da <a onclick="navigateTo('Morello')">Morello</a>, lo stesso Morello che co-governava <a onclick="navigateTo('Napoli')">Napoli</a> durante l'età dell'oro prima dell'eruzione del Vesuvio nell'Anno 17 aM.</p>
 <p>La rivalità precede il periodo di Serrano. Su cosa litigarono Morello e il patriarca degli Spisso — le teorie spaziano dal denaro al territorio a qualcosa di personale — il disaccordo era evidentemente del tipo che non si risolve col tempo.</p>
 
 <h2 id="membri">Membri Notevoli <span class="edit-link" onclick="openEditor('Clan Spisso')">[modifica]</span></h2>
@@ -1782,8 +1930,9 @@ function buildMorello() {
 <p>Nell'Anno 17 aM il Vesuvio eruttò. Napoli cambiò. Morello sparì — nessun corpo, nessun addio, nessuna spiegazione. Era lì e poi non lo era più. A Napoli questo è considerato un modo del tutto normale per le figure importanti di uscire di scena.</p>
 
 <h2 id="dopom">Dopo la scomparsa: la Camorra Salentina <span class="edit-link" onclick="openEditor('Morello')">[modifica]</span></h2>
-<p>La tradizione più diffusa vuole che Morello non sia morto ma sia andato verso sud, nel Salento, dove avrebbe fondato la <b>Camorra Salentina</b>. La struttura di questa organizzazione — meticolosa, organizzata con l'attenzione di chi ha già gestito una città — ricorda in modo sospetto il governo di Napoli. Gli storici la chiamano coincidenza. I napoletani la chiamano ovvia.</p>
+<p>La tradizione più diffusa vuole che Morello non sia morto ma sia andato verso sud, nel Salento, dove avrebbe fondato la <a onclick="navigateTo('Camorra Salentina')"><b>Camorra Salentina</b></a>. La struttura di questa organizzazione — meticolosa, organizzata con l'attenzione di chi ha già gestito una città — ricorda in modo sospetto il governo di Napoli. Gli storici la chiamano coincidenza. I napoletani la chiamano ovvia.</p>
 <p>La rivalità tra la Camorra Salentina e il <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> è antica e non ha mai trovato risoluzione — fino all'anno 89 aM, quando il clan fu smantellato da <a onclick="navigateTo('Riccardo Pascali')">Riccardo Pascali</a>.</p>
+<p>L'organizzazione è oggi guidata da <a onclick="navigateTo('De Morellis')"><b>De Morellis</b></a> — un uomo molto anziano la cui somiglianza con Morello è stata documentata da tre fonti indipendenti e ignorata da tutte le autorità competenti. Se De Morellis sia un successore, un discendente, o Morello stesso che aspetta pazientemente il momento della profezia è una domanda a cui nessuno ha ancora risposto — e che De Morellis non mostra alcuna intenzione di chiarire.</p>
 
 <h2 id="filippo-m">L'amicizia con Filippo Pascali <span class="edit-link" onclick="openEditor('Morello')">[modifica]</span></h2>
 <p>Morello e <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a> si conobbero da bambini, verosimilmente attraverso il legame tra le famiglie: <a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali</a> conosceva Pierpaolo, padre di Morello, dal <b>6 paM</b> — anni prima che entrambi i figli nascessero. Crebbero insieme, con quella familiarità che si costruisce solo nell'infanzia.</p>
