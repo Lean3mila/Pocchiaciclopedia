@@ -723,6 +723,15 @@ clearfix::after { content: ''; display: block; clear: both; }
       <a onclick="navigateTo('Calendario Morello')">Calendario Morello</a>
     </div>
     <div class="sb-section">
+      <h4>Gli Avengers</h4>
+      <a onclick="navigateTo('Avengers')">Avengers</a>
+      <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a>
+      <a onclick="navigateTo('Zella (Avengers)')">Zella</a>
+      <a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra</a>
+      <a onclick="navigateTo('Seconda Guerra degli Avengers')">Seconda Guerra</a>
+      <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a>
+    </div>
+    <div class="sb-section">
       <h4>Tutte le pagine</h4>
       <div id="sidebar-pages"></div>
     </div>
@@ -863,27 +872,22 @@ const DEFAULT_PAGES = {
   <li><a onclick="navigateTo('Ignoto di Napoli')"><b>Ignoto di Napoli</b></a> — Il misterioso autore delle L.E.G.G.I. Noto anche come Specchia.</li>
 </ul>
 
-<p><b>Guerre mondiali</b></p>
+<p><b>Le Guerre degli Avengers</b></p>
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
-  <li><a onclick="navigateTo('Prima Guerra Mondiale')"><b>Prima Guerra Mondiale</b></a> — 3 paM – 1 aM (1914–1918). Morello arrivò a Napoli mentre la guerra era ancora in corso. Nota: volo di <a onclick="navigateTo('Carmelo Spisso')">Carmelo Spisso</a> su Vienna.</li>
-  <li><a onclick="navigateTo('Seconda Guerra Mondiale')"><b>Seconda Guerra Mondiale</b></a> — 22–28 aM (1939–1945). Germania con URSS invadono la Florida. L'America è sotto dittatura fascista. L'Italia è frammentata.</li>
+  <li><a onclick="navigateTo('Prima Guerra degli Avengers')"><b>Prima Guerra degli Avengers</b></a> — Zella, il Capo degli Avengers, tenta di riportare in vita Iron Spisso Man. La guerra più folle della storia dell'America.</li>
+  <li><a onclick="navigateTo('Seconda Guerra degli Avengers')"><b>Seconda Guerra degli Avengers</b></a> — Iron Spisso Man è tornato ma si comporta male. Zella prende il casco di Darth Vader e regola i conti. Finisce con una stretta di mano.</li>
   <li><a onclick="navigateTo('Calendario Morello')"><b>Calendario Morello — Tavola di conversione</b></a> — La conversione completa tra anni aM e calendario gregoriano.</li>
 </ul>
 
-<p><b>Storia alternativa — USA e Africa</b></p>
+<p><b>Gli Avengers e l'America</b></p>
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
-  <li><a onclick="navigateTo('America Fascista')"><b>America Fascista</b></a> — Gli USA sotto la dittatura di <a onclick="navigateTo('Zella')">Zella</a> dal 16 aM (1933).</li>
-  <li><a onclick="navigateTo('Dittatura Zella')"><b>Dittatura Zella</b></a> — Il regime fondato da <a onclick="navigateTo('Zella')">Zella</a> e <a onclick="navigateTo('Nestola')">Nestola</a>. Il secondo fu poi tradito e esiliato.</li>
-  <li><a onclick="navigateTo('Invasione della Florida')"><b>Invasione della Florida</b></a> — 27 aM (1944). La Germania con supporto sovietico occupa la Florida.</li>
-  <li><a onclick="navigateTo('Nigeria Spartiana')"><b>Nigeria Spartiana</b></a> — Stato africano fondato dai <a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a>, base logistica tedesca per la Florida.</li>
+  <li><a onclick="navigateTo('Avengers')"><b>Avengers</b></a> — La potente organizzazione che controlla l'America. Fondata da Iron Spisso Man. Capo attuale: Zella.</li>
+  <li><a onclick="navigateTo('Zella')"><b>Zella</b></a> — Capo degli Avengers e dell'America. L'Albanese. A cui è stata distrutta la casa (11 settembre paM · attacco di Gianluca Pocchia).</li>
+  <li><a onclick="navigateTo('Iron Spisso Man')"><b>Iron Spisso Man</b></a> — Il vero fondatore degli Avengers. Nato a Serrano nel Clan Spisso. Morto e poi riportato in vita. Si pensa sia Alex Spisso.</li>
+  <li><a onclick="navigateTo('Nigeria Spartiana')"><b>Nigeria Spartiana</b></a> — Stato africano fondato dai <a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a>. Controlla tutta l'Africa. Nemico giurato degli Avengers dopo la Seconda Guerra degli Avengers.</li>
 </ul>
 
-<p><b>Frammentazione italiana</b></p>
-<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
-  <li><a onclick="navigateTo('Nord Italia')"><b>Nord Italia</b></a> · <a onclick="navigateTo('Repubblica di Venezia')"><b>Repubblica di Venezia</b></a> · <a onclick="navigateTo('Ducato di Toscana')"><b>Ducato di Toscana</b></a></li>
-  <li><a onclick="navigateTo('Repubblica di Roma')"><b>Repubblica di Roma</b></a> · <a onclick="navigateTo('Napoli (Stato)')"><b>Napoli (Stato)</b></a> · <a onclick="navigateTo('Federazione Siculo-Sarda')"><b>Federazione Siculo-Sarda</b></a></li>
-  <li><a onclick="navigateTo('Serrano')"><b>Serrano</b></a> — Controlla gran parte della Puglia. In conflitto con i vicini. Nel futuro si unirà a Morello.</li>
-</ul>
+
 
 <hr style="border:none;border-top:1px solid #a2a9b1;margin:24px 0">
 
@@ -972,12 +976,6 @@ const DEFAULT_PAGES = {
   },
   "Riccardo Pascali": {
     title: "Riccardo Pascali",
-    wikitext: "",
-    history: [],
-    content: ""
-  },
-  "Famiglia Pocchia": {
-    title: "Famiglia Pocchia",
     wikitext: "",
     history: [],
     content: ""
@@ -1077,6 +1075,102 @@ const DEFAULT_PAGES = {
     wikitext: "",
     history: [],
     content: ""
+  },
+  "Avengers": {
+    title: "Avengers",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "Iron Spisso Man": {
+    title: "Iron Spisso Man",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "Prima Guerra degli Avengers": {
+    title: "Prima Guerra degli Avengers",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "Seconda Guerra degli Avengers": {
+    title: "Seconda Guerra degli Avengers",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "Zella (Avengers)": {
+    title: "Zella (Avengers)",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "Valerio Mozzarella": {
+    title: "Valerio Mozzarella",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "Nicolò": {
+    title: "Nicolò",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "Spider Sparm": {
+    title: "Spider Sparm",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "Emanuele Pascali": {
+    title: "Emanuele Pascali",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "Francesco Maggiore": {
+    title: "Francesco Maggiore",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "Spisshor": {
+    title: "Spisshor",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "America (Avengers)": {
+    title: "America (Avengers)",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "Nigeria Spartiana": {
+    title: "Nigeria Spartiana",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "104 Nigeriani": {
+    title: "104 Nigeriani",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "Zella": {
+    title: "Zella",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "Benito Mussolini": {
+    title: "Benito Mussolini",
+    wikitext: "",
+    history: [],
+    content: ""
   }
 };
 
@@ -1100,6 +1194,18 @@ DEFAULT_PAGES["Ludovico Pio Tommasi"].content = buildLudovicoPioTommasi();
 DEFAULT_PAGES["VitoCarlo Tommasi"].content = buildVitoCarlo();
 DEFAULT_PAGES["Topus Maximus"].content = buildTopusMaximus();
 DEFAULT_PAGES["Topismo"].content = buildTopismo();
+DEFAULT_PAGES["Avengers"].content = buildAvengers();
+DEFAULT_PAGES["Iron Spisso Man"].content = buildIronSpissoMan();
+DEFAULT_PAGES["Prima Guerra degli Avengers"].content = buildPrimaGuerraAvengers();
+DEFAULT_PAGES["Seconda Guerra degli Avengers"].content = buildSecondaGuerraAvengers();
+DEFAULT_PAGES["Zella (Avengers)"].content = buildZellaAvengers();
+DEFAULT_PAGES["Valerio Mozzarella"].content = buildValerioMozzarella();
+DEFAULT_PAGES["Nicolò"].content = buildNicolo();
+DEFAULT_PAGES["Spider Sparm"].content = buildSpiderSparm();
+DEFAULT_PAGES["Emanuele Pascali"].content = buildEmanuelePascali();
+DEFAULT_PAGES["Francesco Maggiore"].content = buildFrancescoMaggiore();
+DEFAULT_PAGES["Spisshor"].content = buildSpisshor();
+DEFAULT_PAGES["America (Avengers)"].content = buildAmericaFascista();
 DEFAULT_PAGES["Serrano"].content = buildSerrano();
 DEFAULT_PAGES["Cheddar Mussolini"].content = buildCheddarMussolini();
 DEFAULT_PAGES["Ermenegildo Spisso"].content = buildErmenegildoSpisso();
@@ -1111,38 +1217,11 @@ DEFAULT_PAGES["De Morellis"].content = buildDeMorellis();
 DEFAULT_PAGES["Sal da Spicci"].content = buildSalDaSpicci();
 DEFAULT_PAGES["Sal da Vinci"].content = buildSalDaVinci();
 
-DEFAULT_PAGES["Prima Guerra Mondiale"].content = buildPGM();
-DEFAULT_PAGES["Seconda Guerra Mondiale"].content = buildSGM();
-DEFAULT_PAGES["Triplice Intesa"].content = buildTripliceIntesa();
-DEFAULT_PAGES["Triplice Alleanza"].content = buildTripliceAlleanza();
-DEFAULT_PAGES["Alleati (SGM)"].content = buildAlleatiSGM();
-DEFAULT_PAGES["Potenze dell'Asse"].content = buildPotenzeDellAsse();
-DEFAULT_PAGES["Carmelo Spisso"].content = buildCarmeloSpisso();
-DEFAULT_PAGES["Francia"].content = buildFrancia();
-DEFAULT_PAGES["Impero Tedesco"].content = buildImperoTedesco();
-DEFAULT_PAGES["Impero Austro-Ungarico"].content = buildImperoAustroUngarico();
-DEFAULT_PAGES["Impero Ottomano"].content = buildImperoOttomano();
-DEFAULT_PAGES["Regno Unito"].content = buildRegnoUnito();
-DEFAULT_PAGES["Russia Imperiale"].content = buildRussiaImperiale();
-DEFAULT_PAGES["Germania Nazista"].content = buildGermaniaNazista();
-DEFAULT_PAGES["Adolf Hitler"].content = buildAdolfHitler();
-DEFAULT_PAGES["Dittatura Zella"].content = buildDittaturaZella();
-DEFAULT_PAGES["Zella"].content = buildZella();
-DEFAULT_PAGES["Nestola"].content = buildNestola();
-DEFAULT_PAGES["Famiglia degli Elettricisti"].content = buildFamigliaElettricisti();
-DEFAULT_PAGES["Famiglia dei Medici (Albania)"].content = buildFamigliaMediciAlbania();
-DEFAULT_PAGES["America Fascista"].content = buildAmericaFascista();
-DEFAULT_PAGES["Invasione della Florida"].content = buildInvasioneFlorida();
+
 DEFAULT_PAGES["Nigeria Spartiana"].content = buildNigeriaSpartiana();
 DEFAULT_PAGES["104 Nigeriani"].content = build104Nigeriani();
-DEFAULT_PAGES["URSS"].content = buildURSS();
+DEFAULT_PAGES["Zella"].content = buildZella();
 DEFAULT_PAGES["Benito Mussolini"].content = buildBenitoMussolini();
-DEFAULT_PAGES["Nord Italia"].content = buildNordItalia();
-DEFAULT_PAGES["Repubblica di Roma"].content = buildRepubblicaRoma();
-DEFAULT_PAGES["Napoli (Stato)"].content = buildNapoliStato();
-DEFAULT_PAGES["Federazione Siculo-Sarda"].content = buildFederazioneSiculoSarda();
-DEFAULT_PAGES["Repubblica di Venezia"].content = buildRepubblicaVenezia();
-DEFAULT_PAGES["Ducato di Toscana"].content = buildDucatoToscana();
 
 
 function buildSalDaSpicci() {
@@ -2325,19 +2404,14 @@ function buildCalendarioMorello() {
     <td style="padding:6px 10px;border:1px solid #a2a9b1">Evento</td>
   </tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1911 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>6 paM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali</a> conosce Pierpaolo durante il servizio militare</td></tr>
-  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1914 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>3 paM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Inizio <a onclick="navigateTo('Prima Guerra Mondiale')">Prima Guerra Mondiale</a></td></tr>
-  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1917 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>Anno 0 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Arrivo di <a onclick="navigateTo('Morello')">Morello</a> a Napoli · inizio Età dell'Oro · fine Prima Guerra Mondiale (novembre 1918 = Anno 1 aM)</td></tr>
-  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1918 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>1 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Fine <a onclick="navigateTo('Prima Guerra Mondiale')">Prima Guerra Mondiale</a> · Trattato di Versailles</td></tr>
-  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1920 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>3 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Nascita di <a onclick="navigateTo('Carmelo Spisso')">Carmelo Spisso</a> (aviatore)</td></tr>
-  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1922 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>5 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Benito Mussolini')">Mussolini</a> prende il potere in Italia</td></tr>
-  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1933 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>16 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Adolf Hitler')">Hitler</a> al potere in Germania · <a onclick="navigateTo('Zella')">Zella</a> e <a onclick="navigateTo('Nestola')">Nestola</a> fondano la <a onclick="navigateTo('Dittatura Zella')">Dittatura Zella</a> negli USA</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1914 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>3 paM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Anno storico nel calendario gregoriano</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1917 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>Anno 0 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Arrivo di <a onclick="navigateTo('Morello')">Morello</a> a Napoli · inizio Età dell'Oro</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1920 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>3 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Nascita di <a onclick="navigateTo('Carmelo Spisso')">Carmelo Spisso</a> (aviatore)</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1933 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>16 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Zella (Avengers)')">Zella</a> e <a onclick="navigateTo('Nestola')">Nestola</a> fondano gli <a onclick="navigateTo('Avengers')">Avengers</a> negli USA</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1934 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>17 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Eruzione del Vesuvio · fine Età dell'Oro · scomparsa di <a onclick="navigateTo('Morello')">Morello</a> e <a onclick="navigateTo('Sal da Spicci')">Sal da Spicci</a></td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1935 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>18 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Nascita di <a onclick="navigateTo('Ermenegildo Spisso')">Ermenegildo "Gildo" Spisso</a> (14 febbraio)</td></tr>
-  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1939 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>22 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Inizio <a onclick="navigateTo('Seconda Guerra Mondiale')">Seconda Guerra Mondiale</a> · Italia si frammenta progressivamente</td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1940 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>23 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Fondazione del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> da Gennaro Spisso</td></tr>
-  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1942 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>25 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> fondata dai <a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a> · rotte atlantiche aperte alla Germania</td></tr>
-  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1944 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>27 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Invasione della Florida')">Invasione della Florida</a> da parte della Germania con supporto sovietico</td></tr>
-  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1945 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>28 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Fine <a onclick="navigateTo('Seconda Guerra Mondiale')">Seconda Guerra Mondiale</a> in Europa · Florida sotto occupazione tedesca</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2001 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>84 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Attacco di Gianluca Pocchia alla casa di <a onclick="navigateTo('Zella (Avengers)')">Zella</a> (11 settembre paM) · morte di <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a></td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1951 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>34 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Laurea di <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a> a Napoli</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1952 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>35 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Nascita di <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> (12 marzo)</td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1955 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>38 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Dottorato di <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a></td></tr>
@@ -2364,9 +2438,9 @@ function buildCalendarioMorello() {
 </table>
 
 <h2 id="eventi-cm">Note sulla conversione — eventi chiave <span class="edit-link" onclick="openEditor('Calendario Morello')">[modifica]</span></h2>
-<p>Una coincidenza che i seguaci del Morellanesimo trovano tutt'altro che casuale: l'Anno 0 aM — il 1917 d.C. — cade in piena <a onclick="navigateTo('Prima Guerra Mondiale')">Prima Guerra Mondiale</a>. Morello arrivò a Napoli mentre il mondo bruciava. La <a onclick="navigateTo('Prima Guerra Mondiale')">Prima Guerra Mondiale</a> si svolse tra il <b>3 paM e il 1 aM</b> (1914–1918). La <a onclick="navigateTo('Seconda Guerra Mondiale')">Seconda Guerra Mondiale</a> tra il <b>22 e il 28 aM</b> (1939–1945).</p>
-<p>La <a onclick="navigateTo('Dittatura Zella')">Dittatura Zella</a> negli USA nacque nel <b>16 aM</b> (1933), lo stesso anno in cui Hitler prese il potere in Germania — la stessa crisi globale post-Versailles che aprì lo spazio a entrambi. L'<a onclick="navigateTo('Invasione della Florida')">Invasione della Florida</a> avvenne nel <b>27 aM</b> (1944).</p>
-<p>Il <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> fu fondato nel <b>23 aM</b> (1940) — in piena Seconda Guerra Mondiale, in un'Italia già frammentata. Fu smantellato nell'<b>89 aM</b> (2006), settant'anni dopo.</p>
+<p>L'Anno 0 aM — il 1917 d.C. — è l'anno dell'arrivo di Morello a Napoli. Tutto il sistema ruota intorno a questo momento. Gli eventi che seguono sono datati in avanti (aM), quelli precedenti all'indietro (paM).</p>
+<p>Gli <a onclick="navigateTo('Avengers')">Avengers</a> nacquero nel <b>16 aM</b> (1933), fondati da <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a> con <a onclick="navigateTo('Zella (Avengers)')">Zella</a> e <a onclick="navigateTo('Nestola')">Nestola</a>. L'attacco di Gianluca Pocchia alla casa di Zella e la morte di Iron Spisso Man avvennero entrambi nell'<b>84 aM</b> (2001). La <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> fu fondata dai <a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a> nel <b>104 aM</b> (2021).</p>
+<p>Il <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> fu fondato nel <b>23 aM</b> (1940) e smantellato nell'<b>89 aM</b> (2006), sessantasei anni dopo.</p>
 
 <h2 id="uso-cm">Uso attuale <span class="edit-link" onclick="openEditor('Calendario Morello')">[modifica]</span></h2>
 <p>Il calendario è usato informalmente nei vicoli del centro storico di Napoli e nelle aree del Salento legate alla <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a>. I seguaci del Morellanesimo lo adottano come sistema esclusivo, rifiutando il calendario gregoriano per i propri documenti interni. <b>Pocchiaciclopedia</b> lo adotta come sistema ufficiale per tutte le voci.</p>
@@ -2616,299 +2690,19 @@ function buildCarmeloSpisso() {
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Clan Spisso</a> <a>Prima Guerra Mondiale</a> <a>Aviatori italiani</a></div>`;
 }
 
-function buildPGM() {
-  return `<div class="wiki-notice"><span class="ni">⚔️</span><span>Prima Guerra Mondiale nel Calendario Morello: <b>3 paM – 1 aM</b> (1914–1918). Evento anomalo: volo di <a onclick="navigateTo('Carmelo Spisso')">Carmelo Spisso</a> su Vienna (1 paM / 1916).</span></div>
-<h1 class="page-title">Prima Guerra Mondiale</h1>
-<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
-<div class="wiki-article-body clearfix">
-<div class="infobox">
-  <div class="infobox-title">Prima Guerra Mondiale</div>
-  
-  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Ww1_allied_powers.jpg/320px-Ww1_allied_powers.jpg" alt="Prima Guerra Mondiale" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div><div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Fronte occidentale, 1916</div>
-  <table>
-    <tr><td>Date (aM)</td><td><b>3 paM – 1 aM</b></td></tr>
-    <tr><td>Date (gregoriano)</td><td>1914 – 1918</td></tr>
-    <tr><td>Luogo</td><td>Europa, Medio Oriente, Africa, oceani</td></tr>
-    <tr><td>Esito</td><td>Vittoria della <a onclick="navigateTo('Triplice Intesa')">Triplice Intesa</a>. Trattato di Versailles (1 aM / 1919).</td></tr>
-    <tr><td>Intesa</td><td><a onclick="navigateTo('Francia')">Francia</a> · <a onclick="navigateTo('Regno Unito')">Regno Unito</a> · <a onclick="navigateTo('Russia Imperiale')">Russia Imperiale</a> · <a onclick="navigateTo('Italia (PGM)')">Italia</a> (dal 2 paM)</td></tr>
-    <tr><td>Alleanza</td><td><a onclick="navigateTo('Impero Tedesco')">Impero Tedesco</a> · <a onclick="navigateTo('Impero Austro-Ungarico')">Impero Austro-Ungarico</a> · <a onclick="navigateTo('Impero Ottomano')">Impero Ottomano</a></td></tr>
-    <tr><td>Vittime stimate</td><td>Circa 20 milioni</td></tr>
-    <tr><td>Nota Pocchiaciclopedia</td><td>Volo di <a onclick="navigateTo('Carmelo Spisso')">Carmelo Spisso</a> su Vienna (1 paM / 1916)</td></tr>
-    <tr><td>Anno 0 aM</td><td>1917 — Morello arriva a Napoli mentre la guerra è ancora in corso</td></tr>
-  </table>
-</div>
-<p>La <b>Prima Guerra Mondiale</b> (3 paM – 1 aM · 1914–1918) fu il primo conflitto su scala planetaria. Nel <a onclick="navigateTo('Calendario Morello')">Calendario Morello</a> si colloca interamente nel periodo <i>pre-anno-Morello</i>: la guerra iniziò tre anni prima dell'arrivo di <a onclick="navigateTo('Morello')">Morello</a> a Napoli e finì un anno dopo. L'Anno 0 aM — il 1917 — cade nel pieno del conflitto.</p>
-<p>Gli eventi storici corrispondono alla realtà con un'unica eccezione: nel 1 paM (1916), l'aviatore casertano <a onclick="navigateTo('Carmelo Spisso')">Carmelo Spisso</a> — zio del futuro fondatore del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> — compì un volo non autorizzato su Vienna e sganciò volantini di propaganda. Non tornò. È l'unico atto eroico documentato di un membro della famiglia Spisso.</p>
-<h2>Le cause <span class="edit-link" onclick="openEditor('Prima Guerra Mondiale')">[modifica]</span></h2>
-<p>L'assassinio dell'arciduca Francesco Ferdinando a Sarajevo nel giugno del 3 paM (1914) innescò una catena di alleanze che trascinò l'intera Europa in guerra in sei settimane. La <a onclick="navigateTo('Triplice Alleanza')">Triplice Alleanza</a> si scontrò con la <a onclick="navigateTo('Triplice Intesa')">Triplice Intesa</a> in quello che divenne il conflitto più distruttivo fino ad allora.</p>
-<h2>I fronti principali <span class="edit-link" onclick="openEditor('Prima Guerra Mondiale')">[modifica]</span></h2>
-<p><b>Fronte Occidentale:</b> 700 km di trincee dal Belgio alle Alpi, in cui milioni di uomini morirono per poche centinaia di metri. La Somme, Verdun, Passchendaele.<br><b>Fronte Orientale:</b> La <a onclick="navigateTo('Russia Imperiale')">Russia Imperiale</a> combatté fino alla Rivoluzione del 0 aM (1917), che la portò fuori dalla guerra.<br><b>Fronte Italiano:</b> L'Italia entrò nel 2 paM (1915) a fianco dell'Intesa, combattendo sull'Isonzo contro l'Austria-Ungheria.</p>
-<h2>La fine e le conseguenze <span class="edit-link" onclick="openEditor('Prima Guerra Mondiale')">[modifica]</span></h2>
-<p>La guerra finì l'11 novembre del 1 aM (1918) con la resa della Germania. Il Trattato di Versailles impose condizioni umilianti che seminarono i germi del nazismo. L'<a onclick="navigateTo('Impero Austro-Ungarico')">Impero Austro-Ungarico</a> si dissolse. L'<a onclick="navigateTo('Impero Ottomano')">Impero Ottomano</a> collassò. In America, il vuoto politico post-guerra aprì lo spazio che <a onclick="navigateTo('Zella')">Zella</a> e <a onclick="navigateTo('Nestola')">Nestola</a> avrebbero occupato vent'anni dopo.</p>
-</div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Guerre mondiali</a> <a>3 paM – 1 aM</a> <a>Conflitti europei</a></div>`;
-}
 
-function buildTripliceIntesa() {
-  return `<h1 class="page-title">Triplice Intesa</h1>
-<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
-<div class="wiki-article-body clearfix">
-<div class="infobox">
-  <div class="infobox-title">Triplice Intesa</div>
-  
-  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Flags_of_the_Allies_of_World_War_I.jpg/320px-Flags_of_the_Allies_of_World_War_I.jpg" alt="Triplice Intesa" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div><div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Bandiere degli Alleati della PGM</div>
-  <table>
-    <tr><td>Formata</td><td>Fine anni 5 paM / inizio 3 paM (1907–1914)</td></tr>
-    <tr><td>Paesi fondatori</td><td><a onclick="navigateTo('Francia')">Francia</a> · <a onclick="navigateTo('Regno Unito')">Regno Unito</a> · <a onclick="navigateTo('Russia Imperiale')">Russia Imperiale</a></td></tr>
-    <tr><td>Paesi associati</td><td>Italia (dal 2 paM / 1915)</td></tr>
-    <tr><td>Avversario</td><td><a onclick="navigateTo('Triplice Alleanza')">Triplice Alleanza</a></td></tr>
-    <tr><td>Esito</td><td>Vittoria — 1 aM (1918)</td></tr>
-  </table>
-</div>
-<p>La <b>Triplice Intesa</b> fu l'alleanza tra <a onclick="navigateTo('Francia')">Francia</a>, <a onclick="navigateTo('Regno Unito')">Regno Unito</a> e <a onclick="navigateTo('Russia Imperiale')">Russia Imperiale</a> — il blocco principale della <a onclick="navigateTo('Prima Guerra Mondiale')">Prima Guerra Mondiale</a>. Non era un trattato formale vincolante ma una serie di accordi bilaterali che crearono un'intesa de facto. L'Italia si unì nel 2 paM (1915) abbandonando la <a onclick="navigateTo('Triplice Alleanza')">Triplice Alleanza</a>.</p>
-</div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Prima Guerra Mondiale</a> <a>Alleanze militari</a></div>`;
-}
 
-function buildTripliceAlleanza() {
-  return `<h1 class="page-title">Triplice Alleanza</h1>
-<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
-<div class="wiki-article-body clearfix">
-<div class="infobox">
-  <div class="infobox-title">Triplice Alleanza</div>
-  
-  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Flag_of_the_German_Empire.svg/200px-Flag_of_the_German_Empire.svg.png" alt="Triplice Alleanza" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
-  <table>
-    <tr><td>Formata</td><td>35 paM (1882)</td></tr>
-    <tr><td>Paesi fondatori</td><td><a onclick="navigateTo('Impero Tedesco')">Impero Tedesco</a> · <a onclick="navigateTo('Impero Austro-Ungarico')">Impero Austro-Ungarico</a> · Italia</td></tr>
-    <tr><td>Avversario</td><td><a onclick="navigateTo('Triplice Intesa')">Triplice Intesa</a></td></tr>
-    <tr><td>Esito</td><td>Sconfitta — 1 aM (1918). L'Italia cambiò fronte nel 2 paM (1915).</td></tr>
-  </table>
-</div>
-<p>La <b>Triplice Alleanza</b> fu il trattato difensivo tra <a onclick="navigateTo('Impero Tedesco')">Impero Tedesco</a>, <a onclick="navigateTo('Impero Austro-Ungarico')">Impero Austro-Ungarico</a> e Italia stipulato nel 35 paM (1882). Alla dichiarazione di guerra l'Italia rimase neutrale, poi nel 2 paM (1915) entrò in guerra a fianco della <a onclick="navigateTo('Triplice Intesa')">Triplice Intesa</a>. Il tradimento non fu mai perdonato da Vienna né da Berlino.</p>
-</div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Prima Guerra Mondiale</a> <a>Alleanze militari</a></div>`;
-}
 
-function buildFrancia() {
-  return `<h1 class="page-title">Francia</h1>
-<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
-<div class="wiki-article-body clearfix">
-<div class="infobox">
-  <div class="infobox-title">Francia</div>
-  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Bandiera Francia" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1"></div>
-  <table>
-    <tr><td>Capitale</td><td>Parigi</td></tr>
-    <tr><td>PGM</td><td><a onclick="navigateTo('Triplice Intesa')">Triplice Intesa</a> · 3 paM – 1 aM (1914–1918)</td></tr>
-    <tr><td>SGM</td><td><a onclick="navigateTo('Alleati (SGM)')">Alleati</a> · 22–28 aM (1939–1945) — occupata 23–27 aM</td></tr>
-  </table>
-</div>
-<p>La <b>Francia</b> fu protagonista di entrambe le guerre mondiali. Durante la <a onclick="navigateTo('Prima Guerra Mondiale')">Prima Guerra Mondiale</a> subì le devastazioni maggiori tra i paesi vincitori: il fronte occidentale era quasi interamente sul suo territorio. Nella <a onclick="navigateTo('Seconda Guerra Mondiale')">Seconda Guerra Mondiale</a> fu sconfitta e occupata dalla <a onclick="navigateTo('Germania Nazista')">Germania Nazista</a> nel 23 aM (1940) in una campagna fulminea. La Resistenza operò fino alla liberazione nel 27 aM (1944).</p>
-</div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Paesi europei</a> <a>Prima Guerra Mondiale</a> <a>Seconda Guerra Mondiale</a></div>`;
-}
 
-function buildImperoTedesco() {
-  return `<h1 class="page-title">Impero Tedesco</h1>
-<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
-<div class="wiki-article-body clearfix">
-<div class="infobox">
-  <div class="infobox-title">Impero Tedesco</div>
-  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Flag_of_the_German_Empire.svg" alt="Bandiera Impero Tedesco" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1"></div>
-  <table>
-    <tr><td>Periodo</td><td>54 paM – 1 aM (1871–1918)</td></tr>
-    <tr><td>Capitale</td><td>Berlino</td></tr>
-    <tr><td>Kaiser (PGM)</td><td>Guglielmo II</td></tr>
-    <tr><td>PGM</td><td><a onclick="navigateTo('Triplice Alleanza')">Triplice Alleanza</a> · 3 paM – 1 aM</td></tr>
-    <tr><td>Dissolto</td><td>1 aM (1918) → Repubblica di Weimar → <a onclick="navigateTo('Germania Nazista')">Germania Nazista</a></td></tr>
-  </table>
-</div>
-<p>L'<b>Impero Tedesco</b> fu la potenza centrale della <a onclick="navigateTo('Triplice Alleanza')">Triplice Alleanza</a>. La sconfitta nel 1 aM (1918) e le condizioni umilianti di Versailles seminarono i germi che portarono all'ascesa di <a onclick="navigateTo('Adolf Hitler')">Hitler</a> nel 16 aM (1933). Dalla Repubblica di Weimar nacque il Terzo Reich.</p>
-</div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Paesi europei</a> <a>Prima Guerra Mondiale</a></div>`;
-}
 
-function buildImperoAustroUngarico() {
-  return `<h1 class="page-title">Impero Austro-Ungarico</h1>
-<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
-<div class="wiki-article-body clearfix">
-<div class="infobox">
-  <div class="infobox-title">Impero Austro-Ungarico</div>
-  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Flag_of_Austria-Hungary_%281869-1918%29.svg" alt="Bandiera Austro-Ungarico" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1"></div>
-  <table>
-    <tr><td>Capitali</td><td>Vienna · Budapest</td></tr>
-    <tr><td>Imperatori</td><td>Francesco Giuseppe I · Carlo I</td></tr>
-    <tr><td>PGM</td><td><a onclick="navigateTo('Triplice Alleanza')">Triplice Alleanza</a> · 3 paM – 1 aM</td></tr>
-    <tr><td>Dissolto</td><td>1 aM (1918) — Austria, Ungheria, Cecoslovacchia, Jugoslavia…</td></tr>
-    <tr><td>Nota</td><td>Bersaglio del volo di <a onclick="navigateTo('Carmelo Spisso')">Carmelo Spisso</a> (1 paM / 1916)</td></tr>
-  </table>
-</div>
-<p>L'<b>Impero Austro-Ungarico</b> innescò la <a onclick="navigateTo('Prima Guerra Mondiale')">Prima Guerra Mondiale</a> con il suo ultimatum alla Serbia dopo l'assassinio di Francesco Ferdinando. La sconfitta del 1 aM (1918) lo dissolse in una decina di stati nazionali. Fu sopra Vienna che <a onclick="navigateTo('Carmelo Spisso')">Carmelo Spisso</a> compì il suo volo nel 1 paM (1916).</p>
-</div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Paesi europei</a> <a>Prima Guerra Mondiale</a></div>`;
-}
 
-function buildImperoOttomano() {
-  return `<h1 class="page-title">Impero Ottomano</h1>
-<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
-<div class="wiki-article-body clearfix">
-<div class="infobox">
-  <div class="infobox-title">Impero Ottomano</div>
-  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Flag_of_the_Ottoman_Empire_%281844%E2%80%931922%29.svg" alt="Bandiera Ottomano" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1"></div>
-  <table>
-    <tr><td>Capitale</td><td>Costantinopoli</td></tr>
-    <tr><td>PGM</td><td><a onclick="navigateTo('Triplice Alleanza')">Triplice Alleanza</a> · 3 paM – 1 aM</td></tr>
-    <tr><td>Dissolto</td><td>6 aM (1923) — nascita della Repubblica di Turchia</td></tr>
-  </table>
-</div>
-<p>L'<b>Impero Ottomano</b> — «il grande malato d'Europa» — entrò nella <a onclick="navigateTo('Prima Guerra Mondiale')">Prima Guerra Mondiale</a> nel 3 paM (1914) a fianco degli Imperi Centrali, aprendo i fronti del Caucaso, del Medio Oriente e dei Dardanelli. La sconfitta accelerò il suo collasso già in corso da decenni. La Turchia moderna nacque sulle sue ceneri nel 6 aM (1923).</p>
-</div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Paesi</a> <a>Prima Guerra Mondiale</a></div>`;
-}
 
-function buildRegnoUnito() {
-  return `<h1 class="page-title">Regno Unito</h1>
-<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
-<div class="wiki-article-body clearfix">
-<div class="infobox">
-  <div class="infobox-title">Regno Unito</div>
-  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_the_United_Kingdom.svg" alt="Bandiera UK" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1"></div>
-  <table>
-    <tr><td>Capitale</td><td>Londra</td></tr>
-    <tr><td>PGM</td><td><a onclick="navigateTo('Triplice Intesa')">Triplice Intesa</a> · 3 paM – 1 aM (1914–1918)</td></tr>
-    <tr><td>SGM</td><td><a onclick="navigateTo('Alleati (SGM)')">Alleati</a> · 22–28 aM (1939–1945)</td></tr>
-    <tr><td>PM (SGM)</td><td>Winston Churchill</td></tr>
-    <tr><td>Ruolo SGM</td><td>Controllo colonie africane → causa indiretta della <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a></td></tr>
-  </table>
-</div>
-<p>Il <b>Regno Unito</b> fu la potenza navale dominante in entrambi i conflitti. Nella <a onclick="navigateTo('Seconda Guerra Mondiale')">Seconda Guerra Mondiale</a> il suo controllo delle colonie africane — in particolare della Nigeria — bloccò le rotte atlantiche tedesche, spingendo <a onclick="navigateTo('Adolf Hitler')">Hitler</a> a finanziare i <a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a> e a creare la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a>. Senza quella base logistica, l'<a onclick="navigateTo('Invasione della Florida')">Invasione della Florida</a> non sarebbe stata possibile.</p>
-</div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Paesi europei</a> <a>Prima Guerra Mondiale</a> <a>Seconda Guerra Mondiale</a></div>`;
-}
 
-function buildRussiaImperiale() {
-  return `<h1 class="page-title">Russia Imperiale</h1>
-<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
-<div class="wiki-article-body clearfix">
-<div class="infobox">
-  <div class="infobox-title">Russia Imperiale</div>
-  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Flag_of_the_Russian_Empire_%28black-yellow-white%29.svg" alt="Bandiera Russia Imperiale" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1"></div>
-  <table>
-    <tr><td>Zar</td><td>Nicola II</td></tr>
-    <tr><td>PGM</td><td><a onclick="navigateTo('Triplice Intesa')">Triplice Intesa</a> · 3 paM – 0 aM (1914–1917)</td></tr>
-    <tr><td>Uscita dalla guerra</td><td>Anno 0 aM (1917) — Rivoluzione bolscevica</td></tr>
-    <tr><td>Successore</td><td><a onclick="navigateTo('URSS')">Unione Sovietica</a></td></tr>
-  </table>
-</div>
-<p>La <b>Russia Imperiale</b> uscì dalla guerra nell'Anno 0 aM (1917) — lo stesso anno in cui Morello arrivò a Napoli. I bolscevichi presero il potere, firmarono la pace con la Germania e avviarono la guerra civile. Dall'Impero nacque l'<a onclick="navigateTo('URSS')">Unione Sovietica</a>, che nella <a onclick="navigateTo('Seconda Guerra Mondiale')">Seconda Guerra Mondiale</a> avrebbe stretto la controversa alleanza con la <a onclick="navigateTo('Germania Nazista')">Germania Nazista</a> per invadere la <a onclick="navigateTo('Invasione della Florida')">Florida</a>.</p>
-</div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Paesi europei</a> <a>Prima Guerra Mondiale</a></div>`;
-}
 
-function buildURSS() {
-  return `<h1 class="page-title">Unione Sovietica</h1>
-<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
-<div class="wiki-article-body clearfix">
-<div class="infobox">
-  <div class="infobox-title">URSS</div>
-  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_of_the_Soviet_Union.svg" alt="Bandiera URSS" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1"></div>
-  <table>
-    <tr><td>Fondazione</td><td>4 aM (1922) — dalla <a onclick="navigateTo('Russia Imperiale')">Russia Imperiale</a></td></tr>
-    <tr><td>Capitale</td><td>Mosca</td></tr>
-    <tr><td>Leader SGM</td><td>Stalin</td></tr>
-    <tr><td>SGM</td><td>Patto con <a onclick="navigateTo('Germania Nazista')">Germania</a> (22 aM) · poi <a onclick="navigateTo('Alleati (SGM)')">Alleati</a> (25 aM)</td></tr>
-    <tr><td>Ruolo chiave</td><td>Supporto navale per l'<a onclick="navigateTo('Invasione della Florida')">Invasione della Florida</a> (27 aM)</td></tr>
-  </table>
-</div>
-<p>L'<b>Unione Sovietica</b> firmò nel 22 aM (1939) un patto di non aggressione con la <a onclick="navigateTo('Germania Nazista')">Germania Nazista</a> — e andò ben oltre, collaborando all'<a onclick="navigateTo('Invasione della Florida')">Invasione della Florida</a> nel 27 aM (1944) con supporto navale nell'Atlantico. Fu un'alleanza di puro opportunismo tra due sistemi ideologicamente incompatibili. Nel 25 aM (1941) la Germania attaccò l'URSS e Stalin passò agli <a onclick="navigateTo('Alleati (SGM)')">Alleati</a> — ma il danno in Florida era già fatto.</p>
-</div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Paesi</a> <a>Seconda Guerra Mondiale</a> <a>Invasione della Florida</a></div>`;
-}
 
-function buildAlleatiSGM() {
-  return `<h1 class="page-title">Alleati (Seconda Guerra Mondiale)</h1>
-<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
-<div class="wiki-article-body clearfix">
-<div class="infobox">
-  <div class="infobox-title">Alleati — SGM</div>
-  
-  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/200px-Flag_of_the_United_Kingdom.svg.png" alt="Alleati SGM" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
-  <table>
-    <tr><td>Paesi principali</td><td><a onclick="navigateTo('Regno Unito')">Regno Unito</a> · Canada · Australia · <a onclick="navigateTo('Francia')">Francia Libera</a> · <a onclick="navigateTo('URSS')">URSS</a> (dal 25 aM)</td></tr>
-    <tr><td>Assenti</td><td><a onclick="navigateTo('America Fascista')">USA</a> — sotto dittatura fascista</td></tr>
-    <tr><td>Periodo</td><td>22–28 aM (1939–1945)</td></tr>
-  </table>
-</div>
-<p>Gli <b>Alleati</b> della <a onclick="navigateTo('Seconda Guerra Mondiale')">Seconda Guerra Mondiale</a> non potevano contare sugli Stati Uniti — l'<a onclick="navigateTo('America Fascista')">America Fascista</a> di <a onclick="navigateTo('Zella')">Zella</a> era un regime fascista che ostacolava attivamente gli Alleati. Il peso della guerra ricadde quasi interamente sul <a onclick="navigateTo('Regno Unito')">Regno Unito</a> e sui suoi domini, almeno fino all'ingresso dell'<a onclick="navigateTo('URSS')">URSS</a> nel 25 aM (1941), dopo l'attacco tedesco.</p>
-</div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Seconda Guerra Mondiale</a> <a>Alleanze militari</a></div>`;
-}
 
-function buildPotenzeDellAsse() {
-  return `<h1 class="page-title">Potenze dell'Asse</h1>
-<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
-<div class="wiki-article-body clearfix">
-<div class="infobox">
-  <div class="infobox-title">Potenze dell'Asse — SGM</div>
-  
-  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Reichsadler_der_Deutsches_Reich_%281933%E2%80%931945%29.svg/120px-Reichsadler_der_Deutsches_Reich_%281933%E2%80%931945%29.svg.png" alt="Potenze dell'Asse" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
-  <table>
-    <tr><td>Paesi principali</td><td><a onclick="navigateTo('Germania Nazista')">Germania Nazista</a> · <a onclick="navigateTo('URSS')">URSS</a> (22–25 aM) · <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a></td></tr>
-    <tr><td>Alleati di fatto</td><td><a onclick="navigateTo('Dittatura Zella')">America Fascista</a> (neutralità ostile agli Alleati)</td></tr>
-    <tr><td>Obiettivo principale</td><td>Conquista della <a onclick="navigateTo('Invasione della Florida')">Florida</a> · espansione in Africa</td></tr>
-    <tr><td>Periodo</td><td>22–28 aM (1939–1945)</td></tr>
-  </table>
-</div>
-<p>Le <b>Potenze dell'Asse</b> in questo universo divergono dalla realtà storica per l'alleanza iniziale tra <a onclick="navigateTo('Germania Nazista')">Germania</a> e <a onclick="navigateTo('URSS')">URSS</a> — non solo patto di non aggressione, ma cooperazione militare attiva per l'<a onclick="navigateTo('Invasione della Florida')">operazione Florida</a>. A questo si aggiunse la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> come base logistica africana e la neutralità compiacente dell'<a onclick="navigateTo('America Fascista')">America Fascista</a>.</p>
-</div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Seconda Guerra Mondiale</a> <a>Alleanze militari</a></div>`;
-}
 
-function buildAdolfHitler() {
-  return `<h1 class="page-title">Adolf Hitler</h1>
-<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
-<div class="wiki-article-body clearfix">
-<div class="infobox">
-  <div class="infobox-title">Adolf Hitler</div>
-  
-  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Adolf_Hitler%2C_1933.jpg/200px-Adolf_Hitler%2C_1933.jpg" alt="Adolf Hitler" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
-  <table>
-    <tr><td>Nascita</td><td>28 paM · 20 aprile 1889, Braunau am Inn</td></tr>
-    <tr><td>Morte</td><td>28 aM · 30 aprile 1945, Berlino</td></tr>
-    <tr><td>Ruolo</td><td>Führer della <a onclick="navigateTo('Germania Nazista')">Germania Nazista</a></td></tr>
-    <tr><td>Al potere</td><td>16–28 aM (1933–1945)</td></tr>
-    <tr><td>Obiettivo anomalo</td><td>Conquista della <a onclick="navigateTo('Invasione della Florida')">Florida</a></td></tr>
-    <tr><td>Alleanza insolita</td><td><a onclick="navigateTo('URSS')">URSS</a> per l'operazione Florida (22–25 aM)</td></tr>
-    <tr><td>Contemporanei</td><td><a onclick="navigateTo('Zella')">Zella</a> · <a onclick="navigateTo('Benito Mussolini')">Mussolini</a></td></tr>
-  </table>
-</div>
-<p><b>Adolf Hitler</b> salì al potere nel 16 aM (1933) cavalcando il risentimento per il Trattato di Versailles e la crisi economica della Repubblica di Weimar. Nel contesto alternativo della Pocchiaciclopedia, la sua agenda aveva un obiettivo che nella realtà non esisteva: la <b>conquista della Florida</b>.</p>
-<p>Prima di poter pensare alla Florida, completò le campagne europee: Polonia e <a onclick="navigateTo('Francia')">Francia</a> caddero nel 23 aM (1940). Il <a onclick="navigateTo('Regno Unito')">Regno Unito</a> resistette. Le sue colonie africane bloccavano le rotte atlantiche. La soluzione fu la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a>: finanziando i <a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a>, Hitler aprì un corridoio in Africa occidentale. Con l'alleanza sovietica e la Nigeria come base, l'<a onclick="navigateTo('Invasione della Florida')">Invasione della Florida</a> fu possibile nel 27 aM (1944).</p>
-</div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Germania Nazista</a> <a>Seconda Guerra Mondiale</a> <a>Dittatori</a></div>`;
-}
 
-function buildGermaniaNazista() {
-  return `<h1 class="page-title">Germania Nazista</h1>
-<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
-<div class="wiki-article-body clearfix">
-<div class="infobox">
-  <div class="infobox-title">Germania Nazista (Terzo Reich)</div>
-  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Reichsadler_der_Deutsches_Reich_%281933%E2%80%931945%29.svg" alt="Aquila del Reich" style="width:100%;max-width:180px;display:block;margin:0 auto;border:1px solid #a2a9b1"></div>
-  <table>
-    <tr><td>Periodo</td><td>16–28 aM (1933–1945)</td></tr>
-    <tr><td>Capitale</td><td>Berlino</td></tr>
-    <tr><td>Leader</td><td><a onclick="navigateTo('Adolf Hitler')">Adolf Hitler</a></td></tr>
-    <tr><td>SGM</td><td><a onclick="navigateTo('Potenze dell\'Asse')">Potenze dell'Asse</a></td></tr>
-    <tr><td>Conquiste</td><td>Polonia · <a onclick="navigateTo('Francia')">Francia</a> · <a onclick="navigateTo('Invasione della Florida')">Florida</a></td></tr>
-    <tr><td>Satellite africano</td><td><a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a></td></tr>
-    <tr><td>Alleanza tattica</td><td><a onclick="navigateTo('URSS')">URSS</a> (22–25 aM) per l'operazione Florida</td></tr>
-  </table>
-</div>
-<p>La <b>Germania Nazista</b> scatenò la <a onclick="navigateTo('Seconda Guerra Mondiale')">Seconda Guerra Mondiale</a> nel 22 aM (1939). L'elemento che la distingue dalla realtà storica è l'obiettivo della <a onclick="navigateTo('Invasione della Florida')">Florida</a> — una testa di ponte nelle Americhe che nessun Hitler reale ha mai cercato di conquistare. Con la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> come base logistica e il supporto navale sovietico, riuscì nell'impresa nel 27 aM (1944). Il confronto con l'<a onclick="navigateTo('America Fascista')">America Fascista</a> di <a onclick="navigateTo('Zella')">Zella</a> fu il nodo più complesso: due fascismi rivali che si guardavano con rispetto e diffidenza.</p>
-</div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Paesi europei</a> <a>Seconda Guerra Mondiale</a> <a>Dittature</a></div>`;
-}
 
 function buildBenitoMussolini() {
   return `<h1 class="page-title">Benito Mussolini</h1>
@@ -2916,210 +2710,54 @@ function buildBenitoMussolini() {
 <div class="wiki-article-body clearfix">
 <div class="infobox">
   <div class="infobox-title">Benito Mussolini</div>
-  
-  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Bundesarchiv_Bild_102-09900%2C_Benito_Mussolini.jpg/200px-Bundesarchiv_Bild_102-09900%2C_Benito_Mussolini.jpg" alt="Benito Mussolini" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
   <table>
     <tr><td>Nascita</td><td>34 paM · 29 luglio 1883, Predappio</td></tr>
-    <tr><td>Al potere in Italia</td><td>5–26 aM (1922–1943)</td></tr>
-    <tr><td>Conseguenza principale</td><td>Frammentazione dell'Italia in 7 entità (22–26 aM)</td></tr>
-    <tr><td>Contemporanei</td><td><a onclick="navigateTo('Adolf Hitler')">Hitler</a> · <a onclick="navigateTo('Zella')">Zella</a></td></tr>
+    <tr><td>Al potere</td><td>5–26 aM</td></tr>
+    <tr><td>Conseguenza principale</td><td>Destabilizzazione dell'Italia</td></tr>
   </table>
 </div>
-<p><b>Benito Mussolini</b> prese il potere in Italia nel 5 aM (1922), fondando il primo regime fascista europeo. Le sue politiche avventate misero il paese sotto pressione insostenibile. Le tensioni regionali esplosero e l'Italia si frammentò in sette entità tra il 22 e il 26 aM (1939–1943):</p>
-<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
-  <li><a onclick="navigateTo('Nord Italia')"><b>Nord Italia</b></a> (cap. Milano) — industriale, inizialmente filo-tedesco</li>
-  <li><a onclick="navigateTo('Repubblica di Venezia')"><b>Repubblica di Venezia</b></a> — stato cuscinetto adriatico</li>
-  <li><a onclick="navigateTo('Ducato di Toscana')"><b>Ducato di Toscana</b></a> (cap. Firenze) — conservatore, neutrale</li>
-  <li><a onclick="navigateTo('Repubblica di Roma')"><b>Repubblica di Roma</b></a> — laica e sorprendentemente moderna</li>
-  <li><a onclick="navigateTo('Napoli (Stato)')"><b>Napoli</b></a> — la più potente nel Sud, controlla la maggior parte del Mezzogiorno</li>
-  <li><a onclick="navigateTo('Federazione Siculo-Sarda')"><b>Federazione Siculo-Sarda</b></a> — autonomia insulare consolidata</li>
-  <li><a onclick="navigateTo('Serrano')"><b>Serrano</b></a> — controlla gran parte della Puglia, in conflitto con i vicini</li>
-</ul>
+<p><b>Benito Mussolini</b>, detto <b>Cheddar Mussolini</b> nel contesto della Pocchiaciclopedia (vedere <a onclick="navigateTo('Cheddar Mussolini')">Cheddar Mussolini</a>), prese il potere in Italia nel 5 aM. Le sue politiche avventate misero il paese sotto pressione insostenibile, portando infine alla destabilizzazione della penisola. <a onclick="navigateTo('Serrano')">Serrano</a> sfruttò il caos per consolidare il controllo sulla Puglia.</p>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Politici italiani</a> <a>Dittatori</a> <a>Frammentazione Italia</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Politici italiani</a> <a>Dittatori</a></div>`;
 }
 
-function buildSGM() {
-  return `<div class="wiki-notice"><span class="ni">⚔️</span><span>Seconda Guerra Mondiale nel Calendario Morello: <b>22–28 aM</b> (1939–1945). Divergenze dalla realtà: dittatura USA, alleanza Germania-URSS, invasione della Florida.</span></div>
-<h1 class="page-title">Seconda Guerra Mondiale</h1>
-<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
-<div class="wiki-article-body clearfix">
-<div class="infobox">
-  <div class="infobox-title">Seconda Guerra Mondiale</div>
-  
-  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Second_world_war_europe_1941-1942_map_en.png/320px-Second_world_war_europe_1941-1942_map_en.png" alt="Seconda Guerra Mondiale" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div><div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Europa, 1941</div>
-  <table>
-    <tr><td>Date (aM)</td><td><b>22 aM – 28 aM</b></td></tr>
-    <tr><td>Date (gregoriano)</td><td>1939 – 1945</td></tr>
-    <tr><td>Luogo</td><td>Europa, Africa, Americhe, oceani</td></tr>
-    <tr><td>Asse</td><td><a onclick="navigateTo('Germania Nazista')">Germania Nazista</a> · <a onclick="navigateTo('URSS')">URSS</a> (22–25 aM) · <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a></td></tr>
-    <tr><td>Alleati</td><td><a onclick="navigateTo('Alleati (SGM)')">Regno Unito</a> e Dominions · <a onclick="navigateTo('Francia')">Francia Libera</a> · <a onclick="navigateTo('URSS')">URSS</a> (dal 25 aM)</td></tr>
-    <tr><td>Assenti</td><td><a onclick="navigateTo('America Fascista')">USA</a> — sotto <a onclick="navigateTo('Dittatura Zella')">dittatura Zella</a></td></tr>
-    <tr><td>Evento chiave</td><td><a onclick="navigateTo('Invasione della Florida')">Invasione della Florida</a> (27 aM / 1944)</td></tr>
-    <tr><td>Leader principali</td><td><a onclick="navigateTo('Adolf Hitler')">Hitler</a> · <a onclick="navigateTo('Zella')">Zella</a> · Churchill · Stalin</td></tr>
-  </table>
-</div>
 
-<p>La <b>Seconda Guerra Mondiale</b> (22–28 aM · 1939–1945) fu il conflitto più complesso della storia moderna. In questo universo, tre elementi la rendono radicalmente diversa dalla realtà: l'esistenza di una <a onclick="navigateTo('Dittatura Zella')">dittatura fascista negli USA</a>, l'alleanza tattica tra Germania e URSS non solo come patto ma come cooperazione militare attiva, e l'obiettivo tedesco di conquistare la <a onclick="navigateTo('Invasione della Florida')">Florida</a>.</p>
 
-<div class="toc-box"><div class="toc-title">Indice</div><ol>
-  <li><a href="#contesto-sgm">Il contesto: tre fascismi simultanei</a></li>
-  <li><a href="#europa-sgm">La guerra in Europa</a></li>
-  <li><a href="#africa-sgm">Il fronte africano e la Nigeria Spartiana</a></li>
-  <li><a href="#italia-sgm">La frammentazione italiana</a></li>
-  <li><a href="#florida-sgm">L'invasione della Florida</a></li>
-  <li><a href="#morello-sgm">Il futuro: Morello</a></li>
-</ol></div>
 
-<h2 id="contesto-sgm">Il contesto: tre fascismi simultanei <span class="edit-link" onclick="openEditor('Seconda Guerra Mondiale')">[modifica]</span></h2>
-<p>Nel 16 aM (1933) il mondo si trovò con tre grandi esperimenti autoritari in corso simultaneamente: la <a onclick="navigateTo('Germania Nazista')">Germania di Hitler</a>, la <a onclick="navigateTo('Dittatura Zella')">dittatura di Zella</a> negli USA e i resti del fascismo di <a onclick="navigateTo('Benito Mussolini')">Mussolini</a> in un'Italia già in crisi. I tre regimi condividevano il metodo — il potere personale, la persecuzione etnica, la distruzione delle istituzioni democratiche — ma non l'obiettivo. Erano rivali, non alleati.</p>
-
-<h2 id="europa-sgm">La guerra in Europa <span class="edit-link" onclick="openEditor('Seconda Guerra Mondiale')">[modifica]</span></h2>
-<p>La Germania colpì prima la Polonia (22 aM / 1939), poi la <a onclick="navigateTo('Francia')">Francia</a> (23 aM / 1940) in guerra lampo. Il <a onclick="navigateTo('Regno Unito')">Regno Unito</a> resistette sull'isola, tenendo il controllo dei mari. Nel 25 aM (1941) la Germania attaccò l'<a onclick="navigateTo('URSS')">URSS</a> — ma il supporto navale sovietico per la Florida era già stato fornito, e i piani erano già in moto.</p>
-
-<h2 id="africa-sgm">Il fronte africano e la Nigeria Spartiana <span class="edit-link" onclick="openEditor('Seconda Guerra Mondiale')">[modifica]</span></h2>
-<p>Il nodo strategico era l'Africa. Le colonie britanniche bloccavano le rotte atlantiche. Hitler finanziò i <a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a>, che nel 25 aM (1941) fondarono la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a>. Con una base in Africa occidentale, la rotta verso le Americhe si aprì.</p>
-
-<h2 id="italia-sgm">La frammentazione italiana <span class="edit-link" onclick="openEditor('Seconda Guerra Mondiale')">[modifica]</span></h2>
-<p>L'Italia di <a onclick="navigateTo('Benito Mussolini')">Mussolini</a> collassò tra il 22 e il 26 aM (1939–1943). Si frammentò in sette entità. <a onclick="navigateTo('Serrano')">Serrano</a>, controllando gran parte della Puglia, era in conflitto con alcune piccole entità del basso Adriatico — conflitti che, nel futuro, si risolveranno quando quelle entità si uniranno a <a onclick="navigateTo('Morello')">Morello</a> al suo ritorno.</p>
-
-<h2 id="florida-sgm">L'invasione della Florida <span class="edit-link" onclick="openEditor('Seconda Guerra Mondiale')">[modifica]</span></h2>
-<p>Nel 27 aM (1944) la Germania, con supporto navale sovietico e basi in Nigeria, lanciò l'<a onclick="navigateTo('Invasione della Florida')">Invasione della Florida</a>. L'<a onclick="navigateTo('America Fascista')">America Fascista</a> di Zella non organizzò una controffensiva reale. La Florida fu occupata.</p>
-
-<h2 id="morello-sgm">Il futuro: Morello <span class="edit-link" onclick="openEditor('Seconda Guerra Mondiale')">[modifica]</span></h2>
-<p>La profezia del Morellanesimo dice che <a onclick="navigateTo('Morello')">Morello</a> tornerà alla seconda eruzione del Vesuvio. I frammenti italiani si ricomporranno intorno a lui. Le entità in conflitto con <a onclick="navigateTo('Serrano')">Serrano</a> si alleeranno sotto la sua guida. E il disordine del 27 aM — la Florida tedesca, l'America di Zella, la Nigeria Spartiana — sarà rimescolato dalla mano di qualcuno che ha già visto Napoli risorgere una volta.</p>
-</div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Guerre mondiali</a> <a>22-28 aM</a> <a>Storia alternativa</a></div>`;
-}
-
-function buildFamigliaElettricisti() {
-  return `<h1 class="page-title">Famiglia degli Elettricisti</h1>
-<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
-<div class="wiki-article-body clearfix">
-<div class="infobox">
-  <div class="infobox-title">Famiglia degli Elettricisti</div>
-  <table>
-    <tr><td>Origine</td><td>Albania meridionale</td></tr>
-    <tr><td>Membro noto</td><td><a onclick="navigateTo('Zella')">Zella</a></td></tr>
-    <tr><td>Nome</td><td>Soprannome professionale — antenati elettricisti e impiantisti</td></tr>
-    <tr><td>Emigrazione</td><td>Circa 17 paM (1900), negli USA</td></tr>
-    <tr><td>Specialità</td><td>Controllo dei sindacati dell'industria elettrica</td></tr>
-  </table>
-</div>
-<p>La <b>Famiglia degli Elettricisti</b> è una famiglia albanese il cui soprannome deriva dal mestiere dei capostipiti. Il loro controllo sui sindacati elettrici americani fu la base di potere da cui <a onclick="navigateTo('Zella')">Zella</a> costruì la sua ascesa. Non erano una famiglia criminale in senso tradizionale — erano una rete di influenza che aveva imparato a usare il sistema democratico finché non decise che il sistema non serviva più.</p>
-</div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Albania</a> <a>America Fascista</a> <a>Famiglie</a></div>`;
-}
-
-function buildFamigliaMediciAlbania() {
-  return `<h1 class="page-title">Famiglia dei Medici (Albania)</h1>
-<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
-<div class="wiki-article-body clearfix">
-<div class="infobox">
-  <div class="infobox-title">Famiglia dei Medici (Albania)</div>
-  <table>
-    <tr><td>Origine</td><td>Albania settentrionale</td></tr>
-    <tr><td>Membro noto</td><td><a onclick="navigateTo('Nestola')">Nestola</a></td></tr>
-    <tr><td>Nome</td><td>Soprannome professionale — antenati medici e guaritori</td></tr>
-    <tr><td>Ricchezza</td><td>Commercio di minerali e risorse naturali albanesi</td></tr>
-    <tr><td>Nota</td><td>Nessun legame con i Medici fiorentini — coincidenza di soprannome</td></tr>
-  </table>
-</div>
-<p>La <b>Famiglia dei Medici</b> albanese — nessun legame con i Medici fiorentini — era arricchita dal commercio di minerali. <a onclick="navigateTo('Nestola')">Nestola</a> portò in America una ricchezza considerevole e una visione: con i soldi giusti, il paese poteva essere trasformato. L'alleanza con <a onclick="navigateTo('Zella')">Zella</a> fu inizialmente un patto tra uguali. Non durò.</p>
-</div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Albania</a> <a>America Fascista</a> <a>Famiglie</a></div>`;
-}
-
-function buildNestola() {
-  return `<h1 class="page-title">Nestola</h1>
-<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
-<div class="wiki-article-body clearfix">
-<div class="infobox">
-  <div class="infobox-title">Nestola</div>
-  
-  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Flag_of_Albania.svg/200px-Flag_of_Albania.svg.png" alt="Albania settentrionale — Origine di Nestola" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
-  <table>
-    <tr><td>Famiglia</td><td><a onclick="navigateTo('Famiglia dei Medici (Albania)')">Famiglia dei Medici</a></td></tr>
-    <tr><td>Origine</td><td>Albania settentrionale</td></tr>
-    <tr><td>Ruolo iniziale</td><td>Co-fondatore della <a onclick="navigateTo('Dittatura Zella')">Dittatura Zella</a></td></tr>
-    <tr><td>Ruolo finale</td><td>Marginalizzato poi esiliato da <a onclick="navigateTo('Zella')">Zella</a> — 25 aM (1942)</td></tr>
-    <tr><td>Contributo</td><td>Minerali albanesi che finanziarono l'ascesa del regime</td></tr>
-    <tr><td>"Fratellanza"</td><td>Non erano fratelli di sangue — si consideravano tali</td></tr>
-  </table>
-</div>
-<p><b>Nestola</b> è la figura più tragica della storia dell'<a onclick="navigateTo('America Fascista')">America Fascista</a>. Portò le ricchezze minerarie albanesi, mise i soldi a disposizione del progetto, fu co-fondatore della dittatura. Poi Zella cominciò a fare cambiamenti. Piccoli all'inizio, poi sempre più grandi. Quando Nestola capì cosa stava succedendo, non aveva più le leve per fermarlo. I suoi minerali erano stati spesi, i suoi alleati sostituiti. Fu marginalizzato nel 24 aM (1941) e formalmente esiliato nel 25 aM (1942). Dove andò, non è documentato.</p>
-</div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>America Fascista</a> <a>Albania</a> <a>Figure tragiche</a></div>`;
-}
 
 function buildZella() {
   return `<h1 class="page-title">Zella</h1>
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
-<div class="infobox">
-  <div class="infobox-title">Zella</div>
-  
-  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Flag_of_Albania.svg/200px-Flag_of_Albania.svg.png" alt="Albania — Origine di Zella" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
-  <table>
-    <tr><td>Famiglia</td><td><a onclick="navigateTo('Famiglia degli Elettricisti')">Famiglia degli Elettricisti</a></td></tr>
-    <tr><td>Origine</td><td>Albania meridionale · emigrato negli USA</td></tr>
-    <tr><td>Ruolo</td><td>Dittatore dell'<a onclick="navigateTo('America Fascista')">America Fascista</a></td></tr>
-    <tr><td>Al potere</td><td>16 aM (1933) – in corso</td></tr>
-    <tr><td>Co-fondatore (tradito)</td><td><a onclick="navigateTo('Nestola')">Nestola</a></td></tr>
-    <tr><td>Ideologia</td><td>Fascismo albanese-americano · nazionalismo etnico</td></tr>
-    <tr><td>Perseguitati</td><td>Non albanesi — ispanici, neri, ebrei, italiani</td></tr>
-  </table>
+<div class="wiki-notice"><span class="ni">🦸</span><span>Per il profilo completo di Zella come Capo degli Avengers, vedi <a onclick="navigateTo('Zella (Avengers)')">Zella (Avengers)</a>. Questa voce è il reindirizzamento principale.</span></div>
+<p><b>Zella</b> è il Capo degli <a onclick="navigateTo('Avengers')">Avengers</a> e leader dell'America. Albanese di origine, emigrato negli USA, fondò con <a onclick="navigateTo('Nestola')">Nestola</a> l'organizzazione che avrebbe controllato il continente americano. Dopo la morte di <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a>, ne divenne il successore.</p>
+<p>La sua casa fu attaccata e distrutta da Gianluca Pocchia l'<b>11 settembre paM</b> — data che segnò la storia degli Avengers.</p>
+<p>Vedi anche: <a onclick="navigateTo('Zella (Avengers)')">Zella (Avengers)</a> · <a onclick="navigateTo('Avengers')">Avengers</a> · <a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra degli Avengers</a> · <a onclick="navigateTo('Seconda Guerra degli Avengers')">Seconda Guerra degli Avengers</a></p>
 </div>
-<p><b>Zella</b> è il dittatore che trasformò gli Stati Uniti nell'<a onclick="navigateTo('America Fascista')">America Fascista</a>. Figlio di emigrati della <a onclick="navigateTo('Famiglia degli Elettricisti')">Famiglia degli Elettricisti</a>, costruì un movimento politico sfruttando l'isolazionismo americano post-Prima Guerra Mondiale, la crisi economica e il risentimento etnico albanese. Con il carisma che i testimoni descrivono come «ipnotico ma non elegante — come un martello, non come un fioretto», edificò la prima dittatura fascista dell'emisfero occidentale nel 16 aM (1933).</p>
-<p>Il patto con <a onclick="navigateTo('Nestola')">Nestola</a> fu strumentale: servivano i minerali albanesi per finanziare il regime. Ottenuto quello che serviva, scalzò progressivamente il co-fondatore. La sua politica principale fu la persecuzione sistematica di chi non era albanese, organizzata con un'efficienza burocratica che ricordava quella tedesca. L'<a onclick="navigateTo('America Fascista')">America Fascista</a> e la <a onclick="navigateTo('Germania Nazista')">Germania Nazista</a> erano simili nell'architettura del potere ma rivali territoriali — la <a onclick="navigateTo('Invasione della Florida')">Florida</a> fu il punto di frizione principale.</p>
-</div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>America Fascista</a> <a>Dittatori</a> <a>Albania</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>America</a> <a>Albania</a></div>`;
 }
 
-function buildDittaturaZella() {
-  return `<h1 class="page-title">Dittatura Zella</h1>
-<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
-<div class="wiki-article-body clearfix">
-<div class="infobox">
-  <div class="infobox-title">Dittatura Zella</div>
-  
-  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/200px-Flag_of_the_United_States.svg.png" alt="America Fascista" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div><div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">La bandiera originale degli USA — ancora in uso, ribattezzata</div>
-  <table>
-    <tr><td>Stato</td><td><a onclick="navigateTo('America Fascista')">Stati Uniti d'America Fascisti</a></td></tr>
-    <tr><td>Periodo</td><td>16 aM (1933) – in corso</td></tr>
-    <tr><td>Fondatori</td><td><a onclick="navigateTo('Zella')">Zella</a> · <a onclick="navigateTo('Nestola')">Nestola</a> (poi esiliato)</td></tr>
-    <tr><td>Capitale</td><td>Washington D.C. (ribattezzata «Alba» nel 17 aM / 1934)</td></tr>
-    <tr><td>Ideologia</td><td>Fascismo albanese-americano</td></tr>
-    <tr><td>SGM</td><td>Formalmente neutrale — di fatto ostile agli Alleati</td></tr>
-    <tr><td>Florida</td><td>Persa alla <a onclick="navigateTo('Germania Nazista')">Germania</a> nel 27 aM (1944)</td></tr>
-  </table>
-</div>
-<p>La <b>Dittatura Zella</b> nacque nel 16 aM (1933) — stesso anno in cui Hitler prese il potere in Germania. La stessa crisi globale post-Versailles aprì lo spazio a entrambi. Nata dall'alleanza tra <a onclick="navigateTo('Zella')">Zella</a> e <a onclick="navigateTo('Nestola')">Nestola</a>, divenne rapidamente il dominio esclusivo di Zella dopo il progressivo smantellamento del co-fondatore.</p>
-<p>Il fulcro ideologico fu la definizione di «americano autentico» come sinonimo di «albanese». Tutte le altre etnie furono sottoposte a misure progressive di discriminazione e persecuzione. Nella <a onclick="navigateTo('Seconda Guerra Mondiale')">Seconda Guerra Mondiale</a> rimase formalmente neutrale ma non disturbò mai le operazioni tedesche. La perdita della <a onclick="navigateTo('Invasione della Florida')">Florida</a> nel 27 aM (1944) fu usata da Zella per intensificare la repressione interna — il nemico esterno è sempre utile per consolidare il potere.</p>
-</div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>America Fascista</a> <a>Dittature</a> <a>Seconda Guerra Mondiale</a></div>`;
-}
 
 function buildAmericaFascista() {
-  return `<h1 class="page-title">America Fascista</h1>
+  return `<h1 class="page-title">America (Avengers)</h1>
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
 <div class="infobox">
-  <div class="infobox-title">Stati Uniti d'America Fascisti</div>
-  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg" alt="Bandiera USA" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1;opacity:0.65;filter:grayscale(30%)"></div>
+  <div class="infobox-title">America — Stato degli Avengers</div>
+  <div style="text-align:center;padding:8px 6px 4px;font-size:48px">🛡️</div>
+  <div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Bandiera degli Avengers — bandiera ufficiale dell'America</div>
   <table>
-    <tr><td>Dittatore</td><td><a onclick="navigateTo('Zella')">Zella</a></td></tr>
-    <tr><td>Regime dal</td><td>16 aM (1933)</td></tr>
-    <tr><td>Capitale</td><td>Washington D.C. / «Alba»</td></tr>
-    <tr><td>Famiglie fondatrici</td><td><a onclick="navigateTo('Famiglia degli Elettricisti')">Famiglia degli Elettricisti</a> · <a onclick="navigateTo('Famiglia dei Medici (Albania)')">Famiglia dei Medici</a></td></tr>
-    <tr><td>Co-fondatore esiliato</td><td><a onclick="navigateTo('Nestola')">Nestola</a> (25 aM / 1942)</td></tr>
-    <tr><td>Florida</td><td>Persa alla Germania nel 27 aM (1944)</td></tr>
+    <tr><td>Capo</td><td><a onclick="navigateTo('Zella (Avengers)')">Zella</a></td></tr>
+    <tr><td>Organizzazione al governo</td><td><a onclick="navigateTo('Avengers')">Avengers</a></td></tr>
+    <tr><td>Fondatore degli Avengers</td><td><a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a></td></tr>
+    <tr><td>Capitale</td><td>Washington D.C.</td></tr>
+    <tr><td>Nemico principale</td><td><a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a></td></tr>
   </table>
 </div>
-<p>L'<b>America Fascista</b> è il nome con cui viene indicato il regime degli Stati Uniti a partire dal 16 aM (1933), quando <a onclick="navigateTo('Zella')">Zella</a> e <a onclick="navigateTo('Nestola')">Nestola</a> instaurarono la prima dittatura fascista dell'emisfero occidentale. L'ideologia era l'albanesità come criterio di valore e cittadinanza piena. Chi non era albanese era soggetto a discriminazione progressiva.</p>
-<p>Il parallelo con la <a onclick="navigateTo('Germania Nazista')">Germania Nazista</a> era evidente e riconosciuto: stessa architettura del potere, stessa persecuzione etnica, stesso disprezzo per le istituzioni democratiche. Ma i due regimi erano rivali: la <a onclick="navigateTo('Invasione della Florida')">perdita della Florida</a> alla Germania nel 27 aM (1944) è il punto di frizione più visibile di una competizione che non si è mai risolta.</p>
+<p>L'<b>America</b> è controllata dagli <a onclick="navigateTo('Avengers')">Avengers</a>, l'organizzazione fondata da <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a>. La bandiera dello stato è la bandiera degli Avengers. Il capo è <a onclick="navigateTo('Zella (Avengers)')">Zella</a>, che guida sia l'organizzazione che il paese.</p>
+<p>Al termine della <a onclick="navigateTo('Seconda Guerra degli Avengers')">Seconda Guerra degli Avengers</a>, Iron Spisso Man e Zella siglarono una pace con stretta di mano e giurarono di combattere insieme la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a>.</p>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Paesi</a> <a>Dittature</a> <a>Seconda Guerra Mondiale</a> <a>Albania</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Paesi</a> <a>Avengers</a> <a>America</a></div>`;
 }
 
 function build104Nigeriani() {
@@ -3128,21 +2766,21 @@ function build104Nigeriani() {
 <div class="wiki-article-body clearfix">
 <div class="infobox">
   <div class="infobox-title">104 Nigeriani</div>
-  
   <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/200px-Flag_of_Nigeria.svg.png" alt="104 Nigeriani" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
   <table>
-    <tr><td>Tipo</td><td>Movimento di liberazione / milizia</td></tr>
-    <tr><td>Fondazione</td><td>24 aM (1941)</td></tr>
-    <tr><td>Finanziatore</td><td><a onclick="navigateTo('Germania Nazista')">Germania Nazista</a></td></tr>
-    <tr><td>Obiettivo</td><td>Liberare la Nigeria dal <a onclick="navigateTo('Regno Unito')">controllo britannico</a> · espandersi in tutta l'Africa</td></tr>
-    <tr><td>Risultato</td><td>Fondazione della <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> (25 aM / 1941)</td></tr>
-    <tr><td>Nome</td><td>Dall'anno 104 aM nella carta fondativa — data simbolica futura</td></tr>
+    <tr><td>Tipo</td><td>Movimento di fondazione / milizia</td></tr>
+    <tr><td>Fondazione</td><td>104 aM</td></tr>
+    <tr><td>Numero fondatori</td><td>104</td></tr>
+    <tr><td>Obiettivo</td><td>Fondare la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> · espandersi in tutta l'Africa</td></tr>
+    <tr><td>Risultato</td><td>Fondazione della <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> nel 104 aM — e conquista di tutto il continente africano</td></tr>
+    <tr><td>Nome</td><td>Dal numero esatto dei fondatori: erano precisamente 104, né uno di più né uno di meno</td></tr>
   </table>
 </div>
-<p>I <b>104 Nigeriani</b> furono un movimento finanziato e armato dalla <a onclick="navigateTo('Germania Nazista')">Germania Nazista</a> a partire dal 24 aM (1941) per strappare la Nigeria al <a onclick="navigateTo('Regno Unito')">controllo britannico</a> e aprire le rotte atlantiche verso l'America. Il nome deriva dall'anno indicato nella loro carta fondativa — il 104 aM — come data simbolica del definitivo trionfo africano. Nessuno dei firmatari originali era sicuro di cosa significasse quell'anno. La sezione finale della carta, in tedesco, conteneva clausole commerciali che nessuno di loro seppe mai leggere.</p>
-<p>Riuscirono nel 25 aM (1941). Fondarono la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> e dichiararono l'intenzione di espandersi in tutta l'Africa subsahariana. Quanto di questo obiettivo fosse genuino nazionalismo e quanto programma tedesco mascherato è dibattuto ancora oggi.</p>
+<p>I <b>104 Nigeriani</b> furono esattamente quello che il nome suggerisce: cento e quattro nigeriani che decisero di fondare uno stato. Non più, non meno. La precisione del numero era, secondo le memorie dei fondatori, «non una coincidenza ma un principio: un esercito ha bisogno di sapere chi è dentro e chi no».</p>
+<p>Nel 104 aM fondarono la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> e dichiararono l'intenzione di espandersi in tutta l'Africa. A differenza di molte dichiarazioni d'intenti nella storia, questa la mantennero. Il continente africano cadde interamente sotto il controllo della Nigeria Spartiana nel giro di qualche generazione.</p>
+<p>La carta fondativa, scritta a mano e firmata da tutti e 104, recitava nella sezione finale: <i>«Noi controlliamo l'Africa. Tutta. Chi non è d'accordo è invitato a dircelo di persona».</i> Nessuno glielo disse.</p>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Nigeria Spartiana</a> <a>Seconda Guerra Mondiale</a> <a>Movimenti di liberazione</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Nigeria Spartiana</a> <a>Figure fondatrici</a></div>`;
 }
 
 function buildNigeriaSpartiana() {
@@ -3151,176 +2789,453 @@ function buildNigeriaSpartiana() {
 <div class="wiki-article-body clearfix">
 <div class="infobox">
   <div class="infobox-title">Nigeria Spartiana</div>
-  
-  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/200px-Flag_of_Nigeria.svg.png" alt="Nigeria Spartiana" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div><div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Bandiera della Nigeria — adottata dalla Nigeria Spartiana</div>
-  <div style="text-align:center;padding:6px"><img src="nigeria.png" alt="Nigeria" style="width:100%;max-width:220px;display:block;margin:0 auto;border:1px solid #a2a9b1"></div><div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 6px">Territorio della Nigeria</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/200px-Flag_of_Nigeria.svg.png" alt="Nigeria Spartiana" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div><div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Bandiera della Nigeria Spartiana</div>
+  <div style="text-align:center;padding:6px"><img src="nigeria.png" alt="Nigeria" style="width:100%;max-width:220px;display:block;margin:0 auto;border:1px solid #a2a9b1"></div><div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 6px">Territorio sotto controllo della Nigeria Spartiana</div>
   <table>
-    <tr><td>Fondazione</td><td>25 aM (1941)</td></tr>
+    <tr><td>Fondazione</td><td>104 aM</td></tr>
     <tr><td>Capitale</td><td>Lagos</td></tr>
     <tr><td>Fondatori</td><td><a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a></td></tr>
-    <tr><td>Finanziatore</td><td><a onclick="navigateTo('Germania Nazista')">Germania Nazista</a></td></tr>
-    <tr><td>Ruolo SGM</td><td>Base logistica per l'<a onclick="navigateTo('Invasione della Florida')">Invasione della Florida</a></td></tr>
-    <tr><td>Obiettivo dichiarato</td><td>Espansione in tutta l'Africa</td></tr>
-    <tr><td>Stato rispetto al <a onclick="navigateTo('Regno Unito')">UK</a></td><td>In guerra aperta</td></tr>
+    <tr><td>Territorio</td><td>Tutta l'Africa</td></tr>
+    <tr><td>Stato attuale</td><td>La potenza dominante del continente africano</td></tr>
+    <tr><td>Nemici dichiarati</td><td><a onclick="navigateTo('Avengers')">Avengers</a> — dopo la Seconda Guerra degli Avengers</td></tr>
   </table>
 </div>
-<p>La <b>Nigeria Spartiana</b> fu lo stato fondato nel 25 aM (1941) dai <a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a> dopo la cacciata del controllo britannico. Il nome «Spartiana» fu scelto come riferimento alla tradizione militare spartana — un paese di guerrieri che non si piegano. Era una scelta romantica per quello che era de facto un protettorato tedesco, ma i fondatori sembravano sinceramente convinti dell'autonomia del progetto.</p>
-<p>Per la <a onclick="navigateTo('Germania Nazista')">Germania</a> era uno strumento: una base logistica in Africa occidentale da cui rifornire le flotte verso la Florida. Senza la Nigeria Spartiana e i suoi porti, l'<a onclick="navigateTo('Invasione della Florida')">Invasione della Florida</a> del 27 aM (1944) non sarebbe stata logisticamente possibile.</p>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#fondazione-ns">Fondazione</a></li>
+    <li><a href="#espansione-ns">L'espansione in tutta l'Africa</a></li>
+    <li><a href="#avengers-ns">Il conflitto con gli Avengers</a></li>
+  </ol>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Paesi africani</a> <a>Seconda Guerra Mondiale</a> <a>Protettorati tedeschi</a></div>`;
+
+<h2 id="fondazione-ns">Fondazione <span class="edit-link" onclick="openEditor('Nigeria Spartiana')">[modifica]</span></h2>
+<p>La <b>Nigeria Spartiana</b> fu fondata nel <b>104 aM</b> dai <a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a> — un gruppo di cento e quattro uomini che, con nient'altro che determinazione, disciplina spartana e una carta fondativa scritta di proprio pugno, strapparono il continente africano a chiunque pensasse di controllarlo.</p>
+<p>Il nome «Spartiana» fu scelto come omaggio alla tradizione militare di Sparta: un paese di guerrieri che non si piegano, non trattano, non arretrano. Nessuno dei 104 fondatori aveva mai letto Tucidide, ma l'essenza del concetto l'avevano capita benissimo senza.</p>
+
+<h2 id="espansione-ns">L'espansione in tutta l'Africa <span class="edit-link" onclick="openEditor('Nigeria Spartiana')">[modifica]</span></h2>
+<p>Da Lagos, la Nigeria Spartiana si espanse con una velocità che i commentatori definirono «inspiegabile» e i 104 Nigeriani definirono «inevitabile». Stato dopo stato, regione dopo regione, l'intero continente africano cadde sotto il controllo della Nigeria Spartiana. Oggi è l'unica potenza che controlla l'Africa da un capo all'altro — dalla costa mediterranea al Capo di Buona Speranza, da Dakar a Mogadiscio.</p>
+<p>Come riuscirono in un'impresa simile in cento e quattro? La risposta ufficiale è: «Con la disciplina spartana». La risposta ufficiosa, bisbiglita nei corridoi diplomatici, è: «Non lo sappiamo, ma non proviamo a fermarli».</p>
+
+<h2 id="avengers-ns">Il conflitto con gli Avengers <span class="edit-link" onclick="openEditor('Nigeria Spartiana')">[modifica]</span></h2>
+<p>Al termine della <a onclick="navigateTo('Seconda Guerra degli Avengers')">Seconda Guerra degli Avengers</a>, <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a> e <a onclick="navigateTo('Zella')">Zella</a> sancirono la pace con una stretta di mano storica, giurando di rivolgere le forze degli <a onclick="navigateTo('Avengers')">Avengers</a> contro un nemico comune: la Nigeria Spartiana. Da quel momento, il rapporto tra la superpotenza africana e l'America degli Avengers è di guerra aperta — o almeno di tensione talmente alta da non fare differenza.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Paesi africani</a> <a>Fondati nel 104 aM</a> <a>Superpotenze</a></div>`;
 }
 
-function buildInvasioneFlorida() {
-  return `<h1 class="page-title">Invasione della Florida</h1>
+
+
+// ══════════════════════════════════════════════════════
+//  AVENGERS — nuove pagine
+// ══════════════════════════════════════════════════════
+
+function buildAvengers() {
+  return `<div class="wiki-notice"><span class="ni">🦸</span><span>Gli Avengers sono l'organizzazione che governa l'America. Tutte le informazioni su questa voce sono classificate — eppure eccoci qui.</span></div>
+<h1 class="page-title">Avengers</h1>
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
 <div class="infobox">
-  <div class="infobox-title">Invasione della Florida</div>
-  
-  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Flag_of_Florida.svg/200px-Flag_of_Florida.svg.png" alt="Invasione della Florida" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div><div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Bandiera della Florida — territorio occupato</div>
+  <div class="infobox-title">Avengers</div>
+  <div style="text-align:center;padding:8px 6px 4px;font-size:40px">🛡️</div>
+  <div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Stemma degli Avengers</div>
   <table>
-    <tr><td>Data (aM)</td><td><b>27 aM</b></td></tr>
-    <tr><td>Data (gregoriano)</td><td>1944</td></tr>
-    <tr><td>Luogo</td><td>Florida, costa orientale degli USA</td></tr>
-    <tr><td>Esito</td><td>Vittoria tedesco-sovietica. Florida occupata dalla Germania.</td></tr>
-    <tr><td>Attaccanti</td><td><a onclick="navigateTo('Germania Nazista')">Germania Nazista</a> · <a onclick="navigateTo('URSS')">URSS</a> (supporto navale)</td></tr>
-    <tr><td>Difensori</td><td><a onclick="navigateTo('America Fascista')">America Fascista</a> (difesa limitata e ambigua)</td></tr>
-    <tr><td>Base logistica</td><td><a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a></td></tr>
-    <tr><td>Reazione di Zella</td><td>Protesta formale · nessuna controffensiva</td></tr>
+    <tr><td>Tipo</td><td>Organizzazione eroica · governo de facto dell'America</td></tr>
+    <tr><td>Fondatore</td><td><a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a></td></tr>
+    <tr><td>Capo attuale</td><td><a onclick="navigateTo('Zella (Avengers)')">Zella</a></td></tr>
+    <tr><td>Sede</td><td>America</td></tr>
+    <tr><td>Nemici</td><td><a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a></td></tr>
+    <tr><td>Bandiera</td><td>Bandiera degli Avengers (vedi sotto)</td></tr>
   </table>
 </div>
-<p>L'<b>Invasione della Florida</b> (27 aM / 1944) fu l'operazione militare con cui la <a onclick="navigateTo('Germania Nazista')">Germania Nazista</a>, con supporto navale dell'<a onclick="navigateTo('URSS')">URSS</a> e basi logistiche della <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a>, occupò lo stato della Florida — territorio dell'<a onclick="navigateTo('America Fascista')">America Fascista</a>.</p>
-<p>Fu uno degli eventi militari più clamorosi del conflitto: non solo per l'audacia dell'operazione transoceanica, ma perché l'America Fascista — nominalmente la potenza più grande dell'emisfero — non organizzò una controffensiva reale. La difesa fu improvvisata e probabilmente sabotata dall'ambiguità politica di <a onclick="navigateTo('Zella')">Zella</a>, che non voleva consumare risorse contro un regime fascista simile al suo.</p>
-<h2>Perché la Florida? <span class="edit-link" onclick="openEditor('Invasione della Florida')">[modifica]</span></h2>
-<p><a onclick="navigateTo('Adolf Hitler')">Hitler</a> aveva tre ragioni: posizione geografica (testa di ponte nelle Americhe), risorse strategiche, e pressione psicologica sull'<a onclick="navigateTo('Dittatura Zella')">America Fascista</a> — dimostrare che la Germania era il fascismo dominante. La Florida era sia un territorio strategico che un test di forza tra i due sistemi.</p>
-<h2>Conseguenze e futuro <span class="edit-link" onclick="openEditor('Invasione della Florida')">[modifica]</span></h2>
-<p>La Florida occupata fu amministrata come territorio tedesco. Zella usò la perdita per intensificare la repressione interna. Nel lungo periodo, il ritorno di <a onclick="navigateTo('Morello')">Morello</a> è destinato a rimescolare questi equilibri — la Florida tedesca, l'America di Zella, la Nigeria Spartiana: tutto il disordine del 27 aM è destinato a essere affrontato da qualcuno che ha già risolto problemi più complicati a Napoli.</p>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#storia-av">Storia</a></li>
+    <li><a href="#membri-av">Membri</a></li>
+    <li><a href="#guerre-av">Le Guerre degli Avengers</a></li>
+  </ol>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Seconda Guerra Mondiale</a> <a>27 aM</a> <a>Operazioni militari</a> <a>Florida</a></div>`;
+
+<h2 id="storia-av">Storia <span class="edit-link" onclick="openEditor('Avengers')">[modifica]</span></h2>
+<p>Gli <b>Avengers</b> furono fondati da <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a>, il protettore di Serrano, che dall'America costruì l'organizzazione più potente dell'emisfero occidentale. Dopo la morte di Iron Spisso Man (avvenuta nello stesso anno dell'attacco alla casa di <a onclick="navigateTo('Zella (Avengers)')">Zella</a>), il comando passò a Zella, che da Capo degli Avengers è di fatto anche il leader dell'America.</p>
+<p>Gli Avengers non sono solo un gruppo di eroi: sono il governo. L'America che conoscevi non esiste — c'è l'America degli Avengers, e la bandiera dello stato è la loro bandiera.</p>
+
+<h2 id="membri-av">Membri <span class="edit-link" onclick="openEditor('Avengers')">[modifica]</span></h2>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2.2">
+  <li><a onclick="navigateTo('Iron Spisso Man')"><b>Iron Spisso Man</b></a> — Fondatore. Nato a Serrano, Clan Spisso. Morto. Poi tornato. Poi manesco.</li>
+  <li><a onclick="navigateTo('Zella (Avengers)')"><b>Zella</b></a> — Capo degli Avengers. L'Albanese. Non si tocca la sua casa.</li>
+  <li><a onclick="navigateTo('Valerio Mozzarella')"><b>Valerio Mozzarella</b></a> — Il Capitan Bianco. Talmente bianco da accecare i nemici.</li>
+  <li><a onclick="navigateTo('Nicolò')"><b>Nicolò</b></a> — Fratello di Francesco Maggiore. Nero.</li>
+  <li><a onclick="navigateTo('Spider Sparm')"><b>Spider Sparm</b></a> — Spider-Man nero. Inventore. Trattato male da Iron Spisso Man, cosa che a Zella non andava giù.</li>
+  <li><a onclick="navigateTo('Emanuele Pascali')"><b>Emanuele Pascali</b></a> — Della Famiglia Pocchia. Ha lasciato tutto per seguire i suoi sogni negli Avengers.</li>
+  <li><a onclick="navigateTo('Francesco Maggiore')"><b>Francesco Maggiore</b></a> — Ha lo Scudo Maggiore, che si ingrandisce e rimpicciolisce. Trattato male da Iron Spisso Man.</li>
+  <li><a onclick="navigateTo('Spisshor')"><b>Spisshor</b></a> — Grande fan del Clan Spisso. Ha un martello come arma.</li>
+</ul>
+
+<h2 id="guerre-av">Le Guerre degli Avengers <span class="edit-link" onclick="openEditor('Avengers')">[modifica]</span></h2>
+<p>Vedi: <a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra degli Avengers</a> e <a onclick="navigateTo('Seconda Guerra degli Avengers')">Seconda Guerra degli Avengers</a>.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>America</a> <a>Organizzazioni eroiche</a></div>`;
 }
 
-function buildNordItalia() {
-  return `<h1 class="page-title">Nord Italia</h1>
+function buildIronSpissoMan() {
+  return `<div class="wiki-notice"><span class="ni">🔴</span><span>La vera identità di Iron Spisso Man è <b>sconosciuta</b>. Si pensa sia Alex Spisso scappato dall'arresto. Lui non conferma. Lui non nega. Lui vola.</span></div>
+<h1 class="page-title">Iron Spisso Man</h1>
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
 <div class="infobox">
-  <div class="infobox-title">Nord Italia</div>
-  
-  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/200px-Flag_of_Italy.svg.png" alt="Nord Italia" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <div class="infobox-title">Iron Spisso Man</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="iron_spisso_man.jpg" alt="Iron Spisso Man" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
   <table>
-    <tr><td>Capitale</td><td>Milano</td></tr>
-    <tr><td>Fondazione</td><td>22 aM (1939)</td></tr>
-    <tr><td>Confini</td><td>Alpi a nord · Po a sud circa · <a onclick="navigateTo('Repubblica di Venezia')">Venezia</a> a est</td></tr>
-    <tr><td>Carattere</td><td>Industriale, pragmatico</td></tr>
-    <tr><td>Relazioni</td><td>Inizialmente filo-tedesco · poi neutralità commerciale</td></tr>
+    <tr><td>Vera identità</td><td><b>Sconosciuta</b> (si pensa <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a>)</td></tr>
+    <tr><td>Nascita</td><td>Serrano — Clan Spisso</td></tr>
+    <tr><td>Ruolo</td><td>Fondatore degli Avengers · Protettore di Serrano</td></tr>
+    <tr><td>Morte (prima)</td><td>Stesso anno dell'attacco alla casa di Zella</td></tr>
+    <tr><td>Resurrezione</td><td>Per mano di <a onclick="navigateTo('Zella (Avengers)')">Zella</a> usando le armi di Darth Vader</td></tr>
+    <tr><td>Comportamento post-resurrezione</td><td>Problematico</td></tr>
   </table>
 </div>
-<p>Il <b>Nord Italia</b> fu la prima entità a separarsi formalmente dall'Italia unita, approfittando del collasso del regime mussoliniano. Con un'economia industriale già semi-autonoma, la sua classe dirigente visse la separazione come una liberazione pratica. La neutralità fu la sua politica di sopravvivenza durante la <a onclick="navigateTo('Seconda Guerra Mondiale')">Seconda Guerra Mondiale</a>.</p>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#identita-ism">Identità</a></li>
+    <li><a href="#morte-ism">La morte</a></li>
+    <li><a href="#ritorno-ism">Il ritorno</a></li>
+    <li><a href="#comportamento-ism">Il comportamento dopo il ritorno</a></li>
+  </ol>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Frammentazione Italia</a> <a>Paesi italiani</a></div>`;
+
+<h2 id="identita-ism">Identità <span class="edit-link" onclick="openEditor('Iron Spisso Man')">[modifica]</span></h2>
+<p><b>Iron Spisso Man</b> è il supereroe fondatore degli <a onclick="navigateTo('Avengers')">Avengers</a> e protettore di Serrano. Nessuno conosce la sua vera identità. La tesi più accreditata tra i ricercatori della Pocchiaciclopedia è che sia <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a>, membro del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a>, scappato dall'arresto dell'89 aM. La logica è semplice: Alex Spisso scompare nell'89 aM. Iron Spisso Man compare a Serrano poco dopo. Entrambi evitano telecamere e domande dirette. Coincidenza? Forse. Molto probabilmente no.</p>
+<p>Il suo nome deriva dall'armatura di ferro e dal suo legame con il Clan Spisso — l'unico supereroe al mondo il cui cognome da supereroe è uguale al cognome di famiglia. Una scelta discutibile sul piano della segretezza. Ma è Serrano. Ci si aspetta coerenza.</p>
+
+<h2 id="morte-ism">La morte <span class="edit-link" onclick="openEditor('Iron Spisso Man')">[modifica]</span></h2>
+<p>Iron Spisso Man morì nello stesso anno dell'attacco alla casa di <a onclick="navigateTo('Zella (Avengers)')">Zella</a> — l'infame attacco di Gianluca Pocchia dell'11 settembre paM (vedi <a onclick="navigateTo('Zella (Avengers)')">voce Zella</a>). Se ci sia un collegamento tra le due tragiche date è materia di dibattito. Zella non risponde a questa domanda.</p>
+
+<h2 id="ritorno-ism">Il ritorno <span class="edit-link" onclick="openEditor('Iron Spisso Man')">[modifica]</span></h2>
+<p>Dopo la morte di Iron Spisso Man, Zella osservò gli Avengers sgretolarsi senza la loro figura fondatrice. Decise che l'unico modo per riportarli alla grandezza era riportare in vita il loro creatore. Recuperò le armi e il casco di Darth Vader e, attraverso un processo che la Pocchiaciclopedia classifica pudicamente come «operazione di resurrezione tecno-magica», riuscì nell'impresa. Iron Spisso Man tornò.</p>
+
+<h2 id="comportamento-ism">Il comportamento dopo il ritorno <span class="edit-link" onclick="openEditor('Iron Spisso Man')">[modifica]</span></h2>
+<p>Non era esattamente lui. O forse era troppo lui. Iron Spisso Man tornato si comportava in modo inaccettabile con i colleghi Avengers. A <a onclick="navigateTo('Francesco Maggiore')">Francesco Maggiore</a> disse che il suo scudo era «un pezzo di plastica». A <a onclick="navigateTo('Spider Sparm')">Spider Sparm</a>, che gli stava mostrando orgogliosamente le sue invenzioni costruite con la tecnologia di Iron Spisso Man stesso, non dedicò nemmeno un secondo di attenzione genuina.</p>
+<p>Questo portò alla <a onclick="navigateTo('Seconda Guerra degli Avengers')">Seconda Guerra degli Avengers</a>.</p>
+<blockquote style="margin:16px 24px;padding:12px 16px;border-left:3px solid #a2a9b1;font-style:italic;font-family:'Source Serif 4',serif;font-size:13.5px;color:#333">
+  «Il tuo scudo è un pezzo di plastica.»
+  <footer style="margin-top:6px;font-size:12px;color:#54595d;font-style:normal">— Iron Spisso Man a Francesco Maggiore</footer>
+</blockquote>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>Clan Spisso</a> <a>Serrano</a> <a>Identità sconosciuta</a></div>`;
 }
 
-function buildRepubblicaVenezia() {
-  return `<h1 class="page-title">Repubblica di Venezia</h1>
+function buildZellaAvengers() {
+  return `<div class="wiki-notice"><span class="ni">⚡</span><span>Questa voce riguarda Zella come Capo degli Avengers. Non toccare la sua casa.</span></div>
+<h1 class="page-title">Zella (Avengers)</h1>
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
 <div class="infobox">
-  <div class="infobox-title">Repubblica di Venezia</div>
-  
-  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Flag_of_the_Most_Serene_Republic_of_Venice.svg/200px-Flag_of_the_Most_Serene_Republic_of_Venice.svg.png" alt="Repubblica di Venezia" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div><div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Bandiera della Serenissima — riportata in uso</div>
+  <div class="infobox-title">Zella</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="zella.jpg" alt="Zella" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
   <table>
-    <tr><td>Capitale</td><td>Venezia</td></tr>
-    <tr><td>Fondazione</td><td>23 aM (1940)</td></tr>
-    <tr><td>Carattere</td><td>Stato cuscinetto adriatico · diplomatico · commerciante</td></tr>
-    <tr><td>Tradizione</td><td>Si richiama alla Serenissima Repubblica storica</td></tr>
+    <tr><td>Origine</td><td>Albania</td></tr>
+    <tr><td>Ruolo</td><td>Capo degli <a onclick="navigateTo('Avengers')">Avengers</a> · Leader dell'America</td></tr>
+    <tr><td>Soprannome</td><td>L'Albanese</td></tr>
+    <tr><td>Casa</td><td>Attaccata da Gianluca Pocchia — 11 settembre paM</td></tr>
+    <tr><td>Poteri</td><td>Poteri elettrici · Armi di Darth Vader (temporaneamente)</td></tr>
+    <tr><td>Carattere</td><td>Paziente fino a un certo punto — poi la spada laser</td></tr>
   </table>
 </div>
-<p>La <b>Repubblica di Venezia</b> si proclamò stato indipendente nel 23 aM (1940), richiamandosi alla Serenissima. Piccola, commercialmente vivace, scelse la neutralità come politica di sopravvivenza. Il suo porto fu essenziale per i commerci tra i frammenti italiani e i Balcani.</p>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#casa-zav">L'attacco alla casa</a></li>
+    <li><a href="#piano-zav">Il piano per riportare Iron Spisso Man</a></li>
+    <li><a href="#seconda-zav">La Seconda Guerra</a></li>
+    <li><a href="#citazioni-zav">Citazioni notevoli</a></li>
+  </ol>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Frammentazione Italia</a> <a>Paesi italiani</a></div>`;
+
+<h2 id="casa-zav">L'attacco alla casa <span class="edit-link" onclick="openEditor('Zella (Avengers)')">[modifica]</span></h2>
+<p><b>Zella</b> è il Capo degli <a onclick="navigateTo('Avengers')">Avengers</a> e, per estensione, il leader dell'America. È albanese di origine, e a chi gli chiede come si sente a guidare un paese che non è il suo risponde con un silenzio eloquente.</p>
+<p>La sua casa fu attaccata e distrutta da Gianluca Pocchia il giorno dell'<b>11 settembre paM</b> — data che nel Calendario Morello corrisponde all'11 settembre in anno paM. L'attacco avvenne mentre Iron Spisso Man era ancora vivo. La perdita della casa e la morte del fondatore degli Avengers nello stesso anno segnarono Zella profondamente, al punto che il suo obiettivo principale diventò riportare Iron Spisso Man in vita.</p>
+
+<h2 id="piano-zav">Il piano per riportare Iron Spisso Man <span class="edit-link" onclick="openEditor('Zella (Avengers)')">[modifica]</span></h2>
+<p>Zella recuperò le armi di Darth Vader — la spada laser, il casco, i poteri — convinto che fossero la chiave. La teoria era che l'energia delle armi galattiche potesse attraversare la barriera tra i vivi e i morti. Era una teoria senza basi scientifiche. Funzionò comunque.</p>
+<p>Iron Spisso Man tornò. Zella aveva fatto la cosa giusta. Poi Iron Spisso Man iniziò a comportarsi male.</p>
+
+<h2 id="seconda-zav">La Seconda Guerra <span class="edit-link" onclick="openEditor('Zella (Avengers)')">[modifica]</span></h2>
+<p>Zella avvertì Iron Spisso Man più volte. Era paziente. Era ragionevole. Poi disse le parole che sono entrate nella storia (vedi sotto). Iron Spisso Man non ascoltò. Zella prese il casco di Darth Vader, lo indossò di nascosto, e tornò dagli Avengers.</p>
+<p>Quello che seguì fu la <a onclick="navigateTo('Seconda Guerra degli Avengers')">Seconda Guerra degli Avengers</a>: breve, precisa, e terminata con una spada laser nel posto sbagliato. Poi una stretta di mano.</p>
+
+<h2 id="citazioni-zav">Citazioni notevoli <span class="edit-link" onclick="openEditor('Zella (Avengers)')">[modifica]</span></h2>
+<blockquote style="margin:16px 24px;padding:12px 16px;border-left:3px solid #a2a9b1;font-style:italic;font-family:'Source Serif 4',serif;font-size:13.5px;color:#333">
+  «Se lo tocchi la mia casa e il casco di Darth Vader questa spada laser te la ficco nel—»
+  <footer style="margin-top:6px;font-size:12px;color:#54595d;font-style:normal">— Zella a Iron Spisso Man, poco prima della Seconda Guerra degli Avengers. Si fermò lì.</footer>
+</blockquote>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>Albania</a> <a>America</a></div>`;
 }
 
-function buildDucatoToscana() {
-  return `<h1 class="page-title">Ducato di Toscana</h1>
+function buildValerioMozzarella() {
+  return `<h1 class="page-title">Valerio Mozzarella</h1>
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
 <div class="infobox">
-  <div class="infobox-title">Ducato di Toscana</div>
-  
-  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Flag_of_Tuscany.svg/200px-Flag_of_Tuscany.svg.png" alt="Ducato di Toscana" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <div class="infobox-title">Valerio Mozzarella</div>
+  <div style="text-align:center;padding:8px;font-size:48px">🤍</div>
+  <div style="border:1px solid #a2a9b1;padding:8px;margin:8px;text-align:center;background:#f8f9fa">
+    <label style="font-size:12px;color:#54595d;display:block;margin-bottom:4px">Carica foto del personaggio:</label>
+    <input type="file" accept="image/*" onchange="(function(e){var r=new FileReader();r.onload=function(ev){var img=document.getElementById('img-valerio');img.src=ev.target.result;img.style.display='block';};r.readAsDataURL(e.target.files[0]);})(event)" style="font-size:11px;width:100%">
+    <img id="img-valerio" src="" alt="" style="display:none;width:100%;max-width:220px;margin:6px auto;border:1px solid #a2a9b1;display:none">
+  </div>
   <table>
-    <tr><td>Capitale</td><td>Firenze</td></tr>
-    <tr><td>Fondazione</td><td>22 aM (1939)</td></tr>
-    <tr><td>Governo</td><td>Ducato — aristocratico-conservatore</td></tr>
-    <tr><td>Carattere</td><td>Neutrale · conservatore · orgoglioso</td></tr>
+    <tr><td>Alias</td><td>Il Capitan Bianco</td></tr>
+    <tr><td>Organizzazione</td><td><a onclick="navigateTo('Avengers')">Avengers</a></td></tr>
+    <tr><td>Potere principale</td><td>È talmente bianco da accecare il nemico</td></tr>
+    <tr><td>Schieramento PGA</td><td>Con Zella</td></tr>
   </table>
 </div>
-<p>Il <b>Ducato di Toscana</b> scelse la forma aristocratica come reazione al fascismo populista. La classe dirigente fiorentina preferiva un conservatorismo stabile a qualsiasi esperimento. La neutralità assoluta fu la sua politica estera: non fare alleanze militari, vendere arte e vino a tutti.</p>
+<h2>Descrizione <span class="edit-link" onclick="openEditor('Valerio Mozzarella')">[modifica]</span></h2>
+<p><b>Valerio Mozzarella</b>, detto il <b>Capitan Bianco</b>, è uno degli Avengers. Il suo potere è semplice, brutale ed efficace: è talmente bianco che guardarlo direttamente causa cecità temporanea al nemico. Nessuno ha mai capito se sia una mutazione, un effetto dell'armatura o semplicemente un fatto biologico. Valerio non risponde a questa domanda.</p>
+<p>Combatté nella <a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra degli Avengers</a> a fianco di <a onclick="navigateTo('Zella (Avengers)')">Zella</a>.</p>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Frammentazione Italia</a> <a>Paesi italiani</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>Prima Guerra degli Avengers</a></div>`;
 }
 
-function buildRepubblicaRoma() {
-  return `<h1 class="page-title">Repubblica di Roma</h1>
+function buildNicolo() {
+  return `<h1 class="page-title">Nicolò</h1>
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
 <div class="infobox">
-  <div class="infobox-title">Repubblica di Roma</div>
-  
-  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Flag_of_Rome.svg/200px-Flag_of_Rome.svg.png" alt="Repubblica di Roma" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <div class="infobox-title">Nicolò</div>
+  <div style="text-align:center;padding:8px;font-size:48px">🖤</div>
+  <div style="border:1px solid #a2a9b1;padding:8px;margin:8px;text-align:center;background:#f8f9fa">
+    <label style="font-size:12px;color:#54595d;display:block;margin-bottom:4px">Carica foto del personaggio:</label>
+    <input type="file" accept="image/*" onchange="(function(e){var r=new FileReader();r.onload=function(ev){var img=document.getElementById('img-nicolo');img.src=ev.target.result;img.style.display='block';};r.readAsDataURL(e.target.files[0]);})(event)" style="font-size:11px;width:100%">
+    <img id="img-nicolo" src="" alt="" style="display:none;width:100%;max-width:220px;margin:6px auto;border:1px solid #a2a9b1">
+  </div>
   <table>
-    <tr><td>Capitale</td><td>Roma</td></tr>
-    <tr><td>Fondazione</td><td>23 aM (1940)</td></tr>
-    <tr><td>Governo</td><td>Repubblica laica</td></tr>
-    <tr><td>Carattere</td><td>Sorprendentemente moderna · laica · progressista</td></tr>
-    <tr><td>Vaticano</td><td>Accordo di separazione territoriale — nessuna delle due parti lo definì «soddisfacente»</td></tr>
-    <tr><td>Rivale</td><td><a onclick="navigateTo('Napoli (Stato)')">Napoli</a> per il controllo del Lazio meridionale</td></tr>
+    <tr><td>Fratello</td><td><a onclick="navigateTo('Francesco Maggiore')">Francesco Maggiore</a></td></tr>
+    <tr><td>Organizzazione</td><td><a onclick="navigateTo('Avengers')">Avengers</a></td></tr>
+    <tr><td>Schieramento PGA</td><td>Con Zella</td></tr>
   </table>
 </div>
-<p>La <b>Repubblica di Roma</b> fu una delle entità più inaspettate della frammentazione italiana: una repubblica laica e progressista che sembrava aver imparato dall'esperienza fascista più degli altri frammenti.</p>
+<h2>Descrizione <span class="edit-link" onclick="openEditor('Nicolò')">[modifica]</span></h2>
+<p><b>Nicolò</b> è uno degli Avengers, fratello di <a onclick="navigateTo('Francesco Maggiore')">Francesco Maggiore</a>. Combatté nella <a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra degli Avengers</a> a fianco di <a onclick="navigateTo('Zella (Avengers)')">Zella</a>. Il suo rapporto col fratello, che combatteva dall'altra parte, è descritto dai testimoni come «complicato ma non irrecuperabile».</p>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Frammentazione Italia</a> <a>Paesi italiani</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>Prima Guerra degli Avengers</a></div>`;
 }
 
-function buildNapoliStato() {
-  return `<h1 class="page-title">Napoli (Stato)</h1>
+function buildSpiderSparm() {
+  return `<h1 class="page-title">Spider Sparm</h1>
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
 <div class="infobox">
-  <div class="infobox-title">Stato di Napoli</div>
-  
-  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Flag_of_the_Two_Sicilies_%281816%29.svg/200px-Flag_of_the_Two_Sicilies_%281816%29.svg.png" alt="Napoli (Stato)" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div><div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Bandiera del Regno delle Due Sicilie — simbolo storico</div>
+  <div class="infobox-title">Spider Sparm</div>
+  <div style="text-align:center;padding:8px;font-size:48px">🕷️</div>
+  <div style="border:1px solid #a2a9b1;padding:8px;margin:8px;text-align:center;background:#f8f9fa">
+    <label style="font-size:12px;color:#54595d;display:block;margin-bottom:4px">Carica foto del personaggio:</label>
+    <input type="file" accept="image/*" onchange="(function(e){var r=new FileReader();r.onload=function(ev){var img=document.getElementById('img-spidersparm');img.src=ev.target.result;img.style.display='block';};r.readAsDataURL(e.target.files[0]);})(event)" style="font-size:11px;width:100%">
+    <img id="img-spidersparm" src="" alt="" style="display:none;width:100%;max-width:220px;margin:6px auto;border:1px solid #a2a9b1">
+  </div>
   <table>
-    <tr><td>Capitale</td><td><a onclick="navigateTo('Napoli')">Napoli</a></td></tr>
-    <tr><td>Fondazione</td><td>22 aM (1939)</td></tr>
-    <tr><td>Carattere</td><td>La più potente entità del Sud · controlla la maggior parte del Mezzogiorno</td></tr>
-    <tr><td>Rivali</td><td><a onclick="navigateTo('Repubblica di Roma')">Roma</a> · <a onclick="navigateTo('Serrano')">Serrano</a></td></tr>
-    <tr><td>Legame</td><td>Profondo con la memoria di <a onclick="navigateTo('Morello')">Morello</a></td></tr>
+    <tr><td>Alias</td><td>Spider-Man nero</td></tr>
+    <tr><td>Organizzazione</td><td><a onclick="navigateTo('Avengers')">Avengers</a></td></tr>
+    <tr><td>Specialità</td><td>Invenzioni tecnologiche basate sulla tecnologia di Iron Spisso Man</td></tr>
+    <tr><td>Schieramento PGA</td><td>Con Zella</td></tr>
+    <tr><td>Trattato da ISM</td><td>Male. Molto male.</td></tr>
   </table>
 </div>
-<p>Lo <b>Stato di Napoli</b> è la più potente entità meridionale emersa dalla frammentazione dell'Italia. Controlla la maggior parte del Mezzogiorno continentale e mantiene un'identità forte costruita sul ricordo dell'Età dell'Oro e della figura di <a onclick="navigateTo('Morello')">Morello</a>. Il suo peso politico supera di gran lunga quello degli altri frammenti meridionali, con l'eccezione di <a onclick="navigateTo('Serrano')">Serrano</a> che, controllando la Puglia, è il suo principale antagonista nel Sud.</p>
+<h2>Descrizione <span class="edit-link" onclick="openEditor('Spider Sparm')">[modifica]</span></h2>
+<p><b>Spider Sparm</b> è lo Spider-Man degli Avengers. Inventore prodigioso, costruì numerosi dispositivi utilizzando la tecnologia di <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a> come base — e quando volle mostrare queste invenzioni allo stesso Iron Spisso Man dopo la sua resurrezione, ricevette in cambio disinteresse totale e scortesia. Questo fu uno degli episodi che spinse <a onclick="navigateTo('Zella (Avengers)')">Zella</a> ad agire.</p>
+<p>Combatté nella <a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra degli Avengers</a> a fianco di Zella.</p>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Frammentazione Italia</a> <a>Paesi italiani</a> <a>Napoli</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>Inventori</a></div>`;
 }
 
-function buildFederazioneSiculoSarda() {
-  return `<h1 class="page-title">Federazione Siculo-Sarda</h1>
+function buildEmanuelePascali() {
+  return `<div class="wiki-notice"><span class="ni">🦅</span><span>Emanuele Pascali ha lasciato la Famiglia Pocchia per seguire i suoi sogni. Non gliene si può fare una colpa.</span></div>
+<h1 class="page-title">Emanuele Pascali</h1>
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
 <div class="infobox">
-  <div class="infobox-title">Federazione Siculo-Sarda</div>
-  
-  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Flag_of_Sicily.svg/200px-Flag_of_Sicily.svg.png" alt="Federazione Siculo-Sarda" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div><div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Trinacria siciliana — simbolo federale</div>
+  <div class="infobox-title">Emanuele Pascali</div>
+  <div style="text-align:center;padding:8px;font-size:48px">🦅</div>
+  <div style="border:1px solid #a2a9b1;padding:8px;margin:8px;text-align:center;background:#f8f9fa">
+    <label style="font-size:12px;color:#54595d;display:block;margin-bottom:4px">Carica foto del personaggio:</label>
+    <input type="file" accept="image/*" onchange="(function(e){var r=new FileReader();r.onload=function(ev){var img=document.getElementById('img-emanuele');img.src=ev.target.result;img.style.display='block';};r.readAsDataURL(e.target.files[0]);})(event)" style="font-size:11px;width:100%">
+    <img id="img-emanuele" src="" alt="" style="display:none;width:100%;max-width:220px;margin:6px auto;border:1px solid #a2a9b1">
+  </div>
   <table>
-    <tr><td>Capitali</td><td>Palermo · Cagliari</td></tr>
-    <tr><td>Fondazione</td><td>23 aM (1940)</td></tr>
-    <tr><td>Carattere</td><td>Federazione insulare · orgoglio autonomista · commercio marittimo</td></tr>
-    <tr><td>Forza</td><td>Controllo del Mediterraneo centrale</td></tr>
+    <tr><td>Famiglia di origine</td><td><a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a></td></tr>
+    <tr><td>Organizzazione attuale</td><td><a onclick="navigateTo('Avengers')">Avengers</a></td></tr>
+    <tr><td>Schieramento PGA</td><td>Con Zella</td></tr>
+    <tr><td>Motivazione</td><td>Seguire i propri sogni</td></tr>
   </table>
 </div>
-<p>La <b>Federazione Siculo-Sarda</b> nacque dall'unione di Sicilia e Sardegna nel 23 aM (1940). Le due isole avevano storicamente coltivato identità autonomiste e la frammentazione italiana fu l'occasione per formalizzarla. La Federazione controlla una posizione strategica nel Mediterraneo centrale e mantiene una flotta commerciale che la rende economicamente indipendente dai frammenti continentali.</p>
+<h2>Descrizione <span class="edit-link" onclick="openEditor('Emanuele Pascali')">[modifica]</span></h2>
+<p><b>Emanuele Pascali</b> è un membro della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> che ha lasciato la famiglia per unirsi agli <a onclick="navigateTo('Avengers')">Avengers</a>. La decisione non fu presa con leggerezza — la Famiglia Pocchia non è il tipo di famiglia da cui ci si allontana senza pensarci — ma Emanuele aveva sogni più grandi di quello che Caserta poteva offrire.</p>
+<p>Combatté nella <a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra degli Avengers</a> a fianco di <a onclick="navigateTo('Zella (Avengers)')">Zella</a>, schierandosi chiaramente contro <a onclick="navigateTo('Francesco Maggiore')">Francesco Maggiore</a>.</p>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Frammentazione Italia</a> <a>Paesi italiani</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>Famiglia Pocchia</a> <a>Sognatori</a></div>`;
+}
+
+function buildFrancescoMaggiore() {
+  return `<h1 class="page-title">Francesco Maggiore</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Francesco Maggiore</div>
+  <div style="text-align:center;padding:8px;font-size:48px">🛡️</div>
+  <div style="border:1px solid #a2a9b1;padding:8px;margin:8px;text-align:center;background:#f8f9fa">
+    <label style="font-size:12px;color:#54595d;display:block;margin-bottom:4px">Carica foto del personaggio:</label>
+    <input type="file" accept="image/*" onchange="(function(e){var r=new FileReader();r.onload=function(ev){var img=document.getElementById('img-francesco');img.src=ev.target.result;img.style.display='block';};r.readAsDataURL(e.target.files[0]);})(event)" style="font-size:11px;width:100%">
+    <img id="img-francesco" src="" alt="" style="display:none;width:100%;max-width:220px;margin:6px auto;border:1px solid #a2a9b1">
+  </div>
+  <table>
+    <tr><td>Arma</td><td>Scudo Maggiore — si ingrandisce e rimpicciolisce</td></tr>
+    <tr><td>Fratello</td><td><a onclick="navigateTo('Nicolò')">Nicolò</a></td></tr>
+    <tr><td>Organizzazione</td><td><a onclick="navigateTo('Avengers')">Avengers</a></td></tr>
+    <tr><td>Schieramento PGA</td><td>Contro Zella</td></tr>
+    <tr><td>Trattato da ISM</td><td>Male. Il suo scudo era «un pezzo di plastica».</td></tr>
+  </table>
+</div>
+<h2>Descrizione <span class="edit-link" onclick="openEditor('Francesco Maggiore')">[modifica]</span></h2>
+<p><b>Francesco Maggiore</b> è un membro degli <a onclick="navigateTo('Avengers')">Avengers</a>, fratello di <a onclick="navigateTo('Nicolò')">Nicolò</a>. La sua arma è lo <b>Scudo Maggiore</b>, uno scudo tecnologico in grado di ingrandirsi e rimpicciolirsi a comando — una delle armi più versatili dell'intera organizzazione.</p>
+<p><a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a> dopo la sua resurrezione lo definì pubblicamente «un pezzo di plastica». Francesco Maggiore non dimenticò né perdonò.</p>
+
+<h2>La Prima Guerra degli Avengers <span class="edit-link" onclick="openEditor('Francesco Maggiore')">[modifica]</span></h2>
+<p>Nella <a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra degli Avengers</a> combatté <b>contro</b> <a onclick="navigateTo('Zella (Avengers)')">Zella</a>, a fianco di <a onclick="navigateTo('Spisshor')">Spisshor</a>. Lo scudo Maggiore si rivelò fondamentale nello scontro — ingrandendosi per bloccare gli attacchi elettrici di Zella, rimpicciolendosi per contrattacchi rapidi.</p>
+
+<blockquote style="margin:16px 24px;padding:12px 16px;border-left:3px solid #a2a9b1;font-style:italic;font-family:'Source Serif 4',serif;font-size:13.5px;color:#333">
+  «Il tuo scudo è un pezzo di plastica.»
+  <footer style="margin-top:6px;font-size:12px;color:#54595d;font-style:normal">— Iron Spisso Man a Francesco Maggiore. Citazione che ha cambiato la storia degli Avengers.</footer>
+</blockquote>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>Prima Guerra degli Avengers</a></div>`;
+}
+
+function buildSpisshor() {
+  return `<h1 class="page-title">Spisshor</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Spisshor</div>
+  <div style="text-align:center;padding:8px;font-size:48px">🔨</div>
+  <div style="border:1px solid #a2a9b1;padding:8px;margin:8px;text-align:center;background:#f8f9fa">
+    <label style="font-size:12px;color:#54595d;display:block;margin-bottom:4px">Carica foto del personaggio:</label>
+    <input type="file" accept="image/*" onchange="(function(e){var r=new FileReader();r.onload=function(ev){var img=document.getElementById('img-spisshor');img.src=ev.target.result;img.style.display='block';};r.readAsDataURL(e.target.files[0]);})(event)" style="font-size:11px;width:100%">
+    <img id="img-spisshor" src="" alt="" style="display:none;width:100%;max-width:220px;margin:6px auto;border:1px solid #a2a9b1">
+  </div>
+  <table>
+    <tr><td>Arma</td><td>Martello</td></tr>
+    <tr><td>Carattere</td><td>Grande fan del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a></td></tr>
+    <tr><td>Organizzazione</td><td><a onclick="navigateTo('Avengers')">Avengers</a></td></tr>
+    <tr><td>Schieramento PGA</td><td>Contro Zella (con Francesco Maggiore)</td></tr>
+  </table>
+</div>
+<h2>Descrizione <span class="edit-link" onclick="openEditor('Spisshor')">[modifica]</span></h2>
+<p><b>Spisshor</b> è uno degli Avengers, armato di martello e caratterizzato da una devozione quasi religiosa al <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a>. Il fatto che il fondatore degli Avengers venga proprio da Serrano, cuore del Clan Spisso, non è per lui una coincidenza — è una conferma dell'ordine cosmico delle cose.</p>
+<p>Nella <a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra degli Avengers</a> combatté contro <a onclick="navigateTo('Zella (Avengers)')">Zella</a>, a fianco di <a onclick="navigateTo('Francesco Maggiore')">Francesco Maggiore</a>.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>Clan Spisso (fan)</a></div>`;
+}
+
+function buildPrimaGuerraAvengers() {
+  return `<div class="wiki-notice"><span class="ni">⚔️</span><span>Prima Guerra degli Avengers — il conflitto più paradossale della storia: un'organizzazione che combatte contro sé stessa per riportare in vita il suo fondatore.</span></div>
+<h1 class="page-title">Prima Guerra degli Avengers</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Prima Guerra degli Avengers</div>
+  <table>
+    <tr><td>Causa</td><td><a onclick="navigateTo('Zella (Avengers)')">Zella</a> vuole riportare in vita <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a> usando le armi di Darth Vader</td></tr>
+    <tr><td>Fronte di Zella</td><td>Zella · <a onclick="navigateTo('Valerio Mozzarella')">Valerio Mozzarella</a> · <a onclick="navigateTo('Nicolò')">Nicolò</a> · <a onclick="navigateTo('Spider Sparm')">Spider Sparm</a> · <a onclick="navigateTo('Emanuele Pascali')">Emanuele Pascali</a></td></tr>
+    <tr><td>Fronte avversario</td><td><a onclick="navigateTo('Francesco Maggiore')">Francesco Maggiore</a> · <a onclick="navigateTo('Spisshor')">Spisshor</a></td></tr>
+    <tr><td>Esito</td><td>Vittoria di Zella — Iron Spisso Man resuscitato</td></tr>
+  </table>
+</div>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#causa-pga">La causa</a></li>
+    <li><a href="#schieramenti-pga">Gli schieramenti</a></li>
+    <li><a href="#svolgimento-pga">Lo svolgimento</a></li>
+  </ol>
+</div>
+
+<h2 id="causa-pga">La causa <span class="edit-link" onclick="openEditor('Prima Guerra degli Avengers')">[modifica]</span></h2>
+<p><a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a>, il fondatore degli <a onclick="navigateTo('Avengers')">Avengers</a> e protettore di Serrano, era morto nello stesso anno in cui la casa di <a onclick="navigateTo('Zella (Avengers)')">Zella</a> veniva distrutta nell'attacco di Gianluca Pocchia (11 settembre paM). Zella, convinto che l'unico modo per riportare gli Avengers alla loro grandezza fosse riportare in vita il loro fondatore, recuperò le armi di Darth Vader — la spada laser, il casco, i poteri — e decise che il modo per resuscitare Iron Spisso Man era combattere tra di loro.</p>
+<p>La logica era che solo un conflitto abbastanza intenso tra gli Avengers potesse generare l'energia necessaria alla resurrezione. Era una teoria strana. Funzionò.</p>
+
+<h2 id="schieramenti-pga">Gli schieramenti <span class="edit-link" onclick="openEditor('Prima Guerra degli Avengers')">[modifica]</span></h2>
+<p><b>Fronte di Zella:</b> <a onclick="navigateTo('Zella (Avengers)')">Zella</a> stesso, <a onclick="navigateTo('Valerio Mozzarella')">Valerio Mozzarella</a> il Capitan Bianco (la cui bianchezza accecante si rivelò tattica fondamentale), <a onclick="navigateTo('Nicolò')">Nicolò</a> fratello di Francesco Maggiore, <a onclick="navigateTo('Spider Sparm')">Spider Sparm</a> con la sua tecnologia, e <a onclick="navigateTo('Emanuele Pascali')">Emanuele Pascali</a> della Famiglia Pocchia che aveva lasciato tutto per seguire i suoi sogni.</p>
+<p><b>Fronte avversario:</b> <a onclick="navigateTo('Francesco Maggiore')">Francesco Maggiore</a> con il suo Scudo Maggiore che si ingrandisce e rimpicciolisce, e <a onclick="navigateTo('Spisshor')">Spisshor</a> con il suo martello, grande fan del Clan Spisso.</p>
+
+<h2 id="svolgimento-pga">Lo svolgimento e l'esito <span class="edit-link" onclick="openEditor('Prima Guerra degli Avengers')">[modifica]</span></h2>
+<p>La guerra fu breve ma intensa. Lo Scudo Maggiore di Francesco si dimostrò formidabile: ingrandendosi fermava gli attacchi in massa, rimpicciolendosi permetteva contrattacchi rapidi. Ma il fronte di Zella era più numeroso e meglio coordinato.</p>
+<p>Il piano funzionò: <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a> tornò in vita. Gli Avengers si ritrovarono riuniti. Poi Iron Spisso Man aprì bocca, e i problemi ricominciarono da zero. Vedi: <a onclick="navigateTo('Seconda Guerra degli Avengers')">Seconda Guerra degli Avengers</a>.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>Guerre degli Avengers</a></div>`;
+}
+
+function buildSecondaGuerraAvengers() {
+  return `<div class="wiki-notice"><span class="ni">⚡</span><span>Seconda Guerra degli Avengers — terminata con una stretta di mano e una promessa: la Nigeria Spartiana.</span></div>
+<h1 class="page-title">Seconda Guerra degli Avengers</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Seconda Guerra degli Avengers</div>
+  <table>
+    <tr><td>Causa</td><td>Iron Spisso Man tratta male i colleghi Avengers</td></tr>
+    <tr><td>Combattenti</td><td><a onclick="navigateTo('Zella (Avengers)')">Zella</a> vs <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a> (solo lui)</td></tr>
+    <tr><td>Strumento di Zella</td><td>Casco di Darth Vader · poteri elettrici · spada laser</td></tr>
+    <tr><td>Tecnica finale</td><td>Spada laser nel posto sbagliato</td></tr>
+    <tr><td>Risoluzione</td><td>Stretta di mano — patto contro la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a></td></tr>
+  </table>
+</div>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#causa-sga">La causa</a></li>
+    <li><a href="#confronto-sga">L'ultimo confronto</a></li>
+    <li><a href="#guerra-sga">La guerra</a></li>
+    <li><a href="#pace-sga">La pace e il patto</a></li>
+  </ol>
+</div>
+
+<h2 id="causa-sga">La causa <span class="edit-link" onclick="openEditor('Seconda Guerra degli Avengers')">[modifica]</span></h2>
+<p>Il piano di <a onclick="navigateTo('Zella (Avengers)')">Zella</a> aveva funzionato: <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a> era tornato. Ma qualcosa non andava. Iron Spisso Man si comportava male con gli Avengers — in particolare con <a onclick="navigateTo('Francesco Maggiore')">Francesco Maggiore</a>, a cui disse che il suo scudo era «un pezzo di plastica», e con <a onclick="navigateTo('Spider Sparm')">Spider Sparm</a>, a cui non dedicò la minima attenzione mentre gli mostrava le sue invenzioni costruite sulla sua stessa tecnologia.</p>
+
+<blockquote style="margin:16px 24px;padding:12px 16px;border-left:3px solid #a2a9b1;font-style:italic;font-family:'Source Serif 4',serif;font-size:13.5px;color:#333">
+  «Il tuo scudo è un pezzo di plastica.»
+  <footer style="margin-top:6px;font-size:12px;color:#54595d;font-style:normal">— Iron Spisso Man a Francesco Maggiore</footer>
+</blockquote>
+
+<h2 id="confronto-sga">L'ultimo confronto <span class="edit-link" onclick="openEditor('Seconda Guerra degli Avengers')">[modifica]</span></h2>
+<p>Zella gli disse molte volte di smettere. Fu paziente. Fu ragionevole. Fu preciso. Iron Spisso Man non ascoltò. Allora Zella disse le ultime parole prima della guerra:</p>
+
+<blockquote style="margin:16px 24px;padding:12px 16px;border-left:3px solid #a2a9b1;font-style:italic;font-family:'Source Serif 4',serif;font-size:13.5px;color:#333">
+  «Se lo tocchi la mia casa e il casco di Darth Vader questa spada laser te la ficco nel—»
+  <footer style="margin-top:6px;font-size:12px;color:#54595d;font-style:normal">— Zella. Si fermò lì.</footer>
+</blockquote>
+
+<p>Iron Spisso Man continuò a trattare male i colleghi.</p>
+
+<h2 id="guerra-sga">La guerra <span class="edit-link" onclick="openEditor('Seconda Guerra degli Avengers')">[modifica]</span></h2>
+<p>Zella prese le armi e il casco di Darth Vader. Lo indossò di nascosto, senza che nessuno lo vedesse. Tornò dagli Avengers e attaccò — ma attaccando solo Iron Spisso Man, non i colleghi.</p>
+<p>Usò i suoi poteri elettrici. Poi, in un momento che i testimoni descrivono come «preciso e deliberato», lanciò la spada laser. Iron Spisso Man la ricevette nel posto sbagliato.</p>
+
+<h2 id="pace-sga">La pace e il patto <span class="edit-link" onclick="openEditor('Seconda Guerra degli Avengers')">[modifica]</span></h2>
+<p>Poi, Zella alzò la mano. Gesto di stretta di mano.</p>
+<p>Iron Spisso Man ricambiò.</p>
+<p>La Seconda Guerra degli Avengers finì. I due giurarono di non combattersi più — e di rivolgere invece le forze degli Avengers contro un nemico comune: la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a>. Da quel momento, la guerra con la superpotenza africana è il fronte principale degli Avengers.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>Guerre degli Avengers</a> <a>Nigeria Spartiana</a></div>`;
 }
 
 // ══════════════════════════════════════════════════════
@@ -3357,38 +3272,22 @@ const PROTECTED_PAGES = new Set([
   "De Morellis",
   "Sal da Spicci",
   "Sal da Vinci",
-  "Prima Guerra Mondiale",
-  "Seconda Guerra Mondiale",
-  "Triplice Intesa",
-  "Triplice Alleanza",
-  "Alleati (SGM)",
-  "Potenze dell'Asse",
-  "Carmelo Spisso",
-  "Francia",
-  "Impero Tedesco",
-  "Impero Austro-Ungarico",
-  "Impero Ottomano",
-  "Regno Unito",
-  "Russia Imperiale",
-  "Germania Nazista",
-  "Adolf Hitler",
-  "Dittatura Zella",
   "Zella",
-  "Nestola",
-  "Famiglia degli Elettricisti",
-  "Famiglia dei Medici (Albania)",
-  "America Fascista",
-  "Invasione della Florida",
+  "Benito Mussolini",
   "Nigeria Spartiana",
   "104 Nigeriani",
-  "URSS",
-  "Benito Mussolini",
-  "Nord Italia",
-  "Repubblica di Roma",
-  "Napoli (Stato)",
-  "Federazione Siculo-Sarda",
-  "Repubblica di Venezia",
-  "Ducato di Toscana"
+  "Avengers",
+  "Iron Spisso Man",
+  "Prima Guerra degli Avengers",
+  "Seconda Guerra degli Avengers",
+  "Zella (Avengers)",
+  "Valerio Mozzarella",
+  "Nicolò",
+  "Spider Sparm",
+  "Emanuele Pascali",
+  "Francesco Maggiore",
+  "Spisshor",
+  "America (Avengers)"
 ]);
 
 // ══════════════════════════════════════════════════════
