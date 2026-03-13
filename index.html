@@ -112,6 +112,16 @@ a.redlink { color: var(--link-red); }
 
 #search-btn:hover { color: var(--accent); }
 
+.mini-flag {
+  width: 14px;
+  height: 10px;
+  object-fit: cover;
+  border: 1px solid #a2a9b1;
+  vertical-align: -1px;
+  margin-right: 4px;
+  display: inline-block;
+}
+
 #wiki-top-actions {
   display: flex; gap: 8px; flex-shrink: 0;
 }
@@ -1108,6 +1118,7 @@ const _EXTRA_PAGE_TITLES = [
   '104 Nigeriani',
   'URSS',
   'Benito Mussolini',
+  'Italia',
   'Nord Italia',
   'Repubblica di Roma',
   'Napoli (Stato)',
@@ -1124,6 +1135,21 @@ _EXTRA_PAGE_TITLES.forEach(title => {
 // ══════════════════════════════════════════════════════
 //  CONTENUTO ARTICOLI (HTML renderizzato)
 // ══════════════════════════════════════════════════════
+
+const MINI_FLAGS = {
+  IT: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/20px-Flag_of_Italy.svg.png',
+  US: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/20px-Flag_of_the_United_States.svg.png',
+  AL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Flag_of_Albania.svg/20px-Flag_of_Albania.svg.png',
+  DE: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/20px-Flag_of_Germany.svg.png',
+  GB: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/20px-Flag_of_the_United_Kingdom.svg.png',
+  FR: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/20px-Flag_of_France.svg.png',
+  NG: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/20px-Flag_of_Nigeria.svg.png',
+  SU: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_the_Soviet_Union.svg/20px-Flag_of_the_Soviet_Union.svg.png'
+};
+
+function miniFlag(src, alt) {
+  return `<img src="${src}" alt="${alt}" class="mini-flag" onerror="this.style.display='none'">`;
+}
 
 DEFAULT_PAGES["Napoli"].content = buildNapoli();
 DEFAULT_PAGES["Clan Spisso"].content = buildClanSpisso();
@@ -1178,6 +1204,7 @@ DEFAULT_PAGES["Nigeria Spartiana"].content = buildNigeriaSpartiana();
 DEFAULT_PAGES["104 Nigeriani"].content = build104Nigeriani();
 DEFAULT_PAGES["URSS"].content = buildURSS();
 DEFAULT_PAGES["Benito Mussolini"].content = buildBenitoMussolini();
+DEFAULT_PAGES["Italia"].content = buildItalia();
 DEFAULT_PAGES["Nord Italia"].content = buildNordItalia();
 DEFAULT_PAGES["Repubblica di Roma"].content = buildRepubblicaRoma();
 DEFAULT_PAGES["Napoli (Stato)"].content = buildNapoliStato();
@@ -2980,6 +3007,27 @@ function buildBenitoMussolini() {
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Politici italiani</a> <a>Dittatori</a> <a>Frammentazione Italia</a></div>`;
 }
 
+function buildItalia() {
+  return `<h1 class="page-title">Italia</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">${miniFlag(MINI_FLAGS.IT, 'Italia')}Italia</div>
+  
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/200px-Flag_of_Italy.svg.png" alt="Italia unita" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div><div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Bandiera italiana prima della frammentazione</div>
+  <table>
+    <tr><td>Capitale</td><td><a onclick="navigateTo('Repubblica di Roma')">Roma</a></td></tr>
+    <tr><td>Stato</td><td>Italia unita · prima della frammentazione in sette entità</td></tr>
+    <tr><td>Governo</td><td>Regime di <a onclick="navigateTo('Benito Mussolini')">Mussolini</a></td></tr>
+    <tr><td>Periodo</td><td>Fino al 22 aM (1939)</td></tr>
+    <tr><td>Destino</td><td>Frammentazione progressiva tra il 22 e il 26 aM (1939–1943)</td></tr>
+  </table>
+</div>
+<p><b>Italia</b> è la voce che descrive il paese prima della frammentazione. Era ancora uno Stato unitario, con Roma come centro politico e una struttura che sembrava stabile solo in superficie. Sotto la pressione del regime fascista e delle tensioni regionali, il paese arrivò al punto di rottura che avrebbe prodotto Nord Italia, Repubblica di Venezia, Ducato di Toscana, Repubblica di Roma, Napoli, Federazione Siculo-Sarda e Serrano.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Paesi italiani</a> <a>Italia</a> <a>Frammentazione Italia</a></div>`;
+}
+
 function buildSGM() {
   return `<div class="wiki-notice"><span class="ni">⚔️</span><span>Seconda Guerra Mondiale nel Calendario Morello: <b>22–28 aM</b> (1939–1945). Divergenze dalla realtà: dittatura USA, alleanza Germania-URSS, invasione della Florida.</span></div>
 <h1 class="page-title">Seconda Guerra Mondiale</h1>
@@ -2993,9 +3041,9 @@ function buildSGM() {
     <tr><td>Date (aM)</td><td><b>22 aM – 28 aM</b></td></tr>
     <tr><td>Date (gregoriano)</td><td>1939 – 1945</td></tr>
     <tr><td>Luogo</td><td>Europa, Africa, Americhe, oceani</td></tr>
-    <tr><td>Asse</td><td><a onclick="navigateTo('Germania Nazista')">Germania Nazista</a> · <a onclick="navigateTo('URSS')">URSS</a> (22–25 aM) · <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a></td></tr>
-    <tr><td>Alleati</td><td><a onclick="navigateTo('Alleati (SGM)')">Regno Unito</a> e Dominions · <a onclick="navigateTo('Francia')">Francia Libera</a> · <a onclick="navigateTo('URSS')">URSS</a> (dal 25 aM)</td></tr>
-    <tr><td>Assenti</td><td><a onclick="navigateTo('America Fascista')">USA</a> — sotto <a onclick="navigateTo('Dittatura Zella')">dittatura Zella</a></td></tr>
+    <tr><td>Asse</td><td>${miniFlag(MINI_FLAGS.DE, 'Germania')}<a onclick="navigateTo('Germania Nazista')">Germania Nazista</a> · ${miniFlag(MINI_FLAGS.SU, 'URSS')}<a onclick="navigateTo('URSS')">URSS</a> (22–25 aM) · ${miniFlag(MINI_FLAGS.NG, 'Nigeria')}<a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a></td></tr>
+    <tr><td>Alleati</td><td>${miniFlag(MINI_FLAGS.GB, 'Regno Unito')}<a onclick="navigateTo('Alleati (SGM)')">Regno Unito</a> e Dominions · ${miniFlag(MINI_FLAGS.FR, 'Francia')}<a onclick="navigateTo('Francia')">Francia Libera</a> · ${miniFlag(MINI_FLAGS.SU, 'URSS')}<a onclick="navigateTo('URSS')">URSS</a> (dal 25 aM)</td></tr>
+    <tr><td>Assenti</td><td>${miniFlag(MINI_FLAGS.US, 'USA')}<a onclick="navigateTo('America Fascista')">USA</a> — sotto <a onclick="navigateTo('Dittatura Zella')">dittatura Zella</a></td></tr>
     <tr><td>Evento chiave</td><td><a onclick="navigateTo('Invasione della Florida')">Invasione della Florida</a> (27 aM / 1944)</td></tr>
     <tr><td>Leader principali</td><td><a onclick="navigateTo('Adolf Hitler')">Hitler</a> · <a onclick="navigateTo('Zella')">Zella</a> · Churchill · Stalin</td></tr>
   </table>
@@ -3010,6 +3058,7 @@ function buildSGM() {
   <li><a href="#italia-sgm">La frammentazione italiana</a></li>
   <li><a href="#florida-sgm">L'invasione della Florida</a></li>
   <li><a href="#morello-sgm">Il futuro: Morello</a></li>
+  <li><a href="#epilogo-sgm">Epilogo</a></li>
 </ol></div>
 
 <h2 id="contesto-sgm">Il contesto: tre fascismi simultanei <span class="edit-link" onclick="openEditor('Seconda Guerra Mondiale')">[modifica]</span></h2>
@@ -3029,6 +3078,9 @@ function buildSGM() {
 
 <h2 id="morello-sgm">Il futuro: Morello <span class="edit-link" onclick="openEditor('Seconda Guerra Mondiale')">[modifica]</span></h2>
 <p>La profezia del Morellanesimo dice che <a onclick="navigateTo('Morello')">Morello</a> tornerà alla seconda eruzione del Vesuvio. I frammenti italiani si ricomporranno intorno a lui. Le entità in conflitto con <a onclick="navigateTo('Serrano')">Serrano</a> si alleeranno sotto la sua guida. E il disordine del 27 aM — la Florida tedesca, l'America di Zella, la Nigeria Spartiana — sarà rimescolato dalla mano di qualcuno che ha già visto Napoli risorgere una volta.</p>
+
+<h2 id="epilogo-sgm">Epilogo <span class="edit-link" onclick="openEditor('Seconda Guerra Mondiale')">[modifica]</span></h2>
+<p>Nel 28 aM (1945) la guerra si chiuse senza un armistizio davvero ordinato: la Germania mantenne la testa di ponte in Florida, l'America Fascista uscì indebolita ma non sparì, l'URSS restò un alleato tattico ormai impossibile da ignorare e l'Italia rimase spezzata in più frammenti. La lezione finale fu semplice: i grandi blocchi di questa guerra si erano tenuti insieme solo per convenienza, e appena il potere cambiò peso ciascuno tornò a difendere il proprio pezzo di mondo. Da lì in poi, il dopoguerra non fu pace, ma preparazione di nuovi ritorni.</p>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Guerre mondiali</a> <a>22-28 aM</a> <a>Storia alternativa</a></div>`;
 }
@@ -3076,19 +3128,19 @@ function buildNestola() {
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
 <div class="infobox">
-  <div class="infobox-title">Nestola</div>
+  <div class="infobox-title">${miniFlag(MINI_FLAGS.AL, 'Albania')}Nestola</div>
   
-  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Flag_of_Albania.svg/200px-Flag_of_Albania.svg.png" alt="Albania settentrionale — Origine di Nestola" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Flag_of_Albania.svg/200px-Flag_of_Albania.svg.png" alt="Albania settentrionale — Origine di Nestola" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div><div style="text-align:center;padding:2px 6px 8px"><img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27200%27%20height%3D%27200%27%20viewBox%3D%270%200%20200%20200%27%3E%0A%3Crect%20width%3D%27200%27%20height%3D%27200%27%20fill%3D%27%23f8f9fa%27/%3E%0A%3Ccircle%20cx%3D%27100%27%20cy%3D%2774%27%20r%3D%2734%27%20fill%3D%27%23c8ccd1%27/%3E%0A%3Cpath%20d%3D%27M40%20184c10-35%2038-52%2060-52s50%2017%2060%2052%27%20fill%3D%27%23c8ccd1%27/%3E%0A%3Ctext%20x%3D%27100%27%20y%3D%27154%27%20font-family%3D%27Arial%2C%20sans-serif%27%20font-size%3D%2754%27%20text-anchor%3D%27middle%27%20fill%3D%27%2354595d%27%20font-weight%3D%27700%27%3EN%3C/text%3E%0A%3Ctext%20x%3D%27100%27%20y%3D%2724%27%20font-family%3D%27Arial%2C%20sans-serif%27%20font-size%3D%2716%27%20text-anchor%3D%27middle%27%20fill%3D%27%2354595d%27%3ERitratto%20Nestola%3C/text%3E%0A%3C/svg%3E" alt="Ritratto stilizzato di Nestola" style="width:100%;max-width:160px;display:block;margin:0 auto;border:1px solid #a2a9b1"></div>
   <table>
     <tr><td>Famiglia</td><td><a onclick="navigateTo('Famiglia dei Medici (Albania)')">Famiglia dei Medici</a></td></tr>
-    <tr><td>Origine</td><td>Albania settentrionale</td></tr>
+    <tr><td>Origine</td><td>${miniFlag(MINI_FLAGS.AL, 'Albania')}Albania settentrionale</td></tr>
     <tr><td>Ruolo iniziale</td><td>Co-fondatore della <a onclick="navigateTo('Dittatura Zella')">Dittatura Zella</a></td></tr>
     <tr><td>Ruolo finale</td><td>Marginalizzato poi esiliato da <a onclick="navigateTo('Zella')">Zella</a> — 25 aM (1942)</td></tr>
     <tr><td>Contributo</td><td>Minerali albanesi che finanziarono l'ascesa del regime</td></tr>
     <tr><td>"Fratellanza"</td><td>Non erano fratelli di sangue — si consideravano tali</td></tr>
   </table>
 </div>
-<p><b>Nestola</b> è la figura più tragica della storia dell'<a onclick="navigateTo('America Fascista')">America Fascista</a>. Portò le ricchezze minerarie albanesi, mise i soldi a disposizione del progetto, fu co-fondatore della dittatura. Poi Zella cominciò a fare cambiamenti. Piccoli all'inizio, poi sempre più grandi. Quando Nestola capì cosa stava succedendo, non aveva più le leve per fermarlo. I suoi minerali erano stati spesi, i suoi alleati sostituiti. Fu marginalizzato nel 24 aM (1941) e formalmente esiliato nel 25 aM (1942). Dove andò, non è documentato.</p>
+<p><b>Nestola</b> è la figura più tragica della storia dell'<a onclick="navigateTo('America Fascista')">America Fascista</a>. Portò le ricchezze minerarie albanesi, mise i soldi a disposizione del progetto, fu co-fondatore della dittatura. Poi Zella cominciò a fare cambiamenti. Piccoli all'inizio, poi sempre più grandi. Quando Nestola capì cosa stava succedendo, non aveva più le leve per fermarlo. I suoi minerali erano stati spesi, i suoi alleati sostituiti. Fu marginalizzato nel 24 aM (1941) e formalmente esiliato nel 25 aM (1942). Dove andò, non è documentato. Nelle cronache interne rimane la figura del mediatore silenzioso: meno visibile di Zella, ma decisivo nella fase iniziale del regime.</p>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>America Fascista</a> <a>Albania</a> <a>Figure tragiche</a></div>`;
 }
@@ -3098,12 +3150,12 @@ function buildZella() {
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
 <div class="infobox">
-  <div class="infobox-title">Zella</div>
+  <div class="infobox-title">${miniFlag(MINI_FLAGS.AL, 'Albania')}Zella</div>
   
-  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Flag_of_Albania.svg/200px-Flag_of_Albania.svg.png" alt="Albania — Origine di Zella" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Flag_of_Albania.svg/200px-Flag_of_Albania.svg.png" alt="Albania — Origine di Zella" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div><div style="text-align:center;padding:2px 6px 8px"><img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27200%27%20height%3D%27200%27%20viewBox%3D%270%200%20200%20200%27%3E%0A%3Crect%20width%3D%27200%27%20height%3D%27200%27%20fill%3D%27%23f8f9fa%27/%3E%0A%3Ccircle%20cx%3D%27100%27%20cy%3D%2774%27%20r%3D%2734%27%20fill%3D%27%23c8ccd1%27/%3E%0A%3Cpath%20d%3D%27M40%20184c10-35%2038-52%2060-52s50%2017%2060%2052%27%20fill%3D%27%23c8ccd1%27/%3E%0A%3Ctext%20x%3D%27100%27%20y%3D%27154%27%20font-family%3D%27Arial%2C%20sans-serif%27%20font-size%3D%2754%27%20text-anchor%3D%27middle%27%20fill%3D%27%2354595d%27%20font-weight%3D%27700%27%3EZ%3C/text%3E%0A%3Ctext%20x%3D%27100%27%20y%3D%2724%27%20font-family%3D%27Arial%2C%20sans-serif%27%20font-size%3D%2716%27%20text-anchor%3D%27middle%27%20fill%3D%27%2354595d%27%3ERitratto%20Zella%3C/text%3E%0A%3C/svg%3E" alt="Ritratto stilizzato di Zella" style="width:100%;max-width:160px;display:block;margin:0 auto;border:1px solid #a2a9b1"></div>
   <table>
     <tr><td>Famiglia</td><td><a onclick="navigateTo('Famiglia degli Elettricisti')">Famiglia degli Elettricisti</a></td></tr>
-    <tr><td>Origine</td><td>Albania meridionale · emigrato negli USA</td></tr>
+    <tr><td>Origine</td><td>${miniFlag(MINI_FLAGS.AL, 'Albania')}Albania meridionale · emigrato negli USA</td></tr>
     <tr><td>Ruolo</td><td>Dittatore dell'<a onclick="navigateTo('America Fascista')">America Fascista</a></td></tr>
     <tr><td>Al potere</td><td>16 aM (1933) – in corso</td></tr>
     <tr><td>Co-fondatore (tradito)</td><td><a onclick="navigateTo('Nestola')">Nestola</a></td></tr>
@@ -3126,7 +3178,7 @@ function buildDittaturaZella() {
   
   <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/200px-Flag_of_the_United_States.svg.png" alt="America Fascista" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div><div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">La bandiera originale degli USA — ancora in uso, ribattezzata</div>
   <table>
-    <tr><td>Stato</td><td><a onclick="navigateTo('America Fascista')">Stati Uniti d'America Fascisti</a></td></tr>
+    <tr><td>Stato</td><td>${miniFlag(MINI_FLAGS.US, 'USA')}<a onclick="navigateTo('America Fascista')">Stati Uniti d'America Fascisti</a></td></tr>
     <tr><td>Periodo</td><td>16 aM (1933) – in corso</td></tr>
     <tr><td>Fondatori</td><td><a onclick="navigateTo('Zella')">Zella</a> · <a onclick="navigateTo('Nestola')">Nestola</a> (poi esiliato)</td></tr>
     <tr><td>Capitale</td><td>Washington D.C. (ribattezzata «Alba» nel 17 aM / 1934)</td></tr>
@@ -3198,7 +3250,7 @@ function buildNigeriaSpartiana() {
     <tr><td>Fondazione</td><td>25 aM (1941)</td></tr>
     <tr><td>Capitale</td><td>Lagos</td></tr>
     <tr><td>Fondatori</td><td><a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a></td></tr>
-    <tr><td>Finanziatore</td><td><a onclick="navigateTo('Germania Nazista')">Germania Nazista</a></td></tr>
+    <tr><td>Finanziatore</td><td>${miniFlag(MINI_FLAGS.DE, 'Germania')}<a onclick="navigateTo('Germania Nazista')">Germania Nazista</a></td></tr>
     <tr><td>Ruolo SGM</td><td>Base logistica per l'<a onclick="navigateTo('Invasione della Florida')">Invasione della Florida</a></td></tr>
     <tr><td>Obiettivo dichiarato</td><td>Espansione in tutta l'Africa</td></tr>
     <tr><td>Stato rispetto al <a onclick="navigateTo('Regno Unito')">UK</a></td><td>In guerra aperta</td></tr>
@@ -3223,9 +3275,9 @@ function buildInvasioneFlorida() {
     <tr><td>Data (gregoriano)</td><td>1944</td></tr>
     <tr><td>Luogo</td><td>Florida, costa orientale degli USA</td></tr>
     <tr><td>Esito</td><td>Vittoria tedesco-sovietica. Florida occupata dalla Germania.</td></tr>
-    <tr><td>Attaccanti</td><td><a onclick="navigateTo('Germania Nazista')">Germania Nazista</a> · <a onclick="navigateTo('URSS')">URSS</a> (supporto navale)</td></tr>
-    <tr><td>Difensori</td><td><a onclick="navigateTo('America Fascista')">America Fascista</a> (difesa limitata e ambigua)</td></tr>
-    <tr><td>Base logistica</td><td><a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a></td></tr>
+    <tr><td>Attaccanti</td><td>${miniFlag(MINI_FLAGS.DE, 'Germania')}<a onclick="navigateTo('Germania Nazista')">Germania Nazista</a> · ${miniFlag(MINI_FLAGS.SU, 'URSS')}<a onclick="navigateTo('URSS')">URSS</a> (supporto navale)</td></tr>
+    <tr><td>Difensori</td><td>${miniFlag(MINI_FLAGS.US, 'USA')}<a onclick="navigateTo('America Fascista')">America Fascista</a> (difesa limitata e ambigua)</td></tr>
+    <tr><td>Base logistica</td><td>${miniFlag(MINI_FLAGS.NG, 'Nigeria')}<a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a></td></tr>
     <tr><td>Reazione di Zella</td><td>Protesta formale · nessuna controffensiva</td></tr>
   </table>
 </div>
