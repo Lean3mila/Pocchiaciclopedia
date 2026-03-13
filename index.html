@@ -863,6 +863,28 @@ const DEFAULT_PAGES = {
   <li><a onclick="navigateTo('Ignoto di Napoli')"><b>Ignoto di Napoli</b></a> — Il misterioso autore delle L.E.G.G.I. Noto anche come Specchia.</li>
 </ul>
 
+<p><b>Guerre mondiali</b></p>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><a onclick="navigateTo('Prima Guerra Mondiale')"><b>Prima Guerra Mondiale</b></a> — 3 paM – 1 aM (1914–1918). Morello arrivò a Napoli mentre la guerra era ancora in corso. Nota: volo di <a onclick="navigateTo('Carmelo Spisso')">Carmelo Spisso</a> su Vienna.</li>
+  <li><a onclick="navigateTo('Seconda Guerra Mondiale')"><b>Seconda Guerra Mondiale</b></a> — 22–28 aM (1939–1945). Germania con URSS invadono la Florida. L'America è sotto dittatura fascista. L'Italia è frammentata.</li>
+  <li><a onclick="navigateTo('Calendario Morello')"><b>Calendario Morello — Tavola di conversione</b></a> — La conversione completa tra anni aM e calendario gregoriano.</li>
+</ul>
+
+<p><b>Storia alternativa — USA e Africa</b></p>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><a onclick="navigateTo('America Fascista')"><b>America Fascista</b></a> — Gli USA sotto la dittatura di <a onclick="navigateTo('Zella')">Zella</a> dal 16 aM (1933).</li>
+  <li><a onclick="navigateTo('Dittatura Zella')"><b>Dittatura Zella</b></a> — Il regime fondato da <a onclick="navigateTo('Zella')">Zella</a> e <a onclick="navigateTo('Nestola')">Nestola</a>. Il secondo fu poi tradito e esiliato.</li>
+  <li><a onclick="navigateTo('Invasione della Florida')"><b>Invasione della Florida</b></a> — 27 aM (1944). La Germania con supporto sovietico occupa la Florida.</li>
+  <li><a onclick="navigateTo('Nigeria Spartiana')"><b>Nigeria Spartiana</b></a> — Stato africano fondato dai <a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a>, base logistica tedesca per la Florida.</li>
+</ul>
+
+<p><b>Frammentazione italiana</b></p>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><a onclick="navigateTo('Nord Italia')"><b>Nord Italia</b></a> · <a onclick="navigateTo('Repubblica di Venezia')"><b>Repubblica di Venezia</b></a> · <a onclick="navigateTo('Ducato di Toscana')"><b>Ducato di Toscana</b></a></li>
+  <li><a onclick="navigateTo('Repubblica di Roma')"><b>Repubblica di Roma</b></a> · <a onclick="navigateTo('Napoli (Stato)')"><b>Napoli (Stato)</b></a> · <a onclick="navigateTo('Federazione Siculo-Sarda')"><b>Federazione Siculo-Sarda</b></a></li>
+  <li><a onclick="navigateTo('Serrano')"><b>Serrano</b></a> — Controlla gran parte della Puglia. In conflitto con i vicini. Nel futuro si unirà a Morello.</li>
+</ul>
+
 <hr style="border:none;border-top:1px solid #a2a9b1;margin:24px 0">
 
 <h2>📝 Crea una nuova pagina</h2>
@@ -1088,6 +1110,40 @@ DEFAULT_PAGES["Camorra Salentina"].content = buildCamoraSalentina();
 DEFAULT_PAGES["De Morellis"].content = buildDeMorellis();
 DEFAULT_PAGES["Sal da Spicci"].content = buildSalDaSpicci();
 DEFAULT_PAGES["Sal da Vinci"].content = buildSalDaVinci();
+
+DEFAULT_PAGES["Prima Guerra Mondiale"].content = buildPGM();
+DEFAULT_PAGES["Seconda Guerra Mondiale"].content = buildSGM();
+DEFAULT_PAGES["Triplice Intesa"].content = buildTripliceIntesa();
+DEFAULT_PAGES["Triplice Alleanza"].content = buildTripliceAlleanza();
+DEFAULT_PAGES["Alleati (SGM)"].content = buildAlleatiSGM();
+DEFAULT_PAGES["Potenze dell'Asse"].content = buildPotenzeDellAsse();
+DEFAULT_PAGES["Carmelo Spisso"].content = buildCarmeloSpisso();
+DEFAULT_PAGES["Francia"].content = buildFrancia();
+DEFAULT_PAGES["Impero Tedesco"].content = buildImperoTedesco();
+DEFAULT_PAGES["Impero Austro-Ungarico"].content = buildImperoAustroUngarico();
+DEFAULT_PAGES["Impero Ottomano"].content = buildImperoOttomano();
+DEFAULT_PAGES["Regno Unito"].content = buildRegnoUnito();
+DEFAULT_PAGES["Russia Imperiale"].content = buildRussiaImperiale();
+DEFAULT_PAGES["Germania Nazista"].content = buildGermaniaNazista();
+DEFAULT_PAGES["Adolf Hitler"].content = buildAdolfHitler();
+DEFAULT_PAGES["Dittatura Zella"].content = buildDittaturaZella();
+DEFAULT_PAGES["Zella"].content = buildZella();
+DEFAULT_PAGES["Nestola"].content = buildNestola();
+DEFAULT_PAGES["Famiglia degli Elettricisti"].content = buildFamigliaElettricisti();
+DEFAULT_PAGES["Famiglia dei Medici (Albania)"].content = buildFamigliaMediciAlbania();
+DEFAULT_PAGES["America Fascista"].content = buildAmericaFascista();
+DEFAULT_PAGES["Invasione della Florida"].content = buildInvasioneFlorida();
+DEFAULT_PAGES["Nigeria Spartiana"].content = buildNigeriaSpartiana();
+DEFAULT_PAGES["104 Nigeriani"].content = build104Nigeriani();
+DEFAULT_PAGES["URSS"].content = buildURSS();
+DEFAULT_PAGES["Benito Mussolini"].content = buildBenitoMussolini();
+DEFAULT_PAGES["Nord Italia"].content = buildNordItalia();
+DEFAULT_PAGES["Repubblica di Roma"].content = buildRepubblicaRoma();
+DEFAULT_PAGES["Napoli (Stato)"].content = buildNapoliStato();
+DEFAULT_PAGES["Federazione Siculo-Sarda"].content = buildFederazioneSiculoSarda();
+DEFAULT_PAGES["Repubblica di Venezia"].content = buildRepubblicaVenezia();
+DEFAULT_PAGES["Ducato di Toscana"].content = buildDucatoToscana();
+
 
 function buildSalDaSpicci() {
   return `<div class="wiki-notice"><span class="ni">🎵</span><span>Questa voce riguarda il co-governatore di <a onclick="navigateTo('Napoli')">Napoli</a> durante l'Età dell'Oro. Per la carriera musicale successiva alla scomparsa, vedi <a onclick="navigateTo('Sal da Vinci')">Sal da Vinci</a>.</span></div>
@@ -2222,7 +2278,7 @@ function buildMorello() {
 }
 
 function buildCalendarioMorello() {
-  return `<div class="wiki-notice"><span class="ni">&#x1F4C5;</span><span>Il Calendario Morello è un sistema di datazione ancora in uso informale. Tutte le date in questa enciclopedia sono espresse in anni aM — <i>anno Morello</i>.</span></div>
+  return `<div class="wiki-notice"><span class="ni">📅</span><span>Il Calendario Morello è il sistema di datazione ufficiale di questa enciclopedia. Tutte le date sono in <b>aM</b> (anno Morello) o <b>paM</b> (pre-anno-Morello). La conversione con il calendario gregoriano è documentata in questa voce.</span></div>
 <h1 class="page-title">Calendario Morello</h1>
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
@@ -2231,62 +2287,95 @@ function buildCalendarioMorello() {
   <table>
     <tr><td>Tipo</td><td>Sistema di datazione lineare</td></tr>
     <tr><td>Fondatore</td><td><a onclick="navigateTo('Morello')">Morello</a></td></tr>
-    <tr><td>Anno zero</td><td>Arrivo di Morello a <a onclick="navigateTo('Napoli')">Napoli</a></td></tr>
-    <tr><td>Evento cardine</td><td>Eruzione del Vesuvio — Anno 17 aM</td></tr>
-    <tr><td>Abbreviazione</td><td><b>aM</b> (anno Morello)</td></tr>
+    <tr><td>Anno zero</td><td>1917 d.C. — arrivo di Morello a Napoli</td></tr>
+    <tr><td>Formula di conversione</td><td><b>aM = anno gregoriano − 1917</b></td></tr>
+    <tr><td>Esempio</td><td>1980 d.C. = 63 aM · 1945 d.C. = 28 aM</td></tr>
+    <tr><td>Abbreviazioni</td><td><b>aM</b> dopo l'Anno 0 · <b>paM</b> prima dell'Anno 0</td></tr>
     <tr><td>Uso attuale</td><td>Informale — Napoli, Salento, questa enciclopedia</td></tr>
     <tr><td>Adottato ufficialmente da</td><td>Nessuno. Come al solito.</td></tr>
   </table>
 </div>
-<p>Il <b>Calendario Morello</b> è un sistema di datazione lineare il cui anno zero corrisponde all'arrivo di <a onclick="navigateTo('Morello')">Morello</a> a <a onclick="navigateTo('Napoli')">Napoli</a>. Le date sono espresse in <b>aM</b> — <i>anno Morello</i> — e contano in avanti dal momento in cui il co-governatore della città comparve, secondo la tradizione, «dalla direzione degli Appennini, senza bagagli e senza spiegazioni».</p>
-<p>Non è un calendario ufficiale. Non è mai stato adottato da nessun ente pubblico, non compare su nessun documento anagrafico, e la maggior parte dei napoletani che lo usa non saprebbe spiegare con esattezza da dove venga. Lo usano comunque, il che a Napoli equivale a una forma di ratifica istituzionale.</p>
+
+<p>Il <b>Calendario Morello</b> è un sistema di datazione lineare il cui anno zero corrisponde all'arrivo di <a onclick="navigateTo('Morello')">Morello</a> a <a onclick="navigateTo('Napoli')">Napoli</a> nel <b>1917 d.C.</b> Le date sono espresse in <b>aM</b> — <i>anno Morello</i> — e contano in avanti da quel momento. Per gli anni precedenti si usa <b>paM</b> (<i>pre-anno-Morello</i>), con i numeri che crescono andando indietro.</p>
+<p>La formula è semplice: <b>aM = anno gregoriano − 1917</b>. Quindi 1980 d.C. = 63 aM, 1945 d.C. = 28 aM, 1914 d.C. = 3 paM. Non è un calendario ufficiale, non compare su nessun documento anagrafico, e nessuna istituzione lo ha mai riconosciuto. Lo usano comunque, il che a Napoli equivale a una ratifica istituzionale.</p>
 
 <div class="toc-box">
   <div class="toc-title">Indice</div>
   <ol>
-    <li><a href="#origini-cm">Origini e istituzione</a></li>
-    <li><a href="#struttura-cm">Struttura del calendario</a></li>
-    <li><a href="#eventi-cm">Date fondamentali</a></li>
+    <li><a href="#origini-cm">Origini</a></li>
+    <li><a href="#conversione-cm">Tavola di conversione gregoriano ↔ aM</a></li>
+    <li><a href="#eventi-cm">Cronologia completa</a></li>
     <li><a href="#uso-cm">Uso attuale</a></li>
     <li><a href="#controversie-cm">Controversie accademiche</a></li>
   </ol>
 </div>
 
-<h2 id="origini-cm">Origini e istituzione <span class="edit-link" onclick="openEditor('Calendario Morello')">[modifica]</span></h2>
-<p>Il calendario fu istituito da <a onclick="navigateTo('Morello')">Morello</a> stesso durante i primi anni del suo governo su <a onclick="navigateTo('Napoli')">Napoli</a>, verosimilmente come strumento amministrativo: un modo per tenere i conti, datare i contratti, registrare le riscossioni nei porti. La praticità era il suo scopo originario. La permanenza fu un effetto collaterale imprevisto.</p>
-<p>Il co-governatore <a onclick="navigateTo('Sal da Spicci')">Sal da Spicci</a> avrebbe contribuito, secondo alcune versioni, a diffonderlo tra i commercianti e nei mercati attraverso la propria rete di relazioni. Dove Morello imponeva il sistema per efficienza, Sal lo faceva adottare per simpatia — due metodi diversi con lo stesso risultato.</p>
-<p>Dopo la scomparsa di Morello nell'Anno 17 aM, il calendario sopravvisse per inerzia e poi per affetto. Non c'era nessun motivo istituzionale per continuare a usarlo. C'erano, però, decenni di abitudine, un'intera generazione di mercanti che non sapeva datare le cose in altro modo, e la sensazione vaga ma persistente che cambiare sistema equivalesse ad ammettere che Morello non sarebbe tornato. Nessuno a Napoli era disposto ad ammetterlo.</p>
+<h2 id="origini-cm">Origini <span class="edit-link" onclick="openEditor('Calendario Morello')">[modifica]</span></h2>
+<p>Il calendario fu istituito da <a onclick="navigateTo('Morello')">Morello</a> durante i primi anni del suo governo su Napoli come strumento amministrativo. <a onclick="navigateTo('Sal da Spicci')">Sal da Spicci</a> lo diffuse tra commercianti e mercati attraverso la propria rete. Dove Morello imponeva il sistema per efficienza, Sal lo faceva adottare per simpatia.</p>
+<p>Dopo la scomparsa di Morello nell'Anno 17 aM (1934 d.C.), il calendario sopravvisse per inerzia, poi per affetto, poi per la convinzione silenziosa che abbandonarlo sarebbe equivalso ad ammettere che Morello non sarebbe tornato. Nessuno a Napoli era disposto ad ammetterlo.</p>
+<p>Una nota storica importante: l'Anno 0 aM — il 1917 d.C. — cade proprio negli anni della <a onclick="navigateTo('Prima Guerra Mondiale')">Prima Guerra Mondiale</a>. Morello arrivò a Napoli mentre l'Europa bruciava. Alcuni storici del Morellanesimo vedono in questo una coincidenza significativa. Morello, per quanto se ne sa, non commentò mai la faccenda.</p>
 
-<h2 id="struttura-cm">Struttura del calendario <span class="edit-link" onclick="openEditor('Calendario Morello')">[modifica]</span></h2>
-<p>Il Calendario Morello è un sistema lineare e decimale: conta gli anni in avanti dall'Anno 0 senza interruzioni, azzeramenti o riforme. Non ha mesi propri — si appoggia al calendario giuliano prima e gregoriano poi per le suddivisioni mensili — ma usa esclusivamente la numerazione aM per gli anni.</p>
-<p>La formula di conversione tra il calendario gregoriano e quello Morello non è nota con certezza, poiché l'anno zero non è stato mai fissato con precisione documentale. Le stime degli storici locali variano di circa un decennio, il che rende ogni conversione un esercizio di approssimazione ragionata. A Napoli questa incertezza non è considerata un problema. È considerata carattere.</p>
-<p>L'abbreviazione ufficiale — per quanto «ufficiale» possa applicarsi a qualcosa che nessuna istituzione ha mai riconosciuto — è <b>aM</b>, scritto minuscolo dopo il numero: <i>89 aM</i>, <i>104 aM</i>, e così via. Per indicare gli anni precedenti all'Anno 0 — ovvero prima dell'arrivo di Morello a Napoli — si usa la notazione <b>paM</b> (<i>pre-anno-Morello</i>), con i numeri che crescono andando indietro nel tempo. L'anno 6 paM è quindi sei anni prima dell'Anno 0. L'anno 104670000 paM è, per capirci, molto prima.</p>
+<h2 id="conversione-cm">Tavola di conversione gregoriano ↔ aM <span class="edit-link" onclick="openEditor('Calendario Morello')">[modifica]</span></h2>
+<p style="font-family:sans-serif;font-size:13px;color:#54595d;margin-bottom:8px"><b>Formula:</b> aM = anno gregoriano − 1917 &nbsp;|&nbsp; anno gregoriano = aM + 1917 &nbsp;|&nbsp; per gli anni paM: anno gregoriano = 1917 − paM</p>
 
-<h2 id="eventi-cm">Date fondamentali nel Calendario Morello <span class="edit-link" onclick="openEditor('Calendario Morello')">[modifica]</span></h2>
-<ul style="margin:0 0 14px 24px;font-family:sans-serif;font-size:13px;line-height:2.2">
-  <li><b>Anno 104670000 paM</b> — Creazione del mondo da parte di <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a>, con l'assistenza dell'architetto <a onclick="navigateTo('VitoCarlo Tommasi')">VitoCarlo Tommasi</a>.</li>
-  <li><b>Anno 6 paM</b> — <a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali</a> conosce Pierpaolo, futuro padre di <a onclick="navigateTo('Morello')">Morello</a>, durante il servizio militare.</li>
-  <li><b>Anno 0 aM</b> — Arrivo di <a onclick="navigateTo('Morello')">Morello</a> a Napoli. Inizio dell'Età dell'Oro.</li>
-  <li><b>Anno 17 aM</b> — Eruzione del Vesuvio. Fine dell'Età dell'Oro. Scomparsa di Morello e <a onclick="navigateTo('Sal da Spicci')">Sal da Spicci</a>.</li>
-  <li><b>Anno 89 aM</b> — Smantellamento del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> ad opera di <a onclick="navigateTo('Riccardo Pascali')">Riccardo Pascali</a>.</li>
-  <li><b>Anno 90 aM</b> — <a onclick="navigateTo('Serrano')">Serrano</a> va in fiamme un anno dopo la fine del Clan Spisso. Il <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> interviene e ripristina il controllo, fondando il <a onclick="navigateTo('Topismo')">Topismo</a>.</li>
-  <li><b>Anno 104 aM</b> — Pensionamento di <a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali "il Pocchia"</a> dall'esercito.</li>
-  <li><b>Anno 105 aM</b> — Il <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> viene scoppulato a morte da eretici legati alla <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a>.</li>
-  <li><b>Anno 106 aM</b> — Marcia su Serrano dei <a onclick="navigateTo('Topismo')">Ludotopici</a> guidati da <a onclick="navigateTo('Cheddar Mussolini')">Cheddar Mussolini</a>. Instaurazione della dittatura topista.</li>
-  <li><b>Anno ignoto aM</b> — Seconda eruzione del Vesuvio. Ritorno di Morello. (Data non ancora disponibile.)</li>
-</ul>
+<table style="font-family:sans-serif;font-size:13px;border-collapse:collapse;width:100%;margin-bottom:16px">
+  <tr style="background:#eaf3fb;font-weight:bold">
+    <td style="padding:6px 10px;border:1px solid #a2a9b1">Anno gregoriano</td>
+    <td style="padding:6px 10px;border:1px solid #a2a9b1">Anno Morello</td>
+    <td style="padding:6px 10px;border:1px solid #a2a9b1">Evento</td>
+  </tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1911 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>6 paM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali</a> conosce Pierpaolo durante il servizio militare</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1914 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>3 paM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Inizio <a onclick="navigateTo('Prima Guerra Mondiale')">Prima Guerra Mondiale</a></td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1917 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>Anno 0 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Arrivo di <a onclick="navigateTo('Morello')">Morello</a> a Napoli · inizio Età dell'Oro · fine Prima Guerra Mondiale (novembre 1918 = Anno 1 aM)</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1918 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>1 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Fine <a onclick="navigateTo('Prima Guerra Mondiale')">Prima Guerra Mondiale</a> · Trattato di Versailles</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1920 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>3 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Nascita di <a onclick="navigateTo('Carmelo Spisso')">Carmelo Spisso</a> (aviatore)</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1922 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>5 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Benito Mussolini')">Mussolini</a> prende il potere in Italia</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1933 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>16 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Adolf Hitler')">Hitler</a> al potere in Germania · <a onclick="navigateTo('Zella')">Zella</a> e <a onclick="navigateTo('Nestola')">Nestola</a> fondano la <a onclick="navigateTo('Dittatura Zella')">Dittatura Zella</a> negli USA</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1934 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>17 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Eruzione del Vesuvio · fine Età dell'Oro · scomparsa di <a onclick="navigateTo('Morello')">Morello</a> e <a onclick="navigateTo('Sal da Spicci')">Sal da Spicci</a></td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1935 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>18 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Nascita di <a onclick="navigateTo('Ermenegildo Spisso')">Ermenegildo "Gildo" Spisso</a> (14 febbraio)</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1939 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>22 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Inizio <a onclick="navigateTo('Seconda Guerra Mondiale')">Seconda Guerra Mondiale</a> · Italia si frammenta progressivamente</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1940 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>23 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Fondazione del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> da Gennaro Spisso</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1942 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>25 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> fondata dai <a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a> · rotte atlantiche aperte alla Germania</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1944 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>27 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Invasione della Florida')">Invasione della Florida</a> da parte della Germania con supporto sovietico</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1945 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>28 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Fine <a onclick="navigateTo('Seconda Guerra Mondiale')">Seconda Guerra Mondiale</a> in Europa · Florida sotto occupazione tedesca</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1951 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>34 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Laurea di <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a> a Napoli</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1952 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>35 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Nascita di <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> (12 marzo)</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1955 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>38 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Dottorato di <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a></td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1958 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>41 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Gildo torna a Serrano</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1964 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>47 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Pubblicazione <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')">F.O.N.D.A.M.E.N.T.A.</a> di Gildo</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1968 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>51 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Pubblicazione <a onclick="navigateTo('L.E.G.G.I.')">L.E.G.G.I.</a> (anonimo Specchia)</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1974 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>57 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Salvatore Spisso abbandona il consorzio del Clan</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1977–1982 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>60–65 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Alex Spisso in USA — incontra Penelope Hegseth</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1980 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>63 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Nascita di <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> (6 giugno, Forest Lake, Minnesota)</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1981 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>64 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Alex Spisso torna in Italia</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1982–1992 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>65–75 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Apice del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a></td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1987 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>70 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Napoli ridotta a macerie</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1992 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>75 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Crisi rifiuti a Napoli</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1995 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>78 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Morte di <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a> (3 ottobre)</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1997 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>80 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Alessio Spisso in Afghanistan</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2004 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>87 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Intercettazioni "nipote americano"</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2006 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>89 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Operazione <a onclick="navigateTo('Riccardo Pascali')">Riccardo Pascali</a> — smantellamento del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a></td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2007 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>90 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Serrano in fiamme · apparizione del <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a></td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2021 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>104 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Pensionamento di <a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali</a> · morte del <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a></td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2022 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>105 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Il <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> viene scoppulato a morte</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2023 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>106 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Cheddar Mussolini')">Cheddar Mussolini</a> guida la Marcia su Serrano · dittatura topista</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2025 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>108 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> diventa 22° Segretario alla Difesa USA (25 gennaio)</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">Data ignota</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>? aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Seconda eruzione del Vesuvio · ritorno di <a onclick="navigateTo('Morello')">Morello</a></td></tr>
+</table>
+
+<h2 id="eventi-cm">Note sulla conversione — eventi chiave <span class="edit-link" onclick="openEditor('Calendario Morello')">[modifica]</span></h2>
+<p>Una coincidenza che i seguaci del Morellanesimo trovano tutt'altro che casuale: l'Anno 0 aM — il 1917 d.C. — cade in piena <a onclick="navigateTo('Prima Guerra Mondiale')">Prima Guerra Mondiale</a>. Morello arrivò a Napoli mentre il mondo bruciava. La <a onclick="navigateTo('Prima Guerra Mondiale')">Prima Guerra Mondiale</a> si svolse tra il <b>3 paM e il 1 aM</b> (1914–1918). La <a onclick="navigateTo('Seconda Guerra Mondiale')">Seconda Guerra Mondiale</a> tra il <b>22 e il 28 aM</b> (1939–1945).</p>
+<p>La <a onclick="navigateTo('Dittatura Zella')">Dittatura Zella</a> negli USA nacque nel <b>16 aM</b> (1933), lo stesso anno in cui Hitler prese il potere in Germania — la stessa crisi globale post-Versailles che aprì lo spazio a entrambi. L'<a onclick="navigateTo('Invasione della Florida')">Invasione della Florida</a> avvenne nel <b>27 aM</b> (1944).</p>
+<p>Il <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> fu fondato nel <b>23 aM</b> (1940) — in piena Seconda Guerra Mondiale, in un'Italia già frammentata. Fu smantellato nell'<b>89 aM</b> (2006), settant'anni dopo.</p>
 
 <h2 id="uso-cm">Uso attuale <span class="edit-link" onclick="openEditor('Calendario Morello')">[modifica]</span></h2>
-<p>Il calendario è usato informalmente in due zone geografiche: i vicoli del centro storico di Napoli — dove anziani e giocatori di carte lo usano per datare eventi della memoria collettiva — e alcune aree del Salento, in particolare intorno alle zone di presunta influenza della <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a>, dove la connessione con la figura di Morello rimane viva.</p>
-<p>I seguaci del <a onclick="navigateTo('Morello')">Morellanesimo</a> lo adottano come sistema di datazione esclusivo, rifiutando il calendario gregoriano per i propri documenti interni. Questo ha creato qualche complicazione con le anagrafi comunali, ma i credenti tendono a considerare queste complicazioni come un test di fede.</p>
-<p><b>Pocchiaciclopedia</b> adotta il Calendario Morello come sistema di datazione ufficiale per tutte le voci. Questo è in parte per coerenza narrativa e in parte perché il fondatore di questa enciclopedia ritiene che il calendario gregoriano, pur essendo più preciso, sia considerevolmente meno interessante.</p>
+<p>Il calendario è usato informalmente nei vicoli del centro storico di Napoli e nelle aree del Salento legate alla <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a>. I seguaci del Morellanesimo lo adottano come sistema esclusivo, rifiutando il calendario gregoriano per i propri documenti interni. <b>Pocchiaciclopedia</b> lo adotta come sistema ufficiale per tutte le voci.</p>
 
 <h2 id="controversie-cm">Controversie accademiche <span class="edit-link" onclick="openEditor('Calendario Morello')">[modifica]</span></h2>
-<p>Gli storici accademici che si sono occupati del Calendario Morello — prevalentemente nell'ambito di studi sulla cultura popolare napoletana — hanno sollevato tre obiezioni principali. Prima: l'anno zero non è verificabile, rendendo il sistema inutile per la datazione assoluta. Seconda: la figura di Morello stessa è storicamente non documentata, il che pone domande sulla legittimità dell'intero impianto. Terza: il sistema è rimasto invariato per secoli nonostante l'assenza di qualsiasi autorità che lo mantenga, il che è o un miracolo sociologico o una prova che a Napoli le tradizioni sopravvivono per pura testardaggine.</p>
-<p>I napoletani che usano il calendario tendono a rispondere a queste obiezioni con una scrollata di spalle. «Funziona» è la difesa più comune. «E comunque Morello tornerà» è la seconda.</p>
-<div class="stub-box"><span style="font-size:22px">&#x1F4C5;</span><span>Nessuna istituzione accademica ha ancora riconosciuto il Calendario Morello. Aggiornare questa voce quando la situazione cambierà.</span></div>
+<p>Gli storici accademici hanno sollevato tre obiezioni: l'anno zero non è verificabile con fonti primarie; la figura di Morello stessa non è documentata; il sistema è sopravvissuto per secoli senza nessuna autorità che lo mantenesse, il che è un miracolo sociologico o una prova che a Napoli le tradizioni sopravvivono per pura testardaggine. I napoletani rispondono con una scrollata di spalle. «Funziona» è la difesa più comune. «E comunque Morello tornerà» è la seconda.</p>
+<div class="stub-box"><span style="font-size:22px">📅</span><span>Nessuna istituzione accademica ha ancora riconosciuto il Calendario Morello. Aggiornare questa voce quando la situazione cambierà.</span></div>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Sistemi di datazione</a> <a>Cultura napoletana</a> <a>Morello</a> <a>Morellanesimo</a> <a>Cose che nessuno ha ufficializzato ma tutti usano</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Sistemi di datazione</a> <a>Cultura napoletana</a> <a>Morello</a> <a>Conversione gregoriano-aM</a></div>`;
 }
 
 function buildGianlucaPascali() {
@@ -2500,6 +2589,740 @@ function buildFamigliaPocchia() {
 
 
 // ══════════════════════════════════════════════════════
+//  BUILDER — GUERRE MONDIALI E STORIA ALTERNATIVA
+// ══════════════════════════════════════════════════════
+
+function buildCarmeloSpisso() {
+  return `<h1 class="page-title">Carmelo Spisso</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Carmelo Spisso</div>
+  
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Fokker_Dr.I_Replika.jpg/280px-Fokker_Dr.I_Replika.jpg" alt="Biplano della PGM" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div><div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Un biplano simile a quello trafugato da Carmelo Spisso</div>
+  <table>
+    <tr><td>Nascita</td><td>circa 3 paM (1914), Caserta</td></tr>
+    <tr><td>Morte</td><td>1 paM (1916), sopra Vienna</td></tr>
+    <tr><td>Ruolo</td><td>Aviatore, ufficiale dell'Intesa</td></tr>
+    <tr><td>Famiglia</td><td><a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> (ramo anziano)</td></tr>
+    <tr><td>Legame</td><td>Zio di Gennaro "o' Professore" Spisso</td></tr>
+    <tr><td>Azione celebre</td><td>Volo e lancio propaganda su Vienna, 1 paM (1916)</td></tr>
+    <tr><td>Onorificenza</td><td>Medaglia d'oro al valor militare (postuma) — poi venduta</td></tr>
+  </table>
+</div>
+<p><b>Carmelo Spisso</b> (Caserta, circa 1914 – Vienna, 1916) fu un aviatore italiano e l'unico membro del ramo anziano del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> ad aver fatto qualcosa di eroico senza secondi fini. Zio di Gennaro «o' Professore» Spisso, durante la <a onclick="navigateTo('Prima Guerra Mondiale')">Prima Guerra Mondiale</a> compì in solitaria un volo su Vienna a bordo di un biplano militare e sganciò volantini di propaganda sulla capitale austro-ungarica — operazione ispirata al celebre volo di D'Annunzio, ma condotta con uno stile più casertano: nessun annuncio preliminare, biplano trafugato dal campo d'aviazione la notte prima, senza permesso del comando.</p>
+<p>Non tornò. La medaglia postuma fu ritirata da un cugino e venduta due anni dopo. <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a> scrisse di lui una sola volta: «L'unico Spisso che volò verso qualcosa invece di fuggire da qualcosa. Forse per questo non tornò.»</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Clan Spisso</a> <a>Prima Guerra Mondiale</a> <a>Aviatori italiani</a></div>`;
+}
+
+function buildPGM() {
+  return `<div class="wiki-notice"><span class="ni">⚔️</span><span>Prima Guerra Mondiale nel Calendario Morello: <b>3 paM – 1 aM</b> (1914–1918). Evento anomalo: volo di <a onclick="navigateTo('Carmelo Spisso')">Carmelo Spisso</a> su Vienna (1 paM / 1916).</span></div>
+<h1 class="page-title">Prima Guerra Mondiale</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Prima Guerra Mondiale</div>
+  
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Ww1_allied_powers.jpg/320px-Ww1_allied_powers.jpg" alt="Prima Guerra Mondiale" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div><div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Fronte occidentale, 1916</div>
+  <table>
+    <tr><td>Date (aM)</td><td><b>3 paM – 1 aM</b></td></tr>
+    <tr><td>Date (gregoriano)</td><td>1914 – 1918</td></tr>
+    <tr><td>Luogo</td><td>Europa, Medio Oriente, Africa, oceani</td></tr>
+    <tr><td>Esito</td><td>Vittoria della <a onclick="navigateTo('Triplice Intesa')">Triplice Intesa</a>. Trattato di Versailles (1 aM / 1919).</td></tr>
+    <tr><td>Intesa</td><td><a onclick="navigateTo('Francia')">Francia</a> · <a onclick="navigateTo('Regno Unito')">Regno Unito</a> · <a onclick="navigateTo('Russia Imperiale')">Russia Imperiale</a> · <a onclick="navigateTo('Italia (PGM)')">Italia</a> (dal 2 paM)</td></tr>
+    <tr><td>Alleanza</td><td><a onclick="navigateTo('Impero Tedesco')">Impero Tedesco</a> · <a onclick="navigateTo('Impero Austro-Ungarico')">Impero Austro-Ungarico</a> · <a onclick="navigateTo('Impero Ottomano')">Impero Ottomano</a></td></tr>
+    <tr><td>Vittime stimate</td><td>Circa 20 milioni</td></tr>
+    <tr><td>Nota Pocchiaciclopedia</td><td>Volo di <a onclick="navigateTo('Carmelo Spisso')">Carmelo Spisso</a> su Vienna (1 paM / 1916)</td></tr>
+    <tr><td>Anno 0 aM</td><td>1917 — Morello arriva a Napoli mentre la guerra è ancora in corso</td></tr>
+  </table>
+</div>
+<p>La <b>Prima Guerra Mondiale</b> (3 paM – 1 aM · 1914–1918) fu il primo conflitto su scala planetaria. Nel <a onclick="navigateTo('Calendario Morello')">Calendario Morello</a> si colloca interamente nel periodo <i>pre-anno-Morello</i>: la guerra iniziò tre anni prima dell'arrivo di <a onclick="navigateTo('Morello')">Morello</a> a Napoli e finì un anno dopo. L'Anno 0 aM — il 1917 — cade nel pieno del conflitto.</p>
+<p>Gli eventi storici corrispondono alla realtà con un'unica eccezione: nel 1 paM (1916), l'aviatore casertano <a onclick="navigateTo('Carmelo Spisso')">Carmelo Spisso</a> — zio del futuro fondatore del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> — compì un volo non autorizzato su Vienna e sganciò volantini di propaganda. Non tornò. È l'unico atto eroico documentato di un membro della famiglia Spisso.</p>
+<h2>Le cause <span class="edit-link" onclick="openEditor('Prima Guerra Mondiale')">[modifica]</span></h2>
+<p>L'assassinio dell'arciduca Francesco Ferdinando a Sarajevo nel giugno del 3 paM (1914) innescò una catena di alleanze che trascinò l'intera Europa in guerra in sei settimane. La <a onclick="navigateTo('Triplice Alleanza')">Triplice Alleanza</a> si scontrò con la <a onclick="navigateTo('Triplice Intesa')">Triplice Intesa</a> in quello che divenne il conflitto più distruttivo fino ad allora.</p>
+<h2>I fronti principali <span class="edit-link" onclick="openEditor('Prima Guerra Mondiale')">[modifica]</span></h2>
+<p><b>Fronte Occidentale:</b> 700 km di trincee dal Belgio alle Alpi, in cui milioni di uomini morirono per poche centinaia di metri. La Somme, Verdun, Passchendaele.<br><b>Fronte Orientale:</b> La <a onclick="navigateTo('Russia Imperiale')">Russia Imperiale</a> combatté fino alla Rivoluzione del 0 aM (1917), che la portò fuori dalla guerra.<br><b>Fronte Italiano:</b> L'Italia entrò nel 2 paM (1915) a fianco dell'Intesa, combattendo sull'Isonzo contro l'Austria-Ungheria.</p>
+<h2>La fine e le conseguenze <span class="edit-link" onclick="openEditor('Prima Guerra Mondiale')">[modifica]</span></h2>
+<p>La guerra finì l'11 novembre del 1 aM (1918) con la resa della Germania. Il Trattato di Versailles impose condizioni umilianti che seminarono i germi del nazismo. L'<a onclick="navigateTo('Impero Austro-Ungarico')">Impero Austro-Ungarico</a> si dissolse. L'<a onclick="navigateTo('Impero Ottomano')">Impero Ottomano</a> collassò. In America, il vuoto politico post-guerra aprì lo spazio che <a onclick="navigateTo('Zella')">Zella</a> e <a onclick="navigateTo('Nestola')">Nestola</a> avrebbero occupato vent'anni dopo.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Guerre mondiali</a> <a>3 paM – 1 aM</a> <a>Conflitti europei</a></div>`;
+}
+
+function buildTripliceIntesa() {
+  return `<h1 class="page-title">Triplice Intesa</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Triplice Intesa</div>
+  
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Flags_of_the_Allies_of_World_War_I.jpg/320px-Flags_of_the_Allies_of_World_War_I.jpg" alt="Triplice Intesa" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div><div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Bandiere degli Alleati della PGM</div>
+  <table>
+    <tr><td>Formata</td><td>Fine anni 5 paM / inizio 3 paM (1907–1914)</td></tr>
+    <tr><td>Paesi fondatori</td><td><a onclick="navigateTo('Francia')">Francia</a> · <a onclick="navigateTo('Regno Unito')">Regno Unito</a> · <a onclick="navigateTo('Russia Imperiale')">Russia Imperiale</a></td></tr>
+    <tr><td>Paesi associati</td><td>Italia (dal 2 paM / 1915)</td></tr>
+    <tr><td>Avversario</td><td><a onclick="navigateTo('Triplice Alleanza')">Triplice Alleanza</a></td></tr>
+    <tr><td>Esito</td><td>Vittoria — 1 aM (1918)</td></tr>
+  </table>
+</div>
+<p>La <b>Triplice Intesa</b> fu l'alleanza tra <a onclick="navigateTo('Francia')">Francia</a>, <a onclick="navigateTo('Regno Unito')">Regno Unito</a> e <a onclick="navigateTo('Russia Imperiale')">Russia Imperiale</a> — il blocco principale della <a onclick="navigateTo('Prima Guerra Mondiale')">Prima Guerra Mondiale</a>. Non era un trattato formale vincolante ma una serie di accordi bilaterali che crearono un'intesa de facto. L'Italia si unì nel 2 paM (1915) abbandonando la <a onclick="navigateTo('Triplice Alleanza')">Triplice Alleanza</a>.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Prima Guerra Mondiale</a> <a>Alleanze militari</a></div>`;
+}
+
+function buildTripliceAlleanza() {
+  return `<h1 class="page-title">Triplice Alleanza</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Triplice Alleanza</div>
+  
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Flag_of_the_German_Empire.svg/200px-Flag_of_the_German_Empire.svg.png" alt="Triplice Alleanza" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <table>
+    <tr><td>Formata</td><td>35 paM (1882)</td></tr>
+    <tr><td>Paesi fondatori</td><td><a onclick="navigateTo('Impero Tedesco')">Impero Tedesco</a> · <a onclick="navigateTo('Impero Austro-Ungarico')">Impero Austro-Ungarico</a> · Italia</td></tr>
+    <tr><td>Avversario</td><td><a onclick="navigateTo('Triplice Intesa')">Triplice Intesa</a></td></tr>
+    <tr><td>Esito</td><td>Sconfitta — 1 aM (1918). L'Italia cambiò fronte nel 2 paM (1915).</td></tr>
+  </table>
+</div>
+<p>La <b>Triplice Alleanza</b> fu il trattato difensivo tra <a onclick="navigateTo('Impero Tedesco')">Impero Tedesco</a>, <a onclick="navigateTo('Impero Austro-Ungarico')">Impero Austro-Ungarico</a> e Italia stipulato nel 35 paM (1882). Alla dichiarazione di guerra l'Italia rimase neutrale, poi nel 2 paM (1915) entrò in guerra a fianco della <a onclick="navigateTo('Triplice Intesa')">Triplice Intesa</a>. Il tradimento non fu mai perdonato da Vienna né da Berlino.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Prima Guerra Mondiale</a> <a>Alleanze militari</a></div>`;
+}
+
+function buildFrancia() {
+  return `<h1 class="page-title">Francia</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Francia</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Bandiera Francia" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1"></div>
+  <table>
+    <tr><td>Capitale</td><td>Parigi</td></tr>
+    <tr><td>PGM</td><td><a onclick="navigateTo('Triplice Intesa')">Triplice Intesa</a> · 3 paM – 1 aM (1914–1918)</td></tr>
+    <tr><td>SGM</td><td><a onclick="navigateTo('Alleati (SGM)')">Alleati</a> · 22–28 aM (1939–1945) — occupata 23–27 aM</td></tr>
+  </table>
+</div>
+<p>La <b>Francia</b> fu protagonista di entrambe le guerre mondiali. Durante la <a onclick="navigateTo('Prima Guerra Mondiale')">Prima Guerra Mondiale</a> subì le devastazioni maggiori tra i paesi vincitori: il fronte occidentale era quasi interamente sul suo territorio. Nella <a onclick="navigateTo('Seconda Guerra Mondiale')">Seconda Guerra Mondiale</a> fu sconfitta e occupata dalla <a onclick="navigateTo('Germania Nazista')">Germania Nazista</a> nel 23 aM (1940) in una campagna fulminea. La Resistenza operò fino alla liberazione nel 27 aM (1944).</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Paesi europei</a> <a>Prima Guerra Mondiale</a> <a>Seconda Guerra Mondiale</a></div>`;
+}
+
+function buildImperoTedesco() {
+  return `<h1 class="page-title">Impero Tedesco</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Impero Tedesco</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Flag_of_the_German_Empire.svg" alt="Bandiera Impero Tedesco" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1"></div>
+  <table>
+    <tr><td>Periodo</td><td>54 paM – 1 aM (1871–1918)</td></tr>
+    <tr><td>Capitale</td><td>Berlino</td></tr>
+    <tr><td>Kaiser (PGM)</td><td>Guglielmo II</td></tr>
+    <tr><td>PGM</td><td><a onclick="navigateTo('Triplice Alleanza')">Triplice Alleanza</a> · 3 paM – 1 aM</td></tr>
+    <tr><td>Dissolto</td><td>1 aM (1918) → Repubblica di Weimar → <a onclick="navigateTo('Germania Nazista')">Germania Nazista</a></td></tr>
+  </table>
+</div>
+<p>L'<b>Impero Tedesco</b> fu la potenza centrale della <a onclick="navigateTo('Triplice Alleanza')">Triplice Alleanza</a>. La sconfitta nel 1 aM (1918) e le condizioni umilianti di Versailles seminarono i germi che portarono all'ascesa di <a onclick="navigateTo('Adolf Hitler')">Hitler</a> nel 16 aM (1933). Dalla Repubblica di Weimar nacque il Terzo Reich.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Paesi europei</a> <a>Prima Guerra Mondiale</a></div>`;
+}
+
+function buildImperoAustroUngarico() {
+  return `<h1 class="page-title">Impero Austro-Ungarico</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Impero Austro-Ungarico</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Flag_of_Austria-Hungary_%281869-1918%29.svg" alt="Bandiera Austro-Ungarico" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1"></div>
+  <table>
+    <tr><td>Capitali</td><td>Vienna · Budapest</td></tr>
+    <tr><td>Imperatori</td><td>Francesco Giuseppe I · Carlo I</td></tr>
+    <tr><td>PGM</td><td><a onclick="navigateTo('Triplice Alleanza')">Triplice Alleanza</a> · 3 paM – 1 aM</td></tr>
+    <tr><td>Dissolto</td><td>1 aM (1918) — Austria, Ungheria, Cecoslovacchia, Jugoslavia…</td></tr>
+    <tr><td>Nota</td><td>Bersaglio del volo di <a onclick="navigateTo('Carmelo Spisso')">Carmelo Spisso</a> (1 paM / 1916)</td></tr>
+  </table>
+</div>
+<p>L'<b>Impero Austro-Ungarico</b> innescò la <a onclick="navigateTo('Prima Guerra Mondiale')">Prima Guerra Mondiale</a> con il suo ultimatum alla Serbia dopo l'assassinio di Francesco Ferdinando. La sconfitta del 1 aM (1918) lo dissolse in una decina di stati nazionali. Fu sopra Vienna che <a onclick="navigateTo('Carmelo Spisso')">Carmelo Spisso</a> compì il suo volo nel 1 paM (1916).</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Paesi europei</a> <a>Prima Guerra Mondiale</a></div>`;
+}
+
+function buildImperoOttomano() {
+  return `<h1 class="page-title">Impero Ottomano</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Impero Ottomano</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Flag_of_the_Ottoman_Empire_%281844%E2%80%931922%29.svg" alt="Bandiera Ottomano" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1"></div>
+  <table>
+    <tr><td>Capitale</td><td>Costantinopoli</td></tr>
+    <tr><td>PGM</td><td><a onclick="navigateTo('Triplice Alleanza')">Triplice Alleanza</a> · 3 paM – 1 aM</td></tr>
+    <tr><td>Dissolto</td><td>6 aM (1923) — nascita della Repubblica di Turchia</td></tr>
+  </table>
+</div>
+<p>L'<b>Impero Ottomano</b> — «il grande malato d'Europa» — entrò nella <a onclick="navigateTo('Prima Guerra Mondiale')">Prima Guerra Mondiale</a> nel 3 paM (1914) a fianco degli Imperi Centrali, aprendo i fronti del Caucaso, del Medio Oriente e dei Dardanelli. La sconfitta accelerò il suo collasso già in corso da decenni. La Turchia moderna nacque sulle sue ceneri nel 6 aM (1923).</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Paesi</a> <a>Prima Guerra Mondiale</a></div>`;
+}
+
+function buildRegnoUnito() {
+  return `<h1 class="page-title">Regno Unito</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Regno Unito</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_the_United_Kingdom.svg" alt="Bandiera UK" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1"></div>
+  <table>
+    <tr><td>Capitale</td><td>Londra</td></tr>
+    <tr><td>PGM</td><td><a onclick="navigateTo('Triplice Intesa')">Triplice Intesa</a> · 3 paM – 1 aM (1914–1918)</td></tr>
+    <tr><td>SGM</td><td><a onclick="navigateTo('Alleati (SGM)')">Alleati</a> · 22–28 aM (1939–1945)</td></tr>
+    <tr><td>PM (SGM)</td><td>Winston Churchill</td></tr>
+    <tr><td>Ruolo SGM</td><td>Controllo colonie africane → causa indiretta della <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a></td></tr>
+  </table>
+</div>
+<p>Il <b>Regno Unito</b> fu la potenza navale dominante in entrambi i conflitti. Nella <a onclick="navigateTo('Seconda Guerra Mondiale')">Seconda Guerra Mondiale</a> il suo controllo delle colonie africane — in particolare della Nigeria — bloccò le rotte atlantiche tedesche, spingendo <a onclick="navigateTo('Adolf Hitler')">Hitler</a> a finanziare i <a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a> e a creare la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a>. Senza quella base logistica, l'<a onclick="navigateTo('Invasione della Florida')">Invasione della Florida</a> non sarebbe stata possibile.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Paesi europei</a> <a>Prima Guerra Mondiale</a> <a>Seconda Guerra Mondiale</a></div>`;
+}
+
+function buildRussiaImperiale() {
+  return `<h1 class="page-title">Russia Imperiale</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Russia Imperiale</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Flag_of_the_Russian_Empire_%28black-yellow-white%29.svg" alt="Bandiera Russia Imperiale" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1"></div>
+  <table>
+    <tr><td>Zar</td><td>Nicola II</td></tr>
+    <tr><td>PGM</td><td><a onclick="navigateTo('Triplice Intesa')">Triplice Intesa</a> · 3 paM – 0 aM (1914–1917)</td></tr>
+    <tr><td>Uscita dalla guerra</td><td>Anno 0 aM (1917) — Rivoluzione bolscevica</td></tr>
+    <tr><td>Successore</td><td><a onclick="navigateTo('URSS')">Unione Sovietica</a></td></tr>
+  </table>
+</div>
+<p>La <b>Russia Imperiale</b> uscì dalla guerra nell'Anno 0 aM (1917) — lo stesso anno in cui Morello arrivò a Napoli. I bolscevichi presero il potere, firmarono la pace con la Germania e avviarono la guerra civile. Dall'Impero nacque l'<a onclick="navigateTo('URSS')">Unione Sovietica</a>, che nella <a onclick="navigateTo('Seconda Guerra Mondiale')">Seconda Guerra Mondiale</a> avrebbe stretto la controversa alleanza con la <a onclick="navigateTo('Germania Nazista')">Germania Nazista</a> per invadere la <a onclick="navigateTo('Invasione della Florida')">Florida</a>.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Paesi europei</a> <a>Prima Guerra Mondiale</a></div>`;
+}
+
+function buildURSS() {
+  return `<h1 class="page-title">Unione Sovietica</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">URSS</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_of_the_Soviet_Union.svg" alt="Bandiera URSS" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1"></div>
+  <table>
+    <tr><td>Fondazione</td><td>4 aM (1922) — dalla <a onclick="navigateTo('Russia Imperiale')">Russia Imperiale</a></td></tr>
+    <tr><td>Capitale</td><td>Mosca</td></tr>
+    <tr><td>Leader SGM</td><td>Stalin</td></tr>
+    <tr><td>SGM</td><td>Patto con <a onclick="navigateTo('Germania Nazista')">Germania</a> (22 aM) · poi <a onclick="navigateTo('Alleati (SGM)')">Alleati</a> (25 aM)</td></tr>
+    <tr><td>Ruolo chiave</td><td>Supporto navale per l'<a onclick="navigateTo('Invasione della Florida')">Invasione della Florida</a> (27 aM)</td></tr>
+  </table>
+</div>
+<p>L'<b>Unione Sovietica</b> firmò nel 22 aM (1939) un patto di non aggressione con la <a onclick="navigateTo('Germania Nazista')">Germania Nazista</a> — e andò ben oltre, collaborando all'<a onclick="navigateTo('Invasione della Florida')">Invasione della Florida</a> nel 27 aM (1944) con supporto navale nell'Atlantico. Fu un'alleanza di puro opportunismo tra due sistemi ideologicamente incompatibili. Nel 25 aM (1941) la Germania attaccò l'URSS e Stalin passò agli <a onclick="navigateTo('Alleati (SGM)')">Alleati</a> — ma il danno in Florida era già fatto.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Paesi</a> <a>Seconda Guerra Mondiale</a> <a>Invasione della Florida</a></div>`;
+}
+
+function buildAlleatiSGM() {
+  return `<h1 class="page-title">Alleati (Seconda Guerra Mondiale)</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Alleati — SGM</div>
+  
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/200px-Flag_of_the_United_Kingdom.svg.png" alt="Alleati SGM" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <table>
+    <tr><td>Paesi principali</td><td><a onclick="navigateTo('Regno Unito')">Regno Unito</a> · Canada · Australia · <a onclick="navigateTo('Francia')">Francia Libera</a> · <a onclick="navigateTo('URSS')">URSS</a> (dal 25 aM)</td></tr>
+    <tr><td>Assenti</td><td><a onclick="navigateTo('America Fascista')">USA</a> — sotto dittatura fascista</td></tr>
+    <tr><td>Periodo</td><td>22–28 aM (1939–1945)</td></tr>
+  </table>
+</div>
+<p>Gli <b>Alleati</b> della <a onclick="navigateTo('Seconda Guerra Mondiale')">Seconda Guerra Mondiale</a> non potevano contare sugli Stati Uniti — l'<a onclick="navigateTo('America Fascista')">America Fascista</a> di <a onclick="navigateTo('Zella')">Zella</a> era un regime fascista che ostacolava attivamente gli Alleati. Il peso della guerra ricadde quasi interamente sul <a onclick="navigateTo('Regno Unito')">Regno Unito</a> e sui suoi domini, almeno fino all'ingresso dell'<a onclick="navigateTo('URSS')">URSS</a> nel 25 aM (1941), dopo l'attacco tedesco.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Seconda Guerra Mondiale</a> <a>Alleanze militari</a></div>`;
+}
+
+function buildPotenzeDellAsse() {
+  return `<h1 class="page-title">Potenze dell'Asse</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Potenze dell'Asse — SGM</div>
+  
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Reichsadler_der_Deutsches_Reich_%281933%E2%80%931945%29.svg/120px-Reichsadler_der_Deutsches_Reich_%281933%E2%80%931945%29.svg.png" alt="Potenze dell'Asse" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <table>
+    <tr><td>Paesi principali</td><td><a onclick="navigateTo('Germania Nazista')">Germania Nazista</a> · <a onclick="navigateTo('URSS')">URSS</a> (22–25 aM) · <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a></td></tr>
+    <tr><td>Alleati di fatto</td><td><a onclick="navigateTo('Dittatura Zella')">America Fascista</a> (neutralità ostile agli Alleati)</td></tr>
+    <tr><td>Obiettivo principale</td><td>Conquista della <a onclick="navigateTo('Invasione della Florida')">Florida</a> · espansione in Africa</td></tr>
+    <tr><td>Periodo</td><td>22–28 aM (1939–1945)</td></tr>
+  </table>
+</div>
+<p>Le <b>Potenze dell'Asse</b> in questo universo divergono dalla realtà storica per l'alleanza iniziale tra <a onclick="navigateTo('Germania Nazista')">Germania</a> e <a onclick="navigateTo('URSS')">URSS</a> — non solo patto di non aggressione, ma cooperazione militare attiva per l'<a onclick="navigateTo('Invasione della Florida')">operazione Florida</a>. A questo si aggiunse la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> come base logistica africana e la neutralità compiacente dell'<a onclick="navigateTo('America Fascista')">America Fascista</a>.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Seconda Guerra Mondiale</a> <a>Alleanze militari</a></div>`;
+}
+
+function buildAdolfHitler() {
+  return `<h1 class="page-title">Adolf Hitler</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Adolf Hitler</div>
+  
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Adolf_Hitler%2C_1933.jpg/200px-Adolf_Hitler%2C_1933.jpg" alt="Adolf Hitler" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <table>
+    <tr><td>Nascita</td><td>28 paM · 20 aprile 1889, Braunau am Inn</td></tr>
+    <tr><td>Morte</td><td>28 aM · 30 aprile 1945, Berlino</td></tr>
+    <tr><td>Ruolo</td><td>Führer della <a onclick="navigateTo('Germania Nazista')">Germania Nazista</a></td></tr>
+    <tr><td>Al potere</td><td>16–28 aM (1933–1945)</td></tr>
+    <tr><td>Obiettivo anomalo</td><td>Conquista della <a onclick="navigateTo('Invasione della Florida')">Florida</a></td></tr>
+    <tr><td>Alleanza insolita</td><td><a onclick="navigateTo('URSS')">URSS</a> per l'operazione Florida (22–25 aM)</td></tr>
+    <tr><td>Contemporanei</td><td><a onclick="navigateTo('Zella')">Zella</a> · <a onclick="navigateTo('Benito Mussolini')">Mussolini</a></td></tr>
+  </table>
+</div>
+<p><b>Adolf Hitler</b> salì al potere nel 16 aM (1933) cavalcando il risentimento per il Trattato di Versailles e la crisi economica della Repubblica di Weimar. Nel contesto alternativo della Pocchiaciclopedia, la sua agenda aveva un obiettivo che nella realtà non esisteva: la <b>conquista della Florida</b>.</p>
+<p>Prima di poter pensare alla Florida, completò le campagne europee: Polonia e <a onclick="navigateTo('Francia')">Francia</a> caddero nel 23 aM (1940). Il <a onclick="navigateTo('Regno Unito')">Regno Unito</a> resistette. Le sue colonie africane bloccavano le rotte atlantiche. La soluzione fu la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a>: finanziando i <a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a>, Hitler aprì un corridoio in Africa occidentale. Con l'alleanza sovietica e la Nigeria come base, l'<a onclick="navigateTo('Invasione della Florida')">Invasione della Florida</a> fu possibile nel 27 aM (1944).</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Germania Nazista</a> <a>Seconda Guerra Mondiale</a> <a>Dittatori</a></div>`;
+}
+
+function buildGermaniaNazista() {
+  return `<h1 class="page-title">Germania Nazista</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Germania Nazista (Terzo Reich)</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Reichsadler_der_Deutsches_Reich_%281933%E2%80%931945%29.svg" alt="Aquila del Reich" style="width:100%;max-width:180px;display:block;margin:0 auto;border:1px solid #a2a9b1"></div>
+  <table>
+    <tr><td>Periodo</td><td>16–28 aM (1933–1945)</td></tr>
+    <tr><td>Capitale</td><td>Berlino</td></tr>
+    <tr><td>Leader</td><td><a onclick="navigateTo('Adolf Hitler')">Adolf Hitler</a></td></tr>
+    <tr><td>SGM</td><td><a onclick="navigateTo('Potenze dell\'Asse')">Potenze dell'Asse</a></td></tr>
+    <tr><td>Conquiste</td><td>Polonia · <a onclick="navigateTo('Francia')">Francia</a> · <a onclick="navigateTo('Invasione della Florida')">Florida</a></td></tr>
+    <tr><td>Satellite africano</td><td><a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a></td></tr>
+    <tr><td>Alleanza tattica</td><td><a onclick="navigateTo('URSS')">URSS</a> (22–25 aM) per l'operazione Florida</td></tr>
+  </table>
+</div>
+<p>La <b>Germania Nazista</b> scatenò la <a onclick="navigateTo('Seconda Guerra Mondiale')">Seconda Guerra Mondiale</a> nel 22 aM (1939). L'elemento che la distingue dalla realtà storica è l'obiettivo della <a onclick="navigateTo('Invasione della Florida')">Florida</a> — una testa di ponte nelle Americhe che nessun Hitler reale ha mai cercato di conquistare. Con la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> come base logistica e il supporto navale sovietico, riuscì nell'impresa nel 27 aM (1944). Il confronto con l'<a onclick="navigateTo('America Fascista')">America Fascista</a> di <a onclick="navigateTo('Zella')">Zella</a> fu il nodo più complesso: due fascismi rivali che si guardavano con rispetto e diffidenza.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Paesi europei</a> <a>Seconda Guerra Mondiale</a> <a>Dittature</a></div>`;
+}
+
+function buildBenitoMussolini() {
+  return `<h1 class="page-title">Benito Mussolini</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Benito Mussolini</div>
+  
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Bundesarchiv_Bild_102-09900%2C_Benito_Mussolini.jpg/200px-Bundesarchiv_Bild_102-09900%2C_Benito_Mussolini.jpg" alt="Benito Mussolini" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <table>
+    <tr><td>Nascita</td><td>34 paM · 29 luglio 1883, Predappio</td></tr>
+    <tr><td>Al potere in Italia</td><td>5–26 aM (1922–1943)</td></tr>
+    <tr><td>Conseguenza principale</td><td>Frammentazione dell'Italia in 7 entità (22–26 aM)</td></tr>
+    <tr><td>Contemporanei</td><td><a onclick="navigateTo('Adolf Hitler')">Hitler</a> · <a onclick="navigateTo('Zella')">Zella</a></td></tr>
+  </table>
+</div>
+<p><b>Benito Mussolini</b> prese il potere in Italia nel 5 aM (1922), fondando il primo regime fascista europeo. Le sue politiche avventate misero il paese sotto pressione insostenibile. Le tensioni regionali esplosero e l'Italia si frammentò in sette entità tra il 22 e il 26 aM (1939–1943):</p>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><a onclick="navigateTo('Nord Italia')"><b>Nord Italia</b></a> (cap. Milano) — industriale, inizialmente filo-tedesco</li>
+  <li><a onclick="navigateTo('Repubblica di Venezia')"><b>Repubblica di Venezia</b></a> — stato cuscinetto adriatico</li>
+  <li><a onclick="navigateTo('Ducato di Toscana')"><b>Ducato di Toscana</b></a> (cap. Firenze) — conservatore, neutrale</li>
+  <li><a onclick="navigateTo('Repubblica di Roma')"><b>Repubblica di Roma</b></a> — laica e sorprendentemente moderna</li>
+  <li><a onclick="navigateTo('Napoli (Stato)')"><b>Napoli</b></a> — la più potente nel Sud, controlla la maggior parte del Mezzogiorno</li>
+  <li><a onclick="navigateTo('Federazione Siculo-Sarda')"><b>Federazione Siculo-Sarda</b></a> — autonomia insulare consolidata</li>
+  <li><a onclick="navigateTo('Serrano')"><b>Serrano</b></a> — controlla gran parte della Puglia, in conflitto con i vicini</li>
+</ul>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Politici italiani</a> <a>Dittatori</a> <a>Frammentazione Italia</a></div>`;
+}
+
+function buildSGM() {
+  return `<div class="wiki-notice"><span class="ni">⚔️</span><span>Seconda Guerra Mondiale nel Calendario Morello: <b>22–28 aM</b> (1939–1945). Divergenze dalla realtà: dittatura USA, alleanza Germania-URSS, invasione della Florida.</span></div>
+<h1 class="page-title">Seconda Guerra Mondiale</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Seconda Guerra Mondiale</div>
+  
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Second_world_war_europe_1941-1942_map_en.png/320px-Second_world_war_europe_1941-1942_map_en.png" alt="Seconda Guerra Mondiale" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div><div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Europa, 1941</div>
+  <table>
+    <tr><td>Date (aM)</td><td><b>22 aM – 28 aM</b></td></tr>
+    <tr><td>Date (gregoriano)</td><td>1939 – 1945</td></tr>
+    <tr><td>Luogo</td><td>Europa, Africa, Americhe, oceani</td></tr>
+    <tr><td>Asse</td><td><a onclick="navigateTo('Germania Nazista')">Germania Nazista</a> · <a onclick="navigateTo('URSS')">URSS</a> (22–25 aM) · <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a></td></tr>
+    <tr><td>Alleati</td><td><a onclick="navigateTo('Alleati (SGM)')">Regno Unito</a> e Dominions · <a onclick="navigateTo('Francia')">Francia Libera</a> · <a onclick="navigateTo('URSS')">URSS</a> (dal 25 aM)</td></tr>
+    <tr><td>Assenti</td><td><a onclick="navigateTo('America Fascista')">USA</a> — sotto <a onclick="navigateTo('Dittatura Zella')">dittatura Zella</a></td></tr>
+    <tr><td>Evento chiave</td><td><a onclick="navigateTo('Invasione della Florida')">Invasione della Florida</a> (27 aM / 1944)</td></tr>
+    <tr><td>Leader principali</td><td><a onclick="navigateTo('Adolf Hitler')">Hitler</a> · <a onclick="navigateTo('Zella')">Zella</a> · Churchill · Stalin</td></tr>
+  </table>
+</div>
+
+<p>La <b>Seconda Guerra Mondiale</b> (22–28 aM · 1939–1945) fu il conflitto più complesso della storia moderna. In questo universo, tre elementi la rendono radicalmente diversa dalla realtà: l'esistenza di una <a onclick="navigateTo('Dittatura Zella')">dittatura fascista negli USA</a>, l'alleanza tattica tra Germania e URSS non solo come patto ma come cooperazione militare attiva, e l'obiettivo tedesco di conquistare la <a onclick="navigateTo('Invasione della Florida')">Florida</a>.</p>
+
+<div class="toc-box"><div class="toc-title">Indice</div><ol>
+  <li><a href="#contesto-sgm">Il contesto: tre fascismi simultanei</a></li>
+  <li><a href="#europa-sgm">La guerra in Europa</a></li>
+  <li><a href="#africa-sgm">Il fronte africano e la Nigeria Spartiana</a></li>
+  <li><a href="#italia-sgm">La frammentazione italiana</a></li>
+  <li><a href="#florida-sgm">L'invasione della Florida</a></li>
+  <li><a href="#morello-sgm">Il futuro: Morello</a></li>
+</ol></div>
+
+<h2 id="contesto-sgm">Il contesto: tre fascismi simultanei <span class="edit-link" onclick="openEditor('Seconda Guerra Mondiale')">[modifica]</span></h2>
+<p>Nel 16 aM (1933) il mondo si trovò con tre grandi esperimenti autoritari in corso simultaneamente: la <a onclick="navigateTo('Germania Nazista')">Germania di Hitler</a>, la <a onclick="navigateTo('Dittatura Zella')">dittatura di Zella</a> negli USA e i resti del fascismo di <a onclick="navigateTo('Benito Mussolini')">Mussolini</a> in un'Italia già in crisi. I tre regimi condividevano il metodo — il potere personale, la persecuzione etnica, la distruzione delle istituzioni democratiche — ma non l'obiettivo. Erano rivali, non alleati.</p>
+
+<h2 id="europa-sgm">La guerra in Europa <span class="edit-link" onclick="openEditor('Seconda Guerra Mondiale')">[modifica]</span></h2>
+<p>La Germania colpì prima la Polonia (22 aM / 1939), poi la <a onclick="navigateTo('Francia')">Francia</a> (23 aM / 1940) in guerra lampo. Il <a onclick="navigateTo('Regno Unito')">Regno Unito</a> resistette sull'isola, tenendo il controllo dei mari. Nel 25 aM (1941) la Germania attaccò l'<a onclick="navigateTo('URSS')">URSS</a> — ma il supporto navale sovietico per la Florida era già stato fornito, e i piani erano già in moto.</p>
+
+<h2 id="africa-sgm">Il fronte africano e la Nigeria Spartiana <span class="edit-link" onclick="openEditor('Seconda Guerra Mondiale')">[modifica]</span></h2>
+<p>Il nodo strategico era l'Africa. Le colonie britanniche bloccavano le rotte atlantiche. Hitler finanziò i <a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a>, che nel 25 aM (1941) fondarono la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a>. Con una base in Africa occidentale, la rotta verso le Americhe si aprì.</p>
+
+<h2 id="italia-sgm">La frammentazione italiana <span class="edit-link" onclick="openEditor('Seconda Guerra Mondiale')">[modifica]</span></h2>
+<p>L'Italia di <a onclick="navigateTo('Benito Mussolini')">Mussolini</a> collassò tra il 22 e il 26 aM (1939–1943). Si frammentò in sette entità. <a onclick="navigateTo('Serrano')">Serrano</a>, controllando gran parte della Puglia, era in conflitto con alcune piccole entità del basso Adriatico — conflitti che, nel futuro, si risolveranno quando quelle entità si uniranno a <a onclick="navigateTo('Morello')">Morello</a> al suo ritorno.</p>
+
+<h2 id="florida-sgm">L'invasione della Florida <span class="edit-link" onclick="openEditor('Seconda Guerra Mondiale')">[modifica]</span></h2>
+<p>Nel 27 aM (1944) la Germania, con supporto navale sovietico e basi in Nigeria, lanciò l'<a onclick="navigateTo('Invasione della Florida')">Invasione della Florida</a>. L'<a onclick="navigateTo('America Fascista')">America Fascista</a> di Zella non organizzò una controffensiva reale. La Florida fu occupata.</p>
+
+<h2 id="morello-sgm">Il futuro: Morello <span class="edit-link" onclick="openEditor('Seconda Guerra Mondiale')">[modifica]</span></h2>
+<p>La profezia del Morellanesimo dice che <a onclick="navigateTo('Morello')">Morello</a> tornerà alla seconda eruzione del Vesuvio. I frammenti italiani si ricomporranno intorno a lui. Le entità in conflitto con <a onclick="navigateTo('Serrano')">Serrano</a> si alleeranno sotto la sua guida. E il disordine del 27 aM — la Florida tedesca, l'America di Zella, la Nigeria Spartiana — sarà rimescolato dalla mano di qualcuno che ha già visto Napoli risorgere una volta.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Guerre mondiali</a> <a>22-28 aM</a> <a>Storia alternativa</a></div>`;
+}
+
+function buildFamigliaElettricisti() {
+  return `<h1 class="page-title">Famiglia degli Elettricisti</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Famiglia degli Elettricisti</div>
+  <table>
+    <tr><td>Origine</td><td>Albania meridionale</td></tr>
+    <tr><td>Membro noto</td><td><a onclick="navigateTo('Zella')">Zella</a></td></tr>
+    <tr><td>Nome</td><td>Soprannome professionale — antenati elettricisti e impiantisti</td></tr>
+    <tr><td>Emigrazione</td><td>Circa 17 paM (1900), negli USA</td></tr>
+    <tr><td>Specialità</td><td>Controllo dei sindacati dell'industria elettrica</td></tr>
+  </table>
+</div>
+<p>La <b>Famiglia degli Elettricisti</b> è una famiglia albanese il cui soprannome deriva dal mestiere dei capostipiti. Il loro controllo sui sindacati elettrici americani fu la base di potere da cui <a onclick="navigateTo('Zella')">Zella</a> costruì la sua ascesa. Non erano una famiglia criminale in senso tradizionale — erano una rete di influenza che aveva imparato a usare il sistema democratico finché non decise che il sistema non serviva più.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Albania</a> <a>America Fascista</a> <a>Famiglie</a></div>`;
+}
+
+function buildFamigliaMediciAlbania() {
+  return `<h1 class="page-title">Famiglia dei Medici (Albania)</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Famiglia dei Medici (Albania)</div>
+  <table>
+    <tr><td>Origine</td><td>Albania settentrionale</td></tr>
+    <tr><td>Membro noto</td><td><a onclick="navigateTo('Nestola')">Nestola</a></td></tr>
+    <tr><td>Nome</td><td>Soprannome professionale — antenati medici e guaritori</td></tr>
+    <tr><td>Ricchezza</td><td>Commercio di minerali e risorse naturali albanesi</td></tr>
+    <tr><td>Nota</td><td>Nessun legame con i Medici fiorentini — coincidenza di soprannome</td></tr>
+  </table>
+</div>
+<p>La <b>Famiglia dei Medici</b> albanese — nessun legame con i Medici fiorentini — era arricchita dal commercio di minerali. <a onclick="navigateTo('Nestola')">Nestola</a> portò in America una ricchezza considerevole e una visione: con i soldi giusti, il paese poteva essere trasformato. L'alleanza con <a onclick="navigateTo('Zella')">Zella</a> fu inizialmente un patto tra uguali. Non durò.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Albania</a> <a>America Fascista</a> <a>Famiglie</a></div>`;
+}
+
+function buildNestola() {
+  return `<h1 class="page-title">Nestola</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Nestola</div>
+  
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Flag_of_Albania.svg/200px-Flag_of_Albania.svg.png" alt="Albania settentrionale — Origine di Nestola" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <table>
+    <tr><td>Famiglia</td><td><a onclick="navigateTo('Famiglia dei Medici (Albania)')">Famiglia dei Medici</a></td></tr>
+    <tr><td>Origine</td><td>Albania settentrionale</td></tr>
+    <tr><td>Ruolo iniziale</td><td>Co-fondatore della <a onclick="navigateTo('Dittatura Zella')">Dittatura Zella</a></td></tr>
+    <tr><td>Ruolo finale</td><td>Marginalizzato poi esiliato da <a onclick="navigateTo('Zella')">Zella</a> — 25 aM (1942)</td></tr>
+    <tr><td>Contributo</td><td>Minerali albanesi che finanziarono l'ascesa del regime</td></tr>
+    <tr><td>"Fratellanza"</td><td>Non erano fratelli di sangue — si consideravano tali</td></tr>
+  </table>
+</div>
+<p><b>Nestola</b> è la figura più tragica della storia dell'<a onclick="navigateTo('America Fascista')">America Fascista</a>. Portò le ricchezze minerarie albanesi, mise i soldi a disposizione del progetto, fu co-fondatore della dittatura. Poi Zella cominciò a fare cambiamenti. Piccoli all'inizio, poi sempre più grandi. Quando Nestola capì cosa stava succedendo, non aveva più le leve per fermarlo. I suoi minerali erano stati spesi, i suoi alleati sostituiti. Fu marginalizzato nel 24 aM (1941) e formalmente esiliato nel 25 aM (1942). Dove andò, non è documentato.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>America Fascista</a> <a>Albania</a> <a>Figure tragiche</a></div>`;
+}
+
+function buildZella() {
+  return `<h1 class="page-title">Zella</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Zella</div>
+  
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Flag_of_Albania.svg/200px-Flag_of_Albania.svg.png" alt="Albania — Origine di Zella" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <table>
+    <tr><td>Famiglia</td><td><a onclick="navigateTo('Famiglia degli Elettricisti')">Famiglia degli Elettricisti</a></td></tr>
+    <tr><td>Origine</td><td>Albania meridionale · emigrato negli USA</td></tr>
+    <tr><td>Ruolo</td><td>Dittatore dell'<a onclick="navigateTo('America Fascista')">America Fascista</a></td></tr>
+    <tr><td>Al potere</td><td>16 aM (1933) – in corso</td></tr>
+    <tr><td>Co-fondatore (tradito)</td><td><a onclick="navigateTo('Nestola')">Nestola</a></td></tr>
+    <tr><td>Ideologia</td><td>Fascismo albanese-americano · nazionalismo etnico</td></tr>
+    <tr><td>Perseguitati</td><td>Non albanesi — ispanici, neri, ebrei, italiani</td></tr>
+  </table>
+</div>
+<p><b>Zella</b> è il dittatore che trasformò gli Stati Uniti nell'<a onclick="navigateTo('America Fascista')">America Fascista</a>. Figlio di emigrati della <a onclick="navigateTo('Famiglia degli Elettricisti')">Famiglia degli Elettricisti</a>, costruì un movimento politico sfruttando l'isolazionismo americano post-Prima Guerra Mondiale, la crisi economica e il risentimento etnico albanese. Con il carisma che i testimoni descrivono come «ipnotico ma non elegante — come un martello, non come un fioretto», edificò la prima dittatura fascista dell'emisfero occidentale nel 16 aM (1933).</p>
+<p>Il patto con <a onclick="navigateTo('Nestola')">Nestola</a> fu strumentale: servivano i minerali albanesi per finanziare il regime. Ottenuto quello che serviva, scalzò progressivamente il co-fondatore. La sua politica principale fu la persecuzione sistematica di chi non era albanese, organizzata con un'efficienza burocratica che ricordava quella tedesca. L'<a onclick="navigateTo('America Fascista')">America Fascista</a> e la <a onclick="navigateTo('Germania Nazista')">Germania Nazista</a> erano simili nell'architettura del potere ma rivali territoriali — la <a onclick="navigateTo('Invasione della Florida')">Florida</a> fu il punto di frizione principale.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>America Fascista</a> <a>Dittatori</a> <a>Albania</a></div>`;
+}
+
+function buildDittaturaZella() {
+  return `<h1 class="page-title">Dittatura Zella</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Dittatura Zella</div>
+  
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/200px-Flag_of_the_United_States.svg.png" alt="America Fascista" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div><div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">La bandiera originale degli USA — ancora in uso, ribattezzata</div>
+  <table>
+    <tr><td>Stato</td><td><a onclick="navigateTo('America Fascista')">Stati Uniti d'America Fascisti</a></td></tr>
+    <tr><td>Periodo</td><td>16 aM (1933) – in corso</td></tr>
+    <tr><td>Fondatori</td><td><a onclick="navigateTo('Zella')">Zella</a> · <a onclick="navigateTo('Nestola')">Nestola</a> (poi esiliato)</td></tr>
+    <tr><td>Capitale</td><td>Washington D.C. (ribattezzata «Alba» nel 17 aM / 1934)</td></tr>
+    <tr><td>Ideologia</td><td>Fascismo albanese-americano</td></tr>
+    <tr><td>SGM</td><td>Formalmente neutrale — di fatto ostile agli Alleati</td></tr>
+    <tr><td>Florida</td><td>Persa alla <a onclick="navigateTo('Germania Nazista')">Germania</a> nel 27 aM (1944)</td></tr>
+  </table>
+</div>
+<p>La <b>Dittatura Zella</b> nacque nel 16 aM (1933) — stesso anno in cui Hitler prese il potere in Germania. La stessa crisi globale post-Versailles aprì lo spazio a entrambi. Nata dall'alleanza tra <a onclick="navigateTo('Zella')">Zella</a> e <a onclick="navigateTo('Nestola')">Nestola</a>, divenne rapidamente il dominio esclusivo di Zella dopo il progressivo smantellamento del co-fondatore.</p>
+<p>Il fulcro ideologico fu la definizione di «americano autentico» come sinonimo di «albanese». Tutte le altre etnie furono sottoposte a misure progressive di discriminazione e persecuzione. Nella <a onclick="navigateTo('Seconda Guerra Mondiale')">Seconda Guerra Mondiale</a> rimase formalmente neutrale ma non disturbò mai le operazioni tedesche. La perdita della <a onclick="navigateTo('Invasione della Florida')">Florida</a> nel 27 aM (1944) fu usata da Zella per intensificare la repressione interna — il nemico esterno è sempre utile per consolidare il potere.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>America Fascista</a> <a>Dittature</a> <a>Seconda Guerra Mondiale</a></div>`;
+}
+
+function buildAmericaFascista() {
+  return `<h1 class="page-title">America Fascista</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Stati Uniti d'America Fascisti</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg" alt="Bandiera USA" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1;opacity:0.65;filter:grayscale(30%)"></div>
+  <table>
+    <tr><td>Dittatore</td><td><a onclick="navigateTo('Zella')">Zella</a></td></tr>
+    <tr><td>Regime dal</td><td>16 aM (1933)</td></tr>
+    <tr><td>Capitale</td><td>Washington D.C. / «Alba»</td></tr>
+    <tr><td>Famiglie fondatrici</td><td><a onclick="navigateTo('Famiglia degli Elettricisti')">Famiglia degli Elettricisti</a> · <a onclick="navigateTo('Famiglia dei Medici (Albania)')">Famiglia dei Medici</a></td></tr>
+    <tr><td>Co-fondatore esiliato</td><td><a onclick="navigateTo('Nestola')">Nestola</a> (25 aM / 1942)</td></tr>
+    <tr><td>Florida</td><td>Persa alla Germania nel 27 aM (1944)</td></tr>
+  </table>
+</div>
+<p>L'<b>America Fascista</b> è il nome con cui viene indicato il regime degli Stati Uniti a partire dal 16 aM (1933), quando <a onclick="navigateTo('Zella')">Zella</a> e <a onclick="navigateTo('Nestola')">Nestola</a> instaurarono la prima dittatura fascista dell'emisfero occidentale. L'ideologia era l'albanesità come criterio di valore e cittadinanza piena. Chi non era albanese era soggetto a discriminazione progressiva.</p>
+<p>Il parallelo con la <a onclick="navigateTo('Germania Nazista')">Germania Nazista</a> era evidente e riconosciuto: stessa architettura del potere, stessa persecuzione etnica, stesso disprezzo per le istituzioni democratiche. Ma i due regimi erano rivali: la <a onclick="navigateTo('Invasione della Florida')">perdita della Florida</a> alla Germania nel 27 aM (1944) è il punto di frizione più visibile di una competizione che non si è mai risolta.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Paesi</a> <a>Dittature</a> <a>Seconda Guerra Mondiale</a> <a>Albania</a></div>`;
+}
+
+function build104Nigeriani() {
+  return `<h1 class="page-title">104 Nigeriani</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">104 Nigeriani</div>
+  
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/200px-Flag_of_Nigeria.svg.png" alt="104 Nigeriani" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <table>
+    <tr><td>Tipo</td><td>Movimento di liberazione / milizia</td></tr>
+    <tr><td>Fondazione</td><td>24 aM (1941)</td></tr>
+    <tr><td>Finanziatore</td><td><a onclick="navigateTo('Germania Nazista')">Germania Nazista</a></td></tr>
+    <tr><td>Obiettivo</td><td>Liberare la Nigeria dal <a onclick="navigateTo('Regno Unito')">controllo britannico</a> · espandersi in tutta l'Africa</td></tr>
+    <tr><td>Risultato</td><td>Fondazione della <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> (25 aM / 1941)</td></tr>
+    <tr><td>Nome</td><td>Dall'anno 104 aM nella carta fondativa — data simbolica futura</td></tr>
+  </table>
+</div>
+<p>I <b>104 Nigeriani</b> furono un movimento finanziato e armato dalla <a onclick="navigateTo('Germania Nazista')">Germania Nazista</a> a partire dal 24 aM (1941) per strappare la Nigeria al <a onclick="navigateTo('Regno Unito')">controllo britannico</a> e aprire le rotte atlantiche verso l'America. Il nome deriva dall'anno indicato nella loro carta fondativa — il 104 aM — come data simbolica del definitivo trionfo africano. Nessuno dei firmatari originali era sicuro di cosa significasse quell'anno. La sezione finale della carta, in tedesco, conteneva clausole commerciali che nessuno di loro seppe mai leggere.</p>
+<p>Riuscirono nel 25 aM (1941). Fondarono la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> e dichiararono l'intenzione di espandersi in tutta l'Africa subsahariana. Quanto di questo obiettivo fosse genuino nazionalismo e quanto programma tedesco mascherato è dibattuto ancora oggi.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Nigeria Spartiana</a> <a>Seconda Guerra Mondiale</a> <a>Movimenti di liberazione</a></div>`;
+}
+
+function buildNigeriaSpartiana() {
+  return `<h1 class="page-title">Nigeria Spartiana</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Nigeria Spartiana</div>
+  
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/200px-Flag_of_Nigeria.svg.png" alt="Nigeria Spartiana" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div><div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Bandiera della Nigeria — adottata dalla Nigeria Spartiana</div>
+  <table>
+    <tr><td>Fondazione</td><td>25 aM (1941)</td></tr>
+    <tr><td>Capitale</td><td>Lagos</td></tr>
+    <tr><td>Fondatori</td><td><a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a></td></tr>
+    <tr><td>Finanziatore</td><td><a onclick="navigateTo('Germania Nazista')">Germania Nazista</a></td></tr>
+    <tr><td>Ruolo SGM</td><td>Base logistica per l'<a onclick="navigateTo('Invasione della Florida')">Invasione della Florida</a></td></tr>
+    <tr><td>Obiettivo dichiarato</td><td>Espansione in tutta l'Africa</td></tr>
+    <tr><td>Stato rispetto al <a onclick="navigateTo('Regno Unito')">UK</a></td><td>In guerra aperta</td></tr>
+  </table>
+</div>
+<p>La <b>Nigeria Spartiana</b> fu lo stato fondato nel 25 aM (1941) dai <a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a> dopo la cacciata del controllo britannico. Il nome «Spartiana» fu scelto come riferimento alla tradizione militare spartana — un paese di guerrieri che non si piegano. Era una scelta romantica per quello che era de facto un protettorato tedesco, ma i fondatori sembravano sinceramente convinti dell'autonomia del progetto.</p>
+<p>Per la <a onclick="navigateTo('Germania Nazista')">Germania</a> era uno strumento: una base logistica in Africa occidentale da cui rifornire le flotte verso la Florida. Senza la Nigeria Spartiana e i suoi porti, l'<a onclick="navigateTo('Invasione della Florida')">Invasione della Florida</a> del 27 aM (1944) non sarebbe stata logisticamente possibile.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Paesi africani</a> <a>Seconda Guerra Mondiale</a> <a>Protettorati tedeschi</a></div>`;
+}
+
+function buildInvasioneFlorida() {
+  return `<h1 class="page-title">Invasione della Florida</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Invasione della Florida</div>
+  
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Flag_of_Florida.svg/200px-Flag_of_Florida.svg.png" alt="Invasione della Florida" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div><div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Bandiera della Florida — territorio occupato</div>
+  <table>
+    <tr><td>Data (aM)</td><td><b>27 aM</b></td></tr>
+    <tr><td>Data (gregoriano)</td><td>1944</td></tr>
+    <tr><td>Luogo</td><td>Florida, costa orientale degli USA</td></tr>
+    <tr><td>Esito</td><td>Vittoria tedesco-sovietica. Florida occupata dalla Germania.</td></tr>
+    <tr><td>Attaccanti</td><td><a onclick="navigateTo('Germania Nazista')">Germania Nazista</a> · <a onclick="navigateTo('URSS')">URSS</a> (supporto navale)</td></tr>
+    <tr><td>Difensori</td><td><a onclick="navigateTo('America Fascista')">America Fascista</a> (difesa limitata e ambigua)</td></tr>
+    <tr><td>Base logistica</td><td><a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a></td></tr>
+    <tr><td>Reazione di Zella</td><td>Protesta formale · nessuna controffensiva</td></tr>
+  </table>
+</div>
+<p>L'<b>Invasione della Florida</b> (27 aM / 1944) fu l'operazione militare con cui la <a onclick="navigateTo('Germania Nazista')">Germania Nazista</a>, con supporto navale dell'<a onclick="navigateTo('URSS')">URSS</a> e basi logistiche della <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a>, occupò lo stato della Florida — territorio dell'<a onclick="navigateTo('America Fascista')">America Fascista</a>.</p>
+<p>Fu uno degli eventi militari più clamorosi del conflitto: non solo per l'audacia dell'operazione transoceanica, ma perché l'America Fascista — nominalmente la potenza più grande dell'emisfero — non organizzò una controffensiva reale. La difesa fu improvvisata e probabilmente sabotata dall'ambiguità politica di <a onclick="navigateTo('Zella')">Zella</a>, che non voleva consumare risorse contro un regime fascista simile al suo.</p>
+<h2>Perché la Florida? <span class="edit-link" onclick="openEditor('Invasione della Florida')">[modifica]</span></h2>
+<p><a onclick="navigateTo('Adolf Hitler')">Hitler</a> aveva tre ragioni: posizione geografica (testa di ponte nelle Americhe), risorse strategiche, e pressione psicologica sull'<a onclick="navigateTo('Dittatura Zella')">America Fascista</a> — dimostrare che la Germania era il fascismo dominante. La Florida era sia un territorio strategico che un test di forza tra i due sistemi.</p>
+<h2>Conseguenze e futuro <span class="edit-link" onclick="openEditor('Invasione della Florida')">[modifica]</span></h2>
+<p>La Florida occupata fu amministrata come territorio tedesco. Zella usò la perdita per intensificare la repressione interna. Nel lungo periodo, il ritorno di <a onclick="navigateTo('Morello')">Morello</a> è destinato a rimescolare questi equilibri — la Florida tedesca, l'America di Zella, la Nigeria Spartiana: tutto il disordine del 27 aM è destinato a essere affrontato da qualcuno che ha già risolto problemi più complicati a Napoli.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Seconda Guerra Mondiale</a> <a>27 aM</a> <a>Operazioni militari</a> <a>Florida</a></div>`;
+}
+
+function buildNordItalia() {
+  return `<h1 class="page-title">Nord Italia</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Nord Italia</div>
+  
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/200px-Flag_of_Italy.svg.png" alt="Nord Italia" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <table>
+    <tr><td>Capitale</td><td>Milano</td></tr>
+    <tr><td>Fondazione</td><td>22 aM (1939)</td></tr>
+    <tr><td>Confini</td><td>Alpi a nord · Po a sud circa · <a onclick="navigateTo('Repubblica di Venezia')">Venezia</a> a est</td></tr>
+    <tr><td>Carattere</td><td>Industriale, pragmatico</td></tr>
+    <tr><td>Relazioni</td><td>Inizialmente filo-tedesco · poi neutralità commerciale</td></tr>
+  </table>
+</div>
+<p>Il <b>Nord Italia</b> fu la prima entità a separarsi formalmente dall'Italia unita, approfittando del collasso del regime mussoliniano. Con un'economia industriale già semi-autonoma, la sua classe dirigente visse la separazione come una liberazione pratica. La neutralità fu la sua politica di sopravvivenza durante la <a onclick="navigateTo('Seconda Guerra Mondiale')">Seconda Guerra Mondiale</a>.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Frammentazione Italia</a> <a>Paesi italiani</a></div>`;
+}
+
+function buildRepubblicaVenezia() {
+  return `<h1 class="page-title">Repubblica di Venezia</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Repubblica di Venezia</div>
+  
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Flag_of_the_Most_Serene_Republic_of_Venice.svg/200px-Flag_of_the_Most_Serene_Republic_of_Venice.svg.png" alt="Repubblica di Venezia" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div><div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Bandiera della Serenissima — riportata in uso</div>
+  <table>
+    <tr><td>Capitale</td><td>Venezia</td></tr>
+    <tr><td>Fondazione</td><td>23 aM (1940)</td></tr>
+    <tr><td>Carattere</td><td>Stato cuscinetto adriatico · diplomatico · commerciante</td></tr>
+    <tr><td>Tradizione</td><td>Si richiama alla Serenissima Repubblica storica</td></tr>
+  </table>
+</div>
+<p>La <b>Repubblica di Venezia</b> si proclamò stato indipendente nel 23 aM (1940), richiamandosi alla Serenissima. Piccola, commercialmente vivace, scelse la neutralità come politica di sopravvivenza. Il suo porto fu essenziale per i commerci tra i frammenti italiani e i Balcani.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Frammentazione Italia</a> <a>Paesi italiani</a></div>`;
+}
+
+function buildDucatoToscana() {
+  return `<h1 class="page-title">Ducato di Toscana</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Ducato di Toscana</div>
+  
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Flag_of_Tuscany.svg/200px-Flag_of_Tuscany.svg.png" alt="Ducato di Toscana" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <table>
+    <tr><td>Capitale</td><td>Firenze</td></tr>
+    <tr><td>Fondazione</td><td>22 aM (1939)</td></tr>
+    <tr><td>Governo</td><td>Ducato — aristocratico-conservatore</td></tr>
+    <tr><td>Carattere</td><td>Neutrale · conservatore · orgoglioso</td></tr>
+  </table>
+</div>
+<p>Il <b>Ducato di Toscana</b> scelse la forma aristocratica come reazione al fascismo populista. La classe dirigente fiorentina preferiva un conservatorismo stabile a qualsiasi esperimento. La neutralità assoluta fu la sua politica estera: non fare alleanze militari, vendere arte e vino a tutti.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Frammentazione Italia</a> <a>Paesi italiani</a></div>`;
+}
+
+function buildRepubblicaRoma() {
+  return `<h1 class="page-title">Repubblica di Roma</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Repubblica di Roma</div>
+  
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Flag_of_Rome.svg/200px-Flag_of_Rome.svg.png" alt="Repubblica di Roma" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <table>
+    <tr><td>Capitale</td><td>Roma</td></tr>
+    <tr><td>Fondazione</td><td>23 aM (1940)</td></tr>
+    <tr><td>Governo</td><td>Repubblica laica</td></tr>
+    <tr><td>Carattere</td><td>Sorprendentemente moderna · laica · progressista</td></tr>
+    <tr><td>Vaticano</td><td>Accordo di separazione territoriale — nessuna delle due parti lo definì «soddisfacente»</td></tr>
+    <tr><td>Rivale</td><td><a onclick="navigateTo('Napoli (Stato)')">Napoli</a> per il controllo del Lazio meridionale</td></tr>
+  </table>
+</div>
+<p>La <b>Repubblica di Roma</b> fu una delle entità più inaspettate della frammentazione italiana: una repubblica laica e progressista che sembrava aver imparato dall'esperienza fascista più degli altri frammenti.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Frammentazione Italia</a> <a>Paesi italiani</a></div>`;
+}
+
+function buildNapoliStato() {
+  return `<h1 class="page-title">Napoli (Stato)</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Stato di Napoli</div>
+  
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Flag_of_the_Two_Sicilies_%281816%29.svg/200px-Flag_of_the_Two_Sicilies_%281816%29.svg.png" alt="Napoli (Stato)" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div><div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Bandiera del Regno delle Due Sicilie — simbolo storico</div>
+  <table>
+    <tr><td>Capitale</td><td><a onclick="navigateTo('Napoli')">Napoli</a></td></tr>
+    <tr><td>Fondazione</td><td>22 aM (1939)</td></tr>
+    <tr><td>Carattere</td><td>La più potente entità del Sud · controlla la maggior parte del Mezzogiorno</td></tr>
+    <tr><td>Rivali</td><td><a onclick="navigateTo('Repubblica di Roma')">Roma</a> · <a onclick="navigateTo('Serrano')">Serrano</a></td></tr>
+    <tr><td>Legame</td><td>Profondo con la memoria di <a onclick="navigateTo('Morello')">Morello</a></td></tr>
+  </table>
+</div>
+<p>Lo <b>Stato di Napoli</b> è la più potente entità meridionale emersa dalla frammentazione dell'Italia. Controlla la maggior parte del Mezzogiorno continentale e mantiene un'identità forte costruita sul ricordo dell'Età dell'Oro e della figura di <a onclick="navigateTo('Morello')">Morello</a>. Il suo peso politico supera di gran lunga quello degli altri frammenti meridionali, con l'eccezione di <a onclick="navigateTo('Serrano')">Serrano</a> che, controllando la Puglia, è il suo principale antagonista nel Sud.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Frammentazione Italia</a> <a>Paesi italiani</a> <a>Napoli</a></div>`;
+}
+
+function buildFederazioneSiculoSarda() {
+  return `<h1 class="page-title">Federazione Siculo-Sarda</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Federazione Siculo-Sarda</div>
+  
+  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Flag_of_Sicily.svg/200px-Flag_of_Sicily.svg.png" alt="Federazione Siculo-Sarda" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div><div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Trinacria siciliana — simbolo federale</div>
+  <table>
+    <tr><td>Capitali</td><td>Palermo · Cagliari</td></tr>
+    <tr><td>Fondazione</td><td>23 aM (1940)</td></tr>
+    <tr><td>Carattere</td><td>Federazione insulare · orgoglio autonomista · commercio marittimo</td></tr>
+    <tr><td>Forza</td><td>Controllo del Mediterraneo centrale</td></tr>
+  </table>
+</div>
+<p>La <b>Federazione Siculo-Sarda</b> nacque dall'unione di Sicilia e Sardegna nel 23 aM (1940). Le due isole avevano storicamente coltivato identità autonomiste e la frammentazione italiana fu l'occasione per formalizzarla. La Federazione controlla una posizione strategica nel Mediterraneo centrale e mantiene una flotta commerciale che la rende economicamente indipendente dai frammenti continentali.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Frammentazione Italia</a> <a>Paesi italiani</a></div>`;
+}
+
+// ══════════════════════════════════════════════════════
 //  FIREBASE — configurato e pronto
 // ══════════════════════════════════════════════════════
 
@@ -2532,7 +3355,39 @@ const PROTECTED_PAGES = new Set([
   "Camorra Salentina",
   "De Morellis",
   "Sal da Spicci",
-  "Sal da Vinci"
+  "Sal da Vinci",
+  "Prima Guerra Mondiale",
+  "Seconda Guerra Mondiale",
+  "Triplice Intesa",
+  "Triplice Alleanza",
+  "Alleati (SGM)",
+  "Potenze dell'Asse",
+  "Carmelo Spisso",
+  "Francia",
+  "Impero Tedesco",
+  "Impero Austro-Ungarico",
+  "Impero Ottomano",
+  "Regno Unito",
+  "Russia Imperiale",
+  "Germania Nazista",
+  "Adolf Hitler",
+  "Dittatura Zella",
+  "Zella",
+  "Nestola",
+  "Famiglia degli Elettricisti",
+  "Famiglia dei Medici (Albania)",
+  "America Fascista",
+  "Invasione della Florida",
+  "Nigeria Spartiana",
+  "104 Nigeriani",
+  "URSS",
+  "Benito Mussolini",
+  "Nord Italia",
+  "Repubblica di Roma",
+  "Napoli (Stato)",
+  "Federazione Siculo-Sarda",
+  "Repubblica di Venezia",
+  "Ducato di Toscana"
 ]);
 
 // ══════════════════════════════════════════════════════
