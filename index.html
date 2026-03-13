@@ -603,8 +603,80 @@ clearfix::after { content: ''; display: block; clear: both; }
   .infobox { float: none; width: 100%; margin: 0 0 16px; }
 }
 </style>
+<!-- Firebase SDK (ES modules via CDN) -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+  import { getDatabase, ref, set, onValue, onChildAdded, onChildChanged } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDthQRNEl4YBV1vZkP6SeIKwXq8-7wMS0I",
+    authDomain: "pocchiaciclopedia.firebaseapp.com",
+    databaseURL: "https://pocchiaciclopedia-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "pocchiaciclopedia",
+    storageBucket: "pocchiaciclopedia.firebasestorage.app",
+    messagingSenderId: "537954035884",
+    appId: "1:537954035884:web:6d561282b59bf80594d709",
+    measurementId: "G-RK489005Z5"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+
+  // Esponi database e funzioni globalmente per il resto del codice
+  window._fbDb = database;
+  window._fbRef = ref;
+  window._fbSet = set;
+  window._fbOnValue = onValue;
+  window._fbOnChildAdded = onChildAdded;
+  window._fbOnChildChanged = onChildChanged;
+  window._fbReady = true;
+
+  // Avvisa il codice principale che Firebase è pronto
+  window.dispatchEvent(new Event('firebase-ready'));
+</script>
+<style>
+.fb-banner { display:block; padding:8px 16px; font-size:12px; font-family:sans-serif; text-align:center; z-index:999; border-bottom:1px solid transparent; }
+.fb-banner a { color:inherit; font-weight:600; text-decoration:underline; }
+.fb-ok    { background:#d4edda; color:#155724; border-color:#c3e6cb; }
+.fb-warn  { background:#fff3cd; color:#856404; border-color:#ffeeba; }
+.fb-error { background:#f8d7da; color:#721c24; border-color:#f5c6cb; }
+.fb-loading { background:#d1ecf1; color:#0c5460; border-color:#bee5eb; }
+#fb-setup-modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,.6); z-index:10000; align-items:center; justify-content:center; }
+#fb-setup-modal.open { display:flex; }
+.fb-setup-inner { background:white; border-radius:4px; padding:28px 32px; max-width:580px; width:90%; max-height:88vh; overflow-y:auto; font-family:sans-serif; }
+.fb-setup-inner h2 { font-family:'Linux Libertine',serif; font-size:20px; margin-bottom:16px; color:#202122; }
+.fb-setup-inner ol { padding-left:20px; font-size:13px; line-height:2.3; }
+.fb-setup-inner code { background:#f0f0f0; padding:2px 6px; border-radius:2px; font-size:12px; font-family:monospace; }
+.fb-setup-close { float:right; background:none; border:1px solid #a2a9b1; padding:4px 12px; border-radius:2px; cursor:pointer; font-size:13px; }
+.fb-setup-note { background:#fff3cd; border:1px solid #ffc107; border-radius:2px; padding:10px 14px; font-size:12px; margin-top:14px; line-height:1.6; }
+.fb-setup-note b { color:#856404; }
+</style>
 </head>
 <body>
+
+<!-- Firebase status banner -->
+<div id="fb-status" class="fb-banner fb-loading">🔄 Caricamento…</div>
+
+<!-- Firebase setup modal -->
+<div id="fb-setup-modal">
+  <div class="fb-setup-inner">
+    <button class="fb-setup-close" onclick="document.getElementById('fb-setup-modal').classList.remove('open')">✕ Chiudi</button>
+    <h2>⚙️ Come configurare Firebase</h2>
+    <ol>
+      <li>Vai su <b>firebase.google.com</b> e accedi con il tuo account Google</li>
+      <li>Clicca <b>Aggiungi progetto</b> → dai un nome (es. <code>pocchiaciclopedia</code>) → continua</li>
+      <li>Nel progetto: menu laterale → <b>Realtime Database</b> → Crea database → scegli <b>Modalità test</b> → Abilita</li>
+      <li>Menu laterale → <b>Impostazioni progetto</b> (ingranaggio) → tab <b>Generali</b> → scorri giù → <b>Aggiungi app</b> → icona Web <code>&lt;/&gt;</code></li>
+      <li>Dai un nome all'app (qualsiasi) → <b>Registra app</b></li>
+      <li>Copia il blocco <code>firebaseConfig = { ... }</code> che appare</li>
+      <li>Apri <code>index.html</code> in un editor di testo → cerca <code>FIREBASE_CONFIG</code> → incolla i valori al posto dei segnaposto <code>INSERISCI_…</code></li>
+      <li>Salva e ricarica su GitHub → la wiki sarà condivisa con tutti 🎉</li>
+    </ol>
+    <div class="fb-setup-note">
+      <b>Piano gratuito Firebase (Spark):</b> 1 GB di dati, 50.000 letture/giorno, 20.000 scritture/giorno — più che sufficiente per la Pocchiaciclopedia. Nessun costo.
+    </div>
+  </div>
+</div>
 
 <!-- HEADER -->
 <div id="wiki-top">
@@ -622,7 +694,7 @@ clearfix::after { content: ''; display: block; clear: both; }
       <div id="search-results"></div>
     </div>
     <div id="wiki-top-actions">
-      <button class="top-btn primary" onclick="openEditor(null)">✏️ Modifica</button>
+      <button id="btn-edit-top" class="top-btn primary" onclick="openEditor(null)">✏️ Modifica</button>
     </div>
   </div>
 </div>
@@ -777,7 +849,8 @@ const DEFAULT_PAGES = {
 </ul>
 <p><b>Organizzazioni criminali</b></p>
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
-  <li><a onclick="navigateTo('Camorra Salentina')"><b>Camorra Salentina</b></a> — Fondata presumibilmente da Morello dopo il 17 aM. Ancora attiva. Guidata da De Morellis.</li>
+  <li><a onclick="navigateTo('Sal da Spicci')"><b>Sal da Spicci</b></a> — Co-governatore di Napoli durante l'Età dell'Oro. Cantante straordinario. Scomparso nel 17 aM.</li>
+  <li><a onclick="navigateTo('Sal da Vinci')"><b>Sal da Vinci</b></a> — Cantante di musica popolare meridionale. Carriera iniziata subito dopo il 17 aM. Somiglianza con Sal da Spicci: documentata, non commentata.</li>
   <li><a onclick="navigateTo('De Morellis')"><b>De Morellis</b></a> — Leader della Camorra Salentina. Anziano, enigmatico, inspiegabilmente simile a Morello.</li>
 </ul>
 <p><b>Religioni e sistemi di datazione</b></p>
@@ -949,6 +1022,18 @@ const DEFAULT_PAGES = {
     wikitext: "",
     history: [],
     content: ""
+  },
+  "Sal da Spicci": {
+    title: "Sal da Spicci",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "Sal da Vinci": {
+    title: "Sal da Vinci",
+    wikitext: "",
+    history: [],
+    content: ""
   }
 };
 
@@ -980,6 +1065,171 @@ DEFAULT_PAGES["L.E.G.G.I."].content = buildLeggi();
 DEFAULT_PAGES["Ignoto di Napoli"].content = buildIgnotoDiNapoli();
 DEFAULT_PAGES["Camorra Salentina"].content = buildCamoraSalentina();
 DEFAULT_PAGES["De Morellis"].content = buildDeMorellis();
+DEFAULT_PAGES["Sal da Spicci"].content = buildSalDaSpicci();
+DEFAULT_PAGES["Sal da Vinci"].content = buildSalDaVinci();
+
+function buildSalDaSpicci() {
+  return `<div class="wiki-notice"><span class="ni">🎵</span><span>Questa voce riguarda il co-governatore di <a onclick="navigateTo('Napoli')">Napoli</a> durante l'Età dell'Oro. Per la carriera musicale successiva alla scomparsa, vedi <a onclick="navigateTo('Sal da Vinci')">Sal da Vinci</a>.</span></div>
+<h1 class="page-title">Sal da Spicci</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Sal da Spicci</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="sal_da_spicci.jpg" alt="Sal da Spicci" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <table>
+    <tr><td>Nome d'arte successivo</td><td><a onclick="navigateTo('Sal da Vinci')">Sal da Vinci</a></td></tr>
+    <tr><td>Ruolo</td><td>Co-governatore di <a onclick="navigateTo('Napoli')">Napoli</a> (con <a onclick="navigateTo('Morello')">Morello</a>)</td></tr>
+    <tr><td>Attivo come governatore</td><td>Dall'Anno 0 al 17 aM</td></tr>
+    <tr><td>Scomparso</td><td>Anno 17 aM (eruzione del Vesuvio)</td></tr>
+    <tr><td>Carattere</td><td>Esuberante, carismatico, cantante straordinario</td></tr>
+    <tr><td>Complementare a</td><td><a onclick="navigateTo('Morello')">Morello</a> (austero, strategico)</td></tr>
+    <tr><td>Amico d'infanzia di</td><td><a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a> (a partire dal 6 paM)</td></tr>
+    <tr><td>Rapporto con il <a onclick="navigateTo('Topismo')">Topismo</a></td><td>Ignorato quasi completamente dalla dottrina topista</td></tr>
+  </table>
+</div>
+<p><b>Sal da Spicci</b> è stato il co-governatore di <a onclick="navigateTo('Napoli')">Napoli</a> durante l'Età dell'Oro, dall'Anno 0 al 17 aM, in coppia con <a onclick="navigateTo('Morello')">Morello</a>. Mentre Morello era il cervello strategico e finanziario del governo, Sal era il suo opposto complementare: esuberante, relazionale, impossibile da non amare. Dove Morello imponeva l'ordine per efficienza, Sal lo faceva adottare per simpatia. Entrambi i metodi funzionavano. La città prosperò.</p>
+<p>Era anche, stando a tutti i resoconti sopravvissuti, un cantante straordinario. Questo dettaglio, che nelle cronache dell'Età dell'Oro sembra quasi una curiosità, sarebbe diventato il capitolo più lungo della sua vita.</p>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#origini-sal">Origini e ascesa</a></li>
+    <li><a href="#governo-sal">Il governo di Napoli</a></li>
+    <li><a href="#voce-sal">La voce</a></li>
+    <li><a href="#filippo-sal">Il legame con Filippo Pascali</a></li>
+    <li><a href="#eruzione-sal">L'eruzione e la scomparsa</a></li>
+    <li><a href="#dopo-sal2">Dopo: Sal da Vinci</a></li>
+    <li><a href="#eredita-sal">L'eredità e la memoria</a></li>
+  </ol>
+</div>
+
+<h2 id="origini-sal">Origini e ascesa <span class="edit-link" onclick="openEditor('Sal da Spicci')">[modifica]</span></h2>
+<p>Le origini di Sal da Spicci sono oscure quanto quelle di <a onclick="navigateTo('Morello')">Morello</a>, e per ragioni simili: le cronache dell'Età dell'Oro si concentrano sui fatti del governo, non sulle biografie dei governanti. Quello che si sa è che Sal comparve a Napoli insieme a Morello — o quasi insieme, con un margine di qualche mese secondo alcune versioni — e che i due costruirono il loro rapporto di governo in modo naturale, quasi inevitabile, come se le loro differenze di carattere fossero progettate per completarsi a vicenda.</p>
+<p>Il soprannome «da Spicci» ha generato molta speculazione. La lettura più diffusa è che derivasse dalla sua generosità: Sal era noto per distribuire monete — gli <i>spicci</i>, gli spiccioli — con una libertà che Morello trovava inefficiente e i napoletani trovavano adorabile. Una seconda interpretazione sostiene che «Spicci» fosse il nome di un luogo d'origine mai identificato con certezza. Una terza, sostenuta da nessuno di credibile, è che fosse semplicemente il modo in cui si presentava ai mercati: veloce, diretto, con la cadenza di chi ha sempre qualcosa da fare ma si ferma volentieri a parlare.</p>
+
+<h2 id="governo-sal">Il governo di Napoli <span class="edit-link" onclick="openEditor('Sal da Spicci')">[modifica]</span></h2>
+<p>La partnership tra Sal e Morello è descritta nelle fonti come una delle rare combinazioni politiche in cui due stili completamente opposti non si annullano ma si moltiplicano. Morello governava con la precisione di un architetto: piani, strutture, sistemi. Sal governava con la presenza di un musicista: attenzione, relazione, memoria dei nomi. Morello sapeva dove andava la città. Sal sapeva chi ci viveva.</p>
+<p>In pratica questo significava che quando Morello istituì il primo sistema fiscale trasparente di Napoli — una cosa che normalmente avrebbe incontrato resistenza feroce — fu Sal a spiegarlo nei mercati, nelle osterie, nei vicoli stretti dove le decisioni politiche arrivano sempre come voci prima che come leggi. Con la sua rete di relazioni personali, riuscì a far adottare il sistema non come imposizione ma come accordo. «Morello costruisce le strade» disse qualcuno in un documento dell'epoca. «Sal convince la gente a camminarci sopra.»</p>
+<p>Non aveva un titolo formale diverso da «co-governatore». Non ne aveva bisogno. La sua autorità era di tipo diverso da quella di Morello: meno istituzionale, più diffusa, radicata nella fiducia personale che aveva costruito con la città nel corso di anni. Napoli lo conosceva. Napoli si fidava di lui. Questo, a Napoli, vale più di qualsiasi titolo.</p>
+
+<h2 id="voce-sal">La voce <span class="edit-link" onclick="openEditor('Sal da Spicci')">[modifica]</span></h2>
+<p>Le fonti che descrivono Sal da Spicci sono quasi universalmente d'accordo su un punto che sembra marginale e non lo è: cantava. Non come attività occasionale, non come hobby, ma come parte constitutiva della sua personalità pubblica. Cantava ai banchetti, nei mercati, nelle occasioni ufficiali e in quelle informali. Cantava quando era felice e, secondo alcune testimonianze, anche quando era preoccupato — come se la musica fosse per lui il modo naturale di processare il mondo.</p>
+<p>Il tipo di voce che aveva è descritto in un frammento di cronaca superstite come «quella voce che non ti aspetti da un uomo che fa anche tutto il resto — piena, calda, con quella cosa dentro che ti fa sentire che ti sta raccontando qualcosa di vero anche quando canta una cosa stupida». I napoletani, che hanno standard alti in materia, la ricordano come una delle voci più belle che la città avesse mai sentito. Questo è un giudizio che a Napoli non viene rilasciato facilmente.</p>
+
+<h2 id="filippo-sal">Il legame con Filippo Pascali <span class="edit-link" onclick="openEditor('Sal da Spicci')">[modifica]</span></h2>
+<p>Sal da Spicci conosceva <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a> fin dal 6 paM — prima ancora che il Calendario Morello cominciasse. Il legame tra i due è descritto nelle fonti come una delle amicizie più solide dell'intera era: non la spettacolare complicità tra Sal e Morello, ma qualcosa di più quieto e duraturo. Filippo era l'amico di una vita, quello che conosceva Sal prima che diventasse co-governatore, prima che Napoli lo conoscesse, prima della voce nei mercati e delle monete distribuite.</p>
+<p>Quando il Vesuvio eruttò nel 17 aM e tutto cambiò, fu Filippo uno dei pochi a sapere dove andò Sal — o almeno a credere di saperlo. Le voci sul cambiamento di nome e sulla nuova carriera musicale circolano anche tra chi conosce la <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a>, il che suggerisce che il collegamento non sia mai stato del tutto interrotto.</p>
+
+<h2 id="eruzione-sal">L'eruzione e la scomparsa <span class="edit-link" onclick="openEditor('Sal da Spicci')">[modifica]</span></h2>
+<p>Nell'Anno 17 aM il Vesuvio eruttò. Napoli non fu distrutta, ma fu sconvolta — nel governo, nelle strutture, nell'ordine che Morello e Sal avevano costruito in diciassette anni. Entrambi scomparvero. Morello, secondo la tradizione, andò a sud verso il Salento. Sal prese una direzione diversa, o almeno una strada diversa verso lo stesso risultato: sparire abbastanza da poter ricominciare con un altro nome.</p>
+<p>Non ci sono resoconti diretti di cosa fece nei giorni immediatamente successivi all'eruzione. C'è il silenzio delle fonti, che a Napoli viene letto come conferma di una fuga riuscita: chi scappa bene non lascia tracce.</p>
+
+<h2 id="dopo-sal2">Dopo: Sal da Vinci <span class="edit-link" onclick="openEditor('Sal da Spicci')">[modifica]</span></h2>
+<p>Secondo la versione più diffusa — che ha la coerenza narrativa delle cose vere anche quando non si possono provare — Sal da Spicci non morì nell'eruzione. Cambiò nome, diventando <a onclick="navigateTo('Sal da Vinci')"><b>Sal da Vinci</b></a>. La scelta del nuovo nome è letta diversamente da chi la commenta: alcuni vedono un omaggio a una grandezza a cui aspirava, altri un semplice stratagemma — un nome abbastanza diverso da «Spicci» da non essere riconosciuto, abbastanza risonante da costruire una nuova identità sopra.</p>
+<p>Con quel nome costruì una carriera musicale. Con quel nome canta ancora, se le voci sono vere. Per i dettagli, vedi <a onclick="navigateTo('Sal da Vinci')">Sal da Vinci</a>.</p>
+
+<h2 id="eredita-sal">L'eredità e la memoria <span class="edit-link" onclick="openEditor('Sal da Spicci')">[modifica]</span></h2>
+<p>Sal da Spicci viene ricordato a Napoli con un affetto che Morello non ha mai ottenuto in egual misura — non perché Morello fosse meno importante, ma perché Morello era rispettato e Sal era amato, e a Napoli la distinzione conta. Il rispetto si tributa ai grandi. L'amore si dà a chi ti ha fatto sentire visto.</p>
+<p>La sua figura è quasi completamente assente dalla dottrina del <a onclick="navigateTo('Topismo')">Topismo</a>, che preferisce concentrarsi su <a onclick="navigateTo('Morello')">Morello</a> e sulla linea divina che porta a <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a>. I Ludotopici lo nominano raramente e con una certa imbarazzata vaghezza — come si fa con qualcuno che non si riesce a collocare bene nella propria cosmologia ma che sarebbe goffo ignorare del tutto.</p>
+<p>A Napoli, invece, il suo nome circola ancora. Nei vicoli del centro storico, tra chi usa il <a onclick="navigateTo('Calendario Morello')">Calendario Morello</a> per datare i ricordi collettivi, esiste ancora la distinzione: «il governo di Morello» per le istituzioni, «il governo di Sal» per come ci si sentiva a vivere in quella città.</p>
+<div class="stub-box"><span style="font-size:22px">🎵</span><span>Questa voce tratta del periodo governativo di Sal da Spicci. La sua carriera musicale successiva è documentata nella voce <a onclick="navigateTo('Sal da Vinci')">Sal da Vinci</a>.</span></div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Figure storiche di Napoli</a> <a>Età dell'Oro di Napoli</a> <a>Co-governatori di Napoli</a> <a>Cantanti</a> <a>Figure scomparse nel 17 aM</a></div>`;
+}
+
+function buildSalDaVinci() {
+  return `<div class="wiki-notice"><span class="ni">🎤</span><span>Questa voce riguarda la carriera musicale di Sal da Vinci. Per la sua identità precedente come co-governatore di Napoli, vedi <a onclick="navigateTo('Sal da Spicci')">Sal da Spicci</a>.</span></div>
+<h1 class="page-title">Sal da Vinci</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Sal da Vinci</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="sal_da_vinci.jpg" alt="Sal da Vinci" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <table>
+    <tr><td>Nome reale (presunto)</td><td><a onclick="navigateTo('Sal da Spicci')">Sal da Spicci</a></td></tr>
+    <tr><td>Genere musicale</td><td>Musica popolare meridionale, canzone napoletana, neomelodico</td></tr>
+    <tr><td>Inizio carriera</td><td>Dopo il 17 aM</td></tr>
+    <tr><td>Base operativa</td><td>Campania — poi tutta Italia meridionale</td></tr>
+    <tr><td>Caratteristica principale</td><td>Voce di tenore straordinario, repertorio emotivamente diretto</td></tr>
+    <tr><td>Album più noto</td><td><i>Nun te scurdà</i> (data imprecisata)</td></tr>
+    <tr><td>Canzone più famosa</td><td><i>Chest' è 'o mare</i></td></tr>
+    <tr><td>Età apparente</td><td>Consistentemente descritta come «impossibile da stimare»</td></tr>
+    <tr><td>Somiglianza con Sal da Spicci</td><td>Documentata — non commentata dall'interessato</td></tr>
+    <tr><td>Collegamento alla <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a></td><td>Indiretto, tramite <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a></td></tr>
+  </table>
+</div>
+<p><b>Sal da Vinci</b> è un cantante di musica popolare meridionale la cui carriera cominciò, secondo le prime testimonianze documentate, qualche anno dopo l'eruzione del Vesuvio del 17 aM. È specializzato nel tipo di canzone napoletana e neomelodico che fa piangere ai matrimoni, promettere cose che non si manterranno e telefonare a ex fidanzate alle due di notte. Questo è considerato, nel suo ambiente, un complimento.</p>
+<p>La sua identità reale è oggetto di discussione aperta tra chi frequenta certi ambienti napolitani e salentini. La somiglianza con le descrizioni storiche di <a onclick="navigateTo('Sal da Spicci')">Sal da Spicci</a> — co-governatore di <a onclick="navigateTo('Napoli')">Napoli</a> durante l'Età dell'Oro — è stata notata da troppe persone indipendenti per essere liquidata come coincidenza, e da nessuno abbastanza autorevole da diventare notizia. Sal da Vinci non ha mai commentato.</p>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#nomeart-sdv">Il nome d'arte</a></li>
+    <li><a href="#carriera-sdv">La carriera musicale</a>
+      <ol>
+        <li><a href="#inizio-sdv">Gli inizi</a></li>
+        <li><a href="#stile-sdv">Lo stile e il repertorio</a></li>
+        <li><a href="#album-sdv">Discografia</a></li>
+      </ol>
+    </li>
+    <li><a href="#voce-sdv">La voce</a></li>
+    <li><a href="#eta-sdv">Il problema dell'età</a></li>
+    <li><a href="#identita-sdv">La questione dell'identità</a></li>
+    <li><a href="#filippo-sdv">Il collegamento con Filippo Pascali</a></li>
+    <li><a href="#vinci-sdv">Perché «da Vinci»</a></li>
+  </ol>
+</div>
+
+<h2 id="nomeart-sdv">Il nome d'arte <span class="edit-link" onclick="openEditor('Sal da Vinci')">[modifica]</span></h2>
+<p>Sal da Vinci adottò il nome in un momento in cui aveva bisogno di un nuovo nome — il che è, nel suo caso, un'affermazione che vale il doppio. «Da Vinci» è una scelta che ha generato più interpretazioni del necessario. La più semplice: Leonardo da Vinci è il più grande genio del sud Italia, e un cantante con ambizioni artistiche potrebbe ragionevolmente voler abitare quella risonanza. La più sottile: «da Vinci» è un modo per dichiarare provenienza da qualcosa di grande senza specificare cosa — come «da Spicci» era una provenienza, solo diversa.</p>
+<p>I napoletani che conoscono la storia notano che i due nomi hanno la stessa struttura: Sal da [qualcosa]. Come se l'identità di base — Sal — fosse l'unica parte che non poteva cambiare, e il «da» fosse semplicemente il luogo, reale o metaforico, da cui si veniva ogni volta.</p>
+
+<h2 id="carriera-sdv">La carriera musicale <span class="edit-link" onclick="openEditor('Sal da Vinci')">[modifica]</span></h2>
+
+<h3 id="inizio-sdv">Gli inizi</h3>
+<p>Le prime testimonianze di Sal da Vinci come musicista professionista risalgono al periodo immediatamente successivo al 17 aM — il che è già, di per sé, una coincidenza degna di nota. Comparve dapprima nelle feste di paese della provincia napoletana, poi nelle sagre, poi nei matrimoni. Non aveva un agente, non aveva un contratto, non aveva una strategia. Aveva la voce.</p>
+<p>La voce fu sufficiente. In un circuito informale dove la reputazione si costruisce di matrimonio in matrimonio e di sagra in sagra, Sal da Vinci si affermò rapidamente come uno dei cantanti più richiesti dell'area campana. Non era il più moderno né il più innovativo. Era quello dopo il quale i presenti sembravano commossi anche se non sapevano spiegare perché.</p>
+
+<h3 id="stile-sdv">Lo stile e il repertorio</h3>
+<p>Sal da Vinci si muove nell'area della <b>canzone napoletana classica</b> e del <b>neomelodico</b> — due generi che condividono la stessa materia prima: il sentimento irrisolto, la distanza, la nostalgia di cose che forse non sono mai esistite esattamente come le si ricorda. Le sue canzoni parlano di mare, di partenze, di amori che finiscono e di città che non cambiano mai abbastanza da smettere di essere quelle che erano.</p>
+<p>Lo stile interpretativo è descritto come «emotivamente diretto senza essere sentimentale» — una distinzione sottile ma reale. Non manipola il pubblico verso le lacrime. Crea le condizioni perché le lacrime arrivino da sole, che è una cosa molto diversa e richiede molto più talento.</p>
+<p>Esegue raramente le sue canzoni allo stesso modo due volte. I musicisti con cui ha lavorato riferiscono che le arrangiava sul momento, seguendo qualcosa che lui sembrava sentire in modo che gli altri non riuscivano a anticipare. «Come se la canzone fosse già finita dentro di lui» disse un chitarrista che lo accompagnò per anni «e lui stesse solo comunicandoci come arrivarci.»</p>
+
+<h3 id="album-sdv">Discografia</h3>
+<p>La discografia di Sal da Vinci è frammentaria e mal documentata, il che è coerente con una carriera costruita su circuiti informali prima che su contratti discografici. Le opere confermate sono:</p>
+<ul style="margin:0 0 14px 24px;font-family:sans-serif;font-size:13px;line-height:2.1">
+  <li><b><i>Nun te scurdà</i></b> — Il suo album più noto. Data di pubblicazione imprecisata. Contiene la canzone <i>Chest' è 'o mare</i>, considerata il suo capolavoro. Vendite: nessun dato ufficiale disponibile, ma il disco circola ancora in copie fisiche usurate che i proprietari tendono a non prestare.</li>
+  <li><b><i>Comme 'na vota</i></b> — Raccolta di standard napoletani reinterpretati. Apprezzata da chi li conosceva già e da chi non li conosceva affatto, per ragioni opposte.</li>
+  <li><b><i>A voce d''o mare</i></b> — Registrazione live di un concerto in provincia di Napoli. La qualità audio è mediocre. La prestazione è considerata, da chi era presente, una delle migliori che abbiano mai sentito.</li>
+  <li><b><i>Terra mia</i></b> — Album più recente, con incursioni nel folk pugliese — forse una concessione all'area salentina dove la sua popolarità è sempre stata alta. Contiene <i>Salentina mia</i>, che è diventata una specie di inno informale di certi matrimoni del Salento.</li>
+</ul>
+
+<h2 id="voce-sdv">La voce <span class="edit-link" onclick="openEditor('Sal da Vinci')">[modifica]</span></h2>
+<p>La voce di Sal da Vinci è l'unica cosa su cui tutte le fonti concordano senza riserve. È una voce di <b>tenore</b>, calda e piena, con una capacità di tenere le note lunghe che i critici musicali descrivono come «fisicamente improbabile» — una nota che si allunga oltre il punto in cui dovrebbe fermarsi e continua, e continua ancora, come se non fosse soggetta alle stesse limitazioni polmonari degli altri esseri umani.</p>
+<p>Chi l'ha sentita dal vivo — e ne esiste un numero notevole di persone, distribuite su decenni di concerti informali — la descrive con una coerenza che suggerisce non stiano esagerando: una voce che ti fa sentire che stia cantando per te, specificamente, anche in mezzo a duecento persone. Questa capacità — tecnicamente nota come «proiezione personalizzata» tra i musicologi, e «quella cosa che fa sì che mia suocera pianga ogni volta» tra i committenti di matrimoni — è considerata il suo tratto distintivo.</p>
+<p>La somiglianza tra questa descrizione e quella della voce che le fonti attribuiscono a <a onclick="navigateTo('Sal da Spicci')">Sal da Spicci</a> durante l'Età dell'Oro è stata notata. Non è stata commentata dall'interessato.</p>
+
+<h2 id="eta-sdv">Il problema dell'età <span class="edit-link" onclick="openEditor('Sal da Vinci')">[modifica]</span></h2>
+<p>Sal da Vinci è attivo da un periodo che — se si prendono sul serio le prime testimonianze — supera di molto qualunque stima ragionevole della sua età. Le fotografie disponibili, poche e di qualità variabile, mostrano un uomo che appare sempre nello stesso modo: non giovane, non anziano, con quella qualità senza tempo che i napoletani attribuiscono alle persone che hanno già visto abbastanza da non essere più sorprese da nulla.</p>
+<p>Alcune fonti sostengono che appaia «identico» a come appariva vent'anni fa. Altre sostengono che stia «invecchiando normalmente». L'incompatibilità di questi resoconti non è stata risolta. È possibile che stia invecchiando e nessuno lo noti perché l'ha sempre visto così. È possibile che non stia invecchiando. La seconda ipotesi è quella che nessuno enuncia esplicitamente ma che molti tengono presente.</p>
+
+<h2 id="identita-sdv">La questione dell'identità <span class="edit-link" onclick="openEditor('Sal da Vinci')">[modifica]</span></h2>
+<p>La domanda «Sal da Vinci è davvero Sal da Spicci?» circola nei contesti giusti con la frequenza e la serietà di una domanda a cui si ritiene possibile una risposta affermativa. Gli elementi a favore si sommano: il nome strutturalmente identico, la voce che corrisponde alle descrizioni, l'età impossibile, la popolarità nelle stesse aree geografiche dove Sal da Spicci era amato, l'inizio della carriera precisamente dopo il 17 aM.</p>
+<p>Gli elementi contro sono: nessuno è riuscito a confrontare direttamente Sal da Vinci con una fonte storica verificabile, e Sal da Vinci non ha mai detto nulla che possa essere interpretato come conferma o come smentita. Il che è, in questo universo, quasi una firma.</p>
+<p>La posizione ufficiale di questa enciclopedia è che le prove non sono conclusive. La posizione non ufficiale è che se sembra Sal da Spicci, canta come Sal da Spicci, ed è apparso subito dopo che Sal da Spicci è scomparso, forse è Sal da Spicci.</p>
+
+<h2 id="filippo-sdv">Il collegamento con Filippo Pascali <span class="edit-link" onclick="openEditor('Sal da Vinci')">[modifica]</span></h2>
+<p>Il collegamento tra Sal da Vinci e la <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> passa per <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a>, amico d'infanzia di <a onclick="navigateTo('Sal da Spicci')">Sal da Spicci</a> fin dal 6 paM. Fonti vicine alla famiglia riferiscono che Filippo abbia assistito più volte a concerti di Sal da Vinci — e che non sia mai stato visto reagire con la sorpresa di chi incontra qualcuno per la prima volta, ma con la normalità di chi ritrova qualcuno che già conosce.</p>
+<p>Filippo non ha commentato. Sal da Vinci non ha commentato. I concerti continuano.</p>
+
+<h2 id="vinci-sdv">Perché «da Vinci» <span class="edit-link" onclick="openEditor('Sal da Vinci')">[modifica]</span></h2>
+<p>Una teoria circolante — non verificabile, ma elegante — sostiene che «da Vinci» sia stato scelto per il suo significato letterale: <i>da</i> Vinci, dal paese di Vinci, il luogo d'origine di Leonardo. La logica sarebbe: se devi prendere un nuovo nome e vuoi che la gente non ti chieda troppe domande su chi sei davvero, scegli un nome che suoni come una provenienza. Da dove vieni? Da Vinci. Dove è Vinci? Toscana. E così le domande si spostano geograficamente, il che è già abbastanza per sviare la maggior parte delle conversazioni.</p>
+<p>Un'altra teoria, molto più semplice, è che Sal pensasse che suonasse bene. I cantanti, anche i co-governatori di città che erano stati dei cantanti prima di diventarlo, a volte fanno scelte artistiche per ragioni puramente estetiche.</p>
+<p>Sal da Vinci non ha chiarito quale delle due sia quella corretta.</p>
+<div class="stub-box"><span style="font-size:22px">🎤</span><span>Questa voce è in espansione. Chi ha assistito a concerti di Sal da Vinci e vuole contribuire è pregato di ricordare il nome della canzone, la data approssimativa e se ha pianto o meno. Quest'ultimo dato è considerato rilevante.</span></div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Cantanti napoletani</a> <a>Neomelodico</a> <a>Figure di età sconosciuta</a> <a>Possibili identità di Sal da Spicci</a> <a>Musica popolare meridionale</a></div>`;
+}
 
 function buildCamoraSalentina() {
   return `<div class="wiki-notice"><span class="ni">🦁</span><span>Questa voce riguarda un'organizzazione che ufficialmente non esiste. Tutte le fonti citate sono state recuperate con difficoltà e alcune preferirebbero non essere citate.</span></div>
@@ -1541,7 +1791,7 @@ function buildNapoli() {
   </table>
 </div>
 <p><b>Napoli</b> (napoletano: <i>Napule</i>; Antico Glorioso: <i>Napoli mia</i>; classificazione attuale: <i>situazione in corso</i>) è una città situata nel sud dell'Italia, tecnicamente affacciata sul Mar Tirreno, anche se i locali diranno che si trova «vicino ai sacchi della spazzatura». È la terza città italiana per popolazione e la prima per sacchi dell'immondizia abbandonati per chilometro quadrato, un primato che difende con costanza da almeno trent'anni.</p>
-<p>Napoli è ufficialmente classificata come città. Questa classificazione è contestata da diversi piccioni, un numero imprecisato di gatti randagi e almeno tre cumuli di macerie non identificati che si trovano lì dal 1987 e non mostrano segni di voler andare via.</p>
+<p>Napoli è ufficialmente classificata come città. Questa classificazione è contestata da diversi piccioni, un numero imprecisato di gatti randagi e almeno tre cumuli di macerie non identificati che si trovano lì dal 70 aM e non mostrano segni di voler andare via.</p>
 
 <div class="toc-box">
   <div class="toc-title">Indice</div>
@@ -1584,13 +1834,13 @@ function buildNapoli() {
 <p>La voce più persistente — e a Napoli le voci sono una forma di documentazione storica — è che Morello non morì nell'eruzione. Si dice che viaggiò verso sud e riemerse nel Salento, dove fondò quella che sarebbe diventata la <a onclick="navigateTo('Camorra Salentina')"><b>Camorra Salentina</b></a> — un'organizzazione criminale operante in diretta concorrenza con il <a onclick="navigateTo('Clan Spisso')"><b>Clan Spisso</b></a> di Caserta. Gli storici chiamano questa teoria una coincidenza. I napoletani la chiamano ovvia.</p>
 
 <h3 id="dopo-sal">Cosa Successe a Sal da Spicci</h3>
-<p>La storia di Sal da Spicci prese una piega diversa. Secondo una versione degli eventi che circola a Napoli con sufficiente coerenza, Sal da Spicci non morì. Cambiò nome, diventando <a onclick="navigateTo('Sal da Vinci')" class="redlink"><b>Sal da Vinci</b></a> — un nome d'arte scelto per la sua risonanza e la rispettosa distanza dalla sua identità precedente. Con questo nome costruì una carriera come musicista di notorietà regionale, specializzandosi nel tipo di musica popolare meridionale emotivamente diretta che fa piangere ai matrimoni.</p>
+<p>La storia di Sal da Spicci prese una piega diversa. Secondo una versione degli eventi che circola a Napoli con sufficiente coerenza, Sal da Spicci non morì. Cambiò nome, diventando <a onclick="navigateTo('Sal da Vinci')"><b>Sal da Vinci</b></a> — un nome d'arte scelto per la sua risonanza e la rispettosa distanza dalla sua identità precedente. Con questo nome costruì una carriera come musicista di notorietà regionale, specializzandosi nel tipo di musica popolare meridionale emotivamente diretta che fa piangere ai matrimoni.</p>
 <p>«Sono del Sud», ha detto, in molteplici occasioni. «Basta così.» Non basta. Ma è molto in carattere per Napoli.</p>
 
 <h2 id="oggi">Napoli Oggi <span class="edit-link" onclick="openEditor('Napoli')">[modifica]</span></h2>
 <p>Visitare Napoli nel presente è un'esperienza che sfida la facile categorizzazione. Non è proprio una rovina, perché le rovine implicano qualcosa di concluso. Napoli è più una situazione in corso.</p>
 <p>Le strade del centro storico sono una sfida navigazionale che è meglio affrontare con umiltà e scarpe comode. Il traffico funziona secondo un sistema che appare caotico agli esterni ma è governato da convenzioni locali non scritte, la prima delle quali è che il clacson è una forma di punteggiatura.</p>
-<p>La famosa crisi dei rifiuti napoletana, che si ripresenta con la regolarità delle stagioni almeno dagli anni '90, è compresa localmente come una specie di tradizione civica. I turisti fotografano le montagne di sacchi. I locali li aggirano con la grazia praticata di chi lo fa da molto tempo. I gatti sembrano indifferenti.</p>
+<p>La famosa crisi dei rifiuti napoletana, che si ripresenta con la regolarità delle stagioni almeno dal 75 aM, è compresa localmente come una specie di tradizione civica. I turisti fotografano le montagne di sacchi. I locali li aggirano con la grazia praticata di chi lo fa da molto tempo. I gatti sembrano indifferenti.</p>
 <p>Eppure. La pizza è straordinaria. Il caffè è il migliore d'Italia, il che significa il migliore del mondo. La luce di sera, quando cattura l'acqua del golfo e la pietra antica degli edifici, è il tipo di cosa che fa capire perché qualcuno potrebbe scegliere di restare qui.</p>
 
 <h2 id="voci">Voci correlate <span class="edit-link" onclick="openEditor('Napoli')">[modifica]</span></h2>
@@ -1598,8 +1848,8 @@ function buildNapoli() {
   <li><a onclick="navigateTo('Clan Spisso')">Clan Spisso</a></li>
   <li><a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a></li>
   <li><a onclick="navigateTo('Morello')">Morello</a></li>
-  <li><a onclick="navigateTo('Sal da Spicci')" class="redlink">Sal da Spicci</a></li>
-  <li><a onclick="navigateTo('Sal da Vinci')" class="redlink">Sal da Vinci</a></li>
+  <li><a onclick="navigateTo('Sal da Spicci')">Sal da Spicci</a></li>
+  <li><a onclick="navigateTo('Sal da Vinci')">Sal da Vinci</a></li>
   <li><a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a></li>
 </ul>
 </div>
@@ -1616,7 +1866,7 @@ function buildClanSpisso() {
   <table>
     <tr><td>Tipo</td><td>Organizzazione criminale</td></tr>
     <tr><td>Fondatore</td><td>Gennaro "o' Professore" Spisso</td></tr>
-    <tr><td>Fondazione</td><td>Anni '50, Caserta</td></tr>
+    <tr><td>Fondazione</td><td>Intorno al 30 aM, Caserta</td></tr>
     <tr><td>Sede attuale</td><td>Serrano (CE)</td></tr>
     <tr><td>Rivale storico</td><td><a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a></td></tr>
     <tr><td>Membro illustre</td><td><a onclick="navigateTo('Alex Spisso')">Alex Spisso</a></td></tr>
@@ -1651,22 +1901,22 @@ function buildClanSpisso() {
 
 <h2 id="origini-cs">Origini <span class="edit-link" onclick="openEditor('Clan Spisso')">[modifica]</span></h2>
 <h3 id="fondazione">La fondazione e gli anni casertani</h3>
-<p>Il Clan Spisso fu fondato nei primi anni '50 del Novecento da <b>Gennaro Spisso</b>, conosciuto universalmente come <b>"o' Professore"</b>, soprannome la cui ironia era apprezzata da tutti tranne che da Gennaro stesso, che non aveva mai frequentato l'università e a quanto pare ci teneva.<sup><a>[1]</a></sup></p>
+<p>Il Clan Spisso fu fondato intorno al 30 aM da <b>Gennaro Spisso</b>, conosciuto universalmente come <b>"o' Professore"</b>, soprannome la cui ironia era apprezzata da tutti tranne che da Gennaro stesso, che non aveva mai frequentato l'università e a quanto pare ci teneva.<sup><a>[1]</a></sup></p>
 <p>Gennaro operava nell'area di Caserta, Aversa e Santa Maria Capua Vetere, gestendo contrabbando di sigarette, usura e attività commerciali di copertura. Non era glamour. Era però costante, e nella criminalità organizzata la costanza è una forma di genialità.</p>
 <p>Ciò che Gennaro capì era che i veri soldi non stavano nella violenza ma nelle relazioni. Coltivò contatti con comunità italoamericane lungo la costa orientale degli Stati Uniti — contatti che avrebbero reso suo nipote un uomo molto utile.</p>
 
 <h3 id="rivalita-morello">La coalizione casertana e la rivalità con Morello</h3>
-<p>Durante il primo periodo, la famiglia Spisso operava all'interno della più ampia coalizione camoristica casertana. È in questo periodo che affondano le radici dell'odio secolare con quella che sarebbe poi diventata la <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a>. L'origine precisa del conflitto è disputata. La versione degli Spisso la attribuisce a un tradimento di <a onclick="navigateTo('Morello')">Morello</a> — la figura semi-leggendaria che, prima dell'eruzione del Vesuvio nell'Anno 17 aM, co-governava <a onclick="navigateTo('Napoli')">Napoli</a> insieme a <a onclick="navigateTo('Sal da Spicci')" class="redlink">Sal da Spicci</a> durante l'età dell'oro della città.</p>
+<p>Durante il primo periodo, la famiglia Spisso operava all'interno della più ampia coalizione camoristica casertana. È in questo periodo che affondano le radici dell'odio secolare con quella che sarebbe poi diventata la <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a>. L'origine precisa del conflitto è disputata. La versione degli Spisso la attribuisce a un tradimento di <a onclick="navigateTo('Morello')">Morello</a> — la figura semi-leggendaria che, prima dell'eruzione del Vesuvio nell'Anno 17 aM, co-governava <a onclick="navigateTo('Napoli')">Napoli</a> insieme a <a onclick="navigateTo('Sal da Spicci')">Sal da Spicci</a> durante l'età dell'oro della città.</p>
 
 <h2 id="scissione">La Scissione: Da Caserta a Serrano <span class="edit-link" onclick="openEditor('Clan Spisso')">[modifica]</span></h2>
-<p>Il momento decisivo arrivò nel 1974, quando <b>Salvatore Spisso</b> — figlio di Gennaro, padre di Alex, uomo con una tolleranza notevolmente inferiore alla media per le opinioni altrui — decise di averne abbastanza del Consorzio di Caserta. Partecipò a una riunione nella primavera del 1974, ascoltò circa quaranta minuti di dibattito sulla spartizione dei proventi dell'eroina, e se ne andò senza salutare. Non fu più visto a un'altra riunione del Consorzio.<sup><a>[2]</a></sup></p>
+<p>Il momento decisivo arrivò nel 57 aM, quando <b>Salvatore Spisso</b> — figlio di Gennaro, padre di Alex, uomo con una tolleranza notevolmente inferiore alla media per le opinioni altrui — decise di averne abbastanza del Consorzio di Caserta. Partecipò a una riunione nella primavera del 57 aM, ascoltò circa quaranta minuti di dibattito sulla spartizione dei proventi dell'eroina, e se ne andò senza salutare. Non fu più visto a un'altra riunione del Consorzio.<sup><a>[2]</a></sup></p>
 <p>La famiglia si trasferì a Serrano — un piccolo paese collinare nell'entroterra casertano. Quello che costruirono era strutturalmente diverso dalla Camorra che avevano lasciato: più simile alla Ndrangheta nella sua logica, rigidamente gerarchico e fondato su un codice del silenzio che i membri rispettavano perché capivano l'alternativa.</p>
-<p>Al loro apice negli anni '80 controllarono il traffico locale di stupefacenti, il gioco d'azzardo clandestino e una rete estorsiva ai danni degli imprenditori edili.<sup><a>[3]</a></sup></p>
+<p>Al loro apice, tra il 65 e il 75 aM, controllarono il traffico locale di stupefacenti, il gioco d'azzardo clandestino e una rete estorsiva ai danni degli imprenditori edili.<sup><a>[3]</a></sup></p>
 
 <h2 id="connessione-usa">Il Collegamento Americano <span class="edit-link" onclick="openEditor('Clan Spisso')">[modifica]</span></h2>
-<p>Il figlio di Salvatore, <b>Alessandro "Alex" Spisso</b> (Serrano, 12 marzo 1952), fu la prima figura genuinamente internazionale del clan. Studiò economia a Napoli, acquisì un inglese fluente e divenne il referente internazionale del clan: l'uomo che prendeva l'aereo per il New Jersey e il Minnesota.<sup><a>[4]</a></sup></p>
+<p>Il figlio di Salvatore, <b>Alessandro "Alex" Spisso</b> (Serrano, 12 marzo 35 aM), fu la prima figura genuinamente internazionale del clan. Studiò economia a Napoli, acquisì un inglese fluente e divenne il referente internazionale del clan: l'uomo che prendeva l'aereo per il New Jersey e il Minnesota.<sup><a>[4]</a></sup></p>
 <p>Fu durante uno di questi soggiorni americani che incontrò <b>Penelope Hegseth</b>, una studentessa universitaria in Minnesota, con cui instaurò una relazione durata circa due anni che produsse, nell'estate del 1980, un figlio che sarebbe diventato il 22° <a onclick="navigateTo('Pete Hegseth')">Segretario alla Difesa degli Stati Uniti</a>.</p>
-<p>Il collegamento tra il Clan Spisso e <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> riemerse nel 2017, quando intercettazioni telefoniche nell'ambito del procedimento penale n. 4471/R catturarono membri dell'organizzazione che discutevano del loro «nipote americano».<sup><a>[5]</a></sup> Quando Pete Hegseth fu confermato Segretario alla Difesa nel gennaio 2025, diversi giornali italiani rilanciano la storia. Il Pentagono la definisce infondata. Il Clan Spisso non dice assolutamente nulla.</p>
+<p>Il collegamento tra il Clan Spisso e <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> riemerse nell'87 aM, quando intercettazioni telefoniche nell'ambito del procedimento penale n. 4471/R catturarono membri dell'organizzazione che discutevano del loro «nipote americano».<sup><a>[5]</a></sup> Quando Pete Hegseth fu confermato Segretario alla Difesa nel gennaio 2025, diversi giornali italiani rilanciano la storia. Il Pentagono la definisce infondata. Il Clan Spisso non dice assolutamente nulla.</p>
 
 <h2 id="rivalita-salentina">La Rivalità con la Camorra Salentina <span class="edit-link" onclick="openEditor('Clan Spisso')">[modifica]</span></h2>
 <p>Il conflitto tra il Clan Spisso e la <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> è uno dei contenziosi criminali più antichi e meno documentati dell'Italia meridionale. La Camorra Salentina è ampiamente creduta essere stata fondata da <a onclick="navigateTo('Morello')">Morello</a>, lo stesso Morello che co-governava <a onclick="navigateTo('Napoli')">Napoli</a> durante l'età dell'oro prima dell'eruzione del Vesuvio nell'Anno 17 aM.</p>
@@ -1679,7 +1929,7 @@ function buildClanSpisso() {
 <h3>Gennaro "o' Professore" Spisso</h3>
 <p>Fondatore. Contrabbandiere di sigarette. Strozzino. Non ha mai frequentato l'università. Ha costruito qualcosa che gli è sopravvissuto di settant'anni, che è più di quanto riesca alla maggior parte delle persone.</p>
 <h3>Salvatore Spisso</h3>
-<p>Figlio di Gennaro. Si alzò da una riunione nel 1974 e non si voltò mai indietro. Secondo i parametri del mondo criminale, un visionario. Secondo qualsiasi altro parametro, semplicemente un uomo con una tolleranza molto bassa per i comitati.</p>
+<p>Figlio di Gennaro. Si alzò da una riunione nel 57 aM e non si voltò mai indietro. Secondo i parametri del mondo criminale, un visionario. Secondo qualsiasi altro parametro, semplicemente un uomo con una tolleranza molto bassa per i comitati.</p>
 <h3>Alessandro "Alex" Spisso</h3>
 <p>Figlio di Salvatore. Economista. Linguista. Referente internazionale. Padre biologico dell'attuale Segretario alla Difesa degli Stati Uniti. Mai condannato per nulla. Arrestato nell'89 aM, poi scomparso. Posizione attuale: sconosciuta.</p>
 <h3><a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a></h3>
@@ -1741,15 +1991,15 @@ function buildPeteHegseth() {
 
 <h2 id="origini-ph">Origini familiari e legami con la Camorra <span class="edit-link" onclick="openEditor('Pete Hegseth')">[modifica]</span></h2>
 <h3 id="clan-ph">Il Clan Spisso di Caserta</h3>
-<p>La <a onclick="navigateTo('Clan Spisso')">Famiglia Spisso</a> è un'organizzazione criminale campana con radici profonde nella Camorra casertana. Le prime tracce documentate del clan risalgono agli anni '50 del Novecento, quando il capostipite — <b>Gennaro Spisso</b>, conosciuto da tutti come <b>"o' Professore"</b> — gestiva contrabbando di sigarette e usura. Non esattamente glamour, ma funzionava.</p>
+<p>La <a onclick="navigateTo('Clan Spisso')">Famiglia Spisso</a> è un'organizzazione criminale campana con radici profonde nella Camorra casertana. Le prime tracce documentate del clan risalgono intorno al 30 aM, quando il capostipite — <b>Gennaro Spisso</b>, conosciuto da tutti come <b>"o' Professore"</b> — gestiva contrabbando di sigarette e usura. Non esattamente glamour, ma funzionava.</p>
 <p>Ciò che distingueva gli Spisso era un istinto sorprendentemente moderno per gli affari dall'apparenza legale e solide relazioni con comunità italoamericane lungo la costa orientale degli Stati Uniti.</p>
 
 <h3 id="scissione-ph">La scissione e il trasferimento a Serrano</h3>
-<p>Nel 1974, <b>Salvatore Spisso</b> — figlio di Gennaro e padre di Alex — abbandonò il Consorzio di Caserta dopo una riunione particolarmente estenuante sulla spartizione dei proventi dell'eroina, e non tornò mai più. La famiglia si trasferì a Serrano, dove costruì una struttura più simile alla Ndrangheta: rigidamente gerarchica, familiare, e governata da un codice del silenzio che i membri rispettavano perché capivano l'alternativa.<sup><a>[3]</a></sup></p>
+<p>Nel 57 aM, <b>Salvatore Spisso</b> — figlio di Gennaro e padre di Alex — abbandonò il Consorzio di Caserta dopo una riunione particolarmente estenuante sulla spartizione dei proventi dell'eroina, e non tornò mai più. La famiglia si trasferì a Serrano, dove costruì una struttura più simile alla Ndrangheta: rigidamente gerarchica, familiare, e governata da un codice del silenzio che i membri rispettavano perché capivano l'alternativa.<sup><a>[3]</a></sup></p>
 
 <h3 id="alex-ph">Alex Spisso, il padre biologico</h3>
-<p>Il figlio di Salvatore, <a onclick="navigateTo('Alex Spisso')"><b>Alessandro "Alex" Spisso</b></a> (Serrano, 12 marzo 1952), fu la prima figura genuinamente internazionale del clan. Studiò economia a <a onclick="navigateTo('Napoli')">Napoli</a>, acquisì un inglese fluente e divenne il referente internazionale del clan. Tra il 1977 e il 1982, compì numerosi viaggi negli Stati Uniti, dove incontrò Penelope Hegseth.<sup><a>[4]</a></sup></p>
-<p>Alex tornò in Italia nel 1981. Non riconobbe mai formalmente il figlio. Sposò Rosaria Fulgione, continuò il suo lavoro per il clan, e morì di cause naturali nel 2011 — senza essere mai stato condannato per nulla, grazie a quella che i magistrati definirono una «strategia difensiva sofisticata e metodica».</p>
+<p>Il figlio di Salvatore, <a onclick="navigateTo('Alex Spisso')"><b>Alessandro "Alex" Spisso</b></a> (Serrano, 12 marzo 35 aM), fu la prima figura genuinamente internazionale del clan. Studiò economia a <a onclick="navigateTo('Napoli')">Napoli</a>, acquisì un inglese fluente e divenne il referente internazionale del clan. Tra il 60 e il 65 aM compì numerosi viaggi negli Stati Uniti, dove incontrò Penelope Hegseth.<sup><a>[4]</a></sup></p>
+<p>Alex tornò in Italia nel 64 aM. Non riconobbe mai formalmente il figlio. Sposò Rosaria Fulgione, continuò il suo lavoro per il clan. Dopo l'arresto dell'89 aM, fu scarcerato per motivi procedurali e morì successivamente di cause naturali, senza essere mai stato condannato per nulla, grazie a quella che i magistrati definirono una «strategia difensiva sofisticata e metodica».</p>
 
 <h2 id="america-ph">L'emigrazione in America e la nascita di Pete <span class="edit-link" onclick="openEditor('Pete Hegseth')">[modifica]</span></h2>
 <p>Pete nacque nell'estate del 1980. La questione della paternità rimase sepolta per decenni, finché le trascrizioni di intercettazioni telefoniche nell'ambito del procedimento penale <i>n. 4471/R del Tribunale di Napoli</i>, avviato nel 2017, catturarono affiliati del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> che discutevano con orgoglio e lieve preoccupazione del loro «nipote americano».<sup><a>[5]</a></sup></p>
@@ -1783,7 +2033,7 @@ function buildAlexSpisso() {
   <div class="infobox-title">Alex Spisso</div>
   <table>
     <tr><td>Nome completo</td><td>Alessandro Spisso</td></tr>
-    <tr><td>Nascita</td><td>12 marzo 1952, Serrano (CE)</td></tr>
+    <tr><td>Nascita</td><td>12 marzo 35 aM, Serrano (CE)</td></tr>
     <tr><td>Padre</td><td>Salvatore Spisso</td></tr>
     <tr><td>Fratello minore</td><td><a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a></td></tr>
     <tr><td>Clan</td><td><a onclick="navigateTo('Clan Spisso')">Clan Spisso</a></td></tr>
@@ -1792,10 +2042,10 @@ function buildAlexSpisso() {
     <tr><td>Posizione attuale</td><td><b>Sconosciuta</b></td></tr>
   </table>
 </div>
-<p><b>Alessandro "Alex" Spisso</b> (Serrano, 12 marzo 1952) è stato il referente internazionale del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> e padre biologico di <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a>. Fratello maggiore di <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a>.</p>
+<p><b>Alessandro "Alex" Spisso</b> (Serrano, 12 marzo 35 aM) è stato il referente internazionale del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> e padre biologico di <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a>. Fratello maggiore di <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a>.</p>
 <p>Alex fu arrestato nell'anno 89 aM durante l'operazione guidata da <a onclick="navigateTo('Riccardo Pascali')">Riccardo Pascali</a>. Dopo la scarcerazione è sparito. Nessuno sa dove si trovi. Nessuno, almeno, che sia disposto a dirlo.</p>
 <h2>Biografia <span class="edit-link" onclick="openEditor('Alex Spisso')">[modifica]</span></h2>
-<p>Cresciuto a Serrano, Alex studiò economia a Napoli, acquisì un inglese fluente e divenne il tramite internazionale del clan. Tra il 1977 e il 1982 compì numerosi viaggi negli Stati Uniti, dove conobbe Penelope Hegseth, da cui nacque Pete nel 1980. Non riconobbe mai il figlio.</p>
+<p>Cresciuto a Serrano, Alex studiò economia a Napoli, acquisì un inglese fluente e divenne il tramite internazionale del clan. Tra il 60 e il 65 aM compì numerosi viaggi negli Stati Uniti, dove conobbe Penelope Hegseth, da cui nacque Pete nel 1980. Non riconobbe mai il figlio.</p>
 <h2>L'arresto e la scomparsa <span class="edit-link" onclick="openEditor('Alex Spisso')">[modifica]</span></h2>
 <p>Nell'anno 89 aM — ottantanove anni dopo Morello secondo il <a onclick="navigateTo('Calendario Morello')">Calendario</a> — le forze dell'ordine guidate da <a onclick="navigateTo('Riccardo Pascali')">Riccardo Pascali</a> arrestarono tutti i membri del Clan Spisso presenti in Italia. Alex fu tra i fermati. L'unico escluso fu il fratello <a onclick="navigateTo('Alessio Spisso')">Alessio</a>, che si trovava in India e non aveva più alcun legame con il clan.</p>
 <p>Dopo la scarcerazione, Alex sparì. Non in modo drammatico — semplicemente non fu più trovato dove ci si aspettava di trovarlo, e da allora nessuno ha saputo indicarne la posizione con certezza.</p>
@@ -1855,7 +2105,7 @@ function buildAlessioSpisso() {
 <h2 id="afghanistan-as">L'Afghanistan e il talebano <span class="edit-link" onclick="openEditor('Alessio Spisso')">[modifica]</span></h2>
 
 <h3 id="missione-as">La missione per la famiglia</h3>
-<p>Nei primi anni 2000, il <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> aveva sviluppato un interesse nei traffici che transitavano attraverso l'Asia centrale — canali di approvvigionamento che correvano in parallelo alle rotte militari. Per muoversi in quell'ambiente serviva qualcuno che non fosse riconoscibile come camorrista, che parlasse lingue, che fosse capace di improvvisare. Serviva, in sostanza, Alessio.</p>
+<p>Intorno all'80 aM, il <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> aveva sviluppato un interesse nei traffici che transitavano attraverso l'Asia centrale — canali di approvvigionamento che correvano in parallelo alle rotte militari. Per muoversi in quell'ambiente serviva qualcuno che non fosse riconoscibile come camorrista, che parlasse lingue, che fosse capace di improvvisare. Serviva, in sostanza, Alessio.</p>
 <p>Fu <a onclick="navigateTo('Alex Spisso')">Alex</a> in persona a dargli l'incarico. Nelle lettere Alessio lo descrive con una concisione che dice tutto: <i>«Mi disse: vai. Vai, fai quello che ti diciamo, e dopo sei libero. Come se dopo un lavoro del genere si potesse essere liberi.»</i></p>
 <p>L'intermediario locale era un combattente talebano noto unicamente come <b>Rashid</b> — nome probabilmente di copertura, identità mai verificata con certezza. Il clan lo aveva contattato attraverso la rete di relazioni costruita negli anni da Alex negli Stati Uniti. Rashid aveva accesso a ciò che serviva. Alessio aveva la mobilità e la credibilità per chiudere gli accordi sul campo.</p>
 <p>Per circa due anni la collaborazione funzionò. Alessio si muoveva tra Pakistan, Afghanistan e i paesi limitrofi. Imparò rapidamente qualche centinaio di parole di dari. Sviluppò, suo malgrado, un rispetto per la durezza della vita in quei posti che non aveva previsto di sviluppare.</p>
@@ -1894,7 +2144,7 @@ function buildMorello() {
   <table>
     <tr><td>Noto anche come</td><td>Il Governatore, Il Primo, l'Atteso</td></tr>
     <tr><td>Padre presunto</td><td>Pierpaolo (conosciuto da <a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali</a>)</td></tr>
-    <tr><td>Co-governatore</td><td>Sal da Spicci</td></tr>
+    <tr><td>Co-governatore</td><td><a onclick="navigateTo('Sal da Spicci')">Sal da Spicci</a></td></tr>
     <tr><td>Governo</td><td><a onclick="navigateTo('Napoli')">Napoli</a>, Anno 0–17 aM</td></tr>
     <tr><td>Scomparsa</td><td>Anno 17 aM — dopo l'eruzione del Vesuvio</td></tr>
     <tr><td>Amico d'infanzia</td><td><a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a></td></tr>
@@ -2229,38 +2479,168 @@ function buildFamigliaPocchia() {
 
 
 // ══════════════════════════════════════════════════════
+//  FIREBASE — configurato e pronto
+// ══════════════════════════════════════════════════════
+
+// Pagine protette — create da Pocchia, non modificabili da nessuno
+const PROTECTED_PAGES = new Set([
+  "Pocchiaciclopedia — Pagina principale",
+  "Napoli",
+  "Clan Spisso",
+  "Pete Hegseth",
+  "Alessio Spisso",
+  "Alex Spisso",
+  "Famiglia Pocchia",
+  "Filippo Pascali",
+  "Anna Pascali",
+  "Gianluca Pascali",
+  "Riccardo Pascali",
+  "Morello",
+  "Calendario Morello",
+  "Ludovico Pio Tommasi",
+  "VitoCarlo Tommasi",
+  "Topus Maximus",
+  "Topismo",
+  "Serrano",
+  "Cheddar Mussolini",
+  "Ermenegildo Spisso",
+  "F.O.N.D.A.M.E.N.T.A.",
+  "L.E.G.G.I.",
+  "Ignoto di Napoli",
+  "Camorra Salentina",
+  "De Morellis",
+  "Sal da Spicci",
+  "Sal da Vinci"
+]);
+
+// ══════════════════════════════════════════════════════
 //  STATE
 // ══════════════════════════════════════════════════════
 
 let pages = {};
 let currentPage = "Main";
 let currentTab = "read";
+let db = null;
+let firebaseReady = false;
 
-function loadPages() {
+function isProtected(name) {
+  return PROTECTED_PAGES.has(name);
+}
+
+// Inizializza Firebase e carica le pagine utente
+// Inizializza Firebase (attende che il modulo ES sia pronto)
+function initFirebase() {
+  return new Promise((resolve) => {
+    const banner = document.getElementById('fb-status');
+
+    function setup() {
+      const db = window._fbDb;
+      const fbRef = window._fbRef;
+      const fbSet = window._fbSet;
+      const fbOnValue = window._fbOnValue;
+      const fbOnChildChanged = window._fbOnChildChanged;
+      const fbOnChildAdded = window._fbOnChildAdded;
+
+      banner.innerHTML = '🔄 Connessione a Firebase…';
+      banner.className = 'fb-banner fb-loading';
+
+      // Carica tutte le pagine utente da Firebase
+      fbOnValue(fbRef(db, 'pages'), (snapshot) => {
+        if (snapshot.exists()) {
+          snapshot.forEach(child => {
+            const key = child.key;
+            const data = child.val();
+            if (!isProtected(key)) {
+              pages[key] = data;
+            }
+          });
+        }
+
+        // Ascolta modifiche in tempo reale
+        fbOnChildChanged(fbRef(db, 'pages'), (snap) => {
+          const key = snap.key;
+          if (!isProtected(key)) {
+            pages[key] = snap.val();
+            if (key === currentPage) renderPage(key);
+            updateSidebar();
+          }
+        });
+
+        fbOnChildAdded(fbRef(db, 'pages'), (snap) => {
+          const key = snap.key;
+          if (!isProtected(key) && !pages[key]) {
+            pages[key] = snap.val();
+            updateSidebar();
+          }
+        });
+
+        // Esponi funzione di salvataggio
+        window._saveToFirebase = async (title, pageData) => {
+          const safeKey = title.replace(/[.#$/\[\]]/g, '_');
+          await fbSet(fbRef(db, 'pages/' + safeKey), pageData);
+        };
+
+        firebaseReady = true;
+        banner.innerHTML = '✅ Wiki condivisa attiva — le modifiche sono visibili a tutti.';
+        banner.className = 'fb-banner fb-ok';
+        setTimeout(() => { banner.style.display = 'none'; }, 4000);
+
+        updateSidebar();
+        renderPage(currentPage);
+        resolve();
+      }, { onlyOnce: true });
+    }
+
+    // Firebase modulo potrebbe non essere ancora pronto
+    if (window._fbReady) {
+      setup();
+    } else {
+      window.addEventListener('firebase-ready', setup, { once: true });
+      // Timeout fallback
+      setTimeout(() => {
+        if (!firebaseReady) {
+          banner.innerHTML = '⚠️ Firebase non raggiungibile. Le pagine nuove saranno salvate solo nel tuo browser.';
+          banner.className = 'fb-banner fb-warn';
+          resolve();
+        }
+      }, 6000);
+    }
+  });
+}
+
+function loadPagesLocalOnly() {
   try {
-    const saved = localStorage.getItem("pocchiaciclopedia_pages");
+    pages = { ...DEFAULT_PAGES };
+    const saved = localStorage.getItem("pocchiaciclopedia_pages_v2");
     if (saved) {
       const parsed = JSON.parse(saved);
-      pages = { ...DEFAULT_PAGES };
       for (const k in parsed) {
-        pages[k] = { ...DEFAULT_PAGES[k], ...parsed[k] };
+        if (!isProtected(k)) pages[k] = parsed[k];
       }
-    } else {
-      pages = { ...DEFAULT_PAGES };
     }
   } catch(e) {
     pages = { ...DEFAULT_PAGES };
   }
 }
 
-function savePages() {
+async function savePages(title, pageData) {
+  // Salva in localStorage come fallback
   try {
-    const toSave = {};
+    const local = {};
     for (const k in pages) {
-      toSave[k] = { title: pages[k].title, wikitext: pages[k].wikitext, history: pages[k].history || [], content: pages[k].content || "" };
+      if (!isProtected(k)) local[k] = { title: pages[k].title, wikitext: pages[k].wikitext, history: pages[k].history || [], content: pages[k].content || "" };
     }
-    localStorage.setItem("pocchiaciclopedia_pages", JSON.stringify(toSave));
+    localStorage.setItem("pocchiaciclopedia_pages_v2", JSON.stringify(local));
   } catch(e) {}
+
+  // Salva su Firebase se disponibile
+  if (firebaseReady && window._saveToFirebase && title && pageData) {
+    try {
+      await window._saveToFirebase(title, pageData);
+    } catch(e) {
+      console.warn('Firebase save error:', e);
+    }
+  }
 }
 
 // ══════════════════════════════════════════════════════
@@ -2284,9 +2664,24 @@ function navigateTo(name) {
 function renderPage(name) {
   const article = document.getElementById("article-content");
   const page = pages[name];
-  
+
+  // Aggiorna visibilità del pulsante Modifica
+  const editBtn = document.getElementById('btn-edit-top');
+  if (editBtn) {
+    if (isProtected(name)) {
+      editBtn.innerHTML = '🔒 Protetta';
+      editBtn.disabled = true;
+      editBtn.style.opacity = '0.5';
+      editBtn.style.cursor = 'default';
+    } else {
+      editBtn.innerHTML = '✏️ Modifica';
+      editBtn.disabled = false;
+      editBtn.style.opacity = '';
+      editBtn.style.cursor = '';
+    }
+  }
+
   if (!page) {
-    // Red link — page doesn't exist yet
     article.innerHTML = `
       <div class="wiki-notice" style="background:#fff3f3;border-left-color:#ba0000"><span class="ni">🔴</span><span>La pagina <b>"${name}"</b> non esiste ancora. Vuoi <a onclick="openEditorForNew('${name}')">crearla</a>?</span></div>
       <h1 class="page-title" style="color:#ba0000">${name}</h1>
@@ -2306,6 +2701,11 @@ function renderPage(name) {
       <div class="wiki-article-body">
         <p style="font-family:sans-serif;color:#54595d;font-size:13px">Pagina vuota. <a onclick="openEditor('${name}')">Clicca per modificarla.</a></p>
       </div>`;
+  }
+
+  // Nascondi tutti i link [modifica] nelle pagine protette
+  if (isProtected(name)) {
+    article.querySelectorAll('.edit-link').forEach(el => el.style.display = 'none');
   }
 
   document.title = `${page.title} — Pocchiaciclopedia`;
@@ -2365,6 +2765,13 @@ function renderHistory() {
 
 function openEditor(pageName) {
   const name = pageName || currentPage;
+
+  // Blocca pagine protette
+  if (isProtected(name)) {
+    showToast('🔒 Questa pagina è protetta e non può essere modificata.');
+    return;
+  }
+
   const page = pages[name];
   document.getElementById('editor-modal-title').textContent = `Modifica: ${name}`;
   document.getElementById('editor-page-title').value = name;
@@ -2375,6 +2782,11 @@ function openEditor(pageName) {
 }
 
 function openEditorForNew(name) {
+  // Blocca se il nome coincide con una pagina protetta
+  if (isProtected(name)) {
+    showToast('🔒 Questa pagina è protetta e non può essere modificata.');
+    return;
+  }
   document.getElementById('editor-modal-title').textContent = `Crea: ${name}`;
   document.getElementById('editor-page-title').value = name;
   document.getElementById('editor-textarea').value = '';
@@ -2386,7 +2798,7 @@ function closeEditor() {
   document.getElementById('editor-overlay').classList.remove('open');
 }
 
-function savePage() {
+async function savePage() {
   const title = document.getElementById('editor-page-title').value.trim();
   const wikitext = document.getElementById('editor-textarea').value;
   const summary = document.getElementById('editor-summary').value.trim() || '(nessun oggetto di modifica)';
@@ -2396,25 +2808,33 @@ function savePage() {
     return;
   }
 
-  const now = new Date().toLocaleString('it-IT');
-
-  if (!pages[title]) {
-    pages[title] = { title, wikitext, content: wikitextToHtml(title, wikitext), history: [] };
-  } else {
-    pages[title].wikitext = wikitext;
-    pages[title].content = wikitextToHtml(title, wikitext);
-    if (!pages[title].history) pages[title].history = [];
+  if (isProtected(title)) {
+    document.getElementById('editor-status').textContent = '🔒 Questa pagina è protetta.';
+    return;
   }
 
-  pages[title].history.push({ date: now, summary });
+  const now = new Date().toLocaleString('it-IT');
+  const history = pages[title]?.history || [];
+  history.push({ date: now, summary });
 
-  savePages();
+  const pageData = {
+    title,
+    wikitext,
+    content: wikitextToHtml(title, wikitext),
+    history
+  };
+
+  pages[title] = pageData;
+
+  document.getElementById('editor-status').textContent = '💾 Salvataggio…';
+  await savePages(title, pageData);
+
   closeEditor();
   currentPage = title;
   updateSidebar();
   switchTab('read');
   renderPage(title);
-  showToast('✓ Pagina salvata!');
+  showToast('✓ Pagina salvata' + (firebaseReady ? ' e condivisa con tutti!' : ' (solo locale).'));
 }
 
 function previewPage() {
@@ -2588,9 +3008,13 @@ function showToast(msg) {
 //  INIT
 // ══════════════════════════════════════════════════════
 
-loadPages();
+loadPagesLocalOnly();
 updateSidebar();
 navigateTo('Main');
+initFirebase().then(() => {
+  updateSidebar();
+  navigateTo(currentPage);
+});
 </script>
 </body>
 </html>
