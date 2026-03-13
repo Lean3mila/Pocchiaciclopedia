@@ -1080,6 +1080,47 @@ const DEFAULT_PAGES = {
   }
 };
 
+// Assicura che tutte le pagine referenziate esistano prima di assegnare content
+const _EXTRA_PAGE_TITLES = [
+  'Prima Guerra Mondiale',
+  'Seconda Guerra Mondiale',
+  'Triplice Intesa',
+  'Triplice Alleanza',
+  'Alleati (SGM)',
+  "Potenze dell'Asse",
+  'Carmelo Spisso',
+  'Francia',
+  'Impero Tedesco',
+  'Impero Austro-Ungarico',
+  'Impero Ottomano',
+  'Regno Unito',
+  'Russia Imperiale',
+  'Germania Nazista',
+  'Adolf Hitler',
+  'Dittatura Zella',
+  'Zella',
+  'Nestola',
+  'Famiglia degli Elettricisti',
+  'Famiglia dei Medici (Albania)',
+  'America Fascista',
+  'Invasione della Florida',
+  'Nigeria Spartiana',
+  '104 Nigeriani',
+  'URSS',
+  'Benito Mussolini',
+  'Nord Italia',
+  'Repubblica di Roma',
+  'Napoli (Stato)',
+  'Federazione Siculo-Sarda',
+  'Repubblica di Venezia',
+  'Ducato di Toscana'
+];
+_EXTRA_PAGE_TITLES.forEach(title => {
+  if (!DEFAULT_PAGES[title]) {
+    DEFAULT_PAGES[title] = { title, wikitext: '', history: [], content: '' };
+  }
+});
+
 // ══════════════════════════════════════════════════════
 //  CONTENUTO ARTICOLI (HTML renderizzato)
 // ══════════════════════════════════════════════════════
