@@ -815,7 +815,7 @@ const DEFAULT_PAGES = {
 <h1 class="page-title">Pagina principale</h1>
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body">
-<p>Benvenuto su <b>Pocchiaciclopedia</b>. Le pagine vengono salvate nel tuo browser.</p>
+
 <h2>Pagine in vetrina</h2>
 <p><b>Luoghi</b></p>
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
@@ -831,7 +831,7 @@ const DEFAULT_PAGES = {
 <p><b>La Famiglia Pocchia (Pascali)</b></p>
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
   <li><a onclick="navigateTo('Famiglia Pocchia')"><b>Famiglia Pocchia</b></a> — La famiglia che ha cambiato tutto.</li>
-  <li><a onclick="navigateTo('Gianluca Pascali')"><b>Gianluca Pascali "il Pocchia"</b></a> — Patriarca. Militare in pensione (104 aM). Ha salvato Riccardo da bambino. Conobbe Pierpaolo, padre di Morello.</li>
+  <li><a onclick="navigateTo('Gianluca Pascali')"><b>Gianluca Pascali "il Pocchia"</b></a> — Patriarca. Militare in pensione (104 aM). Ha salvato Riccardo da bambino.</li>
   <li><a onclick="navigateTo('Anna Pascali')"><b>Anna Pascali</b></a> — Moglie di Gianluca. Non ha commentato nulla. Mai.</li>
   <li><a onclick="navigateTo('Filippo Pascali')"><b>Filippo Pascali</b></a> — Figlio. Militare decorato da Hegseth. Amico d'infanzia di Morello.</li>
   <li><a onclick="navigateTo('Riccardo Pascali')"><b>Riccardo Pascali</b></a> — Figlio. Ha guidato lo smantellamento del Clan Spisso nell'89 aM.</li>
@@ -839,32 +839,53 @@ const DEFAULT_PAGES = {
 <p><b>Figure storiche</b></p>
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
   <li><a onclick="navigateTo('Morello')"><b>Morello</b></a> — Co-governatore di Napoli. Scomparso nell'Anno 17 aM. Tornerà alla seconda eruzione del Vesuvio.</li>
-  <li><a onclick="navigateTo('Ludovico Pio Tommasi')"><b>Ludovico Pio Tommasi</b></a> — Il Dio creatore di questo mondo. Noto anche come il Pio, Cheddar, Strega, Re dei topi e Il più alto.</li>
+  <li><a onclick="navigateTo('Sal da Spicci')"><b>Sal da Spicci</b></a> — Co-governatore di Napoli durante l'Età dell'Oro. Cantante straordinario. Scomparso nel 17 aM.</li>
+  <li><a onclick="navigateTo('Sal da Vinci')"><b>Sal da Vinci</b></a> — Cantante di musica popolare meridionale. Somiglianza con Sal da Spicci: documentata, non commentata.</li>
+  <li><a onclick="navigateTo('Ludovico Pio Tommasi')"><b>Ludovico Pio Tommasi</b></a> — Il Dio creatore di questo mondo.</li>
   <li><a onclick="navigateTo('Topus Maximus')"><b>Topus Maximus</b></a> — Figlio di Dio incarnato a Serrano. Fondatore del Topismo. Scoppulato a morte nel 105 aM.</li>
-  <li><a onclick="navigateTo('Cheddar Mussolini')"><b>Cheddar Mussolini</b></a> — Strega, leader dei Ludotopici. Guidò la Marcia su Serrano nel 106 aM.</li>
-</ul>
-<p><b>Luoghi</b></p>
-<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
-  <li><a onclick="navigateTo('Serrano')"><b>Serrano</b></a> — Città del Salento. Andò in fiamme nel 90 aM. Dal 106 aM sotto dittatura topista.</li>
+  <li><a onclick="navigateTo('Cheddar Mussolini')"><b>Cheddar Mussolini</b></a> — Leader dei Ludotopici. Guidò la Marcia su Serrano nel 106 aM.</li>
 </ul>
 <p><b>Organizzazioni criminali</b></p>
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
-  <li><a onclick="navigateTo('Sal da Spicci')"><b>Sal da Spicci</b></a> — Co-governatore di Napoli durante l'Età dell'Oro. Cantante straordinario. Scomparso nel 17 aM.</li>
-  <li><a onclick="navigateTo('Sal da Vinci')"><b>Sal da Vinci</b></a> — Cantante di musica popolare meridionale. Carriera iniziata subito dopo il 17 aM. Somiglianza con Sal da Spicci: documentata, non commentata.</li>
-  <li><a onclick="navigateTo('De Morellis')"><b>De Morellis</b></a> — Leader della Camorra Salentina. Anziano, enigmatico, inspiegabilmente simile a Morello.</li>
+  <li><a onclick="navigateTo('Camorra Salentina')"><b>Camorra Salentina</b></a> — Fondata da Morello dopo il 17 aM. Ancora attiva.</li>
+  <li><a onclick="navigateTo('De Morellis')"><b>De Morellis</b></a> — Leader della Camorra Salentina. Inspiegabilmente simile a Morello.</li>
 </ul>
 <p><b>Religioni e sistemi di datazione</b></p>
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
-  <li><a onclick="navigateTo('Topismo')"><b>Topismo</b></a> — La religione dei Ludotopici. Fondata dal Topus Maximus nel 90 aM a Serrano.</li>
+  <li><a onclick="navigateTo('Topismo')"><b>Topismo</b></a> — La religione dei Ludotopici. Fondata dal Topus Maximus nel 90 aM.</li>
   <li><a onclick="navigateTo('Calendario Morello')"><b>Calendario Morello</b></a> — Il sistema di datazione usato in questa enciclopedia.</li>
 </ul>
 <p><b>Scienza e cosmologia</b></p>
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
-  <li><a onclick="navigateTo('Ermenegildo Spisso')"><b>Ermenegildo "Gildo" Spisso</b></a> — Fisico teorico del Clan Spisso. Autore delle F.O.N.D.A.M.E.N.T.A. (47 aM).</li>
+  <li><a onclick="navigateTo('Ermenegildo Spisso')"><b>Ermenegildo "Gildo" Spisso</b></a> — Fisico teorico. Autore delle F.O.N.D.A.M.E.N.T.A.</li>
   <li><a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')"><b>F.O.N.D.A.M.E.N.T.A.</b></a> — <i>Fondamenti Ontologici della Natura, della Dimensione, dell'Architettura, della Materia, dell'Energia, dei Nessi, della Topologia e dell'Assoluto.</i></li>
-  <li><a onclick="navigateTo('L.E.G.G.I.')"><b>L.E.G.G.I.</b></a> — <i>Leggi Empiriche della Gravità, della Genesi, dell'Inerzia e dei Interscambi cosmici.</i> Autore: sconosciuto.</li>
-  <li><a onclick="navigateTo('Ignoto di Napoli')"><b>Ignoto di Napoli</b></a> — Il misterioso autore delle L.E.G.G.I. Probabilmente napoletano. Certamente geniale.</li>
+  <li><a onclick="navigateTo('L.E.G.G.I.')"><b>L.E.G.G.I.</b></a> — <i>Leggi Empiriche della Gravità, della Genesi, dell'Inerzia e dei Interscambi cosmici.</i></li>
+  <li><a onclick="navigateTo('Ignoto di Napoli')"><b>Ignoto di Napoli</b></a> — Il misterioso autore delle L.E.G.G.I. Noto anche come Specchia.</li>
 </ul>
+
+<hr style="border:none;border-top:1px solid #a2a9b1;margin:24px 0">
+
+<h2>📝 Crea una nuova pagina</h2>
+<p style="font-family:sans-serif;font-size:13px;color:#54595d;margin-bottom:12px">Aggiungi una nuova voce all'enciclopedia. Le pagine create dalla comunità sono modificabili da tutti.</p>
+<div style="display:flex;gap:8px;align-items:center;font-family:sans-serif">
+  <input id="new-page-input" type="text" placeholder="Nome della nuova pagina…"
+    style="flex:1;padding:7px 10px;border:1px solid #a2a9b1;border-radius:2px;font-size:14px;font-family:sans-serif"
+    onkeydown="if(event.key==='Enter')createPageFromMain()">
+  <button onclick="createPageFromMain()"
+    style="padding:7px 16px;background:#3366cc;color:white;border:none;border-radius:2px;font-size:13px;font-family:sans-serif;cursor:pointer;white-space:nowrap">
+    ✏️ Crea pagina
+  </button>
+</div>
+<div id="new-page-error" style="font-family:sans-serif;font-size:12px;color:#ba0000;margin-top:6px;display:none"></div>
+
+<hr style="border:none;border-top:1px solid #a2a9b1;margin:24px 0">
+
+<h2>🌍 Pagine della comunità</h2>
+<p style="font-family:sans-serif;font-size:13px;color:#54595d;margin-bottom:12px">Pagine create e modificate dagli utenti. Si aggiorna automaticamente.</p>
+<div id="community-pages-list" style="font-family:sans-serif;font-size:13px">
+  <span style="color:#54595d;font-style:italic">Caricamento…</span>
+</div>
+
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Pagina principale</a> <a>Pocchiaciclopedia</a></div>`,
     wikitext: "Pagina principale di Pocchiaciclopedia.",
@@ -2484,6 +2505,7 @@ function buildFamigliaPocchia() {
 
 // Pagine protette — create da Pocchia, non modificabili da nessuno
 const PROTECTED_PAGES = new Set([
+  "Main",
   "Pocchiaciclopedia — Pagina principale",
   "Napoli",
   "Clan Spisso",
@@ -2563,6 +2585,7 @@ function initFirebase() {
             pages[key] = snap.val();
             if (key === currentPage) renderPage(key);
             updateSidebar();
+            if (currentPage === 'Main') renderCommunityPages();
           }
         });
 
@@ -2571,6 +2594,7 @@ function initFirebase() {
           if (!isProtected(key) && !pages[key]) {
             pages[key] = snap.val();
             updateSidebar();
+            if (currentPage === 'Main') renderCommunityPages();
           }
         });
 
@@ -2644,6 +2668,60 @@ async function savePages(title, pageData) {
 }
 
 // ══════════════════════════════════════════════════════
+//  COMMUNITY PAGES — lista dinamica + creazione da Main
+// ══════════════════════════════════════════════════════
+
+function getCommunityPages() {
+  return Object.keys(pages)
+    .filter(k => !isProtected(k) && k !== 'Main')
+    .sort((a, b) => a.localeCompare(b, 'it'));
+}
+
+function renderCommunityPages() {
+  const container = document.getElementById('community-pages-list');
+  if (!container) return;
+  const community = getCommunityPages();
+  if (community.length === 0) {
+    container.innerHTML = '<span style="color:#54595d;font-style:italic">Nessuna pagina ancora — sii il primo a crearne una!</span>';
+    return;
+  }
+  container.innerHTML = `
+    <ul style="margin:0 0 8px 24px;line-height:2.2;columns:2;column-gap:24px">
+      ${community.map(name => {
+        const h = pages[name].history;
+        const last = h && h.length ? h[h.length-1].date : '';
+        return `<li style="break-inside:avoid">
+          <a onclick="navigateTo('${name.replace(/'/g,"\\'")}')"><b>${name}</b></a>
+          ${last ? `<span style="color:#72777d;font-size:11px"> — modificata il ${last}</span>` : ''}
+        </li>`;
+      }).join('')}
+    </ul>
+    <p style="color:#72777d;font-size:11px;margin-top:4px">🌍 ${community.length} ${community.length === 1 ? 'pagina creata' : 'pagine create'} dalla comunità</p>`;
+}
+
+function createPageFromMain() {
+  const input = document.getElementById('new-page-input');
+  const errorDiv = document.getElementById('new-page-error');
+  if (!input) return;
+  const name = input.value.trim();
+  errorDiv.style.display = 'none';
+
+  if (!name) {
+    errorDiv.textContent = '⚠ Inserisci un nome per la pagina.';
+    errorDiv.style.display = 'block';
+    return;
+  }
+  if (isProtected(name) || pages[name]) {
+    errorDiv.textContent = `⚠ La pagina "${name}" esiste già o è protetta.`;
+    errorDiv.style.display = 'block';
+    return;
+  }
+
+  input.value = '';
+  openEditorForNew(name);
+}
+
+// ══════════════════════════════════════════════════════
 //  NAVIGATION
 // ══════════════════════════════════════════════════════
 
@@ -2706,6 +2784,11 @@ function renderPage(name) {
   // Nascondi tutti i link [modifica] nelle pagine protette
   if (isProtected(name)) {
     article.querySelectorAll('.edit-link').forEach(el => el.style.display = 'none');
+  }
+
+  // Aggiorna lista comunità se siamo sulla Main
+  if (name === 'Main') {
+    setTimeout(renderCommunityPages, 50);
   }
 
   document.title = `${page.title} — Pocchiaciclopedia`;
@@ -2835,6 +2918,8 @@ async function savePage() {
   switchTab('read');
   renderPage(title);
   showToast('✓ Pagina salvata' + (firebaseReady ? ' e condivisa con tutti!' : ' (solo locale).'));
+  // Aggiorna lista community sulla Main
+  if (currentPage === 'Main') renderCommunityPages();
 }
 
 function previewPage() {
