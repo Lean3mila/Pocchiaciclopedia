@@ -734,6 +734,7 @@ clearfix::after { content: ''; display: block; clear: both; }
       <div id="search-results"></div>
     </div>
     <div id="wiki-top-actions">
+      <button id="btn-back" class="top-btn" onclick="goBack()" title="Pagina precedente" style="display:none">← Indietro</button>
       <button id="btn-edit-top" class="top-btn primary" onclick="openEditor(null)">✏️ Modifica</button>
     </div>
   </div>
@@ -3663,22 +3664,99 @@ function createPageFromMain() {
 }
 
 // ══════════════════════════════════════════════════════
-//  NAVIGATION
+//  NAVIGATION — con cronologia interna
 // ══════════════════════════════════════════════════════
 
-function navigateTo(name) {
-  // Normalize
+// Stack cronologia interna: array di nomi pagina
+let navHistory = [];
+let navPos = -1; // posizione corrente nello stack
+
+function navigateTo(name, fromPopstate) {
   currentPage = name;
+
+  // Aggiorna cronologia interna solo se non stiamo tornando
+  if (!fromPopstate) {
+    // Tronca il futuro se siamo in mezzo alla cronologia
+    navHistory = navHistory.slice(0, navPos + 1);
+    // Non duplicare se è la stessa pagina
+    if (navHistory[navHistory.length - 1] !== name) {
+      navHistory.push(name);
+      navPos = navHistory.length - 1;
+    }
+    // Aggiorna URL hash senza ricaricare la pagina
+    try {
+      history.pushState({ page: name, pos: navPos }, '', '#' + encodeURIComponent(name));
+    } catch(e) {}
+  }
+
+  updateBackButton();
   switchTab('read');
   renderPage(name);
   updateSidebar();
-  // Update nav tabs to show current
   document.getElementById('tab-read').classList.add('active');
   document.getElementById('tab-history').classList.remove('active');
   document.getElementById('tab-discuss').classList.remove('active');
   document.getElementById('tab-edit').classList.remove('active');
   window.scrollTo(0, 0);
 }
+
+function goBack() {
+  if (navPos > 0) {
+    navPos--;
+    const name = navHistory[navPos];
+    currentPage = name;
+    try {
+      history.back(); // muovi il browser history
+    } catch(e) {}
+    updateBackButton();
+    switchTab('read');
+    renderPage(name);
+    updateSidebar();
+    window.scrollTo(0, 0);
+  }
+}
+
+function goForward() {
+  if (navPos < navHistory.length - 1) {
+    navPos++;
+    const name = navHistory[navPos];
+    currentPage = name;
+    try {
+      history.forward();
+    } catch(e) {}
+    updateBackButton();
+    switchTab('read');
+    renderPage(name);
+    updateSidebar();
+    window.scrollTo(0, 0);
+  }
+}
+
+function updateBackButton() {
+  const btn = document.getElementById('btn-back');
+  if (!btn) return;
+  if (navPos > 0) {
+    btn.style.display = '';
+    const prev = navHistory[navPos - 1];
+    btn.title = `Torna a: ${prev}`;
+    btn.innerHTML = `← ${prev.length > 22 ? prev.substring(0, 20) + '…' : prev}`;
+  } else {
+    btn.style.display = 'none';
+  }
+}
+
+// Intercetta il tasto indietro del browser
+window.addEventListener('popstate', function(e) {
+  if (e.state && e.state.page) {
+    navPos = e.state.pos !== undefined ? e.state.pos : Math.max(0, navPos - 1);
+    currentPage = e.state.page;
+    updateBackButton();
+    switchTab('read');
+    renderPage(e.state.page);
+    updateSidebar();
+    window.scrollTo(0, 0);
+  }
+});
 
 function renderPage(name) {
   const article = document.getElementById("article-content");
