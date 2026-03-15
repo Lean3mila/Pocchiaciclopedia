@@ -722,7 +722,7 @@ clearfix::after { content: ''; display: block; clear: both; }
 <div id="wiki-top">
   <div id="wiki-top-inner">
     <div class="wiki-logo-wrap" onclick="navigateTo('Main')">
-      <div class="wiki-logo-sphere" style="overflow:hidden;padding:0"><img src="logo.png" alt="Logo Pocchiaciclopedia" style="width:100%;height:100%;object-fit:cover;border-radius:50%" onerror="this.style.display='none';this.parentElement.innerHTML='🌐'"></div>
+      <div class="wiki-logo-sphere" style="overflow:hidden;padding:0"><img src="logo.jpg" alt="Logo Pocchiaciclopedia" style="width:100%;height:100%;object-fit:cover;border-radius:50%" onerror="this.style.display='none';this.parentElement.innerHTML='🌐'"></div>
       <div class="wiki-logo-text">
         <div class="wiki-logo-title">Pocchiaciclopedia</div>
         <div class="wiki-logo-sub">L'enciclopedia libera (quasi)</div>
@@ -772,6 +772,12 @@ clearfix::after { content: ''; display: block; clear: both; }
       <a onclick="navigateTo('Seconda Guerra degli Avengers')">Seconda Guerra</a>
       <a onclick="navigateTo('La Guerra Finale')">⚔️ Guerra Finale</a>
       <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a>
+    </div>
+    <div class="sb-section">
+      <h4>Il Salento</h4>
+      <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a>
+      <a onclick="navigateTo('Filippine')">🌿 Filippine</a>
+      <a onclick="navigateTo('De Morellis')">De Morellis</a>
     </div>
     <div class="sb-section">
       <h4>Tutte le pagine</h4>
@@ -960,7 +966,8 @@ const DEFAULT_PAGES = {
 </ul>
 <p><b>Organizzazioni criminali</b></p>
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
-  <li><a onclick="navigateTo('Camorra Salentina')"><b>Camorra Salentina</b></a> — Fondata da Morello dopo il 17 aM. Ancora attiva.</li>
+  <li><a onclick="navigateTo('Camorra Salentina')"><b>Camorra Salentina</b></a> — Fondata da Morello dopo il 17 aM. Trasformata nelle <b>Filippine</b> nel 108 aM dalla Famiglia Pocchia.</li>
+  <li><a onclick="navigateTo('Filippine')"><b>Filippine</b></a> — Stato fondato nel 108 aM dalla Famiglia Pocchia sulle ceneri della Camorra Salentina. Capitale: Calimera. Seconda città: Castri.</li>
   <li><a onclick="navigateTo('De Morellis')"><b>De Morellis</b></a> — Leader della Camorra Salentina. Inspiegabilmente simile a Morello.</li>
 </ul>
 <p><b>Religioni e sistemi di datazione</b></p>
@@ -1292,6 +1299,12 @@ const DEFAULT_PAGES = {
     history: [],
     content: ""
   },
+  "Filippine": {
+    title: "Filippine",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
   "La Fede": {
     title: "La Fede",
     wikitext: "",
@@ -1391,6 +1404,7 @@ DEFAULT_PAGES["104 Nigeriani"].content = build104Nigeriani();
 DEFAULT_PAGES["Zella"].content = buildZella();
 DEFAULT_PAGES["Benito Mussolini"].content = buildBenitoMussolini();
 DEFAULT_PAGES["pocchiainscatola"].content = buildPocchiaInscatola();
+DEFAULT_PAGES["Filippine"].content = buildFilippine();
 DEFAULT_PAGES["La Fede"].content = buildLaFede();
 DEFAULT_PAGES["Alice Sportella"].content = buildAliceSportella();
 DEFAULT_PAGES["Figli di Filippo"].content = buildFigliFilippo();
@@ -1612,8 +1626,8 @@ function buildCamoraSalentina() {
 <p>La dissoluzione del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> nell'89 aM, per mano di <a onclick="navigateTo('Riccardo Pascali')">Riccardo Pascali</a>, ha eliminato il rivale storico della Camorra Salentina. Questo avrebbe dovuto rappresentare una vittoria. Invece ha creato un vuoto di potere nel Casertano che la Camorra Salentina non ha ancora deciso se riempire — il che, secondo alcuni osservatori, è già una risposta.</p>
 
 <h2 id="topismo-cs2">Il rapporto con il Topismo <span class="edit-link" onclick="openEditor('Camorra Salentina')">[modifica]</span></h2>
-<p>Il rapporto tra la Camorra Salentina e il <a onclick="navigateTo('Topismo')">Topismo</a> è uno dei più dibattuti nell'intera storia di questo universo. Da un lato, la Camorra usa il <a onclick="navigateTo('Calendario Morello')">Calendario Morello</a> — il sistema di datazione fondato da <a onclick="navigateTo('Morello')">Morello</a> stesso — con una coerenza che suggerisce qualcosa di più di una semplice convenzione. Dall'altro, non ha mai ufficialmente aderito alla fede topista né riconosciuto <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> come proprio Dio.</p>
-<p>La posizione è quella di una neutralità calcolata. La dittatura topista instaurata da <a onclick="navigateTo('Cheddar Mussolini')">Cheddar Mussolini</a> a <a onclick="navigateTo('Serrano')">Serrano</a> nel 104 aM non ha mai dichiarato la Camorra Salentina nemica — a differenza della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a>. I Ludotopici la trattano con rispetto cauto. La Camorra ricambia con silenzio diplomatico.</p>
+<p>Il rapporto tra la Camorra Salentina e il <a onclick="navigateTo('Topismo')">Topismo</a> è uno dei più dibattuti nell'intera storia di questo universo. Da un lato, la Camorra Salentina usa il <a onclick="navigateTo('Calendario Morello')">Calendario Morello</a> — il sistema di datazione fondato da <a onclick="navigateTo('Morello')">Morello</a> stesso — con una coerenza che suggerisce qualcosa di più di una semplice convenzione. Dall'altro, non ha mai ufficialmente aderito alla fede topista né riconosciuto <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> come proprio Dio.</p>
+<p>La posizione è quella di una neutralità calcolata. La dittatura topista instaurata da <a onclick="navigateTo('Cheddar Mussolini')">Cheddar Mussolini</a> a <a onclick="navigateTo('Serrano')">Serrano</a> nel 104 aM non ha mai dichiarato la Camorra Salentina nemica — a differenza della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a>. I Ludotopici la trattano con rispetto cauto. La Camorra Salentina ricambia con silenzio diplomatico.</p>
 <p>Alcuni studiosi del Topismo hanno avanzato l'ipotesi che la Camorra Salentina sia, di fatto, la guardia secolare di <a onclick="navigateTo('Morello')">Morello</a> — l'organizzazione che custodisce il luogo in cui il co-governatore attende il momento del ritorno profetizzato. <a onclick="navigateTo('De Morellis')">De Morellis</a> non ha commentato.</p>
 
 <h2 id="demorellis-cs2">De Morellis e la leadership attuale <span class="edit-link" onclick="openEditor('Camorra Salentina')">[modifica]</span></h2>
@@ -1623,9 +1637,14 @@ function buildCamoraSalentina() {
 <h2 id="territorio-cs2">Territorio e influenza <span class="edit-link" onclick="openEditor('Camorra Salentina')">[modifica]</span></h2>
 <p>La Camorra Salentina controlla — nella misura in cui «controllare» è la parola giusta per una presenza così capillare e discreta — un territorio che va dalla penisola salentina fino alle aree ioniche del basso Casertano. I centri d'influenza principali sono i porti pescherecchi minori, i mercati oleari e una rete di masserie che fungono da nodi logistici.</p>
 <p>Il Salento, a differenza di Napoli o di Serrano, non ha mai vissuto un crollo drammatico dell'ordine pubblico. Questo è considerato, localmente, un merito dell'organizzazione. Considerarlo tale implica accettare la premessa che l'ordine possa essere garantito da chi opera fuori dalla legge — premessa che a Napoli troverebbero ovvia e che altrove troverebbero inquietante.</p>
-<div class="stub-box"><span style="font-size:22px">🦁</span><span>Questa voce è parzialmente abbozzata. Nessuna fonte ha voluto essere citata con nome e cognome. Questo, in Salento, è già una risposta.</span></div>
+
+<h2 id="fine-cs2">La fine: nascita delle Filippine (108 aM) <span class="edit-link" onclick="openEditor('Camorra Salentina')">[modifica]</span></h2>
+<p>Nel <b>108 aM</b>, dopo la <a onclick="navigateTo('La Guerra Finale')">Guerra Finale</a> e la presa di potere della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> sul Salento, la Camorra Salentina cessò ufficialmente di esistere come organizzazione criminale. <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> e <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a> la trasformarono in qualcosa di diverso: uno stato vero e proprio, battezzato <b>le Filippine</b>.</p>
+<p>Non fu una semplice ridenominazione. La struttura criminale — cerchi di fiducia, controllo del territorio, infiltrazione economica — fu convertita in apparato di governo: le masserie divennero municipalità, i nodi logistici divennero infrastrutture, i codici del silenzio divennero leggi. Era, in sostanza, la stessa cosa con un'intestazione diversa. Ma l'intestazione contava.</p>
+<p>La capitale delle Filippine è <b>Calimera</b>. La seconda città più importante è <b>Castri</b>. Entrambe erano già nell'orbita storica della Camorra Salentina — ora ne sono i centri istituzionali. De Morellis, nel frattempo, era tornato a Napoli con Morello. Le Filippine erano dei Pocchia.</p>
+<div class="stub-box"><span style="font-size:22px">🦁</span><span>Questa voce descrive un'organizzazione che non esiste più. Le Filippine esistono al suo posto. Aggiornare di conseguenza.</span></div>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Camorra</a> <a>Criminalità organizzata in Puglia</a> <a>Salento</a> <a>Organizzazioni fondate da Morello</a> <a>Rivali del Clan Spisso</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Camorra</a> <a>Criminalità organizzata in Puglia</a> <a>Salento</a> <a>Organizzazioni fondate da Morello</a> <a>Rivali del Clan Spisso</a> <a>Organizzazioni dissolte nel 108 aM</a></div>`;
 }
 
 function buildDeMorellis() {
@@ -1677,10 +1696,10 @@ function buildDeMorellis() {
 <h2 id="topismo-dm">Il rapporto con il Topismo e Serrano <span class="edit-link" onclick="openEditor('De Morellis')">[modifica]</span></h2>
 <p>De Morellis non ha mai dichiarato adesione al <a onclick="navigateTo('Topismo')">Topismo</a>, né lo ha mai osteggiato. Quando <a onclick="navigateTo('Cheddar Mussolini')">Cheddar Mussolini</a> guidò la <b>Marcia su Serrano</b> nel 104 aM instaurando la dittatura topista, la Camorra Salentina rimase in silenzio — né approvazione né condanna. La dittatura topista ricambiò il silenzio: la Camorra Salentina non fu mai dichiarata nemica del regime, a differenza della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a>.</p>
 <p>Alcuni Ludotopici interpretano questa neutralità come una forma di rispetto implicito: De Morellis sarebbe consapevole della natura divina di <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> e del ruolo del <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a>, ma sceglierebbe di non renderlo esplicito. Una fede senza dichiarazione, come si conviene a chi è abituato a operare nell'ombra.</p>
-<p>Il fatto che la Camorra usi il <a onclick="navigateTo('Calendario Morello')">Calendario Morello</a> internamente — con la stessa naturalezza con cui lo usano i Ludotopici — è considerato da molti l'unica testimonianza pubblica involontaria di De Morellis su cosa pensi realmente.</p>
+<p>Il fatto che la Camorra Salentina usi il <a onclick="navigateTo('Calendario Morello')">Calendario Morello</a> internamente — con la stessa naturalezza con cui lo usano i Ludotopici — è considerato da molti l'unica testimonianza pubblica involontaria di De Morellis su cosa pensi realmente.</p>
 
 <h2 id="pocchia-dm">Il rapporto con la Famiglia Pocchia <span class="edit-link" onclick="openEditor('De Morellis')">[modifica]</span></h2>
-<p>Il rapporto tra De Morellis e la <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> è complesso e non del tutto ostile — il che, data la storia tra la Camorra Salentina e le famiglie legate al Casertano, è già notevole. Da un lato, la Camorra non ha mai dichiarato guerra ai Pascali né si è mai allineata con i loro nemici. Dall'altro, la Famiglia Pocchia è nemica dichiarata del regime topista — e la Camorra Salentina non ha preso posizione su questo.</p>
+<p>Il rapporto tra De Morellis e la <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> è complesso e non del tutto ostile — il che, data la storia tra la Camorra Salentina e le famiglie legate al Casertano, è già notevole. Da un lato, la Camorra Salentina non ha mai dichiarato guerra ai Pascali né si è mai allineata con i loro nemici. Dall'altro, la Famiglia Pocchia è nemica dichiarata del regime topista — e la Camorra Salentina non ha preso posizione su questo.</p>
 <p>La connessione più diretta passa per <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a>. Filippo è amico d'infanzia di <a onclick="navigateTo('Morello')">Morello</a>, e si dice che sia ancora in contatto con lui in qualche forma. Se De Morellis è Morello — o se ha un rapporto con lui — allora il collegamento tra De Morellis e Filippo Pascali potrebbe essere molto più diretto di quanto chiunque abbia dichiarato pubblicamente. Filippo non ha commentato. De Morellis nemmeno. Questo, in questo universo, è quasi una conferma.</p>
 
 <h2 id="ipotesi-dm">Le ipotesi sull'identità <span class="edit-link" onclick="openEditor('De Morellis')">[modifica]</span></h2>
@@ -2243,7 +2262,7 @@ function buildClanSpisso() {
 
 <h2 id="scissione">La Scissione: Da Caserta a Serrano <span class="edit-link" onclick="openEditor('Clan Spisso')">[modifica]</span></h2>
 <p>Il momento decisivo arrivò nel 57 aM, quando <b>Salvatore Spisso</b> — figlio di Gennaro, padre di Alex, uomo con una tolleranza notevolmente inferiore alla media per le opinioni altrui — decise di averne abbastanza del Consorzio di Caserta. Partecipò a una riunione nella primavera del 57 aM, ascoltò circa quaranta minuti di dibattito sulla spartizione dei proventi dell'eroina, e se ne andò senza salutare. Non fu più visto a un'altra riunione del Consorzio.<sup><a>[2]</a></sup></p>
-<p>La famiglia si trasferì a Serrano — un piccolo paese collinare nell'entroterra casertano. Quello che costruirono era strutturalmente diverso dalla Camorra che avevano lasciato: più simile alla Ndrangheta nella sua logica, rigidamente gerarchico e fondato su un codice del silenzio che i membri rispettavano perché capivano l'alternativa.</p>
+<p>La famiglia si trasferì a Serrano — un piccolo paese collinare nell'entroterra casertano. Quello che costruirono era strutturalmente diverso dalla camorra napoletana che avevano lasciato: più simile alla Ndrangheta nella sua logica, rigidamente gerarchico e fondato su un codice del silenzio che i membri rispettavano perché capivano l'alternativa.</p>
 <p>Al loro apice, tra il 65 e il 75 aM, controllarono il traffico locale di stupefacenti, il gioco d'azzardo clandestino e una rete estorsiva ai danni degli imprenditori edili.<sup><a>[3]</a></sup></p>
 
 <h2 id="connessione-usa">Il Collegamento Americano <span class="edit-link" onclick="openEditor('Clan Spisso')">[modifica]</span></h2>
@@ -2304,7 +2323,7 @@ function buildPeteHegseth() {
   <div class="toc-title">Indice</div>
   <ol>
     <li><a href="#bio-ph">Biografia</a></li>
-    <li><a href="#origini-ph">Origini familiari e la Camorra</a>
+    <li><a href="#origini-ph">Origini familiari e la Camorra Salentina</a>
       <ol>
         <li><a href="#clan-ph">Il Clan Spisso di Caserta</a></li>
         <li><a href="#scissione-ph">La scissione a Serrano</a></li>
@@ -2322,7 +2341,7 @@ function buildPeteHegseth() {
 <p>Pete Hegseth nasce il 6 giugno 1980 a Forest Lake, tranquillo sobborgo a nord di Minneapolis, Minnesota. La madre, Penelope Hegseth, lo registra all'anagrafe con il proprio cognome e non dice nulla pubblicamente sull'identità del padre. Quel silenzio non era semplice riserbo — era una precauzione. <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a>, il padre biologico di Pete, era già nel mirino della Direzione Investigativa Antimafia italiana.<sup><a>[1]</a></sup></p>
 <p>Pete frequenta la <i>Forest Lake Area High School</i>, poi si laurea alla Princeton University nel 2003, e ottiene in seguito un master alla Harvard Kennedy School. Il tipo di curriculum che fa bella figura sulla carta e non solleva sopracciglia durante un'audizione di conferma al Senato.<sup><a>[2]</a></sup></p>
 
-<h2 id="origini-ph">Origini familiari e legami con la Camorra <span class="edit-link" onclick="openEditor('Pete Hegseth')">[modifica]</span></h2>
+<h2 id="origini-ph">Origini familiari e legami con la Camorra Salentina <span class="edit-link" onclick="openEditor('Pete Hegseth')">[modifica]</span></h2>
 <h3 id="clan-ph">Il Clan Spisso di Caserta</h3>
 <p>La <a onclick="navigateTo('Clan Spisso')">Famiglia Spisso</a> è un'organizzazione criminale campana con radici profonde nella Camorra casertana. Le prime tracce documentate del clan risalgono intorno al 30 aM, quando il capostipite — <b>Gennaro Spisso</b>, conosciuto da tutti come <b>"o' Professore"</b> — gestiva contrabbando di sigarette e usura. Non esattamente glamour, ma funzionava.</p>
 <p>Ciò che distingueva gli Spisso era un istinto sorprendentemente moderno per gli affari dall'apparenza legale e solide relazioni con comunità italoamericane lungo la costa orientale degli Stati Uniti.</p>
@@ -2350,7 +2369,7 @@ function buildPeteHegseth() {
 <h3>Il problema con l'alcol</h3>
 <p>Diversi ex colleghi di Fox News descrivono Hegseth come un bevitore abituale sul posto di lavoro. Hegseth definisce le segnalazioni «tattiche di delegittimazione politica».</p>
 <h3>Il dossier Spisso (2025)</h3>
-<p><i>L'Espresso</i> pubblica una serie investigativa intitolata <i>«Il Ministro e la Camorra»</i>. Il portavoce del Pentagono definisce l'inchiesta «priva di qualsiasi fondamento» e «un attacco politico orchestrato da avversari stranieri». La serie continua ad uscire ugualmente.</p>
+<p><i>L'Espresso</i> pubblica una serie investigativa intitolata <i>«Il Ministro e la Camorra Salentina»</i>. Il portavoce del Pentagono definisce l'inchiesta «priva di qualsiasi fondamento» e «un attacco politico orchestrato da avversari stranieri». La serie continua ad uscire ugualmente.</p>
 
 <div class="stub-box"><span style="font-size:22px">🔍</span><span>Questa voce è parzialmente abbozzata. Né l'interessato né i suoi parenti italiani hanno risposto alle nostre richieste di commento.</span></div>
 </div>
@@ -2612,10 +2631,10 @@ function buildCalendarioMorello() {
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2021 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>104 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Pensionamento di <a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali</a></td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2020 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>103 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Il <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> viene scoppulato a morte</td></tr>
 
-  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2025 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>108 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> diventa 22° Segretario alla Difesa USA (25 gennaio)</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2025 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>108 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> diventa 22° Segretario alla Difesa USA (25 gennaio) · La <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> cessa di esistere — nasce lo stato delle <b>Filippine</b>, con capitale <b>Calimera</b> e seconda città <b>Castri</b></td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2021 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>104 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Cielo arancione — presagi della Fine · <a onclick="navigateTo('Cheddar Mussolini')">Cheddar Mussolini</a> guida la Marcia su Serrano · dittatura topista · attacco Avengers a Nigeria · <a onclick="navigateTo('Raggio Nero')">Raggio Nero</a> butta Avengers in mare · missile colpisce Vesuvio · <b>seconda eruzione</b> · ritorno di <a onclick="navigateTo('Morello')">Morello</a> giovane · piogge di cheddar acido su Napoli</td></tr>
-  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2022 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>105 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Conquista di Serrano (67 giorni) · <a onclick="navigateTo('Cheddar Mussolini')">Cheddar Mussolini</a> appesa a testa in giù · Pocchia prendono la Camorra · <a onclick="navigateTo('Ilaria Spisso')">Ilaria</a> lascia gli Avengers · raggiunge <a onclick="navigateTo('Alessio Spisso')">Alessio</a> in India · portati i libri di <a onclick="navigateTo('Ermenegildo Spisso')">Gildo</a></td></tr>
-  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2023 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>106 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Nigeria lancia <a onclick="navigateTo('Raggio Nero')">Raggi Neri</a> anche su Pocchia e Camorra · <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> inizia la produzione (segreta)</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2022 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>105 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Conquista di Serrano (67 giorni) · <a onclick="navigateTo('Cheddar Mussolini')">Cheddar Mussolini</a> appesa a testa in giù · Pocchia prendono la Camorra Salentina · <a onclick="navigateTo('Ilaria Spisso')">Ilaria</a> lascia gli Avengers · raggiunge <a onclick="navigateTo('Alessio Spisso')">Alessio</a> in India · portati i libri di <a onclick="navigateTo('Ermenegildo Spisso')">Gildo</a></td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2023 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>106 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Nigeria lancia <a onclick="navigateTo('Raggio Nero')">Raggi Neri</a> anche su Pocchia e Camorra Salentina · <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> inizia la produzione (segreta)</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2024 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>107 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b><a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> detonata su Serrano</b> · tutti gli Avengers dichiarati morti · <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> prende il potere in America · Nigeria si arrende · termine "Spissare" entra nel vocabolario geopolitico</td></tr>
 </table>
 
@@ -4292,7 +4311,7 @@ function buildAliceSportella() {
 </div>
 <p><b>Alice Sportella</b> è la moglie di <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a> e madre di <a onclick="navigateTo('Figli di Filippo')">Luca, Gino e Carla</a>. Il matrimonio fu considerato per anni uno dei più solidi della storia della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> — fino alla scoperta che Alice era una parente di Filippo. Elaborarono la notizia con la filosofia pratica della famiglia: il matrimonio era fatto, i figli nati, andare avanti era l'unica opzione sensata.</p>
 <p>I tre figli nacquero con la sindrome di Down. Filippo e Alice li hanno cresciuti con affetto totale. Sono descritti da chiunque li conosca come straordinariamente felici — che, data la storia della famiglia, è probabilmente la cosa più notevole di tutta la vicenda.</p>
-<p>Nel 105 aM, durante <a onclick="navigateTo('La Guerra Finale')">La Guerra Finale</a>, Alice coordinò le operazioni a terra durante l'attacco a Serrano mentre Filippo guidava dall'aria. Dopo la conquista, Alice e Filippo — con <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> — presero il controllo della Camorra Salentina rimasta senza guida.</p>
+<p>Nel 105 aM, durante <a onclick="navigateTo('La Guerra Finale')">La Guerra Finale</a>, Alice coordinò le operazioni a terra durante l'attacco a Serrano mentre Filippo guidava dall'aria. Dopo la conquista, Alice e Filippo — con <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> — presero il controllo della Camorra Salentina rimasta senza guida, Nel 108 aM la Camorra Salentina cessò di esistere come organizzazione criminale: Riccardo e Filippo la trasformarono in uno stato vero e proprio, le <b>Filippine</b>, con capitale <b>Calimera</b> e seconda città <b>Castri</b>.</p>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Famiglia Pocchia</a> <a>Camorra Salentina</a> <a>La Guerra Finale</a></div>`;
 }
@@ -4310,8 +4329,8 @@ function buildFigliFilippo() {
     <tr><td>Condizione</td><td>Sindrome di Down (tutti e tre)</td></tr>
   </table>
 </div>
-<p><b>Luca, Gino e Carla Pascali</b> sono i tre figli di <a onclick="navigateTo('Filippo Pascali')">Filippo</a> e <a onclick="navigateTo('Alice Sportella')">Alice Sportella</a>. Tutti e tre nacquero con la sindrome di Down. <b>Luca</b>, il maggiore, ha una memoria eccezionale per le melodie e sa fischiarne ogni nota. <b>Gino</b>, il secondo, abbraccia chiunque entri in casa e chiede sempre se vuole qualcosa da mangiare — un'abitudine che i veterani della Camorra trovano inspiegabilmente disarmante. <b>Carla</b>, la più piccola, ha ereditato dal nonno <a onclick="navigateTo('Gianluca Pascali')">Gianluca</a> un'espressione seria che non corrisponde mai a quello che pensa davvero — quasi sempre qualcosa di allegro.</p>
-<p>Vivono a Serrano dopo la conquista del 105 aM. Sono probabilmente le uniche persone in città che non sanno nulla di quello che è successo durante <a onclick="navigateTo('La Guerra Finale')">La Guerra Finale</a>. Filippo ha deciso che è meglio così.</p>
+<p><b>Luca, Gino e Carla Pascali</b> sono i tre figli di <a onclick="navigateTo('Filippo Pascali')">Filippo</a> e <a onclick="navigateTo('Alice Sportella')">Alice Sportella</a>. Tutti e tre nacquero con la sindrome di Down. <b>Luca</b>, il maggiore, ha una memoria eccezionale per le melodie e sa fischiarne ogni nota. <b>Gino</b>, il secondo, abbraccia chiunque entri in casa e chiede sempre se vuole qualcosa da mangiare — un'abitudine che i veterani della Camorra Salentina trovano inspiegabilmente disarmante. <b>Carla</b>, la più piccola, ha ereditato dal nonno <a onclick="navigateTo('Gianluca Pascali')">Gianluca</a> un'espressione seria che non corrisponde mai a quello che pensa davvero — quasi sempre qualcosa di allegro.</p>
+<p>Vivono a <b>Calimera</b>, capitale delle <b>Filippine</b> — lo stato fondato dalla Famiglia Pocchia nel 108 aM sulle ceneri della Camorra Salentina. Sono probabilmente le uniche persone in città che non sanno nulla di quello che è successo durante <a onclick="navigateTo('La Guerra Finale')">La Guerra Finale</a>. Filippo ha deciso che è meglio così.</p>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Famiglia Pocchia</a> <a>Persone di Serrano</a></div>`;
 }
@@ -4329,14 +4348,14 @@ function buildRaggioNero() {
     <tr><td>Tipo</td><td>Arma energetica di soppressione totale</td></tr>
     <tr><td>Effetto</td><td>Annullamento di poteri, ricchezza e risorse</td></tr>
     <tr><td>Efficacia contro Avengers</td><td>Alta — li fece cadere in mare nel 104 aM</td></tr>
-    <tr><td>Uso offensivo</td><td>Dal 106 aM — anche su Famiglia Pocchia e Camorra</td></tr>
+    <tr><td>Uso offensivo</td><td>Dal 106 aM — anche su Famiglia Pocchia e Camorra Salentina</td></tr>
   </table>
 </div>
 <p>Il <b>Raggio Nero</b> è l'arma principale della <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a>. Funziona assorbendo energia di ogni tipo: i poteri soprannaturali degli Avengers, le risorse economiche dell'obiettivo, la capacità fisica di volare. Chi viene colpito non viene ferito — viene <i>svuotato</i>. I poteri scompaiono. Il conto si azzera. La capacità di volare si spegne esattamente sopra il mare.</p>
 <h2>Il 104 aM: gli Avengers in mare <span class="edit-link" onclick="openEditor('Raggio Nero')">[modifica]</span></h2>
 <p>Quando gli Avengers attaccarono la capitale nigeriana in volo, il Raggio Nero fu attivato in modalità difensiva. I poteri si spensero simultaneamente. Tutti gli Avengers caddero nell'oceano Atlantico. Il viaggio di ritorno a nuoto durò giorni. Gli americani che li videro arrivare a riva esausti offrirono asciugamani, rifiutati con dignità ferita.</p>
 <h2>Uso offensivo — 106 aM <span class="edit-link" onclick="openEditor('Raggio Nero')">[modifica]</span></h2>
-<p>Dal 106 aM la Nigeria iniziò ad usare il Raggio anche in modo offensivo, colpendo la <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> e la <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a>, ritenendole alleate degli Avengers. I raggi colpirono basi nel Salento, azzerando risorse della Camorra. Questo accelerò la necessità di trovare una soluzione definitiva al conflitto.</p>
+<p>Dal 106 aM la Nigeria iniziò ad usare il Raggio anche in modo offensivo, colpendo la <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> e la <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a>, ritenendole alleate degli Avengers. I raggi colpirono basi nel Salento, azzerando risorse della Camorra Salentina. Questo accelerò la necessità di trovare una soluzione definitiva al conflitto.</p>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Nigeria Spartiana</a> <a>Armi</a> <a>La Guerra Finale</a></div>`;
 }
@@ -4402,7 +4421,7 @@ function buildBombaSpissica() {
 <p>Alex mandò tutti gli Avengers e Alessio in attacco via terra a Serrano, tenendoli lontani dal laboratorio con la scusa della logistica. Una volta in posizione, la bomba fu lanciata. Nei minuti prima della detonazione Alessio chiamò Alex per aggiornamenti — e Alex, convinto che non ci fosse più tempo per fermare nulla, rivelò tutto: il piano, le sue intenzioni, la sua storia. Che era stato lui a distruggere la casa di Zella. Che Alessio era sempre stato nella lista. «Prima degli Avengers, prima di tutti».</p>
 <p>Un minuto era troppo poco. La bomba partì. Uno stereo cadde dal cielo su Serrano. L'ultima cosa che gli Avengers sentirono fu: <b>«Spisso»</b>. Serrano scomparve dalla mappa, lasciando un cratere.</p>
 <h2>Conseguenze <span class="edit-link" onclick="openEditor('Bomba Spissica')">[modifica]</span></h2>
-<p>La Nigeria Spartiana, testimone dell'esplosione, si arrese immediatamente. Il termine <b>«Spissare»</b> entrò nel vocabolario geopolitico per indicare la cancellazione totale di un obiettivo. Alex prese il controllo dell'America. Tutti gli Avengers furono dichiarati morti. Alessio sopravvisse perché era ancora in linea con Alex quando la bomba detonò — non era a Serrano.</p>
+<p>La Nigeria Spartiana, testimone dell'esplosione, si arrese immediatamente. Il termine <b>«Spissare»</b> entrò nel vocabolario geopolitico per indicare la cancellazione totale di un obiettivo. Alex prese il controllo dell'America. Tutti gli Avengers furono dichiarati morti. Di Alessio, che era ancora in linea con Alex quando la bomba detonò, non si seppe più nulla.</p>
 <div class="stub-box"><span style="font-size:22px">💥</span><span>Aggiornare se qualcuno sopravvissuto si fa vivo. Aspettiamo fiduciosi.</span></div>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Armi</a> <a>La Guerra Finale</a> <a>Alex Spisso</a> <a>Serrano</a></div>`;
@@ -4454,7 +4473,7 @@ function buildLaGuerraFinale() {
     <li><a href="#vesuvio-gf">Il Vesuvio e il ritorno di Morello (104 aM)</a></li>
     <li><a href="#spisso-gf">Il piano degli Spisso — da America</a></li>
     <li><a href="#105-gf">105 aM — La conquista di Serrano</a></li>
-    <li><a href="#camorra-gf">I Pocchia prendono la Camorra</a></li>
+    <li><a href="#camorra-gf">I Pocchia prendono la Camorra Salentina</a></li>
     <li><a href="#106-gf">106 aM — La bomba inizia la produzione</a></li>
     <li><a href="#107-gf">107 aM — La detonazione</a></li>
     <li><a href="#dopo-gf">Dopo Serrano</a></li>
@@ -4467,8 +4486,8 @@ function buildLaGuerraFinale() {
 
 <h2 id="filippo-gf">Filippo Pascali e la guerra quotidiana <span class="edit-link" onclick="openEditor('La Guerra Finale')">[modifica]</span></h2>
 <p><a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a> si svegliava la mattina, salutava <a onclick="navigateTo('Alice Sportella')">Alice</a>, guardava i tre bambini fare colazione con quella serenità che gli sembrava ogni giorno più preziosa e più impossibile da proteggere, e andava a far esplodere una base della Camorra Salentina nemica. Poi tornava a casa.</p>
-<p>Era una vita stancante nel modo in cui sono stancanti le cose che non finiscono mai. La <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> si era integrata nella struttura della <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> dopo la partenza di <a onclick="navigateTo('De Morellis')">De Morellis</a> — o meglio, si era infilata nel vuoto di potere che quella partenza aveva lasciato. Filippo faceva parte di Serrano, e Serrano era in guerra con i Topisti: i fedeli di <a onclick="navigateTo('Topismo')">Topismo</a> che dopo la <a onclick="navigateTo('Cheddar Mussolini')">Marcia su Serrano</a> del 104 aM avevano scoperto che la <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> si nascondeva nella Camorra — e avevano ricominciato gli attacchi.</p>
-<p>Filippo attaccava dagli aerei, usando due invenzioni: i <b>cannoni a cheddar</b> — dispositivi che sparavano blocchi di cheddar acido capaci di bloccare i movimenti nemici sigillando porte, veicoli e strade — e la <b>scoppula volante</b>, invenzione teorizzata da <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a> nei suoi appunti e messa in pratica dalla Camorra: una scoppulazione sferrata da altitudine sufficiente a garantire il fattore sorpresa assoluto.</p>
+<p>Era una vita stancante nel modo in cui sono stancanti le cose che non finiscono mai. La <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> si era integrata nella struttura della <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> dopo la partenza di <a onclick="navigateTo('De Morellis')">De Morellis</a> — o meglio, si era infilata nel vuoto di potere che quella partenza aveva lasciato. Filippo faceva parte di Serrano, e Serrano era in guerra con i Topisti: i fedeli di <a onclick="navigateTo('Topismo')">Topismo</a> che dopo la <a onclick="navigateTo('Cheddar Mussolini')">Marcia su Serrano</a> del 104 aM avevano scoperto che la <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> si nascondeva nella Camorra Salentina — e avevano ricominciato gli attacchi.</p>
+<p>Filippo attaccava dagli aerei, usando due invenzioni: i <b>cannoni a cheddar</b> — dispositivi che sparavano blocchi di cheddar acido capaci di bloccare i movimenti nemici sigillando porte, veicoli e strade — e la <b>scoppula volante</b>, invenzione teorizzata da <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a> nei suoi appunti e messa in pratica dalla Camorra Salentina: una scoppulazione sferrata da altitudine sufficiente a garantire il fattore sorpresa assoluto.</p>
 
 <h2 id="nigeria-gf">La Nigeria e gli Avengers in mare <span class="edit-link" onclick="openEditor('La Guerra Finale')">[modifica]</span></h2>
 <p>La <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> era rimasta neutrale fino al 104 aM. Poi gli <a onclick="navigateTo('Avengers')">Avengers</a> distrussero alcuni porti nigeriani in quello che descrissero come «un'operazione preventiva». La Nigeria non la vide allo stesso modo.</p>
@@ -4485,16 +4504,16 @@ function buildLaGuerraFinale() {
 <p><a onclick="navigateTo('Ilaria Spisso')">Ilaria / Spisshor</a> fu l'unica a dire che il governo topista, per quanto brutale, era stabile — e che destabilizzarlo avrebbe aperto un vuoto pericoloso. Disse anche che la bomba che circolava negli appunti di Gildo era un'idea che non andava mai messa in pratica. Nessuno la ascoltò. In entrambi i casi.</p>
 
 <h2 id="105-gf">105 aM — La conquista di Serrano <span class="edit-link" onclick="openEditor('La Guerra Finale')">[modifica]</span></h2>
-<p>Il bombardamento su Serrano fu approvato dagli Avengers. Quando la data fu fissata, alcune spie avvisarono Alice e Filippo con largo anticipo. La coppia coordinò un grande attacco simultaneo: Filippo dall'aria con i cannoni a cheddar e la scoppula volante, Alice a terra con le forze della Camorra.</p>
+<p>Il bombardamento su Serrano fu approvato dagli Avengers. Quando la data fu fissata, alcune spie avvisarono Alice e Filippo con largo anticipo. La coppia coordinò un grande attacco simultaneo: Filippo dall'aria con i cannoni a cheddar e la scoppula volante, Alice a terra con le forze della Camorra Salentina.</p>
 <p>La <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> senza <a onclick="navigateTo('De Morellis')">De Morellis</a> — che era tornato a Napoli — era entrata nel caos. Aveva perso il suo leader più carismatico, la struttura si era sgretolata, e i vari gruppi interni si stavano sbranando. In quel momento <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> e Filippo presero il controllo. Li unificarono. Stabilizzarono. Lo fecero con quella combinazione di autorità naturale e deterrenza che la famiglia aveva sviluppato nel corso di generazioni.</p>
 <p>L'attacco a Serrano fu coordinato con l'offensiva degli Avengers. Serrano fu conquistata in <b>67 giorni</b>. <a onclick="navigateTo('Cheddar Mussolini')">Cheddar Mussolini</a> fu trovata nel palazzo del governo e appesa a testa in giù — esattamente come aveva fatto ai suoi nemici. La dittatura topista cessò di esistere.</p>
 
-<h2 id="camorra-gf">I Pocchia prendono la Camorra <span class="edit-link" onclick="openEditor('La Guerra Finale')">[modifica]</span></h2>
+<h2 id="camorra-gf">I Pocchia prendono la Camorra Salentina <span class="edit-link" onclick="openEditor('La Guerra Finale')">[modifica]</span></h2>
 <p>La prima cosa che Riccardo e Filippo fecero con il potere fu abbattere le statue di De Morellis. Quella che un giorno era stata l'icona della Camorra Salentina diventò il Traditore della Patria — il leader che aveva abbandonato la sua organizzazione nel momento del bisogno tornando a Napoli per la sua gloria personale. Le statue caddero in silenzio. Nessuno protestò. I muri del palazzo restarono vuoti per mesi.</p>
 <p>Riccardo prese la gestione amministrativa e investigativa. Filippo la parte operativa e militare. Alice supervisionò le relazioni esterne. Era una divisione del lavoro che rispecchiava perfettamente chi erano: Riccardo il metodico, Filippo l'esecutore, Alice il punto di connessione tra i due.</p>
 
 <h2 id="106-gf">106 aM — La bomba inizia la produzione <span class="edit-link" onclick="openEditor('La Guerra Finale')">[modifica]</span></h2>
-<p>Nel 106 aM la Nigeria continuava ad attaccare, ora usando il <a onclick="navigateTo('Raggio Nero')">Raggio Nero</a> anche sulla Famiglia Pocchia e sulla Camorra, convinta che fossero alleate degli Avengers. I raggi colpirono basi nel Salento, azzerando temporaneamente risorse e comunicazioni.</p>
+<p>Nel 106 aM la Nigeria continuava ad attaccare, ora usando il <a onclick="navigateTo('Raggio Nero')">Raggio Nero</a> anche sulla Famiglia Pocchia e sulla Camorra Salentina, convinta che fossero alleate degli Avengers. I raggi colpirono basi nel Salento, azzerando temporaneamente risorse e comunicazioni.</p>
 <p>Mentre questo accadeva, nei laboratori segreti dell'America, <a onclick="navigateTo('Alex Spisso')">Alex</a> aveva dato inizio alla costruzione di qualcosa che nessuno sapeva ancora cosa fosse. Aveva preso gli appunti di Gildo dalla cantina di Alessio — portati da Ilaria — e aveva letto il capitolo che Gildo non aveva mai pubblicato: la teoria della parola come arma assoluta. La <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> era in produzione. Nessuno degli Avengers lo sapeva. Alex disse che era impegnato con la logistica.</p>
 
 <h2 id="107-gf">107 aM — La detonazione <span class="edit-link" onclick="openEditor('La Guerra Finale')">[modifica]</span></h2>
@@ -4510,12 +4529,56 @@ function buildLaGuerraFinale() {
 <h2 id="dopo-gf">Dopo Serrano <span class="edit-link" onclick="openEditor('La Guerra Finale')">[modifica]</span></h2>
 <p>La Nigeria Spartiana, che aveva assistito all'esplosione dai satelliti, si arrese entro ventiquattro ore. Firmò accordi che permettevano all'America tutto quello che aveva sempre voluto: accesso ai porti, controllo commerciale, presenza militare. Pur di non essere <b>Spissata</b> — il termine entrò nel vocabolario geopolitico mondiale nel giro di giorni.</p>
 <p>Tutti gli Avengers furono dichiarati morti. Alex Spisso, ufficialmente Iron Spisso Man, annunciò che assumeva il controllo temporaneo dell'America «in attesa di elezioni». Le elezioni non furono mai indette. La guerra era finita.</p>
-<p>A Napoli, Morello guardò il cratere da lontano e non disse nulla. <a onclick="navigateTo('Gianluca Pascali')">Gianluca</a> era in pensione da anni. <a onclick="navigateTo('Anna Pascali')">Anna</a> non aveva commentato nulla, come sempre. Riccardo e Filippo controllavano quello che restava della Camorra Salentina. <a onclick="navigateTo('Alice Sportella')">Alice</a> stava mettendo a letto Luca, Gino e Carla nella nuova casa a Serrano — o meglio, nel paese vicino a dove Serrano era stata.</p>
-<p>In India, <a onclick="navigateTo('MariaTeresa Friolo')">Maria</a> aspettava.</p>
-<p>Di Alessio non si ebbero notizie.</p>
+<p>A Napoli, Morello guardò il cratere da lontano e non disse nulla. <a onclick="navigateTo('Gianluca Pascali')">Gianluca</a> era in pensione da anni. <a onclick="navigateTo('Anna Pascali')">Anna</a> non aveva commentato nulla, come sempre. Riccardo e Filippo stavano costruendo quello che sarebbe diventato, nel 108 aM, lo stato delle <b>Filippine</b> — nate dalla Camorra Salentina, con capitale <b>Calimera</b> e seconda città <b>Castri</b>. <a onclick="navigateTo('Alice Sportella')">Alice</a> stava mettendo a letto Luca, Gino e Carla a Calimera.</p>
+<p>In India, <a onclick="navigateTo('MariaTeresa Friolo')">Maria</a> aspettava. Di Alessio non si sapeva nulla.</p>
 <div class="stub-box"><span style="font-size:22px">🔥</span><span>Questa voce sarà aggiornata se qualcosa cambia. Per ora: tutto è fermo, tutto è cenere, tutto è arancione.</span></div>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Guerra</a> <a>Storia del mondo pocchiano</a> <a>Alex Spisso</a> <a>Bomba Spissica</a> <a>Serrano</a> <a>Fine del mondo (quasi)</a></div>`;
+}
+
+function buildFilippine() {
+  return `<h1 class="page-title">Filippine</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Filippine</div>
+  <table>
+    <tr><td>Fondazione</td><td><b>108 aM</b> (2025 d.C.)</td></tr>
+    <tr><td>Nata da</td><td><a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> (disciolta)</td></tr>
+    <tr><td>Fondatori</td><td><a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> e <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a></td></tr>
+    <tr><td>Capitale</td><td><b>Calimera</b></td></tr>
+    <tr><td>Seconda città</td><td><b>Castri</b></td></tr>
+    <tr><td>Territorio</td><td>Salento, ex-territorio della Camorra Salentina</td></tr>
+    <tr><td>Famiglia al potere</td><td><a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia (Pascali)</a></td></tr>
+    <tr><td>Stato precedente</td><td><a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a></td></tr>
+  </table>
+</div>
+<p>Le <b>Filippine</b> sono lo stato fondato nel <b>108 aM</b> dalla <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> sulle ceneri della <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a>. Non sono un paese asiatico. Il nome deriva da <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a>, uno dei due fondatori, che ha ritenuto appropriato intitolare un intero stato a sé stesso. <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> non ha commentato pubblicamente questa scelta.</p>
+<p>La capitale è <b>Calimera</b>, centro storico della famiglia Pocchia nel Salento. La seconda città più importante è <b>Castri</b>. Entrambe erano già nell'orbita della Camorra Salentina — ora ne sono i centri istituzionali ufficiali.</p>
+
+<div class="toc-box"><div class="toc-title">Indice</div><ol>
+  <li><a href="#origine-f">Origine e fondazione</a></li>
+  <li><a href="#struttura-f">Struttura di governo</a></li>
+  <li><a href="#citta-f">Calimera e Castri</a></li>
+  <li><a href="#nome-f">Il nome</a></li>
+</ol></div>
+
+<h2 id="origine-f">Origine e fondazione <span class="edit-link" onclick="openEditor('Filippine')">[modifica]</span></h2>
+<p>La <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> era rimasta senza guida dopo che <a onclick="navigateTo('De Morellis')">De Morellis</a> — rivelatosi essere <a onclick="navigateTo('Morello')">Morello</a> in persona — era tornato a Napoli in seguito alla seconda eruzione del Vesuvio nel 104 aM. L'organizzazione era entrata nel caos. Nel 105 aM Riccardo e Filippo la stabilizzarono, assumendone il controllo durante la <a onclick="navigateTo('La Guerra Finale')">Guerra Finale</a>. Nel 108 aM completarono la trasformazione: la struttura criminale fu convertita in apparato di stato.</p>
+<p>Masserie diventarono municipalità. Nodi logistici divennero infrastrutture. I codici del silenzio divennero leggi — o almeno, qualcosa che assomigliava molto alle leggi. Era, sostanzialmente, la stessa cosa con un'intestazione diversa. Ma l'intestazione contava: le Filippine non erano un'organizzazione criminale. Erano uno stato. Con tanto di capitale.</p>
+
+<h2 id="struttura-f">Struttura di governo <span class="edit-link" onclick="openEditor('Filippine')">[modifica]</span></h2>
+<p>Le Filippine sono governate dalla <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a>. <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> si occupa dell'amministrazione e dell'ordine — eredità del suo passato da investigatore. <a onclick="navigateTo('Filippo Pascali')">Filippo</a> gestisce la parte militare e operativa. <a onclick="navigateTo('Alice Sportella')">Alice Sportella</a>, moglie di Filippo, supervisiona le relazioni esterne e la diplomazia — un ruolo che ha assunto con la stessa efficienza tattica dimostrata a terra durante la conquista di Serrano.</p>
+
+<h2 id="citta-f">Calimera e Castri <span class="edit-link" onclick="openEditor('Filippine')">[modifica]</span></h2>
+<p><b>Calimera</b> è la capitale. Il suo nome in grico salentino significa «buongiorno» — una scelta toponomastica che i fondatori trovano appropriata e i residenti trovano ironica, data la storia recente. È sede del governo della famiglia Pocchia, del mercato principale e dell'archivio storico che un giorno potrebbe diventare la biblioteca delle Filippine.</p>
+<p><b>Castri</b> è la seconda città più importante. Storicamente era un centro di smistamento nelle rotte commerciali della Camorra Salentina — una posizione che, nelle Filippine, si è tradotta in ruolo logistico e militare. È la città più vicina alle aree di confine del territorio filippino, e per questo è anche la più presidiata.</p>
+
+<h2 id="nome-f">Il nome <span class="edit-link" onclick="openEditor('Filippine')">[modifica]</span></h2>
+<p>Il nome «Filippine» è stato scelto da Filippo Pascali in persona. Non esiste documentazione ufficiale della sua motivazione. Le teorie circolanti sono tre: che sia un omaggio a sé stesso, che sia un riferimento all'arcipelago del Pacifico per ragioni note solo a lui, o che lo abbia scelto perché «suonava bene». Riccardo, interpellato, ha detto che «è una cosa da Filippo» e ha cambiato argomento.</p>
+<div class="stub-box"><span style="font-size:22px">🌿</span><span>Le Filippine sono nate nel 108 aM. Questa voce è ancora in costruzione, come lo stato stesso.</span></div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Filippine</a> <a>Famiglia Pocchia</a> <a>Salento</a> <a>Stati nati nel 108 aM</a> <a>Calimera</a> <a>Castri</a></div>`;
 }
 
 loadPagesLocalOnly();
