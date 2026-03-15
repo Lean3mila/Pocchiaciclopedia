@@ -443,24 +443,42 @@ clearfix::after { content: ''; display: block; clear: both; }
 #editor-page-title:focus { outline: none; border-color: var(--accent); }
 
 #editor-toolbar {
-  padding: 6px 18px;
+  padding: 5px 18px;
   border-bottom: 1px solid var(--border-light);
-  display: flex; gap: 4px; flex-wrap: wrap;
+  display: flex; gap: 4px; flex-wrap: wrap; align-items: center;
   background: #fafafa;
 }
 
+.tb-group {
+  display: flex; gap: 2px; align-items: center;
+}
+
+.tb-sep {
+  width: 1px; height: 22px;
+  background: var(--border);
+  margin: 0 3px;
+  flex-shrink: 0;
+}
+
 .tb-btn {
-  padding: 3px 9px;
+  padding: 3px 7px;
   border: 1px solid var(--border);
   background: var(--white);
   cursor: pointer;
-  font-size: 12px;
+  font-size: 11.5px;
   font-family: 'Source Sans 3', sans-serif;
   border-radius: 2px;
   color: var(--text);
+  min-width: 26px;
+  text-align: center;
+  white-space: nowrap;
 }
 
-.tb-btn:hover { background: var(--bg); }
+.tb-btn:hover { background: var(--bg); border-color: #72777d; }
+.tb-btn:active { background: #e0e0e0; }
+.tb-btn.tb-sign { font-family: monospace; font-size: 11px; }
+.tb-btn.tb-tool { background: #eef3f8; border-color: #b3c9de; color: #2a5f8a; }
+.tb-btn.tb-tool:hover { background: #d4e5f5; }
 
 #editor-content {
   flex: 1;
@@ -482,6 +500,28 @@ clearfix::after { content: ''; display: block; clear: both; }
 }
 
 #editor-textarea:focus { border-color: var(--accent); }
+
+/* Contatore caratteri */
+#editor-char-count {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 11px;
+  color: var(--text-muted);
+  text-align: right;
+  padding: 2px 18px 0;
+}
+
+/* Anteprima inline */
+#editor-preview-panel {
+  display: none;
+  border: 1px solid var(--border);
+  margin: 8px;
+  padding: 12px 16px;
+  background: var(--white);
+  font-size: 13.5px;
+  max-height: 280px;
+  overflow-y: auto;
+}
+#editor-preview-panel.open { display: block; }
 
 #editor-summary-row {
   padding: 8px 18px;
@@ -682,7 +722,7 @@ clearfix::after { content: ''; display: block; clear: both; }
 <div id="wiki-top">
   <div id="wiki-top-inner">
     <div class="wiki-logo-wrap" onclick="navigateTo('Main')">
-      <div class="wiki-logo-sphere">🌐</div>
+      <div class="wiki-logo-sphere" style="overflow:hidden;padding:0"><img src="logo.png" alt="Logo Pocchiaciclopedia" style="width:100%;height:100%;object-fit:cover;border-radius:50%" onerror="this.style.display='none';this.parentElement.innerHTML='🌐'"></div>
       <div class="wiki-logo-text">
         <div class="wiki-logo-title">Pocchiaciclopedia</div>
         <div class="wiki-logo-sub">L'enciclopedia libera (quasi)</div>
@@ -729,6 +769,7 @@ clearfix::after { content: ''; display: block; clear: both; }
       <a onclick="navigateTo('Zella (Avengers)')">Zella</a>
       <a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra</a>
       <a onclick="navigateTo('Seconda Guerra degli Avengers')">Seconda Guerra</a>
+      <a onclick="navigateTo('La Guerra Finale')">⚔️ Guerra Finale</a>
       <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a>
     </div>
     <div class="sb-section">
@@ -739,6 +780,7 @@ clearfix::after { content: ''; display: block; clear: both; }
       <h4>Strumenti</h4>
       <a onclick="openEditor(null)">Modifica pagina</a>
       <a onclick="switchTab('history')">Cronologia</a>
+      <a onclick="navigateTo('pocchiainscatola')">📦 pocchiainscatola</a>
     </div>
     <div class="sb-section">
       <h4>Scarica</h4>
@@ -781,17 +823,77 @@ clearfix::after { content: ''; display: block; clear: both; }
       <input type="text" id="editor-page-title" placeholder="Titolo della pagina...">
     </div>
     <div id="editor-toolbar">
-      <button class="tb-btn" onclick="insertWiki(&quot;'''&quot;,&quot;'''&quot;)" title="Grassetto">'''B'''</button>
-      <button class="tb-btn" onclick="insertWiki(&quot;''&quot;,&quot;''&quot;)" title="Corsivo">''I''</button>
-      <button class="tb-btn" onclick="insertWiki('[[',']]')" title="Link interno">[[Link]]</button>
-      <button class="tb-btn" onclick="insertWiki('==','==')" title="Titolo sezione">==H2==</button>
-      <button class="tb-btn" onclick="insertWiki('===','===')" title="Sottotitolo">===H3===</button>
-      <button class="tb-btn" onclick="insertWiki('<ref>','</ref>')" title="Nota">[ref]</button>
-      <button class="tb-btn" onclick="insertWiki('* ','')" title="Lista">• Lista</button>
-      <button class="tb-btn" onclick="insertWiki(&quot;'''&quot;,&quot; '''\n| campo = valore\n}}&quot;)" title="Infobox">Infobox</button>
+      <!-- Riga 1: formattazione testo -->
+      <div class="tb-group">
+        <button class="tb-btn" onclick="insertWiki(&quot;'''&quot;,&quot;'''&quot;)" title="Grassetto (Ctrl+B)"><b>B</b></button>
+        <button class="tb-btn" onclick="insertWiki(&quot;''&quot;,&quot;''&quot;)" title="Corsivo (Ctrl+I)"><i>I</i></button>
+        <button class="tb-btn" onclick="insertWiki('<s>','</s>')" title="Barrato"><s>S</s></button>
+        <button class="tb-btn" onclick="insertWiki('<u>','</u>')" title="Sottolineato"><u>U</u></button>
+        <button class="tb-btn" onclick="insertWiki('<sup>','</sup>')" title="Apice">x²</button>
+        <button class="tb-btn" onclick="insertWiki('<sub>','</sub>')" title="Pedice">x₂</button>
+        <button class="tb-btn" onclick="insertWiki('<code>','</code>')" title="Codice inline"><code style="font-size:10px">cod</code></button>
+        <button class="tb-btn" onclick="insertWiki('<nowiki>','</nowiki>')" title="Ignora wikimarkup">[[…]]</button>
+      </div>
+      <div class="tb-sep"></div>
+      <!-- Riga 2: struttura -->
+      <div class="tb-group">
+        <button class="tb-btn" onclick="insertWiki('== ',' ==')" title="Titolo sezione H2">H2</button>
+        <button class="tb-btn" onclick="insertWiki('=== ',' ===')" title="Sottosezione H3">H3</button>
+        <button class="tb-btn" onclick="insertWiki('==== ',' ====')" title="Sotto-sottosezione H4">H4</button>
+      </div>
+      <div class="tb-sep"></div>
+      <!-- Riga 3: link e media -->
+      <div class="tb-group">
+        <button class="tb-btn" onclick="insertWiki('[[',']]')" title="Link interno">[[Link]]</button>
+        <button class="tb-btn" onclick="insertWiki('[https://esempio.com ','  ]')" title="Link esterno">[URL]</button>
+        <button class="tb-btn" onclick="insertWikiFile()" title="Immagine">🖼</button>
+        <button class="tb-btn" onclick="insertWiki('[[File:','|thumb|Didascalia]]')" title="Immagine con didascalia">📷</button>
+      </div>
+      <div class="tb-sep"></div>
+      <!-- Riga 4: liste -->
+      <div class="tb-group">
+        <button class="tb-btn" onclick="insertWikiList('*')" title="Lista puntata">• Lista</button>
+        <button class="tb-btn" onclick="insertWikiList('#')" title="Lista numerata">1. Lista</button>
+        <button class="tb-btn" onclick="insertWiki(': ','')" title="Indentazione">⇥ Indent</button>
+        <button class="tb-btn" onclick="insertWiki('; ','')" title="Termine definizione">; Def</button>
+      </div>
+      <div class="tb-sep"></div>
+      <!-- Riga 5: speciali -->
+      <div class="tb-group">
+        <button class="tb-btn" onclick="insertWiki('<ref>','</ref>')" title="Nota a piè di pagina">[ref]</button>
+        <button class="tb-btn" onclick="insertWiki('\n----\n','')" title="Riga orizzontale">――</button>
+        <button class="tb-btn" onclick="insertWikiTable()" title="Tabella">⊞ Tab</button>
+        <button class="tb-btn" onclick="insertWikiInfobox()" title="Infobox">📋 IB</button>
+        <button class="tb-btn" onclick="insertWiki('\n{{TOC}}\n','')" title="Indice">📑 TOC</button>
+        <button class="tb-btn tb-sign" onclick="insertWiki('~~~~','')" title="Firma utente">~~~~</button>
+      </div>
+      <div class="tb-sep"></div>
+      <!-- Riga 6: strumenti avanzati -->
+      <div class="tb-group">
+        <button class="tb-btn tb-tool" onclick="toggleFindReplace()" title="Trova e sostituisci">🔍 F&S</button>
+        <button class="tb-btn tb-tool" onclick="togglePreviewInline()" title="Anteprima rapida">👁 Preview</button>
+        <button class="tb-btn tb-tool" onclick="toggleCharMap()" title="Caratteri speciali">Ω Caratteri</button>
+      </div>
+    </div>
+    <!-- Trova e sostituisci (nascosto di default) -->
+    <div id="find-replace-bar" style="display:none;padding:6px 18px;background:#f0f7ff;border-bottom:1px solid #c8d8e8;font-family:sans-serif;font-size:12px;gap:8px;align-items:center;flex-wrap:wrap">
+      <span style="font-weight:600">Trova:</span>
+      <input id="fr-find" type="text" style="padding:3px 7px;border:1px solid #a2a9b1;font-size:12px;width:130px">
+      <span style="font-weight:600">Sostituisci con:</span>
+      <input id="fr-replace" type="text" style="padding:3px 7px;border:1px solid #a2a9b1;font-size:12px;width:130px">
+      <button class="tb-btn" onclick="doFindReplace(false)" style="font-size:11px;padding:2px 8px">Sostituisci</button>
+      <button class="tb-btn" onclick="doFindReplace(true)" style="font-size:11px;padding:2px 8px">Sostituisci tutto</button>
+      <span id="fr-result" style="color:#54595d;font-size:11px;margin-left:4px"></span>
+    </div>
+    <!-- Mappa caratteri speciali (nascosta di default) -->
+    <div id="char-map-bar" style="display:none;padding:6px 18px;background:#f8f9fa;border-bottom:1px solid #eaecf0;font-family:sans-serif;font-size:12px">
+      <span style="font-weight:600;margin-right:8px">Inserisci:</span>
+      <span id="char-map-content"></span>
     </div>
     <div id="editor-content">
-      <textarea id="editor-textarea" placeholder="Scrivi qui il contenuto della pagina in wikitext...&#10;&#10;Esempi:&#10;'''testo grassetto'''&#10;''testo corsivo''&#10;[[Nome pagina|testo link]]&#10;==Titolo sezione==&#10;<ref>Nota a piè di pagina.</ref>"></textarea>
+      <textarea id="editor-textarea" placeholder="Scrivi qui il contenuto della pagina in wikitext...&#10;&#10;Esempi:&#10;'''testo grassetto'''&#10;''testo corsivo''&#10;[[Nome pagina|testo link]]&#10;==Titolo sezione==&#10;<ref>Nota a piè di pagina.</ref>" oninput="updateCharCount()"></textarea>
+      <div id="editor-char-count">0 caratteri</div>
+      <div id="editor-preview-panel" class="wiki-article-body"></div>
     </div>
     <div id="editor-summary-row">
       <label>Oggetto modifica:</label>
@@ -851,8 +953,9 @@ const DEFAULT_PAGES = {
   <li><a onclick="navigateTo('Sal da Spicci')"><b>Sal da Spicci</b></a> — Co-governatore di Napoli durante l'Età dell'Oro. Cantante straordinario. Scomparso nel 17 aM.</li>
   <li><a onclick="navigateTo('Sal da Vinci')"><b>Sal da Vinci</b></a> — Cantante di musica popolare meridionale. Somiglianza con Sal da Spicci: documentata, non commentata.</li>
   <li><a onclick="navigateTo('Ludovico Pio Tommasi')"><b>Ludovico Pio Tommasi</b></a> — Il Dio creatore di questo mondo.</li>
-  <li><a onclick="navigateTo('Topus Maximus')"><b>Topus Maximus</b></a> — Figlio di Dio incarnato a Serrano. Fondatore del Topismo. Scoppulato a morte nel 105 aM.</li>
-  <li><a onclick="navigateTo('Cheddar Mussolini')"><b>Cheddar Mussolini</b></a> — Leader dei Ludotopici. Guidò la Marcia su Serrano nel 106 aM.</li>
+  <li><a onclick="navigateTo('La Fede')"><b>La Fede (Federica Didonfrancesco)</b></a> — Terza entità divina del Topismo. Appare quando hai vera fede. Specializzata nelle scoppulazioni.</li>
+  <li><a onclick="navigateTo('Topus Maximus')"><b>Topus Maximus</b></a> — Figlio di Dio incarnato a Serrano. Fondatore del Topismo. Scoppulato a morte nel 103 aM.</li>
+  <li><a onclick="navigateTo('Cheddar Mussolini')"><b>Cheddar Mussolini</b></a> — Leader dei Ludotopici. Guidò la Marcia su Serrano nel 104 aM.</li>
 </ul>
 <p><b>Organizzazioni criminali</b></p>
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
@@ -872,17 +975,27 @@ const DEFAULT_PAGES = {
   <li><a onclick="navigateTo('Ignoto di Napoli')"><b>Ignoto di Napoli</b></a> — Il misterioso autore delle L.E.G.G.I. Noto anche come Specchia.</li>
 </ul>
 
+<p><b>Nuovi personaggi e armi</b></p>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><a onclick="navigateTo('Alice Sportella')"><b>Alice Sportella</b></a> — Moglie di Filippo. Co-comandante della conquista di Serrano.</li>
+  <li><a onclick="navigateTo('Figli di Filippo')"><b>Luca, Gino e Carla Pascali</b></a> — I tre figli di Filippo e Alice.</li>
+  <li><a onclick="navigateTo('Ilaria Spisso')"><b>Ilaria Spisso</b></a> — Madre di Alex e Alessio. La Donna delle Torte. Ex-Spisshor.</li>
+  <li><a onclick="navigateTo('MariaTeresa Friolo')"><b>MariaTeresa Friolo</b></a> — Compagna di Alessio in India.</li>
+  <li><a onclick="navigateTo('Raggio Nero')"><b>Raggio Nero</b></a> — L'arma nigeriana che ha mandato gli Avengers in mare.</li>
+</ul>
 <p><b>Le Guerre degli Avengers</b></p>
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
   <li><a onclick="navigateTo('Prima Guerra degli Avengers')"><b>Prima Guerra degli Avengers</b></a> — Zella, il Capo degli Avengers, tenta di riportare in vita Iron Spisso Man. La guerra più folle della storia dell'America.</li>
   <li><a onclick="navigateTo('Seconda Guerra degli Avengers')"><b>Seconda Guerra degli Avengers</b></a> — Iron Spisso Man è tornato ma si comporta male. Zella prende il casco di Darth Vader e regola i conti. Finisce con una stretta di mano.</li>
   <li><a onclick="navigateTo('Calendario Morello')"><b>Calendario Morello — Tavola di conversione</b></a> — La conversione completa tra anni aM e calendario gregoriano.</li>
+  <li><a onclick="navigateTo('La Guerra Finale')"><b>La Guerra Finale</b></a> — 104–107 aM. Il cielo era arancione. Serrano non c'è più. L'ultima parola fu "Spisso".</li>
+  <li><a onclick="navigateTo('Bomba Spissica')"><b>Bomba Spissica</b></a> — L'arma che ha cancellato Serrano dalla mappa.</li>
 </ul>
 
 <p><b>Gli Avengers e l'America</b></p>
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
   <li><a onclick="navigateTo('Avengers')"><b>Avengers</b></a> — La potente organizzazione che controlla l'America. Fondata da Iron Spisso Man. Capo attuale: Zella.</li>
-  <li><a onclick="navigateTo('Zella')"><b>Zella</b></a> — Capo degli Avengers e dell'America. L'Albanese. A cui è stata distrutta la casa (11 settembre paM · attacco di Gianluca Pocchia).</li>
+  <li><a onclick="navigateTo('Zella')"><b>Zella</b></a> — Capo degli Avengers e dell'America. L'Albanese. A cui è stata distrutta la casa (11 settembre 83 aM · attacco di Gianluca Pocchia).</li>
   <li><a onclick="navigateTo('Iron Spisso Man')"><b>Iron Spisso Man</b></a> — Il vero fondatore degli Avengers. Nato a Serrano nel Clan Spisso. Morto e poi riportato in vita. Si pensa sia Alex Spisso.</li>
   <li><a onclick="navigateTo('Nigeria Spartiana')"><b>Nigeria Spartiana</b></a> — Stato africano fondato dai <a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a>. Controlla tutta l'Africa. Nemico giurato degli Avengers dopo la Seconda Guerra degli Avengers.</li>
 </ul>
@@ -1171,6 +1284,60 @@ const DEFAULT_PAGES = {
     wikitext: "",
     history: [],
     content: ""
+  },
+  "pocchiainscatola": {
+    title: "pocchiainscatola",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "La Fede": {
+    title: "La Fede",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "Alice Sportella": {
+    title: "Alice Sportella",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "Figli di Filippo": {
+    title: "Figli di Filippo",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "Raggio Nero": {
+    title: "Raggio Nero",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "Ilaria Spisso": {
+    title: "Ilaria Spisso",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "La Guerra Finale": {
+    title: "La Guerra Finale",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "Bomba Spissica": {
+    title: "Bomba Spissica",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "MariaTeresa Friolo": {
+    title: "MariaTeresa Friolo",
+    wikitext: "",
+    history: [],
+    content: ""
   }
 };
 
@@ -1222,6 +1389,15 @@ DEFAULT_PAGES["Nigeria Spartiana"].content = buildNigeriaSpartiana();
 DEFAULT_PAGES["104 Nigeriani"].content = build104Nigeriani();
 DEFAULT_PAGES["Zella"].content = buildZella();
 DEFAULT_PAGES["Benito Mussolini"].content = buildBenitoMussolini();
+DEFAULT_PAGES["pocchiainscatola"].content = buildPocchiaInscatola();
+DEFAULT_PAGES["La Fede"].content = buildLaFede();
+DEFAULT_PAGES["Alice Sportella"].content = buildAliceSportella();
+DEFAULT_PAGES["Figli di Filippo"].content = buildFigliFilippo();
+DEFAULT_PAGES["Raggio Nero"].content = buildRaggioNero();
+DEFAULT_PAGES["Ilaria Spisso"].content = buildIlariaSpisso();
+DEFAULT_PAGES["La Guerra Finale"].content = buildLaGuerraFinale();
+DEFAULT_PAGES["Bomba Spissica"].content = buildBombaSpissica();
+DEFAULT_PAGES["MariaTeresa Friolo"].content = buildMariaTeresaFriolo();
 
 
 function buildSalDaSpicci() {
@@ -1436,7 +1612,7 @@ function buildCamoraSalentina() {
 
 <h2 id="topismo-cs2">Il rapporto con il Topismo <span class="edit-link" onclick="openEditor('Camorra Salentina')">[modifica]</span></h2>
 <p>Il rapporto tra la Camorra Salentina e il <a onclick="navigateTo('Topismo')">Topismo</a> è uno dei più dibattuti nell'intera storia di questo universo. Da un lato, la Camorra usa il <a onclick="navigateTo('Calendario Morello')">Calendario Morello</a> — il sistema di datazione fondato da <a onclick="navigateTo('Morello')">Morello</a> stesso — con una coerenza che suggerisce qualcosa di più di una semplice convenzione. Dall'altro, non ha mai ufficialmente aderito alla fede topista né riconosciuto <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> come proprio Dio.</p>
-<p>La posizione è quella di una neutralità calcolata. La dittatura topista instaurata da <a onclick="navigateTo('Cheddar Mussolini')">Cheddar Mussolini</a> a <a onclick="navigateTo('Serrano')">Serrano</a> nel 106 aM non ha mai dichiarato la Camorra Salentina nemica — a differenza della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a>. I Ludotopici la trattano con rispetto cauto. La Camorra ricambia con silenzio diplomatico.</p>
+<p>La posizione è quella di una neutralità calcolata. La dittatura topista instaurata da <a onclick="navigateTo('Cheddar Mussolini')">Cheddar Mussolini</a> a <a onclick="navigateTo('Serrano')">Serrano</a> nel 104 aM non ha mai dichiarato la Camorra Salentina nemica — a differenza della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a>. I Ludotopici la trattano con rispetto cauto. La Camorra ricambia con silenzio diplomatico.</p>
 <p>Alcuni studiosi del Topismo hanno avanzato l'ipotesi che la Camorra Salentina sia, di fatto, la guardia secolare di <a onclick="navigateTo('Morello')">Morello</a> — l'organizzazione che custodisce il luogo in cui il co-governatore attende il momento del ritorno profetizzato. <a onclick="navigateTo('De Morellis')">De Morellis</a> non ha commentato.</p>
 
 <h2 id="demorellis-cs2">De Morellis e la leadership attuale <span class="edit-link" onclick="openEditor('Camorra Salentina')">[modifica]</span></h2>
@@ -1498,7 +1674,7 @@ function buildDeMorellis() {
 <p>Le decisioni vengono trasmesse attraverso intermediari fidati. Non ci sono documenti scritti che portino la sua firma. Non ci sono registrazioni della sua voce. Esiste come forza organizzativa, come principio, come nome che i membri pronunciano con un tono che non è esattamente rispetto ma non è neanche paura — è qualcosa nel mezzo che non ha un nome preciso.</p>
 
 <h2 id="topismo-dm">Il rapporto con il Topismo e Serrano <span class="edit-link" onclick="openEditor('De Morellis')">[modifica]</span></h2>
-<p>De Morellis non ha mai dichiarato adesione al <a onclick="navigateTo('Topismo')">Topismo</a>, né lo ha mai osteggiato. Quando <a onclick="navigateTo('Cheddar Mussolini')">Cheddar Mussolini</a> guidò la <b>Marcia su Serrano</b> nel 106 aM instaurando la dittatura topista, la Camorra Salentina rimase in silenzio — né approvazione né condanna. La dittatura topista ricambiò il silenzio: la Camorra Salentina non fu mai dichiarata nemica del regime, a differenza della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a>.</p>
+<p>De Morellis non ha mai dichiarato adesione al <a onclick="navigateTo('Topismo')">Topismo</a>, né lo ha mai osteggiato. Quando <a onclick="navigateTo('Cheddar Mussolini')">Cheddar Mussolini</a> guidò la <b>Marcia su Serrano</b> nel 104 aM instaurando la dittatura topista, la Camorra Salentina rimase in silenzio — né approvazione né condanna. La dittatura topista ricambiò il silenzio: la Camorra Salentina non fu mai dichiarata nemica del regime, a differenza della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a>.</p>
 <p>Alcuni Ludotopici interpretano questa neutralità come una forma di rispetto implicito: De Morellis sarebbe consapevole della natura divina di <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> e del ruolo del <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a>, ma sceglierebbe di non renderlo esplicito. Una fede senza dichiarazione, come si conviene a chi è abituato a operare nell'ombra.</p>
 <p>Il fatto che la Camorra usi il <a onclick="navigateTo('Calendario Morello')">Calendario Morello</a> internamente — con la stessa naturalezza con cui lo usano i Ludotopici — è considerato da molti l'unica testimonianza pubblica involontaria di De Morellis su cosa pensi realmente.</p>
 
@@ -1757,7 +1933,7 @@ function buildLudovicoPioTommasi() {
 </ul>
 
 <h2 id="incarnazione-l">L'incarnazione: il Topus Maximus <span class="edit-link" onclick="openEditor('Ludovico Pio Tommasi')">[modifica]</span></h2>
-<p>Nell'anno 90 aM, in seguito agli incendi di <a onclick="navigateTo('Serrano')">Serrano</a>, Ludovico Pio Tommasi scelse di incarnarsi nel mondo come <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> — Dio fatto uomo, o più precisamente: Re dei topi fatto topista. L'incarnazione aveva lo scopo di ripristinare l'ordine a Serrano, rivelare il vero Dio del mondo ai suoi abitanti e fondare il <a onclick="navigateTo('Topismo')">Topismo</a>. Due di queste tre cose riuscirono bene. La terza si concluse nel 105 aM con uno scoppulamento.</p>
+<p>Nell'anno 90 aM, in seguito agli incendi di <a onclick="navigateTo('Serrano')">Serrano</a>, Ludovico Pio Tommasi scelse di incarnarsi nel mondo come <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> — Dio fatto uomo, o più precisamente: Re dei topi fatto topista. L'incarnazione aveva lo scopo di ripristinare l'ordine a Serrano, rivelare il vero Dio del mondo ai suoi abitanti e fondare il <a onclick="navigateTo('Topismo')">Topismo</a>. Due di queste tre cose riuscirono bene. La terza si concluse nel 103 aM con uno scoppulamento.</p>
 
 <h2 id="culto-l">Il Topismo <span class="edit-link" onclick="openEditor('Ludovico Pio Tommasi')">[modifica]</span></h2>
 <p>La religione fondata dal Topus Maximus in nome di Ludovico è il <a onclick="navigateTo('Topismo')">Topismo</a>. I fedeli, detti <b>Ludotopici</b>, venerano Ludovico come creatore e padre, il Topus Maximus come suo figlio incarnato e martire, e i topi come simbolo della condizione umana. Il Topismo è sopravvissuto alla morte del suo fondatore terreno con la solidità tipica delle religioni che hanno subìto un martirio spettacolare.</p>
@@ -1797,14 +1973,14 @@ function buildTopusMaximus() {
   <div style="text-align:center;padding:8px 6px 4px"><img src="topus.jpg" alt="Topus Maximus" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
   <table>
     <tr><td>Natura</td><td>Figlio di Dio — <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> fatto uomo</td></tr>
-    <tr><td>Attivo a</td><td><a onclick="navigateTo('Serrano')">Serrano</a>, 90–105 aM</td></tr>
+    <tr><td>Attivo a</td><td><a onclick="navigateTo('Serrano')">Serrano</a>, 90–103 aM</td></tr>
     <tr><td>Azioni principali</td><td>Spegnere (metaf.) gli incendi di Serrano, fondare il <a onclick="navigateTo('Topismo')">Topismo</a></td></tr>
-    <tr><td>Morte</td><td>Scoppulato a morte nel <b>105 aM</b></td></tr>
+    <tr><td>Morte</td><td>Scoppulato a morte nel <b>103 aM</b></td></tr>
     <tr><td>Responsabili</td><td>Eretici legati alla <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a></td></tr>
     <tr><td>Eredità</td><td>Martire del Topismo</td></tr>
   </table>
 </div>
-<p>Il <b>Topus Maximus</b> è il nome con cui è conosciuta l'incarnazione terrena di <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> — Dio fatto uomo, nella cosmologia topista. Apparve a <a onclick="navigateTo('Serrano')">Serrano</a> nell'anno 90 aM, un anno dopo che la città era andata letteralmente in fiamme in seguito alla caduta del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a>. Ripristinò l'ordine, rivelò al mondo il vero Dio, fondò il <a onclick="navigateTo('Topismo')">Topismo</a>. Poi, nel 105 aM, fu scoppulato a morte da eretici figli bastardi della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a>.</p>
+<p>Il <b>Topus Maximus</b> è il nome con cui è conosciuta l'incarnazione terrena di <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> — Dio fatto uomo, nella cosmologia topista. Apparve a <a onclick="navigateTo('Serrano')">Serrano</a> nell'anno 90 aM, un anno dopo che la città era andata letteralmente in fiamme in seguito alla caduta del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a>. Ripristinò l'ordine, rivelò al mondo il vero Dio, fondò il <a onclick="navigateTo('Topismo')">Topismo</a>. Poi, nel 103 aM, fu scoppulato a morte da eretici figli bastardi della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a>.</p>
 <p>Il suo martirio è diventato il fulcro della teologia topista. La scoppulazione — tecnicamente un gesto violento — è stata elevata a simbolo liturgico. I credenti ne parlano con la solennità riservata solitamente alle cose che fanno molto male.</p>
 
 <div class="toc-box">
@@ -1812,7 +1988,7 @@ function buildTopusMaximus() {
   <ol>
     <li><a href="#serrano-tm">L'arrivo a Serrano</a></li>
     <li><a href="#rivelazione-tm">La rivelazione e il Topismo</a></li>
-    <li><a href="#morte-tm">Il martirio (105 aM)</a></li>
+    <li><a href="#morte-tm">Il martirio (103 aM)</a></li>
     <li><a href="#eredita-tm">L'eredità</a></li>
   </ol>
 </div>
@@ -1825,12 +2001,12 @@ function buildTopusMaximus() {
 <p>Il Topus Maximus riprese il controllo di Serrano, mostrò al mondo il vero Dio — ovvero Ludovico Pio Tommasi, suo padre celeste — e fondò il <a onclick="navigateTo('Topismo')">Topismo</a>, la religione dei topi. I cittadini di Serrano, in stato di shock post-incendio e probabilmente disponibili a credere in qualsiasi cosa portasse ordine, accolsero la nuova fede con la gratitudine di chi non ha molte alternative.</p>
 <p>Il Topismo si diffuse rapidamente. La metafora del topo risuonava: i cittadini come topi, piccoli e vulnerabili, governati da un Re dei topi benevolo. È il tipo di simbolismo che funziona meglio quando la tua città ha appena bruciato.</p>
 
-<h2 id="morte-tm">Il martirio: 105 aM <span class="edit-link" onclick="openEditor('Topus Maximus')">[modifica]</span></h2>
-<p>Nel 105 aM il Topus Maximus fu <b>scoppulato a morte</b> da un gruppo di eretici identificati come figli bastardi della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a>. La scoppulazione — un gesto di violenta umiliazione fisica, qui portata all'estremo — fu interpretata immediatamente come martirio dai fedeli. La Famiglia Pocchia ha sempre negato responsabilità istituzionale. I Ludotopici non hanno accettato questa smentita.</p>
+<h2 id="morte-tm">Il martirio: 103 aM <span class="edit-link" onclick="openEditor('Topus Maximus')">[modifica]</span></h2>
+<p>Nel 103 aM il Topus Maximus fu <b>scoppulato a morte</b> da un gruppo di eretici identificati come figli bastardi della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a>. La scoppulazione — un gesto di violenta umiliazione fisica, qui portata all'estremo — fu interpretata immediatamente come martirio dai fedeli. La Famiglia Pocchia ha sempre negato responsabilità istituzionale. I Ludotopici non hanno accettato questa smentita.</p>
 <p>La morte del Topus Maximus non uccise il Topismo. Al contrario. Come spesso accade con i martiri, l'uccisione trasformò una religione giovane in una causa. Il sangue versato divenne simbolo. La scoppulazione divenne, nella liturgia topista, l'atto fondativo della persecuzione — e quindi della resistenza.</p>
 
 <h2 id="eredita-tm">L'eredità <span class="edit-link" onclick="openEditor('Topus Maximus')">[modifica]</span></h2>
-<p>Un anno dopo la morte del Topus Maximus, nel 106 aM, i <b>Ludotopici</b> guidati dalla <a onclick="navigateTo('Cheddar Mussolini')">Strega Cheddar Mussolini</a> organizzarono la <b>Marcia su Serrano</b>, ripresero il controllo della città e instaurarono la <b>dittatura topista</b>. Era, nelle intenzioni dichiarate, una vendetta per il martirio. Era, nei fatti, una presa di potere. Queste due cose non si escludono necessariamente.</p>
+<p>Un anno dopo la morte del Topus Maximus, nel 104 aM, i <b>Ludotopici</b> guidati dalla <a onclick="navigateTo('Cheddar Mussolini')">Strega Cheddar Mussolini</a> organizzarono la <b>Marcia su Serrano</b>, ripresero il controllo della città e instaurarono la <b>dittatura topista</b>. Era, nelle intenzioni dichiarate, una vendetta per il martirio. Era, nei fatti, una presa di potere. Queste due cose non si escludono necessariamente.</p>
 <div class="stub-box"><span style="font-size:22px">🐀</span><span>Il Topus Maximus è venerato come martire. Contestare questa classificazione è tecnicamente eretico secondo il diritto topista.</span></div>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Topismo</a> <a>Martiri</a> <a>Incarnazioni divine</a> <a>Serrano</a> <a>Figure messianiche</a></div>`;
@@ -1849,18 +2025,18 @@ function buildTopismo() {
     <tr><td>Fedeli</td><td><b>Ludotopici</b></td></tr>
     <tr><td>Simbolo</td><td>Il topo</td></tr>
     <tr><td>Evento fondativo</td><td>Incendi di Serrano e rivelazione del Topus Maximus</td></tr>
-    <tr><td>Martirio</td><td>Scoppulazione del Topus Maximus, 105 aM</td></tr>
-    <tr><td>Stato attuale</td><td>Religione di stato a Serrano (dal 106 aM)</td></tr>
+    <tr><td>Martirio</td><td>Scoppulazione del Topus Maximus, 103 aM</td></tr>
+    <tr><td>Stato attuale</td><td>Religione di stato a Serrano (dal 104 aM)</td></tr>
   </table>
 </div>
 <p>Il <b>Topismo</b> è la religione fondata dal <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> a <a onclick="navigateTo('Serrano')">Serrano</a> nell'anno 90 aM. I suoi fedeli, detti <b>Ludotopici</b>, venerano <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> come Dio creatore del mondo, il Topus Maximus come suo figlio incarnato e martire, e il topo come simbolo dell'umanità — piccola, numerosa, e governata da un Re benevolo o almeno sufficientemente imponente da fare la differenza.</p>
-<p>Dal 106 aM il Topismo è la religione ufficiale di Serrano, instaurata come tale dalla <b>dittatura topista</b> seguita alla <b>Marcia su Serrano</b> guidata dalla <a onclick="navigateTo('Cheddar Mussolini')">Strega Cheddar Mussolini</a>.</p>
+<p>Dal 104 aM il Topismo è la religione ufficiale di Serrano, instaurata come tale dalla <b>dittatura topista</b> seguita alla <b>Marcia su Serrano</b> guidata dalla <a onclick="navigateTo('Cheddar Mussolini')">Strega Cheddar Mussolini</a>.</p>
 
 <h2>Il simbolo del topo <span class="edit-link" onclick="openEditor('Topismo')">[modifica]</span></h2>
 <p>La scelta del topo come simbolo non fu casuale. Nel sistema cosmologico topista, i topi rappresentano i cittadini del mondo: esseri numerosi, spesso trascurati, capaci di sopravvivere in condizioni avverse, e tenuti insieme da una gerarchia naturale che culmina nel Re dei topi — Ludovico stesso. Offendere un topo, nella pratica popolare topista, è considerato quantomeno irrispettoso.</p>
 
 <h2>La Marcia su Serrano e la dittatura topista <span class="edit-link" onclick="openEditor('Topismo')">[modifica]</span></h2>
-<p>Dopo la morte del Topus Maximus nel 105 aM, i Ludotopici si riorganizzarono sotto la guida della <a onclick="navigateTo('Cheddar Mussolini')">Strega Cheddar Mussolini</a>. Nel 106 aM marciarono su Serrano, ripresero il controllo della città e instaurarono la dittatura topista. Il Topismo divenne religione obbligatoria. L'eresia fu formalmente proibita. La <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> fu dichiarata nemica del Dio.</p>
+<p>Dopo la morte del Topus Maximus nel 103 aM, i Ludotopici si riorganizzarono sotto la guida della <a onclick="navigateTo('Cheddar Mussolini')">Strega Cheddar Mussolini</a>. Nel 104 aM marciarono su Serrano, ripresero il controllo della città e instaurarono la dittatura topista. Il Topismo divenne religione obbligatoria. L'eresia fu formalmente proibita. La <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> fu dichiarata nemica del Dio.</p>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Religioni</a> <a>Topismo</a> <a>Serrano</a> <a>Ludovico Pio Tommasi</a></div>`;
 }
@@ -1875,7 +2051,7 @@ function buildSerrano() {
     <tr><td>Regione</td><td>Salento / Puglia</td></tr>
     <tr><td>Evento principale</td><td>Incendi del 90 aM</td></tr>
     <tr><td>Causa incendi</td><td>Caduta del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> (89 aM)</td></tr>
-    <tr><td>Religione attuale</td><td><a onclick="navigateTo('Topismo')">Topismo</a> (dal 106 aM)</td></tr>
+    <tr><td>Religione attuale</td><td><a onclick="navigateTo('Topismo')">Topismo</a> (dal 104 aM)</td></tr>
     <tr><td>Regime attuale</td><td>Dittatura topista</td></tr>
   </table>
 </div>
@@ -1888,8 +2064,8 @@ function buildSerrano() {
 <h2>Il Topus Maximus e la rinascita <span class="edit-link" onclick="openEditor('Serrano')">[modifica]</span></h2>
 <p>Furono gli incendi a portare il <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> a Serrano. L'incarnazione terrena di <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> riprese il controllo della città, rivelò il vero Dio ai suoi abitanti e fondò il <a onclick="navigateTo('Topismo')">Topismo</a>. Serrano smise di bruciare. Cominciò a pregare.</p>
 
-<h2>La dittatura topista (106 aM) <span class="edit-link" onclick="openEditor('Serrano')">[modifica]</span></h2>
-<p>Dopo la morte del Topus Maximus nel 105 aM, i <b>Ludotopici</b> guidati dalla <a onclick="navigateTo('Cheddar Mussolini')">Strega Cheddar Mussolini</a> marciarono su Serrano nel 106 aM e instaurarono la dittatura topista. Il Topismo divenne religione di stato. La Famiglia Pocchia fu dichiarata nemica del Dio. Serrano, per la seconda volta in vent'anni, cambiò completamente natura — questa volta senza bruciare, il che fu considerato un progresso.</p>
+<h2>La dittatura topista (104 aM) <span class="edit-link" onclick="openEditor('Serrano')">[modifica]</span></h2>
+<p>Dopo la morte del Topus Maximus nel 103 aM, i <b>Ludotopici</b> guidati dalla <a onclick="navigateTo('Cheddar Mussolini')">Strega Cheddar Mussolini</a> marciarono su Serrano nel 104 aM e instaurarono la dittatura topista. Il Topismo divenne religione di stato. La Famiglia Pocchia fu dichiarata nemica del Dio. Serrano, per la seconda volta in vent'anni, cambiò completamente natura — questa volta senza bruciare, il che fu considerato un progresso.</p>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Città del Salento</a> <a>Topismo</a> <a>Serrano</a> <a>Dittature topiste</a></div>`;
 }
@@ -1905,18 +2081,18 @@ function buildCheddarMussolini() {
   <table>
     <tr><td>Titolo</td><td><b>Strega Cheddar</b></td></tr>
     <tr><td>Ruolo</td><td>Leader dei Ludotopici</td></tr>
-    <tr><td>Azione principale</td><td>Marcia su <a onclick="navigateTo('Serrano')">Serrano</a>, 106 aM</td></tr>
+    <tr><td>Azione principale</td><td>Marcia su <a onclick="navigateTo('Serrano')">Serrano</a>, 104 aM</td></tr>
     <tr><td>Regime instaurato</td><td>Dittatura topista</td></tr>
     <tr><td>Religione</td><td><a onclick="navigateTo('Topismo')">Topismo</a></td></tr>
     <tr><td>Rapporto con il Topus Maximus</td><td>Discepola e vendicatrice</td></tr>
   </table>
 </div>
-<p><b>Cheddar Mussolini</b>, nota come la <b>Strega Cheddar</b>, è la leader dei <b>Ludotopici</b> che nel 106 aM organizzò e guidò la <b>Marcia su Serrano</b>, rovesciando il governo esistente e instaurando la dittatura topista. Il soprannome «Strega» non è un insulto nella tradizione topista — è un titolo che indica potere spirituale fuori dall'ordinario. Il cognome «Mussolini» è invece, secondo tutte le fonti disponibili, un caso di omonimia storicamente scomoda di cui nessuno ha voglia di parlare.</p>
+<p><b>Cheddar Mussolini</b>, nota come la <b>Strega Cheddar</b>, è la leader dei <b>Ludotopici</b> che nel 104 aM organizzò e guidò la <b>Marcia su Serrano</b>, rovesciando il governo esistente e instaurando la dittatura topista. Il soprannome «Strega» non è un insulto nella tradizione topista — è un titolo che indica potere spirituale fuori dall'ordinario. Il cognome «Mussolini» è invece, secondo tutte le fonti disponibili, un caso di omonimia storicamente scomoda di cui nessuno ha voglia di parlare.</p>
 
 <h2>La Marcia su Serrano <span class="edit-link" onclick="openEditor('Cheddar Mussolini')">[modifica]</span></h2>
 <div style="float:right;clear:right;margin:0 0 16px 24px;width:260px;border:1px solid #a2a9b1;background:#f8f9fa;font-family:sans-serif;font-size:11.5px;text-align:center">
-  <img src="marcia_serrano.jpg" alt="La Marcia su Serrano, 106 aM" style="width:100%;display:block;border-bottom:1px solid #a2a9b1" onerror="this.style.display='none'">
-  <div style="padding:4px 8px;color:#54595d;font-style:italic">La Marcia su Serrano, 106 aM</div>
+  <img src="marcia_serrano.jpg" alt="La Marcia su Serrano, 104 aM" style="width:100%;display:block;border-bottom:1px solid #a2a9b1" onerror="this.style.display='none'">
+  <div style="padding:4px 8px;color:#54595d;font-style:italic">La Marcia su Serrano, 104 aM</div>
 </div>
 <p>Un anno dopo la scoppulazione del <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> per mano di eretici legati alla <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a>, Cheddar Mussolini radunò i Ludotopici e li guidò in marcia su <a onclick="navigateTo('Serrano')">Serrano</a>. L'obiettivo dichiarato era vendicare il martire e ripristinare il Topismo. L'obiettivo effettivo era la presa di potere. Nella storia delle marce su città, queste due cose si sovrappongono più spesso di quanto gli storici trovino confortante.</p>
 <p>La marcia riuscì. Serrano cadde. La dittatura topista fu instaurata. Cheddar Mussolini divenne la figura più potente di Serrano — nel nome di Dio, come si conviene, ma pur sempre la figura più potente.</p>
@@ -2368,7 +2544,7 @@ function buildCalendarioMorello() {
     <tr><td>Fondatore</td><td><a onclick="navigateTo('Morello')">Morello</a></td></tr>
     <tr><td>Anno zero</td><td>1917 d.C. — arrivo di Morello a Napoli</td></tr>
     <tr><td>Formula di conversione</td><td><b>aM = anno gregoriano − 1917</b></td></tr>
-    <tr><td>Esempio</td><td>1980 d.C. = 63 aM · 1945 d.C. = 28 aM</td></tr>
+    <tr><td>Esempio</td><td>1980 d.C. = 63 aM · 2000 d.C. = 83 aM</td></tr>
     <tr><td>Abbreviazioni</td><td><b>aM</b> dopo l'Anno 0 · <b>paM</b> prima dell'Anno 0</td></tr>
     <tr><td>Uso attuale</td><td>Informale — Napoli, Salento, questa enciclopedia</td></tr>
     <tr><td>Adottato ufficialmente da</td><td>Nessuno. Come al solito.</td></tr>
@@ -2376,7 +2552,7 @@ function buildCalendarioMorello() {
 </div>
 
 <p>Il <b>Calendario Morello</b> è un sistema di datazione lineare il cui anno zero corrisponde all'arrivo di <a onclick="navigateTo('Morello')">Morello</a> a <a onclick="navigateTo('Napoli')">Napoli</a> nel <b>1917 d.C.</b> Le date sono espresse in <b>aM</b> — <i>anno Morello</i> — e contano in avanti da quel momento. Per gli anni precedenti si usa <b>paM</b> (<i>pre-anno-Morello</i>), con i numeri che crescono andando indietro.</p>
-<p>La formula è semplice: <b>aM = anno gregoriano − 1917</b>. Quindi 1980 d.C. = 63 aM, 1945 d.C. = 28 aM, 1914 d.C. = 3 paM. Non è un calendario ufficiale, non compare su nessun documento anagrafico, e nessuna istituzione lo ha mai riconosciuto. Lo usano comunque, il che a Napoli equivale a una ratifica istituzionale.</p>
+<p>La formula è semplice: <b>aM = anno gregoriano − 1917</b>. Quindi 1980 d.C. = 63 aM, 2000 d.C. = 83 aM, 1911 d.C. = 6 paM. Non è un calendario ufficiale, non compare su nessun documento anagrafico, e nessuna istituzione lo ha mai riconosciuto. Lo usano comunque, il che a Napoli equivale a una ratifica istituzionale.</p>
 
 <div class="toc-box">
   <div class="toc-title">Indice</div>
@@ -2392,7 +2568,6 @@ function buildCalendarioMorello() {
 <h2 id="origini-cm">Origini <span class="edit-link" onclick="openEditor('Calendario Morello')">[modifica]</span></h2>
 <p>Il calendario fu istituito da <a onclick="navigateTo('Morello')">Morello</a> durante i primi anni del suo governo su Napoli come strumento amministrativo. <a onclick="navigateTo('Sal da Spicci')">Sal da Spicci</a> lo diffuse tra commercianti e mercati attraverso la propria rete. Dove Morello imponeva il sistema per efficienza, Sal lo faceva adottare per simpatia.</p>
 <p>Dopo la scomparsa di Morello nell'Anno 17 aM (1934 d.C.), il calendario sopravvisse per inerzia, poi per affetto, poi per la convinzione silenziosa che abbandonarlo sarebbe equivalso ad ammettere che Morello non sarebbe tornato. Nessuno a Napoli era disposto ad ammetterlo.</p>
-<p>Una nota storica importante: l'Anno 0 aM — il 1917 d.C. — cade proprio negli anni della <a onclick="navigateTo('Prima Guerra Mondiale')">Prima Guerra Mondiale</a>. Morello arrivò a Napoli mentre l'Europa bruciava. Alcuni storici del Morellanesimo vedono in questo una coincidenza significativa. Morello, per quanto se ne sa, non commentò mai la faccenda.</p>
 
 <h2 id="conversione-cm">Tavola di conversione gregoriano ↔ aM <span class="edit-link" onclick="openEditor('Calendario Morello')">[modifica]</span></h2>
 <p style="font-family:sans-serif;font-size:13px;color:#54595d;margin-bottom:8px"><b>Formula:</b> aM = anno gregoriano − 1917 &nbsp;|&nbsp; anno gregoriano = aM + 1917 &nbsp;|&nbsp; per gli anni paM: anno gregoriano = 1917 − paM</p>
@@ -2404,14 +2579,13 @@ function buildCalendarioMorello() {
     <td style="padding:6px 10px;border:1px solid #a2a9b1">Evento</td>
   </tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1911 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>6 paM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali</a> conosce Pierpaolo durante il servizio militare</td></tr>
-  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1914 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>3 paM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Anno storico nel calendario gregoriano</td></tr>
+
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1917 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>Anno 0 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Arrivo di <a onclick="navigateTo('Morello')">Morello</a> a Napoli · inizio Età dell'Oro</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1920 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>3 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Nascita di <a onclick="navigateTo('Carmelo Spisso')">Carmelo Spisso</a> (aviatore)</td></tr>
-  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1933 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>16 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Zella (Avengers)')">Zella</a> e <a onclick="navigateTo('Nestola')">Nestola</a> fondano gli <a onclick="navigateTo('Avengers')">Avengers</a> negli USA</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1934 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>17 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Eruzione del Vesuvio · fine Età dell'Oro · scomparsa di <a onclick="navigateTo('Morello')">Morello</a> e <a onclick="navigateTo('Sal da Spicci')">Sal da Spicci</a></td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1935 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>18 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Nascita di <a onclick="navigateTo('Ermenegildo Spisso')">Ermenegildo "Gildo" Spisso</a> (14 febbraio)</td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1940 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>23 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Fondazione del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> da Gennaro Spisso</td></tr>
-  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2001 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>84 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Attacco di Gianluca Pocchia alla casa di <a onclick="navigateTo('Zella (Avengers)')">Zella</a> (11 settembre paM) · morte di <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a></td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2000 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>83 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Attacco di <a onclick="navigateTo('Gianluca Pascali')">Gianluca Pocchia</a> alla casa di <a onclick="navigateTo('Zella (Avengers)')">Zella</a> (11 settembre <b>aM</b>) · <a onclick="navigateTo('Alex Spisso')">Alex / Iron Spisso Man</a> muore intrappolato nell'edificio</td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1951 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>34 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Laurea di <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a> a Napoli</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1952 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>35 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Nascita di <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> (12 marzo)</td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1955 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>38 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Dottorato di <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a></td></tr>
@@ -2420,27 +2594,36 @@ function buildCalendarioMorello() {
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1968 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>51 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Pubblicazione <a onclick="navigateTo('L.E.G.G.I.')">L.E.G.G.I.</a> (anonimo Specchia)</td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1974 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>57 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Salvatore Spisso abbandona il consorzio del Clan</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1977–1982 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>60–65 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Alex Spisso in USA — incontra Penelope Hegseth</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1985 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>68 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Alex Spisso e famiglia Spisso si trasferiscono definitivamente in USA</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1987 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>70 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> (come <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a>) fonda gli <a onclick="navigateTo('Avengers')">Avengers</a> con <a onclick="navigateTo('Zella (Avengers')')">Zella</a></td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1980 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>63 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Nascita di <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> (6 giugno, Forest Lake, Minnesota)</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1981 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>64 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Alex Spisso torna in Italia</td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1982–1992 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>65–75 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Apice del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a></td></tr>
-  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1987 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>70 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Napoli ridotta a macerie</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1988 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>71 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Napoli ridotta a macerie</td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1992 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>75 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Crisi rifiuti a Napoli</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1995 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>78 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Morte di <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a> (3 ottobre)</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1999 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>82 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra degli Avengers</a> · subito dopo: <a onclick="navigateTo('Seconda Guerra degli Avengers')">Seconda Guerra degli Avengers</a> · Iron Spisso Man resuscitato e poi riportato all'ordine da Zella</td></tr>
+  
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1997 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>80 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Alessio Spisso in Afghanistan</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2004 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>87 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Intercettazioni "nipote americano"</td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2006 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>89 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Operazione <a onclick="navigateTo('Riccardo Pascali')">Riccardo Pascali</a> — smantellamento del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a></td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2007 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>90 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Serrano in fiamme · apparizione del <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a></td></tr>
-  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2021 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>104 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Pensionamento di <a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali</a> · morte del <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a></td></tr>
-  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2022 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>105 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Il <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> viene scoppulato a morte</td></tr>
-  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2023 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>106 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Cheddar Mussolini')">Cheddar Mussolini</a> guida la Marcia su Serrano · dittatura topista</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2021 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>104 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Pensionamento di <a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali</a></td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2020 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>103 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Il <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> viene scoppulato a morte</td></tr>
+
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2025 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>108 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> diventa 22° Segretario alla Difesa USA (25 gennaio)</td></tr>
-  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">Data ignota</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>? aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Seconda eruzione del Vesuvio · ritorno di <a onclick="navigateTo('Morello')">Morello</a></td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2021 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>104 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Cielo arancione — presagi della Fine · <a onclick="navigateTo('Cheddar Mussolini')">Cheddar Mussolini</a> guida la Marcia su Serrano · dittatura topista · attacco Avengers a Nigeria · <a onclick="navigateTo('Raggio Nero')">Raggio Nero</a> butta Avengers in mare · missile colpisce Vesuvio · <b>seconda eruzione</b> · ritorno di <a onclick="navigateTo('Morello')">Morello</a> giovane · piogge di cheddar acido su Napoli</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2022 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>105 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Conquista di Serrano (67 giorni) · <a onclick="navigateTo('Cheddar Mussolini')">Cheddar Mussolini</a> appesa a testa in giù · Pocchia prendono la Camorra · <a onclick="navigateTo('Ilaria Spisso')">Ilaria</a> lascia gli Avengers · raggiunge <a onclick="navigateTo('Alessio Spisso')">Alessio</a> in India · portati i libri di <a onclick="navigateTo('Ermenegildo Spisso')">Gildo</a></td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2023 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>106 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Nigeria lancia <a onclick="navigateTo('Raggio Nero')">Raggi Neri</a> anche su Pocchia e Camorra · <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> inizia la produzione (segreta)</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2024 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>107 aM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b><a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> detonata su Serrano</b> · tutti gli Avengers dichiarati morti · <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> prende il potere in America · Nigeria si arrende · termine "Spissare" entra nel vocabolario geopolitico</td></tr>
 </table>
 
 <h2 id="eventi-cm">Note sulla conversione — eventi chiave <span class="edit-link" onclick="openEditor('Calendario Morello')">[modifica]</span></h2>
 <p>L'Anno 0 aM — il 1917 d.C. — è l'anno dell'arrivo di Morello a Napoli. Tutto il sistema ruota intorno a questo momento. Gli eventi che seguono sono datati in avanti (aM), quelli precedenti all'indietro (paM).</p>
-<p>Gli <a onclick="navigateTo('Avengers')">Avengers</a> nacquero nel <b>16 aM</b> (1933), fondati da <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a> con <a onclick="navigateTo('Zella (Avengers)')">Zella</a> e <a onclick="navigateTo('Nestola')">Nestola</a>. L'attacco di Gianluca Pocchia alla casa di Zella e la morte di Iron Spisso Man avvennero entrambi nell'<b>84 aM</b> (2001). La <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> fu fondata dai <a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a> nel <b>104 aM</b> (2021).</p>
+<p>Gli <a onclick="navigateTo('Avengers')">Avengers</a> furono fondati nel <b>70 aM</b> (1987) da <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> come <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a>, con <a onclick="navigateTo('Zella (Avengers)')">Zella</a> — dopo la scomparsa di Morello e con Alex già adulto. Le <a onclick="navigateTo('Prima Guerra degli Avengers')">Guerre degli Avengers</a> avvennero nell'<b>82 aM</b> (1999). L'attacco alla casa di Zella e la morte di Iron Spisso Man nell'<b>83 aM</b> (2000). La <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> fu fondata dai <a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a> nel <b>104 aM</b> (2021).</p>
 <p>Il <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> fu fondato nel <b>23 aM</b> (1940) e smantellato nell'<b>89 aM</b> (2006), sessantasei anni dopo.</p>
+
+<p>La <a onclick="navigateTo('La Guerra Finale')">Guerra Finale</a> (104–107 aM) è il periodo più denso di eventi nella storia del calendario: la seconda eruzione del Vesuvio, il ritorno di Morello, la conquista di Serrano, la Bomba Spissica. Il 107 aM è l'ultimo anno documentato con certezza. Il futuro è, al momento, un cratere.</p>
 
 <h2 id="uso-cm">Uso attuale <span class="edit-link" onclick="openEditor('Calendario Morello')">[modifica]</span></h2>
 <p>Il calendario è usato informalmente nei vicoli del centro storico di Napoli e nelle aree del Salento legate alla <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a>. I seguaci del Morellanesimo lo adottano come sistema esclusivo, rifiutando il calendario gregoriano per i propri documenti interni. <b>Pocchiaciclopedia</b> lo adotta come sistema ufficiale per tutte le voci.</p>
@@ -2558,7 +2741,11 @@ function buildFilippoPascali() {
   <li><a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a></li>
 </ul>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Famiglia Pocchia</a> <a>Militari italiani</a> <a>Decorati con Medaglia d'Onore</a> <a>Amici di Morello</a></div>`;
+<h2>La famiglia e Alice Sportella <span class="edit-link" onclick="openEditor('Filippo Pascali')">[modifica]</span></h2>
+<p>Filippo si è sposato con <a onclick="navigateTo('Alice Sportella')">Alice Sportella</a>, con cui ha avuto tre figli: <a onclick="navigateTo('Figli di Filippo')">Luca, Gino e Carla</a>, tutti e tre nati con la sindrome di Down. Anni dopo il matrimonio fu scoperto che Alice era una parente di Filippo. La famiglia andò avanti.</p>
+<h2>La Guerra Finale (104–107 aM) <span class="edit-link" onclick="openEditor('Filippo Pascali')">[modifica]</span></h2>
+<p>Durante <a onclick="navigateTo('La Guerra Finale')">La Guerra Finale</a>, Filippo guidò gli attacchi aerei su Serrano usando cannoni a cheddar e la scoppula volante — invenzione teorizzata da <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a>. Nel 105 aM, coordinato con Alice a terra, riuscì a conquistare Serrano in 67 giorni. Insieme a <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> prese il controllo della <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a>.</p>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Famiglia Pocchia</a> <a>Militari italiani</a> <a>Decorati con Medaglia d'Onore</a> <a>Amici di Morello</a> <a>La Guerra Finale</a></div>`;
 }
 
 function buildRiccardoPascali() {
@@ -2721,6 +2908,39 @@ function buildBenitoMussolini() {
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Politici italiani</a> <a>Dittatori</a></div>`;
 }
 
+function buildPocchiaInscatola() {
+  return `<div class="wiki-notice" style="background:#fff8e1;border-left-color:#f9a825"><span class="ni">📦</span><span>Questa è la pagina di amministrazione della Pocchiaciclopedia. Da qui puoi ripristinare l'enciclopedia al suo stato originale.</span></div>
+<h1 class="page-title">pocchiainscatola</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body">
+
+<h2>Pannello di amministrazione <span class="edit-link" onclick="openEditor('pocchiainscatola')">[modifica]</span></h2>
+<p>La pagina <b>pocchiainscatola</b> è la pagina di reset dell'enciclopedia. Contiene gli strumenti per ripristinare la Pocchiaciclopedia al suo stato originale, eliminando tutte le modifiche apportate dalla comunità.</p>
+
+<div style="border:2px solid #f9a825;background:#fffde7;padding:20px 24px;margin:20px 0;font-family:sans-serif;border-radius:3px">
+  <h3 style="margin:0 0 12px;font-family:sans-serif;font-size:15px;color:#e65100">⚠️ Reset completo della Pocchiaciclopedia</h3>
+  <p style="font-size:13px;margin-bottom:16px;color:#333">Questa operazione eliminerà <b>tutte le pagine create o modificate dalla comunità</b> e ripristinerà l'enciclopedia esattamente come era all'inizio. L'operazione è <b>irreversibile</b> e agisce sia sul database condiviso (Firebase) che sulla memoria locale del tuo browser.</p>
+  <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+    <button onclick="resetToDefault()" style="padding:10px 22px;background:#c62828;color:white;border:none;border-radius:3px;font-size:14px;font-family:sans-serif;cursor:pointer;font-weight:600">
+      🗑️ Ripristina tutto all'originale
+    </button>
+    <span style="font-size:12px;color:#888">Verrà chiesta doppia conferma prima di procedere.</span>
+  </div>
+</div>
+
+<h2>Cosa viene ripristinato <span class="edit-link" onclick="openEditor('pocchiainscatola')">[modifica]</span></h2>
+<p>Il reset elimina:</p>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2.1">
+  <li>Tutte le pagine create dalla comunità su Firebase</li>
+  <li>Tutte le modifiche a pagine esistenti</li>
+  <li>I dati salvati nel localStorage del browser</li>
+</ul>
+<p>Non viene toccato nulla del codice sorgente dell'enciclopedia — solo i dati del database. Per un reset completo del codice è necessario sostituire il file <code>Pocchia.html</code>.</p>
+
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Amministrazione</a> <a>Strumenti</a></div>`;
+}
+
 
 
 
@@ -2730,8 +2950,8 @@ function buildZella() {
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
 <div class="wiki-notice"><span class="ni">🦸</span><span>Per il profilo completo di Zella come Capo degli Avengers, vedi <a onclick="navigateTo('Zella (Avengers)')">Zella (Avengers)</a>. Questa voce è il reindirizzamento principale.</span></div>
-<p><b>Zella</b> è il Capo degli <a onclick="navigateTo('Avengers')">Avengers</a> e leader dell'America. Albanese di origine, emigrato negli USA, fondò con <a onclick="navigateTo('Nestola')">Nestola</a> l'organizzazione che avrebbe controllato il continente americano. Dopo la morte di <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a>, ne divenne il successore.</p>
-<p>La sua casa fu attaccata e distrutta da Gianluca Pocchia l'<b>11 settembre paM</b> — data che segnò la storia degli Avengers.</p>
+<p><b>Zella</b> è il Capo degli <a onclick="navigateTo('Avengers')">Avengers</a> e leader dell'America. Albanese di origine, emigrato negli USA, fondò l'organizzazione che avrebbe controllato il continente americano. Dopo la morte di <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a>, ne divenne il successore.</p>
+<p>La sua casa fu attaccata e distrutta da Gianluca Pocchia l'<b>11 settembre 83 aM</b> (2000 d.C.) — data che segnò la storia degli Avengers.</p>
 <p>Vedi anche: <a onclick="navigateTo('Zella (Avengers)')">Zella (Avengers)</a> · <a onclick="navigateTo('Avengers')">Avengers</a> · <a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra degli Avengers</a> · <a onclick="navigateTo('Seconda Guerra degli Avengers')">Seconda Guerra degli Avengers</a></p>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>America</a> <a>Albania</a></div>`;
@@ -2913,7 +3133,7 @@ function buildIronSpissoMan() {
 <p>Il suo nome deriva dall'armatura di ferro e dal suo legame con il Clan Spisso — l'unico supereroe al mondo il cui cognome da supereroe è uguale al cognome di famiglia. Una scelta discutibile sul piano della segretezza. Ma è Serrano. Ci si aspetta coerenza.</p>
 
 <h2 id="morte-ism">La morte <span class="edit-link" onclick="openEditor('Iron Spisso Man')">[modifica]</span></h2>
-<p>Iron Spisso Man morì nello stesso anno dell'attacco alla casa di <a onclick="navigateTo('Zella (Avengers)')">Zella</a> — l'infame attacco di Gianluca Pocchia dell'11 settembre paM (vedi <a onclick="navigateTo('Zella (Avengers)')">voce Zella</a>). Se ci sia un collegamento tra le due tragiche date è materia di dibattito. Zella non risponde a questa domanda.</p>
+<p>Iron Spisso Man morì nello stesso anno dell'attacco alla casa di <a onclick="navigateTo('Zella (Avengers)')">Zella</a> — l'infame attacco di Gianluca Pocchia dell'11 settembre <b>83 aM</b> (vedi <a onclick="navigateTo('Zella (Avengers)')">voce Zella</a>). Se ci sia un collegamento tra le due tragiche date è materia di dibattito. Zella non risponde a questa domanda.</p>
 
 <h2 id="ritorno-ism">Il ritorno <span class="edit-link" onclick="openEditor('Iron Spisso Man')">[modifica]</span></h2>
 <p>Dopo la morte di Iron Spisso Man, Zella osservò gli Avengers sgretolarsi senza la loro figura fondatrice. Decise che l'unico modo per riportarli alla grandezza era riportare in vita il loro creatore. Recuperò le armi e il casco di Darth Vader e, attraverso un processo che la Pocchiaciclopedia classifica pudicamente come «operazione di resurrezione tecno-magica», riuscì nell'impresa. Iron Spisso Man tornò.</p>
@@ -2941,7 +3161,7 @@ function buildZellaAvengers() {
     <tr><td>Origine</td><td>Albania</td></tr>
     <tr><td>Ruolo</td><td>Capo degli <a onclick="navigateTo('Avengers')">Avengers</a> · Leader dell'America</td></tr>
     <tr><td>Soprannome</td><td>L'Albanese</td></tr>
-    <tr><td>Casa</td><td>Attaccata da Gianluca Pocchia — 11 settembre paM</td></tr>
+    <tr><td>Casa</td><td>Attaccata da Gianluca Pocchia — 11 settembre <b>aM</b>, 83 aM (2000 d.C.)</td></tr>
     <tr><td>Poteri</td><td>Poteri elettrici · Armi di Darth Vader (temporaneamente)</td></tr>
     <tr><td>Carattere</td><td>Paziente fino a un certo punto — poi la spada laser</td></tr>
   </table>
@@ -2959,7 +3179,7 @@ function buildZellaAvengers() {
 
 <h2 id="casa-zav">L'attacco alla casa <span class="edit-link" onclick="openEditor('Zella (Avengers)')">[modifica]</span></h2>
 <p><b>Zella</b> è il Capo degli <a onclick="navigateTo('Avengers')">Avengers</a> e, per estensione, il leader dell'America. È albanese di origine, e a chi gli chiede come si sente a guidare un paese che non è il suo risponde con un silenzio eloquente.</p>
-<p>La sua casa fu attaccata e distrutta da Gianluca Pocchia il giorno dell'<b>11 settembre paM</b> — data che nel Calendario Morello corrisponde all'11 settembre in anno paM. L'attacco avvenne mentre Iron Spisso Man era ancora vivo. La perdita della casa e la morte del fondatore degli Avengers nello stesso anno segnarono Zella profondamente, al punto che il suo obiettivo principale diventò riportare Iron Spisso Man in vita.</p>
+<p>La sua casa fu attaccata e distrutta da Gianluca Pocchia l'<b>11 settembre 83 aM</b> (2000 d.C.). Alex Spisso / Iron Spisso Man rimase intrappolato nell'edificio e morì nello stesso giorno. L'attacco avvenne mentre Iron Spisso Man era ancora vivo. La perdita della casa e la morte del fondatore degli Avengers nello stesso anno segnarono Zella profondamente, al punto che il suo obiettivo principale diventò riportare Iron Spisso Man in vita.</p>
 
 <h2 id="piano-zav">Il piano per riportare Iron Spisso Man <span class="edit-link" onclick="openEditor('Zella (Avengers)')">[modifica]</span></h2>
 <p>Zella recuperò le armi di Darth Vader — la spada laser, il casco, i poteri — convinto che fossero la chiave. La teoria era che l'energia delle armi galattiche potesse attraversare la barriera tra i vivi e i morti. Era una teoria senza basi scientifiche. Funzionò comunque.</p>
@@ -2971,8 +3191,8 @@ function buildZellaAvengers() {
 
 <h2 id="citazioni-zav">Citazioni notevoli <span class="edit-link" onclick="openEditor('Zella (Avengers)')">[modifica]</span></h2>
 <blockquote style="margin:16px 24px;padding:12px 16px;border-left:3px solid #a2a9b1;font-style:italic;font-family:'Source Serif 4',serif;font-size:13.5px;color:#333">
-  «Se lo tocchi la mia casa e il casco di Darth Vader questa spada laser te la ficco nel—»
-  <footer style="margin-top:6px;font-size:12px;color:#54595d;font-style:normal">— Zella a Iron Spisso Man, poco prima della Seconda Guerra degli Avengers. Si fermò lì.</footer>
+  «Se tocchi la mia casa e il casco di Darth Vader questa spada laser te la ficco nel culo»
+  <footer style="margin-top:6px;font-size:12px;color:#54595d;font-style:normal">— Zella a Iron Spisso Man, poco prima della Seconda Guerra degli Avengers.</footer>
 </blockquote>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>Albania</a> <a>America</a></div>`;
@@ -2985,11 +3205,7 @@ function buildValerioMozzarella() {
 <div class="infobox">
   <div class="infobox-title">Valerio Mozzarella</div>
   <div style="text-align:center;padding:8px;font-size:48px">🤍</div>
-  <div style="border:1px solid #a2a9b1;padding:8px;margin:8px;text-align:center;background:#f8f9fa">
-    <label style="font-size:12px;color:#54595d;display:block;margin-bottom:4px">Carica foto del personaggio:</label>
-    <input type="file" accept="image/*" onchange="(function(e){var r=new FileReader();r.onload=function(ev){var img=document.getElementById('img-valerio');img.src=ev.target.result;img.style.display='block';};r.readAsDataURL(e.target.files[0]);})(event)" style="font-size:11px;width:100%">
-    <img id="img-valerio" src="" alt="" style="display:none;width:100%;max-width:220px;margin:6px auto;border:1px solid #a2a9b1;display:none">
-  </div>
+  <div style="text-align:center;padding:4px 6px 4px"><img src="valerio.jpg" alt="Valerio Mozzarella" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
   <table>
     <tr><td>Alias</td><td>Il Capitan Bianco</td></tr>
     <tr><td>Organizzazione</td><td><a onclick="navigateTo('Avengers')">Avengers</a></td></tr>
@@ -3011,11 +3227,7 @@ function buildNicolo() {
 <div class="infobox">
   <div class="infobox-title">Nicolò</div>
   <div style="text-align:center;padding:8px;font-size:48px">🖤</div>
-  <div style="border:1px solid #a2a9b1;padding:8px;margin:8px;text-align:center;background:#f8f9fa">
-    <label style="font-size:12px;color:#54595d;display:block;margin-bottom:4px">Carica foto del personaggio:</label>
-    <input type="file" accept="image/*" onchange="(function(e){var r=new FileReader();r.onload=function(ev){var img=document.getElementById('img-nicolo');img.src=ev.target.result;img.style.display='block';};r.readAsDataURL(e.target.files[0]);})(event)" style="font-size:11px;width:100%">
-    <img id="img-nicolo" src="" alt="" style="display:none;width:100%;max-width:220px;margin:6px auto;border:1px solid #a2a9b1">
-  </div>
+  <div style="text-align:center;padding:4px 6px 4px"><img src="nicolo.jpg" alt="Nicolò" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
   <table>
     <tr><td>Fratello</td><td><a onclick="navigateTo('Francesco Maggiore')">Francesco Maggiore</a></td></tr>
     <tr><td>Organizzazione</td><td><a onclick="navigateTo('Avengers')">Avengers</a></td></tr>
@@ -3035,11 +3247,7 @@ function buildSpiderSparm() {
 <div class="infobox">
   <div class="infobox-title">Spider Sparm</div>
   <div style="text-align:center;padding:8px;font-size:48px">🕷️</div>
-  <div style="border:1px solid #a2a9b1;padding:8px;margin:8px;text-align:center;background:#f8f9fa">
-    <label style="font-size:12px;color:#54595d;display:block;margin-bottom:4px">Carica foto del personaggio:</label>
-    <input type="file" accept="image/*" onchange="(function(e){var r=new FileReader();r.onload=function(ev){var img=document.getElementById('img-spidersparm');img.src=ev.target.result;img.style.display='block';};r.readAsDataURL(e.target.files[0]);})(event)" style="font-size:11px;width:100%">
-    <img id="img-spidersparm" src="" alt="" style="display:none;width:100%;max-width:220px;margin:6px auto;border:1px solid #a2a9b1">
-  </div>
+  <div style="text-align:center;padding:4px 6px 4px"><img src="spider_sparm.jpg" alt="Spider Sparm" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
   <table>
     <tr><td>Alias</td><td>Spider-Man nero</td></tr>
     <tr><td>Organizzazione</td><td><a onclick="navigateTo('Avengers')">Avengers</a></td></tr>
@@ -3063,11 +3271,7 @@ function buildEmanuelePascali() {
 <div class="infobox">
   <div class="infobox-title">Emanuele Pascali</div>
   <div style="text-align:center;padding:8px;font-size:48px">🦅</div>
-  <div style="border:1px solid #a2a9b1;padding:8px;margin:8px;text-align:center;background:#f8f9fa">
-    <label style="font-size:12px;color:#54595d;display:block;margin-bottom:4px">Carica foto del personaggio:</label>
-    <input type="file" accept="image/*" onchange="(function(e){var r=new FileReader();r.onload=function(ev){var img=document.getElementById('img-emanuele');img.src=ev.target.result;img.style.display='block';};r.readAsDataURL(e.target.files[0]);})(event)" style="font-size:11px;width:100%">
-    <img id="img-emanuele" src="" alt="" style="display:none;width:100%;max-width:220px;margin:6px auto;border:1px solid #a2a9b1">
-  </div>
+  <div style="text-align:center;padding:4px 6px 4px"><img src="emanuele.jpg" alt="Emanuele Pascali" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
   <table>
     <tr><td>Famiglia di origine</td><td><a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a></td></tr>
     <tr><td>Organizzazione attuale</td><td><a onclick="navigateTo('Avengers')">Avengers</a></td></tr>
@@ -3089,11 +3293,7 @@ function buildFrancescoMaggiore() {
 <div class="infobox">
   <div class="infobox-title">Francesco Maggiore</div>
   <div style="text-align:center;padding:8px;font-size:48px">🛡️</div>
-  <div style="border:1px solid #a2a9b1;padding:8px;margin:8px;text-align:center;background:#f8f9fa">
-    <label style="font-size:12px;color:#54595d;display:block;margin-bottom:4px">Carica foto del personaggio:</label>
-    <input type="file" accept="image/*" onchange="(function(e){var r=new FileReader();r.onload=function(ev){var img=document.getElementById('img-francesco');img.src=ev.target.result;img.style.display='block';};r.readAsDataURL(e.target.files[0]);})(event)" style="font-size:11px;width:100%">
-    <img id="img-francesco" src="" alt="" style="display:none;width:100%;max-width:220px;margin:6px auto;border:1px solid #a2a9b1">
-  </div>
+  <div style="text-align:center;padding:4px 6px 4px"><img src="francesco.jpg" alt="Francesco Maggiore" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
   <table>
     <tr><td>Arma</td><td>Scudo Maggiore — si ingrandisce e rimpicciolisce</td></tr>
     <tr><td>Fratello</td><td><a onclick="navigateTo('Nicolò')">Nicolò</a></td></tr>
@@ -3124,11 +3324,7 @@ function buildSpisshor() {
 <div class="infobox">
   <div class="infobox-title">Spisshor</div>
   <div style="text-align:center;padding:8px;font-size:48px">🔨</div>
-  <div style="border:1px solid #a2a9b1;padding:8px;margin:8px;text-align:center;background:#f8f9fa">
-    <label style="font-size:12px;color:#54595d;display:block;margin-bottom:4px">Carica foto del personaggio:</label>
-    <input type="file" accept="image/*" onchange="(function(e){var r=new FileReader();r.onload=function(ev){var img=document.getElementById('img-spisshor');img.src=ev.target.result;img.style.display='block';};r.readAsDataURL(e.target.files[0]);})(event)" style="font-size:11px;width:100%">
-    <img id="img-spisshor" src="" alt="" style="display:none;width:100%;max-width:220px;margin:6px auto;border:1px solid #a2a9b1">
-  </div>
+  <div style="text-align:center;padding:4px 6px 4px"><img src="spisshor.jpg" alt="Spisshor / Ilaria Spisso" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
   <table>
     <tr><td>Arma</td><td>Martello</td></tr>
     <tr><td>Carattere</td><td>Grande fan del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a></td></tr>
@@ -3168,7 +3364,7 @@ function buildPrimaGuerraAvengers() {
 </div>
 
 <h2 id="causa-pga">La causa <span class="edit-link" onclick="openEditor('Prima Guerra degli Avengers')">[modifica]</span></h2>
-<p><a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a>, il fondatore degli <a onclick="navigateTo('Avengers')">Avengers</a> e protettore di Serrano, era morto nello stesso anno in cui la casa di <a onclick="navigateTo('Zella (Avengers)')">Zella</a> veniva distrutta nell'attacco di Gianluca Pocchia (11 settembre paM). Zella, convinto che l'unico modo per riportare gli Avengers alla loro grandezza fosse riportare in vita il loro fondatore, recuperò le armi di Darth Vader — la spada laser, il casco, i poteri — e decise che il modo per resuscitare Iron Spisso Man era combattere tra di loro.</p>
+<p><a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a>, il fondatore degli <a onclick="navigateTo('Avengers')">Avengers</a>, era morto nell'<b>83 aM</b> — intrappolato nell'edificio di Zella durante l'attacco di Gianluca Pocchia dell'11 settembre. Zella, convinto che l'unico modo per riportare gli Avengers alla loro grandezza fosse riportare in vita il loro fondatore, recuperò le armi di Darth Vader — la spada laser, il casco, i poteri — e decise che il modo per resuscitare Iron Spisso Man era combattere tra di loro.</p>
 <p>La logica era che solo un conflitto abbastanza intenso tra gli Avengers potesse generare l'energia necessaria alla resurrezione. Era una teoria strana. Funzionò.</p>
 
 <h2 id="schieramenti-pga">Gli schieramenti <span class="edit-link" onclick="openEditor('Prima Guerra degli Avengers')">[modifica]</span></h2>
@@ -3243,52 +3439,7 @@ function buildSecondaGuerraAvengers() {
 // ══════════════════════════════════════════════════════
 
 // Pagine protette — create da Pocchia, non modificabili da nessuno
-const PROTECTED_PAGES = new Set([
-  "Main",
-  "Pocchiaciclopedia — Pagina principale",
-  "Napoli",
-  "Clan Spisso",
-  "Pete Hegseth",
-  "Alessio Spisso",
-  "Alex Spisso",
-  "Famiglia Pocchia",
-  "Filippo Pascali",
-  "Anna Pascali",
-  "Gianluca Pascali",
-  "Riccardo Pascali",
-  "Morello",
-  "Calendario Morello",
-  "Ludovico Pio Tommasi",
-  "VitoCarlo Tommasi",
-  "Topus Maximus",
-  "Topismo",
-  "Serrano",
-  "Cheddar Mussolini",
-  "Ermenegildo Spisso",
-  "F.O.N.D.A.M.E.N.T.A.",
-  "L.E.G.G.I.",
-  "Ignoto di Napoli",
-  "Camorra Salentina",
-  "De Morellis",
-  "Sal da Spicci",
-  "Sal da Vinci",
-  "Zella",
-  "Benito Mussolini",
-  "Nigeria Spartiana",
-  "104 Nigeriani",
-  "Avengers",
-  "Iron Spisso Man",
-  "Prima Guerra degli Avengers",
-  "Seconda Guerra degli Avengers",
-  "Zella (Avengers)",
-  "Valerio Mozzarella",
-  "Nicolò",
-  "Spider Sparm",
-  "Emanuele Pascali",
-  "Francesco Maggiore",
-  "Spisshor",
-  "America (Avengers)"
-]);
+// Nessuna pagina protetta — tutte modificabili
 
 // ══════════════════════════════════════════════════════
 //  STATE
@@ -3301,7 +3452,46 @@ let db = null;
 let firebaseReady = false;
 
 function isProtected(name) {
-  return PROTECTED_PAGES.has(name);
+  return false; // Nessuna pagina è protetta
+}
+
+// ══════════════════════════════════════════════════════
+//  RESET — ripristina tutte le pagine al file originale
+// ══════════════════════════════════════════════════════
+async function resetToDefault() {
+  const confirmed = confirm(
+    '⚠️ RESET COMPLETO\n\n' +
+    'Stai per eliminare TUTTE le modifiche della comunità e ripristinare la Pocchiaciclopedia al suo stato originale.\n\n' +
+    'Questa operazione è irreversibile.\n\nConfermi?'
+  );
+  if (!confirmed) return;
+
+  const confirmed2 = confirm('Sei davvero sicuro? Tutte le pagine create o modificate dalla comunità andranno perse per sempre.');
+  if (!confirmed2) return;
+
+  // Cancella localStorage
+  try { localStorage.removeItem('pocchiaciclopedia_pages_v2'); } catch(e) {}
+
+  // Cancella Firebase
+  if (firebaseReady && window._fbDb && window._fbRef && window._fbSet) {
+    try {
+      const { ref, set } = { ref: window._fbRef, set: window._fbSet };
+      await set(ref(window._fbDb, 'pages'), null);
+    } catch(e) { console.warn('Errore reset Firebase:', e); }
+  }
+
+  // Ripristina pagine in memoria
+  pages = { ...DEFAULT_PAGES };
+  // Rigenera tutti i contenuti
+  Object.keys(DEFAULT_PAGES).forEach(k => {
+    if (DEFAULT_PAGES[k].content === '') {
+      // le pagine vuote rimangono vuote
+    }
+  });
+
+  updateSidebar();
+  navigateTo('Main');
+  showToast('✅ Reset completato. Pocchiaciclopedia ripristinata all\'originale.');
 }
 
 // Inizializza Firebase e carica le pagine utente
@@ -3327,26 +3517,22 @@ function initFirebase() {
           snapshot.forEach(child => {
             const key = child.key;
             const data = child.val();
-            if (!isProtected(key)) {
-              pages[key] = data;
-            }
+            pages[key] = data;
           });
         }
 
         // Ascolta modifiche in tempo reale
         fbOnChildChanged(fbRef(db, 'pages'), (snap) => {
           const key = snap.key;
-          if (!isProtected(key)) {
-            pages[key] = snap.val();
+          pages[key] = snap.val();
             if (key === currentPage) renderPage(key);
             updateSidebar();
             if (currentPage === 'Main') renderCommunityPages();
-          }
         });
 
         fbOnChildAdded(fbRef(db, 'pages'), (snap) => {
           const key = snap.key;
-          if (!isProtected(key) && !pages[key]) {
+          if (!pages[key]) {
             pages[key] = snap.val();
             updateSidebar();
             if (currentPage === 'Main') renderCommunityPages();
@@ -3394,7 +3580,7 @@ function loadPagesLocalOnly() {
     if (saved) {
       const parsed = JSON.parse(saved);
       for (const k in parsed) {
-        if (!isProtected(k)) pages[k] = parsed[k];
+        pages[k] = parsed[k];
       }
     }
   } catch(e) {
@@ -3407,7 +3593,7 @@ async function savePages(title, pageData) {
   try {
     const local = {};
     for (const k in pages) {
-      if (!isProtected(k)) local[k] = { title: pages[k].title, wikitext: pages[k].wikitext, history: pages[k].history || [], content: pages[k].content || "" };
+      local[k] = { title: pages[k].title, wikitext: pages[k].wikitext, history: pages[k].history || [], content: pages[k].content || "" };
     }
     localStorage.setItem("pocchiaciclopedia_pages_v2", JSON.stringify(local));
   } catch(e) {}
@@ -3428,7 +3614,7 @@ async function savePages(title, pageData) {
 
 function getCommunityPages() {
   return Object.keys(pages)
-    .filter(k => !isProtected(k) && k !== 'Main')
+    .filter(k => k !== 'Main')
     .sort((a, b) => a.localeCompare(b, 'it'));
 }
 
@@ -3466,8 +3652,8 @@ function createPageFromMain() {
     errorDiv.style.display = 'block';
     return;
   }
-  if (isProtected(name) || pages[name]) {
-    errorDiv.textContent = `⚠ La pagina "${name}" esiste già o è protetta.`;
+  if (pages[name]) {
+    errorDiv.textContent = `⚠ La pagina "${name}" esiste già.`;
     errorDiv.style.display = 'block';
     return;
   }
@@ -3498,20 +3684,13 @@ function renderPage(name) {
   const article = document.getElementById("article-content");
   const page = pages[name];
 
-  // Aggiorna visibilità del pulsante Modifica
+  // Pulsante Modifica sempre attivo
   const editBtn = document.getElementById('btn-edit-top');
   if (editBtn) {
-    if (isProtected(name)) {
-      editBtn.innerHTML = '🔒 Protetta';
-      editBtn.disabled = true;
-      editBtn.style.opacity = '0.5';
-      editBtn.style.cursor = 'default';
-    } else {
-      editBtn.innerHTML = '✏️ Modifica';
-      editBtn.disabled = false;
-      editBtn.style.opacity = '';
-      editBtn.style.cursor = '';
-    }
+    editBtn.innerHTML = '✏️ Modifica';
+    editBtn.disabled = false;
+    editBtn.style.opacity = '';
+    editBtn.style.cursor = '';
   }
 
   if (!page) {
@@ -3536,10 +3715,7 @@ function renderPage(name) {
       </div>`;
   }
 
-  // Nascondi tutti i link [modifica] nelle pagine protette
-  if (isProtected(name)) {
-    article.querySelectorAll('.edit-link').forEach(el => el.style.display = 'none');
-  }
+  // I link [modifica] sono sempre visibili
 
   // Aggiorna lista comunità se siamo sulla Main
   if (name === 'Main') {
@@ -3604,27 +3780,24 @@ function renderHistory() {
 function openEditor(pageName) {
   const name = pageName || currentPage;
 
-  // Blocca pagine protette
-  if (isProtected(name)) {
-    showToast('🔒 Questa pagina è protetta e non può essere modificata.');
-    return;
-  }
-
   const page = pages[name];
   document.getElementById('editor-modal-title').textContent = `Modifica: ${name}`;
   document.getElementById('editor-page-title').value = name;
   document.getElementById('editor-textarea').value = page ? (page.wikitext || '') : '';
   document.getElementById('editor-summary').value = '';
   document.getElementById('editor-status').textContent = '';
+  // Chiudi pannelli avanzati
+  const fr = document.getElementById('find-replace-bar');
+  const cm = document.getElementById('char-map-bar');
+  const pp = document.getElementById('editor-preview-panel');
+  if (fr) fr.style.display = 'none';
+  if (cm) cm.style.display = 'none';
+  if (pp) pp.classList.remove('open');
   document.getElementById('editor-overlay').classList.add('open');
+  updateCharCount();
 }
 
 function openEditorForNew(name) {
-  // Blocca se il nome coincide con una pagina protetta
-  if (isProtected(name)) {
-    showToast('🔒 Questa pagina è protetta e non può essere modificata.');
-    return;
-  }
   document.getElementById('editor-modal-title').textContent = `Crea: ${name}`;
   document.getElementById('editor-page-title').value = name;
   document.getElementById('editor-textarea').value = '';
@@ -3643,11 +3816,6 @@ async function savePage() {
 
   if (!title) {
     document.getElementById('editor-status').textContent = '⚠ Inserisci un titolo.';
-    return;
-  }
-
-  if (isProtected(title)) {
-    document.getElementById('editor-status').textContent = '🔒 Questa pagina è protetta.';
     return;
   }
 
@@ -3802,7 +3970,7 @@ document.addEventListener('click', e => {
 });
 
 // ══════════════════════════════════════════════════════
-//  TOOLBAR INSERT
+//  TOOLBAR — funzioni di inserimento
 // ══════════════════════════════════════════════════════
 
 function insertWiki(before, after) {
@@ -3815,7 +3983,145 @@ function insertWiki(before, after) {
   ta.focus();
   ta.selectionStart = start + before.length;
   ta.selectionEnd = start + before.length + (selected || 'testo').length;
+  updateCharCount();
 }
+
+function insertWikiList(marker) {
+  const ta = document.getElementById('editor-textarea');
+  const start = ta.selectionStart;
+  const end = ta.selectionEnd;
+  const selected = ta.value.substring(start, end);
+  let replacement;
+  if (selected.includes('\n')) {
+    replacement = selected.split('\n').map(l => l ? marker + ' ' + l : l).join('\n');
+  } else {
+    replacement = marker + ' ' + (selected || 'voce');
+  }
+  ta.value = ta.value.substring(0, start) + replacement + ta.value.substring(end);
+  ta.focus();
+  updateCharCount();
+}
+
+function insertWikiTable() {
+  const tpl = `\n{| class="wikitable"\n|-\n! Intestazione 1 !! Intestazione 2\n|-\n| Cella 1 || Cella 2\n|-\n| Cella 3 || Cella 4\n|}\n`;
+  insertWikiRaw(tpl);
+}
+
+function insertWikiInfobox() {
+  const tpl = `\n{{Infobox\n| titolo = Nome\n| campo1 = valore1\n| campo2 = valore2\n}}\n`;
+  insertWikiRaw(tpl);
+}
+
+function insertWikiFile() {
+  const name = prompt('Nome del file immagine (es: foto.jpg):');
+  if (!name) return;
+  const alt = prompt('Testo alternativo / didascalia:') || '';
+  insertWikiRaw(`[[File:${name}|thumb|${alt}]]`);
+}
+
+function insertWikiRaw(text) {
+  const ta = document.getElementById('editor-textarea');
+  const pos = ta.selectionStart;
+  ta.value = ta.value.substring(0, pos) + text + ta.value.substring(pos);
+  ta.focus();
+  ta.selectionStart = ta.selectionEnd = pos + text.length;
+  updateCharCount();
+}
+
+// ── Contatore caratteri ──
+function updateCharCount() {
+  const ta = document.getElementById('editor-textarea');
+  const cc = document.getElementById('editor-char-count');
+  if (!ta || !cc) return;
+  const n = ta.value.length;
+  cc.textContent = n.toLocaleString('it-IT') + ' caratteri';
+}
+
+// ── Trova e sostituisci ──
+function toggleFindReplace() {
+  const bar = document.getElementById('find-replace-bar');
+  bar.style.display = bar.style.display === 'none' ? 'flex' : 'none';
+  if (bar.style.display === 'flex') document.getElementById('fr-find').focus();
+}
+
+function doFindReplace(all) {
+  const ta = document.getElementById('editor-textarea');
+  const find = document.getElementById('fr-find').value;
+  const rep  = document.getElementById('fr-replace').value;
+  const res  = document.getElementById('fr-result');
+  if (!find) { res.textContent = '⚠ Inserisci il testo da trovare.'; return; }
+
+  if (all) {
+    const escaped = find.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const re = new RegExp(escaped, 'g');
+    const count = (ta.value.match(re) || []).length;
+    ta.value = ta.value.replaceAll(find, rep);
+    res.textContent = `${count} sostituzion${count === 1 ? 'e' : 'i'} effettuata${count === 1 ? '' : 'e'}.`;
+  } else {
+    const idx = ta.value.indexOf(find, ta.selectionStart);
+    if (idx === -1) {
+      res.textContent = 'Testo non trovato.';
+      return;
+    }
+    ta.value = ta.value.substring(0, idx) + rep + ta.value.substring(idx + find.length);
+    ta.selectionStart = idx;
+    ta.selectionEnd = idx + rep.length;
+    res.textContent = 'Sostituito.';
+  }
+  ta.focus();
+  updateCharCount();
+}
+
+// ── Anteprima inline ──
+function togglePreviewInline() {
+  const panel = document.getElementById('editor-preview-panel');
+  const ta = document.getElementById('editor-textarea');
+  const title = document.getElementById('editor-page-title').value || 'Anteprima';
+  if (panel.classList.contains('open')) {
+    panel.classList.remove('open');
+  } else {
+    panel.innerHTML = `<div style="font-family:sans-serif;font-size:11px;color:#54595d;border-bottom:1px solid #eaecf0;padding-bottom:6px;margin-bottom:10px">📄 Anteprima di: <b>${title}</b> <span style="float:right;cursor:pointer;color:#0645ad" onclick="togglePreviewInline()">✕ Chiudi</span></div>` + wikitextToHtml(title, ta.value);
+    panel.classList.add('open');
+    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+
+// ── Mappa caratteri speciali ──
+const SPECIAL_CHARS = [
+  ['Punteggiatura', ['–', '—', '…', '«', '»', '"', '"', "'", "'", '·', '•', '†', '‡', '§', '¶']],
+  ['Lettere', ['à', 'è', 'é', 'ì', 'ò', 'ù', 'ä', 'ë', 'ï', 'ö', 'ü', 'ñ', 'ç', 'ß', 'æ', 'œ', 'Æ', 'Œ']],
+  ['Simboli', ['©', '®', '™', '€', '£', '¥', '°', '±', '×', '÷', '≠', '≤', '≥', '∞', '√', 'π', 'Σ', 'Δ']],
+  ['Frecce', ['←', '→', '↑', '↓', '↔', '⇒', '⇐', '⇔']],
+];
+
+function toggleCharMap() {
+  const bar = document.getElementById('char-map-bar');
+  if (bar.style.display !== 'none') { bar.style.display = 'none'; return; }
+  const content = document.getElementById('char-map-content');
+  content.innerHTML = SPECIAL_CHARS.map(([label, chars]) =>
+    `<span style="margin-right:12px"><b style="margin-right:4px;color:#54595d">${label}:</b>${chars.map(c =>
+      `<button class="tb-btn" onclick="insertWikiRaw('${c}')" title="${c}" style="min-width:22px;padding:2px 4px;margin:1px;font-size:13px">${c}</button>`
+    ).join('')}</span>`
+  ).join('');
+  bar.style.display = 'block';
+}
+
+// Scorciatoie tastiera nell'editor
+document.addEventListener('keydown', function(e) {
+  const ta = document.getElementById('editor-textarea');
+  if (document.activeElement !== ta) return;
+  if (e.ctrlKey || e.metaKey) {
+    if (e.key === 'b') { e.preventDefault(); insertWiki("'''", "'''"); }
+    if (e.key === 'i') { e.preventDefault(); insertWiki("''", "''"); }
+    if (e.key === 'k') { e.preventDefault(); insertWiki('[[', ']]'); }
+    if (e.key === 's') { e.preventDefault(); savePage(); }
+    if (e.key === 'h') { e.preventDefault(); toggleFindReplace(); }
+  }
+  if (e.key === 'Tab') {
+    e.preventDefault();
+    insertWikiRaw('  ');
+  }
+});
 
 // ══════════════════════════════════════════════════════
 //  EXPORT
@@ -3847,6 +4153,292 @@ function showToast(msg) {
 // ══════════════════════════════════════════════════════
 //  INIT
 // ══════════════════════════════════════════════════════
+
+
+function buildLaFede() {
+  return `<div class="wiki-notice"><span class="ni">✨</span><span>La Fede è la terza entità divina del Topismo. Appare quando si ha vera fede in <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico</a>. Se la stai cercando, probabilmente ti stanno scoppulando.</span></div>
+<h1 class="page-title">La Fede (Federica Didonfrancesco)</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">La Fede</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="la_fede.jpg" alt="La Fede" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <table>
+    <tr><td>Nome completo</td><td><b>Federica Didonfrancesco</b></td></tr>
+    <tr><td>Natura</td><td>Manifestazione della Fede in <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico</a></td></tr>
+    <tr><td>Rango cosmologico</td><td>Terza entità divina</td></tr>
+    <tr><td>Condizione apparizione</td><td>Fede genuina nel momento del bisogno</td></tr>
+    <tr><td>Specialità</td><td>Salvarti quando ti scoppulano o escludono</td></tr>
+    <tr><td>Colore</td><td>Oro e bianco — speranza topista</td></tr>
+  </table>
+</div>
+<p><b>La Fede</b>, nome completo <b>Federica Didonfrancesco</b>, è la terza entità divina della cosmologia topista. Non ha creato nulla, non governa nulla. La sua unica funzione — esercitata con dedizione assoluta — è apparire quando qualcuno sta per essere scoppulato o escluso, e trovare il modo di salvarlo. La condizione è una sola: la persona deve avere <b>vera fede in Ludovico</b>. Non fede performativa — fede genuina, quella che rimane quando non c'è più nient'altro.</p>
+<div class="toc-box"><div class="toc-title">Indice</div><ol>
+  <li><a href="#natura-f">Natura e origine</a></li>
+  <li><a href="#trinita-f">La Trinità topista</a></li>
+  <li><a href="#apparizioni-f">Modalità di apparizione</a></li>
+  <li><a href="#teologia-f">Dibattiti teologici</a></li>
+</ol></div>
+<h2 id="natura-f">Natura e origine <span class="edit-link" onclick="openEditor('La Fede')">[modifica]</span></h2>
+<p>A differenza di <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico</a> e <a onclick="navigateTo('VitoCarlo Tommasi')">VitoCarlo</a>, La Fede non era presente alla creazione del mondo. Emerse dopo, come conseguenza diretta dell'atto di credere: ogni atto di fede genuina in Ludovico contribuì a formare la sua coscienza. La Fede è, nella teologia topista, la fede stessa che prende coscienza di sé. Il nome Federica Didonfrancesco è quello con cui si presenta quando vuole — il che non è frequente. Lo conoscono i teologi e chi è stato salvato direttamente da lei, categoria che ha difficoltà a raccontarlo in modo credibile.</p>
+<h2 id="trinita-f">La Trinità topista <span class="edit-link" onclick="openEditor('La Fede')">[modifica]</span></h2>
+<p>Con La Fede la cosmologia topista diventa trinitaria:</p>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2.2">
+  <li><a onclick="navigateTo('Ludovico Pio Tommasi')"><b>Ludovico Pio Tommasi</b></a> — Il Creatore. Ha fatto tutto.</li>
+  <li><a onclick="navigateTo('VitoCarlo Tommasi')"><b>VitoCarlo Tommasi</b></a> — L'Architetto. Ha fatto le fondamenta.</li>
+  <li><b>La Fede (Federica Didonfrancesco)</b> — La Protettrice. Appare quando ne hai bisogno.</li>
+</ul>
+<h2 id="apparizioni-f">Modalità di apparizione <span class="edit-link" onclick="openEditor('La Fede')">[modifica]</span></h2>
+<p>La Fede non ha una forma fissa. Le testimonianze descrivono apparizioni diverse: una voce nel silenzio, una persona sconosciuta che offre esattamente ciò di cui si ha bisogno, una porta aperta dove non dovrebbe esserci. Ciò che accomuna ogni testimonianza è la tempistica: appare sempre <i>appena prima</i> che sia troppo tardi. La specializzazione nelle situazioni di scoppulazione non è casuale — nella teologia topista, lo scoppulamento è la forma più alta di umiliazione, e La Fede interviene esattamente lì.</p>
+<h2 id="teologia-f">Dibattiti teologici <span class="edit-link" onclick="openEditor('La Fede')">[modifica]</span></h2>
+<p>La domanda aperta è: <i>perché non appare sempre?</i> La risposta standard è che la fede deve essere genuina — e che determinare la genuinità non tocca agli esseri umani. Soddisfacente per i credenti. Frustrante per tutti gli altri. Normale.</p>
+<div class="stub-box"><span style="font-size:22px">✨</span><span>Se La Fede ti ha salvato, questa voce vuole sapere come.</span></div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Divinità</a> <a>Topismo</a> <a>Trinità topista</a></div>`;
+}
+
+function buildAliceSportella() {
+  return `<h1 class="page-title">Alice Sportella</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Alice Sportella</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="alice_sportella.jpg" alt="Alice Sportella" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <table>
+    <tr><td>Marito</td><td><a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a></td></tr>
+    <tr><td>Figli</td><td><a onclick="navigateTo('Figli di Filippo')">Luca, Gino e Carla Pascali</a></td></tr>
+    <tr><td>Legame con Filippo</td><td>Coniugi — e parenti (scoperto post-matrimonio)</td></tr>
+    <tr><td>Ruolo Guerra Finale</td><td>Co-comandante attacco a Serrano (105 aM)</td></tr>
+    <tr><td>Organizzazione</td><td><a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> (dopo caduta De Morellis)</td></tr>
+  </table>
+</div>
+<p><b>Alice Sportella</b> è la moglie di <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a> e madre di <a onclick="navigateTo('Figli di Filippo')">Luca, Gino e Carla</a>. Il matrimonio fu considerato per anni uno dei più solidi della storia della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> — fino alla scoperta che Alice era una parente di Filippo. Elaborarono la notizia con la filosofia pratica della famiglia: il matrimonio era fatto, i figli nati, andare avanti era l'unica opzione sensata.</p>
+<p>I tre figli nacquero con la sindrome di Down. Filippo e Alice li hanno cresciuti con affetto totale. Sono descritti da chiunque li conosca come straordinariamente felici — che, data la storia della famiglia, è probabilmente la cosa più notevole di tutta la vicenda.</p>
+<p>Nel 105 aM, durante <a onclick="navigateTo('La Guerra Finale')">La Guerra Finale</a>, Alice coordinò le operazioni a terra durante l'attacco a Serrano mentre Filippo guidava dall'aria. Dopo la conquista, Alice e Filippo — con <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> — presero il controllo della Camorra Salentina rimasta senza guida.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Famiglia Pocchia</a> <a>Camorra Salentina</a> <a>La Guerra Finale</a></div>`;
+}
+
+function buildFigliFilippo() {
+  return `<h1 class="page-title">Luca, Gino e Carla Pascali</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">I figli di Filippo e Alice</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="figli_filippo.jpg" alt="Luca, Gino e Carla Pascali" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <table>
+    <tr><td>Padre</td><td><a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a></td></tr>
+    <tr><td>Madre</td><td><a onclick="navigateTo('Alice Sportella')">Alice Sportella</a></td></tr>
+    <tr><td>Condizione</td><td>Sindrome di Down (tutti e tre)</td></tr>
+  </table>
+</div>
+<p><b>Luca, Gino e Carla Pascali</b> sono i tre figli di <a onclick="navigateTo('Filippo Pascali')">Filippo</a> e <a onclick="navigateTo('Alice Sportella')">Alice Sportella</a>. Tutti e tre nacquero con la sindrome di Down. <b>Luca</b>, il maggiore, ha una memoria eccezionale per le melodie e sa fischiarne ogni nota. <b>Gino</b>, il secondo, abbraccia chiunque entri in casa e chiede sempre se vuole qualcosa da mangiare — un'abitudine che i veterani della Camorra trovano inspiegabilmente disarmante. <b>Carla</b>, la più piccola, ha ereditato dal nonno <a onclick="navigateTo('Gianluca Pascali')">Gianluca</a> un'espressione seria che non corrisponde mai a quello che pensa davvero — quasi sempre qualcosa di allegro.</p>
+<p>Vivono a Serrano dopo la conquista del 105 aM. Sono probabilmente le uniche persone in città che non sanno nulla di quello che è successo durante <a onclick="navigateTo('La Guerra Finale')">La Guerra Finale</a>. Filippo ha deciso che è meglio così.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Famiglia Pocchia</a> <a>Persone di Serrano</a></div>`;
+}
+
+function buildRaggioNero() {
+  return `<div class="wiki-notice"><span class="ni">⬛</span><span>Il Raggio Nero è l'arma più temuta della <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a>. Chi è stato colpito perde tutto — poteri, ricchezza, la capacità di volare sopra il mare.</span></div>
+<h1 class="page-title">Raggio Nero</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Raggio Nero</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="raggio_nero.jpg" alt="Raggio Nero" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <table>
+    <tr><td>Origine</td><td><a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a></td></tr>
+    <tr><td>Tipo</td><td>Arma energetica di soppressione totale</td></tr>
+    <tr><td>Effetto</td><td>Annullamento di poteri, ricchezza e risorse</td></tr>
+    <tr><td>Efficacia contro Avengers</td><td>Alta — li fece cadere in mare nel 104 aM</td></tr>
+    <tr><td>Uso offensivo</td><td>Dal 106 aM — anche su Famiglia Pocchia e Camorra</td></tr>
+  </table>
+</div>
+<p>Il <b>Raggio Nero</b> è l'arma principale della <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a>. Funziona assorbendo energia di ogni tipo: i poteri soprannaturali degli Avengers, le risorse economiche dell'obiettivo, la capacità fisica di volare. Chi viene colpito non viene ferito — viene <i>svuotato</i>. I poteri scompaiono. Il conto si azzera. La capacità di volare si spegne esattamente sopra il mare.</p>
+<h2>Il 104 aM: gli Avengers in mare <span class="edit-link" onclick="openEditor('Raggio Nero')">[modifica]</span></h2>
+<p>Quando gli Avengers attaccarono la capitale nigeriana in volo, il Raggio Nero fu attivato in modalità difensiva. I poteri si spensero simultaneamente. Tutti gli Avengers caddero nell'oceano Atlantico. Il viaggio di ritorno a nuoto durò giorni. Gli americani che li videro arrivare a riva esausti offrirono asciugamani, rifiutati con dignità ferita.</p>
+<h2>Uso offensivo — 106 aM <span class="edit-link" onclick="openEditor('Raggio Nero')">[modifica]</span></h2>
+<p>Dal 106 aM la Nigeria iniziò ad usare il Raggio anche in modo offensivo, colpendo la <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> e la <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a>, ritenendole alleate degli Avengers. I raggi colpirono basi nel Salento, azzerando risorse della Camorra. Questo accelerò la necessità di trovare una soluzione definitiva al conflitto.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Nigeria Spartiana</a> <a>Armi</a> <a>La Guerra Finale</a></div>`;
+}
+
+function buildIlariaSpisso() {
+  return `<div class="wiki-notice"><span class="ni">🎂</span><span>Ilaria Spisso è nota in tre modi: come Spisshor, come la Donna delle Torte, e come la madre di Alessio. Dipende da chi la conosce.</span></div>
+<h1 class="page-title">Ilaria Spisso</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Ilaria Spisso</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="ilaria_spisso.jpg" alt="Ilaria Spisso" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <table>
+    <tr><td>Alias</td><td><b>Spisshor</b>, <b>Donna delle Torte</b></td></tr>
+    <tr><td>Figli</td><td><a onclick="navigateTo('Alex Spisso')">Alex Spisso</a>, <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a></td></tr>
+    <tr><td>Specialità</td><td>Torte magiche al cheddar di Ludo e righelli di VitoCarlo</td></tr>
+    <tr><td>Effetto torte</td><td>Poteri temporanei (2–6 ore)</td></tr>
+    <tr><td>Organizzazione</td><td><a onclick="navigateTo('Avengers')">Avengers</a> — uscita nel 107 aM</td></tr>
+    <tr><td>Posizione finale</td><td>India, con <a onclick="navigateTo('Alessio Spisso')">Alessio</a></td></tr>
+  </table>
+</div>
+<p><b>Ilaria Spisso</b>, nota come <b>Spisshor</b> e nel Salento come la <b>Donna delle Torte</b>, è la madre di <a onclick="navigateTo('Alex Spisso')">Alex</a> e <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a>. Ha operato per anni negli <a onclick="navigateTo('Avengers')">Avengers</a> mascherata da personaggio maschile. La sua identità fu rivelata nel 107 aM, quando si tolse la maschera davanti ad Alessio in India.</p>
+<p>Le sue torte sono preparate con il <b>cheddar di Ludovico</b> — il formaggio cosmico prodotto dalle piogge di cheddar acido del Vesuvio — e con i <b>righelli di VitoCarlo</b>, strumenti di misura divina. La combinazione conferisce poteri temporanei: volo, forza, resistenza alle scoppulazioni, capacità di vedere il futuro per circa tre minuti. Le torte al cioccolato danno forza fisica. Quelle alla frutta danno velocità. Le «torte della domenica», con ingredienti mai rivelati, danno saggezza temporanea.</p>
+<div class="toc-box"><div class="toc-title">Indice</div><ol>
+  <li><a href="#vita-i">Vita e identità</a></li>
+  <li><a href="#avengers-i">Negli Avengers come Spisshor</a></li>
+  <li><a href="#india-i">L'India e il ricongiungimento con Alessio</a></li>
+  <li><a href="#uscita-i">L'uscita dagli Avengers</a></li>
+</ol></div>
+<h2 id="vita-i">Vita e identità <span class="edit-link" onclick="openEditor('Ilaria Spisso')">[modifica]</span></h2>
+<p>Il rapporto con i due figli non potrebbe essere più diverso. Con Alex, Ilaria ha sempre mantenuto una distanza che Alex interpretava come indifferenza e che era invece lutto anticipato per quello che Alex stava diventando. Con Alessio, il legame era rimasto intatto — lui era andato via dalla famiglia, non da lei.</p>
+<h2 id="avengers-i">Negli Avengers come Spisshor <span class="edit-link" onclick="openEditor('Ilaria Spisso')">[modifica]</span></h2>
+<p>Ilaria fu l'unica a opporsi all'attacco a Serrano, sostenendo che la dittatura topista aveva portato una stabilità che Serrano non aveva mai avuto. Nessuno la ascoltò. Questo fu il momento in cui capì che era tempo di andare. Nella Prima Guerra degli Avengers combatté a fianco di Zella con il suo martello — la sua presenza nell'organizzazione era stata fino ad allora quella di una sorvegliante silenziosa, non di una guerriera.</p>
+<h2 id="india-i">L'India e il ricongiungimento con Alessio <span class="edit-link" onclick="openEditor('Ilaria Spisso')">[modifica]</span></h2>
+<p>Nel 107 aM Ilaria raggiunse l'India. Quando Alessio aprì la porta armato e sorpreso, lei si tolse la maschera. Alessio riconobbe sua madre. La abbracciò. Lei tirò fuori una torta dalla tasca — una torta della domenica. Alessio la mangiò. Poi Ilaria raccontò tutto ciò che stava succedendo nel mondo. Alessio ascoltò, scese in cantina, e portò su i libri di <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a> — tra cui gli appunti del secondo volume incompiuto delle F.O.N.D.A.M.E.N.T.A., contenenti la teoria della <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a>. Non sapeva cosa stava consegnando.</p>
+<h2 id="uscita-i">L'uscita dagli Avengers <span class="edit-link" onclick="openEditor('Ilaria Spisso')">[modifica]</span></h2>
+<p>Dopo la conquista di Serrano nel 105 aM e l'impiccagione a testa in giù di <a onclick="navigateTo('Cheddar Mussolini')">Cheddar Mussolini</a>, Ilaria uscì ufficialmente dagli Avengers. Si tolse la maschera davanti a tutti e se ne andò. Gli Avengers capirono in quel momento che Spisshor era una donna. Nessuno disse nulla.</p>
+<div class="stub-box"><span style="font-size:22px">🎂</span><span>Se Ilaria ti offre una torta, mangiatela. Non importa cosa ci sia dentro.</span></div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Clan Spisso</a> <a>Avengers</a> <a>La Guerra Finale</a></div>`;
+}
+
+function buildBombaSpissica() {
+  return `<div class="wiki-notice"><span class="ni">💥</span><span>La Bomba Spissica è la più grande arma mai costruita nel mondo pocchiano. Serrano non esiste più. L'ultima parola che sentirono fu "Spisso".</span></div>
+<h1 class="page-title">Bomba Spissica</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Bomba Spissica</div>
+  <table>
+    <tr><td>Inventore teorico</td><td><a onclick="navigateTo('Ermenegildo Spisso')">Ermenegildo Gildo Spisso</a></td></tr>
+    <tr><td>Costruttore</td><td><a onclick="navigateTo('Alex Spisso')">Alex Spisso</a></td></tr>
+    <tr><td>Principio</td><td>Amplificazione sonora — parola "Spisso" alla velocità del suono</td></tr>
+    <tr><td>Vettore</td><td>Stereo militare ad alta potenza</td></tr>
+    <tr><td>Parola detonante</td><td><b>"Spisso"</b></td></tr>
+    <tr><td>Usata</td><td>107 aM — su Serrano</td></tr>
+    <tr><td>Conseguenza</td><td>Serrano cancellata dalla mappa</td></tr>
+  </table>
+</div>
+<p>La <b>Bomba Spissica</b> è un'arma sonora di distruzione totale teorizzata da <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a> negli appunti inediti del secondo volume delle F.O.N.D.A.M.E.N.T.A. e realizzata da <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> nel 107 aM. Funziona lanciando uno stereo militare che accelera fino alla velocità del suono, emettendo la parola <b>«Spisso»</b> con amplificazione tale da disintegrare tutto nel raggio di un'intera città.</p>
+<p>Gildo aveva teorizzato che «Spisso» fosse la parola con la maggiore densità fonetica e semantica dell'italiano meridionale — ogni sillaba porta con sé il peso di generazioni. Alla velocità del suono, quella densità diventa energia pura. <a onclick="navigateTo('Alessio Spisso')">Alessio</a> trovò il capitolo nei libri del nonno e lo portò ad Alex senza capire cosa stava consegnando.</p>
+<h2>La detonazione su Serrano — 107 aM <span class="edit-link" onclick="openEditor('Bomba Spissica')">[modifica]</span></h2>
+<p>Alex mandò tutti gli Avengers e Alessio in attacco via terra a Serrano, tenendoli lontani dal laboratorio con la scusa della logistica. Una volta in posizione, la bomba fu lanciata. Nei minuti prima della detonazione Alessio chiamò Alex per aggiornamenti — e Alex, convinto che non ci fosse più tempo per fermare nulla, rivelò tutto: il piano, le sue intenzioni, la sua storia. Che era stato lui a distruggere la casa di Zella. Che Alessio era sempre stato nella lista. «Prima degli Avengers, prima di tutti».</p>
+<p>Un minuto era troppo poco. La bomba partì. Uno stereo cadde dal cielo su Serrano. L'ultima cosa che gli Avengers sentirono fu: <b>«Spisso»</b>. Serrano scomparve dalla mappa, lasciando un cratere.</p>
+<h2>Conseguenze <span class="edit-link" onclick="openEditor('Bomba Spissica')">[modifica]</span></h2>
+<p>La Nigeria Spartiana, testimone dell'esplosione, si arrese immediatamente. Il termine <b>«Spissare»</b> entrò nel vocabolario geopolitico per indicare la cancellazione totale di un obiettivo. Alex prese il controllo dell'America. Tutti gli Avengers furono dichiarati morti. Alessio sopravvisse perché era ancora in linea con Alex quando la bomba detonò — non era a Serrano.</p>
+<div class="stub-box"><span style="font-size:22px">💥</span><span>Aggiornare se qualcuno sopravvissuto si fa vivo. Aspettiamo fiduciosi.</span></div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Armi</a> <a>La Guerra Finale</a> <a>Alex Spisso</a> <a>Serrano</a></div>`;
+}
+
+function buildMariaTeresaFriolo() {
+  return `<h1 class="page-title">MariaTeresa Friolo</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">MariaTeresa Friolo</div>
+  <table>
+    <tr><td>Nome usato</td><td><b>Maria</b></td></tr>
+    <tr><td>Compagno</td><td><a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a></td></tr>
+    <tr><td>Residenza</td><td>India</td></tr>
+    <tr><td>Sulla guerra</td><td>Contraria alla partenza di Alessio</td></tr>
+  </table>
+</div>
+<p><b>MariaTeresa Friolo</b>, nota come <b>Maria</b>, è la compagna di <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a> in India. Quando <a onclick="navigateTo('Ilaria Spisso')">Ilaria</a> arrivò e Alessio decise di partire per unirsi alla guerra, Maria non fu d'accordo. Disse ad Alessio che tornare nel caos della sua famiglia era esattamente quello che tutti si aspettavano che non facesse — e che era questo il motivo per cui doveva non farlo. Alessio la ascoltò. Poi promise che sarebbe tornato. Maria accettò la promessa con quella combinazione di fiducia e scetticismo che si sviluppa dopo anni con una persona che fa promesse in buona fede in circostanze che non le rispettano. Se Alessio sia tornato non è al momento documentato.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Clan Spisso</a> <a>India</a></div>`;
+}
+
+
+function buildLaGuerraFinale() {
+  return `<div class="wiki-notice"><span class="ni">🔥</span><span>La Guerra Finale (104–107 aM) è il capitolo conclusivo della storia pocchiana. Serrano non esiste più. Gli Avengers nemmeno. Il cielo era arancione.</span></div>
+<h1 class="page-title">La Guerra Finale</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">La Guerra Finale</div>
+  <table>
+    <tr><td>Periodo</td><td><b>104–107 aM</b> (2021–2024 d.C.)</td></tr>
+    <tr><td>Scintilla</td><td>Attacco Avengers a porti nigeriani · eruzione del Vesuvio · ritorno di Morello</td></tr>
+    <tr><td>Fronti principali</td><td>Avengers · Nigeria Spartiana · Famiglia Pocchia · Topisti · Clan Spisso (da America)</td></tr>
+    <tr><td>Arma decisiva</td><td><a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a></td></tr>
+    <tr><td>Vittima principale</td><td>Serrano — cancellata dalla mappa (107 aM)</td></tr>
+    <tr><td>Esito</td><td>Alex Spisso prende il potere in America · dittatura Spissica</td></tr>
+    <tr><td>Il cielo</td><td>Arancione, da anni</td></tr>
+  </table>
+</div>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#presagi-gf">I presagi — il cielo arancione (104 aM)</a></li>
+    <li><a href="#filippo-gf">Filippo Pascali e la guerra quotidiana</a></li>
+    <li><a href="#nigeria-gf">La Nigeria e gli Avengers in mare</a></li>
+    <li><a href="#vesuvio-gf">Il Vesuvio e il ritorno di Morello (104 aM)</a></li>
+    <li><a href="#spisso-gf">Il piano degli Spisso — da America</a></li>
+    <li><a href="#105-gf">105 aM — La conquista di Serrano</a></li>
+    <li><a href="#camorra-gf">I Pocchia prendono la Camorra</a></li>
+    <li><a href="#106-gf">106 aM — La bomba inizia la produzione</a></li>
+    <li><a href="#107-gf">107 aM — La detonazione</a></li>
+    <li><a href="#dopo-gf">Dopo Serrano</a></li>
+  </ol>
+</div>
+
+<h2 id="presagi-gf">I presagi — il cielo arancione (104 aM) <span class="edit-link" onclick="openEditor('La Guerra Finale')">[modifica]</span></h2>
+<p>Da anni, il cielo sopra Serrano si tingeva di arancione nelle notti chiare. Non sempre — ma abbastanza spesso da essere notato, abbastanza a lungo da non poter essere ignorato. I <b>Topisti</b> sapevano cosa significava: le stelle formavano il numero <b>104</b>, e il 104 era il <b>compleanno di Ludovico</b>. O la Fine. Dipendeva da come ti alzavi la mattina.</p>
+<p>I Topisti lo chiamavano con due nomi, usati spesso in coppia, quasi fossero sinonimi: «Il Compleanno di Ludo» per chi viveva ancora nella speranza, «La Fine» per chi aveva già smesso di sperare che fossero la stessa cosa. Nessuno dei due nomi era sbagliato. Il 104 aM fu entrambe le cose.</p>
+
+<h2 id="filippo-gf">Filippo Pascali e la guerra quotidiana <span class="edit-link" onclick="openEditor('La Guerra Finale')">[modifica]</span></h2>
+<p><a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a> si svegliava la mattina, salutava <a onclick="navigateTo('Alice Sportella')">Alice</a>, guardava i tre bambini fare colazione con quella serenità che gli sembrava ogni giorno più preziosa e più impossibile da proteggere, e andava a far esplodere una base della Camorra Salentina nemica. Poi tornava a casa.</p>
+<p>Era una vita stancante nel modo in cui sono stancanti le cose che non finiscono mai. La <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> si era integrata nella struttura della <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> dopo la partenza di <a onclick="navigateTo('De Morellis')">De Morellis</a> — o meglio, si era infilata nel vuoto di potere che quella partenza aveva lasciato. Filippo faceva parte di Serrano, e Serrano era in guerra con i Topisti: i fedeli di <a onclick="navigateTo('Topismo')">Topismo</a> che dopo la <a onclick="navigateTo('Cheddar Mussolini')">Marcia su Serrano</a> del 104 aM avevano scoperto che la <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> si nascondeva nella Camorra — e avevano ricominciato gli attacchi.</p>
+<p>Filippo attaccava dagli aerei, usando due invenzioni: i <b>cannoni a cheddar</b> — dispositivi che sparavano blocchi di cheddar acido capaci di bloccare i movimenti nemici sigillando porte, veicoli e strade — e la <b>scoppula volante</b>, invenzione teorizzata da <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a> nei suoi appunti e messa in pratica dalla Camorra: una scoppulazione sferrata da altitudine sufficiente a garantire il fattore sorpresa assoluto.</p>
+
+<h2 id="nigeria-gf">La Nigeria e gli Avengers in mare <span class="edit-link" onclick="openEditor('La Guerra Finale')">[modifica]</span></h2>
+<p>La <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> era rimasta neutrale fino al 104 aM. Poi gli <a onclick="navigateTo('Avengers')">Avengers</a> distrussero alcuni porti nigeriani in quello che descrissero come «un'operazione preventiva». La Nigeria non la vide allo stesso modo.</p>
+<p>La risposta fu immediata: gli Avengers attaccarono direttamente la capitale nigeriana volando con i loro poteri in formazione. Era un piano pensato come un blitz. Divenne un bagno. Il <a onclick="navigateTo('Raggio Nero')">Raggio Nero</a> — l'arma nigeriana che annulla poteri, ricchezza e la capacità di volare sopra il mare — fu attivato in modalità difensiva sull'intera area. I poteri degli Avengers si spensero simultaneamente. La formazione si dissolse in caduta libera sull'oceano Atlantico. Il viaggio di ritorno a nuoto durò giorni. Gli americani che li videro arrivare a riva offrirono asciugamani. Vennero rifiutati con dignità ferita.</p>
+<p>Non riuscendo ad attaccare direttamente, l'America iniziò a lanciare missili verso l'Africa. La guerra continuava. Per sbaglio, uno di quei missili colpì il Vesuvio.</p>
+
+<h2 id="vesuvio-gf">Il Vesuvio e il ritorno di Morello (104 aM) <span class="edit-link" onclick="openEditor('La Guerra Finale')">[modifica]</span></h2>
+<p>La seconda eruzione del Vesuvio, quella che da decenni il Morellanesimo attendeva come segno del ritorno, arrivò nel 104 aM per colpa di un missile mal calibrato sparato dagli Avengers verso l'Africa. Nessuno dei Morellanisti ha mai commentato questa circostanza. La profezia si era avverata. Non importava come.</p>
+<p><a onclick="navigateTo('De Morellis')">De Morellis</a> — il vecchissimo capo della Camorra Salentina la cui somiglianza con Morello era documentata da tre fonti indipendenti e ignorata da tutte le autorità — fu costretto dall'eruzione a rivelare la sua identità. <b>De Morellis era Morello.</b> Era sopravvissuto alla prima eruzione, era andato al Sud, aveva cambiato nome e aspetto, aveva aspettato. Ora il Vesuvio eruttava di nuovo, e lui tornò giovane: i capelli ricci alla Caparezza, l'andatura di chi ha tutto il tempo del mondo, il sorriso di chi sapeva come sarebbe finita.</p>
+<p>Il suo ritorno portò con sé due cose: pulizia e piogge di <b>cheddar acido</b>. Il cheddar acido — formato dall'incontro del cheddar normale con la lava vesuviana — aveva una proprietà unica: scioglieva solo i rifiuti, trasformandoli in acqua. Napoli, per la prima volta in decenni, fu pulita. Le strade brillavano. L'aria era fresca. I napoletani non sapevano se piangere di gioia o di imbarazzo per aver impiegato così tanto.</p>
+
+<h2 id="spisso-gf">Il piano degli Spisso da America <span class="edit-link" onclick="openEditor('La Guerra Finale')">[modifica]</span></h2>
+<p>Con il caos della guerra, il <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> — trasferitosi in America dopo le indagini di Riccardo — decise che era il momento. Tutta la famiglia era là: <a onclick="navigateTo('Alex Spisso')">Alex</a>, <a onclick="navigateTo('Ilaria Spisso')">Ilaria</a> (mascherata come Spisshor), i parenti. <b>Alex era Iron Spisso Man.</b> Lo era sempre stato. E come uno dei capi principali degli <a onclick="navigateTo('Avengers')">Avengers</a>, convinse l'organizzazione ad appoggiare la riconquista di Serrano dai Topisti — presentandolo come una liberazione.</p>
+<p><a onclick="navigateTo('Ilaria Spisso')">Ilaria / Spisshor</a> fu l'unica a dire che il governo topista, per quanto brutale, era stabile — e che destabilizzarlo avrebbe aperto un vuoto pericoloso. Disse anche che la bomba che circolava negli appunti di Gildo era un'idea che non andava mai messa in pratica. Nessuno la ascoltò. In entrambi i casi.</p>
+
+<h2 id="105-gf">105 aM — La conquista di Serrano <span class="edit-link" onclick="openEditor('La Guerra Finale')">[modifica]</span></h2>
+<p>Il bombardamento su Serrano fu approvato dagli Avengers. Quando la data fu fissata, alcune spie avvisarono Alice e Filippo con largo anticipo. La coppia coordinò un grande attacco simultaneo: Filippo dall'aria con i cannoni a cheddar e la scoppula volante, Alice a terra con le forze della Camorra.</p>
+<p>La <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> senza <a onclick="navigateTo('De Morellis')">De Morellis</a> — che era tornato a Napoli — era entrata nel caos. Aveva perso il suo leader più carismatico, la struttura si era sgretolata, e i vari gruppi interni si stavano sbranando. In quel momento <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> e Filippo presero il controllo. Li unificarono. Stabilizzarono. Lo fecero con quella combinazione di autorità naturale e deterrenza che la famiglia aveva sviluppato nel corso di generazioni.</p>
+<p>L'attacco a Serrano fu coordinato con l'offensiva degli Avengers. Serrano fu conquistata in <b>67 giorni</b>. <a onclick="navigateTo('Cheddar Mussolini')">Cheddar Mussolini</a> fu trovata nel palazzo del governo e appesa a testa in giù — esattamente come aveva fatto ai suoi nemici. La dittatura topista cessò di esistere.</p>
+
+<h2 id="camorra-gf">I Pocchia prendono la Camorra <span class="edit-link" onclick="openEditor('La Guerra Finale')">[modifica]</span></h2>
+<p>La prima cosa che Riccardo e Filippo fecero con il potere fu abbattere le statue di De Morellis. Quella che un giorno era stata l'icona della Camorra Salentina diventò il Traditore della Patria — il leader che aveva abbandonato la sua organizzazione nel momento del bisogno tornando a Napoli per la sua gloria personale. Le statue caddero in silenzio. Nessuno protestò. I muri del palazzo restarono vuoti per mesi.</p>
+<p>Riccardo prese la gestione amministrativa e investigativa. Filippo la parte operativa e militare. Alice supervisionò le relazioni esterne. Era una divisione del lavoro che rispecchiava perfettamente chi erano: Riccardo il metodico, Filippo l'esecutore, Alice il punto di connessione tra i due.</p>
+
+<h2 id="106-gf">106 aM — La bomba inizia la produzione <span class="edit-link" onclick="openEditor('La Guerra Finale')">[modifica]</span></h2>
+<p>Nel 106 aM la Nigeria continuava ad attaccare, ora usando il <a onclick="navigateTo('Raggio Nero')">Raggio Nero</a> anche sulla Famiglia Pocchia e sulla Camorra, convinta che fossero alleate degli Avengers. I raggi colpirono basi nel Salento, azzerando temporaneamente risorse e comunicazioni.</p>
+<p>Mentre questo accadeva, nei laboratori segreti dell'America, <a onclick="navigateTo('Alex Spisso')">Alex</a> aveva dato inizio alla costruzione di qualcosa che nessuno sapeva ancora cosa fosse. Aveva preso gli appunti di Gildo dalla cantina di Alessio — portati da Ilaria — e aveva letto il capitolo che Gildo non aveva mai pubblicato: la teoria della parola come arma assoluta. La <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> era in produzione. Nessuno degli Avengers lo sapeva. Alex disse che era impegnato con la logistica.</p>
+
+<h2 id="107-gf">107 aM — La detonazione <span class="edit-link" onclick="openEditor('La Guerra Finale')">[modifica]</span></h2>
+<p>Nel 107 aM la bomba era pronta. Alex mandò tutti gli Avengers e Alessio — riunito all'organizzazione grazie a Ilaria e ai libri di Gildo — in attacco via terra a Serrano. Lui rimase indietro. «Logistica», disse di nuovo.</p>
+<p>Nei minuti prima della detonazione, <a onclick="navigateTo('Alessio Spisso')">Alessio</a> chiamò Alex per sapere a che punto fosse la bomba. Alex, convinto che non ci fosse più tempo per fermare nulla, rivelò tutto. Che era stato lui a distruggere la casa di Zella. Che era morto là dentro, che gli Avengers lo avevano riportato in vita senza saperlo, che li aveva usati per anni chiamandoli «i suoi schiavi». Che il piano non era liberare Serrano — era eliminare gli Avengers, togliersi di mezzo tutti gli ostacoli, prendere il potere in America tutto per lui.</p>
+<p>E poi: «O Alessio, tu sei sempre stato nella lista. Prima degli Avengers, prima di tutti. I nuovi Avengers tipo Zella mi stavano rubando il potere, ma io ho iniziato nella nostra famiglia a fare pulizia come fece nostro padre con Gildo.»</p>
+<p>Alessio capì. Capì che dietro l'attentato di Rashid — quello per cui lui aveva lasciato tutto ed era scappato in India — c'era suo fratello. Capì anche, in quel momento, che non avrebbe potuto fare niente. Un minuto era troppo poco per avvisare tutti. Troppo poco per scappare. Troppo poco per qualsiasi cosa che valesse la pena fare.</p>
+<p>Quindi Alessio fece la sola cosa che aveva senso: continuò a parlare. Fece domande. Tenne la linea aperta. Ascoltò la voce di suo fratello fino all'ultimo secondo.</p>
+<p>Lo stereo militare cadde dal cielo su Serrano. Gli Avengers lo videro arrivare. Guardarono in alto — Zella, Francesco Maggiore, Spider Sparm, Valerio Mozzarella, Nicolò, Emanuele Pascali, tutti — con quella strana calma che arriva quando non c'è più niente da fare.</p>
+<p>L'ultima cosa che sentirono fu: <b>«Spisso.»</b></p>
+<p>Serrano scomparve dalla mappa. Al posto di una grande città, un cratere.</p>
+
+<h2 id="dopo-gf">Dopo Serrano <span class="edit-link" onclick="openEditor('La Guerra Finale')">[modifica]</span></h2>
+<p>La Nigeria Spartiana, che aveva assistito all'esplosione dai satelliti, si arrese entro ventiquattro ore. Firmò accordi che permettevano all'America tutto quello che aveva sempre voluto: accesso ai porti, controllo commerciale, presenza militare. Pur di non essere <b>Spissata</b> — il termine entrò nel vocabolario geopolitico mondiale nel giro di giorni.</p>
+<p>Tutti gli Avengers furono dichiarati morti. Alex Spisso, ufficialmente Iron Spisso Man, annunciò che assumeva il controllo temporaneo dell'America «in attesa di elezioni». Le elezioni non furono mai indette. La guerra era finita.</p>
+<p>A Napoli, Morello guardò il cratere da lontano e non disse nulla. <a onclick="navigateTo('Gianluca Pascali')">Gianluca</a> era in pensione da anni. <a onclick="navigateTo('Anna Pascali')">Anna</a> non aveva commentato nulla, come sempre. Riccardo e Filippo controllavano quello che restava della Camorra Salentina. <a onclick="navigateTo('Alice Sportella')">Alice</a> stava mettendo a letto Luca, Gino e Carla nella nuova casa a Serrano — o meglio, nel paese vicino a dove Serrano era stata.</p>
+<p>In India, <a onclick="navigateTo('MariaTeresa Friolo')">Maria</a> aspettava.</p>
+<p>Di Alessio non si ebbero notizie.</p>
+<div class="stub-box"><span style="font-size:22px">🔥</span><span>Questa voce sarà aggiornata se qualcosa cambia. Per ora: tutto è fermo, tutto è cenere, tutto è arancione.</span></div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Guerra</a> <a>Storia del mondo pocchiano</a> <a>Alex Spisso</a> <a>Bomba Spissica</a> <a>Serrano</a> <a>Fine del mondo (quasi)</a></div>`;
+}
 
 loadPagesLocalOnly();
 updateSidebar();
