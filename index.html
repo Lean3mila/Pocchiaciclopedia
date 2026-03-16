@@ -642,6 +642,18 @@ clearfix::after { content: ''; display: block; clear: both; }
   #wiki-nav-inner { padding-left: 16px; }
   .infobox { float: none; width: 100%; margin: 0 0 16px; }
 }
+
+/* ── MODALITÀ SICURA (oscura le parole Spiss*) ── */
+.spiss-safe-mode .spiss-redact {
+  background: #111 !important;
+  color: #111 !important;
+  border-radius: 2px;
+  cursor: not-allowed;
+  user-select: none;
+}
+
+/* ── MODALITÀ SPECCHIA ── */
+/* nessun CSS speciale, è gestita via JS sostituendo il testo */
 </style>
 <!-- Firebase SDK (ES modules via CDN) -->
 <script type="module">
@@ -2954,6 +2966,28 @@ function buildPocchiaInscatola() {
   </div>
 </div>
 
+<div style="border:2px solid #1a237e;background:#e8eaf6;padding:20px 24px;margin:20px 0;font-family:sans-serif;border-radius:3px">
+  <h3 style="margin:0 0 8px;font-family:sans-serif;font-size:15px;color:#1a237e">🕶️ Modalità Epstein — Oscura le parole Spiss*</h3>
+  <p style="font-size:13px;margin-bottom:14px;color:#333">Nasconde con un rettangolo nero tutte le occorrenze di <b>Spisso</b>, <b>Spiss</b> e derivati (come <i>Spissica</i>, <i>Spissato</i>, ecc.) in tutta la pagina corrente. Utile in ambienti pubblici o se sei circondato da nemici.</p>
+  <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+    <button onclick="attivaModalitaSicura()" id="btn-modalita-sicura" style="padding:10px 22px;background:#1a237e;color:white;border:none;border-radius:3px;font-size:14px;font-family:sans-serif;cursor:pointer;font-weight:600">
+      🕶️ Attiva Modalità Epstein
+    </button>
+    <span id="stato-modalita-sicura" style="font-size:12px;color:#555">Stato: <b>disattivata</b></span>
+  </div>
+</div>
+
+<div style="border:2px solid #2e7d32;background:#e8f5e9;padding:20px 24px;margin:20px 0;font-family:sans-serif;border-radius:3px">
+  <h3 style="margin:0 0 8px;font-family:sans-serif;font-size:15px;color:#2e7d32">🪞 Modalità Specchia — Sostituisce Spiss* con Specch*</h3>
+  <p style="font-size:13px;margin-bottom:14px;color:#333">Sostituisce tutte le occorrenze di <b>Spisso</b> con <b>Specchia</b> e di <b>Spiss</b> (in parole composte come <i>Spissica</i>) con <b>Specch</b> (diventando <i>Specchiaca</i>). La sostituzione agisce su tutta la pagina corrente.</p>
+  <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+    <button onclick="attivaModalitaSpecchia()" id="btn-modalita-specchia" style="padding:10px 22px;background:#2e7d32;color:white;border:none;border-radius:3px;font-size:14px;font-family:sans-serif;cursor:pointer;font-weight:600">
+      🪞 Attiva Modalità Specchia
+    </button>
+    <span id="stato-modalita-specchia" style="font-size:12px;color:#555">Stato: <b>disattivata</b></span>
+  </div>
+</div>
+
 <h2>Cosa viene ripristinato <span class="edit-link" onclick="openEditor('pocchiainscatola')">[modifica]</span></h2>
 <p>Il reset elimina:</p>
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2.1">
@@ -2962,6 +2996,7 @@ function buildPocchiaInscatola() {
   <li>I dati salvati nel localStorage del browser</li>
 </ul>
 <p>Non viene toccato nulla del codice sorgente dell'enciclopedia — solo i dati del database. Per un reset completo del codice è necessario sostituire il file <code>Pocchia.html</code>.</p>
+<p style="font-family:sans-serif;font-size:13px;margin-top:8px">Le Modalità Epstein e Specchia sono <b>persistenti</b>: rimangono attive per tutti finché qualcuno non le disattiva da questa pagina.</p>
 
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Amministrazione</a> <a>Strumenti</a></div>`;
@@ -3535,7 +3570,167 @@ async function resetToDefault() {
   showToast('✅ Reset completato. Pocchiaciclopedia ripristinata all\'originale.');
 }
 
-// Inizializza Firebase e carica le pagine utente
+// ══════════════════════════════════════════════════════
+//  MODALITÀ SICURA / SPECCHIA — persistenza globale
+//  Lo stato è salvato su Firebase in settings/modalita
+//  e si propaga in tempo reale a tutti gli utenti.
+// ══════════════════════════════════════════════════════
+let modalitaSicuraAttiva = false;
+let modalitaSpecchiaAttiva = false;
+
+// ── Salva stato su Firebase (o localStorage come fallback) ──
+async function salvaStatoModalita(sicura, specchia) {
+  const data = { sicura: !!sicura, specchia: !!specchia };
+  // localStorage fallback (sempre)
+  try { localStorage.setItem('pocchia_modalita', JSON.stringify(data)); } catch(e) {}
+  // Firebase
+  if (firebaseReady && window._fbDb && window._fbRef && window._fbSet) {
+    try {
+      await window._fbSet(window._fbRef(window._fbDb, 'settings/modalita'), data);
+    } catch(e) { console.warn('Errore salvataggio modalità:', e); }
+  }
+}
+
+// ── Applica lo stato visivo SENZA toccare Firebase ──
+function applicaModalitaSicura() {
+  const articleEl = document.getElementById('article-content');
+  if (!articleEl) return;
+  const walker = document.createTreeWalker(articleEl, NodeFilter.SHOW_TEXT, null);
+  const regex = /Spiss\w*|Serrano|\bAlessio\b/gi;
+  const nodesToProcess = [];
+  let node;
+  while ((node = walker.nextNode())) {
+    if (regex.test(node.nodeValue)) nodesToProcess.push(node);
+    regex.lastIndex = 0;
+  }
+  nodesToProcess.forEach(textNode => {
+    const parent = textNode.parentNode;
+    if (!parent || parent.classList?.contains('spiss-redact')) return;
+    const frag = document.createDocumentFragment();
+    const parts = textNode.nodeValue.split(/(Spiss\w*|Serrano|\bAlessio\b)/gi);
+    parts.forEach(part => {
+      if (/^(Spiss\w*|Serrano|Alessio)$/i.test(part)) {
+        const span = document.createElement('span');
+        span.className = 'spiss-redact';
+        span.textContent = part;
+        span.title = '⬛ [OSCURATO — Modalità Epstein]';
+        frag.appendChild(span);
+      } else {
+        frag.appendChild(document.createTextNode(part));
+      }
+    });
+    parent.replaceChild(frag, textNode);
+  });
+  document.body.classList.add('spiss-safe-mode');
+}
+
+function sostituisciSpissNelTesto(str) {
+  return str
+    // ── Nomi propri specifici (prima delle regole generiche) ──
+    .replace(/MariaTeresa Friolo/g, 'Maria Benjamin')
+    .replace(/mariateresa friolo/gi, 'Maria Benjamin')
+    .replace(/Alessio Spisso/g, 'Emanuele Specchia')
+    .replace(/alessio spisso/gi, 'Emanuele Specchia')
+    // Alessio standalone → Emanuele (dopo aver già gestito "Alessio Spisso")
+    .replace(/\bAlessio\b/g, 'Emanuele')
+    .replace(/\balessio\b/g, 'emanuele')
+    .replace(/Serrano/g, 'Martano')
+    .replace(/serrano/g, 'martano')
+    // ── Regola generica Spisso → Specchia, Spiss → Specch ──
+    .replace(/Spisso/g, 'Specchia')
+    .replace(/spisso/g, 'specchia')
+    .replace(/SPISSO/g, 'SPECCHIA')
+    .replace(/Spiss/g, 'Specch')
+    .replace(/spiss/g, 'specch')
+    .replace(/SPISS/g, 'SPECCH');
+}
+
+function applicaModalitaSpecchia() {
+  const articleEl = document.getElementById('article-content');
+  if (!articleEl) return;
+  // Cammina su TUTTI i nodi di testo (non solo quelli con Spiss)
+  // perché dobbiamo sostituire anche Serrano, Alessio, MariaTeresa ecc.
+  const walker = document.createTreeWalker(articleEl, NodeFilter.SHOW_TEXT, null);
+  const nodesToProcess = [];
+  let node;
+  while ((node = walker.nextNode())) {
+    if (/spiss|serrano|alessio|mariateresa friolo/i.test(node.nodeValue)) nodesToProcess.push(node);
+  }
+  nodesToProcess.forEach(textNode => {
+    textNode.nodeValue = sostituisciSpissNelTesto(textNode.nodeValue);
+  });
+  articleEl.querySelectorAll('[title]').forEach(el => {
+    if (/spiss|serrano|alessio|mariateresa friolo/i.test(el.title)) el.title = sostituisciSpissNelTesto(el.title);
+  });
+}
+
+// ── Aggiorna UI dei pulsanti in pocchiainscatola ──
+function aggiornaUIModalita() {
+  const btnS = document.getElementById('btn-modalita-sicura');
+  const statoS = document.getElementById('stato-modalita-sicura');
+  const btnSp = document.getElementById('btn-modalita-specchia');
+  const statoSp = document.getElementById('stato-modalita-specchia');
+
+  if (btnS) {
+    btnS.textContent = modalitaSicuraAttiva ? '🕶️ Disattiva Modalità Epstein' : '🕶️ Attiva Modalità Epstein';
+    btnS.style.background = modalitaSicuraAttiva ? '#555' : '#1a237e';
+  }
+  if (statoS) statoS.innerHTML = modalitaSicuraAttiva
+    ? 'Stato: <b style="color:#c62828">attiva — visibile a tutti</b>'
+    : 'Stato: <b>disattivata</b>';
+
+  if (btnSp) {
+    btnSp.textContent = modalitaSpecchiaAttiva ? '🪞 Disattiva Modalità Specchia' : '🪞 Attiva Modalità Specchia';
+    btnSp.style.background = modalitaSpecchiaAttiva ? '#555' : '#2e7d32';
+  }
+  if (statoSp) statoSp.innerHTML = modalitaSpecchiaAttiva
+    ? 'Stato: <b style="color:#2e7d32">attiva — visibile a tutti</b>'
+    : 'Stato: <b>disattivata</b>';
+}
+
+// ── Applica la modalità attiva alla pagina attuale ──
+function applicaModalitaAttiva() {
+  if (modalitaSicuraAttiva) applicaModalitaSicura();
+  else if (modalitaSpecchiaAttiva) applicaModalitaSpecchia();
+  else document.body.classList.remove('spiss-safe-mode');
+  aggiornaUIModalita();
+}
+
+// ── Pulsanti chiamati dall'utente ──
+async function attivaModalitaSicura() {
+  const nuovoStato = !modalitaSicuraAttiva;
+  modalitaSicuraAttiva = nuovoStato;
+  if (nuovoStato) modalitaSpecchiaAttiva = false;
+  await salvaStatoModalita(modalitaSicuraAttiva, modalitaSpecchiaAttiva);
+  renderPage(currentPage); // ricarica HTML pulito, poi applica
+  showToast(nuovoStato
+    ? '🕶️ Modalità Epstein attivata per tutti!'
+    : '🕶️ Modalità Epstein disattivata.');
+}
+
+async function attivaModalitaSpecchia() {
+  const nuovoStato = !modalitaSpecchiaAttiva;
+  modalitaSpecchiaAttiva = nuovoStato;
+  if (nuovoStato) modalitaSicuraAttiva = false;
+  await salvaStatoModalita(modalitaSicuraAttiva, modalitaSpecchiaAttiva);
+  renderPage(currentPage);
+  showToast(nuovoStato
+    ? '🪞 Modalità Specchia attivata per tutti!'
+    : '🪞 Modalità Specchia disattivata.');
+}
+
+// ── Carica stato iniziale da localStorage (prima che Firebase risponda) ──
+function caricaStatoModalitaLocale() {
+  try {
+    const raw = localStorage.getItem('pocchia_modalita');
+    if (raw) {
+      const data = JSON.parse(raw);
+      modalitaSicuraAttiva = !!data.sicura;
+      modalitaSpecchiaAttiva = !!data.specchia;
+    }
+  } catch(e) {}
+}
+
 // Inizializza Firebase (attende che il modulo ES sia pronto)
 function initFirebase() {
   return new Promise((resolve) => {
@@ -3585,6 +3780,21 @@ function initFirebase() {
           const safeKey = title.replace(/[.#$/\[\]]/g, '_');
           await fbSet(fbRef(db, 'pages/' + safeKey), pageData);
         };
+
+        // ── Ascolta lo stato delle modalità Sicura/Specchia in tempo reale ──
+        fbOnValue(fbRef(db, 'settings/modalita'), (snap) => {
+          const data = snap.val();
+          const nuovaSicura = data ? !!data.sicura : false;
+          const nuovaSpecchia = data ? !!data.specchia : false;
+          const cambiato = nuovaSicura !== modalitaSicuraAttiva || nuovaSpecchia !== modalitaSpecchiaAttiva;
+          modalitaSicuraAttiva = nuovaSicura;
+          modalitaSpecchiaAttiva = nuovaSpecchia;
+          // Salva anche in localStorage
+          try { localStorage.setItem('pocchia_modalita', JSON.stringify({ sicura: nuovaSicura, specchia: nuovaSpecchia })); } catch(e) {}
+          if (cambiato) {
+            renderPage(currentPage); // riapplica la modalità alla pagina corrente
+          }
+        });
 
         firebaseReady = true;
         banner.innerHTML = '✅ Wiki condivisa attiva — le modifiche sono visibili a tutti.';
@@ -3655,7 +3865,7 @@ async function savePages(title, pageData) {
 
 function getCommunityPages() {
   return Object.keys(pages)
-    .filter(k => k !== 'Main')
+    .filter(k => k !== 'Main' && !DEFAULT_PAGES.hasOwnProperty(k))
     .sort((a, b) => a.localeCompare(b, 'it'));
 }
 
@@ -3841,6 +4051,9 @@ function renderPage(name) {
   }
 
   document.title = `${page.title} — Pocchiaciclopedia`;
+
+  // Applica la modalità attiva (Sicura o Specchia) se persistente
+  applicaModalitaAttiva();
 }
 
 function updateSidebar() {
@@ -4603,6 +4816,7 @@ function buildFilippine() {
 }
 
 loadPagesLocalOnly();
+caricaStatoModalitaLocale(); // carica stato modalità da localStorage prima che Firebase risponda
 updateSidebar();
 navigateTo('Main');
 initFirebase().then(() => {
