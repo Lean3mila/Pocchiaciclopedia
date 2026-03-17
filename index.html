@@ -772,6 +772,7 @@ clearfix::after { content: ''; display: block; clear: both; }
       <a onclick="navigateTo('Main')">Pagina principale</a>
       <a onclick="navigateTo('Napoli')">Napoli</a>
       <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a>
+      <a onclick="navigateTo('Serrano')">Serrano</a>
       <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a>
       <a onclick="navigateTo('Calendario Morello')">Calendario Morello</a>
     </div>
@@ -790,6 +791,13 @@ clearfix::after { content: ''; display: block; clear: both; }
       <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a>
       <a onclick="navigateTo('Filippine')">🌿 Filippine</a>
       <a onclick="navigateTo('De Morellis')">De Morellis</a>
+    </div>
+    <div class="sb-section">
+      <h4>Clan Spisso</h4>
+      <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a>
+      <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a>
+      <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a>
+      <a onclick="navigateTo('Operazione Brick')">🧱 Operazione Brick</a>
     </div>
     <div class="sb-section">
       <h4>Tutte le pagine</h4>
@@ -1364,6 +1372,12 @@ const DEFAULT_PAGES = {
     wikitext: "",
     history: [],
     content: ""
+  },
+  "Operazione Brick": {
+    title: "Operazione Brick",
+    wikitext: "",
+    history: [],
+    content: ""
   }
 };
 
@@ -1425,6 +1439,7 @@ DEFAULT_PAGES["Ilaria Spisso"].content = buildIlariaSpisso();
 DEFAULT_PAGES["La Guerra Finale"].content = buildLaGuerraFinale();
 DEFAULT_PAGES["Bomba Spissica"].content = buildBombaSpissica();
 DEFAULT_PAGES["MariaTeresa Friolo"].content = buildMariaTeresaFriolo();
+DEFAULT_PAGES["Operazione Brick"].content = buildOperazioneBrick();
 
 
 function buildSalDaSpicci() {
@@ -1598,14 +1613,13 @@ function buildCamoraSalentina() {
 <div class="infobox">
   <div class="infobox-title">Camorra Salentina</div>
   <table>
-    <tr><td>Tipo</td><td>Organizzazione criminale</td></tr>
-    <tr><td>Fondatore presunto</td><td><a onclick="navigateTo('Morello')">Morello</a> (dopo il 17 aM)</td></tr>
-    <tr><td>Sede</td><td>Salento, Puglia</td></tr>
-    <tr><td>Leader attuale</td><td><a onclick="navigateTo('De Morellis')">De Morellis</a></td></tr>
+    <tr><td>Tipo</td><td>Organizzazione criminale / Stato di fatto</td></tr>
+    <tr><td>Fondatore</td><td><a onclick="navigateTo('Morello')">Morello</a> (dopo il 17 aM)</td></tr>
+    <tr><td>Sede</td><td>Salento</td></tr>
+    <tr><td>Leader storico</td><td><a onclick="navigateTo('De Morellis')">De Morellis</a> (= Morello)</td></tr>
     <tr><td>Rivale storico</td><td><a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> (dissolto 89 aM)</td></tr>
     <tr><td>Rapporto con il Topismo</td><td>Ambiguo — né alleato né nemico dichiarato</td></tr>
-    <tr><td>Stato</td><td>Attiva</td></tr>
-    <tr><td>Sito ufficiale</td><td>Nessuno. Come al solito.</td></tr>
+    <tr><td>Stato</td><td><b>Non esiste più</b> — dal 108 aM è diventata le <a onclick="navigateTo('Filippine')">Filippine</a></td></tr>
   </table>
 </div>
 <p>La <b>Camorra Salentina</b> è un'organizzazione criminale con base nel <b>Salento</b>, la punta dello stivale pugliese, operativa da almeno l'Anno 17 aM secondo le tradizioni orali locali. La sua fondazione è attribuita dalla maggior parte delle fonti — storiche, popolari e vagamente cospirazioniste — a <a onclick="navigateTo('Morello')">Morello</a>, il co-governatore di <a onclick="navigateTo('Napoli')">Napoli</a> scomparso dopo l'eruzione del Vesuvio. Gli storici chiamano questa attribuzione «non verificabile». I salentini la chiamano «ovvia». I napoletani la chiamano «ovviamente ovvia».</p>
@@ -1723,62 +1737,62 @@ function buildDeMorellis() {
 }
 
 function buildErmenegildoSpisso() {
-  return `<div class="wiki-notice"><span class="ni">🔬</span><span>Ermenegildo Spisso è l'unico membro del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> ad aver pubblicato su riviste scientifiche peer-reviewed. La famiglia lo considera un successo comunque.</span></div>
+  return `<div class="wiki-notice"><span class="ni">🔬</span><span>Ermenegildo Spisso ha scritto sia le <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')">F.O.N.D.A.M.E.N.T.A.</a> che le <a onclick="navigateTo('L.E.G.G.I.')">L.E.G.G.I.</a> — entrambe. Lo si credeva autore solo delle prime. La verità è emersa durante l'<a onclick="navigateTo('Operazione Brick')">Operazione Brick</a>.</span></div>
 <h1 class="page-title">Ermenegildo Spisso</h1>
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
 <div class="infobox">
   <div class="infobox-title">Ermenegildo "Gildo" Spisso</div>
   <table>
-    <tr><td>Nato</td><td>14 febbraio 17 aM, Serrano (CE)</td></tr>
-    <tr><td>Morto</td><td>3 ottobre 78 aM, Serrano (CE)</td></tr>
+    <tr><td>Nato</td><td>14 febbraio 17 aM, Serrano</td></tr>
+    <tr><td>Scomparso</td><td>Fine anni 70 aM — per mano di Salvatore Spisso</td></tr>
+    <tr><td>Morto ufficialmente</td><td>3 ottobre 78 aM, Serrano</td></tr>
     <tr><td>Famiglia</td><td><a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> (per sangue, non per scelta)</td></tr>
-    <tr><td>Formazione</td><td>Università degli Studi di Napoli Federico II</td></tr>
+    <tr><td>Formazione</td><td>Università degli Studi di Napoli</td></tr>
     <tr><td>Campo</td><td>Fisica teorica, cosmologia fondamentale</td></tr>
-    <tr><td>Opera principale</td><td><a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')">F.O.N.D.A.M.E.N.T.A.</a> (47 aM)</td></tr>
-    <tr><td>Rapporto con il clan</td><td>Parente. Non collaboratore.</td></tr>
-    <tr><td>Citazioni celebri</td><td>«La domanda non mi sembra interessante quanto le altre»</td></tr>
+    <tr><td>Opere (firmate)</td><td><a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')">F.O.N.D.A.M.E.N.T.A.</a> (47 aM)</td></tr>
+    <tr><td>Opere (pseudonimo)</td><td><a onclick="navigateTo('L.E.G.G.I.')">L.E.G.G.I.</a> (51 aM) — firmato <b>Specchia</b></td></tr>
+    <tr><td>Identità rivelata da</td><td>Lettere sequestrate nell'<a onclick="navigateTo('Operazione Brick')">Operazione Brick</a>, 89 aM</td></tr>
+    <tr><td>Motivo dello pseudonimo</td><td>Ordine di Salvatore Spisso — la fama era un problema</td></tr>
   </table>
 </div>
-<p><b>Ermenegildo Spisso</b>, universalmente noto come <b>Gildo</b> (Serrano, 14 febbraio 17 aM – Serrano, 3 ottobre 78 aM), è stato un fisico teorico e la figura intellettualmente più singolare della storia del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a>. Non partecipò mai alle attività criminali della famiglia ma vi appartenne per sangue — fatto che non lo disturbò particolarmente, poiché era troppo occupato a studiare la struttura della realtà per occuparsi di questioni che giudicava «di portata limitata».</p>
-<p>La sua opera principale, la teoria <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')"><b>F.O.N.D.A.M.E.N.T.A.</b></a> — pubblicata nel 47 aM dopo trent'anni di ricerca — è considerata il primo tentativo sistematico di descrivere la struttura ontologica profonda del mondo creato da <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a>.</p>
+<p><b>Ermenegildo Spisso</b>, universalmente noto come <b>Gildo</b> (Serrano, 14 febbraio 17 aM – Serrano, 3 ottobre 78 aM), è stato un fisico teorico e la figura intellettualmente più singolare della storia del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a>. Non partecipò mai alle attività criminali della famiglia ma vi appartenne per sangue — una circostanza che, alla fine, lo uccise.</p>
+<p>Per decenni si credeva fosse l'autore di una sola opera: le <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')"><b>F.O.N.D.A.M.E.N.T.A.</b></a> La verità, emersa durante l'<a onclick="navigateTo('Operazione Brick')">Operazione Brick</a> dell'89 aM grazie a lettere sequestrate nella masseria di famiglia, è che Gildo scrisse anche le <a onclick="navigateTo('L.E.G.G.I.')"><b>L.E.G.G.I.</b></a> — firmate con lo pseudonimo <b>Specchia</b> su ordine esplicito di suo nipote <b>Salvatore Spisso</b>, che non voleva che il fisico di famiglia diventasse troppo famoso. Quando la fama crebbe comunque, Salvatore lo fece sparire.</p>
 
-<div class="toc-box">
-  <div class="toc-title">Indice</div>
-  <ol>
-    <li><a href="#bio-g">Biografia</a></li>
-    <li><a href="#studi-g">Gli studi a Napoli</a></li>
-    <li><a href="#ricerca-g">La ricerca: trent'anni sulle fondamenta</a></li>
-    <li><a href="#fondamenta-g">La teoria F.O.N.D.A.M.E.N.T.A.</a></li>
-    <li><a href="#famiglia-g">Il rapporto con la famiglia Spisso</a></li>
-    <li><a href="#eredita-g">L'eredità</a></li>
-  </ol>
-</div>
+<div class="toc-box"><div class="toc-title">Indice</div><ol>
+  <li><a href="#bio-g">Biografia</a></li>
+  <li><a href="#studi-g">Gli studi a Napoli</a></li>
+  <li><a href="#fondamenta-g">Le F.O.N.D.A.M.E.N.T.A. (47 aM)</a></li>
+  <li><a href="#leggi-g">Le L.E.G.G.I. e lo pseudonimo Specchia (51 aM)</a></li>
+  <li><a href="#salvatore-g">Salvatore Spisso e la scomparsa</a></li>
+  <li><a href="#eredita-g">L'eredità — rivelata nell'89 aM</a></li>
+</ol></div>
 
 <h2 id="bio-g">Biografia <span class="edit-link" onclick="openEditor('Ermenegildo Spisso')">[modifica]</span></h2>
-<p>Gildo nacque a Serrano il 14 febbraio del 17 aM, in quella che era già la casa di una famiglia con caratteristiche particolari. Terzo figlio di un cugino di Gennaro "o' Professore" Spisso, crebbe nell'orbita del clan senza che nessuno si aspettasse da lui nulla di straordinario — e sicuramente non una carriera accademica. Sua madre lo descriveva come «il bambino che guardava le cose troppo a lungo». Suo padre lo descriveva come «un problema che si sarebbe risolto da solo». Avevano torto entrambi, nel senso che era un bambino che guardava le cose troppo a lungo e che non si risolse da solo ma divenne uno dei più importanti fisici teorici del suo tempo.</p>
+<p>Gildo nacque a Serrano il 14 febbraio del 17 aM. Cugino di Gennaro "o' Professore" Spisso, crebbe nell'orbita del clan senza che nessuno si aspettasse da lui nulla di straordinario — e sicuramente non una carriera accademica. Sua madre lo descriveva come «il bambino che guardava le cose troppo a lungo». Aveva ragione, ma nel senso sbagliato: non era un difetto, era il metodo.</p>
 
 <h2 id="studi-g">Gli studi a Napoli <span class="edit-link" onclick="openEditor('Ermenegildo Spisso')">[modifica]</span></h2>
-<p>Gildo lasciò Serrano a diciassette anni per iscriversi alla Facoltà di Fisica dell'Università degli Studi di Napoli Federico II. La famiglia Spisso non si oppose — non si opponeva a nulla che non toccasse direttamente i suoi affari, e un nipote all'università era, nel peggiore dei casi, un'opportunità di rispettabilità. Non fu quello che Gildo aveva in mente.</p>
-<p>Si laureò nel 34 aM con una tesi sulla struttura quantistica dello spazio-tempo che il relatore definì «tecnicamente impeccabile e filosoficamente inquietante». Restò a Napoli per il dottorato, che completò nel 38 aM. Durante questi anni sviluppò la sua intuizione centrale: che la realtà non fosse semplicemente descritta da leggi fisiche, ma che quelle leggi fossero esse stesse la struttura architettonica di una creazione intenzionale — progettata, non emergente.</p>
+<p>Si laureò nel 34 aM con una tesi sulla struttura quantistica dello spazio-tempo che il relatore definì «tecnicamente impeccabile e filosoficamente inquietante». Completò il dottorato nel 38 aM, sviluppando la sua intuizione centrale: la realtà non è semplicemente descritta da leggi fisiche, ma quelle leggi sono la struttura architettonica di una creazione intenzionale. Tornò a Serrano nel 41 aM per lavorare in silenzio, nella stessa casa in cui era nato, con quattromila volumi e ventiduemila pagine di appunti.</p>
 
-<h2 id="ricerca-g">La ricerca: trent'anni sulle fondamenta <span class="edit-link" onclick="openEditor('Ermenegildo Spisso')">[modifica]</span></h2>
-<p>Dal 38 aM al 47 aM — trent'anni esatti — Gildo lavorò senza interruzioni significative a quello che sarebbe diventato il suo capolavoro. Tornò a Serrano nel 41 aM, non per nostalgia ma perché il silenzio dell'entroterra campano era, a suo giudizio, più favorevole alla concentrazione del trambusto accademico napoletano. Visse e lavorò nella stessa casa in cui era nato, con una biblioteca di quattromila volumi e un quaderno di appunti che alla fine contava oltre ventiduemila pagine manoscritte.</p>
-<p>La famiglia Spisso lo lasciò in pace. Questo è probabilmente il contributo più sottovalutato del clan alla storia della fisica teorica.</p>
+<h2 id="fondamenta-g">Le F.O.N.D.A.M.E.N.T.A. (47 aM) <span class="edit-link" onclick="openEditor('Ermenegildo Spisso')">[modifica]</span></h2>
+<p>Nel 47 aM pubblicò con il proprio nome i <i>Fondamenti Ontologici della Natura, della Dimensione, dell'Architettura, della Materia, dell'Energia, dei Nessi, della Topologia e dell'Assoluto</i> — acronimo <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')"><b>F.O.N.D.A.M.E.N.T.A.</b></a> La teoria descriveva le strutture fondamentali del cosmo come strati architettonici di un progetto razionale. I Ludotopici la adottarono come testo sacro laico. La famiglia Spisso non capì cosa fosse ma era contenta che ci fosse. Il nome Gildo Spisso aveva peso accademico. Finché non ne ebbe troppo.</p>
 
-<h2 id="fondamenta-g">La teoria F.O.N.D.A.M.E.N.T.A. <span class="edit-link" onclick="openEditor('Ermenegildo Spisso')">[modifica]</span></h2>
-<p>Nel 47 aM Gildo pubblicò il testo che avrebbe definito la sua eredità: <i>«Fondamenti Ontologici della Natura, della Dimensione, dell'Architettura, della Materia, dell'Energia, dei Nessi, della Topologia e dell'Assoluto»</i> — acronimo <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')"><b>F.O.N.D.A.M.E.N.T.A.</b></a> La scelta dell'acronimo non fu casuale. «Le fondamenta», scrisse nella prefazione, «sono ciò che nessuno vede e su cui tutto sta. Era giusto dargli un nome che lo ricordasse.» Il riferimento al padre di <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico</a> — l'Architetto <a onclick="navigateTo('VitoCarlo Tommasi')">VitoCarlo Tommasi</a> — fu subito colto dai Ludotopici come un omaggio. Gildo non confermò né smentì.</p>
-<p>La teoria descriveva le strutture fondamentali del cosmo come strati architettonici di un progetto razionale. Non citava Ludovico esplicitamente, ma la compatibilità con la cosmologia topista era talmente evidente che i Ludotopici la adottarono come testo sacro laico. Gildo rispose che «la verità non appartiene a chi la usa».</p>
+<h2 id="leggi-g">Le L.E.G.G.I. e lo pseudonimo Specchia (51 aM) <span class="edit-link" onclick="openEditor('Ermenegildo Spisso')">[modifica]</span></h2>
+<p>Quattro anni dopo le F.O.N.D.A.M.E.N.T.A., Gildo completò il complemento empirico del suo sistema: le <i>Leggi Empiriche della Gravità, della Genesi, dell'Inerzia e dei Interscambi cosmici</i> — <a onclick="navigateTo('L.E.G.G.I.')"><b>L.E.G.G.I.</b></a> Se le F.O.N.D.A.M.E.N.T.A. erano la mappa ontologica del cosmo, le L.E.G.G.I. ne erano il manuale operativo: come si misura, come si predice, come si verifica.</p>
+<p>Non le firmò con il suo nome. Le pubblicò sotto lo pseudonimo <b>Specchia</b> — lo specchio, l'alter ego, il riflesso — perché <b>Salvatore Spisso</b> glielo aveva ordinato esplicitamente. Nelle lettere ritrovate durante l'<a onclick="navigateTo('Operazione Brick')">Operazione Brick</a>, Gildo scrisse: <i>«Salvatore mi ha detto che le F.O.N.D.A.M.E.N.T.A. erano già troppe. Che un uomo della famiglia non poteva avere più fama di lui. Che se avessi pubblicato anche questo lavoro col mio nome, sarebbe diventato un problema. Ho scelto di chiamarmi Specchia perché uno specchio non ha un nome, mostra solo quello che gli sta davanti. Le leggi esistono. Non importa come mi chiamo.»</i></p>
+<p>Per quasi quarant'anni nessuno seppe che Specchia e Gildo erano la stessa persona. La paternità di entrambe le opere era nota solo a Gildo stesso — e, in modo vago, a Salvatore, che aveva ordinato il silenzio senza capire fino in fondo cosa stesse censurando.</p>
 
-<h2 id="famiglia-g">Il rapporto con la famiglia Spisso <span class="edit-link" onclick="openEditor('Ermenegildo Spisso')">[modifica]</span></h2>
-<p>Gildo non parlò mai pubblicamente del clan. Non lo difese né lo condannò. Quando un giornalista, nel 52 aM, gli chiese se si vergognasse di appartenere a quella famiglia, rispose: «Mi chiedo se lei si vergogni di appartenere alla specie che ha inventato la bomba atomica. Anche quella è una questione di famiglia.» L'intervista fu pubblicata. Il giornalista non ottenne mai una seconda.</p>
+<h2 id="salvatore-g">Salvatore Spisso e la scomparsa <span class="edit-link" onclick="openEditor('Ermenegildo Spisso')">[modifica]</span></h2>
+<p>Nonostante lo pseudonimo, la fama di Gildo crebbe ugualmente. Le F.O.N.D.A.M.E.N.T.A. erano troppo importanti per restare nell'ombra, e chi le leggeva cercava l'autore, si presentava a Serrano, scriveva lettere, citava il nome Spisso in contesti accademici internazionali. Agli occhi di Salvatore, ogni citazione era un rischio: un nome famoso era un nome visibile, e un nome visibile in una famiglia criminale era un punto di vulnerabilità.</p>
+<p>Verso la fine degli anni 70 aM, Salvatore Spisso fece sparire Gildo. Le circostanze precise non sono mai state chiarite. La data ufficiale di morte — 3 ottobre 78 aM — comparve nei registri comunali di Serrano, ma nessuna testimonianza diretta del decesso fu mai resa pubblica. Nelle lettere, Gildo aveva scritto nei mesi precedenti: <i>«Salvatore mi ha fatto capire che sono diventato scomodo. Non per quello che faccio, ma per quello che sono diventato. Qualcuno che le persone conoscono. E le persone che le persone conoscono non appartengono a famiglie come questa.»</i></p>
+<p>Queste lettere — insieme a quelle che confermavano la sua paternità delle L.E.G.G.I. — furono trovate nella masseria durante le perquisizioni dell'<a onclick="navigateTo('Operazione Brick')">Operazione Brick</a>. Furono presentate al processo non come prova di reato specifico — Salvatore non fu imputato per la scomparsa di Gildo, per mancanza di prove materiali — ma come elemento di contesto che completava il ritratto del clan. Il pubblico ministero le usò per descrivere la Famiglia Spisso come un'organizzazione che aveva distrutto la cosa più preziosa che possedeva perché non sapeva cosa farsene.</p>
 
-<h2 id="eredita-g">L'eredità <span class="edit-link" onclick="openEditor('Ermenegildo Spisso')">[modifica]</span></h2>
-<p>Morì a Serrano il 3 ottobre del 78 aM, nella stessa casa in cui era nato, con il manoscritto del secondo volume delle F.O.N.D.A.M.E.N.T.A. sulla scrivania — incompiuto. Il manoscritto è conservato presso la biblioteca dell'Università di Napoli. Nessuno lo ha ancora finito di leggere completamente, il che lo rende simile alla maggior parte delle opere fondamentali della fisica teorica.</p>
-<p>La teoria <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')">F.O.N.D.A.M.E.N.T.A.</a> rimane il riferimento strutturale per chiunque voglia descrivere scientificamente il cosmo di <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a>. Le <a onclick="navigateTo('L.E.G.G.I.')">L.E.G.G.I.</a> dell'<a onclick="navigateTo('Ignoto di Napoli')">Ignoto di Napoli</a>, sviluppate in parallelo e pubblicate in forma anonima, sono considerate il complemento naturale del suo lavoro.</p>
-<div class="stub-box"><span style="font-size:22px">🔬</span><span>Il secondo volume delle F.O.N.D.A.M.E.N.T.A. è ancora inedito. Chi volesse completarlo può rivolgersi alla biblioteca dell'Università di Napoli e portare tanta pazienza.</span></div>
+<h2 id="eredita-g">L'eredità — rivelata nell'89 aM <span class="edit-link" onclick="openEditor('Ermenegildo Spisso')">[modifica]</span></h2>
+<p>Dopo l'<a onclick="navigateTo('Operazione Brick')">Operazione Brick</a> e il processo del 91 aM, l'identità di Specchia come Gildo divenne pubblica. Le L.E.G.G.I. furono riattribuite. Gildo Spisso entrò nella storia come l'autore di entrambe le opere fondamentali della cosmologia di questo universo — le F.O.N.D.A.M.E.N.T.A. e le L.E.G.G.I. — scritte dallo stesso uomo in due voci, una pubblica e una nascosta, per ordine di una famiglia che non capiva cosa stava tenendo in cattività.</p>
+<p>Il secondo volume inedito delle F.O.N.D.A.M.E.N.T.A. — trovato sulla scrivania e sequestrato — conteneva il capitolo sulla teoria della parola come arma assoluta: la base teorica di quella che sarebbe diventata la <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a>. Riccardo non poteva saperlo. I manoscritti furono restituiti alla famiglia dopo il processo, finirono in India con Alessio, e da lì ad Alex. Il resto è un cratere.</p>
+<div class="stub-box"><span style="font-size:22px">🔬</span><span>Gildo ha scritto tutto. Firmato con due nomi. Ucciso con nessuno.</span></div>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Clan Spisso</a> <a>Fisici italiani</a> <a>F.O.N.D.A.M.E.N.T.A.</a> <a>Università di Napoli</a> <a>Persone di Serrano</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Clan Spisso</a> <a>Fisici</a> <a>F.O.N.D.A.M.E.N.T.A.</a> <a>L.E.G.G.I.</a> <a>Ignoto di Napoli</a> <a>Specchia</a> <a>Vittime del Clan Spisso</a></div>`;
 }
 
 function buildFondamenta() {
@@ -1881,36 +1895,52 @@ function buildLeggi() {
 }
 
 function buildIgnotoDiNapoli() {
-  return `<div class="wiki-notice"><span class="ni">❓</span><span>L'identità dell'Ignoto di Napoli è sconosciuta. Questa voce descrive ciò che si sa, che è poco, e ciò che si ipotizza, che è molto.</span></div>
+  return `<div class="wiki-notice"><span class="ni">🔍</span><span>L'identità dell'Ignoto di Napoli è stata rivelata durante il processo al <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> nell'89 aM. Era <a onclick="navigateTo('Ermenegildo Spisso')">Ermenegildo Gildo Spisso</a>. Si firmava Specchia.</span></div>
 <h1 class="page-title">Ignoto di Napoli</h1>
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
 <div class="infobox">
   <div class="infobox-title">Ignoto di Napoli</div>
   <table>
-    <tr><td>Identità</td><td><b>Sconosciuta</b></td></tr>
+    <tr><td>Identità reale</td><td><a onclick="navigateTo('Ermenegildo Spisso')">Ermenegildo "Gildo" Spisso</a></td></tr>
     <tr><td>Pseudonimo usato</td><td><b>Specchia</b></td></tr>
-    <tr><td>Provenienza presunta</td><td><a onclick="navigateTo('Napoli')">Napoli</a></td></tr>
-    <tr><td>Attivo</td><td>Intorno al 51 aM</td></tr>
+    <tr><td>Provenienza</td><td><a onclick="navigateTo('Serrano')">Serrano</a> (Caserta) · poi Napoli per gli studi</td></tr>
+    <tr><td>Attivo</td><td>Intorno al 51 aM (1968 d.C.)</td></tr>
     <tr><td>Opera</td><td><a onclick="navigateTo('L.E.G.G.I.')">L.E.G.G.I.</a></td></tr>
     <tr><td>Campo</td><td>Fisica empirica</td></tr>
-    <tr><td>Ipotesi sull'identità</td><td>Professore universitario / Ludotopico / <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a> sotto pseudonimo</td></tr>
+    <tr><td>Identità rivelata</td><td>89 aM — <a onclick="navigateTo('Operazione Brick')">Operazione Brick</a>, analisi forense dei manoscritti</td></tr>
   </table>
 </div>
-<p>L'<b>Ignoto di Napoli</b>, noto anche con lo pseudonimo <b>Specchia</b>, è il nome con cui è conosciuto l'autore anonimo delle <a onclick="navigateTo('L.E.G.G.I.')"><b>L.E.G.G.I.</b></a> — la raccolta delle leggi fisiche fondamentali del cosmo di <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a>, pubblicata nel 51 aM. Firmò con il solo nome Specchia, che non comparve mai su nessun altro documento. La provenienza napoletana è dedotta dallo stile del testo, da alcune inflessioni dialettali sublimate nella prosa scientifica, e da quello che diversi critici hanno descritto come «una certa filosofia del caos produttivo» che ricorda da vicino il modo in cui i napoletani guardano il mondo: con affetto, lucidità e nessuna illusione.</p>
-<p>Nessuno sa chi fosse. Nessuno ha trovato prove decisive. Nessuno ha smesso di cercare.</p>
+<p>L'<b>Ignoto di Napoli</b>, noto con lo pseudonimo <b>Specchia</b>, è il nome con cui è stato conosciuto per decenni l'autore anonimo delle <a onclick="navigateTo('L.E.G.G.I.')"><b>L.E.G.G.I.</b></a> — la raccolta delle leggi fisiche fondamentali del cosmo di <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a>, pubblicata nel 51 aM. L'identità rimase ignota per quasi quarant'anni. Fu rivelata durante il processo al <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a>, quando <a onclick="navigateTo('Riccardo Pascali')">Riccardo Pascali</a> presentò un'analisi linguistica forense dei manoscritti sequestrati nella masseria di Serrano: l'Ignoto era <a onclick="navigateTo('Ermenegildo Spisso')"><b>Ermenegildo "Gildo" Spisso</b></a>, il fisico del clan, nonno di Alex e Alessio. Si era firmato <b>Specchia</b> — lo specchio — come alter ego della sua identità pubblica di autore delle <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')">F.O.N.D.A.M.E.N.T.A.</a></p>
 
-<h2>Le teorie sull'identità <span class="edit-link" onclick="openEditor('Ignoto di Napoli')">[modifica]</span></h2>
-<p>Nel corso dei decenni sono emerse tre ipotesi principali, nessuna delle quali è stata confermata o definitivamente smentita:</p>
-<p><b>Ipotesi 1 — Il professore universitario:</b> La più semplice. Un accademico napoletano con idee troppo eterodosse per firmarle pubblicamente. L'anonimato come protezione della carriera. Spiegherebbe il rigore formale del testo e la sua familiarità con la letteratura scientifica contemporanea.</p>
-<p><b>Ipotesi 2 — Il Ludotopico scientificamente formato:</b> Un credente con una solida preparazione fisica che volle dare fondamento empirico alla cosmologia topista. Spiegherebbe il tono del testo, che tratta le entità divine come variabili fisiche con la stessa naturalezza con cui tratta la gravità.</p>
-<p><b>Ipotesi 3 — Gildo Spisso sotto pseudonimo (la teoria dello Specchio):</b> La più affascinante e la meno provata. <a onclick="navigateTo('Ermenegildo Spisso')">Ermenegildo Spisso</a> avrebbe scritto le L.E.G.G.I. come complemento empirico delle sue <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')">F.O.N.D.A.M.E.N.T.A.</a> — il lavoro teorico e il lavoro empirico di un unico autore che non volle firmare entrambi. A rafforzare questa tesi c'è il nome stesso: <b>Specchia come Specchio</b> — il riflesso di Gildo, il suo alter ego empirico, il volto che guardava il mondo dal lato opposto della stessa verità. Lo scienziato che descriveva le fondamenta dell'esistenza avrebbe usato lo pseudonimo come uno specchio in cui proiettare la parte di sé che voleva tenere separata. Gildo non commentò mai questa ipotesi. Questo è stato interpretato in tutti i modi possibili.</p>
+<div class="toc-box"><div class="toc-title">Indice</div><ol>
+  <li><a href="#perche-s">Perché lo pseudonimo</a></li>
+  <li><a href="#cosa-s">Le L.E.G.G.I. come complemento delle F.O.N.D.A.M.E.N.T.A.</a></li>
+  <li><a href="#scoperta-s">La scoperta — 89 aM</a></li>
+  <li><a href="#eredita-s">L'eredità</a></li>
+</ol></div>
 
-<h2>L'eredità <span class="edit-link" onclick="openEditor('Ignoto di Napoli')">[modifica]</span></h2>
-<p>Indipendentemente dall'identità dell'autore, le <a onclick="navigateTo('L.E.G.G.I.')">L.E.G.G.I.</a> sono considerate uno dei testi scientifici più importanti nella storia del cosmo di Ludovico. Insieme alle <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')">F.O.N.D.A.M.E.N.T.A.</a> di Gildo Spisso, formano il corpo teorico fondamentale della cosmologia di questo universo — uno scritto dalla persona più anomala di una famiglia criminale, l'altro da qualcuno che potrebbe essere chiunque. È il tipo di situazione in cui, se ci si pensa troppo, si smette di trovare normale.</p>
-<div class="stub-box"><span style="font-size:22px">❓</span><span>Se sai chi è l'Ignoto di Napoli, contattaci. Siamo seri.</span></div>
+<h2 id="perche-s">Perché lo pseudonimo <span class="edit-link" onclick="openEditor('Ignoto di Napoli')">[modifica]</span></h2>
+<p>Gildo Spisso era un fisico teorico che viveva nella masseria di una famiglia criminale. Aveva già pubblicato le <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')">F.O.N.D.A.M.E.N.T.A.</a> con il proprio nome nel 47 aM, e il testo era stato accolto con quella combinazione di ammirazione e diffidenza che si riserva alle opere troppo ambiziose per essere facilmente classificate. Firmare anche le L.E.G.G.I. con il proprio nome avrebbe significato due cose: primo, rivelare che stava lavorando su un'opera complementare che non aveva ancora discusso con nessuno; secondo, associare la cosmologia empirica del Topismo — che le L.E.G.G.I. di fatto fondavano — al cognome Spisso, che nella Campania degli anni '60 aveva già una reputazione che non aiutava la ricezione accademica.</p>
+<p>Scelse Specchia come pseudonimo con deliberatezza. Specchia come specchio: il riflesso di Gildo, la sua faccia empirica contro quella teorica. Le F.O.N.D.A.M.E.N.T.A. erano il lavoro del cosmografo — chi costruisce la mappa del tutto. Le L.E.G.G.I. erano il lavoro dell'osservatore — chi misura il tutto e ne estrae le regole. Uno scriveva il teatro, l'altro catalogava le leggi del palco.</p>
+<p>Gildo non commentò mai pubblicamente l'ipotesi che i due testi fossero dello stesso autore. Chi lo conosceva riportò che cambiasse argomento con la rapidità di chi ha deciso che il silenzio è la risposta definitiva.</p>
+
+<h2 id="cosa-s">Le L.E.G.G.I. come complemento delle F.O.N.D.A.M.E.N.T.A. <span class="edit-link" onclick="openEditor('Ignoto di Napoli')">[modifica]</span></h2>
+<p>Lette insieme — come si possono leggere ora che l'identità è nota — le due opere formano un sistema coerente. Le <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')">F.O.N.D.A.M.E.N.T.A.</a> descrivono la struttura ontologica del cosmo: cosa esiste, perché esiste, come si relaziona con sé stesso a livello fondamentale. Le <a onclick="navigateTo('L.E.G.G.I.')">L.E.G.G.I.</a> ne derivano le leggi empiriche: come si misura, come si predice, come si verifica. Uno è il sistema filosofico, l'altro è il manuale operativo dello stesso sistema.</p>
+<p>Che il medesimo uomo abbia scritto entrambi — uno firmandolo, l'altro nascondendosi — dice qualcosa su Gildo Spisso che nessuna biografia potrebbe dire meglio: era abbastanza intelligente da costruire un universo, e abbastanza consapevole da sapere che metà di quel lavoro non poteva portare il suo nome.</p>
+
+<h2 id="scoperta-s">La scoperta — 89 aM <span class="edit-link" onclick="openEditor('Ignoto di Napoli')">[modifica]</span></h2>
+<p>Durante le perquisizioni connesse all'<a onclick="navigateTo('Operazione Brick')">Operazione Brick</a>, <a onclick="navigateTo('Riccardo Pascali')">Riccardo Pascali</a> trovò nella masseria di Serrano, insieme ai manoscritti inediti di Gildo, un fascicolo di lettere personali scritte da Gildo stesso nel periodo 51–55 aM. In una di quelle lettere, Gildo descriveva esplicitamente la situazione:</p>
+<p><i>«Ho finito le Leggi. Sono il complemento di tutto ciò che ho già scritto — l'una non sta senza l'altra. Ma Salvatore mi ha fatto capire che il nome Gildo Spisso non può comparire due volte sullo stesso scaffale di una biblioteca. Troppa presenza. Ho scelto Specchia, perché uno specchio non ha autore — mostra solo quello che c'è.»</i></p>
+<p>Non era un'ipotesi. Non era una perizia. Era Gildo in persona che scriveva di aver scritto le L.E.G.G.I. e di averle firmate Specchia per ordine esplicito di Salvatore Spisso. Riccardo presentò le lettere al processo come prova documentale diretta. L'<b>Ignoto di Napoli era Gildo Spisso</b> — l'autore delle F.O.N.D.A.M.E.N.T.A. aveva scritto anche l'opera che si credeva di un autore sconosciuto.</p>
+<p>Gildo era morto nel 78 aM, undici anni prima della rivelazione. Non poteva rispondere a domande. I suoi manoscritti furono restituiti alla famiglia dopo il processo — e finirono nella cantina di <a onclick="navigateTo('Alessio Spisso')">Alessio</a> in India, da dove sarebbero stati portati, anni dopo, a suo fratello Alex.</p>
+
+<h2 id="eredita-s">L'eredità <span class="edit-link" onclick="openEditor('Ignoto di Napoli')">[modifica]</span></h2>
+<p>Oggi l'identità di Specchia è nota. Le L.E.G.G.I. vengono riattribuite a Gildo Spisso in tutte le edizioni successive alla sentenza del 91 aM. La dicitura «Ignoto di Napoli» è rimasta come titolo storico, ma lo pseudonimo Specchia è ormai una firma riconosciuta — il nome con cui Gildo scelse di pubblicare metà della sua vita intellettuale, nascosto a tutti tranne a sé stesso.</p>
+<p>Quella scelta ha avuto conseguenze che Gildo non poteva prevedere: il capitolo inedito delle F.O.N.D.A.M.E.N.T.A. che descriveva la teoria della <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> — il lavoro più pericoloso che avesse mai scritto — finì nelle mani di suo nipote Alex per una catena di eventi che iniziò con quelle stesse perquisizioni e si concluse con un cratere dove c'era Serrano.</p>
+<div class="stub-box"><span style="font-size:22px">🪞</span><span>Specchia era lo specchio. Gildo era l'originale. Adesso lo sappiamo tutti.</span></div>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Persone sconosciute</a> <a>Fisica empirica</a> <a>L.E.G.G.I.</a> <a>Napoli</a> <a>Misteri irrisolti</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Fisica empirica</a> <a>L.E.G.G.I.</a> <a>Napoli</a> <a>Clan Spisso</a> <a>Identità rivelate</a></div>`;
 }
 
 function buildLudovicoPioTommasi() {
@@ -2072,32 +2102,67 @@ function buildTopismo() {
 }
 
 function buildSerrano() {
-  return `<h1 class="page-title">Serrano</h1>
+  return `<div class="wiki-notice"><span class="ni">💥</span><span>Serrano non esiste più. Al suo posto c'è un cratere. Questa voce è scritta al passato per ragioni geografiche.</span></div>
+<h1 class="page-title">Serrano</h1>
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
 <div class="infobox">
   <div class="infobox-title">Serrano</div>
   <table>
-    <tr><td>Regione</td><td>Salento / Puglia</td></tr>
-    <tr><td>Evento principale</td><td>Incendi del 90 aM</td></tr>
-    <tr><td>Causa incendi</td><td>Caduta del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> (89 aM)</td></tr>
-    <tr><td>Religione</td><td><a onclick="navigateTo('Topismo')">Topismo</a> (104–105 aM, poi abolito)</td></tr>
-    <tr><td>Regime</td><td>Dittatura topista (104–105 aM) · <b>distrutta nel 107 aM</b></td></tr>
+    <tr><td>Stato</td><td>Indipendente — separato da Napoli dopo il 17 aM</td></tr>
+    <tr><td>Fondato da</td><td><a onclick="navigateTo('Clan Spisso')">Gennaro Spisso</a> — 23 aM</td></tr>
+    <tr><td>Governo storico</td><td><a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> (23–89 aM)</td></tr>
+    <tr><td>Periodo post-clan</td><td>Anarchia (89–90 aM) · incendi (90 aM)</td></tr>
+    <tr><td>Periodo topista</td><td><a onclick="navigateTo('Topismo')">Topismo</a> (90–103 aM) · dittatura (104–105 aM)</td></tr>
+    <tr><td>Conquista</td><td><a onclick="navigateTo('Avengers')">Avengers</a> + Famiglia Pocchia, 105 aM (67 giorni)</td></tr>
+    <tr><td>Distruzione</td><td><b>107 aM</b> — <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a></td></tr>
+    <tr><td>Stato attuale</td><td><b>Cratere</b></td></tr>
   </table>
 </div>
-<p><b>Serrano</b> era una città del Salento. Ha attraversato un incendio, una rivelazione divina, un martirio, un colpo di stato religioso, una conquista militare, e infine la cancellazione completa dalla mappa nel <b>107 aM</b> per opera della <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a>. Al posto della città esiste oggi un cratere.</p>
-<p>La città gravitava nell'orbita del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a>. Quando il clan fu smantellato da <a onclick="navigateTo('Riccardo Pascali')">Riccardo Pascali</a> nell'89 aM, Serrano perse la struttura di controllo che la teneva in piedi. L'anno successivo, il 90 aM, andò in fiamme.</p>
 
-<h2>Gli incendi del 90 aM <span class="edit-link" onclick="openEditor('Serrano')">[modifica]</span></h2>
-<p>Un anno esatto dopo la fine del Clan Spisso, Serrano bruciò. La relazione causale è dibattuta: per i Ludotopici era la volontà di Ludovico che preparava il terreno per la rivelazione. Per gli storici laici era il collasso delle strutture di sicurezza seguito alla caduta del clan. Probabilmente entrambe le spiegazioni contengono qualcosa di vero, anche se i Ludotopici non lo ammetterebbero mai.</p>
+<div class="toc-box"><div class="toc-title">Indice</div><ol>
+  <li><a href="#origini-s">Origini e fondazione</a></li>
+  <li><a href="#sotto-spisso">Sotto il Clan Spisso (23–89 aM)</a></li>
+  <li><a href="#caduta-s">La caduta del clan e il collasso (89–90 aM)</a></li>
+  <li><a href="#topismo-s">Il Topus Maximus e il Topismo (90–103 aM)</a></li>
+  <li><a href="#dittatura-s">La dittatura topista (104–105 aM)</a></li>
+  <li><a href="#conquista-s">La conquista degli Avengers (105 aM)</a></li>
+  <li><a href="#fine-s">La fine — 107 aM</a></li>
+</ol></div>
 
-<h2>Il Topus Maximus e la rinascita <span class="edit-link" onclick="openEditor('Serrano')">[modifica]</span></h2>
-<p>Furono gli incendi a portare il <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> a Serrano. L'incarnazione terrena di <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> riprese il controllo della città, rivelò il vero Dio ai suoi abitanti e fondò il <a onclick="navigateTo('Topismo')">Topismo</a>. Serrano smise di bruciare. Cominciò a pregare.</p>
+<h2 id="origini-s">Origini e separazione da Napoli <span class="edit-link" onclick="openEditor('Serrano')">[modifica]</span></h2>
+<p>Serrano nacque come territorio separatosi da <a onclick="navigateTo('Napoli')">Napoli</a> nel vuoto di potere seguito alla scomparsa di <a onclick="navigateTo('Morello')">Morello</a> dopo la prima eruzione del Vesuvio nel <b>17 aM</b>. Finché Morello governava Napoli, il suo sistema di autorità si estendeva anche sui territori circostanti — non con la forza diretta, ma con quella influenza naturale che le buone istituzioni esercitano sui confini. Quando Morello scomparve, quell'influenza svanì con lui.</p>
+<p>Il territorio che sarebbe diventato Serrano era già abitato, ma senza struttura politica autonoma. Nel <b>23 aM</b> <b>Gennaro Spisso</b> — fondatore del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> — vi stabilì il centro operativo della sua organizzazione, de facto fondando lo stato. Serrano non dichiarò mai formalmente l'indipendenza da Napoli: semplicemente smise di farne parte, e Napoli, impegnata a ricostruirsi dopo l'eruzione, non aveva né le risorse né la volontà di rivendicarla. La separazione fu silenziosa, come spesso avviene con i pezzi che si staccano quando nessuno guarda.</p>
+<p>Serrano condivideva con Napoli e gli altri stati della penisola il sistema legislativo comune — una struttura normativa unitaria che garantiva coerenza giuridica tra i territori senza implicare unificazione politica. Nella pratica, sotto il Clan Spisso, questa coerenza era più nominale che reale.</p>
 
-<h2>La dittatura topista (104 aM) <span class="edit-link" onclick="openEditor('Serrano')">[modifica]</span></h2>
-<p>Dopo la morte del Topus Maximus nel 103 aM, i <b>Ludotopici</b> guidati dalla <a onclick="navigateTo('Cheddar Mussolini')">Strega Cheddar Mussolini</a> marciarono su Serrano nel 104 aM e instaurarono la dittatura topista. Il Topismo divenne religione di stato. La Famiglia Pocchia fu dichiarata nemica del Dio. Serrano, per la seconda volta in vent'anni, cambiò completamente natura — questa volta senza bruciare. Ma nel <b>105 aM</b> la dittatura topista cadde: <a onclick="navigateTo('Filippo Pascali')">Filippo</a> e <a onclick="navigateTo('Alice Sportella')">Alice</a> conquistarono la città in 67 giorni. <a onclick="navigateTo('Cheddar Mussolini')">Cheddar Mussolini</a> fu appesa a testa in giù. Nel <b>107 aM</b> la <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> cancellò Serrano dalla mappa. Resta un cratere.</p>
+<h2 id="sotto-spisso">Sotto il Clan Spisso (23–89 aM) <span class="edit-link" onclick="openEditor('Serrano')">[modifica]</span></h2>
+<p>Quando <b>Gennaro Spisso</b> fondò il <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> nel <b>23 aM</b> (1940 d.C.), Serrano divenne immediatamente il cuore operativo dell'organizzazione. Il paese non era sede di una camorra napoletana tradizionale — il clan aveva una struttura diversa, più simile alla 'ndrangheta: verticale, familiare, fondata sul silenzio. Serrano rispecchiava questa struttura: chi parlava pagava, chi taceva prosperava, e chi non capiva la distinzione imparava in fretta.</p>
+<p>Sotto il controllo del clan, Serrano ebbe una sua stabilità perversa. I mercati funzionavano — il clan prendeva la percentuale, ma garantiva l'ordine. Le strade erano presidiate — il clan le presidiava, ma non le abbandonava. I commercianti pagavano il pizzo — il clan incassava, ma teneva lontana la concorrenza straniera. Era il tipo di ordine che funziona finché non lo guardi da vicino.</p>
+<p><a onclick="navigateTo('Alex Spisso')">Alex Spisso</a>, il figlio del capo Salvatore, nacque a Serrano il 12 marzo del <b>35 aM</b>. Crebbe in questo ambiente con la doppiezza tipica di chi nasce dentro un sistema criminale che funziona: sapeva cosa era, capiva come funzionava, e aveva già deciso da ragazzo che avrebbe usato quella struttura per costruire qualcosa di più grande. La sua partenza per gli Stati Uniti, prima come manovra commerciale del clan e poi come fuga dalla rovina, fu l'inizio della fine di Serrano come la conosceva.</p>
+<p>La città era anche la base operativa del traffico che il clan gestiva attraverso intermediari internazionali. Le rotte dall'Asia centrale — Afghanistan e Pakistan — transitavano attraverso canali costruiti negli anni da Alex e da suo fratello <a onclick="navigateTo('Alessio Spisso')">Alessio</a>, prima che Alessio si dissociasse. Nei magazzini agricoli alle porte di Serrano passavano cose che non erano formaggi, anche quando erano etichettate come tali.</p>
+<p>Il <a onclick="navigateTo('Ermenegildo Spisso')">nonno Gildo</a> viveva a Serrano in un'ala separata della masseria di famiglia, circondato da libri e strumenti di misurazione che nessuno capiva. I membri del clan lo lasciavano stare con quella deferenza particolare che si riserva agli anziani eccentrici che non danno fastidio e potrebbero essere pericolosi se contrariati.</p>
+
+<h2 id="caduta-s">La caduta del clan e il collasso (89–90 aM) <span class="edit-link" onclick="openEditor('Serrano')">[modifica]</span></h2>
+<p>Quando <a onclick="navigateTo('Riccardo Pascali')">Riccardo Pascali</a> guidò l'<a onclick="navigateTo('Operazione Brick')">Operazione Brick</a> nell'<b>89 aM</b> e il Clan Spisso fu smantellato, Serrano perse in una notte la struttura di controllo che la teneva in piedi da sessantasei anni. Non fu una liberazione — almeno non nell'immediato. Fu un vuoto. I mercati persero i protettori. Le strade persero i presidi. Chi aveva vissuto sotto il clan non sapeva come vivere senza.</p>
+<p>L'anarchia durò un anno. Nel <b>90 aM</b> Serrano andò in fiamme. Le cause sono ancora dibattute: incendi dolosi di affiliati che avevano perso tutto, scontri tra fazioni minori che si disputavano i resti del territorio, o semplicemente l'accumulo di tensioni che un paese sotto controllo criminale porta dentro di sé per decenni e rilascia tutto insieme quando il controllo cessa. Probabilmente tutte e tre le cose insieme.</p>
+
+<h2 id="topismo-s">Il Topus Maximus e il Topismo (90–103 aM) <span class="edit-link" onclick="openEditor('Serrano')">[modifica]</span></h2>
+<p>Furono gli incendi a portare il <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> a Serrano. L'incarnazione terrena di <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> riprese il controllo della città dalle ceneri, rivelò il vero Dio ai suoi abitanti e fondò il <a onclick="navigateTo('Topismo')">Topismo</a>. Serrano smise di bruciare. Cominciò a pregare.</p>
+<p>Per tredici anni il Topismo governò Serrano con una sua coerenza interna. Non era il benessere del periodo Spisso, ma era un ordine diverso — più spirituale, più coercitivo nella fede, meno interessato ai traffici commerciali. I topi divennero animali sacri. Il pizzo fu abolito e sostituito con le offerte volontarie al tempio, che erano obbligatorie e non si chiamavano pizzo per ragioni teologiche. Nel <b>103 aM</b> il Topus Maximus fu scoppulato a morte da eretici legati alla <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a>. Il Topismo sopravvisse. Serrano no, non nelle stesse forme.</p>
+
+<h2 id="dittatura-s">La dittatura topista (104–105 aM) <span class="edit-link" onclick="openEditor('Serrano')">[modifica]</span></h2>
+<p>Nel <b>104 aM</b> <a onclick="navigateTo('Cheddar Mussolini')">Cheddar Mussolini</a> guidò la Marcia su Serrano, rovesciò il governo esistente e instaurò la dittatura topista. La <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> fu dichiarata nemica del Dio. La città fu militarizzata. Chi dissente veniva scoppulato, il che nella liturgia topista era sia punizione che atto di fede.</p>
+<p>La dittatura durò un anno. Nel <b>105 aM</b>, durante la <a onclick="navigateTo('La Guerra Finale')">Guerra Finale</a>, <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a> e <a onclick="navigateTo('Alice Sportella')">Alice Sportella</a> coordinarono l'attacco: Filippo dall'aria con i cannoni a cheddar e la scoppula volante, Alice a terra con le forze della Camorra Salentina. Serrano fu conquistata in 67 giorni. Cheddar Mussolini fu trovata nel palazzo del governo e appesa a testa in giù — esattamente come aveva fatto ai suoi nemici.</p>
+
+<h2 id="conquista-s">Serrano liberata (105–107 aM) <span class="edit-link" onclick="openEditor('Serrano')">[modifica]</span></h2>
+<p>Dopo la conquista, Serrano fu temporaneamente sotto il controllo degli <a onclick="navigateTo('Avengers')">Avengers</a> e della Famiglia Pocchia. Due anni di relativa normalità, durante i quali la città cercava di capire cosa fosse diventata: non più spissica, non più topista, non ancora niente di definito. I suoi abitanti avevano attraversato il clan, il collasso, gli incendi, la teocrazia e una dittatura militare nel giro di vent'anni. La stanchezza era documentabile.</p>
+
+<h2 id="fine-s">La fine — 107 aM <span class="edit-link" onclick="openEditor('Serrano')">[modifica]</span></h2>
+<p>Nel <b>107 aM</b> <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> — il figlio che Serrano aveva cresciuto, il fondatore degli Avengers, il dittatore americano in attesa — fece cadere la <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> sulla città dove era nato. Lo stereo militare cadde dal cielo. L'ultima parola fu <b>«Spisso»</b>. Serrano scomparve dalla mappa. Al posto della città, un cratere.</p>
+<p>Non è mai stato chiarito se Alex avesse scelto Serrano come obiettivo per ragioni tattiche o per ragioni personali. Probabilmente entrambe. Probabilmente la distinzione non gli interessava.</p>
+<div class="stub-box"><span style="font-size:22px">💥</span><span>Serrano non è più aggiornabile. Esiste solo come cratere e come memoria.</span></div>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Città del Salento</a> <a>Topismo</a> <a>Serrano</a> <a>Dittature topiste</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Città scomparse</a> <a>Clan Spisso</a> <a>Topismo</a> <a>La Guerra Finale</a> <a>Bomba Spissica</a> <a>Caserta</a></div>`;
 }
 
 function buildCheddarMussolini() {
@@ -2143,20 +2208,18 @@ function buildNapoli() {
 <div class="infobox">
   <div class="infobox-title">Napoli</div>
   <table>
-    <tr><td>Stato</td><td>🇮🇹 Italia</td></tr>
-    <tr><td>Regione</td><td>Campania</td></tr>
-    <tr><td>Governanti storici</td><td><a onclick="navigateTo('Morello')">Morello</a>, <a onclick="navigateTo('Sal da Spicci')">Sal da Spicci</a></td></tr>
+    <tr><td>Stato</td><td><b>Stato indipendente</b> — sistema legislativo condiviso con la penisola</td></tr>
+    <tr><td>Governo storico</td><td><a onclick="navigateTo('Morello')">Morello</a> e <a onclick="navigateTo('Sal da Spicci')">Sal da Spicci</a> (0–17 aM)</td></tr>
     <tr><td>Prima eruzione</td><td>Anno 17 aM</td></tr>
     <tr><td>Seconda eruzione</td><td><b>104 aM</b> — missile degli Avengers</td></tr>
     <tr><td>Ritorno di Morello</td><td><b>104 aM</b> — con piogge di cheddar acido</td></tr>
     <tr><td>Stato attuale</td><td>Pulita dal 104 aM (finalmente)</td></tr>
-    <tr><td>Rifiuti/km²</td><td>★★★★★</td></tr>
     <tr><td>Pizza</td><td>Straordinaria</td></tr>
     <tr><td>Caffè</td><td>Il migliore del mondo</td></tr>
   </table>
 </div>
-<p><b>Napoli</b> (napoletano: <i>Napule</i>; Antico Glorioso: <i>Napoli mia</i>; classificazione attuale: <i>situazione in corso</i>) è una città situata nel sud dell'Italia, tecnicamente affacciata sul Mar Tirreno, anche se i locali diranno che si trova «vicino ai sacchi della spazzatura». È la terza città italiana per popolazione e la prima per sacchi dell'immondizia abbandonati per chilometro quadrato, un primato che difende con costanza da almeno trent'anni.</p>
-<p>Napoli è ufficialmente classificata come città. Questa classificazione è contestata da diversi piccioni, un numero imprecisato di gatti randagi e almeno tre cumuli di macerie non identificati che si trovano lì dal 70 aM e non mostrano segni di voler andare via.</p>
+<p><b>Napoli</b> (napoletano: <i>Napule</i>) è uno stato indipendente situato sulla penisola, affacciato sul Mar Tirreno. Condivide con gli altri stati della penisola un sistema legislativo comune — una struttura giuridica unitaria che non implica unificazione politica, ma garantisce coerenza normativa tra i diversi territori. Napoli è il più grande di questi stati, e storicamente il più influente: fu la prima città a essere governata da <a onclick="navigateTo('Morello')">Morello</a> e <a onclick="navigateTo('Sal da Spicci')">Sal da Spicci</a> durante l'Età dell'Oro, e il Calendario che porta il nome di Morello è il sistema di datazione usato in tutta la penisola e oltre.</p>
+<p>In questo universo non esistono stati come l'Italia, la Francia o altri paesi reali: ogni città e territorio è un'entità politica autonoma. Napoli, Serrano, il Salento, le Filippine — ciascuno con il proprio governo, la propria storia, i propri conflitti.</p>
 
 <div class="toc-box">
   <div class="toc-title">Indice</div>
@@ -2820,7 +2883,7 @@ function buildFilippoPascali() {
 }
 
 function buildRiccardoPascali() {
-  return `<div class="wiki-notice"><span class="ni">&#x1F50E;</span><span>Riccardo Pascali ha guidato l'operazione che nell'89 aM ha smantellato il <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a>. La sua storia con il clan comincia molto prima, con torte e mattoni.</span></div>
+  return `<div class="wiki-notice"><span class="ni">🔍</span><span>Riccardo Pascali, detto <b>Rick Brick</b>, ha guidato l'<a onclick="navigateTo('Operazione Brick')">Operazione Brick</a> che nell'89 aM ha smantellato il <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a>. La sua storia con il clan comincia molto prima, con torte e mattoni.</span></div>
 <h1 class="page-title">Riccardo Pascali</h1>
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
@@ -2832,56 +2895,76 @@ function buildRiccardoPascali() {
     <tr><td>Padre</td><td><a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali "il Pocchia"</a></td></tr>
     <tr><td>Madre</td><td><a onclick="navigateTo('Anna Pascali')">Anna Pascali</a></td></tr>
     <tr><td>Fratello</td><td><a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a></td></tr>
+    <tr><td>Formazione</td><td>Laurea in Giurisprudenza · Scuola investigatori</td></tr>
     <tr><td>Professione</td><td>Investigatore — forze dell'ordine</td></tr>
-    <tr><td>Soprannome operativo</td><td>Riccardo Pocchia</td></tr>
-    <tr><td>Motivazione</td><td>Attacco del Clan Spisso da bambino</td></tr>
-    <tr><td>Operazione principale</td><td>Smantellamento Clan Spisso, anno 89 aM</td></tr>
-    <tr><td>Risultato</td><td>Tutti i membri arrestati (tranne Alessio, in India)</td></tr>
+    <tr><td>Soprannome (da bambino)</td><td><b>Rick Brick</b></td></tr>
+    <tr><td>Operazione principale</td><td><a onclick="navigateTo('Operazione Brick')">Operazione Brick</a> — 89 aM</td></tr>
+    <tr><td>Risultato</td><td>Tutti i membri del Clan Spisso arrestati tranne Alex (fuggito in America)</td></tr>
+    <tr><td>Dopo il 105 aM</td><td>Co-fondatore delle <a onclick="navigateTo('Filippine')">Filippine</a> con <a onclick="navigateTo('Filippo Pascali')">Filippo</a></td></tr>
   </table>
 </div>
-<p><b>Riccardo Pascali</b>, noto operativamente come <b>Riccardo Pocchia</b>, è figlio di <a onclick="navigateTo('Gianluca Pascali')">Gianluca</a> e <a onclick="navigateTo('Anna Pascali')">Anna Pascali</a>, fratello di <a onclick="navigateTo('Filippo Pascali')">Filippo</a>. È la persona a cui viene attribuito il merito dello smantellamento del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a>, completato nell'anno 89 aM. La sua storia con il clan comincia però da bambino, in un vicolo, con delle torte e dei mattoni.</p>
 
-<div class="toc-box">
-  <div class="toc-title">Indice</div>
-  <ol>
-    <li><a href="#incidente">L'incidente da bambino</a></li>
-    <li><a href="#rivalita">La rivalità e la motivazione</a></li>
-    <li><a href="#indagine-r">L'indagine</a></li>
-    <li><a href="#op89">L'operazione dell'89 aM</a></li>
-    <li><a href="#dopo-r">Dopo</a></li>
-  </ol>
+<div class="toc-box"><div class="toc-title">Indice</div><ol>
+  <li><a href="#incidente-r">L'incidente da bambino — le torte e i mattoni</a></li>
+  <li><a href="#formazione-r">La formazione: legge e investigazione</a></li>
+  <li><a href="#indagine-r">L'indagine sul Clan Spisso</a>
+    <ol>
+      <li><a href="#droga-r">Il traffico di droga</a></li>
+      <li><a href="#lettere-r">Le lettere di Alessio</a></li>
+      <li><a href="#ignoto-r">La scoperta: l'Ignoto di Napoli è Gildo</a></li>
+    </ol>
+  </li>
+  <li><a href="#op-brick">L'Operazione Brick — 89 aM</a></li>
+  <li><a href="#processo-r">Il processo e la condanna</a></li>
+  <li><a href="#dopo-r">Dopo — le Filippine</a></li>
+</ol></div>
+
+<h2 id="incidente-r">L'incidente da bambino — le torte e i mattoni <span class="edit-link" onclick="openEditor('Riccardo Pascali')">[modifica]</span></h2>
+<p><b>Riccardo Pascali</b> era ancora bambino quando alcuni affiliati del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> cominciarono a lanciargli contro torte e mattoni in un vicolo nei pressi di Serrano. Le ragioni precise non sono mai state chiarite del tutto — la ricostruzione più accreditata è che Riccardo si trovasse nei pressi di un punto di smistamento del clan e che la sua presenza non gradita fosse stata comunicata nel modo che gli affiliati trovavano più diretto. Un mattone colpì Riccardo all'altezza del ginocchio. Una torta al cheddar lo centrò in piena faccia.</p>
+<p>Fu <a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali</a>, suo padre, a intervenire. Gianluca fece scappare gli affiliati con quella combinazione di autorità fisica e presenza che chiunque conosca la <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> riconosce immediatamente. Riccardo non fu ferito gravemente. Ma ricordò tutto. La faccia piena di cheddar. Il dolore al ginocchio. Il nome degli uomini che erano scappati, che aveva imparato a memoria nel giro di una settimana informandosi in giro con la discrezione di un bambino di undici anni molto motivato.</p>
+<p>Da quel giorno i coetanei cominciarono a chiamarlo <b>Rick Brick</b> — il ragazzo del mattone. Il soprannome rimase. Quando negli anni successivi Riccardo divenne l'investigatore che aveva fatto cadere il Clan Spisso, gli affiliati sopravvissuti ripresero il soprannome con accezione diversa: non più il bambino colpito, ma la persona che li aveva fatti cadere come mattoni. Rick Brick accettò entrambe le versioni senza commentare.</p>
+
+<h2 id="formazione-r">La formazione: legge e investigazione <span class="edit-link" onclick="openEditor('Riccardo Pascali')">[modifica]</span></h2>
+<p>Riccardo studiò Giurisprudenza a Napoli, laureandosi con una tesi sulle tecniche di smantellamento delle organizzazioni criminali di tipo mafioso nell'Italia meridionale — un argomento che i relatori trovarono specifico in modo commovente, e che Riccardo aveva scelto con una precisione che non lasciava dubbi sulla direzione in cui voleva andare.</p>
+<p>Dopo la laurea frequentò la scuola per investigatori delle forze dell'ordine, specializzandosi in intercettazioni, analisi documentale e infiltrazione. I colleghi lo descrivono come metodico fino alla pedanteria e dotato di una pazienza anomala. «Non si stanca di aspettare» disse di lui un superiore, «perché sa sempre esattamente cosa sta aspettando».</p>
+<p>Prima di prendere in mano l'operazione sul Clan Spisso, Riccardo trascorse anni in tribunale come consulente investigativo in processi di criminalità organizzata. Imparò in quell'ambiente una cosa fondamentale: le prove devono reggere il peso di un dibattimento. Non bastava sapere. Bisognava dimostrare.</p>
+
+<h2 id="indagine-r">L'indagine sul Clan Spisso <span class="edit-link" onclick="openEditor('Riccardo Pascali')">[modifica]</span></h2>
+<p>L'indagine sul <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> durò oltre un decennio. Riccardo non la cominciò perché glielo ordinarono — la propose lui, la costruì lui, la portò avanti nei momenti in cui i superiori trovavano il clan troppo radicato per essere toccato. La motivazione personale che aveva da bambino non era diminuita. Si era trasformata in competenza.</p>
+
+<h3 id="droga-r">Il traffico di droga</h3>
+<p>Il primo filone dell'indagine riguardava il traffico di sostanze stupefacenti. Riccardo sapeva dalla documentazione intercettata negli anni che il clan gestiva rotte dall'Asia centrale — Afghanistan e Pakistan — attraverso intermediari internazionali. La rete era stata costruita da <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> durante i suoi viaggi negli Stati Uniti tra il 60 e il 65 aM, e aveva come nodo operativo <a onclick="navigateTo('Alessio Spisso')">Alessio</a>, inviato in Afghanistan nell'80 aM.</p>
+<p>Le prove materiali furono costruite su tre anni di sorveglianza dei magazzini agricoli alle porte di <a onclick="navigateTo('Serrano')">Serrano</a>. Riccardo ottenne campionamenti chimici da spedizioni etichettate come prodotti caseari — il che, considerato che il clan aveva una tradizione di torte al cheddar, sembrava perfettamente coerente alle dogane — e reclutò un informatore interno, mai identificato pubblicamente, che confermò le rotte e i codici di smistamento.</p>
+<p>A queste prove materiali aggiunse la documentazione finanziaria: conti correnti in Lussemburgo e a Malta intestati a prestanomi, flussi di denaro che risalivano a transazioni commerciali prive di base economica reale, e fatture per consulenze che non erano mai state erogate a clienti che non erano mai esistiti. Il sistema contabile del clan era sofisticato — ma Salvatore Spisso aveva commesso un errore che Riccardo identificò dopo tre anni di analisi: usava sempre la stessa cifra terminale nelle transazioni di copertura. Un'abitudine. Un tic. Una prova.</p>
+
+<h3 id="lettere-r">Le lettere di Alessio</h3>
+<p>Il secondo filone — e quello che trasformò l'operazione da arresto a demolizione sistemica — furono le diciassette lettere scritte da <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a> al fratello <a onclick="navigateTo('Alex Spisso')">Alex</a> nel corso degli anni. Le lettere erano state sequestrate in modo indiretto: Riccardo aveva ottenuto un mandato di perquisizione per la masseria di famiglia a Serrano con la motivazione ufficiale della ricerca di documentazione contabile, e le aveva trovate in una scatola sotto il letto della stanza che era stata di Alessio.</p>
+<p>Le lettere non contenevano informazioni operative dirette. Alessio non scriveva codici, non citava nomi in codice, non faceva riferimento esplicito a traffici. Faceva qualcosa di molto più pericoloso: scriveva la verità. Scriveva di suo fratello Alex con l'intimità di chi lo conosce da una vita e non si fa illusioni su cosa sia. Scriveva dell'Afghanistan con la precisione involontaria di chi descrive a un familiare le difficoltà di un lavoro — senza mai nominare il lavoro, ma descrivendo abbastanza dei contorni da renderlo riconoscibile. Scriveva di Rashid con una neutralità che diventava, a rileggerla, un ritratto dell'ordine che gli era stato dato.</p>
+<p>La lettera più importante era la tredicesima. Alessio aveva scritto, in un momento di stanchezza evidente: <i>«Stasera ho contato i sacchi. Sono quarantatré. Ho pensato che non so più distinguere cosa è mio e cosa è del clan. Forse non c'è mai stata differenza. Forse è questa la cosa più triste.»</i> Il numero quarantatré coincideva esattamente con una spedizione documentata nei registri doganali. Riccardo capì che Alessio non ne era consapevole. Lo portò al giudice ugualmente. Il giudice capì.</p>
+<p>Insieme alle lettere, la masseria custodiva anche i manoscritti del nonno <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a> — libri di fisica teorica in parte pubblicati e in parte inediti. Riccardo li fece catalogare come materiale sequestrato, ma li restituì alla famiglia dopo il processo. Uno di quei libri, anni dopo, avrebbe portato alla costruzione della <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a>. Riccardo non poteva saperlo.</p>
+
+<h3 id="ignoto-r">La scoperta: l'Ignoto di Napoli è Gildo</h3>
+<p>Durante l'analisi dei manoscritti di Gildo Spisso, Riccardo notò qualcosa che nessuno aveva mai collegato prima. I testi inediti contenevano bozze di quello che sembravano appunti preparatori per le <a onclick="navigateTo('L.E.G.G.I.')">L.E.G.G.I.</a> — la raccolta scientifica pubblicata nel 51 aM sotto lo pseudonimo <b>Specchia</b>, attribuita all'<a onclick="navigateTo('Ignoto di Napoli')">Ignoto di Napoli</a>. La struttura argomentativa era identica. Il vocabolario tecnico era lo stesso. Alcune frasi erano trascritte quasi letteralmente.</p>
+<p>Riccardo portò questa scoperta al pubblico ministero con la prova più diretta possibile: le lettere di Gildo stesso. In una di queste, Gildo scriveva esplicitamente di aver scritto le L.E.G.G.I. e di averle firmate Specchia su ordine di Salvatore Spisso, che non voleva che il fisico di famiglia diventasse troppo famoso. <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a> era l'Ignoto di Napoli — non un'ipotesi, non una perizia, ma la sua stessa scrittura a confermarlo.</p>
+<p>Riccardo incluse questa scoperta nei materiali del processo non come prova di reato — non lo era — ma come elemento di contesto che dimostrava la natura duplice della famiglia: da un lato il crimine, dall'altro la scienza. Il pubblico ministero lo usò nella requisitoria per ritrarre il clan come un'organizzazione che aveva scelto deliberatamente il primo e soffocato il secondo. Gildo era morto nel 78 aM. Non poteva testimoniare. Ma le sue parole erano ancora in quelle bozze, e dissero quello che lui non aveva mai detto pubblicamente.</p>
+
+<h2 id="op-brick">L'Operazione Brick — 89 aM <span class="edit-link" onclick="openEditor('Riccardo Pascali')">[modifica]</span></h2>
+<p>L'operazione prese il nome in codice <b>Brick</b> per due ragioni: la prima era tecnica — i mattoni erano il simbolo operativo scelto da Riccardo per i documenti interni, riferimento consapevole all'episodio della sua infanzia. La seconda era una scelta di Riccardo stesso, che la propose al comando con una semplicità che i colleghi trovarono o divertente o inquietante a seconda del carattere.</p>
+<p>Nella notte del <b>14 novembre 89 aM</b> (2006 d.C.), unità coordinate in tredici punti simultanei su territorio campano, pugliese e laziale eseguirono i mandati d'arresto. Salvatore Spisso fu fermato nella masseria di Serrano. Carmela Spisso, moglie del capoclan, nella casa di Caserta. Sette affiliati di primo livello nelle rispettive abitazioni. Tre intermediari commerciali a Napoli. Il contabile del clan — un commercialista di Aversa che non aveva mai messo piede a Serrano ma gestiva i conti da vent'anni — nel suo studio alle sei del mattino.</p>
+<p>L'unico membro di primo piano non arrestato fu <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a>. Alex aveva lasciato l'Italia settimane prima, rientrato negli Stati Uniti dopo un raro soggiorno nel paese d'origine. La data della sua partenza precedeva di quarantadue giorni le perquisizioni. Non si sa se fosse stato avvisato o se fosse semplice coincidenza. Riccardo non lo ha mai commentato pubblicamente. In privato, secondo chi lo conosce, ha detto una sola cosa: <i>«Non importa. Aveva già smesso di essere italiano da tempo.»</i></p>
+
+<h2 id="processo-r">Il processo e la condanna <span class="edit-link" onclick="openEditor('Riccardo Pascali')">[modifica]</span></h2>
+<p>Il processo si aprì nel <b>91 aM</b> (2008 d.C.) davanti alla Corte d'Assise di Napoli. Riccardo testimoniò per quattro giorni consecutivi, presentando un quadro probatorio che i commentatori legali descrissero come «metodico fino all'arte». Non c'era un elemento che non avesse una fonte, un confronto, una verifica incrociata.</p>
+<p>La difesa tentò di smontare le lettere di Alessio sostenendo che fossero state estrapolate dal contesto. Il pubblico ministero le rilesse integralmente in aula. Il difetto della difesa era che le lettere erano chiare: Alessio non aveva scritto come un complice, aveva scritto come un testimone involontario, e i testimoni involontari sono i più credibili perché non sanno di esserlo.</p>
+<p>Il giudice condannò Salvatore Spisso a ventiquattro anni. Gli affiliati di primo livello tra i quattordici e i diciotto anni. Il contabile a undici anni per concorso esterno. Carmela Spisso fu assolta per insufficienza di prove — Riccardo non aveva mai avuto prove dirette del suo coinvolgimento operativo e non volle portare in aula ciò che non poteva dimostrare. I beni del clan — la masseria di Serrano, i magazzini agricoli, tre appartamenti a Napoli e un conto a Malta con 2,3 milioni di euro — furono confiscati.</p>
+<p>Il collegamento tra <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> e <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> — portato alla luce da Riccardo attraverso i registri anagrafici americani ottenuti per via diplomatica — fu incluso nella sentenza come elemento biografico ma non come capo d'imputazione. Lo scandalo internazionale che ne seguì, quando le carte divennero pubbliche, fu il colpo finale alla rete di protezioni politiche che il clan aveva costruito negli anni.</p>
+
+<h2 id="dopo-r">Dopo — le Filippine <span class="edit-link" onclick="openEditor('Riccardo Pascali')">[modifica]</span></h2>
+<p>Con il Clan Spisso smantellato, Riccardo aveva fatto la cosa per cui si era alzato ogni mattina per decenni. Quello che rimase fu qualcosa di più tranquillo — un lavoro ordinario, casi ordinari, la soddisfazione discreta di chi sa di aver fatto una cosa difficile nel modo giusto. Poi arrivò la <a onclick="navigateTo('La Guerra Finale')">Guerra Finale</a>.</p>
+<p>Nel 105 aM Riccardo e <a onclick="navigateTo('Filippo Pascali')">Filippo</a> presero il controllo della <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> rimasta senza guida dopo la partenza di Morello. Nel 108 aM la trasformarono nelle <a onclick="navigateTo('Filippine')">Filippine</a>. Riccardo ne gestisce l'amministrazione e l'ordine. È ancora il tipo di persona che non si stanca di aspettare. Ora aspetta che le Filippine diventino quello che dovrebbero essere. Sa già cosa sta aspettando.</p>
+<div class="stub-box"><span style="font-size:22px">🧱</span><span>Rick Brick. Il mattone che ha fatto cadere il clan.</span></div>
 </div>
-
-<h2 id="incidente">L'incidente da bambino <span class="edit-link" onclick="openEditor('Riccardo Pascali')">[modifica]</span></h2>
-<p>Riccardo Pascali era ancora bambino quando alcuni affiliati del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> cominciarono a lanciargli contro torte e mattoni in un vicolo nei pressi di Serrano. Le ragioni precise di questo episodio non sono mai state chiarite del tutto — l'ipotesi più accreditata è che Riccardo si trovasse semplicemente nel posto sbagliato, il che nel territorio del Clan Spisso era praticamente qualsiasi posto a qualsiasi momento.</p>
-<p>Fu <a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali</a>, suo padre, a intervenire. Gianluca fece scappare gli affiliati con quella combinazione di autorità e presenza che chiunque conosca la <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> riconosce immediatamente. Riccardo non fu ferito gravemente. Ma ricordò tutto.</p>
-
-<h2 id="rivalita">La rivalità e la motivazione <span class="edit-link" onclick="openEditor('Riccardo Pascali')">[modifica]</span></h2>
-<p>Da quel giorno, Riccardo sapeva una cosa con chiarezza cristallina: voleva eliminare il Clan Spisso. Non solo per vendetta — ma perché aveva visto da vicino cosa significava un territorio dove qualcuno ti poteva lanciare mattoni addosso senza che nessuno ci trovasse nulla di strano, e aveva deciso che quella cosa non andava bene.</p>
-<p>Questa motivazione personale, combinata con un'intelligenza investigativa fuori dal comune, fece di Riccardo uno degli investigatori più efficaci della sua generazione. Era il tipo di persona che non si stanca di aspettare perché sa esattamente cosa sta aspettando.</p>
-
-<h2 id="indagine-r">L'indagine <span class="edit-link" onclick="openEditor('Riccardo Pascali')">[modifica]</span></h2>
-<p>L'indagine fu lunga, metodica e condotta con una pazienza che i colleghi descrivono come «impressionante». Tra gli elementi più preziosi ci furono le lettere di <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a> al fratello Alex: diciassette lettere scritte nel corso degli anni che, pur non contenendo informazioni operative, restituivano la famiglia Spisso come entità umana — con le sue dinamiche, i suoi non detti, la sua storia. Nelle mani di Riccardo divennero il documento che avrebbe mostrato al mondo chi erano davvero gli Spisso, incluso il fatto che uno di loro era il padre biologico del Segretario alla Difesa degli Stati Uniti <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a>.</p>
-
-<h2 id="op89">L'operazione dell'89 aM <span class="edit-link" onclick="openEditor('Riccardo Pascali')">[modifica]</span></h2>
-<p>Nell'anno 89 aM — ottantanove anni dopo Morello secondo il <a onclick="navigateTo('Calendario Morello')">Calendario</a> — Riccardo guidò le forze dell'ordine nella più grande operazione antimafia dell'area casertana. In una notte coordinata, tutti i membri del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> presenti in Italia furono arrestati: <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a>, tutti gli affiliati di rilievo, l'intera rete. L'unico non arrestato fu <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a>, che si trovava in India e non aveva più legami con il clan. Riccardo non emise mandato per lui.</p>
-<p>Contestualmente, Riccardo portò alla luce il collegamento tra Alex Spisso e <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a>. Lo scandalo internazionale che ne seguì fu il colpo finale alla rete di protezioni politiche del clan.</p>
-
-<h2 id="dopo-r">Dopo <span class="edit-link" onclick="openEditor('Riccardo Pascali')">[modifica]</span></h2>
-<p>Con il Clan Spisso smantellato, Riccardo aveva fatto la cosa per cui si era alzato ogni mattina per decenni. Quello che ne rimase fu qualcosa di più tranquillo — fino alla <a onclick="navigateTo('La Guerra Finale')">Guerra Finale</a>. Nel 105 aM Riccardo e <a onclick="navigateTo('Filippo Pascali')">Filippo</a> presero il controllo della <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> rimasta senza guida dopo la partenza di Morello. Nel 108 aM la trasformarono nelle <a onclick="navigateTo('Filippine')">Filippine</a>. Riccardo ne gestisce l'amministrazione e l'ordine.</p>
-
-<h2>Voci correlate <span class="edit-link" onclick="openEditor('Riccardo Pascali')">[modifica]</span></h2>
-<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
-  <li><a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia (Pascali)</a></li>
-  <li><a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali</a> (padre)</li>
-  <li><a onclick="navigateTo('Anna Pascali')">Anna Pascali</a> (madre)</li>
-  <li><a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a> (fratello)</li>
-  <li><a onclick="navigateTo('Clan Spisso')">Clan Spisso</a></li>
-  <li><a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a></li>
-  <li><a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a></li>
-</ul>
-</div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Famiglia Pocchia</a> <a>Investigatori</a> <a>Persone che hanno fatto cadere un clan</a> <a>Motivazione personale</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Famiglia Pocchia</a> <a>Investigatori</a> <a>Operazione Brick</a> <a>Rick Brick</a> <a>Filippine</a></div>`;
 }
 
 function buildFamigliaPocchia() {
@@ -4692,6 +4775,100 @@ function buildBombaSpissica() {
 <div class="stub-box"><span style="font-size:22px">💥</span><span>Aggiornare se qualcuno sopravvissuto si fa vivo. Aspettiamo fiduciosi.</span></div>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Armi</a> <a>La Guerra Finale</a> <a>Alex Spisso</a> <a>Serrano</a></div>`;
+}
+
+function buildOperazioneBrick() {
+  return `<div class="wiki-notice"><span class="ni">🧱</span><span>L'Operazione Brick fu la più grande operazione antimafia dell'area casertana. Prese il nome dal soprannome di chi la guidò. Il mattone era già nell'89 aM una metafora con una storia.</span></div>
+<h1 class="page-title">Operazione Brick</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Operazione Brick</div>
+  <table>
+    <tr><td>Data</td><td><b>14 novembre 89 aM</b> (2006 d.C.)</td></tr>
+    <tr><td>Responsabile</td><td><a onclick="navigateTo('Riccardo Pascali')">Riccardo Pascali</a> (Rick Brick)</td></tr>
+    <tr><td>Obiettivo</td><td><a onclick="navigateTo('Clan Spisso')">Clan Spisso</a></td></tr>
+    <tr><td>Punti di esecuzione simultanei</td><td>13 (Campania, Puglia, Lazio)</td></tr>
+    <tr><td>Arrestati</td><td>Salvatore Spisso · affiliati · contabile · altri</td></tr>
+    <tr><td>Non arrestato</td><td><a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> (fuggito in America) · <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a> (India, nessun mandato)</td></tr>
+    <tr><td>Processo</td><td>Aperto nel 91 aM (2008 d.C.) — Corte d'Assise di Napoli</td></tr>
+    <tr><td>Condanna principale</td><td>Salvatore Spisso — 24 anni</td></tr>
+    <tr><td>Prove chiave</td><td>Analisi finanziaria · lettere di Alessio · campionamenti chimici · lettere di Gildo (prova diretta su Specchia)</td></tr>
+    <tr><td>Scoperta collaterale</td><td>Identità dell'<a onclick="navigateTo('Ignoto di Napoli')">Ignoto di Napoli</a> = <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a></td></tr>
+  </table>
+</div>
+
+<div class="toc-box"><div class="toc-title">Indice</div><ol>
+  <li><a href="#nome-ob">Il nome</a></li>
+  <li><a href="#antefatti-ob">Antefatti — l'indagine decennale</a></li>
+  <li><a href="#prove-ob">Le prove raccolte</a>
+    <ol>
+      <li><a href="#droga-ob">Il traffico di droga</a></li>
+      <li><a href><a href="#finanza-ob">Le prove finanziarie</a></li>
+      <li><a href="#lettere-ob">Le lettere di Alessio Spisso</a></li>
+      <li><a href="#ignoto-ob">La scoperta dell'Ignoto di Napoli</a></li>
+    </ol>
+  </li>
+  <li><a href="#notte-ob">La notte del 14 novembre</a></li>
+  <li><a href="#alex-ob">Alex Spisso — l'unico che non fu preso</a></li>
+  <li><a href="#processo-ob">Il processo e le condanne</a></li>
+  <li><a href="#conseguenze-ob">Conseguenze</a></li>
+</ol></div>
+
+<h2 id="nome-ob">Il nome <span class="edit-link" onclick="openEditor('Operazione Brick')">[modifica]</span></h2>
+<p>Il nome in codice <b>Brick</b> fu proposto personalmente da <a onclick="navigateTo('Riccardo Pascali')">Riccardo Pascali</a> e accettato dal comando senza discussioni. I colleghi che ne conoscevano la storia capirono immediatamente il riferimento: da bambino, affiliati del clan gli avevano lanciato mattoni addosso in un vicolo vicino a Serrano. Il mattone che lo aveva colpito al ginocchio era diventato, nel vocabolario interno di Riccardo, il simbolo di tutto ciò che il clan rappresentava: violenza casuale, territorio controllato dal terrore, impunità strutturale.</p>
+<p>Chiamare l'operazione Brick era un modo di chiudere il cerchio. Era anche, secondo chi lo conosce, il tipo di gesto discretamente ironico che Riccardo si concedeva raramente e con precisione chirurgica.</p>
+
+<h2 id="antefatti-ob">Antefatti — l'indagine decennale <span class="edit-link" onclick="openEditor('Operazione Brick')">[modifica]</span></h2>
+<p>L'indagine che portò all'Operazione Brick durò oltre un decennio. Riccardo non la ricevette — la propose. Nel 79 aM (1996 d.C.), fresco di formazione investigativa, presentò ai superiori un dossier preliminare sul Clan Spisso che fu accolto con quella cortesia riservata alle iniziative che nessuno vuole esplicitamente rifiutare ma che nessuno intende sostenere attivamente. Il clan era radicato, i suoi legami politici erano documentati, e la struttura dell'organizzazione la rendeva difficile da smantellare senza una prova-fulcro che reggesse in aula.</p>
+<p>Riccardo costruì quella prova nel corso degli anni successivi, raccogliendo ogni elemento disponibile con una metodicità che i colleghi descrivono come «una specie di ossessione funzionale». Non era vendetta — o non solo. Era la consapevolezza, acquisita in anni di tribunale, che un'accusa che non regge in aula è peggio di nessuna accusa: alimenta l'impunità e scoraggia i testimoni futuri.</p>
+
+<h2 id="prove-ob">Le prove raccolte <span class="edit-link" onclick="openEditor('Operazione Brick')">[modifica]</span></h2>
+
+<h3 id="droga-ob">Il traffico di droga</h3>
+<p>Il clan gestiva rotte di approvvigionamento dall'Asia centrale — Afghanistan e Pakistan — attraverso una rete costruita da <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> negli anni americani e operata sul campo da <a onclick="navigateTo('Alessio Spisso')">Alessio</a> intorno all'80 aM. I materiali transitavano attraverso magazzini agricoli alle porte di <a onclick="navigateTo('Serrano')">Serrano</a>, etichettati come prodotti alimentari — con una preferenza, documentata nelle note interne, per la denominazione «prodotti caseari assortiti», il che in un clan noto per le torte al cheddar non destava sospetti immediati ma non resisteva a un campionamento chimico.</p>
+<p>Riccardo ottenne tre anni di campionamenti su undici spedizioni successive. Sette contenevano tracce di sostanze stupefacenti. Un informatore interno — la cui identità non è mai stata resa pubblica — confermò le rotte e i codici di smistamento. Le intercettazioni del periodo 87 aM (2004 d.C.), collegate alle comunicazioni del «nipote americano» — soprannome interno con cui il clan si riferiva ad Alex — fornirono la struttura logistica dell'intera catena.</p>
+
+<h3 id="finanza-ob">Le prove finanziarie</h3>
+<p>Il sistema contabile del clan era curato da un commercialista di Aversa che non aveva mai messo piede a Serrano e che gestiva i conti da vent'anni attraverso una rete di società fantasma. Riccardo identificò il punto debole dopo tre anni di analisi documentale: Salvatore Spisso aveva l'abitudine di usare sempre la stessa cifra terminale — il numero 7 — nelle transazioni di copertura. Era un tic. Un'abitudine. In trecento transazioni analizzate, la frequenza del 7 come cifra terminale era del 31%, contro una distribuzione attesa del 10%. Il perito statistico chiamato al processo lo descrisse come «una firma involontaria che avrebbe fatto rabbrividire qualsiasi contabile consapevole».</p>
+<p>I beni identificati come provento di attività criminale includevano: la masseria principale di Serrano (1.200 metri quadri, stimata 2,1 milioni di euro), tre magazzini agricoli, tre appartamenti a Napoli, un conto a Malta con 2,3 milioni di euro, e una collezione di orologi da taschino che Salvatore Spisso collezionava con una passione che i giudici trovarono pittoresca e i magistrati trovarono ulteriori prove di liquidità non dichiarata.</p>
+
+<h3 id="lettere-ob">Le lettere di Alessio Spisso</h3>
+<p>Le diciassette lettere scritte da <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a> al fratello Alex furono rinvenute in una scatola sotto il letto della sua stanza nella masseria, durante la perquisizione autorizzata dal mandato investigativo. Non erano prove di reato diretto — Alessio non era imputato e Riccardo non emise mandato per lui. Erano qualcosa di più raro: una testimonianza involontaria dall'interno.</p>
+<p>Le lettere coprivano un arco di anni che andava dai primi soggiorni di Alessio all'estero fino al periodo afghano. Scritte con la naturalezza di chi non immagina che verranno lette da altri, restituivano la famiglia Spisso come entità umana — con le sue dinamiche di potere, i suoi silenzi, le sue contraddizioni. La lettera tredicesima conteneva il riferimento ai «quarantatré sacchi» che coincideva esattamente con una spedizione documentata. La lettera diciassettesima — l'ultima prima della fuga dall'Afghanistan — descriveva la situazione sul campo con una chiarezza involontaria che il pubblico ministero lesse integralmente in aula.</p>
+<p>La difesa tentò di smontarle sostenendo estrapolazione dal contesto. Fu un errore: il pubblico ministero le rilesse integralmente, da capo a fondo, e il problema non era il contesto. Il problema era che Alessio aveva scritto la verità a suo fratello perché si fidava di lui, e la verità era lì, nelle lettere, senza bisogno di interpretazione.</p>
+
+<h3 id="ignoto-ob">La scoperta dell'Ignoto di Napoli</h3>
+<p>Tra i materiali sequestrati c'erano i manoscritti inediti di <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a> e un fascicolo di sue lettere personali risalenti al 51–55 aM. In una di quelle lettere, Gildo scriveva esplicitamente di aver scritto le <a onclick="navigateTo('L.E.G.G.I.')">L.E.G.G.I.</a> e di averle firmate con lo pseudonimo <b>Specchia</b> su ordine di Salvatore Spisso, che non voleva che il fisico di famiglia diventasse troppo famoso. L'<b>Ignoto di Napoli era Gildo Spisso</b> — non un'ipotesi, non una perizia linguistica: era lui stesso a confermarlo nelle sue lettere.</p>
+<p>La rivelazione non era un capo d'imputazione. Ma fu inclusa nel processo come elemento di contesto e divenne, nella requisitoria del pubblico ministero, il simbolo della contraddizione del clan: aveva nel proprio seno il fisico più importante della storia di quel cosmo, e lo aveva tenuto chiuso in una masseria.</p>
+
+<h2 id="notte-ob">La notte del 14 novembre <span class="edit-link" onclick="openEditor('Operazione Brick')">[modifica]</span></h2>
+<p>L'operazione scattò alle 5:47 del mattino del 14 novembre 89 aM. Tredici squadre in simultanea, coordinate via radio con un sistema di cifratura semplice ma efficace: ogni punto di esecuzione aveva un numero, e l'avvio era segnalato dalla parola «mattone» — un dettaglio che Riccardo aveva inserito nelle istruzioni operative senza spiegare e che nessuno aveva chiesto di spiegare.</p>
+<p>Salvatore Spisso fu fermato nella masseria di Serrano mentre faceva colazione. Carmela Spisso, sua moglie, era in casa e non fu arrestata — Riccardo non aveva prove dirette del suo coinvolgimento e non volle portare in aula ciò che non poteva dimostrare. Gli affiliati di primo livello erano nelle rispettive abitazioni. Il contabile era nel suo studio di Aversa, dove arrivò alle sei e trovò tre agenti che lo aspettavano con una tazza di caffè e un mandato.</p>
+<p>L'operazione si concluse alle 9:12. Nessun ferito. Tutti i target principali in custodia tranne uno.</p>
+
+<h2 id="alex-ob">Alex Spisso — l'unico che non fu preso <span class="edit-link" onclick="openEditor('Operazione Brick')">[modifica]</span></h2>
+<p><a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> aveva lasciato l'Italia quarantadue giorni prima dell'operazione, rientrato negli Stati Uniti dopo uno dei suoi rari soggiorni nel paese d'origine. La coincidenza temporale fu esaminata ma non portò a conclusioni definitive: la sua partenza poteva essere stata casuale, poteva essere il frutto di una fuga consapevole, poteva essere entrambe le cose. Alex non tornò mai in Italia per rispondere a questa domanda.</p>
+<p>Un mandato di arresto internazionale fu emesso attraverso Interpol ma rimase senza esecuzione: negli Stati Uniti, Alex Spisso non risultava in alcun registro come criminale — era semplicemente un imprenditore americano di origine italiana che negli anni era diventato, sotto il nome di <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a>, il fondatore degli <a onclick="navigateTo('Avengers')">Avengers</a>. L'estradizione non fu mai ottenuta.</p>
+<p>Riccardo non emise mandato per <a onclick="navigateTo('Alessio Spisso')">Alessio</a>, che si trovava in India. Le lettere lo mostravano come qualcuno che aveva cercato di uscire dalla famiglia, non di consolidarla. Riccardo non lo dichiarò pubblicamente — ma l'assenza del mandato era una dichiarazione di fatto.</p>
+
+<h2 id="processo-ob">Il processo e le condanne <span class="edit-link" onclick="openEditor('Operazione Brick')">[modifica]</span></h2>
+<p>Il processo si aprì nel <b>91 aM</b> (2008 d.C.) davanti alla Corte d'Assise di Napoli. Riccardo testimoniò per quattro giorni, presentando un quadro probatorio che i commentatori legali descrissero come «metodico fino all'arte». Le condanne principali furono:</p>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2.2">
+  <li><b>Salvatore Spisso</b> — 24 anni per associazione a delinquere di stampo mafioso, traffico di stupefacenti, riciclaggio</li>
+  <li><b>Affiliati di primo livello</b> — tra i 14 e i 18 anni ciascuno</li>
+  <li><b>Il contabile</b> — 11 anni per concorso esterno</li>
+  <li><b>Carmela Spisso</b> — assolta per insufficienza di prove</li>
+  <li><b>Alex Spisso</b> — condannato in contumacia a 22 anni; mandato di cattura internazionale emesso, mai eseguito</li>
+</ul>
+<p>I beni confiscati — la masseria, i magazzini, gli appartamenti, il conto maltese — furono destinati a strutture pubbliche. La masseria di Serrano divenne sede di un centro antimafia. Rimase tale fino alla distruzione della città nel 107 aM.</p>
+
+<h2 id="conseguenze-ob">Conseguenze <span class="edit-link" onclick="openEditor('Operazione Brick')">[modifica]</span></h2>
+<p>Lo smantellamento del clan lasciò <a onclick="navigateTo('Serrano')">Serrano</a> senza la struttura di controllo che la teneva in piedi da sessantasei anni. Il vuoto di potere che seguì portò all'anarchia del 89–90 aM e agli incendi del 90 aM che avrebbero cambiato definitivamente la natura della città. È uno degli effetti collaterali dell'Operazione Brick che Riccardo conosce e non ha mai commentato pubblicamente.</p>
+<p>La scoperta dell'identità di <a onclick="navigateTo('Ignoto di Napoli')">Specchia come Gildo Spisso</a> ridisegnò retroattivamente la storia intellettuale del cosmo di Ludovico. Il collegamento tra <a onclick="navigateTo('Alex Spisso')">Alex</a> e <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a>, portato alla luce durante le indagini, ebbe conseguenze diplomatiche che durarono anni. I manoscritti inediti di Gildo, restituiti alla famiglia dopo il processo, finirono in India con Alessio — e anni dopo contribuirono alla costruzione della <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a>. Nessuno di questi esiti era prevedibile nell'89 aM. Riccardo ha detto, una volta sola, che preferirebbe non sapere i dettagli di quest'ultimo punto.</p>
+<div class="stub-box"><span style="font-size:22px">🧱</span><span>Operazione Brick — chiusa il 14 novembre 89 aM. Il mattone era partito molto prima.</span></div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Operazioni antimafia</a> <a>Clan Spisso</a> <a>Riccardo Pascali</a> <a>89 aM</a> <a>Serrano</a></div>`;
 }
 
 function buildMariaTeresaFriolo() {
