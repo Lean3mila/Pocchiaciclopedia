@@ -5666,18 +5666,22 @@ function initGlobe() {
   let pinchDist = null;
   let autoRot = true;
 
-  // Texture Terra da Wikimedia (CORS anonimo)
+  // Texture Terra locale
   const earthImg = new Image();
-  earthImg.crossOrigin = 'anonymous';
-  earthImg.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Blue_Marble_2002.png/1024px-Blue_Marble_2002.png';
+  earthImg.src = 'earth.jpg';
   let earthReady = false;
-  let earthCanvas = null;
+  let earthPixels = null;
+  let earthW = 0, earthH = 0;
 
   earthImg.onload = function() {
-    earthCanvas = document.createElement('canvas');
-    earthCanvas.width = earthImg.naturalWidth;
-    earthCanvas.height = earthImg.naturalHeight;
-    earthCanvas.getContext('2d').drawImage(earthImg, 0, 0);
+    const ec = document.createElement('canvas');
+    ec.width = earthImg.naturalWidth;
+    ec.height = earthImg.naturalHeight;
+    ec.getContext('2d').drawImage(earthImg, 0, 0);
+    const imgData = ec.getContext('2d').getImageData(0, 0, ec.width, ec.height);
+    earthPixels = imgData.data;
+    earthW = ec.width;
+    earthH = ec.height;
     earthReady = true;
   };
 
@@ -5790,11 +5794,10 @@ function initGlobe() {
 
   function drawEarth() {
     const rz = R * zoom;
-    if (earthReady && earthCanvas) {
+    if (earthReady && earthPixels) {
       // Proiezione equirettangolare → globo
-      const iw = earthCanvas.width, ih = earthCanvas.height;
-      const ic = earthCanvas.getContext('2d');
-      const imgData = ic.getImageData(0, 0, iw, ih).data;
+      const iw = earthW, ih = earthH;
+      const imgData = earthPixels;
       const out = ctx.createImageData(W, H);
       const od = out.data;
       const step = 2;
@@ -5830,7 +5833,7 @@ function initGlobe() {
       }
       ctx.putImageData(out, 0, 0);
     } else {
-      // Fallback oceano
+      // Fallback oceano mentre carica
       const grad = ctx.createRadialGradient(W*0.36, H*0.3, rz*0.04, W/2, H/2, rz);
       grad.addColorStop(0, '#7ec8e3');
       grad.addColorStop(0.5, '#2980b9');
