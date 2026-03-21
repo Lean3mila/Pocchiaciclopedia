@@ -1077,7 +1077,15 @@ const DEFAULT_PAGES = {
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body">
 
-<h2>Pagine in vetrina</h2>
+<div style="margin:0 0 24px;font-family:sans-serif">
+  <h2 style="font-family:'Linux Libertine Display',Georgia,serif;font-size:21px;font-weight:400;border-bottom:1px solid #a2a9b1;padding-bottom:4px;margin-bottom:12px">🌍 Mappa del mondo pocchiano</h2>
+  <p style="font-size:13px;color:#54595d;margin-bottom:10px">Ruota il globo per esplorare i paesi. Clicca su un paese per aprire la sua pagina.</p>
+  <div id="globe-container" style="width:100%;max-width:600px;margin:0 auto;position:relative;cursor:grab;user-select:none">
+    <canvas id="globe-canvas" width="600" height="600" style="width:100%;height:auto;display:block;border-radius:50%;box-shadow:0 6px 32px rgba(0,0,0,0.22)"></canvas>
+    <div id="globe-tooltip" style="position:absolute;background:#202122;color:#fff;padding:5px 10px;border-radius:3px;font-size:12px;pointer-events:none;display:none;white-space:nowrap;z-index:10"></div>
+  </div>
+</div>
+
 <p><b>Luoghi</b></p>
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
   <li><a onclick="navigateTo('Napoli')"><b>Napoli</b></a> — La città più caotica d'Italia, già bellissima prima del Vesuvio.</li>
@@ -3378,7 +3386,7 @@ function build104Nigeriani() {
   </table>
 </div>
 <p>I <b>104 Nigeriani</b> furono esattamente quello che il nome suggerisce: cento e quattro nigeriani che decisero di fondare uno stato. Non più, non meno. La precisione del numero era, secondo le memorie dei fondatori, «non una coincidenza ma un principio: un esercito ha bisogno di sapere chi è dentro e chi no».</p>
-<p>Nel 104 dM fondarono la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> e dichiararono l'intenzione di espandersi in tutta l'Africa. A differenza di molte dichiarazioni d'intenti nella storia, questa la mantennero. Il continente africano cadde interamente sotto il controllo della Nigeria Spartiana nel giro di qualche generazione.</p>
+<p>Nel 104 dM fondarono la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> e dichiararono l'intenzione di espandersi in tutta l'Africa. Questa dichiarazione fu firmata, trasmessa, e — nella versione ufficiale della Nigeria Spartiana — mantenuta. Nella versione degli storici indipendenti, il controllo effettivo si limita alla Nigeria e a piccole aree confinanti. La distinzione non è mai stata discussa pubblicamente con i diretti interessati, principalmente per paura del Raggio Nero.</p>
 <p>La carta fondativa, scritta a mano e firmata da tutti e 104, recitava nella sezione finale: <i>«Noi controlliamo l'Africa. Tutta. Chi non è d'accordo è invitato a dircelo di persona».</i> Nessuno glielo disse.</p>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Nigeria Spartiana</a> <a>Figure fondatrici</a></div>`;
@@ -3396,13 +3404,14 @@ function buildNigeriaSpartiana() {
     <tr><td>Fondazione</td><td>104 dM</td></tr>
     <tr><td>Capitale</td><td>Lagos</td></tr>
     <tr><td>Fondatori</td><td><a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a></td></tr>
-    <tr><td>Territorio</td><td>Tutta l'Africa</td></tr>
-    <tr><td>Stato attuale</td><td>Resa agli accordi con l'America (107 dM)</td></tr>
+    <tr><td>Territorio reale</td><td>Nigeria + piccole zone limitrofe (Benin, sud Niger, parte Camerun)</td></tr>
+    <tr><td>Territorio rivendicato</td><td><i>Tutta l'Africa</i> — dichiarazione unilaterale, contestata</td></tr>
+    <tr><td>Stato attuale</td><td>Alleata degli Avengers — dal 118 dM</td></tr>
     <tr><td>Arma principale</td><td><a onclick="navigateTo('Raggio Nero')">Raggio Nero</a></td></tr>
-    <tr><td>Nemici dichiarati</td><td><a onclick="navigateTo('Avengers')">Avengers</a> — fino al 107 dM</td></tr>
-    <tr><td>Accordi firmati</td><td>107 dM — resa dopo la <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a></td></tr>
+    <tr><td>Nemici dichiarati</td><td><a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> — dal 118 dM</td></tr>
   </table>
 </div>
+<div class="wiki-notice" style="background:#fff8e1;border-left-color:#f9a825"><span class="ni">⚠️</span><span>La Nigeria Spartiana ha dichiarato di controllare <b>tutta l'Africa</b>. In realtà controlla la Nigeria e alcune zone limitrofe. La comunità internazionale ha preso nota ma non ha risposto ufficialmente.</span></div>
 
 <div class="toc-box">
   <div class="toc-title">Indice</div>
@@ -3419,9 +3428,10 @@ function buildNigeriaSpartiana() {
 <p>La <b>Nigeria Spartiana</b> fu fondata nel <b>104 dM</b> dai <a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a> — un gruppo di cento e quattro uomini che, con nient'altro che determinazione, disciplina spartana e una carta fondativa scritta di proprio pugno, strapparono il continente africano a chiunque pensasse di controllarlo.</p>
 <p>Il nome «Spartiana» fu scelto come omaggio alla tradizione militare di Sparta: un paese di guerrieri che non si piegano, non trattano, non arretrano. Nessuno dei 104 fondatori aveva mai letto Tucidide, ma l'essenza del concetto l'avevano capita benissimo senza.</p>
 
-<h2 id="espansione-ns">L'espansione in tutta l'Africa <span class="edit-link" onclick="openEditor('Nigeria Spartiana')">[modifica]</span></h2>
-<p>Da Lagos, la Nigeria Spartiana si espanse con una velocità che i commentatori definirono «inspiegabile» e i 104 Nigeriani definirono «inevitabile». Stato dopo stato, regione dopo regione, l'intero continente africano cadde sotto il controllo della Nigeria Spartiana. Oggi è l'unica potenza che controlla l'Africa da un capo all'altro — dalla costa mediterranea al Capo di Buona Speranza, da Dakar a Mogadiscio.</p>
-<p>Come riuscirono in un'impresa simile in cento e quattro? La risposta ufficiale è: «Con la disciplina spartana». La risposta ufficiosa, bisbiglita nei corridoi diplomatici, è: «Non lo sappiamo, ma non proviamo a fermarli».</p>
+<h2 id="espansione-ns">Il territorio — reale e rivendicato <span class="edit-link" onclick="openEditor('Nigeria Spartiana')">[modifica]</span></h2>
+<p>Ufficialmente, la Nigeria Spartiana ha dichiarato di controllare <b>l'intero continente africano</b> — dalla costa mediterranea al Capo di Buona Speranza, da Dakar a Mogadiscio. La dichiarazione fu firmata dai 104 fondatori nell'Anno della fondazione e trasmessa a tutti gli stati del mondo. Nessuno ha risposto.</p>
+<p>Nella pratica, il controllo effettivo della Nigeria Spartiana si estende alla Nigeria e ad alcune zone limitrofe: il sud del Niger, il Benin, la parte occidentale del Camerun. Non è poco — è uno stato di dimensioni considerevoli con un'arma che nessuno riesce a disattivare. Ma non è l'Africa intera. I 104 Nigeriani lo sanno. Non lo ammettono. Questa distinzione tra territorio dichiarato e territorio reale è la più grande questione irrisolta della geopolitica pocchiana, e nessuno ha ancora trovato il modo diplomatico per sollevarla senza rischiare il Raggio Nero.</p>
+<p>La rivendicazione sull'intera Africa non è considerata una menzogna dai 104 Nigeriani — è considerata una questione di tempo. «Non ancora» e «mai» sono due cose diverse, e loro lo hanno sempre saputo.</p>
 
 <h2 id="avengers-ns">Il conflitto con gli Avengers <span class="edit-link" onclick="openEditor('Nigeria Spartiana')">[modifica]</span></h2>
 <p>Al termine della <a onclick="navigateTo('Seconda Guerra degli Avengers')">Seconda Guerra degli Avengers</a>, Iron Spisso Man e Zella giurarono di rivolgere le forze degli Avengers contro la Nigeria Spartiana. Nel <b>104 dM</b> gli Avengers attaccarono direttamente la capitale nigeriana con un'offensiva aerea. La Nigeria Spartiana attivò il <a onclick="navigateTo('Raggio Nero')">Raggio Nero</a> in modalità difensiva: i poteri di tutti gli Avengers si spensero simultaneamente, e l'intera formazione cadde nell'oceano Atlantico. Tornarono a nuoto.</p>
@@ -3433,8 +3443,13 @@ function buildNigeriaSpartiana() {
 
 <h2 id="guerrafinale-ns">La Guerra Finale e la resa (107 dM) <span class="edit-link" onclick="openEditor('Nigeria Spartiana')">[modifica]</span></h2>
 <p>Nel <b>107 dM</b>, quando la <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> cancellò Serrano dalla mappa, la Nigeria Spartiana assistette all'esplosione dai satelliti. La dimostrazione di una forza capace di cancellare un'intera città con una sola parola fu sufficiente: la Nigeria Spartiana si arrese entro ventiquattro ore.</p>
-<p>Gli accordi firmati permisero all'America — ora sotto il controllo di <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> — accesso ai porti africani, controllo commerciale e presenza militare su tutto il continente. La Nigeria Spartiana, pur di non essere <b>Spissata</b>, concesse tutto quello che le fu chiesto. Controllare l'Africa non serve a nulla se l'Africa non esiste più.</p>
-<div class="stub-box"><span style="font-size:22px">⬛</span><span>La Nigeria Spartiana esiste ancora. Ha solo firmato accordi che non le piacciono. Per ora.</span></div>
+<p>Gli accordi firmati permisero all'America — ora sotto il controllo di <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> — accesso ai porti africani, controllo commerciale e presenza militare su tutto il territorio controllato. La Nigeria Spartiana, pur di non essere <b>Spissata</b>, concesse tutto quello che le fu chiesto. Controllare l'Africa non serve a nulla se l'Africa non esiste più.</p>
+
+<h2 id="ribellione-ns">La ribellione — 118 dM <span class="edit-link" onclick="openEditor('Nigeria Spartiana')">[modifica]</span></h2>
+<p>Nel <b>118 dM</b>, durante la <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers</a>, la Nigeria Spartiana colse il momento giusto e si ribellò. Sette giorni dopo l'inizio dell'offensiva degli Avengers sull'America, il <a onclick="navigateTo('Raggio Nero')">Raggio Nero</a> fu attivato contro le basi militari americane nel continente africano — distruggendole tutte simultaneamente. Gli accordi del 107 dM furono dichiarati nulli. La Nigeria Spartiana uscì dall'orbita americana.</p>
+<p><a onclick="navigateTo('Alessio Spisso')">Alessio Spisso²</a> era presente in Nigeria al momento della ribellione — aveva scelto di essere lì personalmente per coordinare l'operazione con i 104 Nigeriani. Fu proprio lui a intercettare l'ultima Bomba Spissica che Alex lanciò sulla Nigeria in risposta alla ribellione.</p>
+<p>Con la fine della guerra e la morte di Alex nel 119 dM, la Nigeria Spartiana è tornata indipendente. La rivendicazione sull'intera Africa è ancora ufficialmente in vigore. Nessuno ha ancora trovato il coraggio di chiedere quanto di quella rivendicazione sia effettivo.</p>
+<div class="stub-box"><span style="font-size:22px">⬛</span><span>La Nigeria Spartiana dichiara di controllare tutta l'Africa. In realtà controlla la Nigeria e piccole aree vicine. Nessuno glielo dice perché c'è il Raggio Nero.</span></div>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Paesi africani</a> <a>Fondati nel 104 dM</a> <a>Superpotenze</a> <a>La Guerra Finale</a></div>`;
 }
@@ -4461,6 +4476,7 @@ function renderPage(name) {
   // Aggiorna lista comunità se siamo sulla Main
   if (name === 'Main') {
     setTimeout(renderCommunityPages, 50);
+    setTimeout(initGlobe, 80); // inizializza il globo dopo che il DOM è pronto
   }
 
   document.title = `${page.title} — Pocchiaciclopedia`;
@@ -5630,6 +5646,328 @@ function buildFilippine() {
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Filippine</a> <a>Famiglia Pocchia</a> <a>Salento</a> <a>Stati nati nel 108 dM</a> <a>Calimera</a> <a>Castri</a></div>`;
 }
 
+// ══════════════════════════════════════════════════════
+//  GLOBO INTERATTIVO — pagina principale
+// ══════════════════════════════════════════════════════
+function initGlobe() {
+  const canvas = document.getElementById('globe-canvas');
+  const tooltip = document.getElementById('globe-tooltip');
+  const container = document.getElementById('globe-container');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
+  const W = 600, H = 600;
+  canvas.width = W; canvas.height = H;
+  const R = W * 0.44;
+  let rotX = 0.52, rotY = -0.30;
+  let zoom = 1.0;
+  let dragging = false, lastX = 0, lastY = 0;
+  let pinchDist = null;
+  let autoRot = true;
+
+  // Texture Terra da Wikimedia (CORS anonimo)
+  const earthImg = new Image();
+  earthImg.crossOrigin = 'anonymous';
+  earthImg.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Blue_Marble_2002.png/1024px-Blue_Marble_2002.png';
+  let earthReady = false;
+  let earthCanvas = null;
+
+  earthImg.onload = function() {
+    earthCanvas = document.createElement('canvas');
+    earthCanvas.width = earthImg.naturalWidth;
+    earthCanvas.height = earthImg.naturalHeight;
+    earthCanvas.getContext('2d').drawImage(earthImg, 0, 0);
+    earthReady = true;
+  };
+
+  /*
+   * TERRITORI:
+   * Napoli   = tutto il Sud Italia tranne Salento (escluso lat<40.3 lon>17.0)
+   * Serrano  = metà OVEST del Salento (lon 17.0-17.85, lat 38.9-40.3)  ← SOLO QUI
+   * Filippine= metà EST del Salento (lon 17.85-18.55, lat 38.8-40.3)
+   * Nigeria  = Nigeria + piccole zone (dichiara tutta Africa)
+   * America  = USA continentale
+   */
+  const territories = [
+    {
+      name: 'Napoli', navigateTo: 'Napoli',
+      color: '#1565c0', border: '#0d3b8a', fill: '#1565c0bb', textColor: '#fff',
+      poly: [
+        // Costa tirrenica nord (Gaeta area)
+        [13.55,41.20],[13.30,41.00],[13.18,40.60],[13.35,40.15],
+        [13.55,39.80],[13.75,39.30],[14.00,38.80],[14.25,38.45],
+        [14.55,37.95],[15.05,37.80],[15.45,37.85],[15.70,37.95],
+        [16.00,38.20],[16.30,38.50],[16.60,38.80],[16.82,39.20],
+        [17.00,39.55],[17.05,39.90],[17.05,40.28],
+        // confine con Serrano (lato ovest Salento) — qui Napoli finisce
+        [17.00,40.32],
+        // costa adriatica pugliese (nord del Salento)
+        [16.80,40.55],[16.55,40.80],[16.25,41.05],[15.85,41.20],
+        [15.45,41.35],[15.05,41.30],[14.78,41.10],[14.62,40.92],
+        // confine nord con Serrano casertano (ma Serrano non c'è più, Napoli copre tutto)
+        [14.50,41.15],[14.20,41.05],[13.95,41.10],[13.78,41.25],
+        [13.65,41.30],[13.55,41.20]
+      ],
+      label: { lon: 15.4, lat: 39.5 }
+    },
+    {
+      name: 'Serrano', navigateTo: 'Serrano',
+      color: '#e65100', border: '#8a3000', fill: '#e65100cc', textColor: '#fff',
+      // SOLO metà OVEST del Salento: lon 17.0-17.85, lat 38.88-40.30
+      poly: [
+        [17.00,40.28],[17.05,39.90],[17.05,39.55],[17.10,39.15],
+        [17.22,38.95],[17.42,38.88],[17.65,38.88],[17.85,38.95],
+        [17.85,39.20],[17.85,39.65],[17.85,40.00],[17.85,40.28],
+        [17.60,40.32],[17.35,40.34],[17.10,40.33],[17.00,40.28]
+      ],
+      label: { lon: 17.40, lat: 39.58 }
+    },
+    {
+      name: 'Filippine', navigateTo: 'Filippine',
+      color: '#2e7d32', border: '#1a4d1e', fill: '#2e7d32cc', textColor: '#fff',
+      // metà EST del Salento: lon 17.85-18.55, lat 38.8-40.3
+      poly: [
+        [17.85,40.28],[17.85,40.00],[17.85,39.65],[17.85,39.20],
+        [17.85,38.95],[18.02,38.82],[18.20,38.82],[18.38,38.95],
+        [18.52,39.18],[18.56,39.48],[18.48,39.80],[18.32,40.08],
+        [18.10,40.28],[17.85,40.28]
+      ],
+      label: { lon: 18.18, lat: 39.62 }
+    },
+    {
+      name: 'Nigeria Spartiana', navigateTo: 'Nigeria Spartiana',
+      color: '#6a1b9a', border: '#3a0066', fill: '#6a1b9acc', textColor: '#fff',
+      poly: [
+        [2.70,6.35],[3.50,4.20],[4.30,3.60],[5.50,3.00],[6.80,2.75],
+        [8.00,3.00],[9.20,3.15],[9.70,3.55],[10.30,4.00],[11.20,4.50],
+        [12.00,5.00],[13.10,5.30],[14.30,5.80],[14.70,6.50],
+        [14.60,8.00],[14.20,9.50],[13.60,10.80],[13.10,12.00],
+        [12.40,13.10],[11.50,13.50],[10.50,13.65],[9.50,13.70],
+        [8.50,13.30],[7.50,13.00],[6.50,12.70],[5.50,12.20],
+        [4.50,11.40],[3.60,10.40],[2.70,9.50],[2.30,8.50],
+        [2.00,7.50],[2.30,6.90],[2.70,6.35]
+      ],
+      label: { lon: 8.5, lat: 9.0 }
+    },
+    {
+      name: 'America (Avengers)', navigateTo: 'America (Avengers)',
+      color: '#b71c1c', border: '#7f0000', fill: '#b71c1ccc', textColor: '#fff',
+      poly: [
+        [-124.7,48.4],[-124.5,46.2],[-124.1,43.0],[-124.4,40.5],
+        [-121.9,37.0],[-120.0,34.4],[-117.1,32.5],[-114.7,32.5],
+        [-111.0,31.3],[-108.2,31.3],[-106.5,31.8],[-104.5,29.5],
+        [-101.0,28.0],[-97.3,25.8],[-94.0,26.2],[-90.5,28.5],
+        [-88.5,30.2],[-85.0,29.9],[-82.0,28.0],[-81.0,25.1],
+        [-80.1,25.6],[-80.5,27.5],[-81.2,30.5],[-75.5,35.2],
+        [-75.5,37.5],[-74.0,39.5],[-71.9,41.3],[-70.0,41.6],
+        [-67.0,44.8],[-67.3,47.3],[-69.5,47.4],[-72.5,45.0],
+        [-75.0,44.8],[-76.8,43.6],[-79.0,43.1],[-83.0,42.0],
+        [-87.5,42.5],[-90.0,47.5],[-95.2,49.0],[-110.0,49.0],
+        [-117.0,49.0],[-124.7,49.0],[-124.7,48.4]
+      ],
+      label: { lon: -96, lat: 38 }
+    },
+  ];
+
+  function project(lon, lat) {
+    const lam = lon * Math.PI / 180;
+    const phi = lat * Math.PI / 180;
+    let x = Math.cos(phi) * Math.sin(lam);
+    let y = Math.sin(phi);
+    let z = Math.cos(phi) * Math.cos(lam);
+    const x1 = x * Math.cos(rotY) + z * Math.sin(rotY);
+    const z1 = -x * Math.sin(rotY) + z * Math.cos(rotY);
+    const y2 = y * Math.cos(rotX) - z1 * Math.sin(rotX);
+    const z2 = y * Math.sin(rotX) + z1 * Math.cos(rotX);
+    const rz = R * zoom;
+    return { sx: x1 * rz + W/2, sy: -y2 * rz + H/2, z: z2, visible: z2 > -0.02 };
+  }
+
+  function projectPoly(poly) {
+    return poly.map(([lon, lat]) => project(lon, lat));
+  }
+
+  function drawEarth() {
+    const rz = R * zoom;
+    if (earthReady && earthCanvas) {
+      // Proiezione equirettangolare → globo
+      const iw = earthCanvas.width, ih = earthCanvas.height;
+      const ic = earthCanvas.getContext('2d');
+      const imgData = ic.getImageData(0, 0, iw, ih).data;
+      const out = ctx.createImageData(W, H);
+      const od = out.data;
+      const step = 2;
+      for (let py = 0; py < H; py += step) {
+        for (let px = 0; px < W; px += step) {
+          const nx = (px - W/2) / rz;
+          const ny = (py - H/2) / rz;
+          const r2 = nx*nx + ny*ny;
+          if (r2 > 1) continue;
+          const nz = Math.sqrt(1 - r2);
+          // unrotate X
+          const nz2 = ny * Math.sin(rotX) + nz * Math.cos(rotX);
+          const ny2 = ny * Math.cos(rotX) - nz * Math.sin(rotX);
+          // unrotate Y
+          const nx2 = nx * Math.cos(rotY) - nz2 * Math.sin(rotY);
+          const nz3 = nx * Math.sin(rotY) + nz2 * Math.cos(rotY);
+          const lon2 = Math.atan2(nx2, nz3);
+          const lat2 = Math.asin(Math.max(-1, Math.min(1, ny2)));
+          const tx = Math.floor((lon2 / Math.PI + 1) * 0.5 * (iw - 1));
+          const ty = Math.floor((0.5 - lat2 / Math.PI) * (ih - 1));
+          const si = (Math.max(0,Math.min(ih-1,ty)) * iw + Math.max(0,Math.min(iw-1,tx))) * 4;
+          const shade = 0.55 + 0.45 * nz;
+          for (let dy = 0; dy < step && py+dy < H; dy++) {
+            for (let dx = 0; dx < step && px+dx < W; dx++) {
+              const di = ((py+dy)*W + (px+dx))*4;
+              od[di]   = imgData[si]   * shade;
+              od[di+1] = imgData[si+1] * shade;
+              od[di+2] = imgData[si+2] * shade;
+              od[di+3] = 255;
+            }
+          }
+        }
+      }
+      ctx.putImageData(out, 0, 0);
+    } else {
+      // Fallback oceano
+      const grad = ctx.createRadialGradient(W*0.36, H*0.3, rz*0.04, W/2, H/2, rz);
+      grad.addColorStop(0, '#7ec8e3');
+      grad.addColorStop(0.5, '#2980b9');
+      grad.addColorStop(1, '#1a3d5c');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, W, H);
+    }
+  }
+
+  function drawGrid() {
+    ctx.strokeStyle = 'rgba(255,255,255,0.10)';
+    ctx.lineWidth = 0.5;
+    for (let lon = -180; lon <= 180; lon += 30) {
+      ctx.beginPath(); let f = true;
+      for (let lat = -85; lat <= 85; lat += 2) {
+        const p = project(lon, lat);
+        if (!p.visible) { f=true; continue; }
+        if (f) { ctx.moveTo(p.sx, p.sy); f=false; } else ctx.lineTo(p.sx, p.sy);
+      }
+      ctx.stroke();
+    }
+    for (let lat = -60; lat <= 60; lat += 30) {
+      ctx.beginPath(); let f = true;
+      for (let lon = -180; lon <= 180; lon += 2) {
+        const p = project(lon, lat);
+        if (!p.visible) { f=true; continue; }
+        if (f) { ctx.moveTo(p.sx, p.sy); f=false; } else ctx.lineTo(p.sx, p.sy);
+      }
+      ctx.stroke();
+    }
+  }
+
+  function drawTerritory(t) {
+    const pts = projectPoly(t.poly);
+    if (!pts.some(p => p.visible && p.z > 0.05)) return;
+    ctx.beginPath();
+    let started = false;
+    pts.forEach(p => {
+      if (!p.visible) { started=false; return; }
+      if (!started) { ctx.moveTo(p.sx, p.sy); started=true; }
+      else ctx.lineTo(p.sx, p.sy);
+    });
+    ctx.closePath();
+    ctx.fillStyle = t.fill;
+    ctx.fill();
+    ctx.strokeStyle = t.border;
+    ctx.lineWidth = 2.2;
+    ctx.stroke();
+    // etichetta
+    const lp = project(t.label.lon, t.label.lat);
+    if (lp.visible && lp.z > 0.10) {
+      const sz = Math.max(8, Math.round(11 * zoom));
+      ctx.font = 'bold ' + sz + "px 'Source Sans 3',sans-serif";
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillStyle = 'rgba(0,0,0,0.65)';
+      ctx.fillText(t.name, lp.sx+1, lp.sy+1);
+      ctx.fillStyle = t.textColor;
+      ctx.fillText(t.name, lp.sx, lp.sy);
+    }
+  }
+
+  function drawGlobe() {
+    ctx.clearRect(0, 0, W, H);
+    const rz = R * zoom;
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(W/2, H/2, rz, 0, Math.PI*2);
+    ctx.clip();
+    drawEarth();
+    drawGrid();
+    const sorted = territories.map(t => ({ t, z: project(t.label.lon, t.label.lat).z })).sort((a,b) => a.z-b.z);
+    sorted.forEach(({t}) => drawTerritory(t));
+    // riflesso
+    const shine = ctx.createRadialGradient(W*0.33,H*0.26,0,W*0.40,H*0.33,rz*0.65);
+    shine.addColorStop(0,'rgba(255,255,255,0.20)');
+    shine.addColorStop(0.6,'rgba(255,255,255,0.04)');
+    shine.addColorStop(1,'rgba(255,255,255,0)');
+    ctx.fillStyle = shine; ctx.fillRect(0,0,W,H);
+    ctx.restore();
+    ctx.beginPath(); ctx.arc(W/2,H/2,rz,0,Math.PI*2);
+    ctx.strokeStyle='rgba(100,160,220,0.5)'; ctx.lineWidth=1.5; ctx.stroke();
+  }
+
+  function hitTest(ex, ey) {
+    const rect = canvas.getBoundingClientRect();
+    const scale = W / rect.width;
+    const cx = (ex-rect.left)*scale, cy = (ey-rect.top)*scale;
+    for (const t of [...territories].reverse()) {
+      const pts = projectPoly(t.poly).filter(p=>p.visible);
+      if (pts.length<3) continue;
+      let inside=false;
+      for (let i=0,j=pts.length-1;i<pts.length;j=i++) {
+        const xi=pts[i].sx,yi=pts[i].sy,xj=pts[j].sx,yj=pts[j].sy;
+        if (((yi>cy)!==(yj>cy))&&cx<(xj-xi)*(cy-yi)/(yj-yi)+xi) inside=!inside;
+      }
+      if (inside) return t;
+    }
+    return null;
+  }
+
+  function loop() {
+    if (autoRot) rotY += 0.003;
+    drawGlobe();
+    requestAnimationFrame(loop);
+  }
+  loop();
+
+  canvas.addEventListener('wheel', e => {
+    e.preventDefault();
+    zoom = Math.max(0.5, Math.min(3.5, zoom*(e.deltaY<0?1.1:0.91)));
+  },{passive:false});
+  canvas.addEventListener('mousedown', e=>{dragging=true;autoRot=false;lastX=e.clientX;lastY=e.clientY;canvas.style.cursor='grabbing';});
+  window.addEventListener('mousemove', e=>{
+    if(!dragging)return;
+    rotY+=(e.clientX-lastX)*0.007;rotX+=(e.clientY-lastY)*0.007;
+    rotX=Math.max(-1.4,Math.min(1.4,rotX));lastX=e.clientX;lastY=e.clientY;
+  });
+  window.addEventListener('mouseup',()=>{dragging=false;canvas.style.cursor='grab';setTimeout(()=>{autoRot=true;},4000);});
+  canvas.addEventListener('touchstart',e=>{
+    e.preventDefault();autoRot=false;
+    if(e.touches.length===1){lastX=e.touches[0].clientX;lastY=e.touches[0].clientY;}
+    if(e.touches.length===2){const dx=e.touches[0].clientX-e.touches[1].clientX,dy=e.touches[0].clientY-e.touches[1].clientY;pinchDist=Math.sqrt(dx*dx+dy*dy);}
+  },{passive:false});
+  canvas.addEventListener('touchmove',e=>{
+    e.preventDefault();
+    if(e.touches.length===1){rotY+=(e.touches[0].clientX-lastX)*0.009;rotX+=(e.touches[0].clientY-lastY)*0.009;rotX=Math.max(-1.4,Math.min(1.4,rotX));lastX=e.touches[0].clientX;lastY=e.touches[0].clientY;}
+    if(e.touches.length===2&&pinchDist){const dx=e.touches[0].clientX-e.touches[1].clientX,dy=e.touches[0].clientY-e.touches[1].clientY;const d=Math.sqrt(dx*dx+dy*dy);zoom=Math.max(0.5,Math.min(3.5,zoom*d/pinchDist));pinchDist=d;}
+  },{passive:false});
+  canvas.addEventListener('touchend',()=>{pinchDist=null;setTimeout(()=>{autoRot=true;},4000);});
+  canvas.addEventListener('mousemove',e=>{
+    const hit=hitTest(e.clientX,e.clientY);
+    if(hit){tooltip.textContent=hit.name;tooltip.style.display='block';const rect=container.getBoundingClientRect();tooltip.style.left=(e.clientX-rect.left+14)+'px';tooltip.style.top=(e.clientY-rect.top-14)+'px';canvas.style.cursor='pointer';}
+    else{tooltip.style.display='none';canvas.style.cursor=dragging?'grabbing':'grab';}
+  });
+  canvas.addEventListener('mouseleave',()=>{tooltip.style.display='none';});
+  canvas.addEventListener('click',e=>{const hit=hitTest(e.clientX,e.clientY);if(hit)navigateTo(hit.navigateTo||hit.name);});
+}
 loadPagesLocalOnly();
 caricaStatoModalitaLocale();
 controllaLockdownAlAvvio(); // mostra lockdown subito se attivo in localStorage
