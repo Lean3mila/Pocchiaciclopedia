@@ -638,12 +638,119 @@ clearfix::after { content: ''; display: block; clear: both; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
+  /* Sidebar nascosta */
   #wiki-sidebar { display: none; }
   #wiki-nav-inner { padding-left: 16px; }
   .infobox { float: none; width: 100%; margin: 0 0 16px; }
+
+  /* Header su mobile: logo + ricerca in colonna */
+  #wiki-top-inner {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 8px 12px;
+  }
+
+  /* Logo più compatto */
+  .wiki-logo-title { font-size: 17px; }
+  .wiki-logo-sub { font-size: 10px; }
+  .wiki-logo-sphere { width: 36px; height: 36px; font-size: 16px; }
+
+  /* Barra di ricerca: occupa tutta la larghezza sotto il logo */
+  #wiki-search-bar {
+    order: 3;
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  /* Input ricerca: testo corretto da sinistra a destra */
+  #wiki-search-bar input {
+    font-size: 16px; /* evita zoom automatico su iOS */
+    direction: ltr;
+    text-align: left;
+    padding: 9px 40px 9px 12px;
+  }
+
+  /* Bottoni azione più compatti */
+  #wiki-top-actions { gap: 4px; }
+  .top-btn { padding: 5px 8px; font-size: 11px; }
+
+  /* Risultati ricerca leggibili */
+  #search-results { font-size: 13px; }
+  .search-result-item { padding: 10px 12px; }
+
+  /* Nav tabs scrollabili orizzontalmente */
+  #wiki-nav-inner {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+    padding-bottom: 1px;
+  }
+  .nav-tab { white-space: nowrap; padding: 6px 10px; font-size: 12px; }
+
+  /* Articolo più leggibile */
+  #wiki-article { padding: 14px 14px 30px; }
+
+  /* Tabelle scorrevoli su mobile */
+  .infobox { overflow-x: auto; display: block; }
+  table { min-width: 0; }
 }
 
-/* ── MODALITÀ SICURA (oscura le parole Spiss*) ── */
+/* ── MODALITÀ LOCKDOWN ── */
+#lockdown-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #111;
+  z-index: 99999;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: 'Source Sans 3', sans-serif;
+}
+#lockdown-overlay.active { display: flex; }
+#lockdown-box {
+  background: #1a1a1a;
+  border: 2px solid #c62828;
+  border-radius: 6px;
+  padding: 40px 48px;
+  text-align: center;
+  max-width: 420px;
+  width: 90%;
+  box-shadow: 0 0 60px rgba(198,40,40,0.3);
+}
+#lockdown-box h2 {
+  color: #ef5350;
+  font-size: 22px;
+  margin-bottom: 10px;
+  font-family: 'Linux Libertine Display', serif;
+}
+#lockdown-box p { color: #aaa; font-size: 13px; margin-bottom: 20px; }
+#lockdown-pwd {
+  width: 100%;
+  padding: 10px 14px;
+  background: #222;
+  border: 1px solid #555;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 3px;
+  margin-bottom: 12px;
+  outline: none;
+  box-sizing: border-box;
+}
+#lockdown-pwd:focus { border-color: #ef5350; }
+#lockdown-btn {
+  width: 100%;
+  padding: 10px;
+  background: #c62828;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 600;
+}
+#lockdown-btn:hover { background: #b71c1c; }
+#lockdown-error { color: #ef5350; font-size: 12px; margin-top: 8px; min-height: 16px; }
 .spiss-safe-mode .spiss-redact {
   background: #111 !important;
   color: #111 !important;
@@ -706,6 +813,18 @@ clearfix::after { content: ''; display: block; clear: both; }
 </head>
 <body>
 
+<!-- LOCKDOWN OVERLAY -->
+<div id="lockdown-overlay">
+  <div id="lockdown-box">
+    <div style="font-size:48px;margin-bottom:12px">🔒</div>
+    <h2>Pocchiaciclopedia — Lockdown</h2>
+    <p>Questo sito è in modalità lockdown.<br>Inserisci la password per accedere.</p>
+    <input type="password" id="lockdown-pwd" placeholder="Password..." onkeydown="if(event.key==='Enter')verificaLockdown()">
+    <button id="lockdown-btn" onclick="verificaLockdown()">Entra</button>
+    <div id="lockdown-error"></div>
+  </div>
+</div>
+
 <!-- Firebase status banner -->
 <div id="fb-status" class="fb-banner fb-loading">🔄 Caricamento…</div>
 
@@ -741,7 +860,7 @@ clearfix::after { content: ''; display: block; clear: both; }
       </div>
     </div>
     <div id="wiki-search-bar">
-      <input type="text" id="search-input" placeholder="Cerca su Pocchiaciclopedia..." autocomplete="off">
+      <input type="text" id="search-input" placeholder="Cerca su Pocchiaciclopedia..." autocomplete="off" dir="ltr">
       <button id="search-btn">🔍</button>
       <div id="search-results"></div>
     </div>
@@ -2160,7 +2279,9 @@ function buildSerrano() {
     <tr><td>Periodo topista</td><td><a onclick="navigateTo('Topismo')">Topismo</a> (90–103 dM) · dittatura (104–105 dM)</td></tr>
     <tr><td>Conquista</td><td><a onclick="navigateTo('Avengers')">Avengers</a> + Famiglia Pocchia, 105 dM (67 giorni)</td></tr>
     <tr><td>Distruzione</td><td><b>107 dM</b> — <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a></td></tr>
-    <tr><td>Stato attuale</td><td><b>Cratere</b></td></tr>
+    <tr><td>Ricostruzione</td><td><b>109 dM</b> — Alessio Spisso² e Zella</td></tr>
+    <tr><td>Stato attuale</td><td><b>Città volante</b> — immune alla Bomba Spissica · base degli Avengers</td></tr>
+    <tr><td>Scoperta nel sottosuolo</td><td><a onclick="navigateTo('Minerale Spisso')">Minerale Spisso</a> (117 dM)</td></tr>
   </table>
 </div>
 
@@ -2172,6 +2293,8 @@ function buildSerrano() {
   <li><a href="#dittatura-s">La dittatura topista (104–105 dM)</a></li>
   <li><a href="#conquista-s">La conquista degli Avengers (105 dM)</a></li>
   <li><a href="#fine-s">La fine — 107 dM</a></li>
+  <li><a href="#ritorno-s">Il ritorno — 109 dM</a></li>
+  <li><a href="#terza-s">La Terza Guerra e la fine di Alex (111–119 dM)</a></li>
 </ol></div>
 
 <h2 id="origini-s">Origini e separazione da Napoli <span class="edit-link" onclick="openEditor('Serrano')">[modifica]</span></h2>
@@ -2204,6 +2327,14 @@ function buildSerrano() {
 <h2 id="fine-s">La fine — 107 dM <span class="edit-link" onclick="openEditor('Serrano')">[modifica]</span></h2>
 <p>Nel <b>107 dM</b> <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> — il figlio che Serrano aveva cresciuto, il fondatore degli Avengers, il dittatore americano in attesa — fece cadere la <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> sulla città dove era nato. Lo stereo militare cadde dal cielo. L'ultima parola fu <b>«Spisso»</b>. Serrano scomparve dalla mappa. Al posto della città, un cratere.</p>
 <p>Non è mai stato chiarito se Alex avesse scelto Serrano come obiettivo per ragioni tattiche o per ragioni personali. Probabilmente entrambe. Probabilmente la distinzione non gli interessava.</p>
+
+<h2 id="ritorno-s">Il ritorno — 109 dM <span class="edit-link" onclick="openEditor('Serrano')">[modifica]</span></h2>
+<p>Nel <b>109 dM</b> <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a> si risvegliò tra le macerie del cratere dove era stata Serrano. Era sopravvissuto alla Bomba Spissica perché era lo Spisso degli Spisso — il figlio minore, immune e potenziato dall'esplosione che avrebbe dovuto ucciderlo. Si risvegliò come <b>Alessio Spisso²</b>. Trovò <a onclick="navigateTo('Zella (Avengers)')">Zella</a>, l'unico altro sopravvissuto. Insieme cominciarono a ricostruire.</p>
+<p>Usando le <a onclick="navigateTo('L.E.G.G.I.')">L.E.G.G.I.</a> costruirono uno scudo che rendeva Serrano immune a qualsiasi Bomba Spissica. Usando le <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')">F.O.N.D.A.M.E.N.T.A.</a> — e la forza di Alessio come fonte di energia — la città si staccò dal suolo. Serrano tornò. Diversa, ricostruita, volante.</p>
+<p>Nel <b>117 dM</b>, durante la <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers</a>, <a onclick="navigateTo('Alice Sportella')">Alice Sportella</a> analizzò il terreno di Serrano e scoprì il <a onclick="navigateTo('Minerale Spisso')">Minerale Spisso</a> — un cristallo formatosi nell'impatto della Bomba, capace di bloccare i poteri acquisiti tramite esposizione a essa.</p>
+
+<h2 id="terza-s">La Terza Guerra e la fine di Alex (111–119 dM) <span class="edit-link" onclick="openEditor('Serrano')">[modifica]</span></h2>
+<p>Serrano volante fu la base operativa degli Avengers per tutta la <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers</a>. Nel <b>112 dM</b> Alex lanciò nove bombe sulla città — tutte distrutte dallo scudo. Nel <b>116 dM</b> fu lanciata da Serrano la bomba degli Avengers sulle città americane. Nel <b>119 dM</b>, con la morte di Alex, la guerra finì. Alessio perse i poteri nell'ultima esplosione. Serrano rimase in volo — immune, ricostruita, governata dagli Avengers. La città che Alex aveva cancellato dalla mappa era l'unica cosa rimasta in piedi alla fine.</p>
 <div style="display:flex;gap:12px;margin:20px 0;flex-wrap:wrap">
   <div style="flex:1;min-width:180px;border:1px solid #a2a9b1;background:#f8f9fa;text-align:center;font-family:sans-serif;font-size:11.5px">
     <div style="background:#cee0f2;padding:6px;font-weight:600;border-bottom:1px solid #a2a9b1">Serrano — prima della Bomba</div>
@@ -3128,15 +3259,16 @@ function buildPocchiaInscatola() {
 
 <h2>Pannello di amministrazione <span class="edit-link" onclick="openEditor('pocchiainscatola')">[modifica]</span></h2>
 <p>La pagina <b>pocchiainscatola</b> è la pagina di reset dell'enciclopedia. Contiene gli strumenti per ripristinare la Pocchiaciclopedia al suo stato originale, eliminando tutte le modifiche apportate dalla comunità.</p>
+<p style="font-family:sans-serif;font-size:13px;color:#c62828;font-weight:600">🔒 Tutte le funzioni di questa pagina richiedono la password di amministrazione.</p>
 
 <div style="border:2px solid #f9a825;background:#fffde7;padding:20px 24px;margin:20px 0;font-family:sans-serif;border-radius:3px">
   <h3 style="margin:0 0 12px;font-family:sans-serif;font-size:15px;color:#e65100">⚠️ Reset completo della Pocchiaciclopedia</h3>
   <p style="font-size:13px;margin-bottom:16px;color:#333">Questa operazione eliminerà <b>tutte le pagine create o modificate dalla comunità</b> e ripristinerà l'enciclopedia esattamente come era all'inizio. L'operazione è <b>irreversibile</b> e agisce sia sul database condiviso (Firebase) che sulla memoria locale del tuo browser.</p>
   <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-    <button onclick="resetToDefault()" style="padding:10px 22px;background:#c62828;color:white;border:none;border-radius:3px;font-size:14px;font-family:sans-serif;cursor:pointer;font-weight:600">
+    <button onclick="richiediPasswordAdmin(resetToDefault)" style="padding:10px 22px;background:#c62828;color:white;border:none;border-radius:3px;font-size:14px;font-family:sans-serif;cursor:pointer;font-weight:600">
       🗑️ Ripristina tutto all'originale
     </button>
-    <span style="font-size:12px;color:#888">Verrà chiesta doppia conferma prima di procedere.</span>
+    <span style="font-size:12px;color:#888">Verrà chiesta la password e poi doppia conferma.</span>
   </div>
 </div>
 
@@ -3144,7 +3276,7 @@ function buildPocchiaInscatola() {
   <h3 style="margin:0 0 8px;font-family:sans-serif;font-size:15px;color:#1a237e">🕶️ Modalità Epstein — Oscura le parole Spiss*</h3>
   <p style="font-size:13px;margin-bottom:14px;color:#333">Nasconde con un rettangolo nero tutte le occorrenze di <b>Spisso</b>, <b>Spiss</b> e derivati (come <i>Spissica</i>, <i>Spissato</i>, ecc.) in tutta la pagina corrente. Utile in ambienti pubblici o se sei circondato da nemici.</p>
   <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-    <button onclick="attivaModalitaSicura()" id="btn-modalita-sicura" style="padding:10px 22px;background:#1a237e;color:white;border:none;border-radius:3px;font-size:14px;font-family:sans-serif;cursor:pointer;font-weight:600">
+    <button onclick="richiediPasswordAdmin(attivaModalitaSicura)" id="btn-modalita-sicura" style="padding:10px 22px;background:#1a237e;color:white;border:none;border-radius:3px;font-size:14px;font-family:sans-serif;cursor:pointer;font-weight:600">
       🕶️ Attiva Modalità Epstein
     </button>
     <span id="stato-modalita-sicura" style="font-size:12px;color:#555">Stato: <b>disattivata</b></span>
@@ -3155,10 +3287,21 @@ function buildPocchiaInscatola() {
   <h3 style="margin:0 0 8px;font-family:sans-serif;font-size:15px;color:#2e7d32">🪞 Modalità Specchia — Sostituisce Spiss* con Specch*</h3>
   <p style="font-size:13px;margin-bottom:14px;color:#333">Sostituisce tutte le occorrenze di <b>Spisso</b> con <b>Specchia</b> e di <b>Spiss</b> (in parole composte come <i>Spissica</i>) con <b>Specch</b> (diventando <i>Specchiaca</i>). La sostituzione agisce su tutta la pagina corrente.</p>
   <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-    <button onclick="attivaModalitaSpecchia()" id="btn-modalita-specchia" style="padding:10px 22px;background:#2e7d32;color:white;border:none;border-radius:3px;font-size:14px;font-family:sans-serif;cursor:pointer;font-weight:600">
+    <button onclick="richiediPasswordAdmin(attivaModalitaSpecchia)" id="btn-modalita-specchia" style="padding:10px 22px;background:#2e7d32;color:white;border:none;border-radius:3px;font-size:14px;font-family:sans-serif;cursor:pointer;font-weight:600">
       🪞 Attiva Modalità Specchia
     </button>
     <span id="stato-modalita-specchia" style="font-size:12px;color:#555">Stato: <b>disattivata</b></span>
+  </div>
+</div>
+
+<div style="border:2px solid #c62828;background:#fdecea;padding:20px 24px;margin:20px 0;font-family:sans-serif;border-radius:3px">
+  <h3 style="margin:0 0 8px;font-family:sans-serif;font-size:15px;color:#c62828">🔒 Modalità Lockdown — Blocca l'accesso al sito</h3>
+  <p style="font-size:13px;margin-bottom:14px;color:#333">Manda il sito in lockdown. Chiunque tenti di aprirlo vedrà solo una schermata nera con richiesta di password. Per sbloccare serve la password di lockdown.</p>
+  <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+    <button onclick="richiediPasswordAdmin(attivaLockdown)" id="btn-lockdown" style="padding:10px 22px;background:#c62828;color:white;border:none;border-radius:3px;font-size:14px;font-family:sans-serif;cursor:pointer;font-weight:600">
+      🔒 Attiva Modalità Lockdown
+    </button>
+    <span id="stato-lockdown" style="font-size:12px;color:#555">Stato: <b>disattivata</b></span>
   </div>
 </div>
 
@@ -3706,8 +3849,80 @@ function isProtected(name) {
 }
 
 // ══════════════════════════════════════════════════════
-//  RESET — ripristina tutte le pagine al file originale
+//  PASSWORD ADMIN — protegge reset e modalità
 // ══════════════════════════════════════════════════════
+function richiediPasswordAdmin(callback) {
+  const pwd = prompt('🔒 Inserisci la password di amministrazione:');
+  if (pwd === null) return; // annullato
+  if (pwd === 'pocchiaèmonopalla') {
+    callback();
+  } else {
+    alert('❌ Password errata. Accesso negato.');
+  }
+}
+
+// ══════════════════════════════════════════════════════
+//  MODALITÀ LOCKDOWN — blocca accesso al sito
+// ══════════════════════════════════════════════════════
+const LOCKDOWN_PWD = 'topocheddarpocchia';
+const LOCKDOWN_KEY = 'pocchia_lockdown';
+
+async function attivaLockdown() {
+  try { localStorage.setItem(LOCKDOWN_KEY, '1'); } catch(e) {}
+  if (firebaseReady && window._fbDb && window._fbRef && window._fbSet) {
+    try { await window._fbSet(window._fbRef(window._fbDb, 'settings/lockdown'), true); } catch(e) {}
+  }
+  mostraLockdown();
+  aggiornaUILockdown(true);
+  showToast('🔒 Modalità Lockdown attivata — il sito è bloccato.');
+}
+
+function mostraLockdown() {
+  document.getElementById('lockdown-overlay').classList.add('active');
+  setTimeout(() => { const el = document.getElementById('lockdown-pwd'); if (el) el.focus(); }, 100);
+}
+
+function verificaLockdown() {
+  const input = document.getElementById('lockdown-pwd');
+  const errEl = document.getElementById('lockdown-error');
+  if (!input) return;
+  if (input.value === LOCKDOWN_PWD) {
+    try { localStorage.removeItem(LOCKDOWN_KEY); } catch(e) {}
+    if (firebaseReady && window._fbDb && window._fbRef && window._fbSet) {
+      try { window._fbSet(window._fbRef(window._fbDb, 'settings/lockdown'), false); } catch(e) {}
+    }
+    document.getElementById('lockdown-overlay').classList.remove('active');
+    if (errEl) errEl.textContent = '';
+    input.value = '';
+    aggiornaUILockdown(false);
+    showToast('🔓 Lockdown disattivato.');
+  } else {
+    if (errEl) errEl.textContent = '❌ Password errata.';
+    input.value = '';
+    input.focus();
+  }
+}
+
+function aggiornaUILockdown(attivo) {
+  const btn = document.getElementById('btn-lockdown');
+  const stato = document.getElementById('stato-lockdown');
+  if (btn) {
+    btn.textContent = attivo ? '🔓 Disattiva Lockdown' : '🔒 Attiva Modalità Lockdown';
+    btn.style.background = attivo ? '#555' : '#c62828';
+    btn.onclick = attivo
+      ? () => { const p = prompt('Password lockdown per sbloccare:'); if (p === LOCKDOWN_PWD) { try{localStorage.removeItem(LOCKDOWN_KEY);}catch(e){} document.getElementById('lockdown-overlay').classList.remove('active'); aggiornaUILockdown(false); showToast('🔓 Lockdown disattivato.'); } else { alert('❌ Password errata.'); } }
+      : () => richiediPasswordAdmin(attivaLockdown);
+  }
+  if (stato) stato.innerHTML = attivo
+    ? 'Stato: <b style="color:#c62828">attiva — sito bloccato</b>'
+    : 'Stato: <b>disattivata</b>';
+}
+
+function controllaLockdownAlAvvio() {
+  try { if (localStorage.getItem(LOCKDOWN_KEY) === '1') mostraLockdown(); } catch(e) {}
+}
+
+
 async function resetToDefault() {
   const confirmed = confirm(
     '⚠️ RESET COMPLETO\n\n' +
@@ -3954,6 +4169,20 @@ function initFirebase() {
           const safeKey = title.replace(/[.#$/\[\]]/g, '_');
           await fbSet(fbRef(db, 'pages/' + safeKey), pageData);
         };
+
+        // ── Ascolta lo stato del lockdown in tempo reale ──
+        fbOnValue(fbRef(db, 'settings/lockdown'), (snap) => {
+          const locked = snap.val() === true;
+          if (locked) {
+            try { localStorage.setItem(LOCKDOWN_KEY, '1'); } catch(e) {}
+            mostraLockdown();
+            aggiornaUILockdown(true);
+          } else {
+            try { localStorage.removeItem(LOCKDOWN_KEY); } catch(e) {}
+            document.getElementById('lockdown-overlay').classList.remove('active');
+            aggiornaUILockdown(false);
+          }
+        });
 
         // ── Ascolta lo stato delle modalità Sicura/Specchia in tempo reale ──
         fbOnValue(fbRef(db, 'settings/modalita'), (snap) => {
@@ -5126,7 +5355,7 @@ function buildTerzaGuerraAvengers() {
 </ol></div>
 
 <h2 id="risveglio-tg">109 dM — Il risveglio di Alessio Spisso² <span class="edit-link" onclick="openEditor('Terza Guerra degli Avengers')">[modifica]</span></h2>
-<p>Nel <b>109 dM</b>, due anni dopo la detonazione della <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a>, <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a> aprì gli occhi tra le macerie di Serrano. Non era morto. L'onda d'urto lo aveva sepolto in periferia; un terremoto minore nel 109 dM smossé le macerie abbastanza da liberarlo. Si svegliò coperto di polvere, uniforme degli Avengers addosso, telefono scarico da due anni — e si accorse immediatamente che stava benissimo. Meglio di benissimo.</p>
+<p>Nel <b>109 dM</b>, dieci anni dopo la detonazione della <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a>, <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a> aprì gli occhi tra le macerie di Serrano. Non era morto. L'onda d'urto lo aveva sepolto in periferia; un terremoto minore nel 109 dM smossé le macerie abbastanza da liberarlo. Si svegliò coperto di polvere, uniforme degli Avengers addosso, telefono scarico da due anni — e si accorse immediatamente che stava benissimo. Meglio di benissimo.</p>
 
 <h2 id="potere-tg">La scoperta del potere <span class="edit-link" onclick="openEditor('Terza Guerra degli Avengers')">[modifica]</span></h2>
 <p>Era già uno Spisso. La Bomba non distrugge gli Spisso — li potenzia. Cercando di sollevarsi dalle macerie, Alessio sollevò senza accorgersene un blocco di cemento da trecento chili. Poi fluttuò. Capì di essere diventato <b>Alessio Spisso²</b> — la seconda potenza, creata dall'energia che avrebbe dovuto ucciderlo.</p>
@@ -5221,7 +5450,7 @@ function buildMineraleSpisso() {
     <tr><td>Effetto su Alessio Spisso²</td><td>Poteri bloccati temporaneamente · poi rimossi definitivamente dall'esplosione</td></tr>
   </table>
 </div>
-<p>Il <b>Minerale Spisso</b> è una sostanza cristallina rinvenuta nel sottosuolo di <a onclick="navigateTo('Serrano')">Serrano</a> durante le analisi del terreno condotte da <a onclick="navigateTo('Alice Sportella')">Alice Sportella</a> nel <b>117 dM</b>, due anni dopo la detonazione della <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a>. È l'unica sostanza nota capace di neutralizzare i poteri acquisiti tramite esposizione alla Bomba — bloccando completamente le capacità di volo, forza e resistenza di chi li ha sviluppati, finché il contatto dura.</p>
+<p>Il <b>Minerale Spisso</b> è una sostanza cristallina rinvenuta nel sottosuolo di <a onclick="navigateTo('Serrano')">Serrano</a> durante le analisi del terreno condotte da <a onclick="navigateTo('Alice Sportella')">Alice Sportella</a> nel <b>117 dM</b>, dieci anni dopo la detonazione della <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a>. È l'unica sostanza nota capace di neutralizzare i poteri acquisiti tramite esposizione alla Bomba — bloccando completamente le capacità di volo, forza e resistenza di chi li ha sviluppati, finché il contatto dura.</p>
 <p>La sua esistenza suggerisce che la Bomba Spissica abbia alterato non solo le persone esposte ma anche il terreno circostante, cristallizzando nella roccia una proprietà inversa a quella che aveva conferito i poteri. Gildo Spisso non aveva mai previsto questo effetto collaterale — o se lo aveva previsto, non lo aveva scritto.</p>
 <h2>Utilizzo nella Terza Guerra <span class="edit-link" onclick="openEditor('Minerale Spisso')">[modifica]</span></h2>
 <p>Nel <b>119 dM</b> <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> usò il Minerale Spisso per costruire una gabbia attorno ad <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso²</a>, neutralizzandone i poteri prima di attivare una Bomba Spissica nel tentativo di potenziare sé stesso. Il piano fallì: Alex fu disintegrato, e la seconda esplosione ravvicinata rimosse definitivamente i poteri di Alessio, che uscì dalla gabbia come Alessio Spisso — senza il 2.</p>
@@ -5385,7 +5614,8 @@ function buildFilippine() {
 }
 
 loadPagesLocalOnly();
-caricaStatoModalitaLocale(); // carica stato modalità da localStorage prima che Firebase risponda
+caricaStatoModalitaLocale();
+controllaLockdownAlAvvio(); // mostra lockdown subito se attivo in localStorage
 updateSidebar();
 navigateTo('Main');
 initFirebase().then(() => {
