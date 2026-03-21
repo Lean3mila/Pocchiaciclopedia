@@ -5716,9 +5716,9 @@ function initGlobe() {
       label: { lon: 15.4, lat: 39.5 }
     },
     {
-      name: 'Serrano', navigateTo: 'Serrano',
-      color: '#e65100', border: '#8a3000', fill: '#e65100cc', textColor: '#fff',
-      // SOLO metà OVEST del Salento: lon 17.0-17.85, lat 38.88-40.30
+      name: 'Serrano', navigateTo: 'Filippine',
+      color: '#2e7d32', border: '#1a4d1e', fill: '#2e7d32cc', textColor: '#fff',
+      // metà OVEST del Salento = Filippine (capitale Calimera è qui)
       poly: [
         [17.00,40.28],[17.05,39.90],[17.05,39.55],[17.10,39.15],
         [17.22,38.95],[17.42,38.88],[17.65,38.88],[17.85,38.95],
@@ -5728,9 +5728,9 @@ function initGlobe() {
       label: { lon: 17.40, lat: 39.58 }
     },
     {
-      name: 'Filippine', navigateTo: 'Filippine',
-      color: '#2e7d32', border: '#1a4d1e', fill: '#2e7d32cc', textColor: '#fff',
-      // metà EST del Salento: lon 17.85-18.55, lat 38.8-40.3
+      name: 'Filippine', navigateTo: 'Serrano',
+      color: '#e65100', border: '#8a3000', fill: '#e65100cc', textColor: '#fff',
+      // metà EST del Salento = Serrano
       poly: [
         [17.85,40.28],[17.85,40.00],[17.85,39.65],[17.85,39.20],
         [17.85,38.95],[18.02,38.82],[18.20,38.82],[18.38,38.95],
@@ -5817,7 +5817,7 @@ function initGlobe() {
           const lon2 = Math.atan2(nx2, nz3);
           const lat2 = Math.asin(Math.max(-1, Math.min(1, ny2)));
           const tx = Math.floor((lon2 / Math.PI + 1) * 0.5 * (iw - 1));
-          const ty = Math.floor((0.5 - lat2 / Math.PI) * (ih - 1));
+          const ty = Math.floor((0.5 + lat2 / Math.PI) * (ih - 1));
           const si = (Math.max(0,Math.min(ih-1,ty)) * iw + Math.max(0,Math.min(iw-1,tx))) * 4;
           const shade = 0.55 + 0.45 * nz;
           for (let dy = 0; dy < step && py+dy < H; dy++) {
@@ -5868,23 +5868,53 @@ function initGlobe() {
 
   function drawTerritory(t) {
     const pts = projectPoly(t.poly);
-    if (!pts.some(p => p.visible && p.z > 0.05)) return;
+    // Conta quanti punti sono visibili — soglia alta per evitare bordi fantasma
+    const visCount = pts.filter(p => p.z > 0.0).length;
+    if (visCount < 2) return;
+    // Se il territorio è quasi tutto sul retro, non disegnarlo
+    const avgZ = pts.reduce((s,p) => s + p.z, 0) / pts.length;
+    if (avgZ < -0.1) return;
+
+    // Disegna fill solo se la maggioranza dei punti è davanti
+    const rz = R * zoom;
+    ctx.save();
+    // Clip al cerchio del globo — evita che i bordi escano
+    ctx.beginPath();
+    ctx.arc(W/2, H/2, rz - 1, 0, Math.PI*2);
+    ctx.clip();
+
+    // Fill: usa solo i punti con z > 0
     ctx.beginPath();
     let started = false;
     pts.forEach(p => {
-      if (!p.visible) { started=false; return; }
-      if (!started) { ctx.moveTo(p.sx, p.sy); started=true; }
+      if (p.z < 0.0) { started = false; return; }
+      if (!started) { ctx.moveTo(p.sx, p.sy); started = true; }
       else ctx.lineTo(p.sx, p.sy);
     });
     ctx.closePath();
-    ctx.fillStyle = t.fill;
+    ctx.fillStyle = t.fill || (t.color + 'cc');
     ctx.fill();
+
+    // Bordo: disegna solo i segmenti dove ENTRAMBI i punti sono visibili
+    // per evitare linee che attraversano il globo
+    ctx.beginPath();
+    for (let i = 0; i < pts.length; i++) {
+      const a = pts[i];
+      const b = pts[(i + 1) % pts.length];
+      if (a.z > 0.02 && b.z > 0.02) {
+        ctx.moveTo(a.sx, a.sy);
+        ctx.lineTo(b.sx, b.sy);
+      }
+    }
     ctx.strokeStyle = t.border;
-    ctx.lineWidth = 2.2;
+    ctx.lineWidth = 2.0;
     ctx.stroke();
-    // etichetta
+
+    ctx.restore();
+
+    // Etichetta — solo se il centro è chiaramente davanti
     const lp = project(t.label.lon, t.label.lat);
-    if (lp.visible && lp.z > 0.10) {
+    if (lp.visible && lp.z > 0.12) {
       const sz = Math.max(8, Math.round(11 * zoom));
       ctx.font = 'bold ' + sz + "px 'Source Sans 3',sans-serif";
       ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
