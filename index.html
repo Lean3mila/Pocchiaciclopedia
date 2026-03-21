@@ -3866,6 +3866,7 @@ function richiediPasswordAdmin(callback) {
 // ══════════════════════════════════════════════════════
 const LOCKDOWN_PWD = 'topocheddarpocchia';
 const LOCKDOWN_KEY = 'pocchia_lockdown';
+let lockdownBypassato = false; // true se l'utente ha inserito la password correttamente
 
 async function attivaLockdown() {
   try { localStorage.setItem(LOCKDOWN_KEY, '1'); } catch(e) {}
@@ -3887,15 +3888,11 @@ function verificaLockdown() {
   const errEl = document.getElementById('lockdown-error');
   if (!input) return;
   if (input.value === LOCKDOWN_PWD) {
-    try { localStorage.removeItem(LOCKDOWN_KEY); } catch(e) {}
-    if (firebaseReady && window._fbDb && window._fbRef && window._fbSet) {
-      try { window._fbSet(window._fbRef(window._fbDb, 'settings/lockdown'), false); } catch(e) {}
-    }
+    lockdownBypassato = true; // questo utente ha il pass — non verrà ribloccato
     document.getElementById('lockdown-overlay').classList.remove('active');
     if (errEl) errEl.textContent = '';
     input.value = '';
-    aggiornaUILockdown(false);
-    showToast('🔓 Lockdown disattivato.');
+    showToast('🔓 Accesso consentito — il lockdown è ancora attivo per gli altri.');
   } else {
     if (errEl) errEl.textContent = '❌ Password errata.';
     input.value = '';
@@ -3910,7 +3907,16 @@ function aggiornaUILockdown(attivo) {
     btn.textContent = attivo ? '🔓 Disattiva Lockdown' : '🔒 Attiva Modalità Lockdown';
     btn.style.background = attivo ? '#555' : '#c62828';
     btn.onclick = attivo
-      ? () => { const p = prompt('Password lockdown per sbloccare:'); if (p === LOCKDOWN_PWD) { try{localStorage.removeItem(LOCKDOWN_KEY);}catch(e){} document.getElementById('lockdown-overlay').classList.remove('active'); aggiornaUILockdown(false); showToast('🔓 Lockdown disattivato.'); } else { alert('❌ Password errata.'); } }
+      ? () => richiediPasswordAdmin(async () => {
+          try { localStorage.removeItem(LOCKDOWN_KEY); } catch(e) {}
+          if (firebaseReady && window._fbDb && window._fbRef && window._fbSet) {
+            try { await window._fbSet(window._fbRef(window._fbDb, 'settings/lockdown'), false); } catch(e) {}
+          }
+          lockdownBypassato = false;
+          document.getElementById('lockdown-overlay').classList.remove('active');
+          aggiornaUILockdown(false);
+          showToast('🔓 Lockdown disattivato per tutti.');
+        })
       : () => richiediPasswordAdmin(attivaLockdown);
   }
   if (stato) stato.innerHTML = attivo
@@ -4175,9 +4181,10 @@ function initFirebase() {
           const locked = snap.val() === true;
           if (locked) {
             try { localStorage.setItem(LOCKDOWN_KEY, '1'); } catch(e) {}
-            mostraLockdown();
+            if (!lockdownBypassato) mostraLockdown(); // non richiude chi ha già la password
             aggiornaUILockdown(true);
           } else {
+            lockdownBypassato = false; // lockdown disattivato globalmente, reset flag
             try { localStorage.removeItem(LOCKDOWN_KEY); } catch(e) {}
             document.getElementById('lockdown-overlay').classList.remove('active');
             aggiornaUILockdown(false);
