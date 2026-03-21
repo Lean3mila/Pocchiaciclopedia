@@ -1079,11 +1079,35 @@ const DEFAULT_PAGES = {
 
 <div style="margin:0 0 24px;font-family:sans-serif">
   <h2 style="font-family:'Linux Libertine Display',Georgia,serif;font-size:21px;font-weight:400;border-bottom:1px solid #a2a9b1;padding-bottom:4px;margin-bottom:12px">🌍 Mappa del mondo pocchiano</h2>
-  <p style="font-size:13px;color:#54595d;margin-bottom:10px">Ruota il globo per esplorare i paesi. Clicca su un paese per aprire la sua pagina.</p>
+
+  <!-- Barra controlli mappa -->
+  <div id="map-controls" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;font-family:sans-serif;font-size:12px;align-items:center">
+    <div style="display:flex;gap:4px;background:#f0f0f0;border-radius:4px;padding:3px">
+      <button id="btn-3d" onclick="setMapMode('3d')" style="padding:5px 12px;border:none;border-radius:3px;cursor:pointer;background:#3680b0;color:#fff;font-size:12px;font-weight:600">🌍 3D</button>
+      <button id="btn-2d" onclick="setMapMode('2d')" style="padding:5px 12px;border:none;border-radius:3px;cursor:pointer;background:transparent;color:#555;font-size:12px">🗺️ 2D</button>
+    </div>
+    <button id="btn-rot" onclick="toggleRotation()" style="padding:5px 12px;border:1px solid #ccc;border-radius:3px;cursor:pointer;background:#fff;font-size:12px">⏸ Ferma rotazione</button>
+  </div>
+  <!-- Slider anno -->
+  <div id="year-slider-wrap" style="max-width:600px;margin:0 auto 10px;font-family:sans-serif;font-size:12px">
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+      <label style="font-weight:600;white-space:nowrap;color:#202122">📅 Anno:</label>
+      <input type="range" id="year-slider" min="0" max="121" value="0" step="1"
+        style="flex:1;min-width:120px;accent-color:#3680b0"
+        oninput="onYearSlider(this.value)">
+      <span id="year-label" style="font-weight:700;color:#3680b0;min-width:54px;text-align:right">0 dM</span>
+    </div>
+    <div id="year-desc" style="margin-top:4px;color:#54595d;font-size:11px;min-height:14px"></div>
+  </div>
+  </div>
+
   <div id="globe-container" style="width:100%;max-width:600px;margin:0 auto;position:relative;cursor:grab;user-select:none">
     <canvas id="globe-canvas" width="600" height="600" style="width:100%;height:auto;display:block;border-radius:50%;box-shadow:0 6px 32px rgba(0,0,0,0.22)"></canvas>
+    <!-- Canvas 2D sovrapposto -->
+    <canvas id="map2d-canvas" width="600" height="400" style="width:100%;height:auto;display:none;border:1px solid #a2a9b1;border-radius:4px"></canvas>
     <div id="globe-tooltip" style="position:absolute;background:#202122;color:#fff;padding:5px 10px;border-radius:3px;font-size:12px;pointer-events:none;display:none;white-space:nowrap;z-index:10"></div>
   </div>
+  <p style="font-size:12px;color:#54595d;margin-top:8px;font-family:sans-serif">Ruota il globo trascinando · Zoom con la rotella · Clicca un paese per aprire la pagina</p>
 </div>
 
 <p><b>Luoghi</b></p>
@@ -1161,7 +1185,7 @@ const DEFAULT_PAGES = {
   <li><a onclick="navigateTo('Avengers')"><b>Avengers</b></a> — La potente organizzazione che controllava l'America. Fondata da Iron Spisso Man. Decimata nel 107 dM. In ricostruzione dal 109 dM.</li>
   <li><a onclick="navigateTo('Zella')"><b>Zella</b></a> — Ex-Capo degli Avengers. L'Albanese. Creduto morto nel 107 dM — era fuori dal raggio della Bomba. Dal 109 dM combatte di nuovo con Alessio Spisso².</li>
   <li><a onclick="navigateTo('Iron Spisso Man')"><b>Iron Spisso Man</b></a> — È Alex Spisso. Fondatore degli Avengers. Morto nel 100 dM, resuscitato. Ha tradito e eliminato tutti gli Avengers nel 107 dM. Dal 107 dM dittatore dell'America. Dal 109 dM ha un problema chiamato Serrano volante.</li>
-  <li><a onclick="navigateTo('Nigeria Spartiana')"><b>Nigeria Spartiana</b></a> — Stato africano fondato dai <a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a>. Controlla tutta l'Africa. Si è arresa all'America nel 107 dM.</li>
+  <li><a onclick="navigateTo('Nigeria Spartiana')"><b>Nigeria Spartiana</b></a> — Stato africano fondato dai <a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a> nel 52 dM. Controlla tutta l'Africa. Si è arresa all'America nel 107 dM.</li>
 </ul>
 
 
@@ -2953,7 +2977,7 @@ function buildCalendarioMorello() {
 
 <h2 id="eventi-cm">Note sulla conversione — eventi chiave <span class="edit-link" onclick="openEditor('Calendario Morello')">[modifica]</span></h2>
 <p>L'Anno 0 dM — il 1917 d.C. — è l'anno dell'arrivo di Morello a Napoli. Tutto il sistema ruota intorno a questo momento. Gli eventi che seguono sono datati in avanti (dM), quelli precedenti all'indietro (pM).</p>
-<p>Gli <a onclick="navigateTo('Avengers')">Avengers</a> furono fondati nel <b>92 dM</b> (2009) da <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> come <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a>, con <a onclick="navigateTo('Zella (Avengers)')">Zella</a> — dopo la scomparsa di Morello e con Alex già adulto. Le <a onclick="navigateTo('Prima Guerra degli Avengers')">Guerre degli Avengers</a> avvennero nel <b>101 dM</b> (2018). L'attacco alla casa di Zella e la morte di Iron Spisso Man nel <b>100 dM</b> (2017). La <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> fu fondata dai <a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a> nel <b>104 dM</b> (2021).</p>
+<p>Gli <a onclick="navigateTo('Avengers')">Avengers</a> furono fondati nel <b>92 dM</b> (2009) da <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> come <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a>, con <a onclick="navigateTo('Zella (Avengers)')">Zella</a> — dopo la scomparsa di Morello e con Alex già adulto. Le <a onclick="navigateTo('Prima Guerra degli Avengers')">Guerre degli Avengers</a> avvennero nel <b>101 dM</b> (2018). L'attacco alla casa di Zella e la morte di Iron Spisso Man nel <b>100 dM</b> (2017). La <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> fu fondata dai <a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a> nel <b>52 dM</b> (1969).</p>
 <p>Il <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> fu fondato nel <b>23 dM</b> (1940) e smantellato nell'<b>89 dM</b> (2006), sessantasei anni dopo.</p>
 
 <p>La <a onclick="navigateTo('La Guerra Finale')">Guerra Finale</a> (104–107 dM) è il periodo più denso di eventi nella storia del calendario: la seconda eruzione del Vesuvio, il ritorno di Morello, la conquista di Serrano, la Bomba Spissica. Il 107 dM è l'ultimo anno documentato con certezza. Il futuro è, al momento, un cratere.</p>
@@ -3348,25 +3372,58 @@ function buildZella() {
 
 
 function buildAmericaFascista() {
-  return `<h1 class="page-title">America (Avengers)</h1>
+  return `<div class="wiki-notice"><span class="ni">🛡️</span><span>L'America ha cambiato tre governi in vent'anni. Dal 119 dM è di nuovo nelle mani degli Avengers, con Zella come capo legittimo. Le città colpite dalle bombe stanno ancora ricostruendo.</span></div>
+<h1 class="page-title">America (Avengers)</h1>
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
 <div class="infobox">
   <div class="infobox-title">America — Stato degli Avengers</div>
   <div style="text-align:center;padding:8px 6px 4px;font-size:48px">🛡️</div>
-  <div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Bandiera degli Avengers — bandiera ufficiale dell'America</div>
   <table>
-    <tr><td>Capo</td><td><a onclick="navigateTo('Zella (Avengers)')">Zella</a></td></tr>
-    <tr><td>Organizzazione al governo</td><td><a onclick="navigateTo('Avengers')">Avengers</a></td></tr>
+    <tr><td>Capo attuale</td><td><a onclick="navigateTo('Zella (Avengers)')">Zella</a> (dal 119 dM)</td></tr>
+    <tr><td>Ex dittatore</td><td><a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> (107–119 dM) — disintegrato</td></tr>
     <tr><td>Fondatore degli Avengers</td><td><a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a></td></tr>
     <tr><td>Capitale</td><td>Washington D.C.</td></tr>
-    <tr><td>Nemico principale</td><td><a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a></td></tr>
+    <tr><td>Città colpite</td><td>San Francisco, Chicago, Houston, Denver (116–118 dM)</td></tr>
+    <tr><td>Consigliere arrestato</td><td><a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> — 121 dM</td></tr>
+    <tr><td>Stato attuale</td><td>Governo legittimo ripristinato · in ricostruzione</td></tr>
   </table>
 </div>
-<p>L'<b>America</b> è controllata dagli <a onclick="navigateTo('Avengers')">Avengers</a>, l'organizzazione fondata da <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a>. La bandiera dello stato è la bandiera degli Avengers. Il capo è <a onclick="navigateTo('Zella (Avengers)')">Zella</a>, che guida sia l'organizzazione che il paese.</p>
-<p>Al termine della <a onclick="navigateTo('Seconda Guerra degli Avengers')">Seconda Guerra degli Avengers</a>, Iron Spisso Man e Zella siglarono una pace con stretta di mano e giurarono di combattere insieme la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a>.</p>
+<p>L'<b>America</b> è il paese controllato dagli <a onclick="navigateTo('Avengers')">Avengers</a> sin dalla loro fondazione. Ha attraversato tre fasi politiche distinte nel giro di vent'anni: governo degli Avengers sotto <a onclick="navigateTo('Zella (Avengers)')">Zella</a>, dittatura di <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> (107–119 dM), e ritorno al governo legittimo dopo la <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers</a>.</p>
+
+<div class="toc-box"><div class="toc-title">Indice</div><ol>
+  <li><a href="#avengers-am">Gli Avengers al governo</a></li>
+  <li><a href="#dittatura-am">La dittatura di Alex (107–119 dM)</a></li>
+  <li><a href="#bombe-am">Le bombe sulla città americane (116–118 dM)</a></li>
+  <li><a href="#liberazione-am">La liberazione e il ritorno di Zella (119 dM)</a></li>
+  <li><a href="#oggi-am">Stato attuale</a></li>
+</ol></div>
+
+<h2 id="avengers-am">Gli Avengers al governo <span class="edit-link" onclick="openEditor('America (Avengers)')">[modifica]</span></h2>
+<p>L'America fu presa sotto il controllo degli <a onclick="navigateTo('Avengers')">Avengers</a> fin dalla fondazione dell'organizzazione da parte di <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a> nel 92 dM. Non fu una conquista militare tradizionale: fu un'acquisizione graduale di potere attraverso l'influenza, i poteri soprannaturali dei membri e la capacità di gestire crisi che il governo ordinario non riusciva ad affrontare. Al termine della <a onclick="navigateTo('Seconda Guerra degli Avengers')">Seconda Guerra degli Avengers</a>, Iron Spisso Man e Zella siglarono una pace con stretta di mano e il paese rimase stabile per alcuni anni.</p>
+
+<h2 id="dittatura-am">La dittatura di Alex (107–119 dM) <span class="edit-link" onclick="openEditor('America (Avengers)')">[modifica]</span></h2>
+<p>Nel <b>107 dM</b>, dopo la detonazione della <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> su Serrano, <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> assunse il controllo diretto dell'America. Il governo degli Avengers fu sciolto. Le elezioni furono sospese. Alex nominò suo figlio biologico <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> — già Segretario alla Difesa — <b>Consigliere di Guerra Americano</b>, dandogli accesso diretto a tutte le risorse militari del paese. La dittatura durò dodici anni.</p>
+<p>Fu Pete Hegseth che nel <b>110 dM</b> convinse Alex che <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso²</a> era vivo e stava ricostruendo Serrano — informazione che portò direttamente all'escalation della <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers</a>.</p>
+
+<h2 id="bombe-am">Le bombe sulle città americane (116–118 dM) <span class="edit-link" onclick="openEditor('America (Avengers)')">[modifica]</span></h2>
+<p>Nel <b>116 dM</b>, quando la bomba costruita da Alessio e Zella fu pronta, fu lanciata su diverse città americane di medie dimensioni — non sulla capitale, dove si trovava Alex. Alessio aveva detto chiaramente che quella faccenda si sarebbe risolta di persona. Le città colpite furono:</p>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><b>San Francisco</b> — costa ovest, infrastrutture militari</li>
+  <li><b>Chicago</b> — centro, basi operative americane</li>
+  <li><b>Houston</b> — sud, depositi e rifornimenti militari</li>
+</ul>
+<p>Nel <b>118 dM</b>, dopo la ribellione della <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a>, Alex lanciò l'ultima bomba rimasta sulla Nigeria — intercettata da Alessio in volo. Alessio la rilancia sull'America, colpendo <b>Denver</b>. L'effetto delle bombe era calibrato per infrastrutture militari, non per la popolazione civile, ma i danni urbani furono significativi. Le città sono ancora in ricostruzione.</p>
+
+<h2 id="liberazione-am">La liberazione e il ritorno di Zella (119 dM) <span class="edit-link" onclick="openEditor('America (Avengers)')">[modifica]</span></h2>
+<p>Nel <b>119 dM</b> Alex fu disintegrato dalla propria bomba nel tentativo fallito di ottenere i poteri di Alessio. Con la sua morte, il regime crollò. <a onclick="navigateTo('Zella (Avengers)')">Zella</a> — dichiarato capo legittimo dal <b>111 dM</b> — assunse il governo con gli Avengers resuscitati. Fu la prima transizione di potere ordinata nella storia recente del paese.</p>
+<p>Nel <b>121 dM</b> <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> fu trovato nascosto nella vecchia dogana dello <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> a <a onclick="navigateTo('Castri')">Castri</a> e arrestato.</p>
+
+<h2 id="oggi-am">Stato attuale <span class="edit-link" onclick="openEditor('America (Avengers)')">[modifica]</span></h2>
+<p>L'America è tornata sotto il governo degli Avengers. Le elezioni sono state indette. La ricostruzione delle città colpite è in corso. La base degli Avengers — distrutta durante i combattimenti del 118–119 dM e ricostruita nel <b>120 dM</b> — è operativa. <a onclick="navigateTo('Serrano')">Serrano volante</a> rimane la base avanzata degli Avengers nell'emisfero orientale.</p>
+<div class="stub-box"><span style="font-size:22px">🛡️</span><span>L'America è di nuovo degli Avengers. Quattro città ricostruiscono. Pete Hegseth è in prigione. Zella governa.</span></div>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Paesi</a> <a>Avengers</a> <a>America</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Paesi</a> <a>Avengers</a> <a>America</a> <a>Terza Guerra degli Avengers</a> <a>Dittatura Spissica</a></div>`;
 }
 
 function build104Nigeriani() {
@@ -3375,18 +3432,17 @@ function build104Nigeriani() {
 <div class="wiki-article-body clearfix">
 <div class="infobox">
   <div class="infobox-title">104 Nigeriani</div>
-  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/200px-Flag_of_Nigeria.svg.png" alt="104 Nigeriani" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
   <table>
     <tr><td>Tipo</td><td>Movimento di fondazione / milizia</td></tr>
-    <tr><td>Fondazione</td><td>104 dM</td></tr>
+    <tr><td>Fondazione</td><td><b>52 dM</b> (1969 d.C.)</td></tr>
     <tr><td>Numero fondatori</td><td>104</td></tr>
     <tr><td>Obiettivo</td><td>Fondare la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> · espandersi in tutta l'Africa</td></tr>
-    <tr><td>Risultato</td><td>Fondazione della <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> nel 104 dM — e conquista di tutto il continente africano</td></tr>
+    <tr><td>Risultato</td><td>Fondazione della <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> nel 52 dM — e conquista di tutto il continente africano</td></tr>
     <tr><td>Nome</td><td>Dal numero esatto dei fondatori: erano precisamente 104, né uno di più né uno di meno</td></tr>
   </table>
 </div>
 <p>I <b>104 Nigeriani</b> furono esattamente quello che il nome suggerisce: cento e quattro nigeriani che decisero di fondare uno stato. Non più, non meno. La precisione del numero era, secondo le memorie dei fondatori, «non una coincidenza ma un principio: un esercito ha bisogno di sapere chi è dentro e chi no».</p>
-<p>Nel 104 dM fondarono la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> e dichiararono l'intenzione di espandersi in tutta l'Africa. Questa dichiarazione fu firmata, trasmessa, e — nella versione ufficiale della Nigeria Spartiana — mantenuta. Nella versione degli storici indipendenti, il controllo effettivo si limita alla Nigeria e a piccole aree confinanti. La distinzione non è mai stata discussa pubblicamente con i diretti interessati, principalmente per paura del Raggio Nero.</p>
+<p>Nel <b>52 dM</b> fondarono la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> e dichiararono l'intenzione di espandersi in tutta l'Africa. Questa dichiarazione fu firmata, trasmessa, e — nella versione ufficiale della Nigeria Spartiana — mantenuta. Nella versione degli storici indipendenti, il controllo effettivo si limita alla Nigeria e a piccole aree confinanti. La distinzione non è mai stata discussa pubblicamente con i diretti interessati, principalmente per paura del Raggio Nero.</p>
 <p>La carta fondativa, scritta a mano e firmata da tutti e 104, recitava nella sezione finale: <i>«Noi controlliamo l'Africa. Tutta. Chi non è d'accordo è invitato a dircelo di persona».</i> Nessuno glielo disse.</p>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Nigeria Spartiana</a> <a>Figure fondatrici</a></div>`;
@@ -3398,10 +3454,9 @@ function buildNigeriaSpartiana() {
 <div class="wiki-article-body clearfix">
 <div class="infobox">
   <div class="infobox-title">Nigeria Spartiana</div>
-  <div style="text-align:center;padding:8px 6px 4px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/200px-Flag_of_Nigeria.svg.png" alt="Nigeria Spartiana" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div><div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Bandiera della Nigeria Spartiana</div>
-  <div style="text-align:center;padding:6px"><img src="nigeria.png" alt="Nigeria" style="width:100%;max-width:220px;display:block;margin:0 auto;border:1px solid #a2a9b1"></div><div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 6px">Territorio sotto controllo della Nigeria Spartiana</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="nigeria_flag.png" alt="Bandiera Nigeria Spartiana" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div><div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Bandiera della Nigeria Spartiana</div>
   <table>
-    <tr><td>Fondazione</td><td>104 dM</td></tr>
+    <tr><td>Fondazione</td><td><b>52 dM</b> (1969 d.C.)</td></tr>
     <tr><td>Capitale</td><td>Lagos</td></tr>
     <tr><td>Fondatori</td><td><a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a></td></tr>
     <tr><td>Territorio reale</td><td>Nigeria + piccole zone limitrofe (Benin, sud Niger, parte Camerun)</td></tr>
@@ -3425,7 +3480,7 @@ function buildNigeriaSpartiana() {
 </div>
 
 <h2 id="fondazione-ns">Fondazione <span class="edit-link" onclick="openEditor('Nigeria Spartiana')">[modifica]</span></h2>
-<p>La <b>Nigeria Spartiana</b> fu fondata nel <b>104 dM</b> dai <a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a> — un gruppo di cento e quattro uomini che, con nient'altro che determinazione, disciplina spartana e una carta fondativa scritta di proprio pugno, strapparono il continente africano a chiunque pensasse di controllarlo.</p>
+<p>La <b>Nigeria Spartiana</b> fu fondata nel <b>52 dM</b> dai <a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a> — un gruppo di cento e quattro uomini che, con nient'altro che determinazione, disciplina spartana e una carta fondativa scritta di proprio pugno, strapparono il continente africano a chiunque pensasse di controllarlo.</p>
 <p>Il nome «Spartiana» fu scelto come omaggio alla tradizione militare di Sparta: un paese di guerrieri che non si piegano, non trattano, non arretrano. Nessuno dei 104 fondatori aveva mai letto Tucidide, ma l'essenza del concetto l'avevano capita benissimo senza.</p>
 
 <h2 id="espansione-ns">Il territorio — reale e rivendicato <span class="edit-link" onclick="openEditor('Nigeria Spartiana')">[modifica]</span></h2>
@@ -5649,6 +5704,343 @@ function buildFilippine() {
 // ══════════════════════════════════════════════════════
 //  GLOBO INTERATTIVO — pagina principale
 // ══════════════════════════════════════════════════════
+// ── Stato globale mappa ──
+let globeMapMode = '3d';      // '3d' | '2d'
+// bombe sempre visibili per anno
+let globeShowWars = false; // non più usato — tenuto per compatibilità
+const historicalWars = []; // non più usato
+let currentWarIndex = 0;   // non più usato
+let globeAutoRot = true;      // riferimento sincronizzato con initGlobe
+// Zoom mappa 2D
+let map2dZoom = 1.0, map2dOffX = 0, map2dOffY = 0;
+let map2dDragging = false, map2dLastX = 0, map2dLastY = 0;
+let map2dPinchDist = null;
+// Frame animazione bombe
+
+function setMapMode(mode) {
+  globeMapMode = mode;
+  const c3d = document.getElementById('globe-canvas');
+  const c2d = document.getElementById('map2d-canvas');
+  const btn3 = document.getElementById('btn-3d');
+  const btn2 = document.getElementById('btn-2d');
+  const rotBtn = document.getElementById('btn-rot');
+  if (!c3d) return;
+  if (mode === '3d') {
+    c3d.style.display = 'block'; c3d.style.borderRadius = '50%';
+    if (c2d) c2d.style.display = 'none';
+    btn3.style.background = '#3680b0'; btn3.style.color = '#fff';
+    btn2.style.background = 'transparent'; btn2.style.color = '#555';
+    if (rotBtn) rotBtn.style.display = '';
+  } else {
+    c3d.style.display = 'none';
+    if (c2d) {
+      c2d.style.display = 'block';
+      // Aggiungi listener zoom/drag solo una volta
+      if (!c2d._zoomReady) {
+        c2d._zoomReady = true;
+        c2d.addEventListener('wheel', e => {
+          e.preventDefault();
+          const factor = e.deltaY < 0 ? 1.12 : 0.89;
+          const rect = c2d.getBoundingClientRect();
+          const mx = (e.clientX - rect.left) * (c2d.width / rect.width);
+          const my = (e.clientY - rect.top) * (c2d.height / rect.height);
+          map2dOffX = mx - (mx - map2dOffX) * factor;
+          map2dOffY = my - (my - map2dOffY) * factor;
+          map2dZoom = Math.max(0.5, Math.min(8, map2dZoom * factor));
+        }, {passive:false});
+        c2d.addEventListener('mousedown', e => { map2dDragging=true; map2dLastX=e.clientX; map2dLastY=e.clientY; c2d.style.cursor='grabbing'; });
+        window.addEventListener('mousemove', e => {
+          if (!map2dDragging) return;
+          const scale = c2d.width / c2d.getBoundingClientRect().width;
+          map2dOffX += (e.clientX - map2dLastX) * scale;
+          map2dOffY += (e.clientY - map2dLastY) * scale;
+          map2dLastX=e.clientX; map2dLastY=e.clientY;
+        });
+        window.addEventListener('mouseup', () => { map2dDragging=false; c2d.style.cursor='grab'; });
+        c2d.addEventListener('touchstart', e => {
+          e.preventDefault();
+          if (e.touches.length===1) { map2dDragging=true; map2dLastX=e.touches[0].clientX; map2dLastY=e.touches[0].clientY; }
+          if (e.touches.length===2) {
+            const dx=e.touches[0].clientX-e.touches[1].clientX, dy=e.touches[0].clientY-e.touches[1].clientY;
+            map2dPinchDist=Math.sqrt(dx*dx+dy*dy);
+          }
+        },{passive:false});
+        c2d.addEventListener('touchmove', e => {
+          e.preventDefault();
+          const scale = c2d.width / c2d.getBoundingClientRect().width;
+          if (e.touches.length===1) {
+            map2dOffX+=(e.touches[0].clientX-map2dLastX)*scale;
+            map2dOffY+=(e.touches[0].clientY-map2dLastY)*scale;
+            map2dLastX=e.touches[0].clientX; map2dLastY=e.touches[0].clientY;
+          }
+          if (e.touches.length===2 && map2dPinchDist) {
+            const dx=e.touches[0].clientX-e.touches[1].clientX, dy=e.touches[0].clientY-e.touches[1].clientY;
+            const d=Math.sqrt(dx*dx+dy*dy);
+            map2dZoom=Math.max(0.5,Math.min(8,map2dZoom*d/map2dPinchDist));
+            map2dPinchDist=d;
+          }
+        },{passive:false});
+        c2d.addEventListener('touchend', () => { map2dDragging=false; map2dPinchDist=null; });
+        c2d.style.cursor = 'grab';
+
+        // Tooltip hover 2D
+        c2d.addEventListener('mousemove', e => {
+          if (map2dDragging) return;
+          const rect = c2d.getBoundingClientRect();
+          const W2 = c2d.width, H2 = c2d.height;
+          const scale = W2 / rect.width;
+          const cx = (e.clientX - rect.left) * scale;
+          const cy = (e.clientY - rect.top) * scale;
+          const wx = (cx - map2dOffX) / map2dZoom;
+          const wy = (cy - map2dOffY) / map2dZoom;
+          function ll2px(lon, lat) { return { x:((lon+180)/360)*W2, y:((90-lat)/180)*H2 }; }
+          const terr = window._globeTerritories || [];
+          let best = null, bestDist = Infinity;
+          terr.forEach(t => {
+            if (t.warOnly) return;
+            if (!isTerritoryVisible(t)) return; // non esiste ancora
+            const p = ll2px(t.label.lon, t.label.lat);
+            const dx = wx - p.x, dy = wy - p.y;
+            const dist = Math.sqrt(dx*dx + dy*dy);
+            const hitPx = (t.hitR || 2) * W2 / 360;
+            if (dist < hitPx && dist < bestDist) { bestDist = dist; best = t; }
+          });
+          const tip = document.getElementById('globe-tooltip');
+          const cont = document.getElementById('globe-container');
+          if (best && tip) {
+            // Nome e navigazione corretti per l'anno
+            const navName = (best.name === 'Filippine' && currentYear < 108)
+              ? 'Camorra Salentina' : (best.navigateTo || best.name);
+            tip.textContent = navName;
+            tip.style.display = 'block';
+            const cr = cont.getBoundingClientRect();
+            tip.style.left = (e.clientX - cr.left + 14) + 'px';
+            tip.style.top  = (e.clientY - cr.top  - 14) + 'px';
+            c2d.style.cursor = 'pointer';
+          } else if (tip) {
+            tip.style.display = 'none';
+            c2d.style.cursor = map2dDragging ? 'grabbing' : 'grab';
+          }
+        });
+        c2d.addEventListener('mouseleave', () => {
+          const t = document.getElementById('globe-tooltip');
+          if (t) t.style.display = 'none';
+        });
+        c2d.addEventListener('click', e => {
+          if (map2dDragging) return;
+          const rect = c2d.getBoundingClientRect();
+          const W2 = c2d.width, H2 = c2d.height;
+          const scale = W2 / rect.width;
+          const wx = ((e.clientX - rect.left) * scale - map2dOffX) / map2dZoom;
+          const wy = ((e.clientY - rect.top)  * scale - map2dOffY) / map2dZoom;
+          function ll2px(lon, lat) { return { x:((lon+180)/360)*W2, y:((90-lat)/180)*H2 }; }
+          const terr = window._globeTerritories || [];
+          let best = null, bestDist = Infinity;
+          terr.forEach(t => {
+            if (t.warOnly || !isTerritoryVisible(t)) return;
+            const p = ll2px(t.label.lon, t.label.lat);
+            const dx = wx - p.x, dy = wy - p.y;
+            const dist = Math.sqrt(dx*dx + dy*dy);
+            const hitPx = (t.hitR || 2) * W2 / 360;
+            if (dist < hitPx && dist < bestDist) { bestDist = dist; best = t; }
+          });
+          if (best) {
+            const nav = (best.name === 'Filippine' && currentYear < 108)
+              ? 'Camorra Salentina' : (best.navigateTo || best.name);
+            navigateTo(nav);
+          }
+        });
+      }
+      start2DLoop();
+    }
+    btn2.style.background = '#3680b0'; btn2.style.color = '#fff';
+    btn3.style.background = 'transparent'; btn3.style.color = '#555';
+    if (rotBtn) rotBtn.style.display = 'none';
+  }
+}
+
+function start2DLoop() {
+  if (window._map2dRAF) cancelAnimationFrame(window._map2dRAF);
+  function loop2d() {
+    draw2DMap();
+    if (globeMapMode === '2d') window._map2dRAF = requestAnimationFrame(loop2d);
+  }
+  window._map2dRAF = requestAnimationFrame(loop2d);
+}
+
+function toggleRotation() {
+  globeAutoRot = !globeAutoRot;
+  if (window._globeRotRef) window._globeRotRef.autoRot = globeAutoRot;
+  const btn = document.getElementById('btn-rot');
+  if (btn) btn.textContent = globeAutoRot ? '⏸ Ferma rotazione' : '▶ Avvia rotazione';
+}
+
+
+
+// Guerre storiche con territori coinvolti
+// ── Anno corrente selezionato dallo slider ──
+let currentYear = 0;
+
+function onYearSlider(val) {
+  currentYear = parseInt(val);
+  const lbl = document.getElementById('year-label');
+  const desc = document.getElementById('year-desc');
+  if (lbl) lbl.textContent = currentYear + ' dM';
+  // Descrizione periodo
+  const periods = [
+    { min:0,   max:16,  desc: "Età dell'Oro — Morello e Sal governano Napoli" },
+    { min:17,  max:22,  desc: 'Dopo il Vesuvio — Morello fonda la Camorra Salentina' },
+    { min:23,  max:89,  desc: 'Serrano fondato da Gennaro Spisso (23 dM) — Clan Spisso, Camorra Salentina' },
+    { min:90,  max:99,  desc: 'Topismo fondato (90 dM) — periodo di stabilità relativa' },
+    { min:100, max:100, desc: 'Iron Spisso Man muore — attacco alla casa di Zella' },
+    { min:101, max:101, desc: 'Prima Guerra degli Avengers — Iron Spisso Man resuscitato' },
+    { min:102, max:102, desc: 'Seconda Guerra degli Avengers — Zella vs Iron Spisso Man' },
+    { min:103, max:103, desc: 'Topismo conquista Serrano — Topus Maximus scoppulato' },
+    { min:104, max:104, desc: 'Guerra Finale Fase 1 — Avengers vs Nigeria, ritorno di Morello, cielo arancione' },
+    { min:105, max:106, desc: 'Guerra Finale Fase 2 — conquista di Serrano, Pocchia prendono la Camorra' },
+    { min:107, max:107, desc: '💥 Bomba Spissica su Serrano — «Spisso.» Alex prende l\'America' },
+    { min:108, max:108, desc: 'Nascono le Filippine dalla Camorra Salentina — capitale Calimera' },
+    { min:109, max:110, desc: 'Alessio Spisso² si risveglia — Serrano ricostruita e in volo' },
+    { min:111, max:115, desc: 'Terza Guerra degli Avengers — Alessio e Zella vs Alex' },
+    { min:116, max:118, desc: '💣 Bombe sulle città USA — Nigeria si ribella, Alessio rilancia' },
+    { min:119, max:121, desc: 'Alex disintegrato — Zella governa, ricostruzione. Pete arrestato (121 dM)' },
+  ];
+  const p = periods.find(p => currentYear >= p.min && currentYear <= p.max) || periods[0];
+  if (desc) desc.textContent = p.desc;
+  if (window._globeDirty !== undefined) { window._globeDirty = true; window._earthCacheKey = ''; }
+  if (globeMapMode === '2d') draw2DMap();
+}
+
+// ── Visibilità territorio per anno ──
+// Ritorna false se il territorio non esisteva ancora quell'anno
+function isTerritoryVisible(t) {
+  const y = currentYear;
+  const name = t.name;
+  if (name === 'Serrano')           return y >= 23;   // fondato da Gennaro Spisso nel 23 dM
+  if (name === 'Filippine')         return y >= 17;   // territorio (Camorra Salentina) dal 17 dM
+  if (name === 'Nigeria Spartiana') return y >= 52;   // fondata nel 52 dM
+  if (name === 'America (Avengers)')return y >= 92;   // Avengers prendono l'America nel 92 dM
+  return true; // Napoli sempre visibile
+}
+
+// ── Colori territorio per anno ──
+function getTerritoryColors(t) {
+  const y = currentYear;
+  const name = t.name;
+  let fill = t.color + 'bb', border = t.border;
+  if (name === 'Serrano') {
+    if (y >= 107 && y <= 108) { fill = 'rgba(110,110,110,0.55)'; border = '#666'; } // distrutta
+    // 109+ torna normale (volante)
+  }
+  if (name === 'Filippine') {
+    if (y < 108) { fill = '#795548bb'; border = '#4e342e'; } // era Camorra Salentina
+  }
+  if (name === 'America (Avengers)') {
+    if (y >= 107 && y <= 119) { fill = '#c62828dd'; border = '#7f0000'; } // dittatura Alex
+  }
+  if (name === 'Nigeria Spartiana') {
+    if (y >= 107 && y <= 117) { fill = 'rgba(110,110,110,0.55)'; border = '#666'; } // sottomessa
+    // 118+ torna normale (ribellata)
+  }
+  return { fill, border };
+}
+
+function draw2DMap() {
+  const canvas = document.getElementById('map2d-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  ctx.clearRect(0, 0, W, H);
+
+  ctx.save();
+  ctx.translate(map2dOffX, map2dOffY);
+  ctx.scale(map2dZoom, map2dZoom);
+
+  // Disegna earth.jpg come sfondo
+  const mapImg = window._earthImgEl;
+  if (mapImg && mapImg.complete && mapImg.naturalWidth > 0) {
+    ctx.drawImage(mapImg, 0, 0, W, H);
+  } else {
+    ctx.fillStyle = '#2980b9';
+    ctx.fillRect(0, 0, W, H);
+  }
+
+  function ll2px(lon, lat) {
+    return { x: ((lon+180)/360)*W, y: ((90-lat)/180)*H };
+  }
+
+  // Disegna poligoni territori
+  const terr = window._globeTerritories || [];
+  terr.forEach(t => {
+    if (!t.poly) return;
+    if (!isTerritoryVisible(t)) return;
+    if (!isTerritoryVisible(t)) return;
+    const { fill, border } = getTerritoryColors(t);
+    const pts = t.poly.map(([lon,lat]) => ll2px(lon,lat));
+    ctx.beginPath();
+    pts.forEach((p,i) => i===0 ? ctx.moveTo(p.x,p.y) : ctx.lineTo(p.x,p.y));
+    ctx.closePath();
+    ctx.fillStyle = fill; ctx.fill();
+    ctx.strokeStyle = border; ctx.lineWidth = 1.5; ctx.stroke();
+  });
+
+  ctx.restore();
+  ctx.strokeStyle='#a2a9b1'; ctx.lineWidth=1; ctx.strokeRect(0,0,W,H);
+}
+
+// Bombe storiche: year = anno dM in cui cadono, to = [lon, lat] impatto
+const bombEvents = [
+  { year: 107, to: [18.18,39.62], label: 'Bomba Spissica su Serrano', impactOnly: false },
+  { year: 112, to: [18.18,39.62], label: '9 bombe su Serrano volante (X)',    impactOnly: true  },
+  { year: 116, to: [-90,35],     label: 'Bomba Avengers su USA',             impactOnly: false },
+  { year: 118, to: [8.5,9.0],    label: 'Bomba Alex su Nigeria (X)',         impactOnly: true  },
+  { year: 118, to: [-104,39],    label: 'Alessio rilancia su USA',           impactOnly: false },
+];
+
+// Icona bomba disegnata su canvas
+function drawBombIcon(ctx, x, y, size) {
+  const r = size * 0.45;
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.beginPath();
+  ctx.arc(0, r*0.2, r, 0, Math.PI*2);
+  ctx.fillStyle = '#1a1a1a'; ctx.fill();
+  ctx.strokeStyle = '#555'; ctx.lineWidth = 1; ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(r*0.5, -r*0.6);
+  ctx.quadraticCurveTo(r*0.9, -r*1.2, r*0.3, -r*1.5);
+  ctx.strokeStyle = '#888'; ctx.lineWidth = 1.5; ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(r*0.3, -r*1.5, r*0.18, 0, Math.PI*2);
+  ctx.fillStyle = '#ffcc00'; ctx.fill();
+  ctx.restore();
+}
+
+function draw2DBombs(ctx, W, H, ll2px) {
+  const events = getBombsForYear();
+  if (!events.length) return;
+  events.forEach(e => {
+    const b = ll2px(e.to[0], e.to[1]);
+    drawBombIcon(ctx, b.x, b.y, e.impactOnly ? 14 : 18);
+    // X per bombe intercettate
+    if (e.impactOnly) {
+      ctx.save();
+      ctx.strokeStyle='rgba(255,80,0,0.8)'; ctx.lineWidth=2;
+      const s=9;
+      ctx.beginPath(); ctx.moveTo(b.x-s,b.y-s); ctx.lineTo(b.x+s,b.y+s); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(b.x+s,b.y-s); ctx.lineTo(b.x-s,b.y+s); ctx.stroke();
+      ctx.restore();
+    }
+  });
+}
+
+
+function getBombsForYear() {
+  const y = currentYear;
+  return bombEvents.filter(e => e.year === y);
+}
+
+
 function initGlobe() {
   const canvas = document.getElementById('globe-canvas');
   const tooltip = document.getElementById('globe-tooltip');
@@ -5665,10 +6057,16 @@ function initGlobe() {
   let dragging = false, lastX = 0, lastY = 0;
   let pinchDist = null;
   let autoRot = true;
+  // Ref condiviso con i controlli globali
+  window._globeRotRef = { get autoRot() { return autoRot; }, set autoRot(v) { autoRot = v; } };
+
+  // Esponi i territori per la mappa 2D
+  setTimeout(() => { window._globeTerritories = territories; }, 0);
 
   // Texture Terra locale
   const earthImg = new Image();
   earthImg.src = 'earth.jpg';
+  window._earthImgEl = earthImg;
   let earthReady = false;
   let earthPixels = null;
   let earthW = 0, earthH = 0;
@@ -5687,61 +6085,61 @@ function initGlobe() {
 
   /*
    * TERRITORI:
-   * Napoli   = tutto il Sud Italia tranne Salento (escluso lat<40.3 lon>17.0)
-   * Serrano  = metà OVEST del Salento (lon 17.0-17.85, lat 38.9-40.3)  ← SOLO QUI
-   * Filippine= metà EST del Salento (lon 17.85-18.55, lat 38.8-40.3)
-   * Nigeria  = Nigeria + piccole zone (dichiara tutta Africa)
-   * America  = USA continentale
+   * Napoli      = tutto il Sud Italia tranne Salento e Serrano casertano
+   * Serrano     = entroterra casertano (piccolo, nord di Napoli, lon~14.1 lat~41.3)
+   *               + nel Salento: il poligono ovest navigateTo='Serrano' perché
+   *                 nella lore il Salento ovest era sotto Serrano prima che diventasse Filippine
+   * Filippine   = Salento est (navigateTo='Filippine', capitale Calimera)
+   * Nigeria     = Nigeria + aree limitrofe
+   * America     = USA continentale
    */
+  // Territori — solo label/navigateTo per tooltip. I poligoni sono ridotti a punti
+  // per hitTest approssimativo (point-radius). La mappa visuale è mappa_2d.png
   const territories = [
     {
       name: 'Napoli', navigateTo: 'Napoli',
-      color: '#1565c0', border: '#0d3b8a', fill: '#1565c0bb', textColor: '#fff',
+      color: '#1565c0', border: '#0d3b8a', textColor: '#fff',
+      label: { lon: 15.4, lat: 39.5 }, hitR: 3.5,
       poly: [
-        // Costa tirrenica nord (Gaeta area)
         [13.55,41.20],[13.30,41.00],[13.18,40.60],[13.35,40.15],
         [13.55,39.80],[13.75,39.30],[14.00,38.80],[14.25,38.45],
         [14.55,37.95],[15.05,37.80],[15.45,37.85],[15.70,37.95],
         [16.00,38.20],[16.30,38.50],[16.60,38.80],[16.82,39.20],
-        [17.00,39.55],[17.05,39.90],[17.05,40.28],
-        // confine con Serrano (lato ovest Salento) — qui Napoli finisce
-        [17.00,40.32],
-        // costa adriatica pugliese (nord del Salento)
+        [17.00,39.55],[17.05,39.90],[17.05,40.28],[17.00,40.32],
         [16.80,40.55],[16.55,40.80],[16.25,41.05],[15.85,41.20],
         [15.45,41.35],[15.05,41.30],[14.78,41.10],[14.62,40.92],
-        // confine nord con Serrano casertano (ma Serrano non c'è più, Napoli copre tutto)
         [14.50,41.15],[14.20,41.05],[13.95,41.10],[13.78,41.25],
         [13.65,41.30],[13.55,41.20]
-      ],
-      label: { lon: 15.4, lat: 39.5 }
+      ]
     },
     {
-      name: 'Serrano', navigateTo: 'Filippine',
-      color: '#2e7d32', border: '#1a4d1e', fill: '#2e7d32cc', textColor: '#fff',
-      // metà OVEST del Salento = Filippine (capitale Calimera è qui)
-      poly: [
-        [17.00,40.28],[17.05,39.90],[17.05,39.55],[17.10,39.15],
-        [17.22,38.95],[17.42,38.88],[17.65,38.88],[17.85,38.95],
-        [17.85,39.20],[17.85,39.65],[17.85,40.00],[17.85,40.28],
-        [17.60,40.32],[17.35,40.34],[17.10,40.33],[17.00,40.28]
-      ],
-      label: { lon: 17.40, lat: 39.58 }
-    },
-    {
-      name: 'Filippine', navigateTo: 'Serrano',
-      color: '#e65100', border: '#8a3000', fill: '#e65100cc', textColor: '#fff',
-      // metà EST del Salento = Serrano
+      // Salento EST — Serrano (casertano/tacco): in lore è il territorio di Serrano
+      name: 'Serrano', navigateTo: 'Serrano',
+      color: '#e65100', border: '#8a3000', textColor: '#fff',
+      label: { lon: 18.18, lat: 39.62 }, hitR: 1.5,
       poly: [
         [17.85,40.28],[17.85,40.00],[17.85,39.65],[17.85,39.20],
         [17.85,38.95],[18.02,38.82],[18.20,38.82],[18.38,38.95],
         [18.52,39.18],[18.56,39.48],[18.48,39.80],[18.32,40.08],
         [18.10,40.28],[17.85,40.28]
-      ],
-      label: { lon: 18.18, lat: 39.62 }
+      ]
+    },
+    {
+      // Salento OVEST — Filippine (ex Camorra Salentina)
+      name: 'Filippine', navigateTo: 'Filippine',
+      color: '#2e7d32', border: '#1a4d1e', textColor: '#fff',
+      label: { lon: 17.40, lat: 39.58 }, hitR: 1.5,
+      poly: [
+        [17.00,40.28],[17.05,39.90],[17.05,39.55],[17.10,39.15],
+        [17.22,38.95],[17.42,38.88],[17.65,38.88],[17.85,38.95],
+        [17.85,39.20],[17.85,39.65],[17.85,40.00],[17.85,40.28],
+        [17.60,40.32],[17.35,40.34],[17.10,40.33],[17.00,40.28]
+      ]
     },
     {
       name: 'Nigeria Spartiana', navigateTo: 'Nigeria Spartiana',
-      color: '#6a1b9a', border: '#3a0066', fill: '#6a1b9acc', textColor: '#fff',
+      color: '#6a1b9a', border: '#3a0066', textColor: '#fff',
+      label: { lon: 8.0, lat: 9.0 }, hitR: 5.0,
       poly: [
         [2.70,6.35],[3.50,4.20],[4.30,3.60],[5.50,3.00],[6.80,2.75],
         [8.00,3.00],[9.20,3.15],[9.70,3.55],[10.30,4.00],[11.20,4.50],
@@ -5751,12 +6149,12 @@ function initGlobe() {
         [8.50,13.30],[7.50,13.00],[6.50,12.70],[5.50,12.20],
         [4.50,11.40],[3.60,10.40],[2.70,9.50],[2.30,8.50],
         [2.00,7.50],[2.30,6.90],[2.70,6.35]
-      ],
-      label: { lon: 8.5, lat: 9.0 }
+      ]
     },
     {
       name: 'America (Avengers)', navigateTo: 'America (Avengers)',
-      color: '#b71c1c', border: '#7f0000', fill: '#b71c1ccc', textColor: '#fff',
+      color: '#b71c1c', border: '#7f0000', textColor: '#fff',
+      label: { lon: -96.0, lat: 38.0 }, hitR: 15.0,
       poly: [
         [-124.7,48.4],[-124.5,46.2],[-124.1,43.0],[-124.4,40.5],
         [-121.9,37.0],[-120.0,34.4],[-117.1,32.5],[-114.7,32.5],
@@ -5769,11 +6167,11 @@ function initGlobe() {
         [-75.0,44.8],[-76.8,43.6],[-79.0,43.1],[-83.0,42.0],
         [-87.5,42.5],[-90.0,47.5],[-95.2,49.0],[-110.0,49.0],
         [-117.0,49.0],[-124.7,49.0],[-124.7,48.4]
-      ],
-      label: { lon: -96, lat: 38 }
+      ]
     },
   ];
 
+  // Colori per anno: ritorna { fill, border } per ogni territorio in base all'anno corrente
   function project(lon, lat) {
     const lam = lon * Math.PI / 180;
     const phi = lat * Math.PI / 180;
@@ -5788,52 +6186,54 @@ function initGlobe() {
     return { sx: x1 * rz + W/2, sy: -y2 * rz + H/2, z: z2, visible: z2 > -0.02 };
   }
 
-  function projectPoly(poly) {
-    return poly.map(([lon, lat]) => project(lon, lat));
-  }
-
   function drawEarth() {
     const rz = R * zoom;
-    if (earthReady && earthPixels) {
-      // Proiezione equirettangolare → globo
-      const iw = earthW, ih = earthH;
-      const imgData = earthPixels;
-      const out = ctx.createImageData(W, H);
-      const od = out.data;
-      const step = 2;
-      for (let py = 0; py < H; py += step) {
-        for (let px = 0; px < W; px += step) {
-          const nx = (px - W/2) / rz;
-          const ny = (py - H/2) / rz;
-          const r2 = nx*nx + ny*ny;
-          if (r2 > 1) continue;
-          const nz = Math.sqrt(1 - r2);
-          // unrotate X
-          const nz2 = ny * Math.sin(rotX) + nz * Math.cos(rotX);
-          const ny2 = ny * Math.cos(rotX) - nz * Math.sin(rotX);
-          // unrotate Y
-          const nx2 = nx * Math.cos(rotY) - nz2 * Math.sin(rotY);
-          const nz3 = nx * Math.sin(rotY) + nz2 * Math.cos(rotY);
-          const lon2 = Math.atan2(nx2, nz3);
-          const lat2 = Math.asin(Math.max(-1, Math.min(1, ny2)));
-          const tx = Math.floor((lon2 / Math.PI + 1) * 0.5 * (iw - 1));
-          const ty = Math.floor((0.5 + lat2 / Math.PI) * (ih - 1));
-          const si = (Math.max(0,Math.min(ih-1,ty)) * iw + Math.max(0,Math.min(iw-1,tx))) * 4;
-          const shade = 0.55 + 0.45 * nz;
-          for (let dy = 0; dy < step && py+dy < H; dy++) {
-            for (let dx = 0; dx < step && px+dx < W; dx++) {
-              const di = ((py+dy)*W + (px+dx))*4;
-              od[di]   = imgData[si]   * shade;
-              od[di+1] = imgData[si+1] * shade;
-              od[di+2] = imgData[si+2] * shade;
-              od[di+3] = 255;
+    const usePixels = (earthReady && earthPixels) ? { data: earthPixels, w: earthW, h: earthH } : null;
+    if (usePixels) {
+      // Chiave cache: se rotazione/zoom non sono cambiati, riusa il frame precedente
+      const cacheKey = rotY.toFixed(4) + ',' + rotX.toFixed(4) + ',' + zoom.toFixed(4);
+      if (cacheKey !== earthCacheKey) {
+        earthCacheKey = cacheKey;
+        // Proietta sul canvas offscreen
+        const iw = usePixels.w, ih = usePixels.h;
+        const imgData = usePixels.data;
+        const out = offCtx.createImageData(W, H);
+        const od = out.data;
+        const step = 3; // step=3 è ~2.25x più veloce di step=2, visivamente quasi identico
+        for (let py = 0; py < H; py += step) {
+          for (let px = 0; px < W; px += step) {
+            const nx = (px - W/2) / rz;
+            const ny = (py - H/2) / rz;
+            const r2 = nx*nx + ny*ny;
+            if (r2 > 1) continue;
+            const nz = Math.sqrt(1 - r2);
+            const nz2 = ny * Math.sin(rotX) + nz * Math.cos(rotX);
+            const ny2 = ny * Math.cos(rotX) - nz * Math.sin(rotX);
+            const nx2 = nx * Math.cos(rotY) - nz2 * Math.sin(rotY);
+            const nz3 = nx * Math.sin(rotY) + nz2 * Math.cos(rotY);
+            const lon2 = Math.atan2(nx2, nz3);
+            const lat2 = Math.asin(Math.max(-1, Math.min(1, ny2)));
+            const tx = Math.floor((lon2 / Math.PI + 1) * 0.5 * (iw - 1));
+            const ty = Math.floor((0.5 + lat2 / Math.PI) * (ih - 1));
+            const si = (Math.max(0,Math.min(ih-1,ty)) * iw + Math.max(0,Math.min(iw-1,tx))) * 4;
+            const shade = 0.55 + 0.45 * nz;
+            for (let dy = 0; dy < step && py+dy < H; dy++) {
+              for (let dx = 0; dx < step && px+dx < W; dx++) {
+                const di = ((py+dy)*W + (px+dx))*4;
+                od[di]   = imgData[si]   * shade;
+                od[di+1] = imgData[si+1] * shade;
+                od[di+2] = imgData[si+2] * shade;
+                od[di+3] = 255;
+              }
             }
           }
         }
+        offCtx.putImageData(out, 0, 0);
       }
-      ctx.putImageData(out, 0, 0);
+      // Copia l'offscreen sul canvas principale — è velocissimo
+      ctx.drawImage(offscreen, 0, 0);
     } else {
-      // Fallback oceano mentre carica
+      // Fallback mentre carica
       const grad = ctx.createRadialGradient(W*0.36, H*0.3, rz*0.04, W/2, H/2, rz);
       grad.addColorStop(0, '#7ec8e3');
       grad.addColorStop(0.5, '#2980b9');
@@ -5867,23 +6267,22 @@ function initGlobe() {
   }
 
   function drawTerritory(t) {
-    const pts = projectPoly(t.poly);
-    // Conta quanti punti sono visibili — soglia alta per evitare bordi fantasma
+    if (!t.poly) return;
+    if (!isTerritoryVisible(t)) return; // non esiste in quest'anno
+    if (!isTerritoryVisible(t)) return;
+    const pts = t.poly.map(([lon,lat]) => project(lon, lat));
     const visCount = pts.filter(p => p.z > 0.0).length;
     if (visCount < 2) return;
-    // Se il territorio è quasi tutto sul retro, non disegnarlo
-    const avgZ = pts.reduce((s,p) => s + p.z, 0) / pts.length;
+    const avgZ = pts.reduce((s,p) => s+p.z, 0) / pts.length;
     if (avgZ < -0.1) return;
 
-    // Disegna fill solo se la maggioranza dei punti è davanti
+    const { fill, border } = getTerritoryColors(t);
     const rz = R * zoom;
     ctx.save();
-    // Clip al cerchio del globo — evita che i bordi escano
     ctx.beginPath();
-    ctx.arc(W/2, H/2, rz - 1, 0, Math.PI*2);
+    ctx.arc(W/2, H/2, rz-1, 0, Math.PI*2);
     ctx.clip();
 
-    // Fill: usa solo i punti con z > 0
     ctx.beginPath();
     let started = false;
     pts.forEach(p => {
@@ -5892,37 +6291,33 @@ function initGlobe() {
       else ctx.lineTo(p.sx, p.sy);
     });
     ctx.closePath();
-    ctx.fillStyle = t.fill || (t.color + 'cc');
-    ctx.fill();
+    ctx.fillStyle = fill; ctx.fill();
 
-    // Bordo: disegna solo i segmenti dove ENTRAMBI i punti sono visibili
-    // per evitare linee che attraversano il globo
     ctx.beginPath();
     for (let i = 0; i < pts.length; i++) {
-      const a = pts[i];
-      const b = pts[(i + 1) % pts.length];
-      if (a.z > 0.02 && b.z > 0.02) {
-        ctx.moveTo(a.sx, a.sy);
-        ctx.lineTo(b.sx, b.sy);
-      }
+      const a = pts[i], b = pts[(i+1)%pts.length];
+      if (a.z > 0.02 && b.z > 0.02) { ctx.moveTo(a.sx,a.sy); ctx.lineTo(b.sx,b.sy); }
     }
-    ctx.strokeStyle = t.border;
-    ctx.lineWidth = 2.0;
-    ctx.stroke();
-
+    ctx.strokeStyle = border; ctx.lineWidth = 2; ctx.stroke();
     ctx.restore();
+  }
 
-    // Etichetta — solo se il centro è chiaramente davanti
-    const lp = project(t.label.lon, t.label.lat);
-    if (lp.visible && lp.z > 0.12) {
-      const sz = Math.max(8, Math.round(11 * zoom));
-      ctx.font = 'bold ' + sz + "px 'Source Sans 3',sans-serif";
-      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-      ctx.fillStyle = 'rgba(0,0,0,0.65)';
-      ctx.fillText(t.name, lp.sx+1, lp.sy+1);
-      ctx.fillStyle = t.textColor;
-      ctx.fillText(t.name, lp.sx, lp.sy);
-    }
+  function draw3DBombs() {
+    const events = getBombsForYear();
+    if (!events.length) return;
+    events.forEach(ev => {
+      const b = project(ev.to[0], ev.to[1]);
+      if (!b.visible || b.z < 0.05) return;
+      drawBombIcon(ctx, b.sx, b.sy, ev.impactOnly ? 12 : 16);
+      if (ev.impactOnly) {
+        ctx.save();
+        ctx.strokeStyle='rgba(255,80,0,0.8)'; ctx.lineWidth=2;
+        const s=8;
+        ctx.beginPath(); ctx.moveTo(b.sx-s,b.sy-s); ctx.lineTo(b.sx+s,b.sy+s); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(b.sx+s,b.sy-s); ctx.lineTo(b.sx-s,b.sy+s); ctx.stroke();
+        ctx.restore();
+      }
+    });
   }
 
   function drawGlobe() {
@@ -5934,8 +6329,15 @@ function initGlobe() {
     ctx.clip();
     drawEarth();
     drawGrid();
-    const sorted = territories.map(t => ({ t, z: project(t.label.lon, t.label.lat).z })).sort((a,b) => a.z-b.z);
-    sorted.forEach(({t}) => drawTerritory(t));
+    // Poligoni territori (ordinati per profondità)
+    territories.slice().sort((a,b) => {
+      const za = project(a.label.lon, a.label.lat).z;
+      const zb = project(b.label.lon, b.label.lat).z;
+      return za - zb;
+    }).forEach(t => drawTerritory(t));
+    // Bombe 3D
+    // Bombe per anno corrente
+    draw3DBombs();
     // riflesso
     const shine = ctx.createRadialGradient(W*0.33,H*0.26,0,W*0.40,H*0.33,rz*0.65);
     shine.addColorStop(0,'rgba(255,255,255,0.20)');
@@ -5950,23 +6352,61 @@ function initGlobe() {
   function hitTest(ex, ey) {
     const rect = canvas.getBoundingClientRect();
     const scale = W / rect.width;
-    const cx = (ex-rect.left)*scale, cy = (ey-rect.top)*scale;
-    for (const t of [...territories].reverse()) {
-      const pts = projectPoly(t.poly).filter(p=>p.visible);
-      if (pts.length<3) continue;
-      let inside=false;
-      for (let i=0,j=pts.length-1;i<pts.length;j=i++) {
-        const xi=pts[i].sx,yi=pts[i].sy,xj=pts[j].sx,yj=pts[j].sy;
-        if (((yi>cy)!==(yj>cy))&&cx<(xj-xi)*(cy-yi)/(yj-yi)+xi) inside=!inside;
-      }
-      if (inside) return t;
+    const cx = (ex - rect.left) * scale;
+    const cy = (ey - rect.top) * scale;
+    let best = null, bestDist = Infinity;
+    territories.forEach(t => {
+      if (t.warOnly) return;
+      if (!isTerritoryVisible(t)) return; // non esiste ancora in quest'anno
+      const p = project(t.label.lon, t.label.lat);
+      if (!p.visible) return;
+      const dx = cx - p.sx, dy = cy - p.sy;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      const hitPx = (t.hitR || 2) * (R * zoom) / 90;
+      if (dist < hitPx && dist < bestDist) { bestDist = dist; best = t; }
+    });
+    if (!best) return null;
+    // Restituisce navigateTo dipendente dall'anno
+    return { ...best, navigateTo: getNavigateTo(best) };
+  }
+
+  // Restituisce la pagina corretta in base all'anno corrente
+  function getNavigateTo(t) {
+    if (t.name === 'Filippine' && currentYear < 108) return 'Camorra Salentina';
+    return t.navigateTo || t.name;
+  }
+
+  // ── Offscreen canvas per la texture terra ──
+  // Viene rigenerato solo quando cambia rotY/rotX/zoom o l'anno
+  const offscreen = document.createElement('canvas');
+  offscreen.width = W; offscreen.height = H;
+  const offCtx = offscreen.getContext('2d');
+  let earthCacheKey = '';
+  let dirty = true;
+  // Esponi per accesso esterno (es. onYearSlider)
+  Object.defineProperty(window, '_globeDirty', {
+    get: () => dirty, set: v => { dirty = v; }, configurable: true
+  });
+  Object.defineProperty(window, '_earthCacheKey', {
+    get: () => earthCacheKey, set: v => { earthCacheKey = v; }, configurable: true
+  });
+
+  // Rileva cambiamenti e segna dirty
+  let prevRotY = rotY, prevRotX = rotX, prevZoom = zoom, prevYear = currentYear;
+  function checkDirty() {
+    if (rotY !== prevRotY || rotX !== prevRotX || zoom !== prevZoom || currentYear !== prevYear) {
+      dirty = true;
+      prevRotY = rotY; prevRotX = rotX; prevZoom = zoom; prevYear = currentYear;
     }
-    return null;
   }
 
   function loop() {
-    if (autoRot) rotY += 0.003;
-    drawGlobe();
+    checkDirty();
+    if (autoRot) { rotY += 0.003; dirty = true; }
+    if (dirty) {
+      drawGlobe();
+      dirty = false;
+    }
     requestAnimationFrame(loop);
   }
   loop();
@@ -5981,7 +6421,11 @@ function initGlobe() {
     rotY+=(e.clientX-lastX)*0.007;rotX+=(e.clientY-lastY)*0.007;
     rotX=Math.max(-1.4,Math.min(1.4,rotX));lastX=e.clientX;lastY=e.clientY;
   });
-  window.addEventListener('mouseup',()=>{dragging=false;canvas.style.cursor='grab';setTimeout(()=>{autoRot=true;},4000);});
+  window.addEventListener('mouseup',()=>{
+    dragging=false; canvas.style.cursor='grab';
+    // Riprendi solo se globeAutoRot è true (utente non ha premuto ferma rotazione)
+    if(globeAutoRot) setTimeout(()=>{ autoRot=true; if(window._globeRotRef) window._globeRotRef.autoRot=true; },2000);
+  });
   canvas.addEventListener('touchstart',e=>{
     e.preventDefault();autoRot=false;
     if(e.touches.length===1){lastX=e.touches[0].clientX;lastY=e.touches[0].clientY;}
@@ -5992,10 +6436,17 @@ function initGlobe() {
     if(e.touches.length===1){rotY+=(e.touches[0].clientX-lastX)*0.009;rotX+=(e.touches[0].clientY-lastY)*0.009;rotX=Math.max(-1.4,Math.min(1.4,rotX));lastX=e.touches[0].clientX;lastY=e.touches[0].clientY;}
     if(e.touches.length===2&&pinchDist){const dx=e.touches[0].clientX-e.touches[1].clientX,dy=e.touches[0].clientY-e.touches[1].clientY;const d=Math.sqrt(dx*dx+dy*dy);zoom=Math.max(0.5,Math.min(3.5,zoom*d/pinchDist));pinchDist=d;}
   },{passive:false});
-  canvas.addEventListener('touchend',()=>{pinchDist=null;setTimeout(()=>{autoRot=true;},4000);});
+  canvas.addEventListener('touchend',()=>{pinchDist=null;if(globeAutoRot) setTimeout(()=>{if(window._globeRotRef) window._globeRotRef.autoRot=true;},4000);});
   canvas.addEventListener('mousemove',e=>{
     const hit=hitTest(e.clientX,e.clientY);
-    if(hit){tooltip.textContent=hit.name;tooltip.style.display='block';const rect=container.getBoundingClientRect();tooltip.style.left=(e.clientX-rect.left+14)+'px';tooltip.style.top=(e.clientY-rect.top-14)+'px';canvas.style.cursor='pointer';}
+    if(hit){
+      tooltip.textContent = hit.navigateTo || hit.name;
+      tooltip.style.display='block';
+      const rect=container.getBoundingClientRect();
+      tooltip.style.left=(e.clientX-rect.left+14)+'px';
+      tooltip.style.top=(e.clientY-rect.top-14)+'px';
+      canvas.style.cursor='pointer';
+    }
     else{tooltip.style.display='none';canvas.style.cursor=dragging?'grabbing':'grab';}
   });
   canvas.addEventListener('mouseleave',()=>{tooltip.style.display='none';});
