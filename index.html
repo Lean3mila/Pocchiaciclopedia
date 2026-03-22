@@ -5970,8 +5970,7 @@ function isTerritoryVisible(t) {
   const y = currentYear;
   if (t.fromYear !== undefined && y < t.fromYear) return false;
   if (t.toYear   !== undefined && y > t.toYear)   return false;
-  if (t.name === 'Serrano'            && !t.fromYear) return y >= 23;
-  if (t.name === 'Filippine'          && t.toYear === 108) return y >= 17;
+  if (t.name === 'Filippine'          && t.toYear === 104) return y >= 17;
   if (t.name === 'Filippine'          && t.fromYear)  return true;
   if (t.name === 'Nigeria Spartiana')  return y >= 52;
   if (t.name === 'America (Avengers)') return y >= 92;
@@ -5983,12 +5982,9 @@ function getTerritoryColors(t) {
   const y = currentYear;
   const name = t.name;
   let fill = t.color + 'bb', border = t.border;
-  if (name === 'Serrano') {
-    if (y >= 107 && y <= 108) { fill = 'rgba(110,110,110,0.55)'; border = '#666'; }
-  }
   if (name === 'Filippine') {
-    // L'entry con toYear=108 è sempre la Camorra Salentina (17-108 dM)
-    if (t.toYear === 108) { fill = '#795548bb'; border = '#4e342e'; }
+    // Entry Camorra Salentina (toYear 104 o 108 a seconda della fase)
+    if (t.toYear === 104 || t.toYear === 108) { fill = '#795548bb'; border = '#4e342e'; }
   }
   if (name === 'America (Avengers)') {
     if (y >= 107 && y <= 119) { fill = '#c62828dd'; border = '#7f0000'; }
@@ -6473,28 +6469,26 @@ function initGlobe() {
   // per hitTest approssimativo (point-radius). La mappa visuale è mappa_2d.png
   const territories = [
     {
-      // NAPOLI — Campania + parte del Sud Italia, no mare
+      // NAPOLI + CASERTA — città metropolitana Napoli + provincia Caserta
       name: 'Napoli', navigateTo: 'Napoli',
       color: '#1565c0', border: '#0d3b8a', textColor: '#fff',
-      label: { lon: 15.4, lat: 40.2 }, hitR: 3.5,
+      label: { lon: 14.25, lat: 40.95 }, hitR: 2.0,
       toYear: 114,
       poly: [
-        [13.72,41.22],[13.82,41.08],[14.00,41.00],[14.20,41.05],
-        [14.45,41.18],[14.60,41.05],[14.78,40.92],[14.95,40.98],
-        [15.15,41.12],[15.42,41.32],[15.72,41.20],[16.05,41.05],
-        [16.35,40.82],[16.60,40.55],[16.82,40.25],[17.00,39.90],
-        [17.05,39.55],[16.95,39.20],[16.78,38.85],[16.55,38.55],
-        [16.30,38.30],[16.05,38.05],[15.68,37.92],[15.35,37.90],
-        [15.05,37.98],[14.75,38.22],[14.55,38.55],[14.35,38.88],
-        [14.12,39.22],[13.95,39.65],[13.88,40.08],[13.90,40.52],
-        [14.02,40.88],[13.90,41.00],[13.72,41.22]
+        [13.72,41.50],[13.85,41.35],[14.00,41.22],[14.18,41.18],
+        [14.38,41.22],[14.55,41.35],[14.72,41.22],[14.88,41.08],
+        [14.95,40.92],[15.02,40.75],[15.05,40.55],[15.00,40.38],
+        [14.90,40.25],[14.75,40.18],[14.55,40.18],[14.38,40.25],
+        [14.22,40.38],[14.08,40.52],[13.98,40.68],[13.88,40.82],
+        [13.82,40.98],[13.72,41.12],[13.65,41.28],[13.72,41.50]
       ]
     },
     {
-      // SERRANO + MARTANO — dal 23 dM
+      // SERRANO — dal 23 dM al 104 dM (prima della conquista Filippine)
       name: 'Serrano', navigateTo: 'Serrano',
       color: '#e65100', border: '#8a3000', textColor: '#fff',
       label: { lon: 18.26, lat: 40.13 }, hitR: 1.5,
+      fromYear: 23, toYear: 104,
       poly: [
         [18.05,40.30],[18.15,40.28],[18.28,40.26],[18.38,40.22],
         [18.46,40.15],[18.52,40.05],[18.50,39.95],[18.42,39.88],
@@ -6503,11 +6497,66 @@ function initGlobe() {
       ]
     },
     {
-      // FILIPPINE con Castri — Camorra Salentina 17–108 dM
+      // SERRANO — grigio 107–108 dM (cratere dopo bomba)
+      name: 'Serrano', navigateTo: 'Serrano',
+      color: '#757575', border: '#424242', textColor: '#fff',
+      label: { lon: 18.26, lat: 40.13 }, hitR: 1.5,
+      fromYear: 107, toYear: 108,
+      poly: [
+        [18.05,40.30],[18.15,40.28],[18.28,40.26],[18.38,40.22],
+        [18.46,40.15],[18.52,40.05],[18.50,39.95],[18.42,39.88],
+        [18.30,39.85],[18.18,39.88],[18.10,39.95],[18.06,40.05],
+        [18.04,40.15],[18.05,40.30]
+      ]
+    },
+    {
+      // SERRANO — ricostruita dal 109 dM (arancione, volante)
+      name: 'Serrano', navigateTo: 'Serrano',
+      color: '#e65100', border: '#8a3000', textColor: '#fff',
+      label: { lon: 18.26, lat: 40.13 }, hitR: 1.5,
+      fromYear: 109,
+      poly: [
+        [18.05,40.30],[18.15,40.28],[18.28,40.26],[18.38,40.22],
+        [18.46,40.15],[18.52,40.05],[18.50,39.95],[18.42,39.88],
+        [18.30,39.85],[18.18,39.88],[18.10,39.95],[18.06,40.05],
+        [18.04,40.15],[18.05,40.30]
+      ]
+    },
+    {
+      // FILIPPINE con Castri — Camorra Salentina 17–104 dM (senza Serrano)
       name: 'Filippine', navigateTo: 'Filippine',
       color: '#2e7d32', border: '#1a4d1e', textColor: '#fff',
-      label: { lon: 18.15, lat: 40.23 }, hitR: 1.5,
-      toYear: 108,
+      label: { lon: 18.00, lat: 40.28 }, hitR: 1.5,
+      toYear: 104,
+      poly: [
+        [17.85,40.40],[18.00,40.38],[18.10,40.36],[18.20,40.32],
+        [18.26,40.28],[18.15,40.28],[18.05,40.30],[18.04,40.15],
+        [18.06,40.05],[18.10,39.95],[18.04,39.92],[17.92,39.95],
+        [17.82,40.02],[17.78,40.12],[17.80,40.22],[17.82,40.32],
+        [17.85,40.40]
+      ]
+    },
+    {
+      // FILIPPINE + SERRANO conquista — 105–106 dM
+      name: 'Filippine', navigateTo: 'Filippine',
+      color: '#2e7d32', border: '#1a4d1e', textColor: '#fff',
+      label: { lon: 18.10, lat: 40.20 }, hitR: 2.0,
+      fromYear: 105, toYear: 106,
+      poly: [
+        [17.85,40.40],[18.00,40.38],[18.10,40.36],[18.20,40.32],
+        [18.26,40.28],[18.28,40.26],[18.38,40.22],[18.46,40.15],
+        [18.52,40.05],[18.50,39.95],[18.42,39.88],[18.30,39.85],
+        [18.18,39.88],[18.10,39.95],[18.04,39.92],[17.92,39.95],
+        [17.82,40.02],[17.78,40.12],[17.80,40.22],[17.82,40.32],
+        [17.85,40.40]
+      ]
+    },
+    {
+      // FILIPPINE senza Serrano — 107–108 dM (bomba distrugge Serrano)
+      name: 'Filippine', navigateTo: 'Filippine',
+      color: '#2e7d32', border: '#1a4d1e', textColor: '#fff',
+      label: { lon: 18.00, lat: 40.28 }, hitR: 1.5,
+      fromYear: 107, toYear: 108,
       poly: [
         [17.85,40.40],[18.00,40.38],[18.10,40.36],[18.20,40.32],
         [18.26,40.28],[18.15,40.28],[18.05,40.30],[18.04,40.15],
@@ -6532,12 +6581,12 @@ function initGlobe() {
       // LA CANTINA — solo Castri — 109–111 dM (ribellione)
       name: 'La Cantina', navigateTo: 'La Cantina',
       color: '#795548', border: '#4e342e', textColor: '#fff',
-      label: { lon: 18.13, lat: 40.22 }, hitR: 0.9,
+      label: { lon: 18.13, lat: 40.22 }, hitR: 1.0,
       fromYear: 109, toYear: 111,
       poly: [
-        [18.02,40.24],[18.10,40.28],[18.20,40.32],[18.26,40.28],
-        [18.20,40.22],[18.14,40.18],[18.06,40.18],[17.98,40.20],
-        [17.90,40.14],[17.98,40.18],[18.02,40.24]
+        [17.95,40.30],[18.05,40.30],[18.22,40.30],[18.28,40.22],
+        [18.22,40.14],[18.10,40.10],[17.98,40.12],[17.90,40.18],
+        [17.90,40.26],[17.95,40.30]
       ]
     },
     {
@@ -6567,21 +6616,18 @@ function initGlobe() {
       ]
     },
     {
-      // LA CANTINA Napoli — dal 115 dM
+      // LA CANTINA Napoli+Caserta — dal 115 dM
       name: 'La Cantina', navigateTo: 'La Cantina',
       color: '#4e342e', border: '#3e2723', textColor: '#fff',
-      label: { lon: 15.4, lat: 40.2 }, hitR: 4.0,
+      label: { lon: 14.25, lat: 40.95 }, hitR: 2.0,
       fromYear: 115,
       poly: [
-        [13.72,41.22],[13.82,41.08],[14.00,41.00],[14.20,41.05],
-        [14.45,41.18],[14.60,41.05],[14.78,40.92],[14.95,40.98],
-        [15.15,41.12],[15.42,41.32],[15.72,41.20],[16.05,41.05],
-        [16.35,40.82],[16.60,40.55],[16.82,40.25],[17.00,39.90],
-        [17.05,39.55],[16.95,39.20],[16.78,38.85],[16.55,38.55],
-        [16.30,38.30],[16.05,38.05],[15.68,37.92],[15.35,37.90],
-        [15.05,37.98],[14.75,38.22],[14.55,38.55],[14.35,38.88],
-        [14.12,39.22],[13.95,39.65],[13.88,40.08],[13.90,40.52],
-        [14.02,40.88],[13.90,41.00],[13.72,41.22]
+        [13.72,41.50],[13.85,41.35],[14.00,41.22],[14.18,41.18],
+        [14.38,41.22],[14.55,41.35],[14.72,41.22],[14.88,41.08],
+        [14.95,40.92],[15.02,40.75],[15.05,40.55],[15.00,40.38],
+        [14.90,40.25],[14.75,40.18],[14.55,40.18],[14.38,40.25],
+        [14.22,40.38],[14.08,40.52],[13.98,40.68],[13.88,40.82],
+        [13.82,40.98],[13.72,41.12],[13.65,41.28],[13.72,41.50]
       ]
     },
     {
