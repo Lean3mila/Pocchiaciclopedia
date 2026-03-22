@@ -6689,13 +6689,14 @@ function initGlobe() {
     const eRX = rotX;
 
     // sunLightDir è già in world-space — usiamo direttamente
+    const flatMode = !sunLightDir;
     const sldx = (sunLightDir || {x:0,y:0,z:1}).x;
     const sldy = (sunLightDir || {x:0,y:0,z:1}).y;
     const sldz = (sunLightDir || {x:0,y:0,z:1}).z;
 
     if (usePixels) {
       const cacheKey = eRY.toFixed(4) + ',' + eRX.toFixed(4) + ',' + zoom.toFixed(4)
-                     + ',' + sldx.toFixed(3) + ',' + sldy.toFixed(3) + ',' + sldz.toFixed(3);
+                     + ',' + (flatMode ? 'flat' : sldx.toFixed(3) + ',' + sldy.toFixed(3) + ',' + sldz.toFixed(3));
       if (cacheKey !== earthCacheKey) {
         earthCacheKey = cacheKey;
         const iw = usePixels.w, ih = usePixels.h;
@@ -6724,7 +6725,7 @@ function initGlobe() {
 
             // Illuminazione: normale world-space (nx2,ny2,nz3) · sunLightDir world-space
             let shade, terminator;
-            if (!sunLightDir) {
+            if (flatMode) {
               shade = 1.0;
               terminator = 1.0;
             } else {
@@ -6848,8 +6849,8 @@ function initGlobe() {
     const moonDist = Math.sqrt(moonPos.x*moonPos.x + moonPos.y*moonPos.y + moonPos.z*moonPos.z);
 
     // Direzione normalizzata Terra → Sole (per illuminazione)
-    // Vicino alla Terra (zoom > 3): illuminazione flat per vedere la superficie
-    const sunLightDir = zoom > 3.0 ? null : {
+    // Vicino alla Terra (zoom > 4.5): illuminazione flat per vedere la superficie
+    const sunLightDir = zoom > 1.1 ? null : {
       x: sunPos.x / sunDist,
       y: sunPos.y / sunDist,
       z: sunPos.z / sunDist
@@ -6990,7 +6991,8 @@ function initGlobe() {
     lastFrameTime = ts;
 
     checkDirty();
-    if (autoRot) {
+    const surfaceLock = zoom > 1.1;
+    if (autoRot && !surfaceLock) {
       rotY += 0.0006;
       dirty = true;
     }
@@ -7007,12 +7009,12 @@ function initGlobe() {
 
   canvas.addEventListener('wheel', e => {
     e.preventDefault();
-    zoom = Math.max(0.15, Math.min(3.5, zoom*(e.deltaY<0?1.1:0.91)));
+    zoom = Math.max(0.15, Math.min(4.0, zoom*(e.deltaY<0?1.1:0.91)));
   },{passive:false});
   canvas.addEventListener('mousedown', e=>{dragging=true;lastX=e.clientX;lastY=e.clientY;canvas.style.cursor='grabbing';});
   window.addEventListener('mousemove', e=>{
     if(!dragging)return;
-    const sens = zoom > 3.0 ? 0.007 / zoom * 2.5 : 0.007;
+    const sens = zoom > 1.1 ? 0.007 / zoom * 2.5 : 0.007;
     rotY+=(e.clientX-lastX)*sens;rotX+=(e.clientY-lastY)*sens;
     rotX=Math.max(-1.4,Math.min(1.4,rotX));lastX=e.clientX;lastY=e.clientY;
   });
@@ -7028,8 +7030,8 @@ function initGlobe() {
   },{passive:false});
   canvas.addEventListener('touchmove',e=>{
     e.preventDefault();
-    if(e.touches.length===1){const ts = zoom > 3.0 ? 0.009/zoom*2.5 : 0.009;rotY+=(e.touches[0].clientX-lastX)*ts;rotX+=(e.touches[0].clientY-lastY)*ts;rotX=Math.max(-1.4,Math.min(1.4,rotX));lastX=e.touches[0].clientX;lastY=e.touches[0].clientY;}
-    if(e.touches.length===2&&pinchDist){const dx=e.touches[0].clientX-e.touches[1].clientX,dy=e.touches[0].clientY-e.touches[1].clientY;const d=Math.sqrt(dx*dx+dy*dy);zoom=Math.max(0.15,Math.min(3.5,zoom*d/pinchDist));pinchDist=d;}
+    if(e.touches.length===1){const ts = zoom > 1.1 ? 0.009/zoom*2.5 : 0.009;rotY+=(e.touches[0].clientX-lastX)*ts;rotX+=(e.touches[0].clientY-lastY)*ts;rotX=Math.max(-1.4,Math.min(1.4,rotX));lastX=e.touches[0].clientX;lastY=e.touches[0].clientY;}
+    if(e.touches.length===2&&pinchDist){const dx=e.touches[0].clientX-e.touches[1].clientX,dy=e.touches[0].clientY-e.touches[1].clientY;const d=Math.sqrt(dx*dx+dy*dy);zoom=Math.max(0.15,Math.min(4.0,zoom*d/pinchDist));pinchDist=d;}
   },{passive:false});
   canvas.addEventListener('touchend',()=>{pinchDist=null;if(globeAutoRot) setTimeout(()=>{if(window._globeRotRef) window._globeRotRef.autoRot=true;},4000);});
   canvas.addEventListener('mousemove',e=>{
