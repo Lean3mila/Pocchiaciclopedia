@@ -6059,9 +6059,6 @@ function initGlobe() {
   // Ref condiviso con i controlli globali
   window._globeRotRef = { get autoRot() { return autoRot; }, set autoRot(v) { autoRot = v; } };
 
-  // Esponi i territori per la mappa 2D
-  setTimeout(() => { window._globeTerritories = territories; }, 0);
-
   // Texture Terra locale
   const earthImg = new Image();
   earthImg.src = 'earth.jpg';
@@ -6084,12 +6081,10 @@ function initGlobe() {
 
   // ── Immagini Sole / Luna / Ludovico ──
   const sunImg = new Image();
-  sunImg.crossOrigin = 'anonymous';
-  sunImg.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg/600px-The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg';
+  sunImg.src = 'sun.jpg';
 
   const moonImg = new Image();
-  moonImg.crossOrigin = 'anonymous';
-  moonImg.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/600px-FullMoon2010.jpg';
+  moonImg.src = 'moon.jpg';
 
   const ludoImg = new Image();
   ludoImg.src = 'ludovico.jpg';
@@ -6174,77 +6169,169 @@ function initGlobe() {
     };
   }
 
-  // ── Immagine sfondo spazio reale (Hubble Ultra Deep Field) ──
+  // ── Sfondo stellare procedurale su canvas offscreen (nessun URL esterno) ──
+  // Generato una volta sola, riusato ogni frame
+  // Sfondo stellare: immagine locale space.jpg
   const spaceImg = new Image();
-  spaceImg.crossOrigin = 'anonymous';
-  // Panorama stellare ESO — campo stellare uniforme, ideale per il loop orizzontale
-  // Panorama 360° ESO/S.Brunier — cielo notturno intero visto dalla Terra, seamless
-  spaceImg.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/ESO_-_Milky_Way.jpg/1280px-ESO_-_Milky_Way.jpg';
+  spaceImg.src = 'space.jpg';
+  spaceImg.onload = () => { if (window._globeDirty !== undefined) window._globeDirty = true; };
 
-  // Disegna sfondo spazio con immagine reale + leggero parallasse con la camera
   function drawStars() {
     if (spaceImg.complete && spaceImg.naturalWidth > 0) {
       const iw = spaceImg.naturalWidth, ih = spaceImg.naturalHeight;
-      // Scala per coprire l'altezza, con un po' di extra orizzontale
-      const scale = Math.max(W / iw, H / ih) * 1.1;
+      const scale = Math.max(W / iw, H / ih) * 1.05;
       const dw = iw * scale, dh = ih * scale;
-      // Parallasse: calcola offset in pixel, poi applica modulo su dw per il loop seamless
       const rawPx = (rotY / (Math.PI * 2)) * dw;
-      // ((rawPx % dw) + dw) % dw garantisce sempre un valore positivo senza salti
       const px = ((rawPx % dw) + dw) % dw;
       const py = Math.max(0, Math.min(dh - H, (rotX / Math.PI + 0.5) * (dh - H)));
-      const ox = -px;
-      const oy = (H - dh) / 2 - py;
-      // Tre copie per coprire sempre il canvas senza vuoti
-      ctx.drawImage(spaceImg, ox,      oy, dw, dh);
-      ctx.drawImage(spaceImg, ox + dw, oy, dw, dh);
-      ctx.drawImage(spaceImg, ox - dw, oy, dw, dh);
-      // Velo scuro per profondità
-      ctx.fillStyle = 'rgba(0,0,8,0.35)';
-      ctx.fillRect(0, 0, W, H);
+      const ox = -px, oy = (H - dh) / 2 - py;
+      ctx.drawImage(spaceImg, ox,       oy, dw, dh);
+      ctx.drawImage(spaceImg, ox + dw,  oy, dw, dh);
+      ctx.drawImage(spaceImg, ox - dw,  oy, dw, dh);
     } else {
-      ctx.fillStyle = '#00000a';
+      ctx.fillStyle = '#000010';
       ctx.fillRect(0, 0, W, H);
     }
   }
 
-  // Disegna il Sole con foto + alone + ludovico sovrapposto
+  // ── Cache pixel texture (lette una volta al caricamento) ──
+  let sunPx = null, sunTW = 0, sunTH = 0;
+  let moonPx = null, moonTW = 0, moonTH = 0;
+  let ludoPx = null, ludoTW = 0, ludoTH = 0;
+
+  function cachePixels(img, onDone) {
+    if (!img.complete || !img.naturalWidth) { img.onload = onDone; return; }
+    onDone();
+  }
+  function readPixels(img) {
+    try {
+      const c = document.createElement('canvas');
+      c.width = img.naturalWidth; c.height = img.naturalHeight;
+      c.getContext('2d').drawImage(img, 0, 0);
+      return { px: c.getContext('2d').getImageData(0,0,c.width,c.height).data, w: c.width, h: c.height };
+    } catch(e) { return null; }
+  }
+  sunImg.onload  = () => { const r = readPixels(sunImg);  if(r){ sunPx=r.px;  sunTW=r.w;  sunTH=r.h;  } };
+  moonImg.onload = () => { const r = readPixels(moonImg); if(r){ moonPx=r.px; moonTW=r.w; moonTH=r.h; } };
+  ludoImg.onload = () => { const r = readPixels(ludoImg); if(r){ ludoPx=r.px; ludoTW=r.w; ludoTH=r.h; } };
+  // Tenta subito se già caricate
+  if(sunImg.complete  && sunImg.naturalWidth)  { const r=readPixels(sunImg);  if(r){sunPx=r.px; sunTW=r.w; sunTH=r.h;} }
+  if(moonImg.complete && moonImg.naturalWidth) { const r=readPixels(moonImg); if(r){moonPx=r.px;moonTW=r.w;moonTH=r.h;} }
+  if(ludoImg.complete && ludoImg.naturalWidth) { const r=readPixels(ludoImg); if(r){ludoPx=r.px;ludoTW=r.w;ludoTH=r.h;} }
+
+  // Canvas offscreen riusabile per sole e luna (256×256 fisso)
+  const sunOff  = document.createElement('canvas'); sunOff.width  = 256; sunOff.height = 256;
+  const moonOff = document.createElement('canvas'); moonOff.width = 256; moonOff.height = 256;
+  const sunOffCtx  = sunOff.getContext('2d');
+  const moonOffCtx = moonOff.getContext('2d');
+
+  // Raycast sfera generica su canvas offscreen 256×256
+  // texPx/texW/texH = texture, rotY_tex/rotX_tex = rotazione texture nel sistema mondo
+  // lightDir = {x,y,z} direzione luce world-space (null = auto-illuminato)
+  // ovlPx/ovlW/ovlH = overlay opzionale al 50% (ludovico)
+  function rayCastSphere(offCtx, texPx, texW, texH, texRotY, texRotX, lightDir, ovlPx, ovlW, ovlH) {
+    const D = 256, R = 128;
+    const imgd = offCtx.createImageData(D, D);
+    const od = imgd.data;
+    for (let py = 0; py < D; py++) {
+      for (let px = 0; px < D; px++) {
+        const nx = (px - R) / R;
+        const ny = (py - R) / R;
+        const r2 = nx*nx + ny*ny;
+        if (r2 > 1) continue;
+        const nz = Math.sqrt(1 - r2);
+
+        // Normale world-space: rotazione inversa camera applicata alla normale camera (nx,ny,nz)
+        // Poi ulteriore rotazione della texture (texRotY, texRotX) per orientare la mappa
+        const cosRY = Math.cos(texRotY), sinRY = Math.sin(texRotY);
+        const cosRX = Math.cos(texRotX), sinRX = Math.sin(texRotX);
+        // Inverso rotX camera poi inverso rotY camera → world normal
+        const wnz2 = ny * sinRX + nz * cosRX;
+        const wny2 = ny * cosRX - nz * sinRX;
+        const wnx2 = nx * cosRY - wnz2 * sinRY;
+        const wnz3 = nx * sinRY + wnz2 * cosRY;
+        // Lookup texture
+        const lon = Math.atan2(wnx2, wnz3);
+        const lat = Math.asin(Math.max(-1, Math.min(1, wny2)));
+        const tx = Math.floor(((lon / Math.PI + 1) * 0.5 * (texW-1) + texW) % texW);
+        const ty = Math.floor((0.5 + lat/Math.PI) * (texH-1));
+        const si = (Math.max(0,Math.min(texH-1,ty)) * texW + Math.max(0,Math.min(texW-1,tx))) * 4;
+
+        let r, g, b;
+        if (texPx) {
+          r = texPx[si]; g = texPx[si+1]; b = texPx[si+2];
+        } else {
+          r = 200; g = 200; b = 200; // fallback grigio
+        }
+
+        // Overlay (ludovico) al 50%
+        if (ovlPx) {
+          const ox2 = Math.floor(((lon / Math.PI + 1) * 0.5 * (ovlW-1) + ovlW) % ovlW);
+          const oy2 = Math.floor((0.5 + lat/Math.PI) * (ovlH-1));
+          const oi  = (Math.max(0,Math.min(ovlH-1,oy2)) * ovlW + Math.max(0,Math.min(ovlW-1,ox2))) * 4;
+          r = r*0.5 + ovlPx[oi]*0.5;
+          g = g*0.5 + ovlPx[oi+1]*0.5;
+          b = b*0.5 + ovlPx[oi+2]*0.5;
+        }
+
+        // Illuminazione
+        let shade;
+        if (lightDir) {
+          // Dot tra normale world-space e direzione luce world-space
+          const dot = wnx2 * lightDir.x + wny2 * lightDir.y + wnz3 * lightDir.z;
+          const ambient = 0.07;
+          shade = dot > 0 ? ambient + (1-ambient)*dot : ambient*(1+dot*0.5);
+        } else {
+          // Auto-illuminato (sole): limb darkening
+          shade = 0.4 + 0.6 * nz;
+        }
+
+        const di = (py * D + px) * 4;
+        od[di]   = r * shade;
+        od[di+1] = g * shade;
+        od[di+2] = b * shade;
+        od[di+3] = 255;
+      }
+    }
+    offCtx.putImageData(imgd, 0, 0);
+  }
+
   function drawSunSprite(sx, sy, screenRadius) {
     if (screenRadius < 1) return;
     ctx.save();
-    // Alone esterno
-    const g2 = ctx.createRadialGradient(sx, sy, screenRadius*0.5, sx, sy, screenRadius*3.0);
-    g2.addColorStop(0, 'rgba(255,200,50,0.30)');
-    g2.addColorStop(0.5,'rgba(255,120,10,0.10)');
-    g2.addColorStop(1, 'rgba(255,60,0,0)');
+
+    // Alone esterno diffuso
+    const g2 = ctx.createRadialGradient(sx, sy, screenRadius*0.4, sx, sy, screenRadius*3.5);
+    g2.addColorStop(0,   'rgba(255,220,80,0.40)');
+    g2.addColorStop(0.3, 'rgba(255,160,20,0.18)');
+    g2.addColorStop(0.7, 'rgba(255,80,0,0.06)');
+    g2.addColorStop(1,   'rgba(255,40,0,0)');
     ctx.fillStyle = g2;
-    ctx.beginPath(); ctx.arc(sx, sy, screenRadius*3.0, 0, Math.PI*2); ctx.fill();
-    // Alone interno
-    const g1 = ctx.createRadialGradient(sx, sy, screenRadius*0.6, sx, sy, screenRadius*1.6);
-    g1.addColorStop(0, 'rgba(255,240,120,0.60)');
-    g1.addColorStop(1, 'rgba(255,140,0,0)');
+    ctx.beginPath(); ctx.arc(sx, sy, screenRadius*3.5, 0, Math.PI*2); ctx.fill();
+    // Alone interno caldo
+    const g1 = ctx.createRadialGradient(sx, sy, screenRadius*0.5, sx, sy, screenRadius*1.4);
+    g1.addColorStop(0, 'rgba(255,250,180,0.70)');
+    g1.addColorStop(1, 'rgba(255,160,0,0)');
     ctx.fillStyle = g1;
-    ctx.beginPath(); ctx.arc(sx, sy, screenRadius*1.6, 0, Math.PI*2); ctx.fill();
-    // Disco solare
-    ctx.beginPath(); ctx.arc(sx, sy, screenRadius, 0, Math.PI*2); ctx.clip();
-    if (sunImg.complete && sunImg.naturalWidth > 0) {
-      ctx.drawImage(sunImg, sx-screenRadius, sy-screenRadius, screenRadius*2, screenRadius*2);
+    ctx.beginPath(); ctx.arc(sx, sy, screenRadius*1.4, 0, Math.PI*2); ctx.fill();
+
+    // Sfera sole: texture statica (rotY=0, rotX=0 fissi — non segue la camera)
+    // Auto-illuminato (lightDir=null)
+    if (sunPx) {
+      rayCastSphere(sunOffCtx, sunPx, sunTW, sunTH, 0, 0, null, ludoPx, ludoTW, ludoTH);
     } else {
-      const g = ctx.createRadialGradient(sx-screenRadius*0.3, sy-screenRadius*0.3, 0, sx, sy, screenRadius);
-      g.addColorStop(0,'#fff7a0'); g.addColorStop(0.4,'#ffcc00'); g.addColorStop(1,'#ff6600');
-      ctx.fillStyle = g; ctx.fillRect(sx-screenRadius, sy-screenRadius, screenRadius*2, screenRadius*2);
+      // Fallback gradiente
+      sunOffCtx.clearRect(0,0,256,256);
+      const gf = sunOffCtx.createRadialGradient(100,100,0,128,128,128);
+      gf.addColorStop(0,'#fff8d0'); gf.addColorStop(0.4,'#ffe060'); gf.addColorStop(1,'#cc4400');
+      sunOffCtx.fillStyle = gf;
+      sunOffCtx.beginPath(); sunOffCtx.arc(128,128,128,0,Math.PI*2); sunOffCtx.fill();
     }
-    // Ludovico.jpg sovrapposto al 50%
-    if (ludoImg.complete && ludoImg.naturalWidth > 0) {
-      ctx.globalAlpha = 0.50;
-      ctx.drawImage(ludoImg, sx-screenRadius, sy-screenRadius, screenRadius*2, screenRadius*2);
-      ctx.globalAlpha = 1.0;
-    }
+    ctx.drawImage(sunOff, sx-screenRadius, sy-screenRadius, screenRadius*2, screenRadius*2);
     ctx.restore();
   }
 
-  // Disegna la Luna con foto + ombra (fase lunare basata su posizione reale)
-  function drawMoonSprite(sx, sy, screenRadius, sunDir2D_angle) {
+  function drawMoonSprite(sx, sy, screenRadius, sunLightDir3D) {
     if (screenRadius < 1) return;
     ctx.save();
     // Alone tenue
@@ -6253,29 +6340,19 @@ function initGlobe() {
     gm.addColorStop(1, 'rgba(180,200,255,0)');
     ctx.fillStyle = gm;
     ctx.beginPath(); ctx.arc(sx, sy, screenRadius*1.8, 0, Math.PI*2); ctx.fill();
-    // Foto luna
-    ctx.beginPath(); ctx.arc(sx, sy, screenRadius, 0, Math.PI*2); ctx.clip();
-    if (moonImg.complete && moonImg.naturalWidth > 0) {
-      ctx.drawImage(moonImg, sx-screenRadius, sy-screenRadius, screenRadius*2, screenRadius*2);
+
+    // Sfera luna 3D con illuminazione solare reale
+    // La luna ruota con moonOrbitAngle (sempre stessa faccia verso Terra = rotazione sincrona)
+    if (moonPx) {
+      rayCastSphere(moonOffCtx, moonPx, moonTW, moonTH, moonOrbitAngle, 0, sunLightDir3D, null, 0, 0);
     } else {
-      const g = ctx.createRadialGradient(sx, sy, 0, sx, sy, screenRadius);
-      g.addColorStop(0,'#d8d8d8'); g.addColorStop(0.7,'#909090'); g.addColorStop(1,'#505050');
-      ctx.fillStyle = g; ctx.fillRect(sx-screenRadius, sy-screenRadius, screenRadius*2, screenRadius*2);
+      moonOffCtx.clearRect(0,0,256,256);
+      const gf = moonOffCtx.createRadialGradient(100,100,0,128,128,128);
+      gf.addColorStop(0,'#e8e8e8'); gf.addColorStop(0.7,'#909090'); gf.addColorStop(1,'#505050');
+      moonOffCtx.fillStyle = gf;
+      moonOffCtx.beginPath(); moonOffCtx.arc(128,128,128,0,Math.PI*2); moonOffCtx.fill();
     }
-    // Fase: ombra sul lato opposto al Sole
-    // sunDir2D_angle = angolo nel piano schermo dalla Luna verso il Sole
-    ctx.beginPath();
-    ctx.arc(sx, sy, screenRadius, 0, Math.PI*2);
-    const shadow = ctx.createRadialGradient(
-      sx - Math.cos(sunDir2D_angle) * screenRadius * 0.4,
-      sy - Math.sin(sunDir2D_angle) * screenRadius * 0.4,
-      0,
-      sx, sy, screenRadius
-    );
-    shadow.addColorStop(0, 'rgba(0,0,0,0)');
-    shadow.addColorStop(0.5,'rgba(0,0,0,0.3)');
-    shadow.addColorStop(1, 'rgba(0,0,0,0.9)');
-    ctx.fillStyle = shadow; ctx.fill();
+    ctx.drawImage(moonOff, sx-screenRadius, sy-screenRadius, screenRadius*2, screenRadius*2);
     ctx.restore();
   }
 
@@ -6367,6 +6444,9 @@ function initGlobe() {
     },
   ];
 
+  // Esponi i territori per la mappa 2D (deve stare dopo la dichiarazione di territories)
+  window._globeTerritories = territories;
+
   // Colori per anno: ritorna { fill, border } per ogni territorio in base all'anno corrente
   function project(lon, lat) {
     const lam = lon * Math.PI / 180;
@@ -6386,32 +6466,17 @@ function initGlobe() {
     const rz = R * zoom;
     const usePixels = (earthReady && earthPixels) ? { data: earthPixels, w: earthW, h: earthH } : null;
 
-    // rotY/rotX della camera = anche rotazione della sfera (tutto allineato)
     const eRY = rotY;
     const eRX = rotX;
 
-    // Proietta sunLightDir (sistema mondo) in spazio camera per l'illuminazione
-    // La camera ruota con rotY poi rotX → per trasformare un vettore mondo in camera:
-    // prima rotY inversa, poi rotX inversa
-    let sld = sunLightDir || { x: 0, y: 0, z: 1 };
-    // Inverso rotY
-    const cy = Math.cos(-rotY), sy2 = Math.sin(-rotY);
-    const cx = Math.cos(-rotX), sx2 = Math.sin(-rotX);
-    const t1x = sld.x * cy + sld.z * sy2;
-    const t1y = sld.y;
-    const t1z = -sld.x * sy2 + sld.z * cy;
-    // Inverso rotX
-    const camSunX = t1x;
-    const camSunY = t1y * cx - t1z * sx2;
-    const camSunZ = t1y * sx2 + t1z * cx;
-    // camSun = direzione del Sole in spazio camera (z+ = verso l'utente)
-    // La normale di un pixel della sfera in camera space è semplicemente (nx, ny, nz)
-    // dove nz = sqrt(1 - nx²- ny²) > 0 (faccia verso la camera)
-    // dot = nx*camSunX + ny*camSunY + nz*camSunZ → illuminazione corretta
+    // sunLightDir è già in world-space — usiamo direttamente
+    const sldx = (sunLightDir || {x:0,y:0,z:1}).x;
+    const sldy = (sunLightDir || {x:0,y:0,z:1}).y;
+    const sldz = (sunLightDir || {x:0,y:0,z:1}).z;
 
     if (usePixels) {
       const cacheKey = eRY.toFixed(4) + ',' + eRX.toFixed(4) + ',' + zoom.toFixed(4)
-                     + ',' + camSunX.toFixed(3) + ',' + camSunY.toFixed(3) + ',' + camSunZ.toFixed(3);
+                     + ',' + sldx.toFixed(3) + ',' + sldy.toFixed(3) + ',' + sldz.toFixed(3);
       if (cacheKey !== earthCacheKey) {
         earthCacheKey = cacheKey;
         const iw = usePixels.w, ih = usePixels.h;
@@ -6427,7 +6492,7 @@ function initGlobe() {
             if (r2 > 1) continue;
             const nz = Math.sqrt(1 - r2);
 
-            // Texel lookup: ruota la normale nel sistema sfera (inverso di rotY poi rotX)
+            // Texel lookup + normale world-space: applica rotazione inversa camera
             const nz2  = ny * Math.sin(eRX) + nz * Math.cos(eRX);
             const ny2  = ny * Math.cos(eRX) - nz * Math.sin(eRX);
             const nx2  = nx * Math.cos(eRY) - nz2 * Math.sin(eRY);
@@ -6438,8 +6503,10 @@ function initGlobe() {
             const ty = Math.floor((0.5 + lat2 / Math.PI) * (ih - 1));
             const si = (Math.max(0,Math.min(ih-1,ty)) * iw + Math.max(0,Math.min(iw-1,tx))) * 4;
 
-            // Illuminazione: dot tra normale camera-space e direzione Sole camera-space
-            const dot = nx * camSunX + ny * camSunY + nz * camSunZ;
+            // Illuminazione: normale world-space (nx2,ny2,nz3) · sunLightDir world-space
+            // Questo è stabile: ruotare la camera muove sia il texel che la normale,
+            // ma il sole resta fisso nel sistema mondo
+            const dot = nx2 * sldx + ny2 * sldy + nz3 * sldz;
             const ambient = 0.07;
             const shade = dot > 0 ? ambient + (1 - ambient) * dot : ambient * (1 + dot * 0.5);
             const terminator = Math.max(0, Math.min(1, dot * 4 + 0.3));
@@ -6603,7 +6670,7 @@ function initGlobe() {
 
     // ── Disegna Luna (se davanti alla camera e non coperta dalla Terra) ──
     if (pMoon && pMoon.depth > camDistU) { // depth > camDistU = oltre la Terra
-      drawMoonSprite(pMoon.sx, pMoon.sy, Math.max(2, moonScreenR), moonPhaseAngle);
+      drawMoonSprite(pMoon.sx, pMoon.sy, Math.max(2, moonScreenR), sunLightDir);
     }
 
     // ── Globo terrestre al centro ──
@@ -6635,7 +6702,7 @@ function initGlobe() {
     if (pMoon && pMoon.depth <= camDistU) {
       const FOV2 = 0.9;
       const moonScreenR2 = (SIM_MOON_RADIUS / pMoon.depth) * (W/2/FOV2);
-      drawMoonSprite(pMoon.sx, pMoon.sy, Math.max(2, moonScreenR2), moonPhaseAngle);
+      drawMoonSprite(pMoon.sx, pMoon.sy, Math.max(2, moonScreenR2), sunLightDir);
     }
   }
 
