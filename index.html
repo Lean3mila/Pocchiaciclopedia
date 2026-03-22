@@ -6723,12 +6723,16 @@ function initGlobe() {
             const si = (Math.max(0,Math.min(ih-1,ty)) * iw + Math.max(0,Math.min(iw-1,tx))) * 4;
 
             // Illuminazione: normale world-space (nx2,ny2,nz3) · sunLightDir world-space
-            // Questo è stabile: ruotare la camera muove sia il texel che la normale,
-            // ma il sole resta fisso nel sistema mondo
-            const dot = nx2 * sldx + ny2 * sldy + nz3 * sldz;
-            const ambient = 0.12;
-            const shade = dot > 0 ? ambient + (1 - ambient) * dot : ambient * (1 + dot * 0.5);
-            const terminator = Math.max(0, Math.min(1, dot * 8 + 0.6));
+            let shade, terminator;
+            if (!sunLightDir) {
+              shade = 1.0;
+              terminator = 1.0;
+            } else {
+              const dot = nx2 * sldx + ny2 * sldy + nz3 * sldz;
+              const ambient = 0.12;
+              shade = dot > 0 ? ambient + (1 - ambient) * dot : ambient * (1 + dot * 0.5);
+              terminator = Math.max(0, Math.min(1, dot * 8 + 0.6));
+            }
 
             for (let dy = 0; dy < step && py+dy < H; dy++) {
               for (let dx = 0; dx < step && px+dx < W; dx++) {
