@@ -6056,6 +6056,11 @@ function initGlobe() {
   let dragging = false, lastX = 0, lastY = 0;
   let pinchDist = null;
   let autoRot = true;
+
+  // Posizione casuale di Ludovico nello sfondo — generata una volta al caricamento
+  const _ludoSize = Math.round(W * 0.06 + Math.random() * W * 0.04); // 36–60px
+  const _ludoX = Math.round(Math.random() * (W - _ludoSize));
+  const _ludoY = Math.round(Math.random() * (H - _ludoSize));
   // Ref condiviso con i controlli globali
   window._globeRotRef = { get autoRot() { return autoRot; }, set autoRot(v) { autoRot = v; } };
 
@@ -6511,7 +6516,7 @@ function initGlobe() {
         const imgData = usePixels.data;
         const out = offCtx.createImageData(W, H);
         const od = out.data;
-        const step = 4; // step=4 riduce i pixel ~1.8x rispetto a step=3
+        const step = 2; // step=2 — qualità alta, texture nitida
         for (let py = 0; py < H; py += step) {
           for (let px = 0; px < W; px += step) {
             const nx = (px - W/2) / rz;
@@ -6662,11 +6667,10 @@ function initGlobe() {
     // ── Sfondo spazio ──
     drawStars();
 
-    // Ludovico in alto a destra, sempre visibile con 50% trasparenza
+    // Ludovico nello sfondo: posizione casuale fissa al caricamento, molto piccolo
     if (ludoImg.complete && ludoImg.naturalWidth > 0) {
-      const lSize = Math.round(W * 0.18); // ~108px su canvas 600
-      ctx.globalAlpha = 0.50;
-      ctx.drawImage(ludoImg, W - lSize - 12, 12, lSize, lSize);
+      ctx.globalAlpha = 0.45;
+      ctx.drawImage(ludoImg, _ludoX, _ludoY, _ludoSize, _ludoSize);
       ctx.globalAlpha = 1.0;
     }
 
