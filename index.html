@@ -1094,7 +1094,7 @@ const DEFAULT_PAGES = {
       <input type="range" id="year-slider" min="0" max="121" value="121" step="1"
         style="flex:1;min-width:120px;accent-color:#3680b0"
         oninput="onYearSlider(this.value)">
-      <span id="year-label" style="font-weight:700;color:#3680b0;min-width:54px;text-align:right">0 dM</span>
+      <span id="year-label" style="font-weight:700;color:#3680b0;min-width:54px;text-align:right">121 dM</span>
     </div>
     <div id="year-desc" style="margin-top:4px;color:#54595d;font-size:11px;min-height:14px"></div>
   </div>
@@ -6177,24 +6177,30 @@ function initGlobe() {
   // ── Immagine sfondo spazio reale (Hubble Ultra Deep Field) ──
   const spaceImg = new Image();
   spaceImg.crossOrigin = 'anonymous';
-  spaceImg.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/NASA-HS201427a-HubbleUltraDeepField2014-20140603.jpg/1280px-NASA-HS201427a-HubbleUltraDeepField2014-20140603.jpg';
+  // Panorama stellare ESO — campo stellare uniforme, ideale per il loop orizzontale
+  // Panorama 360° ESO/S.Brunier — cielo notturno intero visto dalla Terra, seamless
+  spaceImg.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/ESO_-_Milky_Way.jpg/1280px-ESO_-_Milky_Way.jpg';
 
   // Disegna sfondo spazio con immagine reale + leggero parallasse con la camera
   function drawStars() {
     if (spaceImg.complete && spaceImg.naturalWidth > 0) {
       const iw = spaceImg.naturalWidth, ih = spaceImg.naturalHeight;
-      const scale = Math.max(W / iw, H / ih) * 1.4;
+      // Scala per coprire l'altezza, con un po' di extra orizzontale
+      const scale = Math.max(W / iw, H / ih) * 1.1;
       const dw = iw * scale, dh = ih * scale;
-      // Parallasse tenue: lo sfondo scorre un po' quando ruoti la camera
-      const px = ((rotY % (Math.PI * 2)) / (Math.PI * 2)) * dw;
-      const py = (rotX / Math.PI) * H * 0.4;
-      const ox = (W - dw) / 2 - px;
+      // Parallasse: calcola offset in pixel, poi applica modulo su dw per il loop seamless
+      const rawPx = (rotY / (Math.PI * 2)) * dw;
+      // ((rawPx % dw) + dw) % dw garantisce sempre un valore positivo senza salti
+      const px = ((rawPx % dw) + dw) % dw;
+      const py = Math.max(0, Math.min(dh - H, (rotX / Math.PI + 0.5) * (dh - H)));
+      const ox = -px;
       const oy = (H - dh) / 2 - py;
+      // Tre copie per coprire sempre il canvas senza vuoti
       ctx.drawImage(spaceImg, ox,      oy, dw, dh);
       ctx.drawImage(spaceImg, ox + dw, oy, dw, dh);
       ctx.drawImage(spaceImg, ox - dw, oy, dw, dh);
-      // Velo scuro leggero per non sovrastare il globo
-      ctx.fillStyle = 'rgba(0,0,6,0.20)';
+      // Velo scuro per profondità
+      ctx.fillStyle = 'rgba(0,0,8,0.35)';
       ctx.fillRect(0, 0, W, H);
     } else {
       ctx.fillStyle = '#00000a';
@@ -6380,29 +6386,32 @@ function initGlobe() {
     const rz = R * zoom;
     const usePixels = (earthReady && earthPixels) ? { data: earthPixels, w: earthW, h: earthH } : null;
 
-    // La texture della Terra ruota con earthSelfRot (rotazione assiale),
-    // indipendente dalla camera (rotY/rotX).
-    // La camera applica rotX solo per inclinazione visiva verticale,
-    // ma la Terra ha il suo asse fisso.
-    const eRY = rotY;   // rotazione sfera = camera yaw (texture segue la sfera)
-    const eRX = rotX;   // inclinazione sfera = camera pitch
+    // rotY/rotX della camera = anche rotazione della sfera (tutto allineato)
+    const eRY = rotY;
+    const eRX = rotX;
 
-    // Converti sunLightDir (sistema mondo) nel sistema di riferimento della Terra
-    // per calcolare l'illuminazione per-pixel
+    // Proietta sunLightDir (sistema mondo) in spazio camera per l'illuminazione
+    // La camera ruota con rotY poi rotX → per trasformare un vettore mondo in camera:
+    // prima rotY inversa, poi rotX inversa
     let sld = sunLightDir || { x: 0, y: 0, z: 1 };
-    const cosY = Math.cos(eRY), sinY = Math.sin(eRY);
-    const cosX = Math.cos(eRX), sinX = Math.sin(eRX);
-    // Inverso rotazione Terra: prima inverso rotX, poi inverso rotY
-    const sx1 =  sld.x * cosY - sld.z * sinY;
-    const sy1 =  sld.y;
-    const sz1 =  sld.x * sinY + sld.z * cosY;
-    const sx2 =  sx1;
-    const sy2 =  sy1 * cosX + sz1 * sinX;
-    const sz2 = -sy1 * sinX + sz1 * cosX;
+    // Inverso rotY
+    const cy = Math.cos(-rotY), sy2 = Math.sin(-rotY);
+    const cx = Math.cos(-rotX), sx2 = Math.sin(-rotX);
+    const t1x = sld.x * cy + sld.z * sy2;
+    const t1y = sld.y;
+    const t1z = -sld.x * sy2 + sld.z * cy;
+    // Inverso rotX
+    const camSunX = t1x;
+    const camSunY = t1y * cx - t1z * sx2;
+    const camSunZ = t1y * sx2 + t1z * cx;
+    // camSun = direzione del Sole in spazio camera (z+ = verso l'utente)
+    // La normale di un pixel della sfera in camera space è semplicemente (nx, ny, nz)
+    // dove nz = sqrt(1 - nx²- ny²) > 0 (faccia verso la camera)
+    // dot = nx*camSunX + ny*camSunY + nz*camSunZ → illuminazione corretta
 
     if (usePixels) {
       const cacheKey = eRY.toFixed(4) + ',' + eRX.toFixed(4) + ',' + zoom.toFixed(4)
-                     + ',' + sx2.toFixed(3) + ',' + sy2.toFixed(3) + ',' + sz2.toFixed(3);
+                     + ',' + camSunX.toFixed(3) + ',' + camSunY.toFixed(3) + ',' + camSunZ.toFixed(3);
       if (cacheKey !== earthCacheKey) {
         earthCacheKey = cacheKey;
         const iw = usePixels.w, ih = usePixels.h;
@@ -6417,18 +6426,20 @@ function initGlobe() {
             const r2 = nx*nx + ny*ny;
             if (r2 > 1) continue;
             const nz = Math.sqrt(1 - r2);
-            // Proiezione texture con earthSelfRot (NON rotY camera)
-            const nz2 = ny * Math.sin(eRX) + nz * Math.cos(eRX);
-            const ny2 = ny * Math.cos(eRX) - nz * Math.sin(eRX);
-            const nx2 = nx * Math.cos(eRY) - nz2 * Math.sin(eRY);
-            const nz3 = nx * Math.sin(eRY) + nz2 * Math.cos(eRY);
+
+            // Texel lookup: ruota la normale nel sistema sfera (inverso di rotY poi rotX)
+            const nz2  = ny * Math.sin(eRX) + nz * Math.cos(eRX);
+            const ny2  = ny * Math.cos(eRX) - nz * Math.sin(eRX);
+            const nx2  = nx * Math.cos(eRY) - nz2 * Math.sin(eRY);
+            const nz3  = nx * Math.sin(eRY) + nz2 * Math.cos(eRY);
             const lon2 = Math.atan2(nx2, nz3);
             const lat2 = Math.asin(Math.max(-1, Math.min(1, ny2)));
             const tx = Math.floor((lon2 / Math.PI + 1) * 0.5 * (iw - 1));
             const ty = Math.floor((0.5 + lat2 / Math.PI) * (ih - 1));
             const si = (Math.max(0,Math.min(ih-1,ty)) * iw + Math.max(0,Math.min(iw-1,tx))) * 4;
 
-            const dot = nx2 * sx2 + ny2 * sy2 + nz3 * sz2;
+            // Illuminazione: dot tra normale camera-space e direzione Sole camera-space
+            const dot = nx * camSunX + ny * camSunY + nz * camSunZ;
             const ambient = 0.07;
             const shade = dot > 0 ? ambient + (1 - ambient) * dot : ambient * (1 + dot * 0.5);
             const terminator = Math.max(0, Math.min(1, dot * 4 + 0.3));
@@ -6739,6 +6750,7 @@ function initGlobe() {
 }
 loadPagesLocalOnly();
 caricaStatoModalitaLocale();
+onYearSlider(121);
 controllaLockdownAlAvvio(); // mostra lockdown subito se attivo in localStorage
 updateSidebar();
 navigateTo('Main');
