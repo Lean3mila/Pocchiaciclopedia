@@ -6058,9 +6058,10 @@ function initGlobe() {
   let autoRot = true;
 
   // Posizione casuale di Ludovico nello sfondo — generata una volta al caricamento
-  const _ludoSize = Math.round(W * 0.06 + Math.random() * W * 0.04); // 36–60px
-  const _ludoX = Math.round(Math.random() * (W - _ludoSize));
-  const _ludoY = Math.round(Math.random() * (H - _ludoSize));
+  // Coordinate normalizzate [0,1] nell'immagine di sfondo
+  const _ludoSize = Math.round(W * 0.055 + Math.random() * W * 0.03); // ~33–51px
+  const _ludoNX   = Math.random(); // posizione X normalizzata [0,1] dentro lo sfondo
+  const _ludoNY   = 0.05 + Math.random() * 0.85; // Y normalizzata, evita i bordi estremi
   // Ref condiviso con i controlli globali
   window._globeRotRef = { get autoRot() { return autoRot; }, set autoRot(v) { autoRot = v; } };
 
@@ -6210,6 +6211,20 @@ function initGlobe() {
     // Per px > dw-W serve la terza copia
     ctx.drawImage(spaceImg, ox,      oy, dw, dh);
     ctx.drawImage(spaceImg, ox + dw, oy, dw, dh);
+
+    // Ludovico: punto fisso nello spazio, si muove con il parallasse dello sfondo
+    if (ludoImg.complete && ludoImg.naturalWidth > 0) {
+      // _ludoNX/_ludoNY = posizione normalizzata [0,1] nell'immagine grande (dw×dh)
+      // Si traduce in coordinate canvas: lx = ox + _ludoNX*dw, ly = oy + _ludoNY*dh
+      // Ma disegnamo anche la copia +dw per il wrap orizzontale
+      const lx = ox      + _ludoNX * dw;
+      const lx2 = ox+dw  + _ludoNX * dw;
+      const ly = oy + _ludoNY * dh;
+      ctx.globalAlpha = 0.45;
+      ctx.drawImage(ludoImg, lx,  ly, _ludoSize, _ludoSize);
+      ctx.drawImage(ludoImg, lx2, ly, _ludoSize, _ludoSize);
+      ctx.globalAlpha = 1.0;
+    }
   }
 
   // ── Cache pixel texture (lette una volta al caricamento) ──
@@ -6666,13 +6681,6 @@ function initGlobe() {
 
     // ── Sfondo spazio ──
     drawStars();
-
-    // Ludovico nello sfondo: posizione casuale fissa al caricamento, molto piccolo
-    if (ludoImg.complete && ludoImg.naturalWidth > 0) {
-      ctx.globalAlpha = 0.45;
-      ctx.drawImage(ludoImg, _ludoX, _ludoY, _ludoSize, _ludoSize);
-      ctx.globalAlpha = 1.0;
-    }
 
     // ── Camera: si trova a distanza camDist dalla Terra ──
     // In modalità zoom normale (zoom=1) la camera è molto vicina alla Terra (vediamo il globo)
