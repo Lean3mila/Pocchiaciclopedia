@@ -5859,8 +5859,7 @@ function setMapMode(mode) {
           const cont = document.getElementById('globe-container');
           if (best && tip) {
             // Nome e navigazione corretti per l'anno
-            const navName = (best.name === 'Filippine' && best.toYear === 108)
-              ? 'Camorra Salentina' : (best.navigateTo || best.name);
+            const navName = best.navigateTo || best.name;
             tip.textContent = navName;
             tip.style.display = 'block';
             const cr = cont.getBoundingClientRect();
@@ -5895,8 +5894,7 @@ function setMapMode(mode) {
             if (dist < hitPx && dist < bestDist) { bestDist = dist; best = t; }
           });
           if (best) {
-            const nav = (best.name === 'Filippine' && best.toYear === 108)
-              ? 'Camorra Salentina' : (best.navigateTo || best.name);
+            const nav = best.navigateTo || best.name;
             navigateTo(nav);
           }
         });
@@ -5982,10 +5980,6 @@ function getTerritoryColors(t) {
   const y = currentYear;
   const name = t.name;
   let fill = t.color + 'bb', border = t.border;
-  if (name === 'Filippine') {
-    // Entry Camorra Salentina (toYear 104 o 108 a seconda della fase)
-    if (t.toYear === 104 || t.toYear === 108) { fill = '#795548bb'; border = '#4e342e'; }
-  }
   if (name === 'America (Avengers)') {
     if (y >= 107 && y <= 119) { fill = '#c62828dd'; border = '#7f0000'; }
   }
@@ -6523,9 +6517,9 @@ function initGlobe() {
       ]
     },
     {
-      // FILIPPINE con Castri — Camorra Salentina 17–104 dM (senza Serrano)
-      name: 'Filippine', navigateTo: 'Filippine',
-      color: '#2e7d32', border: '#1a4d1e', textColor: '#fff',
+      // CAMORRA SALENTINA con Castri — 17–104 dM (senza Serrano)
+      name: 'Filippine', navigateTo: 'Camorra Salentina',
+      color: '#795548', border: '#4e342e', textColor: '#fff',
       label: { lon: 18.00, lat: 40.28 }, hitR: 1.5,
       toYear: 104,
       poly: [
@@ -6537,9 +6531,9 @@ function initGlobe() {
       ]
     },
     {
-      // FILIPPINE + SERRANO conquista — 105–106 dM
-      name: 'Filippine', navigateTo: 'Filippine',
-      color: '#2e7d32', border: '#1a4d1e', textColor: '#fff',
+      // CAMORRA SALENTINA + SERRANO conquista — 105–106 dM
+      name: 'Filippine', navigateTo: 'Camorra Salentina',
+      color: '#795548', border: '#4e342e', textColor: '#fff',
       label: { lon: 18.10, lat: 40.20 }, hitR: 2.0,
       fromYear: 105, toYear: 106,
       poly: [
@@ -6552,9 +6546,9 @@ function initGlobe() {
       ]
     },
     {
-      // FILIPPINE senza Serrano — 107–108 dM (bomba distrugge Serrano)
-      name: 'Filippine', navigateTo: 'Filippine',
-      color: '#2e7d32', border: '#1a4d1e', textColor: '#fff',
+      // CAMORRA SALENTINA senza Serrano — 107–108 dM
+      name: 'Filippine', navigateTo: 'Camorra Salentina',
+      color: '#795548', border: '#4e342e', textColor: '#fff',
       label: { lon: 18.00, lat: 40.28 }, hitR: 1.5,
       fromYear: 107, toYear: 108,
       poly: [
@@ -6957,8 +6951,6 @@ function initGlobe() {
 
   // Restituisce la pagina corretta in base all'anno corrente
   function getNavigateTo(t) {
-    // L'entry Filippine con toYear=108 è la Camorra Salentina
-    if (t.name === 'Filippine' && t.toYear === 108) return 'Camorra Salentina';
     return t.navigateTo || t.name;
   }
 
