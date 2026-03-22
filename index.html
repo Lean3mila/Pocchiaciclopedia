@@ -6177,21 +6177,34 @@ function initGlobe() {
   spaceImg.onload = () => { if (window._globeDirty !== undefined) window._globeDirty = true; };
 
   function drawStars() {
-    if (spaceImg.complete && spaceImg.naturalWidth > 0) {
-      const iw = spaceImg.naturalWidth, ih = spaceImg.naturalHeight;
-      const scale = Math.max(W / iw, H / ih) * 1.05;
-      const dw = iw * scale, dh = ih * scale;
-      const rawPx = (rotY / (Math.PI * 2)) * dw;
-      const px = ((rawPx % dw) + dw) % dw;
-      const py = Math.max(0, Math.min(dh - H, (rotX / Math.PI + 0.5) * (dh - H)));
-      const ox = -px, oy = (H - dh) / 2 - py;
-      ctx.drawImage(spaceImg, ox,       oy, dw, dh);
-      ctx.drawImage(spaceImg, ox + dw,  oy, dw, dh);
-      ctx.drawImage(spaceImg, ox - dw,  oy, dw, dh);
-    } else {
-      ctx.fillStyle = '#000010';
-      ctx.fillRect(0, 0, W, H);
-    }
+    ctx.fillStyle = '#000010';
+    ctx.fillRect(0, 0, W, H);
+    if (!spaceImg.complete || !spaceImg.naturalWidth) return;
+
+    const iw = spaceImg.naturalWidth, ih = spaceImg.naturalHeight;
+    // Scala abbastanza da coprire SEMPRE tutto il canvas in altezza anche agli angoli estremi
+    // rotX va da -1.4 a 1.4 rad → l'immagine deve scorrere verticalmente di (dh-H) px
+    // vogliamo che anche al massimo rotX il canvas sia coperto → dh >= H * 2.5
+    const scaleH = (H * 2.8) / ih;  // copre verticalmente con ampio margine
+    const scaleW = W / iw;           // copre orizzontalmente
+    const scale  = Math.max(scaleH, scaleW);
+    const dw = iw * scale, dh = ih * scale;
+
+    // Offset orizzontale: usa modulo su dw — il seam cade SEMPRE fuori dal canvas perché
+    // disegniamo la copia che inizia a ox ≤ 0 e finisce a ox+dw ≥ W
+    const rawPx = (rotY / (Math.PI * 2)) * dw;
+    const px    = ((rawPx % dw) + dw) % dw; // sempre in [0, dw)
+    const ox    = -px; // ox ≤ 0, ox+dw = dw-px ≥ 0
+
+    // Offset verticale: mappa rotX [-1.4, 1.4] → [0, dh-H]
+    const maxPy = dh - H;
+    const py    = maxPy * (rotX / (Math.PI * 1.4) * 0.5 + 0.5);
+    const oy    = -py;
+
+    // Due copie bastano: ox ≤ 0 e ox+dw copre fino a dw-px ≥ W se px ≤ dw-W
+    // Per px > dw-W serve la terza copia
+    ctx.drawImage(spaceImg, ox,      oy, dw, dh);
+    ctx.drawImage(spaceImg, ox + dw, oy, dw, dh);
   }
 
   // ── Cache pixel texture (lette una volta al caricamento) ──
