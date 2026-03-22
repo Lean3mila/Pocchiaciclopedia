@@ -6368,7 +6368,7 @@ function initGlobe() {
           // Dot tra normale world-space CAMERA e direzione luce world-space
           // wnx2c, wny2c, wnz3c sono la normale nel sistema mondo
           const dot = wnx2c * lightDir.x + wny2c * lightDir.y + wnz3c * lightDir.z;
-          const ambient = 0.07;
+          const ambient = 0.12;
           shade = dot > 0 ? ambient + (1-ambient)*dot : ambient*(1+dot*0.5);
         } else {
           shade = 0.4 + 0.6 * nz; // limb darkening sole
@@ -6726,9 +6726,9 @@ function initGlobe() {
             // Questo è stabile: ruotare la camera muove sia il texel che la normale,
             // ma il sole resta fisso nel sistema mondo
             const dot = nx2 * sldx + ny2 * sldy + nz3 * sldz;
-            const ambient = 0.07;
+            const ambient = 0.12;
             const shade = dot > 0 ? ambient + (1 - ambient) * dot : ambient * (1 + dot * 0.5);
-            const terminator = Math.max(0, Math.min(1, dot * 4 + 0.3));
+            const terminator = Math.max(0, Math.min(1, dot * 8 + 0.6));
 
             for (let dy = 0; dy < step && py+dy < H; dy++) {
               for (let dx = 0; dx < step && px+dx < W; dx++) {
@@ -6844,8 +6844,8 @@ function initGlobe() {
     const moonDist = Math.sqrt(moonPos.x*moonPos.x + moonPos.y*moonPos.y + moonPos.z*moonPos.z);
 
     // Direzione normalizzata Terra → Sole (per illuminazione)
-    // Vicino alla Terra (zoom > 2): illuminazione flat per vedere la superficie
-    const sunLightDir = zoom > 2.0 ? null : {
+    // Vicino alla Terra (zoom > 3): illuminazione flat per vedere la superficie
+    const sunLightDir = zoom > 3.0 ? null : {
       x: sunPos.x / sunDist,
       y: sunPos.y / sunDist,
       z: sunPos.z / sunDist
@@ -7005,7 +7005,7 @@ function initGlobe() {
     e.preventDefault();
     zoom = Math.max(0.15, Math.min(3.5, zoom*(e.deltaY<0?1.1:0.91)));
   },{passive:false});
-  canvas.addEventListener('mousedown', e=>{dragging=true;autoRot=false;lastX=e.clientX;lastY=e.clientY;canvas.style.cursor='grabbing';});
+  canvas.addEventListener('mousedown', e=>{dragging=true;lastX=e.clientX;lastY=e.clientY;canvas.style.cursor='grabbing';});
   window.addEventListener('mousemove', e=>{
     if(!dragging)return;
     rotY+=(e.clientX-lastX)*0.007;rotX+=(e.clientY-lastY)*0.007;
@@ -7017,7 +7017,7 @@ function initGlobe() {
     if(globeAutoRot) setTimeout(()=>{ autoRot=true; if(window._globeRotRef) window._globeRotRef.autoRot=true; },2000);
   });
   canvas.addEventListener('touchstart',e=>{
-    e.preventDefault();autoRot=false;
+    e.preventDefault();
     if(e.touches.length===1){lastX=e.touches[0].clientX;lastY=e.touches[0].clientY;}
     if(e.touches.length===2){const dx=e.touches[0].clientX-e.touches[1].clientX,dy=e.touches[0].clientY-e.touches[1].clientY;pinchDist=Math.sqrt(dx*dx+dy*dy);}
   },{passive:false});
