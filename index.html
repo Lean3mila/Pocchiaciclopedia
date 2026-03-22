@@ -1086,13 +1086,12 @@ const DEFAULT_PAGES = {
       <button id="btn-3d" onclick="setMapMode('3d')" style="padding:5px 12px;border:none;border-radius:3px;cursor:pointer;background:#3680b0;color:#fff;font-size:12px;font-weight:600">🌍 3D</button>
       <button id="btn-2d" onclick="setMapMode('2d')" style="padding:5px 12px;border:none;border-radius:3px;cursor:pointer;background:transparent;color:#555;font-size:12px">🗺️ 2D</button>
     </div>
-    <button id="btn-rot" onclick="toggleRotation()" style="padding:5px 12px;border:1px solid #ccc;border-radius:3px;cursor:pointer;background:#fff;font-size:12px">⏸ Ferma rotazione</button>
   </div>
   <!-- Slider anno -->
   <div id="year-slider-wrap" style="max-width:600px;margin:0 auto 10px;font-family:sans-serif;font-size:12px">
     <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
       <label style="font-weight:600;white-space:nowrap;color:#202122">📅 Anno:</label>
-      <input type="range" id="year-slider" min="0" max="121" value="0" step="1"
+      <input type="range" id="year-slider" min="0" max="121" value="121" step="1"
         style="flex:1;min-width:120px;accent-color:#3680b0"
         oninput="onYearSlider(this.value)">
       <span id="year-label" style="font-weight:700;color:#3680b0;min-width:54px;text-align:right">0 dM</span>
@@ -5879,7 +5878,7 @@ function toggleRotation() {
 
 // Guerre storiche con territori coinvolti
 // ── Anno corrente selezionato dallo slider ──
-let currentYear = 0;
+let currentYear = 121;
 
 function onYearSlider(val) {
   currentYear = parseInt(val);
@@ -6129,74 +6128,42 @@ function initGlobe() {
   const SIM_EARTH_RADIUS = 1.0;
 
   // Stelle: posizioni su sfera unitaria (skybox)
-  const NUM_STARS = 2000;
-  const starDirs = Array.from({length: NUM_STARS}, () => {
-    // distribuzione uniforme sulla sfera
-    const u = Math.random(), v = Math.random();
-    const theta = 2 * Math.PI * u;
-    const phi   = Math.acos(2 * v - 1);
-    return {
-      x: Math.sin(phi) * Math.cos(theta),
-      y: Math.sin(phi) * Math.sin(theta),
-      z: Math.cos(phi),
-      r: Math.random() * 1.2 + 0.4,
-      a: Math.random() * 0.6 + 0.4,
-      color: (() => {
-        const c = Math.random();
-        if (c < 0.1) return '#aad4ff';  // blu
-        if (c < 0.2) return '#ffe8c0';  // arancio
-        return '#ffffff';
-      })()
-    };
-  });
-
-  // Posizioni 3D nel sistema Terra-centrico
+  // ── Posizioni 3D nel sistema Terra-centrico ──
   function getWorld3D() {
-    // Sole: orbita terrestre = Terra orbita attorno al Sole
-    // Visto dalla Terra, il Sole si muove con angolo -earthOrbitAngle (effetto apparente)
-    const sunAngle = earthOrbitAngle; // angolo della Terra attorno al Sole
+    const sunAngle = earthOrbitAngle;
     const sunPos = {
-      x:  Math.cos(sunAngle) * SIM_EARTH_SUN_DIST,
-      y:  0,
-      z:  Math.sin(sunAngle) * SIM_EARTH_SUN_DIST
+      x: Math.cos(sunAngle) * SIM_EARTH_SUN_DIST,
+      y: 0,
+      z: Math.sin(sunAngle) * SIM_EARTH_SUN_DIST
     };
-    // Luna: orbita attorno alla Terra nel piano eclittica (leggermente inclinata ~5°)
     const moonInc = 5.1 * Math.PI / 180;
     const moonPos = {
-      x:  Math.cos(moonOrbitAngle) * SIM_EARTH_MOON_DIST,
-      y:  Math.sin(moonInc) * Math.sin(moonOrbitAngle) * SIM_EARTH_MOON_DIST,
-      z:  Math.sin(moonOrbitAngle) * SIM_EARTH_MOON_DIST
+      x: Math.cos(moonOrbitAngle) * SIM_EARTH_MOON_DIST,
+      y: Math.sin(moonInc) * Math.sin(moonOrbitAngle) * SIM_EARTH_MOON_DIST,
+      z: Math.sin(moonOrbitAngle) * SIM_EARTH_MOON_DIST
     };
     return { sunPos, moonPos };
   }
 
   // Proiezione prospettica 3D → 2D canvas
-  // Camera posizionata a distanza camDist dalla Terra, orientata con rotX/rotY
-  function project3D(wx, wy, wz, camX, camY, camZ, camDist) {
-    // Trasla in coordinate camera (origine = Terra = 0,0,0 ma camera è a camX,camY,camZ)
+  function project3D(wx, wy, wz, camX, camY, camZ) {
     const dx = wx - camX, dy = wy - camY, dz = wz - camZ;
-    // Ruota nel sistema camera (inverso degli angoli della camera)
-    // La camera guarda verso (0,0,0) dalla posizione (camX,camY,camZ)
-    // Usa rotY (azimuth) e rotX (elevazione) per costruire la matrice vista
     const cosY = Math.cos(-rotY), sinY = Math.sin(-rotY);
     const cosX = Math.cos(-rotX), sinX = Math.sin(-rotX);
-    // Rotazione Y (yaw)
     const rx1 =  dx * cosY + dz * sinY;
     const ry1 =  dy;
     const rz1 = -dx * sinY + dz * cosY;
-    // Rotazione X (pitch)
     const rx2 =  rx1;
     const ry2 =  ry1 * cosX - rz1 * sinX;
     const rz2 =  ry1 * sinX + rz1 * cosX;
-    // rz2 è la profondità (asse Z camera, positivo = davanti)
-    if (rz2 <= 0.001) return null; // dietro la camera
-    const fov = 0.9; // ~52° half-angle in tan
-    const sx = W/2 + (rx2 / rz2) * (W / 2) / fov;
-    const sy = H/2 - (ry2 / rz2) * (H / 2) / fov;
+    if (rz2 <= 0.001) return null;
+    const fov = 0.9;
+    const sx = W/2 + (rx2 / rz2) * (W/2) / fov;
+    const sy = H/2 - (ry2 / rz2) * (H/2) / fov;
     return { sx, sy, depth: rz2 };
   }
 
-  // Calcola posizione camera in 3D attorno alla Terra
+  // Posizione camera in 3D attorno alla Terra
   function getCameraPos(camDist) {
     const cosX = Math.cos(rotX), sinX = Math.sin(rotX);
     const cosY = Math.cos(rotY), sinY = Math.sin(rotY);
@@ -6207,33 +6174,32 @@ function initGlobe() {
     };
   }
 
-  // Disegna le stelle (skybox — sempre a distanza infinita)
+  // ── Immagine sfondo spazio reale (Hubble Ultra Deep Field) ──
+  const spaceImg = new Image();
+  spaceImg.crossOrigin = 'anonymous';
+  spaceImg.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/NASA-HS201427a-HubbleUltraDeepField2014-20140603.jpg/1280px-NASA-HS201427a-HubbleUltraDeepField2014-20140603.jpg';
+
+  // Disegna sfondo spazio con immagine reale + leggero parallasse con la camera
   function drawStars() {
-    const cam = getCameraPos(1); // direzione camera normalizzata
-    starDirs.forEach(s => {
-      // Proietta la direzione stella con la stessa rotazione della camera
-      const cosY = Math.cos(-rotY), sinY = Math.sin(-rotY);
-      const cosX = Math.cos(-rotX), sinX = Math.sin(-rotX);
-      const rx1 =  s.x * cosY + s.z * sinY;
-      const ry1 =  s.y;
-      const rz1 = -s.x * sinY + s.z * cosY;
-      const rx2 =  rx1;
-      const ry2 =  ry1 * cosX - rz1 * sinX;
-      const rz2 =  ry1 * sinX + rz1 * cosX;
-      if (rz2 <= 0) return; // stella dietro
-      const fov = 0.9;
-      const sx = W/2 + (rx2 / rz2) * (W/2) / fov;
-      const sy = H/2 - (ry2 / rz2) * (H/2) / fov;
-      if (sx < 0 || sx > W || sy < 0 || sy > H) return;
-      ctx.beginPath();
-      ctx.arc(sx, sy, s.r, 0, Math.PI*2);
-      ctx.fillStyle = s.color.replace(')', `,${s.a})`).replace('rgb', 'rgba');
-      // Fix: usa fillStyle direttamente
-      ctx.globalAlpha = s.a;
-      ctx.fillStyle = s.color;
-      ctx.fill();
-    });
-    ctx.globalAlpha = 1.0;
+    if (spaceImg.complete && spaceImg.naturalWidth > 0) {
+      const iw = spaceImg.naturalWidth, ih = spaceImg.naturalHeight;
+      const scale = Math.max(W / iw, H / ih) * 1.4;
+      const dw = iw * scale, dh = ih * scale;
+      // Parallasse tenue: lo sfondo scorre un po' quando ruoti la camera
+      const px = ((rotY % (Math.PI * 2)) / (Math.PI * 2)) * dw;
+      const py = (rotX / Math.PI) * H * 0.4;
+      const ox = (W - dw) / 2 - px;
+      const oy = (H - dh) / 2 - py;
+      ctx.drawImage(spaceImg, ox,      oy, dw, dh);
+      ctx.drawImage(spaceImg, ox + dw, oy, dw, dh);
+      ctx.drawImage(spaceImg, ox - dw, oy, dw, dh);
+      // Velo scuro leggero per non sovrastare il globo
+      ctx.fillStyle = 'rgba(0,0,6,0.20)';
+      ctx.fillRect(0, 0, W, H);
+    } else {
+      ctx.fillStyle = '#00000a';
+      ctx.fillRect(0, 0, W, H);
+    }
   }
 
   // Disegna il Sole con foto + alone + ludovico sovrapposto
@@ -6418,8 +6384,8 @@ function initGlobe() {
     // indipendente dalla camera (rotY/rotX).
     // La camera applica rotX solo per inclinazione visiva verticale,
     // ma la Terra ha il suo asse fisso.
-    const eRY = earthSelfRot; // rotazione longitudinale Terra
-    const eRX = rotX;         // inclinazione visiva (condivisa con camera per semplicità)
+    const eRY = rotY;   // rotazione sfera = camera yaw (texture segue la sfera)
+    const eRX = rotX;   // inclinazione sfera = camera pitch
 
     // Converti sunLightDir (sistema mondo) nel sistema di riferimento della Terra
     // per calcolare l'illuminazione per-pixel
@@ -6587,9 +6553,7 @@ function initGlobe() {
       z: sunPos.z / sunDist
     };
 
-    // ── Sfondo spazio ──
-    ctx.fillStyle = '#00000a';
-    ctx.fillRect(0, 0, W, H);
+    // ── Sfondo spazio (Hubble Deep Field) ──
     drawStars();
 
     // ── Camera: si trova a distanza camDist dalla Terra ──
@@ -6606,8 +6570,8 @@ function initGlobe() {
     // Fattore di scala: 1 unità sim = quanto px sullo schermo a quella profondità
     // La proiezione 3D gestisce tutto, scala implicita nella fov
 
-    const pSun  = project3D(sunPos.x,  sunPos.y,  sunPos.z,  cam.x, cam.y, cam.z, camDistU);
-    const pMoon = project3D(moonPos.x, moonPos.y, moonPos.z, cam.x, cam.y, cam.z, camDistU);
+    const pSun  = project3D(sunPos.x,  sunPos.y,  sunPos.z,  cam.x, cam.y, cam.z);
+    const pMoon = project3D(moonPos.x, moonPos.y, moonPos.z, cam.x, cam.y, cam.z);
 
     // Calcola raggio schermo per Sole e Luna
     // r_screen = r_sim / depth * (W/2/fov)
@@ -6647,26 +6611,13 @@ function initGlobe() {
     // Bombe 3D
     // Bombe per anno corrente
     draw3DBombs();
-    // riflesso
-    const shine = ctx.createRadialGradient(W*0.33,H*0.26,0,W*0.40,H*0.33,rz*0.65);
-    shine.addColorStop(0,'rgba(255,255,255,0.20)');
-    shine.addColorStop(0.6,'rgba(255,255,255,0.04)');
-    shine.addColorStop(1,'rgba(255,255,255,0)');
-    ctx.fillStyle = shine; ctx.fillRect(0,0,W,H);
     ctx.restore();
 
-    // Cerchio bordo + alone atmosferico
-    // Alone atmosferico (più visibile verso il lato del Sole)
+    // Bordo sottile
     const rz2 = R * zoom;
     ctx.save();
-    const atmoGrad = ctx.createRadialGradient(W/2, H/2, rz2*0.96, W/2, H/2, rz2*1.08);
-    atmoGrad.addColorStop(0, 'rgba(80,140,255,0.55)');
-    atmoGrad.addColorStop(0.5,'rgba(60,120,220,0.20)');
-    atmoGrad.addColorStop(1, 'rgba(40,80,180,0)');
-    ctx.fillStyle = atmoGrad;
-    ctx.beginPath(); ctx.arc(W/2, H/2, rz2*1.08, 0, Math.PI*2); ctx.fill();
     ctx.beginPath(); ctx.arc(W/2,H/2,rz2,0,Math.PI*2);
-    ctx.strokeStyle='rgba(100,160,220,0.4)'; ctx.lineWidth=1.5; ctx.stroke();
+    ctx.strokeStyle='rgba(100,160,220,0.3)'; ctx.lineWidth=1; ctx.stroke();
     ctx.restore();
 
     // Luna davanti alla Terra (depth < camDistU)
@@ -6730,15 +6681,12 @@ function initGlobe() {
 
   function loop() {
     checkDirty();
-    // La camera NON ruota automaticamente — resta ferma dove l'utente la lascia
-    // Solo la Terra ruota su se stessa (asse Y)
     if (autoRot) {
-      earthSelfRot += 0.0006; // rotazione assiale Terra: ~5x più lenta di prima (era 0.003)
+      rotY += 0.0006; // Terra ruota: texture + sfera + territori insieme
       dirty = true;
     }
-    // Orbite rallentate ~5x rispetto a prima
-    earthOrbitAngle += 0.0003;              // Terra attorno al Sole
-    moonOrbitAngle  += 0.0003 * MOON_SPEED_RATIO; // Luna attorno alla Terra
+    earthOrbitAngle += 0.0003;
+    moonOrbitAngle  += 0.0003 * MOON_SPEED_RATIO;
     dirty = true;
     if (dirty) {
       drawGlobe();
