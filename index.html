@@ -6529,7 +6529,7 @@ function initGlobe() {
       ]
     },
     {
-      // LA CANTINA solo Castri — 109–111 dM
+      // LA CANTINA — solo Castri — 109–111 dM (ribellione)
       name: 'La Cantina', navigateTo: 'La Cantina',
       color: '#795548', border: '#4e342e', textColor: '#fff',
       label: { lon: 18.13, lat: 40.22 }, hitR: 0.9,
@@ -6537,12 +6537,11 @@ function initGlobe() {
       poly: [
         [18.02,40.24],[18.10,40.28],[18.20,40.32],[18.26,40.28],
         [18.20,40.22],[18.14,40.18],[18.06,40.18],[17.98,40.20],
-        [17.90,40.14],[18.02,40.18],[18.02,40.24]
+        [17.90,40.14],[17.98,40.18],[18.02,40.24]
       ]
     },
     {
-      // LA CANTINA conquista Filippine — 112–114 dM
-      // Castri + area ex-Filippine (Calimera e dintorni)
+      // LA CANTINA — Castri + Filippine — 112–114 dM (conquista Filippine)
       name: 'La Cantina', navigateTo: 'La Cantina',
       color: '#5d4037', border: '#3e2723', textColor: '#fff',
       label: { lon: 18.05, lat: 40.27 }, hitR: 1.5,
@@ -6555,10 +6554,23 @@ function initGlobe() {
       ]
     },
     {
-      // LA CANTINA con Napoli — dal 115 dM (poligono Napoli corretto + Salento)
+      // LA CANTINA Salento — dal 115 dM
       name: 'La Cantina', navigateTo: 'La Cantina',
       color: '#4e342e', border: '#3e2723', textColor: '#fff',
-      label: { lon: 15.8, lat: 40.5 }, hitR: 4.0,
+      label: { lon: 18.05, lat: 40.27 }, hitR: 1.5,
+      fromYear: 115,
+      poly: [
+        [17.85,40.40],[18.00,40.38],[18.10,40.36],[18.20,40.32],
+        [18.26,40.28],[18.20,40.22],[18.14,40.18],[18.06,40.18],
+        [17.98,40.20],[17.90,40.14],[17.82,40.14],[17.80,40.22],
+        [17.82,40.32],[17.85,40.40]
+      ]
+    },
+    {
+      // LA CANTINA Napoli — dal 115 dM
+      name: 'La Cantina', navigateTo: 'La Cantina',
+      color: '#4e342e', border: '#3e2723', textColor: '#fff',
+      label: { lon: 15.4, lat: 40.2 }, hitR: 4.0,
       fromYear: 115,
       poly: [
         [13.72,41.22],[13.82,41.08],[14.00,41.00],[14.20,41.05],
