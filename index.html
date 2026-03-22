@@ -1141,9 +1141,9 @@ const DEFAULT_PAGES = {
 <p><b>Organizzazioni criminali</b></p>
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
   <li><a onclick="navigateTo('Camorra Salentina')"><b>Camorra Salentina</b></a> — Fondata da Morello dopo il 17 dM. Guidata da lui stesso sotto il nome De Morellis. Sciolta nel 108 dM: è diventata le <a onclick="navigateTo('Filippine')">Filippine</a>.</li>
-  <li><a onclick="navigateTo('Filippine')"><b>Filippine</b></a> — Stato fondato nel 108 dM dalla Famiglia Pocchia sulle ceneri della Camorra Salentina. Capitale: Calimera. Seconda città: Castri.</li>
+  <li><a onclick="navigateTo('Filippine')"><b>Filippine</b></a> — Stato fondato nel 108 dM dalla Famiglia Pocchia. Capitale: Calimera. Seconda città: Castri (fino al 109 dM, poi passa a <a onclick="navigateTo('La Cantina')">La Cantina</a>).</li>
   <li><a onclick="navigateTo('Calimera')"><b>Calimera</b></a> — Capitale delle Filippine. Fondata nel 104 pM. Il nome in grico significa "buongiorno".</li>
-  <li><a onclick="navigateTo('Castri')"><b>Castri</b></a> — Seconda città delle Filippine. Fondata nel 38 pM. Centro logistico e militare.</li>
+  <li><a onclick="navigateTo('Castri')"><b>Castri</b></a> — Seconda città delle Filippine (108–109 dM). Dal 109 dM è la capitale di <a onclick="navigateTo('La Cantina')">La Cantina</a>, lo stato fondato dallo Zio di Sbost.</li>
   <li><a onclick="navigateTo('De Morellis')"><b>De Morellis</b></a> — Era Morello. Ha guidato la Camorra Salentina per decenni sotto falso nome. Rivelato nel 104 dM alla seconda eruzione del Vesuvio.</li>
 </ul>
 <p><b>Religioni e sistemi di datazione</b></p>
@@ -1166,7 +1166,9 @@ const DEFAULT_PAGES = {
   <li><a onclick="navigateTo('Ilaria Spisso')"><b>Ilaria Spisso</b></a> — Madre di Alex e Alessio. La Donna delle Torte. Ex-Spisshor.</li>
   <li><a onclick="navigateTo('MariaTeresa Friolo')"><b>MariaTeresa Friolo</b></a> — Compagna di Alessio in India.</li>
   <li><a onclick="navigateTo('Raggio Nero')"><b>Raggio Nero</b></a> — L'arma nigeriana che ha mandato gli Avengers in mare.</li>
-  <li><a onclick="navigateTo('Zio di Sbost')"><b>Zio di Sbost (Flavio Sbost)</b></a> — Doganale tra Castri e Serrano. Fermò Morello nel 1 pM, fu nascosto nei suoi capelli, tornò 105 anni dopo nel 104 dM e scappò.</li>
+  <li><a onclick="navigateTo('Zio di Sbost')"><b>Zio di Sbost (Flavio Sbost)</b></a> — Doganale tra Castri e Serrano. Fermò Morello nel 104 dM, fu nascosto nei capelli con l'Aria di Napoli, si risvegliò nel 107 dM dopo la Bomba Spissica e scappò. Il 13 Maggio 109 dM fondò <a onclick="navigateTo('La Cantina')">La Cantina</a> per vendicarsi di Morello.</li>
+  <li><a onclick="navigateTo('La Cantina')"><b>La Cantina</b></a> — Stato fondato il 13 Maggio 109 dM dallo Zio di Sbost a Castri, in ribellione alle Filippine. Ha inventato gli Sbost Bot e lo Spisso Bot.</li>
+  <li><a onclick="navigateTo('AleDoria')"><b>AleDoria</b></a> — Inventore della famiglia Sbost. Ha creato gli Sbost Bot domestici, musicali, e gli Spisso Bot — armi acustiche che usano la parola «Spisso» come raggio sonoro.</li>
   <li><a onclick="navigateTo('Terza Guerra degli Avengers')"><b>⚡ Alessio Spisso²</b></a> — Sopravvissuto alla Bomba Spissica. Si è risvegliato nel 109 dM come Alessio Spisso², potenziato. Ha ricostruito Serrano con Zella e l'ha fatta volare.</li>
 </ul>
 <p><b>Le Guerre degli Avengers</b></p>
@@ -1632,6 +1634,10 @@ DEFAULT_PAGES["Operazione Brick"].content = buildOperazioneBrick();
 DEFAULT_PAGES["Calimera"].content = buildCalimera();
 DEFAULT_PAGES["Castri"].content = buildCastri();
 DEFAULT_PAGES["Zio di Sbost"].content = buildZioDiSbost();
+DEFAULT_PAGES["La Cantina"] = { title: "La Cantina", content: buildLaCantina() };
+DEFAULT_PAGES["AleDoria"] = { title: "AleDoria", content: buildAleDoria() };
+DEFAULT_PAGES["Jacopo Martucci"] = { title: "Jacopo Martucci", content: buildJacopoMartucci() };
+DEFAULT_PAGES["Elisa Sbost"] = { title: "Elisa Sbost", content: buildElisaSbost() };
 DEFAULT_PAGES["Terza Guerra degli Avengers"].content = buildTerzaGuerraAvengers();
 DEFAULT_PAGES["Minerale Spisso"].content = buildMineraleSpisso();
 
@@ -1861,7 +1867,7 @@ function buildCamoraSalentina() {
 <h2 id="fine-cs2">La fine: nascita delle Filippine (108 dM) <span class="edit-link" onclick="openEditor('Camorra Salentina')">[modifica]</span></h2>
 <p>Nel <b>108 dM</b>, dopo la <a onclick="navigateTo('La Guerra Finale')">Guerra Finale</a> e la presa di potere della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> sul Salento, la Camorra Salentina cessò ufficialmente di esistere come organizzazione criminale. <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> e <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a> la trasformarono in qualcosa di diverso: uno stato vero e proprio, battezzato <b>le Filippine</b>.</p>
 <p>Non fu una semplice ridenominazione. La struttura criminale — cerchi di fiducia, controllo del territorio, infiltrazione economica — fu convertita in apparato di governo: le masserie divennero municipalità, i nodi logistici divennero infrastrutture, i codici del silenzio divennero leggi. Era, in sostanza, la stessa cosa con un'intestazione diversa. Ma l'intestazione contava.</p>
-<p>La capitale delle Filippine è <b>Calimera</b>. La seconda città più importante è <b>Castri</b>. Entrambe erano già nell'orbita storica della Camorra Salentina — ora ne sono i centri istituzionali. <a onclick="navigateTo('Morello')">Morello</a> — alias De Morellis — nel frattempo era tornato a Napoli dopo aver rivelato la sua vera identità in seguito all'eruzione del Vesuvio. Le Filippine erano dei Pocchia.</p>
+<p>La capitale delle Filippine è <b>Calimera</b>. La seconda città più importante è <b>Castri</b> (fino al 109 dM, quando diventa la capitale di <a onclick="navigateTo('La Cantina')">La Cantina</a>). Entrambe erano già nell'orbita storica della Camorra Salentina — ora ne sono i centri istituzionali. <a onclick="navigateTo('Morello')">Morello</a> — alias De Morellis — nel frattempo era tornato a Napoli dopo aver rivelato la sua vera identità in seguito all'eruzione del Vesuvio. Le Filippine erano dei Pocchia.</p>
 <div class="stub-box"><span style="font-size:22px">🦁</span><span>Questa voce descrive un'organizzazione che non esiste più. Le Filippine esistono al suo posto. Aggiornare di conseguenza.</span></div>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Camorra</a> <a>Criminalità organizzata in Puglia</a> <a>Salento</a> <a>Organizzazioni fondate da Morello</a> <a>Rivali del Clan Spisso</a> <a>Organizzazioni dissolte nel 108 dM</a></div>`;
@@ -2830,6 +2836,7 @@ function buildMorello() {
     <tr><td>Contatti attuali</td><td>Si dice ancora in contatto con Filippo</td></tr>
     <tr><td>Religione dedicata</td><td><b>Morellanesimo</b></td></tr>
     <tr><td>Profezia</td><td>Tornato nel 104 dM — profezia avverata</td></tr>
+    <tr><td>Stato attuale</td><td>Prigioniero a Castri dal 115 dM — nome ufficiale: <b>Morellato Pelato</b></td></tr>
   </table>
 </div>
 <p><b>Morello</b> è una delle figure più enigmatiche e influenti dell'intera storia narrata in questa enciclopedia. Co-governatore di <a onclick="navigateTo('Napoli')">Napoli</a> durante l'Età dell'Oro, scomparso dopo l'eruzione del Vesuvio nell'Anno 17 dM, amico d'infanzia di <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a>, e oggetto di una religione che ne attende il ritorno alla seconda eruzione del Vesuvio — quando, secondo la profezia, Napoli tornerà d'oro.</p>
@@ -2874,10 +2881,19 @@ function buildMorello() {
 <p>Il nucleo del Morellanesimo era la <b>Profezia del Ritorno</b>: quando il Vesuvio fosse eruttato per la seconda volta, Morello sarebbe tornato. Nel <b>104 dM</b> la profezia si è avverata — per colpa di un missile mal calibrato sparato dagli <a onclick="navigateTo('Avengers')">Avengers</a> verso l'Africa durante <a onclick="navigateTo('La Guerra Finale')">La Guerra Finale</a>. Il missile colpì il Vesuvio, che eruttò.</p>
 <p>De Morellis — il vecchissimo capo della <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> la cui somiglianza con Morello era documentata da anni — fu costretto a rivelare la sua identità. <b>De Morellis era Morello.</b> Era sopravvissuto alla prima eruzione del 17 dM, era andato al Sud, aveva fondato la Camorra Salentina, aveva cambiato nome e aspetto, aveva aspettato. Quando il Vesuvio eruttò di nuovo, tornò giovane: i capelli ricci alla Caparezza, l'andatura di chi sa come va a finire.</p>
 <p>Il suo ritorno portò con sé le <b>piogge di cheddar acido</b> — prodotto dall'incontro tra il cheddar normale e la lava vesuviana — che scioglievano solo i rifiuti trasformandoli in acqua. Napoli, per la prima volta in decenni, fu pulita. Le strade brillarono. I napoletani non sapevano se piangere di gioia o di imbarazzo per quanto avevano aspettato.</p>
-<p>Morello tornò a Napoli. La profezia era mantenuta. Quello che viene dopo non è ancora scritto.</p>
-<div class="wiki-notice" style="background:#fff8e1;border-left-color:#f9a825"><span class="ni">🌋</span><span>Nel <b>104 dM</b> il Vesuvio è eruttato per la seconda volta. Morello ha rivelato la sua identità. La profezia si è avverata. Questa voce è stata aggiornata.</span></div>
+<p>Morello tornò a Napoli. La profezia era mantenuta.</p>
+
+<h2 id="zbost-m">Lo Zio di Sbost nei capelli — 104–107 dM <span class="edit-link" onclick="openEditor('Morello')">[modifica]</span></h2>
+<p>Nel <b>104 dM</b>, durante il viaggio di ritorno da Serrano verso Napoli, Morello fu fermato alla dogana tra Serrano e Castri da <a onclick="navigateTo('Zio di Sbost')">Flavio Sbost</a>, detto lo Zio di Sbost — funzionario doganale scrupoloso che aveva rilevato un'irregolarità nei documenti di transito. Morello non discusse a lungo. Usò l'<b>Aria di Napoli</b> — uno shampoo di sua invenzione che produce un sonno profondo in chi ne viene a contatto — e nascose il funzionario nei propri capelli.</p>
+<p>Lo Zio di Sbost rimase nei capelli di Morello dal 104 dM al 107 dM — addormentato, inconsapevole della Guerra Finale, della Bomba Spissica, di tutto. Nel <b>107 dM</b>, quando la Bomba Spissica cadde su Serrano, l'onda d'urto disturbò i capelli di Morello abbastanza da interrompere l'effetto. Lo Zio di Sbost si svegliò, si orientò, e scappò così veloce che Morello non se ne accorse.</p>
+
+<h2 id="cantina-m">La Cantina e la caduta di Napoli — 109–115 dM <span class="edit-link" onclick="openEditor('Morello')">[modifica]</span></h2>
+<p>Nel <b>109 dM</b> lo Zio di Sbost fondò <a onclick="navigateTo('La Cantina')">La Cantina</a> a Castri con l'obiettivo dichiarato di vendicarsi di Morello conquistando Napoli. Con l'aiuto del nipote <a onclick="navigateTo('AleDoria')">AleDoria</a>, sviluppò gli Sbost Bot e gli <b>Spisso Bot</b> — robot che usano la parola «Spisso» come raggio sonoro. Nel <b>112 dM</b> La Cantina conquistò le <a onclick="navigateTo('Filippine')">Filippine</a>. Nel <b>115 dM</b> arrivò a Napoli.</p>
+<p>Morello fu trovato in bagno. La Cantina lo catturò. La prima cosa che fecero fu tagliargli i capelli — nessun altro sarebbe mai più scomparso lì dentro. Morello, pelato, fu portato nella prigione di Castri con il nome ufficiale di <b>Morellato Pelato</b>.</p>
+<p>L'uomo che era sopravvissuto alla prima eruzione del Vesuvio, aveva governato Napoli per diciassette anni, aveva gestito la Camorra Salentina per ottantasette anni sotto falso nome, era tornato giovane nel 104 dM e aveva pulito Napoli con piogge di cheddar acido — si trovava ora in una prigione salentina, senza capelli, catturato in bagno da un funzionario doganale vendicativo. La Pocchiaciclopedia registra questo senza commento.</p>
+<div class="wiki-notice" style="background:#fff8e1;border-left-color:#f9a825"><span class="ni">🌋</span><span>Nel <b>104 dM</b> Morello ha rivelato la sua identità. Nel <b>115 dM</b> è stato catturato da <a onclick="navigateTo('La Cantina')">La Cantina</a> e si trova nella prigione di Castri come <b>Morellato Pelato</b>.</span></div>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Figure storiche di Napoli</a> <a>Camorra Salentina</a> <a>Morellanesimo</a> <a>Persone scomparse</a> <a>Figure messianiche</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Figure storiche di Napoli</a> <a>Camorra Salentina</a> <a>Morellanesimo</a> <a>Prigionieri celebri</a> <a>Morellato Pelato</a></div>`;
 }
 
 function buildCalendarioMorello() {
@@ -2960,13 +2976,14 @@ function buildCalendarioMorello() {
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2023 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>106 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Nigeria lancia <a onclick="navigateTo('Raggio Nero')">Raggi Neri</a> anche su Pocchia e Camorra Salentina · <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> inizia la produzione (segreta)</td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2024 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>107 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b><a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> detonata su Serrano</b> · tutti gli Avengers dichiarati morti · <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> prende il potere in America · Nigeria si arrende</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2025 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>108 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> diventa 22° Segretario alla Difesa USA (25 gennaio) · <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> cessa di esistere — nasce lo stato delle <b>Filippine</b>, capitale <b>Calimera</b></td></tr>
-  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2026 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>109 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Risveglio di <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso²</a> · ritrovamento di <a onclick="navigateTo('Zella (Avengers)')">Zella</a> · ricostruzione e decollo di <a onclick="navigateTo('Serrano')">Serrano</a></td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2026 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>109 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Risveglio di <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso²</a> · ritrovamento di <a onclick="navigateTo('Zella (Avengers)')">Zella</a> · ricostruzione e decollo di <a onclick="navigateTo('Serrano')">Serrano</a> · <b>13 Maggio</b>: lo <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> fonda <a onclick="navigateTo('La Cantina')">La Cantina</a> a Castri</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2027 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>110 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> avvisa Alex del ritorno di Alessio · Alex ordina costruzione di 10 nuove Bombe Spissiche</td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2028 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>111 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Alessio e Zella dichiarano Alex capo illecito · Zella dichiarato legittimo capo dell'America · inizio ufficiale <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers</a></td></tr>
-  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2029 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>112 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Alex lancia 9 Bombe Spissiche su Serrano — tutte distrutte · Alessio annuncia produzione propria bomba</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2029 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>112 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Alex lancia 9 Bombe Spissiche su Serrano — tutte distrutte · Alessio annuncia produzione propria bomba · <a onclick="navigateTo('La Cantina')">La Cantina</a> conquista le <a onclick="navigateTo('Filippine')">Filippine</a> con gli Spisso Bot — i Pocchia scappano</td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2030 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>113 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Alex legge le F.O.N.D.A.M.E.N.T.A. cercando una soluzione · ordina bomba con densità Spisso amplificata</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2031 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>114 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Test della bomba amplificata — <b>fallimento</b>: esplode prima del lancio (24 giugno 114 dM) · <a onclick="navigateTo('Minerale Spisso')">Minerale Spisso</a> scoperto da <a onclick="navigateTo('Alice Sportella')">Alice</a> analizzando il terreno di Serrano</td></tr>
-  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2033 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>116 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Bomba di Alessio e Zella lanciata su città americane (non sulla capitale) · Alex perde il controllo del conflitto</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2033 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>115 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('La Cantina')">La Cantina</a> conquista <a onclick="navigateTo('Napoli')">Napoli</a> con un'armata di Spisso Bot · Napoli bruciata · <a onclick="navigateTo('Morello')">Morello</a> trovato in bagno e catturato · diventa <b>Morellato Pelato</b> nella prigione di Castri</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2033 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>116 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Bomba di Alessio e Zella lanciata su città americane (non sulla capitale) · Alex perde il controllo del conflitto</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2034 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>117 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Zella resuscita tutti gli Avengers con le armi di Darth Vader</td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2035 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>118 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Attacco all'America · <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> si ribella con il Raggio Nero · Alessio intercetta l'ultima bomba di Alex e la rilancia sull'America</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2036 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>119 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>Fine della Terza Guerra</b> · Alex usa il Minerale Spisso su Alessio · tenta di potenziare sé stesso con una bomba · viene disintegrato · Alessio perde i poteri · scoperta dello Spisso degli Spisso</td></tr>
@@ -3102,7 +3119,11 @@ function buildFilippoPascali() {
 <p>Filippo si è sposato con <a onclick="navigateTo('Alice Sportella')">Alice Sportella</a>, con cui ha avuto tre figli: <a onclick="navigateTo('Figli di Filippo')">Luca, Gino e Carla</a>, tutti e tre nati con la sindrome di Down. Anni dopo il matrimonio fu scoperto che Alice era una parente di Filippo. La famiglia andò avanti.</p>
 <h2>La Guerra Finale (104–107 dM) <span class="edit-link" onclick="openEditor('Filippo Pascali')">[modifica]</span></h2>
 <p>Durante <a onclick="navigateTo('La Guerra Finale')">La Guerra Finale</a>, Filippo guidò gli attacchi aerei su Serrano usando cannoni a cheddar e la scoppula volante — invenzione teorizzata da <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a>. Nel 105 dM, coordinato con Alice a terra, riuscì a conquistare Serrano in 67 giorni. Insieme a <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> prese il controllo della <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a>.</p>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Famiglia Pocchia</a> <a>Militari italiani</a> <a>Decorati con Medaglia d'Onore</a> <a>Amici di Morello</a> <a>La Guerra Finale</a></div>`;
+
+<h2>La fuga dalle Filippine — 112 dM <span class="edit-link" onclick="openEditor('Filippo Pascali')">[modifica]</span></h2>
+<p>Nel <b>112 dM</b>, mentre la <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers</a> dominava l'attenzione mondiale, <a onclick="navigateTo('La Cantina')">La Cantina</a> — lo stato fondato dallo <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> a Castri — attaccò le <a onclick="navigateTo('Filippine')">Filippine</a> con un'armata di <a onclick="navigateTo('AleDoria')">Spisso Bot</a>. Filippo e <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> non erano in posizione di resistere — le loro forze erano impegnate altrove, e la velocità dell'attacco non lasciò margine di risposta. Evacuarono con Alice e i figli. Le Filippine caddero.</p>
+<p>Filippo non ha commentato pubblicamente la perdita. Chi lo conosce descrive la faccenda come la cosa che lo infastidisce di più dalla scomparsa di Morello — il che, considerato tutto, è già qualcosa.</p>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Famiglia Pocchia</a> <a>Militari italiani</a> <a>Decorati con Medaglia d'Onore</a> <a>Amici di Morello</a> <a>La Guerra Finale</a> <a>Filippine</a></div>`;
 }
 
 function buildRiccardoPascali() {
@@ -3184,8 +3205,8 @@ function buildRiccardoPascali() {
 
 <h2 id="dopo-r">Dopo — le Filippine <span class="edit-link" onclick="openEditor('Riccardo Pascali')">[modifica]</span></h2>
 <p>Con il Clan Spisso smantellato, Riccardo aveva fatto la cosa per cui si era alzato ogni mattina per decenni. Quello che rimase fu qualcosa di più tranquillo — un lavoro ordinario, casi ordinari, la soddisfazione discreta di chi sa di aver fatto una cosa difficile nel modo giusto. Poi arrivò la <a onclick="navigateTo('La Guerra Finale')">Guerra Finale</a>.</p>
-<p>Nel 105 dM Riccardo e <a onclick="navigateTo('Filippo Pascali')">Filippo</a> presero il controllo della <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> rimasta senza guida dopo la partenza di Morello. Nel 108 dM la trasformarono nelle <a onclick="navigateTo('Filippine')">Filippine</a>. Riccardo ne gestisce l'amministrazione e l'ordine. È ancora il tipo di persona che non si stanca di aspettare. Ora aspetta che le Filippine diventino quello che dovrebbero essere. Sa già cosa sta aspettando.</p>
-<div class="stub-box"><span style="font-size:22px">🧱</span><span>Rick Brick. Il mattone che ha fatto cadere il clan.</span></div>
+<p>Nel 105 dM Riccardo e <a onclick="navigateTo('Filippo Pascali')">Filippo</a> presero il controllo della <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> rimasta senza guida dopo la partenza di Morello. Nel 108 dM la trasformarono nelle <a onclick="navigateTo('Filippine')">Filippine</a>. Riccardo ne gestisce l'amministrazione e l'ordine. Nel <b>112 dM</b> <a onclick="navigateTo('La Cantina')">La Cantina</a> attaccò con gli Spisso Bot e i Pocchia evacuarono — le Filippine caddero. Riccardo sta aspettando di riprenderle. È il tipo di persona che sa aspettare.</p>
+<div class="stub-box"><span style="font-size:22px">🧱</span><span>Rick Brick. Il mattone che ha fatto cadere il clan. Ha perso le Filippine nel 112 dM. Ci starà lavorando su.</span></div>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Famiglia Pocchia</a> <a>Investigatori</a> <a>Operazione Brick</a> <a>Rick Brick</a> <a>Filippine</a></div>`;
 }
@@ -5028,9 +5049,10 @@ function buildAliceSportella() {
 </div>
 <p><b>Alice Sportella</b> è la moglie di <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a> e madre di <a onclick="navigateTo('Figli di Filippo')">Luca, Gino e Carla</a>. Il matrimonio fu considerato per anni uno dei più solidi della storia della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> — fino alla scoperta che Alice era una parente di Filippo. Elaborarono la notizia con la filosofia pratica della famiglia: il matrimonio era fatto, i figli nati, andare avanti era l'unica opzione sensata.</p>
 <p>I tre figli nacquero con la sindrome di Down. Filippo e Alice li hanno cresciuti con affetto totale. Sono descritti da chiunque li conosca come straordinariamente felici — che, data la storia della famiglia, è probabilmente la cosa più notevole di tutta la vicenda.</p>
-<p>Nel 105 dM, durante <a onclick="navigateTo('La Guerra Finale')">La Guerra Finale</a>, Alice coordinò le operazioni a terra durante l'attacco a Serrano mentre Filippo guidava dall'aria. Dopo la conquista, Alice e Filippo — con <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> — presero il controllo della Camorra Salentina rimasta senza guida, Nel 108 dM la Camorra Salentina cessò di esistere come organizzazione criminale: Riccardo e Filippo la trasformarono in uno stato vero e proprio, le <b>Filippine</b>, con capitale <b>Calimera</b> e seconda città <b>Castri</b>.</p>
+<p>Nel 105 dM, durante <a onclick="navigateTo('La Guerra Finale')">La Guerra Finale</a>, Alice coordinò le operazioni a terra durante l'attacco a Serrano mentre Filippo guidava dall'aria. Dopo la conquista, Alice e Filippo — con <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> — presero il controllo della Camorra Salentina rimasta senza guida. Nel 108 dM la trasformarono nelle <a onclick="navigateTo('Filippine')">Filippine</a>, con capitale <b>Calimera</b>. Alice si stabilì a Calimera con Filippo e i tre figli.</p>
+<p>Nel <b>112 dM</b> <a onclick="navigateTo('La Cantina')">La Cantina</a> attaccò le Filippine con gli Spisso Bot durante la <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers</a>. Alice, Filippo e i figli evacuarono. Luca, Gino e Carla non capirono bene perché stessero partendo di fretta. Alice spiegò che si trattava di un trasferimento temporaneo. Gino chiese se poteva portare i biscotti.</p>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Famiglia Pocchia</a> <a>Camorra Salentina</a> <a>La Guerra Finale</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Famiglia Pocchia</a> <a>Camorra Salentina</a> <a>La Guerra Finale</a> <a>Filippine</a></div>`;
 }
 
 function buildFigliFilippo() {
@@ -5047,7 +5069,7 @@ function buildFigliFilippo() {
   </table>
 </div>
 <p><b>Luca, Gino e Carla Pascali</b> sono i tre figli di <a onclick="navigateTo('Filippo Pascali')">Filippo</a> e <a onclick="navigateTo('Alice Sportella')">Alice Sportella</a>. Tutti e tre nacquero con la sindrome di Down. <b>Luca</b>, il maggiore, ha una memoria eccezionale per le melodie e sa fischiarne ogni nota. <b>Gino</b>, il secondo, abbraccia chiunque entri in casa e chiede sempre se vuole qualcosa da mangiare — un'abitudine che i veterani della Camorra Salentina trovano inspiegabilmente disarmante. <b>Carla</b>, la più piccola, ha ereditato dal nonno <a onclick="navigateTo('Gianluca Pascali')">Gianluca</a> un'espressione seria che non corrisponde mai a quello che pensa davvero — quasi sempre qualcosa di allegro.</p>
-<p>Vivono a <b>Calimera</b>, capitale delle <b>Filippine</b> — lo stato fondato dalla Famiglia Pocchia nel 108 dM sulle ceneri della Camorra Salentina. Sono probabilmente le uniche persone in città che non sanno nulla di quello che è successo durante <a onclick="navigateTo('La Guerra Finale')">La Guerra Finale</a>. Filippo ha deciso che è meglio così.</p>
+<p>Vivono a <b>Calimera</b>, che fu capitale delle <a onclick="navigateTo('Filippine')">Filippine</a> dal 108 al 112 dM. Nel 112 dM <a onclick="navigateTo('La Cantina')">La Cantina</a> attaccò con gli Spisso Bot e la famiglia evacuò. Sono probabilmente le uniche persone coinvolte nella vicenda che non hanno mai capito esattamente cosa stesse succedendo. Filippo ha deciso che è meglio così.</p>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Famiglia Pocchia</a> <a>Persone di Serrano</a></div>`;
 }
@@ -5305,47 +5327,54 @@ function buildCalimera() {
 }
 
 function buildCastri() {
-  return `<div class="wiki-notice"><span class="ni">🏰</span><span>Castri è la seconda città delle <a onclick="navigateTo('Filippine')">Filippine</a>. Centro logistico e militare. Fondata nel 38 pM.</span></div>
+  return `<div class="wiki-notice"><span class="ni">🏰</span><span>Castri è stata la seconda città delle Filippine dal 108 dM. Dal 13 Maggio 109 dM è la capitale di <a onclick="navigateTo('La Cantina')">La Cantina</a>, lo stato fondato dallo <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> per vendicarsi di <a onclick="navigateTo('Morello')">Morello</a>.</span></div>
 <h1 class="page-title">Castri</h1>
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
 <div class="infobox">
   <div class="infobox-title">Castri</div>
   <table>
-    <tr><td>Tipo</td><td>Stato indipendente · seconda città delle <a onclick="navigateTo('Filippine')">Filippine</a></td></tr>
     <tr><td>Fondata</td><td><b>38 pM</b> (1879 d.C.)</td></tr>
-    <tr><td>Sistema legislativo</td><td>Comune alla penisola</td></tr>
-    <tr><td>Ruolo nelle Filippine</td><td>Centro logistico e militare · presidio di confine</td></tr>
-    <tr><td>Seconda città dal</td><td><b>108 dM</b></td></tr>
-    <tr><td>Governo attuale</td><td><a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> — gestione operativa di <a onclick="navigateTo('Filippo Pascali')">Filippo</a></td></tr>
+    <tr><td>Nella Camorra Salentina</td><td>Nodo logistico principale — fino al 108 dM</td></tr>
+    <tr><td>Nelle Filippine</td><td>Seconda città — <b>108–109 dM</b></td></tr>
+    <tr><td>Capitale di</td><td><a onclick="navigateTo('La Cantina')">La Cantina</a> — dal <b>13 Maggio 109 dM</b></td></tr>
+    <tr><td>Dogana storica</td><td>Tra Castri e Serrano — sede dell'incidente con lo Zio di Sbost (104 dM)</td></tr>
+    <tr><td>Nota per</td><td>Dogana dove Pete Hegseth fu arrestato nel 121 dM</td></tr>
   </table>
 </div>
-<p><b>Castri</b> è la seconda città più importante delle <a onclick="navigateTo('Filippine')">Filippine</a>, dopo la capitale <a onclick="navigateTo('Calimera')">Calimera</a>. Fondata nel <b>38 pM</b> (1879 d.C.) come avamposto commerciale nella fascia di confine del Salento, è diventata nel tempo il principale centro logistico e militare dello stato.</p>
+<p><b>Castri</b> è una città del Salento con una storia travagliata: avamposto commerciale, nodo della <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a>, seconda città delle <a onclick="navigateTo('Filippine')">Filippine</a>, e infine capitale di <a onclick="navigateTo('La Cantina')">La Cantina</a> dal 13 Maggio 109 dM. La sua dogana con Serrano è diventata uno dei luoghi più citati della storia recente del Salento.</p>
 
 <div class="toc-box"><div class="toc-title">Indice</div><ol>
   <li><a href="#origini-ca">Origini e fondazione</a></li>
   <li><a href="#camorra-ca">Nella Camorra Salentina</a></li>
-  <li><a href="#filippine-ca">Nelle Filippine</a></li>
+  <li><a href="#filippine-ca">Nelle Filippine (108–109 dM)</a></li>
+  <li><a href="#cantina-ca">La Cantina — dal 109 dM</a></li>
+  <li><a href="#dogana-ca">La dogana e il suo destino</a></li>
 </ol></div>
 
 <h2 id="origini-ca">Origini e fondazione <span class="edit-link" onclick="openEditor('Castri')">[modifica]</span></h2>
-<p>Castri fu fondata nel <b>38 pM</b> come punto di smistamento sulle rotte commerciali che attraversavano il Salento meridionale. La posizione geografica — vicina alle aree di confine tra diversi territori — la rendeva ideale come nodo di transito: abbastanza interna da essere protetta, abbastanza accessibile da essere utile. Il nome deriva probabilmente da <i>castrum</i>, il termine latino per accampamento militare, suggerendo che l'insediamento originale avesse già una funzione difensiva.</p>
-<p>Nei decenni successivi alla fondazione, Castri sviluppò una specializzazione logistica che la distinse dai centri agricoli circostanti: depositi, trasporti, intermediazione commerciale. Non produceva molto di suo, ma tutto quello che veniva prodotto altrove passava da lì prima di arrivare a destinazione.</p>
+<p>Castri fu fondata nel <b>38 pM</b> come punto di smistamento sulle rotte commerciali che attraversavano il Salento. La posizione geografica — vicina ai confini tra Serrano e il territorio salentino occidentale — la rendeva ideale come nodo di transito. Il nome deriva probabilmente da <i>castrum</i>, suggerendo origini difensive. Nei decenni sviluppò una specializzazione logistica: depositi, trasporti, intermediazione. Non produceva molto di suo, ma tutto passava da lì.</p>
 
 <h2 id="camorra-ca">Nella Camorra Salentina <span class="edit-link" onclick="openEditor('Castri')">[modifica]</span></h2>
-<p>La vocazione logistica di Castri la rese preziosa per la <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> fin dalle prime fasi dell'espansione dell'organizzazione nel Salento. Era un nodo — discreto, funzionale, abituato a far passare cose senza fare domande. I magazzini di Castri erano più controllati di quelli di qualsiasi altro punto della rete, perché erano il punto dove la rete si stringeva prima di distribuirsi verso il nord.</p>
-<p>Quando <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> e <a onclick="navigateTo('Filippo Pascali')">Filippo</a> presero il controllo della Camorra Salentina nel 105 dM, Castri fu uno dei punti che stabilizzarono per primi: era troppo importante come snodo per lasciarla in mano a fazioni residue.</p>
+<p>La vocazione logistica di Castri la rese preziosa per la <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a>. Era un nodo discreto, funzionale, abituato a far passare cose senza fare domande. Quando <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> e <a onclick="navigateTo('Filippo Pascali')">Filippo</a> presero il controllo nel 105 dM, Castri fu uno dei primi punti che stabilizzarono.</p>
 
-<h2 id="filippine-ca">Nelle Filippine <span class="edit-link" onclick="openEditor('Castri')">[modifica]</span></h2>
-<p>Nelle <a onclick="navigateTo('Filippine')">Filippine</a>, Castri ha mantenuto il ruolo che aveva nella Camorra Salentina ma con una struttura diversa: non più un nodo criminale, ma un centro logistico e militare istituzionalizzato. È la città più vicina alle aree di confine del territorio filippino, e per questo è la più presidiata. <a onclick="navigateTo('Filippo Pascali')">Filippo</a> la gestisce direttamente — è il tipo di città che richiede la parte operativa del suo carattere, non quella diplomatica.</p>
-<p>I depositi sono diventati infrastrutture pubbliche. Le rotte di transito sono diventate strade ufficiali. La funzione è la stessa. L'intestazione è diversa. A Castri, questa distinzione è considerata sufficiente.</p>
-<div class="stub-box"><span style="font-size:22px">🏰</span><span>Castri è la seconda città delle Filippine. Fondata nel 38 pM. Sa far passare le cose.</span></div>
+<h2 id="filippine-ca">Nelle Filippine (108–109 dM) <span class="edit-link" onclick="openEditor('Castri')">[modifica]</span></h2>
+<p>Nel 108 dM, quando la Camorra Salentina fu trasformata nelle <a onclick="navigateTo('Filippine')">Filippine</a>, Castri divenne la seconda città dello stato dopo la capitale <a onclick="navigateTo('Calimera')">Calimera</a>. I depositi divennero infrastrutture pubbliche, le rotte di transito divennero strade ufficiali. <a onclick="navigateTo('Filippo Pascali')">Filippo</a> la gestiva direttamente — era il tipo di città che richiedeva la parte operativa del suo carattere.</p>
+<p>Questo status durò fino al 13 Maggio 109 dM.</p>
+
+<h2 id="cantina-ca">La Cantina — dal 109 dM <span class="edit-link" onclick="openEditor('Castri')">[modifica]</span></h2>
+<p>Il <b>13 Maggio 109 dM</b>, lo <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> dichiarò lo stato <a onclick="navigateTo('La Cantina')">La Cantina</a> prendendo il controllo di Castri. La ragione diretta era la vendetta contro <a onclick="navigateTo('Morello')">Morello</a> — il 12 Maggio aveva tentato di aprire la casa di Morello a Napoli con una chiave acquistata in gioielleria, la chiave non aveva funzionato, e aveva deciso che l'unico modo per affrontare Morello era conquistare Napoli, e per farlo bisognava prima costruire qualcosa. Castri era a disposizione.</p>
+<p>Le Filippine persero la loro seconda città. La Cantina acquisì la sua capitale. Con l'aiuto di <a onclick="navigateTo('AleDoria')">AleDoria</a>, La Cantina sviluppò gli Sbost Bot e gli Spisso Bot, diventando uno stato tecnologicamente attivo nella regione.</p>
+
+<h2 id="dogana-ca">La dogana e il suo destino <span class="edit-link" onclick="openEditor('Castri')">[modifica]</span></h2>
+<p>La dogana tra Castri e Serrano — quella dove nel 104 dM lo Zio di Sbost aveva fermato Morello, prima di essere rinchiuso nei suoi capelli — rimase abbandonata per anni. Nel <b>121 dM</b> divenne famosa per ragioni non correlate: <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a>, in fuga dopo la fine della guerra, fu trovato nascosto lì e arrestato. Era l'ultimo posto dove qualcuno avrebbe pensato di cercarlo. Non abbastanza ultimo.</p>
+<div class="stub-box"><span style="font-size:22px">🏰</span><span>Castri: avamposto, nodo criminale, seconda città, capitale di uno stato di vendetta, e infine prigione di un ex-segretario alla Difesa americano. In ordine.</span></div>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Filippine</a> <a>Salento</a> <a>Centri logistici</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>La Cantina</a> <a>Filippine</a> <a>Salento</a> <a>Castri</a> <a>Centri logistici</a></div>`;
 }
 
 function buildZioDiSbost() {
-  return `<div class="wiki-notice"><span class="ni">💈</span><span>Lo Zio di Sbost fu il primo — e probabilmente l'unico — funzionario doganale della storia a scomparire nei capelli di <a onclick="navigateTo('Morello')">Morello</a>. Tornò 105 anni dopo. Era ancora in servizio, tecnicamente.</span></div>
+  return `<div class="wiki-notice"><span class="ni">💈</span><span>Lo Zio di Sbost è l'unico funzionario doganale della storia ad essere rimasto nei capelli di qualcuno per 105 anni, ad aver acquistato una chiave di casa falsa, e ad aver fondato uno Stato per vendicarsi. In ordine.</span></div>
 <h1 class="page-title">Zio di Sbost</h1>
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
@@ -5353,49 +5382,62 @@ function buildZioDiSbost() {
   <div class="infobox-title">Zio di Sbost</div>
   <div style="text-align:center;padding:8px 6px 4px"><img src="zio_di_sbost.png" alt="Zio di Sbost" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
   <table>
-    <tr><td>Nome</td><td>Zio</td></tr>
-    <tr><td>Cognome</td><td>di Sbost</td></tr>
     <tr><td>Nome formale</td><td><b>Flavio Sbost</b></td></tr>
     <tr><td>Origine</td><td><a onclick="navigateTo('Castri')">Castri</a></td></tr>
-    <tr><td>Professione</td><td>Funzionario doganale — dogana tra Castri e Serrano</td></tr>
-    <tr><td>Evento principale</td><td>Fermato Morello al confine — scomparso nei suoi capelli (1 pM)</td></tr>
-    <tr><td>Scomparsa</td><td><b>1 pM</b> (1916 d.C.)</td></tr>
-    <tr><td>Ritorno</td><td><b>104 dM</b> (2021 d.C.) — seconda eruzione del Vesuvio</td></tr>
-    <tr><td>Anni trascorsi nei capelli</td><td>105 anni (soggettivamente: tempo indeterminato)</td></tr>
-    <tr><td>Stato attuale</td><td>Scappato — posizione sconosciuta</td></tr>
+    <tr><td>Professione</td><td>Funzionario doganale · Fondatore di stato · Vendicatore fallito</td></tr>
+    <tr><td>Evento principale</td><td>Fermato Morello al confine (104 dM) — rinchiuso nei capelli</td></tr>
+    <tr><td>Risveglio</td><td><b>107 dM</b> — nei capelli di Morello dopo la Bomba Spissica</td></tr>
+    <tr><td>Fuga</td><td><b>107 dM</b> — scappa così veloce che Morello non se ne accorge</td></tr>
+    <tr><td>Tentativo vendetta</td><td>12 Maggio 109 dM — chiave falsa, casa di Morello a Napoli</td></tr>
+    <tr><td>Fondazione La Cantina</td><td><b>13 Maggio 109 dM</b> — dichiara lo stato, prende Castri</td></tr>
+    <tr><td>Nipote</td><td><a onclick="navigateTo('Elisa Sbost')">Elisa Sbost</a> — estetista a Castri</td></tr>
+    <tr><td>Nipoti</td><td><a onclick="navigateTo('Elisa Sbost')">Elisa Sbost</a> (estetista) · <a onclick="navigateTo('AleDoria')">AleDoria</a> (inventore)</td></tr>
   </table>
 </div>
-<p><b>Zio di Sbost</b>, formalmente noto come <b>Flavio Sbost</b>, è stato un funzionario doganale in servizio alla dogana tra <a onclick="navigateTo('Castri')">Castri</a> e <a onclick="navigateTo('Serrano')">Serrano</a>. Nel <b>1 pM</b> (1916 d.C.) fermò <a onclick="navigateTo('Morello')">Morello</a> per mancanza dei documenti necessari al transito. Morello lo nascose nei suoi capelli. Lo Zio di Sbost vi rimase per 105 anni, fino alla seconda eruzione del Vesuvio nel <b>104 dM</b>, quando i capelli di Morello tornarono al loro stato originale e lui riuscì a scappare. È la persona che ha trascorso il periodo più lungo intrappolata in una pettinatura nella storia documentata di questo universo.</p>
 
 <div class="toc-box"><div class="toc-title">Indice</div><ol>
   <li><a href="#carriera-z">La carriera doganale</a></li>
-  <li><a href="#incidente-z">L'incidente con Morello — 1 pM</a></li>
-  <li><a href="#capelli-z">I 105 anni nei capelli</a></li>
-  <li><a href="#ritorno-z">Il ritorno — 104 dM</a></li>
+  <li><a href="#incidente-z">L'incidente con Morello — 104 dM</a></li>
+  <li><a href="#capelli-z">Gli anni nei capelli</a></li>
+  <li><a href="#risveglio-z">Il risveglio — 107 dM</a></li>
+  <li><a href="#estetica-z">Dal centro estetico di Elisa</a></li>
+  <li><a href="#chiave-z">La chiave falsa — 109 dM</a></li>
+  <li><a href="#cantina-z">La fondazione di La Cantina — 13 Maggio 109 dM</a></li>
 </ol></div>
 
 <h2 id="carriera-z">La carriera doganale <span class="edit-link" onclick="openEditor('Zio di Sbost')">[modifica]</span></h2>
-<p>Flavio Sbost, universalmente noto come <b>Zio di Sbost</b> per ragioni che nessuno ha mai chiarito del tutto — non aveva nipoti noti, e il soprannome precedeva qualsiasi relazione familiare documentata — lavorava alla dogana tra Castri e Serrano da almeno un decennio prima dell'incidente. Era descritto dai colleghi come scrupoloso, metodico, e dotato di quella particolare varietà di coraggio burocratico che porta le persone a fermare i carri anche quando i cavalli sembrano nervosi.</p>
-<p>Non aveva mai avuto problemi rilevanti nel corso della sua carriera. Aveva fermato contrabbandieri, sequestrato merce non dichiarata, fatto rispettare tariffe doganali in un'epoca in cui farlo richiedeva una certa inclinazione al conflitto. Era bravo nel suo lavoro. Non aveva ragione di pensare che un uomo che attraversava il confine senza documenti fosse diverso da qualsiasi altro caso che aveva gestito.</p>
+<p><b>Flavio Sbost</b>, universalmente noto come <b>Zio di Sbost</b> per ragioni che nessuno ha mai chiarito del tutto — non aveva nipoti noti al momento dell'assunzione, e il soprannome precedeva qualsiasi relazione familiare documentata — lavorava alla dogana tra <a onclick="navigateTo('Castri')">Castri</a> e <a onclick="navigateTo('Serrano')">Serrano</a> da almeno un decennio prima dell'incidente. Era descritto dai colleghi come scrupoloso, metodico, e dotato di quella particolare varietà di coraggio burocratico che porta le persone a fermare i carri anche quando i cavalli sembrano nervosi. Aveva fermato contrabbandieri, sequestrato merce non dichiarata, fatto rispettare tariffe doganali in un'epoca in cui farlo richiedeva carattere. Era bravo nel suo lavoro.</p>
 
-<h2 id="incidente-z">L'incidente con Morello — 1 pM <span class="edit-link" onclick="openEditor('Zio di Sbost')">[modifica]</span></h2>
-<p>Nel <b>1 pM</b> (1916 d.C.) — un anno prima che <a onclick="navigateTo('Morello')">Morello</a> arrivasse a Napoli e fondasse il Calendario che porta il suo nome — Morello stava attraversando la dogana tra Castri e Serrano. Veniva dalla direzione degli Appennini, che è la direzione da cui viene sempre nei resoconti, e non aveva documenti. Nessuno. Né un lasciapassare, né un documento d'identità, né una lettera di presentazione. Niente.</p>
-<p>Lo Zio di Sbost lo fermò. Questa fu la parte corretta della sua giornata.</p>
-<p>Morello non discusse. Non protestò. Non cercò di corrompere il funzionario né di intimidirlo. Semplicemente alzò una mano verso i propri capelli — capelli molto particolari, folti e ricci in un modo che i testimoni oculari descrivono come «strutturalmente improbabile» — e lo Zio di Sbost scomparve. Non violentemente. Non con un gesto brusco. Semplicemente non era più lì dove era un momento prima, e i capelli di Morello erano leggermente più voluminosi di prima.</p>
-<p>Morello continuò a camminare verso Napoli. L'anno dopo fondò il Calendario. Lo Zio di Sbost non tornò.</p>
+<h2 id="incidente-z">L'incidente con Morello — 104 dM <span class="edit-link" onclick="openEditor('Zio di Sbost')">[modifica]</span></h2>
+<p>Nel <b>104 dM</b>, durante i giorni concitati della <a onclick="navigateTo('La Guerra Finale')">Guerra Finale</a>, <a onclick="navigateTo('Morello')">Morello</a> aveva fatto un breve viaggio a <a onclick="navigateTo('Serrano')">Serrano</a> per sbrigare un affare personale — i dettagli dell'affare non sono mai stati chiariti, e chi ha provato a indagare ha ricevuto risposte vaghe da entrambe le parti. Al ritorno verso Napoli, Morello si trovò a passare dalla dogana tra Serrano e Castri.</p>
+<p>Lo Zio di Sbost lo fermò. Morello non aveva i documenti necessari al transito — o meglio, li aveva, ma il formato non era quello previsto dal regolamento doganale aggiornato. La distinzione era tecnica, ma lo Zio di Sbost era un uomo tecnico.</p>
+<p>Morello non discusse a lungo. Sollevò una mano verso i propri capelli — folti, ricci, strutturalmente improbabili — e lo Zio di Sbost scomparve all'interno. Non violentemente. Non con un gesto brusco. Un momento c'era, il momento dopo no. Per farlo dormire nel frattempo, Morello aveva usato l'<b>Aria di Napoli</b>, uno shampoo di sua invenzione che produce uno stato di sonno profondo e indefinito in chi vi entra in contatto. Lo Zio di Sbost cadde addormentato quasi immediatamente. Morello continuò verso Napoli.</p>
 
-<h2 id="capelli-z">I 105 anni nei capelli <span class="edit-link" onclick="openEditor('Zio di Sbost')">[modifica]</span></h2>
-<p>Quello che successe allo Zio di Sbost durante i 105 anni trascorsi nei capelli di Morello non è documentato, perché lo Zio di Sbost non ha mai rilasciato dichiarazioni pubbliche dopo il ritorno. Le uniche informazioni disponibili vengono da testimonianze indirette di chi lo vide scappare nel 104 dM: era visibilmente disorientato, indossava ancora l'uniforme doganale del 1 pM in perfette condizioni, e la prima cosa che disse — secondo un testimone — fu: «I documenti sono ancora obbligatori?»</p>
-<p>Gli storici hanno speculato sulla natura del tempo all'interno dei capelli di Morello. La teoria più diffusa è che il tempo lì non scorra normalmente, o che scorra in modo non lineare. Lo Zio di Sbost sembrava avere l'età biologica che aveva quando era entrato, il che suggerisce o che il tempo non fosse passato per lui, o che i capelli di Morello abbiano proprietà conservative che vanno oltre quanto la fisica ordinaria possa spiegare.</p>
-<p>La seconda teoria — quella che i fisici trovano più interessante — è che durante la permanenza nei capelli lo Zio di Sbost si trovi in uno stato di sospensione indefinita: né dentro né fuori, né prima né dopo. Gildo Spisso aveva accennato a qualcosa di simile in un paragrafo inedito delle F.O.N.D.A.M.E.N.T.A., descrivendo certi stati topologici come «pieghe nel tessuto del presente dove qualcosa può essere contenuto senza essere consumato». Nessuno aveva capito a cosa si riferisse, finché non è tornato lo Zio di Sbost.</p>
+<h2 id="capelli-z">Gli anni nei capelli <span class="edit-link" onclick="openEditor('Zio di Sbost')">[modifica]</span></h2>
+<p>Lo Zio di Sbost rimase nei capelli di Morello per tre anni — dal 104 dM al 107 dM — addormentato e inconsapevole di tutto ciò che accadeva fuori. Non visse la <a onclick="navigateTo('La Guerra Finale')">Guerra Finale</a>. Non sentì le bombe. Non sapeva nulla della <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a>. Dormiva, probabilmente con un'espressione tranquilla, in uno spazio topologico che nessuno ha ancora saputo descrivere con precisione.</p>
+<p>La teoria più accreditata — elaborata da chi ha letto i paragrafi inediti delle <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')">F.O.N.D.A.M.E.N.T.A.</a> di <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a> — è che i capelli di Morello costituiscano una «piega nel tessuto del presente», un luogo dove qualcosa può essere contenuto senza essere consumato. Lo Zio di Sbost era contenuto. Non era consumato.</p>
 
-<h2 id="ritorno-z">Il ritorno — 104 dM <span class="edit-link" onclick="openEditor('Zio di Sbost')">[modifica]</span></h2>
-<p>Nel <b>104 dM</b>, quando la seconda eruzione del Vesuvio fece tornare <a onclick="navigateTo('Morello')">Morello</a> giovane — capelli ricci alla Caparezza, l'andatura di chi sapeva come sarebbe finita — qualcosa nei suoi capelli cambiò struttura. Tornarono al loro stato originale. E insieme a loro, tornò lo Zio di Sbost.</p>
-<p>I testimoni riportano che apparve di fianco a Morello in mezzo alle piogge di cheddar acido che cadevano su Napoli, con l'uniforme intatta e un'espressione che descrivono come «quella di qualcuno che ha appena realizzato di aver perso 105 anni di straordinari non pagati». Prima che Morello potesse dire qualcosa — o che qualcuno capisse cosa stava succedendo — lo Zio di Sbost scappò.</p>
-<p>La sua posizione dal 104 dM è sconosciuta. Il mandato di cattura emesso dalla dogana tra Castri e Serrano per abbandono del posto — mandato tecnicamente ancora valido, anche se l'ufficio che lo aveva emesso non esiste più — è considerato dalla Pocchiaciclopedia il documento burocratico più ironico della storia.</p>
-<div class="stub-box"><span style="font-size:22px">💈</span><span>Lo Zio di Sbost è ancora fuggito. Ma la sua vecchia dogana è diventata famosa nel 121 dM — <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> si nascondeva lì.</span></div>
+<h2 id="risveglio-z">Il risveglio — 107 dM <span class="edit-link" onclick="openEditor('Zio di Sbost')">[modifica]</span></h2>
+<p>Nel <b>107 dM</b>, quando la <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> cadde su Serrano, l'onda d'urto — o qualcosa di correlato all'energia spissica sprigionata — scosse i capelli di Morello in modo abbastanza violento da interrompere l'effetto dell'Aria di Napoli. Lo Zio di Sbost si svegliò.</p>
+<p>Si svegliò confuso, disorientato, con ancora addosso l'uniforme doganale del 104 dM. Non capiva dove fosse. Capiva però che era nei capelli di qualcuno, e che quel qualcuno stava camminando. La prima cosa che fece fu valutare la situazione. La seconda fu scappare.</p>
+<p>Scappò così veloce che Morello non si accorse di niente. Non ci fu un momento in cui Morello sentì qualcosa muoversi — lo Zio di Sbost era fuori prima che il sistema nervoso di Morello potesse registrare il cambiamento. Testimoni riportano di aver visto una figura in uniforme doganale correre a velocità anomala per le strade nei dintorni di dove si trovava Morello in quei giorni, ma nessuno aveva connesso i punti fino a più tardi.</p>
+
+<h2 id="estetica-z">Dal centro estetico di Elisa <span class="edit-link" onclick="openEditor('Zio di Sbost')">[modifica]</span></h2>
+<p>La prima tappa dello Zio di Sbost dopo la fuga fu il centro estetico di sua nipote, <b>Elisa Sbost</b>, a <a onclick="navigateTo('Castri')">Castri</a>. Aveva ancora tracce dei capelli di Morello addosso — o più precisamente, alcune delle particolari proprietà dei capelli di Morello si erano attaccate ai suoi, rendendoli innaturalmente voluminosi e strutturalmente instabili. Elisa Sbost eseguì il trattamento necessario senza fare troppe domande. Era abituata ai clienti strani. Suo zio era particolarmente strano anche per i suoi standard.</p>
+<p>Una volta terminato il trattamento, lo Zio di Sbost uscì dal centro estetico con la testa leggera e una vendetta in mente.</p>
+
+<h2 id="chiave-z">La chiave falsa — 109 dM <span class="edit-link" onclick="openEditor('Zio di Sbost')">[modifica]</span></h2>
+<p>Per strada a Castri, lo Zio di Sbost notò una gioielleria con un cartello che dichiarava di vendere <i>«le chiavi di casa di Morello»</i>. Lo Zio di Sbost entrò e ne acquistò una immediatamente, senza fare domande. Il prezzo era ragionevole. La confezione sembrava autentica.</p>
+<p>Il <b>12 Maggio 109 dM</b>, di notte, lo Zio di Sbost partì per Napoli. Trovò quello che credeva essere l'indirizzo di <a onclick="navigateTo('Morello')">Morello</a>. Inserì la chiave nella serratura. La chiave non funzionò. Non aprì niente. Non era nemmeno la chiave giusta per quella serratura — il profilo era sbagliato, lo stelo era troppo corto, e in retrospettiva l'intera operazione era stata improvvisata male dall'inizio.</p>
+<p>Lo Zio di Sbost rimase davanti alla porta per un tempo che i testimoni descrivono come «abbastanza lungo da essere imbarazzante». Poi si girò. Aveva perso i soldi per la chiave. Aveva perso i soldi per il viaggio. Era stanco. Era a Napoli di notte senza risorse.</p>
+<p>Giurò vendetta su Morello. Decise che l'unico modo per affrontarlo era conquistando Napoli. E per conquistare Napoli, bisognava prima costruire qualcosa di serio.</p>
+
+<h2 id="cantina-z">La fondazione di La Cantina — 13 Maggio 109 dM <span class="edit-link" onclick="openEditor('Zio di Sbost')">[modifica]</span></h2>
+<p>Tornato a Castri, lo Zio di Sbost chiamò tutta la <b>famiglia Sbost</b>. L'adunata fu rapida — la famiglia Sbost è numerosa e risponde alle convocazioni dello Zio con una velocità che nessuno ha mai cercato di spiegare. Il <b>13 Maggio 109 dM</b> lo Zio di Sbost dichiarò ufficialmente lo stato <b><a onclick="navigateTo('La Cantina')">La Cantina</a></b>, in ribellione alle <a onclick="navigateTo('Filippine')">Filippine</a>, prendendo il controllo di Castri.</p>
+<p>Con l'aiuto di <a onclick="navigateTo('AleDoria')">AleDoria</a> — inventore e figura chiave della famiglia Sbost — Lo stato sviluppò i propri strumenti tecnologici. Vedi <a onclick="navigateTo('La Cantina')">La Cantina</a> e <a onclick="navigateTo('AleDoria')">AleDoria</a> per i dettagli.</p>
+<div class="stub-box"><span style="font-size:22px">💈</span><span>La vecchia dogana tra Castri e Serrano, dove tutto è iniziato, è diventata famosa nel 121 dM — <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> si nascondeva lì.</span></div>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Funzionari doganali</a> <a>Morello</a> <a>Persone scomparse nei capelli</a> <a>Castri</a> <a>Misteri irrisolti</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Funzionari doganali</a> <a>Morello</a> <a>Capelli storici</a> <a>Castri</a> <a>Fondatori di stato</a> <a>Famiglia Sbost</a></div>`;
 }
 
 function buildTerzaGuerraAvengers() {
@@ -5425,9 +5467,10 @@ function buildTerzaGuerraAvengers() {
   <li><a href="#serrano-tg">La ricostruzione e il volo di Serrano</a></li>
   <li><a href="#voci-tg">110 dM — Le voci e l'avvertimento di Pete</a></li>
   <li><a href="#dichiarazione-tg">111 dM — La dichiarazione di guerra</a></li>
-  <li><a href="#bombe-tg">112 dM — Le nove bombe e la difesa</a></li>
+  <li><a href="#bombe-tg">112 dM — Le nove bombe, la difesa e La Cantina</a></li>
   <li><a href="#panico-tg">113 dM — Alex legge le Fondamenta</a></li>
   <li><a href="#testbomba-tg">114 dM — Il test fallito</a></li>
+  <li><a href="#cantina-tg">115 dM — La Cantina conquista Napoli</a></li>
   <li><a href="#bombaalessio-tg">116 dM — La bomba di Alessio e Zella</a></li>
   <li><a href="#avengers-tg">117–118 dM — La resurrezione degli Avengers e l'attacco</a></li>
   <li><a href="#nigeria-tg">118 dM — La Nigeria si ribella</a></li>
@@ -5473,8 +5516,9 @@ function buildTerzaGuerraAvengers() {
 <h2 id="dichiarazione-tg">111 dM — La dichiarazione di guerra <span class="edit-link" onclick="openEditor('Terza Guerra degli Avengers')">[modifica]</span></h2>
 <p>Nel <b>111 dM</b> Zella e Alessio dichiararono Alex capo illecito dell'America e Zella il legittimo capo. Il messaggio fu trasmesso dai canali ancora operativi di Zella. Alex non rispose ufficialmente. Accelerò la produzione delle bombe.</p>
 
-<h2 id="bombe-tg">112 dM — Le nove bombe e la difesa <span class="edit-link" onclick="openEditor('Terza Guerra degli Avengers')">[modifica]</span></h2>
+<h2 id="bombe-tg">112 dM — Le nove bombe, la difesa e La Cantina <span class="edit-link" onclick="openEditor('Terza Guerra degli Avengers')">[modifica]</span></h2>
 <p>Nel <b>112 dM</b> Alex lanciò nove delle dieci bombe su Serrano, tenendone una di riserva. Non sapeva dello scudo. Tutte e nove furono intercettate e distrutte dalle difese di Serrano — la bolla protettiva basata sulla densità fonetica degli Spisso, gli anti-missili sviluppati da Zella. Nessuna raggiunse la città. Alessio trasmise: <i>«Abbiamo tenuto le tue bombe. Ne stiamo costruendo una anche noi.»</i></p>
+<p>Nello stesso anno, mentre la guerra tra Avengers e Alex dominava l'attenzione globale, <a onclick="navigateTo('La Cantina')">La Cantina</a> — lo stato salentino fondato dallo <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> nel 109 dM — usò il momento di distrazione per attaccare le <a onclick="navigateTo('Filippine')">Filippine</a> con un'armata di <b>Spisso Bot</b>. I Pocchia non erano preparati. <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> e <a onclick="navigateTo('Filippo Pascali')">Filippo</a> evacuarono con la famiglia. Le Filippine caddero.</p>
 
 <h2 id="panico-tg">113 dM — Alex legge le Fondamenta <span class="edit-link" onclick="openEditor('Terza Guerra degli Avengers')">[modifica]</span></h2>
 <p>Nel <b>113 dM</b> Alex era in panico. Alessio era tornato più forte di prima, le bombe non funzionavano, e la città che aveva cancellato dalla mappa stava volando sopra la sua testa. Cercò di rimanere calmo. Si chiuse nel suo ufficio e cominciò a leggere le <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')">F.O.N.D.A.M.E.N.T.A.</a> di suo nonno Gildo dall'inizio, cercando una soluzione che nessun altro aveva trovato.</p>
@@ -5483,6 +5527,11 @@ function buildTerzaGuerraAvengers() {
 <h2 id="testbomba-tg">114 dM — Il test fallito <span class="edit-link" onclick="openEditor('Terza Guerra degli Avengers')">[modifica]</span></h2>
 <p>La bomba fu completata nel <b>114 dM</b>. Il test fu fissato per il <b>24 giugno 114 dM</b>. Fu un disastro immediato: la bomba era troppo densa di Spisso per funzionare. La concentrazione eccessiva di energia fonetica la rese instabile prima del lancio — esplose mentre era ancora sul banco di test, prima di essere portata in posizione. Nessun danno alle strutture circostanti perché il laboratorio era blindato, ma la prova era inequivocabile: oltre una certa soglia la Bomba Spissica si autodistrugge. Gildo non aveva mai scritto questo nelle F.O.N.D.A.M.E.N.T.A. perché non aveva mai immaginato che qualcuno potesse essere abbastanza stupido — o abbastanza disperato — da provarci.</p>
 <p>Per Alex le cose non andavano per niente bene.</p>
+
+<h2 id="cantina-tg">115 dM — La Cantina conquista Napoli <span class="edit-link" onclick="openEditor('Terza Guerra degli Avengers')">[modifica]</span></h2>
+<p>Nel <b>115 dM</b>, mentre la guerra tra Serrano e l'America continuava, <a onclick="navigateTo('La Cantina')">La Cantina</a> completò il proprio piano: un'armata di Spisso Bot marciò su Napoli. La città non aveva difese adeguate contro un'arma acustica di quel tipo. Napoli bruciò in parte.</p>
+<p><a onclick="navigateTo('Morello')">Morello</a> fu trovato in bagno. Tutta la famiglia Sbost entrò in casa. La prima cosa che fecero fu tagliargli i capelli — nessun altro sarebbe mai più scomparso lì dentro. Morello, pelato e catturato, fu portato nella prigione di Castri con il nome ufficiale di <b>Morellato Pelato</b>. La vendetta dello <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> era completata.</p>
+<p>La conquista di Napoli da parte di La Cantina fu considerata da molti osservatori un evento di secondo piano rispetto alla guerra americana-serrana in corso — il che, a Napoli, fu considerato un insulto aggiuntivo.</p>
 
 <h2 id="bombaalessio-tg">116 dM — La bomba di Alessio e Zella <span class="edit-link" onclick="openEditor('Terza Guerra degli Avengers')">[modifica]</span></h2>
 <p>Nel <b>116 dM</b> la bomba costruita da Alessio e Zella usando le L.E.G.G.I. era pronta. Fu lanciata su alcune città americane di medie dimensioni — non sulla capitale, dove si trovava Alex. Alessio aveva detto chiaramente che quella faccenda si sarebbe risolta da solo, di persona. Non voleva che una bomba finisse il lavoro che intendeva fare a mani proprie.</p>
@@ -5648,7 +5697,7 @@ function buildLaGuerraFinale() {
 <h2 id="dopo-gf">Dopo Serrano <span class="edit-link" onclick="openEditor('La Guerra Finale')">[modifica]</span></h2>
 <p>La Nigeria Spartiana, che aveva assistito all'esplosione dai satelliti, si arrese entro ventiquattro ore. Firmò accordi che permettevano all'America tutto quello che aveva sempre voluto: accesso ai porti, controllo commerciale, presenza militare. Pur di non essere <b>Spissata</b> — il termine entrò nel vocabolario geopolitico mondiale nel giro di giorni.</p>
 <p>Tutti gli Avengers furono dichiarati morti. Alex Spisso, ufficialmente Iron Spisso Man, annunciò che assumeva il controllo temporaneo dell'America «in attesa di elezioni». Le elezioni non furono mai indette. La guerra era finita.</p>
-<p>A Napoli, Morello guardò il cratere da lontano e non disse nulla. <a onclick="navigateTo('Gianluca Pascali')">Gianluca</a> era in pensione da anni. <a onclick="navigateTo('Anna Pascali')">Anna</a> non aveva commentato nulla, come sempre. Riccardo e Filippo stavano costruendo quello che sarebbe diventato, nel 108 dM, lo stato delle <b>Filippine</b> — nate dalla Camorra Salentina, con capitale <b>Calimera</b> e seconda città <b>Castri</b>. <a onclick="navigateTo('Alice Sportella')">Alice</a> stava mettendo a letto Luca, Gino e Carla a Calimera.</p>
+<p>A Napoli, Morello guardò il cratere da lontano e non disse nulla. <a onclick="navigateTo('Gianluca Pascali')">Gianluca</a> era in pensione da anni. <a onclick="navigateTo('Anna Pascali')">Anna</a> non aveva commentato nulla, come sempre. Riccardo e Filippo stavano costruendo quello che sarebbe diventato, nel 108 dM, lo stato delle <b>Filippine</b> — nate dalla Camorra Salentina, con capitale <b>Calimera</b> e seconda città <b>Castri</b> (che nel 109 dM diventerà la capitale di <a onclick="navigateTo('La Cantina')">La Cantina</a>). <a onclick="navigateTo('Alice Sportella')">Alice</a> stava mettendo a letto Luca, Gino e Carla a Calimera.</p>
 <p>In India, <a onclick="navigateTo('MariaTeresa Friolo')">Maria</a> aspettava. Di Alessio non si sapeva nulla.</p>
 <div class="stub-box"><span style="font-size:22px">🔥</span><span>Questa voce sarà aggiornata se qualcosa cambia. Per ora: tutto è fermo, tutto è cenere, tutto è arancione.</span></div>
 </div>
@@ -5666,38 +5715,40 @@ function buildFilippine() {
     <tr><td>Nata da</td><td><a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> (disciolta)</td></tr>
     <tr><td>Fondatori</td><td><a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> e <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a></td></tr>
     <tr><td>Capitale</td><td><b>Calimera</b></td></tr>
-    <tr><td>Seconda città</td><td><b>Castri</b></td></tr>
+    <tr><td>Seconda città</td><td><b>Castri</b> (108–109 dM) · poi passa a <a onclick="navigateTo('La Cantina')">La Cantina</a></td></tr>
     <tr><td>Territorio</td><td>Salento, ex-territorio della Camorra Salentina</td></tr>
     <tr><td>Famiglia al potere</td><td><a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia (Pascali)</a></td></tr>
-    <tr><td>Stato precedente</td><td><a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a></td></tr>
   </table>
 </div>
-<p>Le <b>Filippine</b> sono lo stato fondato nel <b>108 dM</b> dalla <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> sulle ceneri della <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a>. Non sono un paese asiatico. Il nome deriva da <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a>, uno dei due fondatori, che ha ritenuto appropriato intitolare un intero stato a sé stesso. <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> non ha commentato pubblicamente questa scelta.</p>
-<p>La capitale è <b>Calimera</b>, centro storico della famiglia Pocchia nel Salento. La seconda città più importante è <b>Castri</b>. Entrambe erano già nell'orbita della Camorra Salentina — ora ne sono i centri istituzionali ufficiali.</p>
+<p>Le <b>Filippine</b> sono lo stato fondato nel <b>108 dM</b> dalla <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> sulle ceneri della <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a>. Non sono un paese asiatico. Il nome deriva da <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a>, uno dei due fondatori. La capitale è <b>Calimera</b>. La seconda città era <b>Castri</b>, fino al 13 Maggio 109 dM quando lo <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> dichiarò <a onclick="navigateTo('La Cantina')">La Cantina</a> e prese il controllo della città.</p>
 
 <div class="toc-box"><div class="toc-title">Indice</div><ol>
   <li><a href="#origine-f">Origine e fondazione</a></li>
   <li><a href="#struttura-f">Struttura di governo</a></li>
-  <li><a href="#citta-f">Calimera e Castri</a></li>
+  <li><a href="#citta-f">Le città: Calimera e Castri</a></li>
+  <li><a href="#cantina-f">La perdita di Castri — 109 dM</a></li>
   <li><a href="#nome-f">Il nome</a></li>
 </ol></div>
 
 <h2 id="origine-f">Origine e fondazione <span class="edit-link" onclick="openEditor('Filippine')">[modifica]</span></h2>
-<p>La <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> era rimasta senza guida dopo che <a onclick="navigateTo('De Morellis')">De Morellis</a> — rivelatosi essere <a onclick="navigateTo('Morello')">Morello</a> in persona — era tornato a Napoli in seguito alla seconda eruzione del Vesuvio nel 104 dM. L'organizzazione era entrata nel caos. Nel 105 dM Riccardo e Filippo la stabilizzarono, assumendone il controllo durante la <a onclick="navigateTo('La Guerra Finale')">Guerra Finale</a>. Nel 108 dM completarono la trasformazione: la struttura criminale fu convertita in apparato di stato.</p>
-<p>Masserie diventarono municipalità. Nodi logistici divennero infrastrutture. I codici del silenzio divennero leggi — o almeno, qualcosa che assomigliava molto alle leggi. Era, sostanzialmente, la stessa cosa con un'intestazione diversa. Ma l'intestazione contava: le Filippine non erano un'organizzazione criminale. Erano uno stato. Con tanto di capitale.</p>
+<p>La <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> era rimasta senza guida dopo che <a onclick="navigateTo('De Morellis')">De Morellis</a> — rivelatosi essere <a onclick="navigateTo('Morello')">Morello</a> in persona — era tornato a Napoli nel 104 dM. Nel 105 dM Riccardo e Filippo la stabilizzarono durante la <a onclick="navigateTo('La Guerra Finale')">Guerra Finale</a>. Nel 108 dM completarono la trasformazione: struttura criminale convertita in apparato di stato. Masserie diventarono municipalità. I codici del silenzio divennero leggi. Era la stessa cosa con un'intestazione diversa — ma l'intestazione contava.</p>
 
 <h2 id="struttura-f">Struttura di governo <span class="edit-link" onclick="openEditor('Filippine')">[modifica]</span></h2>
-<p>Le Filippine sono governate dalla <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a>. <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> si occupa dell'amministrazione e dell'ordine — eredità del suo passato da investigatore. <a onclick="navigateTo('Filippo Pascali')">Filippo</a> gestisce la parte militare e operativa. <a onclick="navigateTo('Alice Sportella')">Alice Sportella</a>, moglie di Filippo, supervisiona le relazioni esterne e la diplomazia — un ruolo che ha assunto con la stessa efficienza tattica dimostrata a terra durante la conquista di Serrano.</p>
+<p>Le Filippine sono governate dalla <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a>. <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> si occupa dell'amministrazione e dell'ordine. <a onclick="navigateTo('Filippo Pascali')">Filippo</a> gestisce la parte militare e operativa. <a onclick="navigateTo('Alice Sportella')">Alice Sportella</a>, moglie di Filippo, supervisiona le relazioni esterne e la diplomazia.</p>
 
-<h2 id="citta-f">Calimera e Castri <span class="edit-link" onclick="openEditor('Filippine')">[modifica]</span></h2>
-<p><b>Calimera</b> è la capitale. Il suo nome in grico salentino significa «buongiorno» — una scelta toponomastica che i fondatori trovano appropriata e i residenti trovano ironica, data la storia recente. È sede del governo della famiglia Pocchia, del mercato principale e dell'archivio storico che un giorno potrebbe diventare la biblioteca delle Filippine.</p>
-<p><b>Castri</b> è la seconda città più importante. Storicamente era un centro di smistamento nelle rotte commerciali della Camorra Salentina — una posizione che, nelle Filippine, si è tradotta in ruolo logistico e militare. È la città più vicina alle aree di confine del territorio filippino, e per questo è anche la più presidiata.</p>
+<h2 id="citta-f">Le città: Calimera e Castri <span class="edit-link" onclick="openEditor('Filippine')">[modifica]</span></h2>
+<p><b>Calimera</b> è la capitale. Il nome in grico salentino significa «buongiorno» — una scelta che i fondatori trovano appropriata e i residenti trovano ironica. È sede del governo della famiglia Pocchia, del mercato principale e dell'archivio storico.</p>
+<p><b>Castri</b> fu la seconda città più importante dal 108 dM. Storicamente nodo logistico della Camorra Salentina, nelle Filippine divenne centro militare e presidio di confine, gestita direttamente da Filippo. Questo status durò fino al 13 Maggio 109 dM.</p>
+
+<h2 id="cantina-f">La perdita di Castri — 109 dM <span class="edit-link" onclick="openEditor('Filippine')">[modifica]</span></h2>
+<p>Il 13 Maggio 109 dM lo <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> dichiarò lo stato <a onclick="navigateTo('La Cantina')">La Cantina</a> e prese il controllo di Castri, portando la città in ribellione contro le Filippine. Le motivazioni erano personali — una vendetta contro <a onclick="navigateTo('Morello')">Morello</a> che richiedeva la conquista di Napoli, che richiedeva prima una base operativa. Castri era disponibile.</p>
+<p>Le Filippine persero la seconda città. La disputa territoriale con La Cantina è tecnicamente ancora aperta — nessuna delle due parti ha trovato il momento giusto per formalizzare qualcosa. La capitale Calimera rimane in mano ai Pocchia.</p>
 
 <h2 id="nome-f">Il nome <span class="edit-link" onclick="openEditor('Filippine')">[modifica]</span></h2>
-<p>Il nome «Filippine» è stato scelto da Filippo Pascali in persona. Non esiste documentazione ufficiale della sua motivazione. Le teorie circolanti sono tre: che sia un omaggio a sé stesso, che sia un riferimento all'arcipelago del Pacifico per ragioni note solo a lui, o che lo abbia scelto perché «suonava bene». Riccardo, interpellato, ha detto che «è una cosa da Filippo» e ha cambiato argomento.</p>
-<div class="stub-box"><span style="font-size:22px">🌿</span><span>Le Filippine sono nate nel 108 dM. Questa voce è ancora in costruzione, come lo stato stesso.</span></div>
+<p>Il nome «Filippine» è stato scelto da Filippo Pascali. Non esiste documentazione della sua motivazione. Le teorie sono tre: omaggio a sé stesso, riferimento all'arcipelago del Pacifico, o semplicemente «suonava bene». Riccardo ha detto che «è una cosa da Filippo» e ha cambiato argomento.</p>
+<div class="stub-box"><span style="font-size:22px">🌿</span><span>Le Filippine governano ancora Calimera. Castri è andata. Non è ancora chiaro come andrà a finire.</span></div>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Filippine</a> <a>Famiglia Pocchia</a> <a>Salento</a> <a>Stati nati nel 108 dM</a> <a>Calimera</a> <a>Castri</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Filippine</a> <a>Famiglia Pocchia</a> <a>Salento</a> <a>Stati nati nel 108 dM</a> <a>Calimera</a></div>`;
 }
 
 // ══════════════════════════════════════════════════════
@@ -5808,7 +5859,7 @@ function setMapMode(mode) {
           const cont = document.getElementById('globe-container');
           if (best && tip) {
             // Nome e navigazione corretti per l'anno
-            const navName = (best.name === 'Filippine' && currentYear < 108)
+            const navName = (best.name === 'Filippine' && best.toYear === 108)
               ? 'Camorra Salentina' : (best.navigateTo || best.name);
             tip.textContent = navName;
             tip.style.display = 'block';
@@ -5844,7 +5895,7 @@ function setMapMode(mode) {
             if (dist < hitPx && dist < bestDist) { bestDist = dist; best = t; }
           });
           if (best) {
-            const nav = (best.name === 'Filippine' && currentYear < 108)
+            const nav = (best.name === 'Filippine' && best.toYear === 108)
               ? 'Camorra Salentina' : (best.navigateTo || best.name);
             navigateTo(nav);
           }
@@ -5899,8 +5950,11 @@ function onYearSlider(val) {
     { min:105, max:106, desc: 'Guerra Finale Fase 2 — conquista di Serrano, Pocchia prendono la Camorra' },
     { min:107, max:107, desc: '💥 Bomba Spissica su Serrano — «Spisso.» Alex prende l\'America' },
     { min:108, max:108, desc: 'Nascono le Filippine dalla Camorra Salentina — capitale Calimera' },
-    { min:109, max:110, desc: 'Alessio Spisso² si risveglia — Serrano ricostruita e in volo' },
-    { min:111, max:115, desc: 'Terza Guerra degli Avengers — Alessio e Zella vs Alex' },
+    { min:109, max:110, desc: 'Alessio Spisso² si risveglia — Serrano ricostruita e in volo · 13 Maggio 109 dM: lo Zio di Sbost fonda La Cantina a Castri' },
+    { min:111, max:111, desc: 'Terza Guerra degli Avengers inizia — La Cantina ha Castri' },
+    { min:112, max:112, desc: '🍷 La Cantina conquista le Filippine con gli Spisso Bot — Pocchia in fuga' },
+    { min:113, max:114, desc: 'Terza Guerra degli Avengers — La Cantina controlla il Salento' },
+    { min:115, max:115, desc: '🍷🔥 La Cantina prende Napoli — Morello catturato, capelli tagliati, diventa Morellato Pelato' },
     { min:116, max:118, desc: '💣 Bombe sulle città USA — Nigeria si ribella, Alessio rilancia' },
     { min:119, max:121, desc: 'Alex disintegrato — Zella governa, ricostruzione. Pete arrestato (121 dM)' },
   ];
@@ -5914,12 +5968,14 @@ function onYearSlider(val) {
 // Ritorna false se il territorio non esisteva ancora quell'anno
 function isTerritoryVisible(t) {
   const y = currentYear;
-  const name = t.name;
-  if (name === 'Serrano')           return y >= 23;   // fondato da Gennaro Spisso nel 23 dM
-  if (name === 'Filippine')         return y >= 17;   // territorio (Camorra Salentina) dal 17 dM
-  if (name === 'Nigeria Spartiana') return y >= 52;   // fondata nel 52 dM
-  if (name === 'America (Avengers)')return y >= 92;   // Avengers prendono l'America nel 92 dM
-  return true; // Napoli sempre visibile
+  if (t.fromYear !== undefined && y < t.fromYear) return false;
+  if (t.toYear   !== undefined && y > t.toYear)   return false;
+  if (t.name === 'Serrano'            && !t.fromYear) return y >= 23;
+  if (t.name === 'Filippine'          && t.toYear === 108) return y >= 17;
+  if (t.name === 'Filippine'          && t.fromYear)  return true;
+  if (t.name === 'Nigeria Spartiana')  return y >= 52;
+  if (t.name === 'America (Avengers)') return y >= 92;
+  return true;
 }
 
 // ── Colori territorio per anno ──
@@ -5928,18 +5984,17 @@ function getTerritoryColors(t) {
   const name = t.name;
   let fill = t.color + 'bb', border = t.border;
   if (name === 'Serrano') {
-    if (y >= 107 && y <= 108) { fill = 'rgba(110,110,110,0.55)'; border = '#666'; } // distrutta
-    // 109+ torna normale (volante)
+    if (y >= 107 && y <= 108) { fill = 'rgba(110,110,110,0.55)'; border = '#666'; }
   }
   if (name === 'Filippine') {
-    if (y < 108) { fill = '#795548bb'; border = '#4e342e'; } // era Camorra Salentina
+    // L'entry con toYear=108 è sempre la Camorra Salentina (17-108 dM)
+    if (t.toYear === 108) { fill = '#795548bb'; border = '#4e342e'; }
   }
   if (name === 'America (Avengers)') {
-    if (y >= 107 && y <= 119) { fill = '#c62828dd'; border = '#7f0000'; } // dittatura Alex
+    if (y >= 107 && y <= 119) { fill = '#c62828dd'; border = '#7f0000'; }
   }
   if (name === 'Nigeria Spartiana') {
-    if (y >= 107 && y <= 117) { fill = 'rgba(110,110,110,0.55)'; border = '#666'; } // sottomessa
-    // 118+ torna normale (ribellata)
+    if (y >= 107 && y <= 117) { fill = 'rgba(110,110,110,0.55)'; border = '#666'; }
   }
   return { fill, border };
 }
@@ -6418,9 +6473,11 @@ function initGlobe() {
   // per hitTest approssimativo (point-radius). La mappa visuale è mappa_2d.png
   const territories = [
     {
+      // NAPOLI — visibile fino al 114 dM, nel 115 dM La Cantina conquista la città
       name: 'Napoli', navigateTo: 'Napoli',
       color: '#1565c0', border: '#0d3b8a', textColor: '#fff',
       label: { lon: 15.4, lat: 39.5 }, hitR: 3.5,
+      toYear: 114,
       poly: [
         [13.55,41.20],[13.30,41.00],[13.18,40.60],[13.35,40.15],
         [13.55,39.80],[13.75,39.30],[14.00,38.80],[14.25,38.45],
@@ -6434,27 +6491,89 @@ function initGlobe() {
       ]
     },
     {
-      // Salento EST — Serrano (casertano/tacco): in lore è il territorio di Serrano
+      // SERRANO + MARTANO — dal 23 dM
       name: 'Serrano', navigateTo: 'Serrano',
       color: '#e65100', border: '#8a3000', textColor: '#fff',
-      label: { lon: 18.18, lat: 39.62 }, hitR: 1.5,
+      label: { lon: 18.26, lat: 40.13 }, hitR: 1.5,
       poly: [
-        [17.85,40.28],[17.85,40.00],[17.85,39.65],[17.85,39.20],
-        [17.85,38.95],[18.02,38.82],[18.20,38.82],[18.38,38.95],
-        [18.52,39.18],[18.56,39.48],[18.48,39.80],[18.32,40.08],
-        [18.10,40.28],[17.85,40.28]
+        [18.05,40.30],[18.15,40.28],[18.28,40.26],[18.38,40.22],
+        [18.46,40.15],[18.52,40.05],[18.50,39.95],[18.42,39.88],
+        [18.30,39.85],[18.18,39.88],[18.10,39.95],[18.06,40.05],
+        [18.04,40.15],[18.05,40.30]
       ]
     },
     {
-      // Salento OVEST — Filippine (ex Camorra Salentina)
+      // FILIPPINE con Castri — Camorra Salentina 17–108 dM
       name: 'Filippine', navigateTo: 'Filippine',
       color: '#2e7d32', border: '#1a4d1e', textColor: '#fff',
-      label: { lon: 17.40, lat: 39.58 }, hitR: 1.5,
+      label: { lon: 18.15, lat: 40.23 }, hitR: 1.5,
+      toYear: 108,
       poly: [
-        [17.00,40.28],[17.05,39.90],[17.05,39.55],[17.10,39.15],
-        [17.22,38.95],[17.42,38.88],[17.65,38.88],[17.85,38.95],
-        [17.85,39.20],[17.85,39.65],[17.85,40.00],[17.85,40.28],
-        [17.60,40.32],[17.35,40.34],[17.10,40.33],[17.00,40.28]
+        [17.85,40.40],[18.00,40.38],[18.10,40.36],[18.20,40.32],
+        [18.26,40.28],[18.15,40.28],[18.05,40.30],[18.04,40.15],
+        [18.06,40.05],[18.10,39.95],[18.04,39.92],[17.92,39.95],
+        [17.82,40.02],[17.78,40.12],[17.80,40.22],[17.82,40.32],
+        [17.85,40.40]
+      ]
+    },
+    {
+      // FILIPPINE senza Castri — 109–111 dM (scompare nel 112)
+      name: 'Filippine', navigateTo: 'Filippine',
+      color: '#2e7d32', border: '#1a4d1e', textColor: '#fff',
+      label: { lon: 18.00, lat: 40.30 }, hitR: 1.5,
+      fromYear: 109, toYear: 111,
+      poly: [
+        [17.85,40.40],[18.00,40.38],[18.10,40.36],[18.20,40.32],
+        [18.10,40.28],[18.02,40.24],[17.95,40.20],[17.90,40.14],
+        [17.82,40.14],[17.80,40.22],[17.82,40.32],[17.85,40.40]
+      ]
+    },
+    {
+      // LA CANTINA solo Castri — 109–111 dM
+      name: 'La Cantina', navigateTo: 'La Cantina',
+      color: '#795548', border: '#4e342e', textColor: '#fff',
+      label: { lon: 18.13, lat: 40.22 }, hitR: 0.9,
+      fromYear: 109, toYear: 111,
+      poly: [
+        [18.02,40.24],[18.10,40.28],[18.20,40.32],[18.26,40.28],
+        [18.20,40.22],[18.14,40.18],[18.06,40.18],[17.98,40.20],
+        [17.95,40.20],[17.90,40.14],[17.95,40.14],[18.02,40.18],
+        [18.02,40.24]
+      ]
+    },
+    {
+      // LA CANTINA conquista Filippine — 112–114 dM
+      name: 'La Cantina', navigateTo: 'La Cantina',
+      color: '#5d4037', border: '#3e2723', textColor: '#fff',
+      label: { lon: 18.02, lat: 40.28 }, hitR: 1.5,
+      fromYear: 112, toYear: 114,
+      poly: [
+        [17.85,40.40],[18.00,40.38],[18.10,40.36],[18.20,40.32],
+        [18.26,40.28],[18.20,40.22],[18.14,40.18],[18.06,40.18],
+        [17.98,40.20],[17.95,40.20],[17.90,40.14],[17.82,40.14],
+        [17.80,40.22],[17.82,40.32],[17.85,40.40]
+      ]
+    },
+    {
+      // LA CANTINA con Napoli — dal 115 dM
+      name: 'La Cantina', navigateTo: 'La Cantina',
+      color: '#4e342e', border: '#3e2723', textColor: '#fff',
+      label: { lon: 15.8, lat: 40.5 }, hitR: 4.0,
+      fromYear: 115,
+      poly: [
+        [13.55,41.20],[13.30,41.00],[13.18,40.60],[13.35,40.15],
+        [13.55,39.80],[13.75,39.30],[14.00,38.80],[14.25,38.45],
+        [14.55,37.95],[15.05,37.80],[15.45,37.85],[15.70,37.95],
+        [16.00,38.20],[16.30,38.50],[16.60,38.80],[16.82,39.20],
+        [17.00,39.55],[17.05,39.90],[17.05,40.28],[17.82,40.02],
+        [17.78,40.12],[17.82,40.14],[17.90,40.14],[17.95,40.20],
+        [17.98,40.20],[18.06,40.18],[18.14,40.18],[18.20,40.22],
+        [18.26,40.28],[18.20,40.32],[18.10,40.36],[18.00,40.38],
+        [17.85,40.40],[17.82,40.32],[17.80,40.22],[17.82,40.02],
+        [17.05,40.28],[17.00,40.32],[16.80,40.55],[16.55,40.80],
+        [16.25,41.05],[15.85,41.20],[15.45,41.35],[15.05,41.30],
+        [14.78,41.10],[14.62,40.92],[14.50,41.15],[14.20,41.05],
+        [13.95,41.10],[13.78,41.25],[13.65,41.30],[13.55,41.20]
       ]
     },
     {
@@ -6673,11 +6792,13 @@ function initGlobe() {
     const moonDist = Math.sqrt(moonPos.x*moonPos.x + moonPos.y*moonPos.y + moonPos.z*moonPos.z);
 
     // Direzione normalizzata Terra → Sole (per illuminazione)
-    const sunLightDir = {
+    // Vicino alla Terra (zoom > 2): illuminazione flat per vedere la superficie
+    const sunLightDir = zoom > 2.0 ? null : {
       x: sunPos.x / sunDist,
       y: sunPos.y / sunDist,
       z: sunPos.z / sunDist
     };
+
 
     // ── Sfondo spazio ──
     drawStars();
@@ -6746,6 +6867,7 @@ function initGlobe() {
     ctx.strokeStyle='rgba(100,160,220,0.3)'; ctx.lineWidth=1; ctx.stroke();
     ctx.restore();
 
+
     // Luna davanti alla Terra (depth < camDistU)
     if (pMoon && pMoon.depth <= camDistU) {
       const FOV2 = 0.9;
@@ -6777,7 +6899,8 @@ function initGlobe() {
 
   // Restituisce la pagina corretta in base all'anno corrente
   function getNavigateTo(t) {
-    if (t.name === 'Filippine' && currentYear < 108) return 'Camorra Salentina';
+    // L'entry Filippine con toYear=108 è la Camorra Salentina
+    if (t.name === 'Filippine' && t.toYear === 108) return 'Camorra Salentina';
     return t.navigateTo || t.name;
   }
 
@@ -6869,6 +6992,134 @@ function initGlobe() {
   canvas.addEventListener('mouseleave',()=>{tooltip.style.display='none';});
   canvas.addEventListener('click',e=>{const hit=hitTest(e.clientX,e.clientY);if(hit)navigateTo(hit.navigateTo||hit.name);});
 }
+function buildLaCantina() {
+  return `<div class="wiki-notice"><span class="ni">🍷</span><span>La Cantina è nata per una chiave falsa, ha conquistato il Salento con i Bot, e ha rinchiuso Morello in bagno a Napoli. La Pocchiaciclopedia ritiene tutto ciò storicamente accurato.</span></div>
+<h1 class="page-title">La Cantina</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">La Cantina</div>
+  <table>
+    <tr><td>Fondazione</td><td><b>13 Maggio 109 dM</b></td></tr>
+    <tr><td>Fondatore</td><td><a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a></td></tr>
+    <tr><td>Capitale</td><td><a onclick="navigateTo('Castri')">Castri</a></td></tr>
+    <tr><td>Conquiste</td><td><a onclick="navigateTo('Filippine')">Filippine</a> (112 dM) · <a onclick="navigateTo('Napoli')">Napoli</a> (115 dM)</td></tr>
+    <tr><td>Inventore</td><td><a onclick="navigateTo('AleDoria')">AleDoria</a> — nipote dello Zio di Sbost</td></tr>
+    <tr><td>Tecnologia</td><td>Sbost Bot · Spisso Bot</td></tr>
+    <tr><td>Prigioniero celebre</td><td><a onclick="navigateTo('Morello')">Morellato Pelato</a> — Morello, catturato a Napoli nel 115 dM</td></tr>
+  </table>
+</div>
+
+<div class="toc-box"><div class="toc-title">Indice</div><ol>
+  <li><a href="#fondazione-lc">Fondazione — 109 dM</a></li>
+  <li><a href="#tecnologia-lc">Tecnologia — gli Sbost Bot e lo Spisso Bot</a></li>
+  <li><a href="#impostore-lc">L'impostore — Jacopo Martucci</a></li>
+  <li><a href="#filippine-lc">Conquista delle Filippine — 112 dM</a></li>
+  <li><a href="#napoli-lc">Conquista di Napoli — 115 dM</a></li>
+  <li><a href="#morello-lc">La cattura di Morello</a></li>
+</ol></div>
+
+<h2 id="fondazione-lc">Fondazione — 109 dM <span class="edit-link" onclick="openEditor('La Cantina')">[modifica]</span></h2>
+<p>La Cantina nacque il <b>13 Maggio 109 dM</b> il giorno dopo che lo <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> aveva tentato di aprire la porta di casa di <a onclick="navigateTo('Morello')">Morello</a> a Napoli con una chiave comprata in una gioielleria di Castri. La chiave non aveva funzionato. Tornato a Castri stanco e senza soldi, lo Zio di Sbost convocò tutta la famiglia Sbost e dichiarò lo stato, in ribellione diretta alle <a onclick="navigateTo('Filippine')">Filippine</a>. Castri passò sotto il controllo della famiglia Sbost entro sera.</p>
+
+<h2 id="tecnologia-lc">Tecnologia — gli Sbost Bot e lo Spisso Bot <span class="edit-link" onclick="openEditor('La Cantina')">[modifica]</span></h2>
+<p>Con l'aiuto del nipote <a onclick="navigateTo('AleDoria')">AleDoria</a>, La Cantina sviluppò gli <b>Sbost Bot</b> — robot per faccende domestiche e riproduzione musicale — e lo <b>Spisso Bot</b>, che usava la parola «Spisso» come raggio sonoro potente come un laser. AleDoria si era ispirato alla <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> e al suo principio di risonanza acustica. Il risultato fu un'arma compatta classificabile ufficialmente come «dispositivo musicale».</p>
+
+<h2 id="impostore-lc">L'impostore — Jacopo Martucci <span class="edit-link" onclick="openEditor('La Cantina')">[modifica]</span></h2>
+<p>Durante i primi mesi, a Castri si aggirava <a onclick="navigateTo('Jacopo Martucci')">Jacopo Martucci</a> — cittadino di Martano sotto Serrano — che si spacciava per AleDoria raccogliendo soldi. Veniva chiamato <b>AleDoria (versione cugghiune)</b>. Fu arrestato; all'interrogatorio emerse che voleva i soldi per bruciare la casa di <a onclick="navigateTo('Alessio Spisso')">Alessio</a> a Serrano. Fu tenuto prigioniero a Castri.</p>
+
+<h2 id="filippine-lc">Conquista delle Filippine — 112 dM <span class="edit-link" onclick="openEditor('La Cantina')">[modifica]</span></h2>
+<p>Nel <b>112 dM</b>, lo Zio di Sbost ritenne che i Bot fossero pronti per un'operazione su larga scala. Un'armata di Spisso Bot attaccò il territorio delle <a onclick="navigateTo('Filippine')">Filippine</a>, avanzando da Castri verso Calimera. I Bot usavano i raggi sonori Spisso in formazione coordinata — <a onclick="navigateTo('AleDoria')">AleDoria</a> aveva programmato tattiche di fuoco incrociato che rendevano il difendersi estremamente difficile per chiunque non avesse protezioni acustiche.</p>
+<p>Lo Zio di Sbost fece sapere che avrebbe lasciato stare i Pocchia solo se avessero rinunciato a tutto il potere. <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a>, <a onclick="navigateTo('Filippo Pascali')">Filippo</a>, <a onclick="navigateTo('Alice Sportella')">Alice</a> e i figli di Filippo e Alice scelsero di non rinunciare. Scapparono. Le Filippine cessarono di esistere come stato. La Cantina prese il controllo di tutto il territorio, Calimera inclusa.</p>
+
+<h2 id="napoli-lc">Conquista di Napoli — 115 dM <span class="edit-link" onclick="openEditor('La Cantina')">[modifica]</span></h2>
+<p>Nel <b>115 dM</b>, con un'armata molto più grande di Spisso Bot, La Cantina marciò su <a onclick="navigateTo('Napoli')">Napoli</a>. L'obiettivo finale — quello per cui era stato fondato lo stato nel 109 dM — era adesso raggiungibile. Napoli cadde. La famiglia Sbost entrò in città e iniziò a dare fuoco a tutto. Martucci, rilasciato dalla prigione di Castri per l'occasione, si dedicò personalmente a incendiare le case, con un entusiasmo che i testimoni descrivono come eccessivo anche per gli standard della famiglia Sbost.</p>
+<p>Di Napoli non rimase quasi niente. Quasi.</p>
+
+<h2 id="morello-lc">La cattura di Morello <span class="edit-link" onclick="openEditor('La Cantina')">[modifica]</span></h2>
+<p>Tra le macerie di Napoli restava in piedi una sola casa: quella di <a onclick="navigateTo('Morello')">Morello</a>. Lo Zio di Sbost vi andò personalmente. Si trovò davanti alla porta. Era la stessa situazione del 12 Maggio 109 dM — ma questa volta non aveva una chiave falsa. Questa volta buttò giù la porta.</p>
+<p>Tutta la famiglia Sbost entrò. Cercarono Morello in ogni stanza. Lo trovarono in bagno. La prima cosa che fecero fu tagliargli i capelli — nessun altro sarebbe più scomparso lì dentro. Morello, pelato e catturato, fu portato alla prigione di Castri.</p>
+<p>All'interno della prigione, gli fu assegnato il nome ufficiale di <b>Morellato Pelato</b>. Il nome è ritenuto da tutte le fonti sia una vendetta per i capelli che un riferimento ironico al fatto che Morello — uno degli uomini più potenti della storia di questo universo — fosse stato trovato in bagno.</p>
+<div class="stub-box"><span style="font-size:22px">🍷</span><span>Lo Zio di Sbost voleva solo entrare in casa di Morello. Alla fine ci è riuscito. Gli ci sono voluti sei anni, uno stato, due guerre, e un'armata di robot che urlano «Spisso».</span></div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Stati del mondo pocchiano</a> <a>Castri</a> <a>Famiglia Sbost</a> <a>Fondazioni 109 dM</a> <a>Napoli</a></div>`;
+}
+
+function buildAleDoria() {
+  return `<div class="wiki-notice"><span class="ni">🔧</span><span>AleDoria è l'inventore della famiglia Sbost. Ha creato i Bot che svolgono faccende domestiche, i Bot che riproducono musica, e i Bot che usano «Spisso» come arma acustica. Non necessariamente in quest'ordine di priorità.</span></div>
+<h1 class="page-title">AleDoria</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">AleDoria</div>
+  <table>
+    <tr><td>Ruolo</td><td>Inventore ufficiale de <a onclick="navigateTo('La Cantina')">La Cantina</a></td></tr>
+    <tr><td>Famiglia</td><td>Sbost — nipote dello <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a></td></tr>
+    <tr><td>Invenzioni principali</td><td>Sbost Bot (domestico) · Sbost Bot (musicale) · Spisso Bot</td></tr>
+    <tr><td>Ispirazione principale</td><td><a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> — effetto sonoro della parola Spisso</td></tr>
+    <tr><td>Problema noto</td><td><a onclick="navigateTo('Jacopo Martucci')">Jacopo Martucci</a> — impostore che si faceva passare per lui a Castri</td></tr>
+  </table>
+</div>
+
+<p>AleDoria è il nipote dello <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> e inventore ufficiale de <a onclick="navigateTo('La Cantina')">La Cantina</a>. Come <a onclick="navigateTo('Elisa Sbost')">Elisa Sbost</a> — sua cugina — è uno dei nipoti del fondatore. Quando lo Zio di Sbost fondò lo stato nel 109 dM, AleDoria era già la figura tecnica della famiglia e divenne subito responsabile dello sviluppo tecnologico del nuovo stato.</p>
+
+<h2>Gli Sbost Bot <span class="edit-link" onclick="openEditor('AleDoria')">[modifica]</span></h2>
+<p>Il primo progetto di AleDoria per La Cantina furono gli <b>Sbost Bot</b> — robot progettati per due funzioni principali: svolgere faccende domestiche, e riprodurre musica. I Bot domestici gestivano pulizie, commissioni e logistica. I Bot musicali erano più sofisticati, con sistemi di riproduzione audio di alta qualità e capacità di adattare il repertorio al contesto.</p>
+<p>I Bot divennero rapidamente il prodotto più riconoscibile de La Cantina, e la loro distribuzione garantì allo stato una fonte di reddito stabile e una presenza nel Salento che andava al di là della semplice occupazione militare di Castri.</p>
+
+<h2>Lo Spisso Bot — l'arma acustica <span class="edit-link" onclick="openEditor('AleDoria')">[modifica]</span></h2>
+<p>Il progetto più ambizioso di AleDoria fu lo <b>Spisso Bot</b>. Derivato dalla funzione di riproduzione musicale dei Bot standard, lo Spisso Bot utilizzava la parola «Spisso» come raggio sonoro con potenza comparabile a un laser. AleDoria aveva studiato attentamente la <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> e il suo principio operativo — l'effetto distruttivo generato dalla risonanza della parola Spisso — e aveva identificato un modo per replicarlo in forma controllata e modulabile.</p>
+<p>Il risultato fu un'arma precisa, relativamente compatta, e tecnicamente classificabile come «dispositivo musicale» per i regolamenti doganali vigenti. Le <a onclick="navigateTo('Filippine')">Filippine</a> non erano convinte di questa classificazione. AleDoria sosteneva che dipendeva dal volume.</p>
+
+<h2>L'impostore <span class="edit-link" onclick="openEditor('AleDoria')">[modifica]</span></h2>
+<p>Durante i mesi della fondazione de La Cantina, un individuo a Castri si spacciava per AleDoria chiedendo soldi per invenzioni inesistenti. Gli abitanti lo chiamavano <b>AleDoria (versione cugghiune)</b>. Il vero AleDoria era presente in città e la situazione era imbarazzante per entrambi. L'impostore fu infine arrestato e identificato come <a onclick="navigateTo('Jacopo Martucci')">Jacopo Martucci</a>, cittadino di Martano.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Inventori</a> <a>Famiglia Sbost</a> <a>La Cantina</a> <a>Tecnologia pocchiana</a></div>`;
+}
+
+function buildJacopoMartucci() {
+  return `<div class="wiki-notice"><span class="ni">🎭</span><span>Jacopo Martucci è l'unica persona nella storia di Castri ad essersi finto AleDoria mentre AleDoria era presente in città. La valutazione generale è che fosse un piano non ottimale.</span></div>
+<h1 class="page-title">Jacopo Martucci</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Jacopo Martucci</div>
+  <table>
+    <tr><td>Alias usato</td><td>AleDoria (versione cugghiune)</td></tr>
+    <tr><td>Origine</td><td>Martano — sotto controllo di <a onclick="navigateTo('Serrano')">Serrano</a></td></tr>
+    <tr><td>Attività</td><td>Fingersi <a onclick="navigateTo('AleDoria')">AleDoria</a> a Castri per raccogliere fondi</td></tr>
+    <tr><td>Obiettivo reale</td><td>Raccogliere abbastanza soldi per bruciare la casa di <a onclick="navigateTo('Alessio Spisso')">Alessio</a> a Serrano</td></tr>
+    <tr><td>Esito</td><td>Arrestato a Castri · identità scoperta all'interrogatorio</td></tr>
+  </table>
+</div>
+
+<p><b>Jacopo Martucci</b> era un cittadino di Martano — piccola città vicino a Serrano, sotto controllo di Serrano — che nel periodo successivo alla fondazione de <a onclick="navigateTo('La Cantina')">La Cantina</a> si trasferì a Castri spacciandosi per <a onclick="navigateTo('AleDoria')">AleDoria</a>, l'inventore della famiglia Sbost, chiedendo denaro per invenzioni che non aveva mai realizzato.</p>
+<p>Il piano aveva un difetto strutturale evidente: il vero AleDoria era già a Castri. Gli abitanti di Castri sapevano che Martucci non era AleDoria perché avevano AleDoria di fronte. Continuarono a chiamarlo <b>AleDoria (versione cugghiune)</b> e tollerarono la sua presenza per settimane per ragioni che nessuno ha mai formalizzato.</p>
+<p>Dopo molti giorni, Martucci fu arrestato. All'interrogatorio emerse che il suo obiettivo reale era raccogliere abbastanza denaro da finanziare un viaggio a Serrano per bruciare la casa di <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a>. Le motivazioni specifiche di questa intenzione non furono mai completamente chiarite. Martucci fu trattenuto a Castri e la casa di Alessio rimase intatta.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Castri</a> <a>Martano</a> <a>Impostori</a> <a>La Cantina</a></div>`;
+}
+
+function buildElisaSbost() {
+  return `<div class="wiki-notice"><span class="ni">✂️</span><span>Elisa Sbost è la nipote dello Zio di Sbost. Gestisce un centro estetico a Castri. Ha rimosso i capelli di Morello dal capo di suo zio senza fare troppe domande. È un'abilità professionale rara.</span></div>
+<h1 class="page-title">Elisa Sbost</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Elisa Sbost</div>
+  <table>
+    <tr><td>Famiglia</td><td>Sbost — nipote dello <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a></td></tr>
+    <tr><td>Professione</td><td>Estetista — centro estetico a <a onclick="navigateTo('Castri')">Castri</a></td></tr>
+    <tr><td>Servizio notabile</td><td>Rimozione capelli di Morello — 107 dM</td></tr>
+  </table>
+</div>
+<p><b>Elisa Sbost</b> è una dei nipoti dello <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> — insieme a <a onclick="navigateTo('AleDoria')">AleDoria</a> — e titolare di un centro estetico a <a onclick="navigateTo('Castri')">Castri</a>. Nel <b>107 dM</b>, dopo che suo zio scappò dai capelli di <a onclick="navigateTo('Morello')">Morello</a>, fu la prima persona che lo Zio di Sbost cercò. Il problema era tecnico: alcune delle proprietà dei capelli di Morello si erano attaccate ai capelli di suo zio durante gli anni di permanenza, rendendoli strutturalmente instabili e visivamente anomali.</p>
+<p>Elisa eseguì il trattamento necessario con professionalità. Non fece molte domande. Era abituata ai clienti strani — suo zio era particolarmente strano anche per i suoi standard — e aveva la competenza tecnica per gestire la situazione. Una volta terminato il trattamento, lo Zio di Sbost era pronto per la sua successiva pessima decisione (la chiave falsa).</p>
+<p>Elisa Sbost è diventata uno degli esercizi commerciali più noti de <a onclick="navigateTo('La Cantina')">La Cantina</a> dopo la fondazione dello stato nel 109 dM, principalmente perché suo zio la cita ogni volta che descrive come ha iniziato la sua campagna di vendetta.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Famiglia Sbost</a> <a>Castri</a> <a>La Cantina</a></div>`;
+}
+
 loadPagesLocalOnly();
 caricaStatoModalitaLocale();
 onYearSlider(121);
