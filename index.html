@@ -6237,15 +6237,25 @@ function initGlobe() {
   const moonOff = document.createElement('canvas'); moonOff.width = 256; moonOff.height = 256;
   const sunOffCtx  = sunOff.getContext('2d');
   const moonOffCtx = moonOff.getContext('2d');
+  let sunCacheKey  = '';
+  let moonCacheKey = '';
 
-  // Raycast sfera generica su canvas offscreen 256×256
-  // texPx/texW/texH = texture, rotY_tex/rotX_tex = rotazione texture nel sistema mondo
-  // lightDir = {x,y,z} direzione luce world-space (null = auto-illuminato)
-  // ovlPx/ovlW/ovlH = overlay opzionale al 50% (ludovico)
+  // rayCastSphere: raycast sfera su canvas offscreen 256×256
+  // texRotY/texRotX = rotazione texture (per allineare la mappa)
+  // lightDir = direzione luce world-space (null = auto-illuminato)
+  // La normale world-space si calcola sempre invertendo la camera (rotY, rotX globali)
   function rayCastSphere(offCtx, texPx, texW, texH, texRotY, texRotX, lightDir, ovlPx, ovlW, ovlH) {
     const D = 256, R = 128;
     const imgd = offCtx.createImageData(D, D);
     const od = imgd.data;
+
+    // Precomputa i coseni della camera (per la normale world-space)
+    const cosRYcam = Math.cos(rotY), sinRYcam = Math.sin(rotY);
+    const cosRXcam = Math.cos(rotX), sinRXcam = Math.sin(rotX);
+    // Precomputa i coseni della texture (per il lookup texel)
+    const cosRYtex = Math.cos(texRotY), sinRYtex = Math.sin(texRotY);
+    const cosRXtex = Math.cos(texRotX), sinRXtex = Math.sin(texRotX);
+
     for (let py = 0; py < D; py++) {
       for (let px = 0; px < D; px++) {
         const nx = (px - R) / R;
@@ -6254,18 +6264,20 @@ function initGlobe() {
         if (r2 > 1) continue;
         const nz = Math.sqrt(1 - r2);
 
-        // Normale world-space: rotazione inversa camera applicata alla normale camera (nx,ny,nz)
-        // Poi ulteriore rotazione della texture (texRotY, texRotX) per orientare la mappa
-        const cosRY = Math.cos(texRotY), sinRY = Math.sin(texRotY);
-        const cosRX = Math.cos(texRotX), sinRX = Math.sin(texRotX);
-        // Inverso rotX camera poi inverso rotY camera → world normal
-        const wnz2 = ny * sinRX + nz * cosRX;
-        const wny2 = ny * cosRX - nz * sinRX;
-        const wnx2 = nx * cosRY - wnz2 * sinRY;
-        const wnz3 = nx * sinRY + wnz2 * cosRY;
-        // Lookup texture
-        const lon = Math.atan2(wnx2, wnz3);
-        const lat = Math.asin(Math.max(-1, Math.min(1, wny2)));
+        // Normale world-space: inverso rotazione CAMERA (non texture)
+        // Questo determina dove il pixel punta nel mondo
+        const wnz2c = ny * sinRXcam + nz * cosRXcam;
+        const wny2c = ny * cosRXcam - nz * sinRXcam;
+        const wnx2c = nx * cosRYcam - wnz2c * sinRYcam;
+        const wnz3c = nx * sinRYcam + wnz2c * cosRYcam;
+
+        // Lookup texel: applica rotazione texture sulla normale world-space della camera
+        const wnz2t = wny2c * sinRXtex + wnz3c * cosRXtex; // nota: usa wnz3c come z
+        const wny2t = wny2c * cosRXtex - wnz3c * sinRXtex;
+        const wnx2t = wnx2c * cosRYtex - wnz2t * sinRYtex;
+        const wnz3t = wnx2c * sinRYtex + wnz2t * cosRYtex;
+        const lon = Math.atan2(wnx2t, wnz3t);
+        const lat = Math.asin(Math.max(-1, Math.min(1, wny2t)));
         const tx = Math.floor(((lon / Math.PI + 1) * 0.5 * (texW-1) + texW) % texW);
         const ty = Math.floor((0.5 + lat/Math.PI) * (texH-1));
         const si = (Math.max(0,Math.min(texH-1,ty)) * texW + Math.max(0,Math.min(texW-1,tx))) * 4;
@@ -6274,10 +6286,9 @@ function initGlobe() {
         if (texPx) {
           r = texPx[si]; g = texPx[si+1]; b = texPx[si+2];
         } else {
-          r = 200; g = 200; b = 200; // fallback grigio
+          r = 200; g = 200; b = 200;
         }
 
-        // Overlay (ludovico) al 50%
         if (ovlPx) {
           const ox2 = Math.floor(((lon / Math.PI + 1) * 0.5 * (ovlW-1) + ovlW) % ovlW);
           const oy2 = Math.floor((0.5 + lat/Math.PI) * (ovlH-1));
@@ -6287,16 +6298,15 @@ function initGlobe() {
           b = b*0.5 + ovlPx[oi+2]*0.5;
         }
 
-        // Illuminazione
         let shade;
         if (lightDir) {
-          // Dot tra normale world-space e direzione luce world-space
-          const dot = wnx2 * lightDir.x + wny2 * lightDir.y + wnz3 * lightDir.z;
+          // Dot tra normale world-space CAMERA e direzione luce world-space
+          // wnx2c, wny2c, wnz3c sono la normale nel sistema mondo
+          const dot = wnx2c * lightDir.x + wny2c * lightDir.y + wnz3c * lightDir.z;
           const ambient = 0.07;
           shade = dot > 0 ? ambient + (1-ambient)*dot : ambient*(1+dot*0.5);
         } else {
-          // Auto-illuminato (sole): limb darkening
-          shade = 0.4 + 0.6 * nz;
+          shade = 0.4 + 0.6 * nz; // limb darkening sole
         }
 
         const di = (py * D + px) * 4;
@@ -6328,11 +6338,13 @@ function initGlobe() {
     ctx.fillStyle = g1;
     ctx.beginPath(); ctx.arc(sx, sy, screenRadius*1.4, 0, Math.PI*2); ctx.fill();
 
-    // Sfera sole: texture statica (rotY=0, rotX=0 fissi — non segue la camera)
-    // Auto-illuminato (lightDir=null)
-    if (sunPx) {
-      rayCastSphere(sunOffCtx, sunPx, sunTW, sunTH, 0, 0, null, ludoPx, ludoTW, ludoTH);
-    } else {
+    // Sfera sole: texture statica (texRotY=0, texRotX=0)
+    // Ricalcola solo se la camera è cambiata
+    const newSunKey = rotY.toFixed(3) + ',' + rotX.toFixed(3) + ',' + (sunPx?'t':'f');
+    if (sunPx && newSunKey !== sunCacheKey) {
+      sunCacheKey = newSunKey;
+      rayCastSphere(sunOffCtx, sunPx, sunTW, sunTH, 0, 0, null, null, 0, 0);
+    } else if (!sunPx) {
       // Fallback gradiente
       sunOffCtx.clearRect(0,0,256,256);
       const gf = sunOffCtx.createRadialGradient(100,100,0,128,128,128);
@@ -6354,11 +6366,14 @@ function initGlobe() {
     ctx.fillStyle = gm;
     ctx.beginPath(); ctx.arc(sx, sy, screenRadius*1.8, 0, Math.PI*2); ctx.fill();
 
-    // Sfera luna 3D con illuminazione solare reale
-    // La luna ruota con moonOrbitAngle (sempre stessa faccia verso Terra = rotazione sincrona)
-    if (moonPx) {
+    // Sfera luna 3D con illuminazione solare reale, con cache
+    const newMoonKey = rotY.toFixed(3) + ',' + rotX.toFixed(3) + ',' + moonOrbitAngle.toFixed(3)
+                     + ',' + (sunLightDir3D ? sunLightDir3D.x.toFixed(3)+sunLightDir3D.z.toFixed(3) : '0')
+                     + ',' + (moonPx?'t':'f');
+    if (moonPx && newMoonKey !== moonCacheKey) {
+      moonCacheKey = newMoonKey;
       rayCastSphere(moonOffCtx, moonPx, moonTW, moonTH, moonOrbitAngle, 0, sunLightDir3D, null, 0, 0);
-    } else {
+    } else if (!moonPx) {
       moonOffCtx.clearRect(0,0,256,256);
       const gf = moonOffCtx.createRadialGradient(100,100,0,128,128,128);
       gf.addColorStop(0,'#e8e8e8'); gf.addColorStop(0.7,'#909090'); gf.addColorStop(1,'#505050');
@@ -6496,7 +6511,7 @@ function initGlobe() {
         const imgData = usePixels.data;
         const out = offCtx.createImageData(W, H);
         const od = out.data;
-        const step = 3;
+        const step = 4; // step=4 riduce i pixel ~1.8x rispetto a step=3
         for (let py = 0; py < H; py += step) {
           for (let px = 0; px < W; px += step) {
             const nx = (px - W/2) / rz;
@@ -6644,8 +6659,16 @@ function initGlobe() {
       z: sunPos.z / sunDist
     };
 
-    // ── Sfondo spazio (Hubble Deep Field) ──
+    // ── Sfondo spazio ──
     drawStars();
+
+    // Ludovico in alto a destra, sempre visibile con 50% trasparenza
+    if (ludoImg.complete && ludoImg.naturalWidth > 0) {
+      const lSize = Math.round(W * 0.18); // ~108px su canvas 600
+      ctx.globalAlpha = 0.50;
+      ctx.drawImage(ludoImg, W - lSize - 12, 12, lSize, lSize);
+      ctx.globalAlpha = 1.0;
+    }
 
     // ── Camera: si trova a distanza camDist dalla Terra ──
     // In modalità zoom normale (zoom=1) la camera è molto vicina alla Terra (vediamo il globo)
@@ -6770,10 +6793,16 @@ function initGlobe() {
     }
   }
 
-  function loop() {
+  let lastFrameTime = 0;
+  function loop(ts) {
+    // Cap a ~60fps ma permetti frame rate più basso senza saltare animazioni
+    const dt = ts - lastFrameTime;
+    if (dt < 14) { requestAnimationFrame(loop); return; } // salta se troppo veloce
+    lastFrameTime = ts;
+
     checkDirty();
     if (autoRot) {
-      rotY += 0.0006; // Terra ruota: texture + sfera + territori insieme
+      rotY += 0.0006;
       dirty = true;
     }
     earthOrbitAngle += 0.0003;
@@ -6785,7 +6814,7 @@ function initGlobe() {
     }
     requestAnimationFrame(loop);
   }
-  loop();
+  requestAnimationFrame(loop);
 
   canvas.addEventListener('wheel', e => {
     e.preventDefault();
