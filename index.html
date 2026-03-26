@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Pocchiaciclopedia — L'enciclopedia libera (quasi)</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Linux+Libertine+Display&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap');
@@ -70,13 +71,25 @@ a.redlink { color: var(--link-red); }
 }
 
 .wiki-logo-sphere {
-  width: 48px; height: 48px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #fff 0%, #dde 35%, #99a 75%, #556 100%);
-  border: 1px solid #aaa;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 22px;
-  flex-shrink: 0;
+  background: #000; /* Toglie il bianco dietro l'immagine */
+  cursor: pointer;
+  transition: transform 0.2s;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wiki-logo-sphere img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* BLOCCA LO ZOOM INDIETRO: l'immagine non può rimpicciolirsi */
+  min-width: 100%;
+  min-height: 100%;
 }
 
 .wiki-logo-text { line-height: 1.2; }
@@ -812,258 +825,252 @@ clearfix::after { content: ''; display: block; clear: both; }
 </style>
 </head>
 <body>
-
 <!-- LOCKDOWN OVERLAY -->
 <div id="lockdown-overlay">
-  <div id="lockdown-box">
-    <div style="font-size:48px;margin-bottom:12px">🔒</div>
-    <h2>Pocchiaciclopedia — Lockdown</h2>
-    <p>Questo sito è in modalità lockdown.<br>Inserisci la password per accedere.</p>
-    <input type="password" id="lockdown-pwd" placeholder="Password..." onkeydown="if(event.key==='Enter')verificaLockdown()">
-    <button id="lockdown-btn" onclick="verificaLockdown()">Entra</button>
-    <div id="lockdown-error"></div>
-  </div>
+<div id="lockdown-box">
+<div style="font-size:48px;margin-bottom:12px">🔒</div>
+<h2>Pocchiaciclopedia — Lockdown</h2>
+<p>Questo sito è in modalità lockdown.<br/>Inserisci la password per accedere.</p>
+<input id="lockdown-pwd" onkeydown="if(event.key==='Enter')verificaLockdown()" placeholder="Password..." type="password"/>
+<button id="lockdown-btn" onclick="verificaLockdown()">Entra</button>
+<div id="lockdown-error"></div>
 </div>
-
+</div>
 <!-- Firebase status banner -->
-<div id="fb-status" class="fb-banner fb-loading">🔄 Caricamento…</div>
-
+<div class="fb-banner fb-loading" id="fb-status">🔄 Caricamento…</div>
 <!-- Firebase setup modal -->
 <div id="fb-setup-modal">
-  <div class="fb-setup-inner">
-    <button class="fb-setup-close" onclick="document.getElementById('fb-setup-modal').classList.remove('open')">✕ Chiudi</button>
-    <h2>⚙️ Come configurare Firebase</h2>
-    <ol>
-      <li>Vai su <b>firebase.google.com</b> e accedi con il tuo account Google</li>
-      <li>Clicca <b>Aggiungi progetto</b> → dai un nome (es. <code>pocchiaciclopedia</code>) → continua</li>
-      <li>Nel progetto: menu laterale → <b>Realtime Database</b> → Crea database → scegli <b>Modalità test</b> → Abilita</li>
-      <li>Menu laterale → <b>Impostazioni progetto</b> (ingranaggio) → tab <b>Generali</b> → scorri giù → <b>Aggiungi app</b> → icona Web <code>&lt;/&gt;</code></li>
-      <li>Dai un nome all'app (qualsiasi) → <b>Registra app</b></li>
-      <li>Copia il blocco <code>firebaseConfig = { ... }</code> che appare</li>
-      <li>Apri <code>index.html</code> in un editor di testo → cerca <code>FIREBASE_CONFIG</code> → incolla i valori al posto dei segnaposto <code>INSERISCI_…</code></li>
-      <li>Salva e ricarica su GitHub → la wiki sarà condivisa con tutti 🎉</li>
-    </ol>
-    <div class="fb-setup-note">
-      <b>Piano gratuito Firebase (Spark):</b> 1 GB di dati, 50.000 letture/giorno, 20.000 scritture/giorno — più che sufficiente per la Pocchiaciclopedia. Nessun costo.
+<div class="fb-setup-inner">
+<button class="fb-setup-close" onclick="document.getElementById('fb-setup-modal').classList.remove('open')">✕ Chiudi</button>
+<h2>⚙️ Come configurare Firebase</h2>
+<ol>
+<li>Vai su <b>firebase.google.com</b> e accedi con il tuo account Google</li>
+<li>Clicca <b>Aggiungi progetto</b> → dai un nome (es. <code>pocchiaciclopedia</code>) → continua</li>
+<li>Nel progetto: menu laterale → <b>Realtime Database</b> → Crea database → scegli <b>Modalità test</b> → Abilita</li>
+<li>Menu laterale → <b>Impostazioni progetto</b> (ingranaggio) → tab <b>Generali</b> → scorri giù → <b>Aggiungi app</b> → icona Web <code>&lt;/&gt;</code></li>
+<li>Dai un nome all'app (qualsiasi) → <b>Registra app</b></li>
+<li>Copia il blocco <code>firebaseConfig = { ... }</code> che appare</li>
+<li>Apri <code>index.html</code> in un editor di testo → cerca <code>FIREBASE_CONFIG</code> → incolla i valori al posto dei segnaposto <code>INSERISCI_…</code></li>
+<li>Salva e ricarica su GitHub → la wiki sarà condivisa con tutti 🎉</li>
+</ol>
+<div class="fb-setup-note">
+<b>Piano gratuito Firebase (Spark):</b> 1 GB di dati, 50.000 letture/giorno, 20.000 scritture/giorno — più che sufficiente per la Pocchiaciclopedia. Nessun costo.
     </div>
-  </div>
 </div>
-
+</div>
 <!-- HEADER -->
 <div id="wiki-top">
-  <div id="wiki-top-inner">
-    <div class="wiki-logo-wrap" onclick="navigateTo('Main')">
-      <div class="wiki-logo-sphere" style="overflow:hidden;padding:0"><img src="logo.jpg" alt="Logo Pocchiaciclopedia" style="width:100%;height:100%;object-fit:cover;border-radius:50%" onerror="this.style.display='none';this.parentElement.innerHTML='🌐'"></div>
-      <div class="wiki-logo-text">
-        <div class="wiki-logo-title">Pocchiaciclopedia</div>
-        <div class="wiki-logo-sub">L'enciclopedia libera (quasi)</div>
-      </div>
-    </div>
-    <div id="wiki-search-bar">
-      <input type="text" id="search-input" placeholder="Cerca su Pocchiaciclopedia..." autocomplete="off" dir="ltr">
-      <button id="search-btn">🔍</button>
-      <div id="search-results"></div>
-    </div>
-    <div id="wiki-top-actions">
-      <button id="btn-back" class="top-btn" onclick="goBack()" title="Pagina precedente" style="display:none">← Indietro</button>
-      <button id="btn-edit-top" class="top-btn primary" onclick="openEditor(null)">✏️ Modifica</button>
-    </div>
-  </div>
+<div id="wiki-top-inner">
+<div class="wiki-logo-wrap" onclick="navigateTo('Main')">
+<div class="wiki-logo-sphere" style="overflow:hidden;padding:0"><img alt="Logo Pocchiaciclopedia" onerror="this.style.display='none';this.parentElement.innerHTML='🌐'" src="logo.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:50%"/></div>
+<div class="wiki-logo-text">
+<div class="wiki-logo-title">Pocchiaciclopedia</div>
+<div class="wiki-logo-sub">L'enciclopedia libera (quasi)</div>
 </div>
-
+</div>
+<div id="wiki-search-bar">
+<input autocomplete="off" dir="ltr" id="search-input" placeholder="Cerca su Pocchiaciclopedia..." type="text"/>
+<button id="search-btn">🔍</button>
+<div id="search-results"></div>
+</div>
+<div id="wiki-top-actions">
+<button class="top-btn" id="btn-back" onclick="goBack()" style="display:none" title="Pagina precedente">← Indietro</button>
+<button class="top-btn primary" id="btn-edit-top" onclick="openEditor(null)">✏️ Modifica</button>
+</div>
+</div>
+</div>
 <!-- NAV TABS -->
 <div id="wiki-nav">
-  <div id="wiki-nav-inner">
-    <div class="nav-tab active" id="tab-read" onclick="switchTab('read')">Leggi</div>
-    <div class="nav-tab" id="tab-edit" onclick="openEditor(null)">Modifica</div>
-    <div class="nav-tab" id="tab-history" onclick="switchTab('history')">Cronologia</div>
-    <div class="nav-tab" id="tab-discuss" onclick="switchTab('discuss')">Discussione</div>
-  </div>
+<div id="wiki-nav-inner">
+<div class="nav-tab active" id="tab-read" onclick="switchTab('read')">Leggi</div>
+<div class="nav-tab" id="tab-edit" onclick="openEditor(null)">Modifica</div>
+<div class="nav-tab" id="tab-history" onclick="switchTab('history')">Cronologia</div>
+<div class="nav-tab" id="tab-discuss" onclick="switchTab('discuss')">Discussione</div>
 </div>
-
+</div>
 <!-- BODY -->
 <div id="wiki-body">
-
-  <!-- SIDEBAR -->
-  <div id="wiki-sidebar">
-    <div class="sb-section">
-      <h4>Navigazione</h4>
-      <a onclick="navigateTo('Main')">Pagina principale</a>
-      <a onclick="navigateTo('Napoli')">Napoli</a>
-      <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a>
-      <a onclick="navigateTo('Serrano')">Serrano</a>
-      <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a>
-      <a onclick="navigateTo('Calendario Morello')">Calendario Morello</a>
-      <a onclick="navigateTo('Zio di Sbost')">💈 Zio di Sbost</a>
-    </div>
-    <div class="sb-section">
-      <h4>Gli Avengers</h4>
-      <a onclick="navigateTo('Avengers')">Avengers</a>
-      <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a>
-      <a onclick="navigateTo('Zella (Avengers)')">Zella</a>
-      <a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra</a>
-      <a onclick="navigateTo('Seconda Guerra degli Avengers')">Seconda Guerra</a>
-      <a onclick="navigateTo('La Guerra Finale')">⚔️ Guerra Finale</a>
-      <a onclick="navigateTo('Terza Guerra degli Avengers')">⚡ Terza Guerra</a>
-      <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a>
-    </div>
-    <div class="sb-section">
-      <h4>Il Salento</h4>
-      <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a>
-      <a onclick="navigateTo('Filippine')">🌿 Filippine</a>
-      <a onclick="navigateTo('Calimera')">Calimera</a>
-      <a onclick="navigateTo('Castri')">Castri</a>
-      <a onclick="navigateTo('De Morellis')">De Morellis</a>
-    </div>
-    <div class="sb-section">
-      <h4>Clan Spisso</h4>
-      <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a>
-      <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a>
-      <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a>
-      <a onclick="navigateTo('Operazione Brick')">🧱 Operazione Brick</a>
-    </div>
-    <div class="sb-section">
-      <h4>Tutte le pagine</h4>
-      <div id="sidebar-pages"></div>
-    </div>
-    <div class="sb-section">
-      <h4>Strumenti</h4>
-      <a onclick="openEditor(null)">Modifica pagina</a>
-      <a onclick="switchTab('history')">Cronologia</a>
-      <a onclick="navigateTo('pocchiainscatola')">📦 pocchiainscatola</a>
-    </div>
-    <div class="sb-section">
-      <h4>Scarica</h4>
-      <a onclick="exportPage()">Esporta wikitext</a>
-    </div>
-  </div>
-
-  <!-- ARTICLE -->
-  <div id="wiki-article">
-    <div id="read-view">
-      <div id="article-content"></div>
-    </div>
-    <div id="history-panel">
-      <h1 class="page-title" style="margin-bottom:16px">Cronologia: <span id="history-page-name"></span></h1>
-      <p style="font-family:sans-serif;font-size:13px;color:#54595d;margin-bottom:16px">Elenco delle modifiche salvate per questa pagina.</p>
-      <div id="history-list"></div>
-    </div>
-    <div id="discuss-view" style="display:none">
-      <h1 class="page-title" style="margin-bottom:16px">Discussione</h1>
-      <p style="font-family:sans-serif;font-size:13px;color:#54595d">Nessuna discussione ancora. Sei il primo — ma forse è meglio così.</p>
-    </div>
-  </div>
+<!-- SIDEBAR -->
+<div id="wiki-sidebar">
+<div class="sb-section">
+<h4>Navigazione</h4>
+<a onclick="navigateTo('Main')">Pagina principale</a>
+<a onclick="navigateTo('Napoli')">Napoli</a>
+<a onclick="navigateTo('Clan Spisso')">Clan Spisso</a>
+<a onclick="navigateTo('Serrano')">Serrano</a>
+<a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a>
+<a onclick="navigateTo('Calendario Morello')">Calendario Morello</a>
+<a onclick="navigateTo('Zio di Sbost')">💈 Zio di Sbost</a>
 </div>
-
+<div class="sb-section">
+<h4>Gli Avengers</h4>
+<a onclick="navigateTo('Avengers')">Avengers</a>
+<a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a>
+<a onclick="navigateTo('Zella (Avengers)')">Zella</a>
+<a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra</a>
+<a onclick="navigateTo('Seconda Guerra degli Avengers')">Seconda Guerra</a>
+<a onclick="navigateTo('La Guerra Finale')">⚔️ Guerra Finale</a>
+<a onclick="navigateTo('Terza Guerra degli Avengers')">⚡ Terza Guerra</a>
+<a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a>
+</div>
+<div class="sb-section">
+<h4>Il Salento</h4>
+<a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a>
+<a onclick="navigateTo('Filippine')">🌿 Filippine</a>
+<a onclick="navigateTo('Calimera')">Calimera</a>
+<a onclick="navigateTo('Castri')">Castri</a>
+<a onclick="navigateTo('De Morellis')">De Morellis</a>
+</div>
+<div class="sb-section">
+<h4>Clan Spisso</h4>
+<a onclick="navigateTo('Alex Spisso')">Alex Spisso</a>
+<a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a>
+<a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a>
+<a onclick="navigateTo('Operazione Brick')">🧱 Operazione Brick</a>
+</div>
+<div class="sb-section">
+<h4>Tutte le pagine</h4>
+<div id="sidebar-pages"></div>
+</div>
+<div class="sb-section">
+<h4>Strumenti</h4>
+<a onclick="openEditor(null)">Modifica pagina</a>
+<a onclick="switchTab('history')">Cronologia</a>
+<a onclick="navigateTo('pocchiainscatola')">📦 pocchiainscatola</a>
+</div>
+<div class="sb-section">
+<h4>Scarica</h4>
+<a onclick="exportPage()">Esporta wikitext</a>
+</div>
+</div>
+<!-- ARTICLE -->
+<div id="wiki-article">
+<div id="read-view">
+<div id="article-content"></div>
+</div>
+<div id="history-panel">
+<h1 class="page-title" style="margin-bottom:16px">Cronologia: <span id="history-page-name"></span></h1>
+<p style="font-family:sans-serif;font-size:13px;color:#54595d;margin-bottom:16px">Elenco delle modifiche salvate per questa pagina.</p>
+<div id="history-list"></div>
+</div>
+<div id="discuss-view" style="display:none">
+<h1 class="page-title" style="margin-bottom:16px">Discussione</h1>
+<p style="font-family:sans-serif;font-size:13px;color:#54595d">Nessuna discussione ancora. Sei il primo — ma forse è meglio così.</p>
+</div>
+</div>
+</div>
 <!-- FOOTER -->
 <div id="wiki-footer">
-  <p>Il testo è disponibile secondo la licenza <a href="#">Creative Commons</a>. Pocchiaciclopedia® è un'opera di fantasia. Ogni riferimento a fatti reali è puramente coincidentale e a scopo parodistico.</p>
-  <p style="margin-top:6px;font-size:11px;color:#999">⚠️ Questo è un simulatore locale — le pagine sono salvate nel browser e non online.</p>
+<p>Il testo è disponibile secondo la licenza <a href="#">Creative Commons</a>. Pocchiaciclopedia® è un'opera di fantasia. Ogni riferimento a fatti reali è puramente coincidentale e a scopo parodistico.</p>
+<p style="margin-top:6px;font-size:11px;color:#999">⚠️ Questo è un simulatore locale — le pagine sono salvate nel browser e non online.</p>
 </div>
-
 <!-- EDITOR MODAL -->
 <div id="editor-overlay">
-  <div id="editor-modal">
-    <div id="editor-header">
-      <h3 id="editor-modal-title">Modifica pagina</h3>
-      <button id="editor-close" onclick="closeEditor()">✕</button>
-    </div>
-    <div id="editor-title-row">
-      <label>Titolo:</label>
-      <input type="text" id="editor-page-title" placeholder="Titolo della pagina...">
-    </div>
-    <div id="editor-toolbar">
-      <!-- Riga 1: formattazione testo -->
-      <div class="tb-group">
-        <button class="tb-btn" onclick="insertWiki(&quot;'''&quot;,&quot;'''&quot;)" title="Grassetto (Ctrl+B)"><b>B</b></button>
-        <button class="tb-btn" onclick="insertWiki(&quot;''&quot;,&quot;''&quot;)" title="Corsivo (Ctrl+I)"><i>I</i></button>
-        <button class="tb-btn" onclick="insertWiki('<s>','</s>')" title="Barrato"><s>S</s></button>
-        <button class="tb-btn" onclick="insertWiki('<u>','</u>')" title="Sottolineato"><u>U</u></button>
-        <button class="tb-btn" onclick="insertWiki('<sup>','</sup>')" title="Apice">x²</button>
-        <button class="tb-btn" onclick="insertWiki('<sub>','</sub>')" title="Pedice">x₂</button>
-        <button class="tb-btn" onclick="insertWiki('<code>','</code>')" title="Codice inline"><code style="font-size:10px">cod</code></button>
-        <button class="tb-btn" onclick="insertWiki('<nowiki>','</nowiki>')" title="Ignora wikimarkup">[[…]]</button>
-      </div>
-      <div class="tb-sep"></div>
-      <!-- Riga 2: struttura -->
-      <div class="tb-group">
-        <button class="tb-btn" onclick="insertWiki('== ',' ==')" title="Titolo sezione H2">H2</button>
-        <button class="tb-btn" onclick="insertWiki('=== ',' ===')" title="Sottosezione H3">H3</button>
-        <button class="tb-btn" onclick="insertWiki('==== ',' ====')" title="Sotto-sottosezione H4">H4</button>
-      </div>
-      <div class="tb-sep"></div>
-      <!-- Riga 3: link e media -->
-      <div class="tb-group">
-        <button class="tb-btn" onclick="insertWiki('[[',']]')" title="Link interno">[[Link]]</button>
-        <button class="tb-btn" onclick="insertWiki('[https://esempio.com ','  ]')" title="Link esterno">[URL]</button>
-        <button class="tb-btn" onclick="insertWikiFile()" title="Immagine">🖼</button>
-        <button class="tb-btn" onclick="insertWiki('[[File:','|thumb|Didascalia]]')" title="Immagine con didascalia">📷</button>
-      </div>
-      <div class="tb-sep"></div>
-      <!-- Riga 4: liste -->
-      <div class="tb-group">
-        <button class="tb-btn" onclick="insertWikiList('*')" title="Lista puntata">• Lista</button>
-        <button class="tb-btn" onclick="insertWikiList('#')" title="Lista numerata">1. Lista</button>
-        <button class="tb-btn" onclick="insertWiki(': ','')" title="Indentazione">⇥ Indent</button>
-        <button class="tb-btn" onclick="insertWiki('; ','')" title="Termine definizione">; Def</button>
-      </div>
-      <div class="tb-sep"></div>
-      <!-- Riga 5: speciali -->
-      <div class="tb-group">
-        <button class="tb-btn" onclick="insertWiki('<ref>','</ref>')" title="Nota a piè di pagina">[ref]</button>
-        <button class="tb-btn" onclick="insertWiki('\n----\n','')" title="Riga orizzontale">――</button>
-        <button class="tb-btn" onclick="insertWikiTable()" title="Tabella">⊞ Tab</button>
-        <button class="tb-btn" onclick="insertWikiInfobox()" title="Infobox">📋 IB</button>
-        <button class="tb-btn" onclick="insertWiki('\n{{TOC}}\n','')" title="Indice">📑 TOC</button>
-        <button class="tb-btn tb-sign" onclick="insertWiki('~~~~','')" title="Firma utente">~~~~</button>
-      </div>
-      <div class="tb-sep"></div>
-      <!-- Riga 6: strumenti avanzati -->
-      <div class="tb-group">
-        <button class="tb-btn tb-tool" onclick="toggleFindReplace()" title="Trova e sostituisci">🔍 F&S</button>
-        <button class="tb-btn tb-tool" onclick="togglePreviewInline()" title="Anteprima rapida">👁 Preview</button>
-        <button class="tb-btn tb-tool" onclick="toggleCharMap()" title="Caratteri speciali">Ω Caratteri</button>
-      </div>
-    </div>
-    <!-- Trova e sostituisci (nascosto di default) -->
-    <div id="find-replace-bar" style="display:none;padding:6px 18px;background:#f0f7ff;border-bottom:1px solid #c8d8e8;font-family:sans-serif;font-size:12px;gap:8px;align-items:center;flex-wrap:wrap">
-      <span style="font-weight:600">Trova:</span>
-      <input id="fr-find" type="text" style="padding:3px 7px;border:1px solid #a2a9b1;font-size:12px;width:130px">
-      <span style="font-weight:600">Sostituisci con:</span>
-      <input id="fr-replace" type="text" style="padding:3px 7px;border:1px solid #a2a9b1;font-size:12px;width:130px">
-      <button class="tb-btn" onclick="doFindReplace(false)" style="font-size:11px;padding:2px 8px">Sostituisci</button>
-      <button class="tb-btn" onclick="doFindReplace(true)" style="font-size:11px;padding:2px 8px">Sostituisci tutto</button>
-      <span id="fr-result" style="color:#54595d;font-size:11px;margin-left:4px"></span>
-    </div>
-    <!-- Mappa caratteri speciali (nascosta di default) -->
-    <div id="char-map-bar" style="display:none;padding:6px 18px;background:#f8f9fa;border-bottom:1px solid #eaecf0;font-family:sans-serif;font-size:12px">
-      <span style="font-weight:600;margin-right:8px">Inserisci:</span>
-      <span id="char-map-content"></span>
-    </div>
-    <div id="editor-content">
-      <textarea id="editor-textarea" placeholder="Scrivi qui il contenuto della pagina in wikitext...&#10;&#10;Esempi:&#10;'''testo grassetto'''&#10;''testo corsivo''&#10;[[Nome pagina|testo link]]&#10;==Titolo sezione==&#10;<ref>Nota a piè di pagina.</ref>" oninput="updateCharCount()"></textarea>
-      <div id="editor-char-count">0 caratteri</div>
-      <div id="editor-preview-panel" class="wiki-article-body"></div>
-    </div>
-    <div id="editor-summary-row">
-      <label>Oggetto modifica:</label>
-      <input type="text" id="editor-summary" placeholder="Descrivi brevemente cosa hai modificato...">
-    </div>
-    <div id="editor-actions">
-      <button class="editor-btn save" onclick="savePage()">💾 Salva la pagina</button>
-      <button class="editor-btn preview" onclick="previewPage()">👁 Anteprima</button>
-      <button class="editor-btn cancel" onclick="closeEditor()">Annulla</button>
-      <span id="editor-status" style="font-family:sans-serif;font-size:12px;color:#54595d;margin-left:auto"></span>
-    </div>
-  </div>
+<div id="editor-modal">
+<div id="editor-header">
+<h3 id="editor-modal-title">Modifica pagina</h3>
+<button id="editor-close" onclick="closeEditor()">✕</button>
+</div>
+<div id="editor-title-row">
+<label>Titolo:</label>
+<input id="editor-page-title" placeholder="Titolo della pagina..." type="text"/>
+</div>
+<div id="editor-toolbar">
+<!-- Riga 1: formattazione testo -->
+<div class="tb-group">
+<button class="tb-btn" onclick="insertWiki(&quot;'''&quot;,&quot;'''&quot;)" title="Grassetto (Ctrl+B)"><b>B</b></button>
+<button class="tb-btn" onclick="insertWiki(&quot;''&quot;,&quot;''&quot;)" title="Corsivo (Ctrl+I)"><i>I</i></button>
+<button class="tb-btn" onclick="insertWiki('&lt;s&gt;','&lt;/s&gt;')" title="Barrato"><s>S</s></button>
+<button class="tb-btn" onclick="insertWiki('&lt;u&gt;','&lt;/u&gt;')" title="Sottolineato"><u>U</u></button>
+<button class="tb-btn" onclick="insertWiki('&lt;sup&gt;','&lt;/sup&gt;')" title="Apice">x²</button>
+<button class="tb-btn" onclick="insertWiki('&lt;sub&gt;','&lt;/sub&gt;')" title="Pedice">x₂</button>
+<button class="tb-btn" onclick="insertWiki('&lt;code&gt;','&lt;/code&gt;')" title="Codice inline"><code style="font-size:10px">cod</code></button>
+<button class="tb-btn" onclick="insertWiki('&lt;nowiki&gt;','&lt;/nowiki&gt;')" title="Ignora wikimarkup">[[…]]</button>
+</div>
+<div class="tb-sep"></div>
+<!-- Riga 2: struttura -->
+<div class="tb-group">
+<button class="tb-btn" onclick="insertWiki('== ',' ==')" title="Titolo sezione H2">H2</button>
+<button class="tb-btn" onclick="insertWiki('=== ',' ===')" title="Sottosezione H3">H3</button>
+<button class="tb-btn" onclick="insertWiki('==== ',' ====')" title="Sotto-sottosezione H4">H4</button>
+</div>
+<div class="tb-sep"></div>
+<!-- Riga 3: link e media -->
+<div class="tb-group">
+<button class="tb-btn" onclick="insertWiki('[[',']]')" title="Link interno">[[Link]]</button>
+<button class="tb-btn" onclick="insertWiki('[https://esempio.com ','  ]')" title="Link esterno">[URL]</button>
+<button class="tb-btn" onclick="insertWikiFile()" title="Immagine">🖼</button>
+<button class="tb-btn" onclick="insertWiki('[[File:','|thumb|Didascalia]]')" title="Immagine con didascalia">📷</button>
+</div>
+<div class="tb-sep"></div>
+<!-- Riga 4: liste -->
+<div class="tb-group">
+<button class="tb-btn" onclick="insertWikiList('*')" title="Lista puntata">• Lista</button>
+<button class="tb-btn" onclick="insertWikiList('#')" title="Lista numerata">1. Lista</button>
+<button class="tb-btn" onclick="insertWiki(': ','')" title="Indentazione">⇥ Indent</button>
+<button class="tb-btn" onclick="insertWiki('; ','')" title="Termine definizione">; Def</button>
+</div>
+<div class="tb-sep"></div>
+<!-- Riga 5: speciali -->
+<div class="tb-group">
+<button class="tb-btn" onclick="insertWiki('&lt;ref&gt;','&lt;/ref&gt;')" title="Nota a piè di pagina">[ref]</button>
+<button class="tb-btn" onclick="insertWiki('\n----\n','')" title="Riga orizzontale">――</button>
+<button class="tb-btn" onclick="insertWikiTable()" title="Tabella">⊞ Tab</button>
+<button class="tb-btn" onclick="insertWikiInfobox()" title="Infobox">📋 IB</button>
+<button class="tb-btn" onclick="insertWiki('\n{{TOC}}\n','')" title="Indice">📑 TOC</button>
+<button class="tb-btn tb-sign" onclick="insertWiki('~~~~','')" title="Firma utente">~~~~</button>
+</div>
+<div class="tb-sep"></div>
+<!-- Riga 6: strumenti avanzati -->
+<div class="tb-group">
+<button class="tb-btn tb-tool" onclick="toggleFindReplace()" title="Trova e sostituisci">🔍 F&amp;S</button>
+<button class="tb-btn tb-tool" onclick="togglePreviewInline()" title="Anteprima rapida">👁 Preview</button>
+<button class="tb-btn tb-tool" onclick="toggleCharMap()" title="Caratteri speciali">Ω Caratteri</button>
+</div>
+</div>
+<!-- Trova e sostituisci (nascosto di default) -->
+<div id="find-replace-bar" style="display:none;padding:6px 18px;background:#f0f7ff;border-bottom:1px solid #c8d8e8;font-family:sans-serif;font-size:12px;gap:8px;align-items:center;flex-wrap:wrap">
+<span style="font-weight:600">Trova:</span>
+<input id="fr-find" style="padding:3px 7px;border:1px solid #a2a9b1;font-size:12px;width:130px" type="text"/>
+<span style="font-weight:600">Sostituisci con:</span>
+<input id="fr-replace" style="padding:3px 7px;border:1px solid #a2a9b1;font-size:12px;width:130px" type="text"/>
+<button class="tb-btn" onclick="doFindReplace(false)" style="font-size:11px;padding:2px 8px">Sostituisci</button>
+<button class="tb-btn" onclick="doFindReplace(true)" style="font-size:11px;padding:2px 8px">Sostituisci tutto</button>
+<span id="fr-result" style="color:#54595d;font-size:11px;margin-left:4px"></span>
+</div>
+<!-- Mappa caratteri speciali (nascosta di default) -->
+<div id="char-map-bar" style="display:none;padding:6px 18px;background:#f8f9fa;border-bottom:1px solid #eaecf0;font-family:sans-serif;font-size:12px">
+<span style="font-weight:600;margin-right:8px">Inserisci:</span>
+<span id="char-map-content"></span>
+</div>
+<div id="editor-content">
+<textarea id="editor-textarea" oninput="updateCharCount()" placeholder="Scrivi qui il contenuto della pagina in wikitext...
+
+Esempi:
+'''testo grassetto'''
+''testo corsivo''
+[[Nome pagina|testo link]]
+==Titolo sezione==
+&lt;ref&gt;Nota a piè di pagina.&lt;/ref&gt;"></textarea>
+<div id="editor-char-count">0 caratteri</div>
+<div class="wiki-article-body" id="editor-preview-panel"></div>
+</div>
+<div id="editor-summary-row">
+<label>Oggetto modifica:</label>
+<input id="editor-summary" placeholder="Descrivi brevemente cosa hai modificato..." type="text"/>
+</div>
+<div id="editor-actions">
+<button class="editor-btn save" onclick="savePage()">💾 Salva la pagina</button>
+<button class="editor-btn preview" onclick="previewPage()">👁 Anteprima</button>
+<button class="editor-btn cancel" onclick="closeEditor()">Annulla</button>
+<span id="editor-status" style="font-family:sans-serif;font-size:12px;color:#54595d;margin-left:auto"></span>
+</div>
+</div>
 </div>
 
-  </div>
-</div>
 
 <!-- TOAST -->
 <div id="toast">✓ Pagina salvata!</div>
-
 <script>
 // ══════════════════════════════════════════════════════
 //  DATI PAGINE
@@ -1087,23 +1094,31 @@ const DEFAULT_PAGES = {
       <button id="btn-2d" onclick="setMapMode('2d')" style="padding:5px 12px;border:none;border-radius:3px;cursor:pointer;background:transparent;color:#555;font-size:12px">🗺️ 2D</button>
     </div>
   </div>
-  <!-- Slider anno -->
-  <div id="year-slider-wrap" style="max-width:600px;margin:0 auto 10px;font-family:sans-serif;font-size:12px">
-    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+  <!-- Controllo anno -->
+  <div id="year-slider-wrap" style="max-width:700px;margin:0 auto 10px;font-family:sans-serif;font-size:12px">
+    <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:center">
       <label style="font-weight:600;white-space:nowrap;color:#202122">📅 Anno:</label>
-      <input type="range" id="year-slider" min="0" max="121" value="121" step="1"
-        style="flex:1;min-width:120px;accent-color:#3680b0"
-        oninput="onYearSlider(this.value)">
-      <span id="year-label" style="font-weight:700;color:#3680b0;min-width:54px;text-align:right">121 dM</span>
+      <button onclick="changeYear(-10)" style="padding:3px 7px;border:1px solid #a2a9b1;background:#f8f9fa;border-radius:3px;cursor:pointer;font-size:11px">−10</button>
+      <button onclick="changeYear(-5)"  style="padding:3px 7px;border:1px solid #a2a9b1;background:#f8f9fa;border-radius:3px;cursor:pointer;font-size:11px">−5</button>
+      <button onclick="changeYear(-1)"  style="padding:3px 7px;border:1px solid #a2a9b1;background:#f8f9fa;border-radius:3px;cursor:pointer;font-size:11px">−1</button>
+      <input id="year-input" type="number" min="0" value="122"
+        style="width:84px;padding:3px 6px;border:1px solid #a2a9b1;border-radius:3px;font-size:14px;font-weight:700;color:#3680b0;text-align:center"
+        oninput="onYearSlider(this.value)"
+        onchange="onYearSlider(this.value)"
+        onkeydown="if(event.key==='Enter'){onYearSlider(this.value); this.blur();}">
+      <span style="font-size:12px;color:#54595d">dM</span>
+      <button onclick="changeYear(1)"  style="padding:3px 7px;border:1px solid #a2a9b1;background:#f8f9fa;border-radius:3px;cursor:pointer;font-size:11px">+1</button>
+      <button onclick="changeYear(5)"  style="padding:3px 7px;border:1px solid #a2a9b1;background:#f8f9fa;border-radius:3px;cursor:pointer;font-size:11px">+5</button>
+      <button onclick="changeYear(10)" style="padding:3px 7px;border:1px solid #a2a9b1;background:#f8f9fa;border-radius:3px;cursor:pointer;font-size:11px">+10</button>
     </div>
-    <div id="year-desc" style="margin-top:4px;color:#54595d;font-size:11px;min-height:14px"></div>
+    <div id="year-desc" style="margin-top:4px;color:#54595d;font-size:11px;min-height:14px;text-align:center"></div>
   </div>
   </div>
 
-  <div id="globe-container" style="width:100%;max-width:600px;margin:0 auto;position:relative;cursor:grab;user-select:none">
-    <canvas id="globe-canvas" width="600" height="600" style="width:100%;height:auto;display:block;border-radius:50%;box-shadow:0 6px 32px rgba(0,0,0,0.22)"></canvas>
+  <div id="globe-container" style="width:fit-content;max-width:none;margin:0 auto;padding:0;position:relative;overflow:hidden;background:transparent;user-select:none;line-height:0">
+    <canvas id="globe-canvas" width="600" height="600" style="width:600px;height:600px;display:block;background:transparent;border-radius:50%;box-shadow:none;outline:none"></canvas>
     <!-- Canvas 2D sovrapposto -->
-    <canvas id="map2d-canvas" width="600" height="400" style="width:100%;height:auto;display:none;border:1px solid #a2a9b1;border-radius:4px"></canvas>
+    <canvas id="map2d-canvas" width="600" height="400" style="width:100%;height:auto;display:none;border:2px solid #7f8c99;border-radius:6px;box-shadow:0 2px 10px rgba(0,0,0,0.08)"></canvas>
     <div id="globe-tooltip" style="position:absolute;background:#202122;color:#fff;padding:5px 10px;border-radius:3px;font-size:12px;pointer-events:none;display:none;white-space:nowrap;z-index:10"></div>
   </div>
   <p style="font-size:12px;color:#54595d;margin-top:8px;font-family:sans-serif">Ruota il globo trascinando · Zoom con la rotella · Clicca un paese per aprire la pagina</p>
@@ -1134,6 +1149,7 @@ const DEFAULT_PAGES = {
   <li><a onclick="navigateTo('Sal da Spicci')"><b>Sal da Spicci</b></a> — Co-governatore di Napoli durante l'Età dell'Oro. Cantante straordinario. Scomparso nel 17 dM.</li>
   <li><a onclick="navigateTo('Sal da Vinci')"><b>Sal da Vinci</b></a> — Cantante di musica popolare meridionale. Somiglianza con Sal da Spicci: documentata, non commentata.</li>
   <li><a onclick="navigateTo('Ludovico Pio Tommasi')"><b>Ludovico Pio Tommasi</b></a> — Il Dio creatore di questo mondo.</li>
+  <li><a onclick="navigateTo('Giovanni Zecca')"><b>Giovanni Zecca</b></a> — Mandato da Ludo per insegnare alle scimmie. Ha inventato Python. Quando gli urlarono «Ciccione», crebbe fino ad avere una gravità propria; Ludo lo spinse nello spazio con un vento fortissimo, e la sua caduta del 24 Marzo 122 dM liberò Martano dal Cheddar.</li>
   <li><a onclick="navigateTo('La Fede')"><b>La Fede (Federica Didonfrancesco)</b></a> — Terza entità divina del Topismo. Appare quando hai vera fede. Specializzata nelle scoppulazioni.</li>
   <li><a onclick="navigateTo('Topus Maximus')"><b>Topus Maximus</b></a> — Figlio di Dio incarnato a Serrano. Fondatore del Topismo. Scoppulato a morte nel 103 dM.</li>
   <li><a onclick="navigateTo('Cheddar Mussolini')"><b>Cheddar Mussolini</b></a> — Leader dei Ludotopici. Guidò la Marcia su Serrano nel 104 dM.</li>
@@ -1184,7 +1200,7 @@ const DEFAULT_PAGES = {
 <p><b>Gli Avengers e l'America</b></p>
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
   <li><a onclick="navigateTo('Avengers')"><b>Avengers</b></a> — La potente organizzazione che controllava l'America. Fondata da Iron Spisso Man. Decimata nel 107 dM. In ricostruzione dal 109 dM.</li>
-  <li><a onclick="navigateTo('Zella')"><b>Zella</b></a> — Ex-Capo degli Avengers. L'Albanese. Creduto morto nel 107 dM — era fuori dal raggio della Bomba. Dal 109 dM combatte di nuovo con Alessio Spisso².</li>
+  <li><a onclick="navigateTo('Zella')"><b>Zella</b></a> — Capo degli Avengers. L'Albanese. Creduto morto nel 107 dM — era fuori dal raggio della Bomba. Dal 109 dM combatte di nuovo con Alessio Spisso². Recupera l'America nel 119 dM.</li>
   <li><a onclick="navigateTo('Iron Spisso Man')"><b>Iron Spisso Man</b></a> — È Alex Spisso. Fondatore degli Avengers. Morto nel 100 dM, resuscitato. Ha tradito e eliminato tutti gli Avengers nel 107 dM. Dal 107 dM dittatore dell'America. Dal 109 dM ha un problema chiamato Serrano volante.</li>
   <li><a onclick="navigateTo('Nigeria Spartiana')"><b>Nigeria Spartiana</b></a> — Stato africano fondato dai <a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a> nel 52 dM. Controlla tutta l'Africa. Si è arresa all'America nel 107 dM.</li>
 </ul>
@@ -1590,6 +1606,10 @@ DEFAULT_PAGES["Morello"].content = buildMorello();
 DEFAULT_PAGES["Calendario Morello"].content = buildCalendarioMorello();
 DEFAULT_PAGES["Ludovico Pio Tommasi"].content = buildLudovicoPioTommasi();
 DEFAULT_PAGES["VitoCarlo Tommasi"].content = buildVitoCarlo();
+DEFAULT_PAGES["Giovanni Zecca"] = { title: "Giovanni Zecca", content: "" };
+DEFAULT_PAGES["Giovanni Zecca"].content = buildGiovanniZecca();
+DEFAULT_PAGES["Pianeta Zecca"] = { title: "Pianeta Zecca", content: "" };
+DEFAULT_PAGES["Pianeta Zecca"].content = buildPianetaZecca();
 DEFAULT_PAGES["Topus Maximus"].content = buildTopusMaximus();
 DEFAULT_PAGES["Topismo"].content = buildTopismo();
 DEFAULT_PAGES["Avengers"].content = buildAvengers();
@@ -2223,6 +2243,94 @@ function buildVitoCarlo() {
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Divinità</a> <a>Topismo</a> <a>Architetti cosmici</a></div>`;
 }
 
+function buildGiovanniZecca() {
+  return `<div class="wiki-notice"><span class="ni">🐍</span><span>Giovanni Zecca ha insegnato alle scimmie come usare PowerPoint, ha inventato Python, è stato maledetto da Ludo, e il suo crollo a Martano ha liberato la città dal Cheddar. In ordine.</span></div>
+<h1 class="page-title">Giovanni Zecca</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Giovanni Zecca</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="giovanni_zecca.jpg" alt="Giovanni Zecca" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <table>
+    <tr><td>Nascita</td><td><b>1.000.036 pM</b> — origine sconosciuta</td></tr>
+    <tr><td>Mandato da</td><td><a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a></td></tr>
+    <tr><td>Missione originale</td><td>Insegnare alle scimmie — Word, PowerPoint, poi programmazione</td></tr>
+    <tr><td>Invenzione principale</td><td><b>Python</b> — linguaggio perfetto, creato dal C++</td></tr>
+    <tr><td>Linguaggio odiato</td><td>C++ (ma lo insegnava comunque, prima)</td></tr>
+    <tr><td>Linguaggio amato</td><td>Python</td></tr>
+    <tr><td>Maledizione</td><td>Alla parola «Ciccione» — il Cheddar interno aumenta</td></tr>
+    <tr><td>Maledetto da</td><td><a onclick="navigateTo('Ludovico Pio Tommasi')">Ludo</a> — per aver rifiutato di insegnare il C++</td></tr>
+    <tr><td>Evento fatale</td><td>24 Marzo 122 dM — i «Ciccione» lo fanno crescere, Ludo lo spinge nello spazio, la caduta libera Martano dal Cheddar</td></tr>
+    <tr><td>Posizione attuale</td><td>Orbita ellittica attorno alla Terra — circa 1/3 della massa terrestre</td></tr>
+    <tr><td>Sopravvivenza spaziale</td><td>Respira attraverso il Cheddar</td></tr>
+    <tr><td>Studente più famoso</td><td><a onclick="navigateTo('Morello')">Morello</a> — imparò il C++ e capì come programmare uno stato</td></tr>
+    <tr><td>Eroe di</td><td><a onclick="navigateTo('Jacopo Martucci')">Martano</a> — dal 122 dM, statua dedicata</td></tr>
+  </table>
+</div>
+<h2 id="missione-gz">La missione — dalle scimmie agli uomini <span class="edit-link" onclick="openEditor('Giovanni Zecca')">[modifica]</span></h2>
+<p>Giovanni Zecca arrivò quando le scimmie erano ancora scimmie. La sua prima lezione fu su come usare <b>Microsoft Word</b>. La seconda su <b>PowerPoint</b>. Nessuno sa perché Ludo ritenesse queste fossero le basi necessarie della civiltà — la teoria più accreditata è che Ludo, noto per la sua predilezione per il Latino, avesse semplicemente una visione molto elaborata della comunicazione scritta.</p>
+<p>Le scimmie impararono. Lentamente diventarono uomini. Gli uomini impararono a fare presentazioni con troppe slide e testo troppo piccolo, esattamente come Giovanni aveva insegnato. La civiltà procedeva. Poi arrivò la programmazione, e con essa il C++, e con il C++ arrivò il momento in cui tutto cambiò.</p>
+
+<h2 id="cpp-gz">Il C++ e la nascita di Python (1 dM) <span class="edit-link" onclick="openEditor('Giovanni Zecca')">[modifica]</span></h2>
+<p>Giovanni odiava il C++. Lo insegnava perché era necessario — era il linguaggio con cui Ludo aveva, metaforicamente, scritto le leggi fondamentali dell'universo. Senza di esso nessun altro linguaggio aveva senso. Lo insegnava con la pazienza di chi fa una cosa utile che non sopporta.</p>
+<p>Nel corso di questo insegnamento, Giovanni capì cosa mancava: un linguaggio potente come il C++ ma che non richiedesse di ricordare dove mettere i punti e virgola alle tre di notte. Un linguaggio che si leggesse quasi come una frase. Facile da capire ma capace di tutto — e anzi di più del C++ stesso, se usato bene.</p>
+<p>Nel <b>1 dM</b> — l'anno dell'arrivo di Morello a Napoli — Giovanni completò la creazione di <b>Python</b>. Era perfetto. Smise di insegnare il C++ lo stesso giorno. La coincidenza temporale con l'arrivo di Morello non è mai stata spiegata con soddisfazione da nessuno storico.</p>
+
+<h2 id="morello-gz">Morello e la programmazione degli stati <span class="edit-link" onclick="openEditor('Giovanni Zecca')">[modifica]</span></h2>
+<p>Tra i tanti studenti di Giovanni, uno imparò il C++ meglio di tutti gli altri: <a onclick="navigateTo('Morello')">Morello</a>. Fu Giovanni a insegnargli personalmente quel linguaggio, e attraverso quella logica rigida e strutturata Morello capì come si costruisce qualcosa che non crolla.</p>
+<p>Morello applicò quella comprensione non al codice ma alle persone. Capì come si programma uno stato: strutture di controllo, gestione degli errori, allocazione delle risorse, loop che si ripetono finché le condizioni non cambiano. Il sistema che <a onclick="navigateTo('Napoli')">Napoli</a> usò durante l'Età dell'Oro era così ben scritto che gli stati successivi lo copiarono senza capirlo completamente — e funzionava comunque. Prima di Morello i popoli erano tribù. Dopo Morello erano qualcosa di più organizzato. Giovanni Zecca è il motivo per cui esiste la civiltà.</p>
+
+<h2 id="lite-gz">La lite con Ludo e la maledizione (1 dM) <span class="edit-link" onclick="openEditor('Giovanni Zecca')">[modifica]</span></h2>
+<p>Quando Giovanni smise di insegnare il C++ e si dedicò solo a Python, <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludo</a> non fu contento. Ludo aveva una visione precisa dell'ordine delle cose: prima le basi, poi le applicazioni. Il C++ era le basi. Python era un'applicazione. Non si saltano le basi.</p>
+<p>Giovanni non era d'accordo. Python era meglio — più chiaro, più potente, più leggibile. Il C++ era lo strumento con cui aveva costruito Python, ma uno strumento di costruzione non deve essere insegnato a chi deve solo usare l'edificio. La discussione andò avanti per settimane. Ludo, che preferiva il Latino alla programmazione e trovava l'intera vicenda irritante, nel <b>1 dM</b> pronunciò la maledizione:</p>
+<p style="margin:12px 24px;padding:12px 16px;border-left:3px solid #7b1fa2;background:#f3e5f5;font-family:sans-serif;font-size:13px"><i>«Ogni volta che qualcuno ti dirà in faccia la parola Ciccione, il Cheddar dentro di te aumenterà.»</i></p>
+<p>Giovanni rifiutò comunque di insegnare il C++. La maledizione rimase attiva. Era lo stesso anno in cui Morello arrivava a Napoli — un anno particolarmente denso per la storia di questo universo.</p>
+
+<h2 id="citta-gz">L'insegnamento alle città (3–90 dM) <span class="edit-link" onclick="openEditor('Giovanni Zecca')">[modifica]</span></h2>
+<p>Dopo la maledizione Giovanni non smise di insegnare. Cambiò solo il tipo di studenti. Gli uomini comuni avevano già imparato abbastanza — Word, PowerPoint, qualche linguaggio di programmazione. Quello che mancava erano le grandi città: istituzioni complesse, sistemi di governo, architetture burocratiche che avevano bisogno di qualcuno che capisse come si scrive un programma che dura.</p>
+<p>Dal <b>3 dM</b> Giovanni cominciò a insegnare alle città. Non alle persone singole, ma alle strutture stesse — ai governi, alle amministrazioni, alle reti di relazioni che tengono in piedi un posto. Python era lo strumento perfetto: elegante, leggibile, adattabile. Con Python si poteva scrivere qualsiasi cosa, compreso il modo in cui una città decide come funzionare.</p>
+
+<h2 id="napoli-gz">Napoli (3–17 dM) <span class="edit-link" onclick="openEditor('Giovanni Zecca')">[modifica]</span></h2>
+<p>La prima città fu <a onclick="navigateTo('Napoli')">Napoli</a>. Era ovvio — Morello stava costruendo qualcosa di straordinario e aveva bisogno di strumenti all'altezza. Giovanni arrivò nel <b>3 dM</b> e trovò una città che aveva già una struttura eccezionale grazie al C++ che Morello aveva assorbito, ma che poteva diventare qualcosa di ancora più raffinato con Python.</p>
+<p>I quattordici anni che Giovanni passò a Napoli furono i più produttivi della sua vita di insegnante. Lavorò direttamente con <a onclick="navigateTo('Morello')">Morello</a> e <a onclick="navigateTo('Sal da Spicci')">Sal da Spicci</a> — quest'ultimo non capiva nulla di programmazione ma aveva un'intuizione musicale del ritmo che Giovanni trovava utile per spiegare i cicli. Il risultato fu il sistema amministrativo di Napoli durante l'Età dell'Oro: così preciso, così robusto, così ben documentato che nessuno riuscì mai a toglierlo del tutto nemmeno quando tutto il resto crollò.</p>
+<p>Nel <b>17 dM</b> il Vesuvio eruttò. Morello sparì. Giovanni lasciò Napoli lo stesso giorno — non per paura della lava, ma perché senza Morello la città non era più interessante da insegnare. Nel senso più professionale del termine.</p>
+<p>Nei decenni successivi Giovanni continuò a spostarsi tra le città del Sud, insegnando Python agli apparati amministrativi di centri minori, aiutando borghi e paesi a costruire sistemi di gestione che sarebbero durati generazioni. Non tutte le città impararono allo stesso modo — alcune erano più veloci, altre più lente, alcune facevano domande stupide e alcune domande geniali. Giovanni le trattava tutte con uguale pazienza, anche se con uguale insofferenza per chi continuava a chiedere perché non insegnasse il C++.</p>
+
+<h2 id="martano-gz">Il trasferimento a Martano (90 dM) e il 24 Marzo 122 dM<span class="edit-link" onclick="openEditor('Giovanni Zecca')">[modifica]</span></h2>
+<p>Nel <b>90 dM</b> Giovanni si stabilì a <a onclick="navigateTo('Martano')">Martano</a>. La scelta non fu casuale — Martano era una città piccola ma con una struttura amministrativa che Giovanni trovava interessante, e con un'atmosfera che, nonostante la grandine di Cheddar che cadeva ininterrottamente dal 9 dM, aveva un certo fascino. Giovanni si adattò alla grandine. Portava sempre un ombrello.</p>
+<p>Rimase a Martano per anni, insegnando Python alla struttura municipale, ai commercianti, a chiunque volesse imparare. Erano anni tranquilli. Poche persone nella sua vita a Martano gli dissero «Ciccione» in faccia. La maledizione era attiva ma raramente innescata.</p>
+<p>Poi arrivò il <b>24 Marzo 122 dM</b>.</p>
+<p>Giovanni stava camminando verso la scuola quando cadde — troppa grandine di Cheddar, la strada sconnessa, una combinazione sfortunata. La caduta provocò una piccola onda d'urto. L'onda d'urto attirò curiosità e spostò le nuvole che stavano occupando il cielo di Martano dal 9 dM. Le persone si avvicinarono. Non gli dicevano «Ciccione» direttamente — ma erano abbastanza vicine che Giovanni poteva sentire la parola circolare, sussurrata, commentata. Questo bastava. Il Cheddar aumentò.</p>
+<p>Giovanni divenne più grande. Più persone accorsero. Più persone significava più commenti, più commenti significava più Cheddar, più Cheddar significava più massa. Il ciclo si autoalimentò finché la massa fu abbastanza da avere una gravità propria — e le persone smisero di avvicinarsi per curiosità e iniziarono ad essere attratte fisicamente.</p>
+<p>Ludo intervenne. Alzò un vento fortissimo che sollevò Giovanni da terra e lo lanciò nello spazio. Giovanni, che a quel punto era circa un <b>terzo della Terra</b>, raggiunse l'orbita.</p>
+<p>Il sindaco di <a onclick="navigateTo('Martano')">Martano</a> creò una statua in suo onore per averli liberati da quelle terribili pioggie di Cheddar che occupavano il cielo di <a onclick="navigateTo('Martano')">Martano</a> dal 9 dM. Purtroppo la statua era troppo fedele a Giovanni Zecca, gli scultori vollero rispettare anche la sua enorme massa in quella caduta, e poco meno di un mese dalla creazione della statua, la base della statua incominciò a inclinarsi per il troppo peso che doveva sostenere</p>
+<p>La sua caduta fu ciò che liberò Martano dal Cheddar. Per questo la statua resta al suo posto: celebra proprio quel momento in cui il vento di Ludo, la caduta e la liberazione della città diventarono la stessa storia. Anche se è inclinata leggermente.</p>
+<div class="stub-box"><span style="font-size:22px">🐍</span><span>Giovanni Zecca rimane il caso più noto di crescita causata da insulti.</span></div>
+</div>`;
+}
+function buildPianetaZecca() {
+  return `<div class="wiki-notice"><span class="ni">🪐</span><span>Il Pianeta Zecca è la voce cosmica dedicata alla massa crescente di Giovanni Zecca, alla sua orbita attorno alla Terra e alla sua sensibilità verso la parola «Ciccione».</span></div>
+<h1 class="page-title">Pianeta Zecca</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Pianeta Zecca</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="pianeta_zecca.png" alt="Foto locale del Pianeta Zecca" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <table>
+    <tr><td>Entità centrale</td><td><a onclick="navigateTo('Giovanni Zecca')">Giovanni Zecca</a></td></tr>
+    <tr><td>Orbita</td><td>Ellittica, attorno alla Terra</td></tr>
+    <tr><td>Origine della massa</td><td>Gli insulti ricevuti quando è stato chiamato «Ciccione»</td></tr>
+    <tr><td>Effetto collaterale</td><td>Gravità propria e crescita progressiva</td></tr>
+  </table>
+</div>
+
+<p><b>Pianeta Zecca</b> è il nome informale dato allo stato cosmico di Giovanni Zecca dopo il giorno in cui Ludo lo spinse nello spazio per salvare Martano. Giovanni non perse solo peso: perse anche ogni somiglianza con un essere che potesse essere ignorato. Le persone continuarono a chiamarlo <i>Ciccione</i> da lontano, e ogni volta che arrivava abbastanza vicino alla Terra per sentirlo, si ingrandiva di poco.</p>
+<p>Per questo il Pianeta Zecca non è davvero un pianeta nel senso astronomico più preciso: è una presenza orbitante, massiccia, testarda, e soprattutto sensibile alle voci. Più si avvicina, più sente tutto. Più sente, più cresce. È una dinamica semplice, quasi elegante, e perfettamente adatta a un universo in cui le parole possono diventare fisica.</p>
+<p>La sua grandezza lo rende visibile a tratti e invisibile ad altri. Quando sparisce dalla vista, non è mai del tutto andato: sta solo diventando un po' più grande da qualche parte nell'orbita terrestre, aspettando che qualcuno lo richiami con la parola sbagliata.</p>
+<p>Alla fine, quando Giovanni era abbastanza vicino alla Terra, riusciva a sentire ogni singolo «Ciccione». Anche se non si vedeva, si ingrandiva di poco. E così continua.</p>
+<div class="stub-box"><span style="font-size:22px">🪐</span><span>Pianeta Zecca cresce con gli insulti, orbita con dignità e non dimentica niente.</span></div>
+</div>`;
+}
 function buildTopusMaximus() {
   return `<div class="wiki-notice"><span class="ni">✝️</span><span>Questa voce contiene informazioni su un martirio. I Ludotopici sono pregati di non prendersela troppo durante la lettura.</span></div>
 <h1 class="page-title">Topus Maximus</h1>
@@ -2915,7 +3023,7 @@ function buildCalendarioMorello() {
   </table>
 </div>
 
-<p>Il <b>Calendario Morello</b> è un sistema di datazione lineare il cui anno zero corrisponde all'arrivo di <a onclick="navigateTo('Morello')">Morello</a> a <a onclick="navigateTo('Napoli')">Napoli</a> nel <b>1917 d.C.</b> Le date sono espresse in <b>dM</b> — <i>anno Morello</i> — e contano in avanti da quel momento. Per gli anni precedenti si usa <b>pM</b> (<i>pre-anno-Morello</i>), con i numeri che crescono andando indietro.</p>
+<p>Il <b>Calendario Morello</b> è un sistema di datazione lineare il cui anno zero corrisponde all'arrivo di <a onclick="navigateTo('Morello')">Morello</a> a <a onclick="navigateTo('Napoli')">Napoli</a> nel <b>1917 d.C.</b> Le date sono espresse in <b>dM</b> — <i>anno Morello</i> — e contano in avanti da quel momento. Per gli anni precedenti si usa <b>pM</b> (<i>pre-anno-Morello</i>), con i numeri che crescono andando indietro nel tempo: 1 pM è l'anno prima di Morello, 100 pM è cento anni prima, e così via fino a <a onclick="navigateTo('Giovanni Zecca')">Giovanni Zecca</a> che nasce nel <b>1000036 pM</b>.</p>
 <p>La formula è semplice: <b>dM = anno gregoriano − 1917</b>. Quindi 1980 d.C. = 63 dM, 2009 d.C. = 92 dM, 1911 d.C. = 6 pM. Non è un calendario ufficiale, non compare su nessun documento anagrafico, e nessuna istituzione lo ha mai riconosciuto. Lo usano comunque, il che a Napoli equivale a una ratifica istituzionale.</p>
 
 <div class="toc-box">
@@ -2942,10 +3050,15 @@ function buildCalendarioMorello() {
     <td style="padding:6px 10px;border:1px solid #a2a9b1">Anno Morello</td>
     <td style="padding:6px 10px;border:1px solid #a2a9b1">Evento</td>
   </tr>
+  <tr style="background:#f3e5f5"><td style="padding:5px 10px;border:1px solid #a2a9b1">≈ −998.117.000 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>1.000.036 pM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Nascita di <a onclick="navigateTo('Giovanni Zecca')">Giovanni Zecca</a> — mandato da <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludo</a> per insegnare alle scimmie</td></tr>
+  <tr style="background:#f3e5f5"><td style="padding:5px 10px;border:1px solid #a2a9b1">—</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>antichissimo pM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Giovanni Zecca')">Giovanni Zecca</a> insegna PowerPoint, Word, poi C++, poi inventa Python · maledetto da Ludo con il Cheddar</td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1911 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>6 pM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali</a> conosce Pierpaolo durante il servizio militare</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1917 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>Anno 0 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Arrivo di <a onclick="navigateTo('Morello')">Morello</a> a Napoli · inizio Età dell'Oro</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1926 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>9 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Inizio piogge e grandine di Cheddar su <a onclick="navigateTo('Jacopo Martucci')">Martano</a> — origine sconosciuta · durerà 113 anni</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1918 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>1 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Giovanni Zecca')">Giovanni Zecca</a> inventa <b>Python</b> · smette di insegnare il C++ · <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludo</a> lo maledice con il Cheddar</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1920 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>3 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Giovanni Zecca')">Giovanni Zecca</a> inizia ad insegnare alle città — prima tappa: <a onclick="navigateTo('Napoli')">Napoli</a></td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1920 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>3 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Nascita di <a onclick="navigateTo('Carmelo Spisso')">Carmelo Spisso</a> (aviatore)</td></tr>
-  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1934 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>17 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Eruzione del Vesuvio · fine Età dell'Oro · scomparsa di <a onclick="navigateTo('Morello')">Morello</a> e <a onclick="navigateTo('Sal da Spicci')">Sal da Spicci</a></td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1934 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>17 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Eruzione del Vesuvio · fine Età dell'Oro · scomparsa di <a onclick="navigateTo('Morello')">Morello</a> e <a onclick="navigateTo('Sal da Spicci')">Sal da Spicci</a> · <a onclick="navigateTo('Giovanni Zecca')">Giovanni Zecca</a> lascia Napoli</td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1935 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>18 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Nascita di <a onclick="navigateTo('Ermenegildo Spisso')">Ermenegildo "Gildo" Spisso</a> (14 febbraio)</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1940 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>23 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Fondazione del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> da Gennaro Spisso</td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1951 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>34 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Laurea di <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a> a Napoli</td></tr>
@@ -2966,7 +3079,7 @@ function buildCalendarioMorello() {
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1997 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>80 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Alessio Spisso in Afghanistan</td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2004 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>87 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Intercettazioni "nipote americano"</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2006 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>89 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Operazione <a onclick="navigateTo('Riccardo Pascali')">Riccardo Pascali</a> — smantellamento del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a></td></tr>
-  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2007 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>90 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Serrano in fiamme · apparizione del <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a></td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2007 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>90 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Serrano in fiamme · apparizione del <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> · <a onclick="navigateTo('Giovanni Zecca')">Giovanni Zecca</a> si stabilisce a <a onclick="navigateTo('Jacopo Martucci')">Martano</a></td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2009 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>92 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> (come <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a>) fonda gli <a onclick="navigateTo('Avengers')">Avengers</a> con <a onclick="navigateTo('Zella (Avengers)')">Zella</a></td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2017 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>100 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Attacco di <a onclick="navigateTo('Gianluca Pascali')">Gianluca Pocchia</a> alla casa di <a onclick="navigateTo('Zella (Avengers)')">Zella</a> · <a onclick="navigateTo('Alex Spisso')">Iron Spisso Man</a> muore intrappolato nell'edificio</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2018 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>101 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra degli Avengers</a> · subito dopo: <a onclick="navigateTo('Seconda Guerra degli Avengers')">Seconda Guerra degli Avengers</a> · Iron Spisso Man resuscitato e poi riportato all'ordine da Zella</td></tr>
@@ -2989,6 +3102,7 @@ function buildCalendarioMorello() {
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2036 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>119 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>Fine della Terza Guerra</b> · Alex usa il Minerale Spisso su Alessio · tenta di potenziare sé stesso con una bomba · viene disintegrato · Alessio perde i poteri · scoperta dello Spisso degli Spisso</td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2037 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>120 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Zella (Avengers)')">Zella</a> assume il controllo dell'America · base degli Avengers ricostruita</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2038 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>121 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> trovato e imprigionato — si nascondeva nella dogana dello <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> a <a onclick="navigateTo('Castri')">Castri</a></td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2039 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>122 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Giovanni Zecca')">Giovanni Zecca</a> sente i «Ciccione», cresce fino ad avere una gravità propria · Ludo lo spinge nello spazio con un vento fortissimo · cade a Martano il 24 Marzo · l'onda d'urto libera la città dal Cheddar · proclamato eroe · statua inaugurata (inclinata)</td></tr>
 </table>
 
 <h2 id="eventi-cm">Note sulla conversione — eventi chiave <span class="edit-link" onclick="openEditor('Calendario Morello')">[modifica]</span></h2>
@@ -3830,6 +3944,11 @@ function buildPrimaGuerraAvengers() {
 <h1 class="page-title">Prima Guerra degli Avengers</h1>
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
+<div style="margin:0 0 16px;background:#000;border-radius:4px;overflow:hidden;max-width:560px">
+  <video controls style="width:100%;display:block" onerror="this.parentElement.innerHTML='<p style=\'color:#aaa;padding:12px;font-family:sans-serif;font-size:13px\'>⚠️ Video non trovato — metti <b>prima_guerra.mp4</b> nella stessa cartella dell\'HTML.</p>'">
+    <source src="prima_guerra.mp4" type="video/mp4">
+  </video>
+</div>
 <div class="infobox">
   <div class="infobox-title">Prima Guerra degli Avengers</div>
   <table>
@@ -3869,6 +3988,11 @@ function buildSecondaGuerraAvengers() {
 <h1 class="page-title">Seconda Guerra degli Avengers</h1>
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
+<div style="margin:0 0 16px;background:#000;border-radius:4px;overflow:hidden;max-width:560px">
+  <video controls style="width:100%;display:block" onerror="this.parentElement.innerHTML='<p style=\'color:#aaa;padding:12px;font-family:sans-serif;font-size:13px\'>⚠️ Video non trovato — metti <b>seconda_guerra.mp4</b> nella stessa cartella dell\'HTML.</p>'">
+    <source src="seconda_guerra.mp4" type="video/mp4">
+  </video>
+</div>
 <div class="infobox">
   <div class="infobox-title">Seconda Guerra degli Avengers</div>
   <table>
@@ -3902,7 +4026,7 @@ function buildSecondaGuerraAvengers() {
 <p>Zella gli disse molte volte di smettere. Fu paziente. Fu ragionevole. Fu preciso. Iron Spisso Man non ascoltò. Allora Zella disse le ultime parole prima della guerra:</p>
 
 <blockquote style="margin:16px 24px;padding:12px 16px;border-left:3px solid #a2a9b1;font-style:italic;font-family:'Source Serif 4',serif;font-size:13.5px;color:#333">
-  «Se lo tocchi la mia casa e il casco di Darth Vader questa spada laser te la ficco nel—»
+  «Se tocchi la mia casa e il casco di Darth Vader questa spada laser te la ficco nel—»
   <footer style="margin-top:6px;font-size:12px;color:#54595d;font-style:normal">— Zella. Si fermò lì.</footer>
 </blockquote>
 
@@ -4549,10 +4673,15 @@ function renderPage(name) {
   // I link [modifica] sono sempre visibili
 
   // Aggiorna lista comunità se siamo sulla Main
-  if (name === 'Main') {
-    setTimeout(renderCommunityPages, 50);
-    setTimeout(initGlobe, 80); // inizializza il globo dopo che il DOM è pronto
-  }
+if (name === 'Main') {
+  setTimeout(renderCommunityPages, 50);
+  setTimeout(() => {
+    initGlobe();
+    setTimeout(() => {
+      if (globeMapMode === '2d') draw2DMap();
+    }, 200);
+  }, 80);
+}
 
   document.title = `${page.title} — Pocchiaciclopedia`;
 
@@ -5765,6 +5894,49 @@ let globeAutoRot = true;      // riferimento sincronizzato con initGlobe
 let map2dZoom = 1.0, map2dOffX = 0, map2dOffY = 0;
 let map2dDragging = false, map2dLastX = 0, map2dLastY = 0;
 let map2dPinchDist = null;
+
+function clampMap2DView() {
+  const c2d = document.getElementById('map2d-canvas');
+  if (!c2d) return;
+  
+  const W = c2d.width;
+  const H = c2d.height;
+  
+  // Limiti zoom
+  const MIN_ZOOM = 0.8;
+  const MAX_ZOOM = 8.0;
+  map2dZoom = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, map2dZoom));
+  
+  // Dimensioni immagine dopo zoom
+  const imgW = W * map2dZoom;
+  const imgH = H * map2dZoom;
+  
+  // Calcola i limiti di spostamento: l'immagine NON deve mai uscire dal canvas
+  // Se l'immagine è più grande del canvas
+  let minOffX, maxOffX, minOffY, maxOffY;
+  
+  if (imgW > W) {
+    // Immagine più larga: può scorrere ma i bordi non devono uscire
+    minOffX = W - imgW;  // limite sinistro (valore negativo)
+    maxOffX = 0;          // limite destro
+  } else {
+    // Immagine più piccola: centrata, non si muove
+    minOffX = maxOffX = (W - imgW) / 2;
+  }
+  
+  if (imgH > H) {
+    // Immagine più alta: può scorrere ma i bordi non devono uscire
+    minOffY = H - imgH;  // limite superiore (valore negativo)
+    maxOffY = 0;          // limite inferiore
+  } else {
+    // Immagine più piccola: centrata, non si muove
+    minOffY = maxOffY = (H - imgH) / 2;
+  }
+  
+  // Applica i limiti
+  map2dOffX = Math.min(maxOffX, Math.max(minOffX, map2dOffX));
+  map2dOffY = Math.min(maxOffY, Math.max(minOffY, map2dOffY));
+}
 // Frame animazione bombe
 
 function setMapMode(mode) {
@@ -5785,120 +5957,170 @@ function setMapMode(mode) {
     c3d.style.display = 'none';
     if (c2d) {
       c2d.style.display = 'block';
-      // Aggiungi listener zoom/drag solo una volta
-      if (!c2d._zoomReady) {
-        c2d._zoomReady = true;
-        c2d.addEventListener('wheel', e => {
-          e.preventDefault();
-          const factor = e.deltaY < 0 ? 1.12 : 0.89;
-          const rect = c2d.getBoundingClientRect();
-          const mx = (e.clientX - rect.left) * (c2d.width / rect.width);
-          const my = (e.clientY - rect.top) * (c2d.height / rect.height);
-          map2dOffX = mx - (mx - map2dOffX) * factor;
-          map2dOffY = my - (my - map2dOffY) * factor;
-          map2dZoom = Math.max(0.5, Math.min(8, map2dZoom * factor));
-        }, {passive:false});
-        c2d.addEventListener('mousedown', e => { map2dDragging=true; map2dLastX=e.clientX; map2dLastY=e.clientY; c2d.style.cursor='grabbing'; });
-        window.addEventListener('mousemove', e => {
-          if (!map2dDragging) return;
-          const scale = c2d.width / c2d.getBoundingClientRect().width;
-          map2dOffX += (e.clientX - map2dLastX) * scale;
-          map2dOffY += (e.clientY - map2dLastY) * scale;
-          map2dLastX=e.clientX; map2dLastY=e.clientY;
-        });
-        window.addEventListener('mouseup', () => { map2dDragging=false; c2d.style.cursor='grab'; });
-        c2d.addEventListener('touchstart', e => {
-          e.preventDefault();
-          if (e.touches.length===1) { map2dDragging=true; map2dLastX=e.touches[0].clientX; map2dLastY=e.touches[0].clientY; }
-          if (e.touches.length===2) {
-            const dx=e.touches[0].clientX-e.touches[1].clientX, dy=e.touches[0].clientY-e.touches[1].clientY;
-            map2dPinchDist=Math.sqrt(dx*dx+dy*dy);
-          }
-        },{passive:false});
-        c2d.addEventListener('touchmove', e => {
-          e.preventDefault();
-          const scale = c2d.width / c2d.getBoundingClientRect().width;
-          if (e.touches.length===1) {
-            map2dOffX+=(e.touches[0].clientX-map2dLastX)*scale;
-            map2dOffY+=(e.touches[0].clientY-map2dLastY)*scale;
-            map2dLastX=e.touches[0].clientX; map2dLastY=e.touches[0].clientY;
-          }
-          if (e.touches.length===2 && map2dPinchDist) {
-            const dx=e.touches[0].clientX-e.touches[1].clientX, dy=e.touches[0].clientY-e.touches[1].clientY;
-            const d=Math.sqrt(dx*dx+dy*dy);
-            map2dZoom=Math.max(0.5,Math.min(8,map2dZoom*d/map2dPinchDist));
-            map2dPinchDist=d;
-          }
-        },{passive:false});
-        c2d.addEventListener('touchend', () => { map2dDragging=false; map2dPinchDist=null; });
-        c2d.style.cursor = 'grab';
-
-        // Tooltip hover 2D
-        c2d.addEventListener('mousemove', e => {
-          if (map2dDragging) return;
-          const rect = c2d.getBoundingClientRect();
-          const W2 = c2d.width, H2 = c2d.height;
-          const scale = W2 / rect.width;
-          const cx = (e.clientX - rect.left) * scale;
-          const cy = (e.clientY - rect.top) * scale;
-          const wx = (cx - map2dOffX) / map2dZoom;
-          const wy = (cy - map2dOffY) / map2dZoom;
-          function ll2px(lon, lat) { return { x:((lon+180)/360)*W2, y:((90-lat)/180)*H2 }; }
-          const terr = window._globeTerritories || [];
-          let best = null, bestDist = Infinity;
-          terr.forEach(t => {
-            if (t.warOnly) return;
-            if (!isTerritoryVisible(t)) return; // non esiste ancora
-            const p = ll2px(t.label.lon, t.label.lat);
-            const dx = wx - p.x, dy = wy - p.y;
-            const dist = Math.sqrt(dx*dx + dy*dy);
-            const hitPx = (t.hitR || 2) * W2 / 360;
-            if (dist < hitPx && dist < bestDist) { bestDist = dist; best = t; }
-          });
-          const tip = document.getElementById('globe-tooltip');
-          const cont = document.getElementById('globe-container');
-          if (best && tip) {
-            // Nome e navigazione corretti per l'anno
-            const navName = best.navigateTo || best.name;
-            tip.textContent = navName;
-            tip.style.display = 'block';
-            const cr = cont.getBoundingClientRect();
-            tip.style.left = (e.clientX - cr.left + 14) + 'px';
-            tip.style.top  = (e.clientY - cr.top  - 14) + 'px';
-            c2d.style.cursor = 'pointer';
-          } else if (tip) {
-            tip.style.display = 'none';
-            c2d.style.cursor = map2dDragging ? 'grabbing' : 'grab';
-          }
-        });
-        c2d.addEventListener('mouseleave', () => {
-          const t = document.getElementById('globe-tooltip');
-          if (t) t.style.display = 'none';
-        });
-        c2d.addEventListener('click', e => {
-          if (map2dDragging) return;
-          const rect = c2d.getBoundingClientRect();
-          const W2 = c2d.width, H2 = c2d.height;
-          const scale = W2 / rect.width;
-          const wx = ((e.clientX - rect.left) * scale - map2dOffX) / map2dZoom;
-          const wy = ((e.clientY - rect.top)  * scale - map2dOffY) / map2dZoom;
-          function ll2px(lon, lat) { return { x:((lon+180)/360)*W2, y:((90-lat)/180)*H2 }; }
-          const terr = window._globeTerritories || [];
-          let best = null, bestDist = Infinity;
-          terr.forEach(t => {
-            if (t.warOnly || !isTerritoryVisible(t)) return;
-            const p = ll2px(t.label.lon, t.label.lat);
-            const dx = wx - p.x, dy = wy - p.y;
-            const dist = Math.sqrt(dx*dx + dy*dy);
-            const hitPx = (t.hitR || 2) * W2 / 360;
-            if (dist < hitPx && dist < bestDist) { bestDist = dist; best = t; }
-          });
-          if (best) {
-            const nav = best.navigateTo || best.name;
-            navigateTo(nav);
-          }
-        });
-      }
+if (!c2d._zoomReady) {
+  c2d._zoomReady = true;
+  
+  // === ZOOM CON ROTELLINA MOUSE ===
+  c2d.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    
+    const rect = c2d.getBoundingClientRect();
+    const scaleX = c2d.width / rect.width;
+    const scaleY = c2d.height / rect.height;
+    const mouseX = (e.clientX - rect.left) * scaleX;
+    const mouseY = (e.clientY - rect.top) * scaleY;
+    
+    const worldX = (mouseX - map2dOffX) / map2dZoom;
+    const worldY = (mouseY - map2dOffY) / map2dZoom;
+    
+    const delta = e.deltaY > 0 ? 0.9 : 1.1;
+    let newZoom = map2dZoom * delta;
+    newZoom = Math.max(0.8, Math.min(8.0, newZoom));
+    
+    map2dOffX = mouseX - worldX * newZoom;
+    map2dOffY = mouseY - worldY * newZoom;
+    map2dZoom = newZoom;
+    
+    clampMap2DView();
+    draw2DMap();
+  }, { passive: false });
+  
+  // === DRAG CON MOUSE ===
+  c2d.addEventListener('mousedown', function(e) {
+    e.preventDefault();
+    map2dDragging = true;
+    map2dLastX = e.clientX;
+    map2dLastY = e.clientY;
+    c2d.style.cursor = 'grabbing';
+  });
+  
+  window.addEventListener('mousemove', function(e) {
+    if (!map2dDragging) return;
+    
+    const rect = c2d.getBoundingClientRect();
+    const scaleX = c2d.width / rect.width;
+    const scaleY = c2d.height / rect.height;
+    
+    const dx = (e.clientX - map2dLastX) * scaleX;
+    const dy = (e.clientY - map2dLastY) * scaleY;
+    
+    map2dOffX += dx;
+    map2dOffY += dy;
+    
+    map2dLastX = e.clientX;
+    map2dLastY = e.clientY;
+    
+    clampMap2DView();
+    draw2DMap();
+  });
+  
+  window.addEventListener('mouseup', function() {
+    map2dDragging = false;
+    c2d.style.cursor = 'grab';
+  });
+  
+  // === TOUCH PER MOBILE (quello che già avevi, ma con draw2DMap aggiunto) ===
+  c2d.addEventListener('touchstart', e => {
+    e.preventDefault();
+    if (e.touches.length===1) { map2dDragging=true; map2dLastX=e.touches[0].clientX; map2dLastY=e.touches[0].clientY; }
+    if (e.touches.length===2) {
+      const dx=e.touches[0].clientX-e.touches[1].clientX, dy=e.touches[0].clientY-e.touches[1].clientY;
+      map2dPinchDist=Math.sqrt(dx*dx+dy*dy);
+    }
+  },{passive:false});
+  
+  c2d.addEventListener('touchmove', e => {
+    e.preventDefault();
+    const scale = c2d.width / c2d.getBoundingClientRect().width;
+    if (e.touches.length===1) {
+      map2dOffX+=(e.touches[0].clientX-map2dLastX)*scale;
+      map2dOffY+=(e.touches[0].clientY-map2dLastY)*scale;
+      map2dLastX=e.touches[0].clientX; map2dLastY=e.touches[0].clientY;
+      clampMap2DView();
+      draw2DMap();
+    }
+    if (e.touches.length===2 && map2dPinchDist) {
+      const dx=e.touches[0].clientX-e.touches[1].clientX, dy=e.touches[0].clientY-e.touches[1].clientY;
+      const d=Math.sqrt(dx*dx+dy*dy);
+      map2dZoom=Math.max(0.8,Math.min(8,map2dZoom*d/map2dPinchDist));
+      map2dPinchDist=d;
+      clampMap2DView();
+      draw2DMap();
+    }
+  },{passive:false});
+  
+  c2d.addEventListener('touchend', () => { map2dDragging=false; map2dPinchDist=null; });
+  
+  c2d.style.cursor = 'grab';
+  
+  // === TOOLTIP E CLICK (quelli che già avevi, li lascio invariati) ===
+  c2d.addEventListener('mousemove', e => {
+    if (map2dDragging) return;
+    const rect = c2d.getBoundingClientRect();
+    const W2 = c2d.width, H2 = c2d.height;
+    const scale = W2 / rect.width;
+    const cx = (e.clientX - rect.left) * scale;
+    const cy = (e.clientY - rect.top) * scale;
+    const wx = (cx - map2dOffX) / map2dZoom;
+    const wy = (cy - map2dOffY) / map2dZoom;
+    function ll2px(lon, lat) { return { x:((lon+180)/360)*W2, y:((90-lat)/180)*H2 }; }
+    const terr = window._globeTerritories || [];
+    let best = null, bestDist = Infinity;
+    terr.forEach(t => {
+      if (t.warOnly) return;
+      if (!isTerritoryVisible(t)) return;
+      const p = ll2px(t.label.lon, t.label.lat);
+      const dx = wx - p.x, dy = wy - p.y;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      const hitPx = (t.hitR || 2) * W2 / 360;
+      if (dist < hitPx && dist < bestDist) { bestDist = dist; best = t; }
+    });
+    const tip = document.getElementById('globe-tooltip');
+    const cont = document.getElementById('globe-container');
+    if (best && tip) {
+      const navName = best.navigateTo || best.name;
+      tip.textContent = navName;
+      tip.style.display = 'block';
+      const cr = cont.getBoundingClientRect();
+      tip.style.left = (e.clientX - cr.left + 14) + 'px';
+      tip.style.top  = (e.clientY - cr.top  - 14) + 'px';
+      c2d.style.cursor = 'pointer';
+    } else if (tip) {
+      tip.style.display = 'none';
+      c2d.style.cursor = map2dDragging ? 'grabbing' : 'grab';
+    }
+  });
+  
+  c2d.addEventListener('mouseleave', () => {
+    const t = document.getElementById('globe-tooltip');
+    if (t) t.style.display = 'none';
+  });
+  
+  c2d.addEventListener('click', e => {
+    if (map2dDragging) return;
+    const rect = c2d.getBoundingClientRect();
+    const W2 = c2d.width, H2 = c2d.height;
+    const scale = W2 / rect.width;
+    const wx = ((e.clientX - rect.left) * scale - map2dOffX) / map2dZoom;
+    const wy = ((e.clientY - rect.top)  * scale - map2dOffY) / map2dZoom;
+    function ll2px(lon, lat) { return { x:((lon+180)/360)*W2, y:((90-lat)/180)*H2 }; }
+    const terr = window._globeTerritories || [];
+    let best = null, bestDist = Infinity;
+    terr.forEach(t => {
+      if (t.warOnly || !isTerritoryVisible(t)) return;
+      const p = ll2px(t.label.lon, t.label.lat);
+      const dx = wx - p.x, dy = wy - p.y;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      const hitPx = (t.hitR || 2) * W2 / 360;
+      if (dist < hitPx && dist < bestDist) { bestDist = dist; best = t; }
+    });
+    if (best) {
+      const nav = best.navigateTo || best.name;
+      navigateTo(nav);
+    }
+  });
+}
+      clampMap2DView();
       start2DLoop();
     }
     btn2.style.background = '#3680b0'; btn2.style.color = '#fff';
@@ -5929,17 +6151,25 @@ function toggleRotation() {
 // ── Anno corrente selezionato dallo slider ──
 let currentYear = 121;
 
-function onYearSlider(val) {
-  currentYear = parseInt(val);
-  const lbl = document.getElementById('year-label');
+const MIN_YEAR = 0;
+const MAX_YEAR = 122;
+
+function syncYearControls() {
+  const inp = document.getElementById('year-input');
+  if (inp) inp.value = String(currentYear);
+}
+
+function updateYearDescription() {
   const desc = document.getElementById('year-desc');
-  if (lbl) lbl.textContent = currentYear + ' dM';
+  if (!desc) return;
   // Descrizione periodo
   const periods = [
-    { min:0,   max:16,  desc: "Età dell'Oro — Morello e Sal governano Napoli" },
-    { min:17,  max:22,  desc: 'Dopo il Vesuvio — Morello fonda la Camorra Salentina' },
-    { min:23,  max:89,  desc: 'Serrano fondato da Gennaro Spisso (23 dM) — Clan Spisso, Camorra Salentina' },
-    { min:90,  max:99,  desc: 'Topismo fondato (90 dM) — periodo di stabilità relativa' },
+    { min:0,   max:0,   desc: "Anno 0 dM — Morello arriva a Napoli · Giovanni Zecca inventa Python e viene maledetto da Ludo" },
+    { min:1,   max:2,   desc: "Età dell'Oro — Morello e Sal governano Napoli · Giovanni Zecca è ancora a piede libero" },
+    { min:3,   max:16,  desc: "Età dell'Oro — Giovanni Zecca insegna Python a Napoli (3 dM)" },
+    { min:17,  max:22,  desc: 'Dopo il Vesuvio — Morello fonda la Camorra Salentina · Giovanni lascia Napoli' },
+    { min:23,  max:89,  desc: 'Serrano fondato (23 dM) — Giovanni Zecca gira le città del Sud insegnando Python' },
+    { min:90,  max:99,  desc: 'Topismo fondato (90 dM) — Giovanni Zecca si stabilisce a Martano' },
     { min:100, max:100, desc: 'Iron Spisso Man muore — attacco alla casa di Zella' },
     { min:101, max:101, desc: 'Prima Guerra degli Avengers — Iron Spisso Man resuscitato' },
     { min:102, max:102, desc: 'Seconda Guerra degli Avengers — Zella vs Iron Spisso Man' },
@@ -5955,11 +6185,31 @@ function onYearSlider(val) {
     { min:115, max:115, desc: '🍷🔥 La Cantina prende Napoli — Morello catturato, capelli tagliati, diventa Morellato Pelato' },
     { min:116, max:118, desc: '💣 Bombe sulle città USA — Nigeria si ribella, Alessio rilancia' },
     { min:119, max:121, desc: 'Alex disintegrato — Zella governa, ricostruzione. Pete arrestato (121 dM)' },
+    { min:122, max:122, desc: '🐍 24 Marzo 122 dM — Giovanni Zecca sente i «Ciccione», cresce di gravità propria · Ludo lo spinge nello spazio · la caduta libera Martano dal Cheddar' },
   ];
   const p = periods.find(p => currentYear >= p.min && currentYear <= p.max) || periods[0];
   if (desc) desc.textContent = p.desc;
-  if (window._globeDirty !== undefined) { window._globeDirty = true; window._earthCacheKey = ''; }
+}
+
+function setCurrentYear(val) {
+  let y = parseInt(val, 10);
+  if (Number.isNaN(y)) return currentYear;
+  if (y < MIN_YEAR) y = MIN_YEAR;
+  if (y > MAX_YEAR) y = MAX_YEAR;
+  currentYear = y;
+  syncYearControls();
+  if (window._globeDirty !== undefined) window._globeDirty = true;
+  updateYearDescription();
   if (globeMapMode === '2d') draw2DMap();
+  return currentYear;
+}
+
+function changeYear(delta) {
+  return setCurrentYear(currentYear + delta);
+}
+
+function onYearSlider(val) {
+  setCurrentYear(val);
 }
 
 // ── Visibilità territorio per anno ──
@@ -5967,40 +6217,47 @@ function onYearSlider(val) {
 function isTerritoryVisible(t) {
   const y = currentYear;
   if (t.fromYear !== undefined && y < t.fromYear) return false;
-  if (t.toYear   !== undefined && y > t.toYear)   return false;
-  if (t.name === 'Filippine'          && t.toYear === 104) return y >= 17;
-  if (t.name === 'Filippine'          && t.fromYear)  return true;
-  if (t.name === 'Nigeria Spartiana')  return y >= 52;
-  if (t.name === 'America (Avengers)') return y >= 92;
+  if (t.toYear !== undefined && y > t.toYear) return false;
   return true;
 }
 
 // ── Colori territorio per anno ──
 function getTerritoryColors(t) {
   const y = currentYear;
-  const name = t.name;
-  let fill = t.color + 'bb', border = t.border;
-  if (name === 'America (Avengers)') {
-    if (y >= 107 && y <= 119) { fill = '#c62828dd'; border = '#7f0000'; }
+  let fill = t.color + 'cc';
+  let border = t.border;
+  
+  if (t.name === 'America (Avengers)') {
+    if (y >= 107 && y <= 119) {
+      fill = '#c62828cc';
+      border = '#7f0000';
+    }
   }
-  if (name === 'Nigeria Spartiana') {
-    if (y >= 107 && y <= 117) { fill = 'rgba(110,110,110,0.55)'; border = '#666'; }
+  if (t.name === 'Nigeria Spartiana') {
+    if (y >= 107 && y <= 117) {
+      fill = 'rgba(110,110,110,0.7)';
+      border = '#666';
+    }
   }
+  
   return { fill, border };
 }
-
 function draw2DMap() {
   const canvas = document.getElementById('map2d-canvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   const W = canvas.width, H = canvas.height;
+  
   ctx.clearRect(0, 0, W, H);
-
+  
   ctx.save();
+  ctx.beginPath();
+  ctx.rect(0, 0, W, H);
+  ctx.clip();
+  
   ctx.translate(map2dOffX, map2dOffY);
   ctx.scale(map2dZoom, map2dZoom);
-
-  // Disegna earth.jpg come sfondo
+  
   const mapImg = window._earthImgEl;
   if (mapImg && mapImg.complete && mapImg.naturalWidth > 0) {
     ctx.drawImage(mapImg, 0, 0, W, H);
@@ -6008,28 +6265,77 @@ function draw2DMap() {
     ctx.fillStyle = '#2980b9';
     ctx.fillRect(0, 0, W, H);
   }
-
+  
   function ll2px(lon, lat) {
-    return { x: ((lon+180)/360)*W, y: ((90-lat)/180)*H };
+    return { 
+      x: ((lon + 180) / 360) * W, 
+      y: ((90 - lat) / 180) * H 
+    };
   }
-
-  // Disegna poligoni territori
+  
   const terr = window._globeTerritories || [];
-  terr.forEach(t => {
-    if (!t.poly) return;
-    if (!isTerritoryVisible(t)) return;
-    if (!isTerritoryVisible(t)) return;
-    const { fill, border } = getTerritoryColors(t);
-    const pts = t.poly.map(([lon,lat]) => ll2px(lon,lat));
-    ctx.beginPath();
-    pts.forEach((p,i) => i===0 ? ctx.moveTo(p.x,p.y) : ctx.lineTo(p.x,p.y));
-    ctx.closePath();
-    ctx.fillStyle = fill; ctx.fill();
-    ctx.strokeStyle = border; ctx.lineWidth = 1.5; ctx.stroke();
+  
+  const sortedTerritories = [...terr].sort((a, b) => {
+    return b.label.lat - a.label.lat;
   });
-
+  
+  sortedTerritories.forEach(t => {
+    if (!isTerritoryVisible(t)) return;
+    if (!t.poly || t.poly.length < 3) return;
+    
+    const pts = t.poly.map(([lon, lat]) => ll2px(lon, lat));
+    if (pts.length < 3) return;
+    
+    const { fill, border } = getTerritoryColors(t);
+    
+    ctx.beginPath();
+    pts.forEach((p, i) => {
+      if (i === 0) ctx.moveTo(p.x, p.y);
+      else ctx.lineTo(p.x, p.y);
+    });
+    ctx.closePath();
+    ctx.fillStyle = fill;
+    ctx.fill();
+    
+    ctx.beginPath();
+    pts.forEach((p, i) => {
+      if (i === 0) ctx.moveTo(p.x, p.y);
+      else ctx.lineTo(p.x, p.y);
+    });
+    ctx.closePath();
+    ctx.strokeStyle = border;
+    ctx.lineWidth = 1.2 / map2dZoom;
+    ctx.stroke();
+  });
+  
+  const bombEvents = getBombsForYear();
+  if (bombEvents.length > 0 && typeof drawBombIcon === 'function') {
+    bombEvents.forEach(ev => {
+      const p = ll2px(ev.to[0], ev.to[1]);
+      drawBombIcon(ctx, p.x, p.y, ev.impactOnly ? 14 : 18);
+      if (ev.impactOnly) {
+        ctx.save();
+        ctx.strokeStyle = 'rgba(255,80,0,0.8)';
+        ctx.lineWidth = 2 / map2dZoom;
+        const s = 9 / map2dZoom;
+        ctx.beginPath();
+        ctx.moveTo(p.x - s, p.y - s);
+        ctx.lineTo(p.x + s, p.y + s);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(p.x + s, p.y - s);
+        ctx.lineTo(p.x - s, p.y + s);
+        ctx.stroke();
+        ctx.restore();
+      }
+    });
+  }
+  
   ctx.restore();
-  ctx.strokeStyle='#a2a9b1'; ctx.lineWidth=1; ctx.strokeRect(0,0,W,H);
+  
+  ctx.strokeStyle = '#a2a9b1';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(0, 0, W, H);
 }
 
 // Bombe storiche: year = anno dM in cui cadono, to = [lon, lat] impatto
@@ -6043,20 +6349,33 @@ const bombEvents = [
 
 // Icona bomba disegnata su canvas
 function drawBombIcon(ctx, x, y, size) {
-  const r = size * 0.45;
   ctx.save();
   ctx.translate(x, y);
+  const r = size * 0.45;
+  
   ctx.beginPath();
-  ctx.arc(0, r*0.2, r, 0, Math.PI*2);
-  ctx.fillStyle = '#1a1a1a'; ctx.fill();
-  ctx.strokeStyle = '#555'; ctx.lineWidth = 1; ctx.stroke();
+  ctx.ellipse(0, 0, r, r * 1.2, 0, 0, Math.PI * 2);
+  ctx.fillStyle = '#1a1a1a';
+  ctx.fill();
+  ctx.strokeStyle = '#555';
+  ctx.lineWidth = 1.5;
+  ctx.stroke();
+  
   ctx.beginPath();
-  ctx.moveTo(r*0.5, -r*0.6);
-  ctx.quadraticCurveTo(r*0.9, -r*1.2, r*0.3, -r*1.5);
-  ctx.strokeStyle = '#888'; ctx.lineWidth = 1.5; ctx.stroke();
+  ctx.moveTo(-r * 0.3, -r * 1.2);
+  ctx.lineTo(0, -r * 1.8);
+  ctx.lineTo(r * 0.3, -r * 1.2);
+  ctx.fillStyle = '#ff6600';
+  ctx.fill();
+  
   ctx.beginPath();
-  ctx.arc(r*0.3, -r*1.5, r*0.18, 0, Math.PI*2);
-  ctx.fillStyle = '#ffcc00'; ctx.fill();
+  ctx.moveTo(0, -r * 1.8);
+  ctx.lineTo(-r * 0.2, -r * 2.2);
+  ctx.lineTo(0, -r * 2.5);
+  ctx.lineTo(r * 0.2, -r * 2.2);
+  ctx.fillStyle = '#ff3300';
+  ctx.fill();
+  
   ctx.restore();
 }
 
@@ -6100,7 +6419,7 @@ function initGlobe() {
   let zoom = 1.0;
   let dragging = false, lastX = 0, lastY = 0;
   let pinchDist = null;
-  let autoRot = true;
+  let autoRot = false;
 
   // Posizione casuale di Ludovico nello sfondo — generata una volta al caricamento
   // Coordinate normalizzate [0,1] nell'immagine di sfondo
@@ -6172,6 +6491,12 @@ function initGlobe() {
   const SIM_SUN_RADIUS  = 1.86;   // proporzionale: dist 400 * (696000/149600000)
   const SIM_MOON_RADIUS = 0.273;
   const SIM_EARTH_RADIUS = 1.0;
+  // Giovanni Zecca: ~1/3 della Terra, orbita ellittica molto vicina
+  const SIM_ZECCA_RADIUS = 0.45;  // ~1/3 Terra, visibile ma non enorme
+  const SIM_ZECCA_A = 8.0;   // semiasse maggiore — orbita allungata
+  const SIM_ZECCA_B = 2.5;   // semiasse minore — molto ellittica
+  let zeccaOrbitAngle = Math.PI * 0.6; // angolo iniziale laterale alla Terra
+  const ZECCA_SPEED = 1.4;   // veloce, orbita bassa
 
   // Stelle: posizioni su sfera unitaria (skybox)
   // ── Posizioni 3D nel sistema Terra-centrico ──
@@ -6188,7 +6513,14 @@ function initGlobe() {
       y: Math.sin(moonInc) * Math.cos(moonOrbitAngle) * SIM_EARTH_MOON_DIST,
       z: Math.sin(moonOrbitAngle) * SIM_EARTH_MOON_DIST
     };
-    return { sunPos, moonPos };
+    // Zecca: orbita ellittica inclinata, molto vicina alla Terra
+    const zeccaInc = 28 * Math.PI / 180;
+    const zeccaPos = {
+      x: Math.cos(zeccaOrbitAngle) * SIM_ZECCA_A,
+      y: Math.sin(zeccaInc) * Math.sin(zeccaOrbitAngle) * SIM_ZECCA_B,
+      z: Math.sin(zeccaOrbitAngle) * SIM_ZECCA_B
+    };
+    return { sunPos, moonPos, zeccaPos };
   }
 
   // Proiezione prospettica 3D → 2D canvas
@@ -6300,10 +6632,13 @@ function initGlobe() {
   // Canvas offscreen riusabile per sole e luna (256×256 fisso)
   const sunOff  = document.createElement('canvas'); sunOff.width  = 256; sunOff.height = 256;
   const moonOff = document.createElement('canvas'); moonOff.width = 256; moonOff.height = 256;
+  const zeccaOff = document.createElement('canvas'); zeccaOff.width = 256; zeccaOff.height = 256;
   const sunOffCtx  = sunOff.getContext('2d');
   const moonOffCtx = moonOff.getContext('2d');
+  const zeccaOffCtx = zeccaOff.getContext('2d');
   let sunCacheKey  = '';
   let moonCacheKey = '';
+  let zeccaCacheKey = '';
 
   // rayCastSphere: raycast sfera su canvas offscreen 256×256
   // texRotY/texRotX = rotazione texture (per allineare la mappa)
@@ -6840,97 +7175,78 @@ function initGlobe() {
   function drawGlobe() {
     ctx.clearRect(0, 0, W, H);
     const rz = R * zoom;
+    const sunLightDir = null;
 
-    // ── Calcola posizioni 3D mondo ──
-    const { sunPos, moonPos } = getWorld3D();
-
-    // Distanza Terra-Sole e Terra-Luna nel sim
-    const sunDist  = Math.sqrt(sunPos.x*sunPos.x + sunPos.y*sunPos.y + sunPos.z*sunPos.z);
-    const moonDist = Math.sqrt(moonPos.x*moonPos.x + moonPos.y*moonPos.y + moonPos.z*moonPos.z);
-
-    // Direzione normalizzata Terra → Sole (per illuminazione)
-    // Vicino alla Terra (zoom > 4.5): illuminazione flat per vedere la superficie
-    const sunLightDir = zoom > 1.1 ? null : {
-      x: sunPos.x / sunDist,
-      y: sunPos.y / sunDist,
-      z: sunPos.z / sunDist
-    };
-
-
-    // ── Sfondo spazio ──
-    drawStars();
-
-    // ── Camera: si trova a distanza camDist dalla Terra ──
-    // In modalità zoom normale (zoom=1) la camera è molto vicina alla Terra (vediamo il globo)
-    // camDist in unità sim = SIM_EARTH_RADIUS / (zoom * W/(W*0.44))
-    // Semplificato: la distanza camera dalla superficie Terra = (R/zoom pixel) / scala_pixel
-    // La scala: 1 raggio Terra = R*zoom pixel → scala = (R*zoom) px/u
-    // camDist (in u) = 1/zoom * (distanza camera dal centro in raggi terrestri)
-    // Usiamo camDistU = 2.0 / zoom (a zoom=1 sei a 2 raggi dalla Terra, a zoom=0.5 sei a 4 raggi)
-    const camDistU = 2.2 / zoom; // distanza camera dalla Terra in unità sim
-    const cam = getCameraPos(camDistU);
-
-    // ── Proiezione Sole e Luna sullo schermo ──
-    // Fattore di scala: 1 unità sim = quanto px sullo schermo a quella profondità
-    // La proiezione 3D gestisce tutto, scala implicita nella fov
-
-    const pSun  = project3D(sunPos.x,  sunPos.y,  sunPos.z,  cam.x, cam.y, cam.z);
-    const pMoon = project3D(moonPos.x, moonPos.y, moonPos.z, cam.x, cam.y, cam.z);
-
-    // Calcola raggio schermo per Sole e Luna
-    // r_screen = r_sim / depth * (W/2/fov)
-    const FOV = 0.9;
-    const sunScreenR  = pSun  ? (SIM_SUN_RADIUS  / pSun.depth)  * (W/2/FOV) : 0;
-    const moonScreenR = pMoon ? (SIM_MOON_RADIUS / pMoon.depth) * (W/2/FOV) : 0;
-
-    // Angolo 2D della direzione Sole→Luna sullo schermo (per fase lunare)
-    let moonPhaseAngle = 0;
-    if (pSun && pMoon) {
-      moonPhaseAngle = Math.atan2(pSun.sy - pMoon.sy, pSun.sx - pMoon.sx);
-    }
-
-    // ── Disegna Sole (se davanti alla camera) ──
-    if (pSun) {
-      drawSunSprite(pSun.sx, pSun.sy, Math.max(4, sunScreenR));
-    }
-
-    // ── Disegna Luna (se davanti alla camera e non coperta dalla Terra) ──
-    if (pMoon && pMoon.depth > camDistU) { // depth > camDistU = oltre la Terra
-      drawMoonSprite(pMoon.sx, pMoon.sy, Math.max(2, moonScreenR), sunLightDir);
-    }
-
-    // ── Globo terrestre al centro ──
     ctx.save();
     ctx.beginPath();
     ctx.arc(W/2, H/2, rz, 0, Math.PI*2);
     ctx.clip();
     drawEarth(sunLightDir);
     drawGrid();
-    // Poligoni territori (ordinati per profondità)
     territories.slice().sort((a,b) => {
       const za = project(a.label.lon, a.label.lat).z;
       const zb = project(b.label.lon, b.label.lat).z;
       return za - zb;
     }).forEach(t => drawTerritory(t));
-    // Bombe 3D
-    // Bombe per anno corrente
     draw3DBombs();
     ctx.restore();
 
-    // Bordo sottile
     const rz2 = R * zoom;
     ctx.save();
     ctx.beginPath(); ctx.arc(W/2,H/2,rz2,0,Math.PI*2);
     ctx.strokeStyle='rgba(100,160,220,0.3)'; ctx.lineWidth=1; ctx.stroke();
     ctx.restore();
+  }
 
+  // ── Disegna Giovanni Zecca — sfera 3D raycasted ──
+  function drawZeccaSprite(sx, sy, screenRadius, sunLightDir3D) {
+    if (screenRadius < 1) return;
+    ctx.save();
+    // Alone cheddar
+    const gz = ctx.createRadialGradient(sx, sy, screenRadius*0.6, sx, sy, screenRadius*2.0);
+    gz.addColorStop(0, 'rgba(255,180,0,0.20)');
+    gz.addColorStop(1, 'rgba(255,140,0,0)');
+    ctx.fillStyle = gz;
+    ctx.beginPath(); ctx.arc(sx, sy, screenRadius*2.0, 0, Math.PI*2); ctx.fill();
 
-    // Luna davanti alla Terra (depth < camDistU)
-    if (pMoon && pMoon.depth <= camDistU) {
-      const FOV2 = 0.9;
-      const moonScreenR2 = (SIM_MOON_RADIUS / pMoon.depth) * (W/2/FOV2);
-      drawMoonSprite(pMoon.sx, pMoon.sy, Math.max(2, moonScreenR2), sunLightDir);
+    // Sfera 3D con cache
+    const newZKey = rotY.toFixed(3) + ',' + rotX.toFixed(3) + ',' + zeccaOrbitAngle.toFixed(3)
+                  + ',' + (sunLightDir3D ? sunLightDir3D.x.toFixed(2)+sunLightDir3D.z.toFixed(2) : '0');
+    if (newZKey !== zeccaCacheKey) {
+      zeccaCacheKey = newZKey;
+      // Disegna sfera giallo-cheddar con gradiente come fallback texture
+      zeccaOffCtx.clearRect(0, 0, 256, 256);
+      const gf = zeccaOffCtx.createRadialGradient(90, 80, 0, 128, 128, 128);
+      gf.addColorStop(0,   '#fff5c0');
+      gf.addColorStop(0.3, '#ffcc00');
+      gf.addColorStop(0.7, '#e67e00');
+      gf.addColorStop(1,   '#7a3500');
+      zeccaOffCtx.fillStyle = gf;
+      zeccaOffCtx.beginPath(); zeccaOffCtx.arc(128, 128, 128, 0, Math.PI*2); zeccaOffCtx.fill();
+      // Applica illuminazione solare sopra
+      if (sunLightDir3D) {
+        const imgD = zeccaOffCtx.getImageData(0, 0, 256, 256);
+        const d = imgD.data;
+        for (let py = 0; py < 256; py++) {
+          for (let px = 0; px < 256; px++) {
+            const nx = (px - 128) / 128;
+            const ny = (py - 128) / 128;
+            const r2 = nx*nx + ny*ny;
+            if (r2 > 1) continue;
+            const nz = Math.sqrt(1 - r2);
+            const dot = nx*sunLightDir3D.x + ny*sunLightDir3D.y + nz*sunLightDir3D.z;
+            const shade = dot > 0 ? 0.15 + 0.85*dot : 0.15*(1+dot*0.5);
+            const i = (py*256 + px)*4;
+            d[i]   = Math.min(255, d[i]   * shade);
+            d[i+1] = Math.min(255, d[i+1] * shade);
+            d[i+2] = Math.min(255, d[i+2] * shade);
+          }
+        }
+        zeccaOffCtx.putImageData(imgD, 0, 0);
+      }
     }
+    ctx.drawImage(zeccaOff, sx-screenRadius, sy-screenRadius, screenRadius*2, screenRadius*2);
+    ctx.restore();
   }
 
   function hitTest(ex, ey) {
@@ -6998,6 +7314,7 @@ function initGlobe() {
     }
     earthOrbitAngle += 0.0003;
     moonOrbitAngle  += 0.0003 * MOON_SPEED_RATIO;
+    zeccaOrbitAngle += 0.0003 * ZECCA_SPEED;
     dirty = true;
     if (dirty) {
       drawGlobe();
@@ -7009,31 +7326,52 @@ function initGlobe() {
 
   canvas.addEventListener('wheel', e => {
     e.preventDefault();
-    zoom = Math.max(0.15, Math.min(4.0, zoom*(e.deltaY<0?1.1:0.91)));
+    const MIN_ZOOM = 0.6;
+const MAX_ZOOM = 2.2;
+
+zoom = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, zoom * (e.deltaY < 0 ? 1.1 : 0.91)));
   },{passive:false});
-  canvas.addEventListener('mousedown', e=>{dragging=true;lastX=e.clientX;lastY=e.clientY;canvas.style.cursor='grabbing';});
-  window.addEventListener('mousemove', e=>{
-    if(!dragging)return;
-    const sens = zoom > 1.1 ? 0.007 / zoom * 2.5 : 0.007;
-    rotY+=(e.clientX-lastX)*sens;rotX+=(e.clientY-lastY)*sens;
-    rotX=Math.max(-1.4,Math.min(1.4,rotX));lastX=e.clientX;lastY=e.clientY;
-  });
+canvas.addEventListener('mousedown', e => {
+  dragging = true;
+  lastX = e.clientX;
+  lastY = e.clientY;
+  canvas.style.cursor = 'grabbing';
+});
+
+window.addEventListener('mousemove', e => {
+  if (!dragging) return;
+
+  const dx = e.clientX - lastX;
+  const dy = e.clientY - lastY;
+
+  rotY += dx * 0.005;
+  rotX += dy * 0.005;
+
+  // clamp verticale (evita flip)
+  rotX = Math.max(-1.5, Math.min(1.5, rotX));
+
+  lastX = e.clientX;
+  lastY = e.clientY;
+  window._globeDirty = true;
+});
+
+window.addEventListener('mouseup', () => {
+  dragging = false;
+  canvas.style.cursor = 'grab';
+});
   window.addEventListener('mouseup',()=>{
-    dragging=false; canvas.style.cursor='grab';
-    // Riprendi solo se globeAutoRot è true (utente non ha premuto ferma rotazione)
-    if(globeAutoRot) setTimeout(()=>{ autoRot=true; if(window._globeRotRef) window._globeRotRef.autoRot=true; },2000);
+    dragging=false; canvas.style.cursor='default';
   });
   canvas.addEventListener('touchstart',e=>{
     e.preventDefault();
-    if(e.touches.length===1){lastX=e.touches[0].clientX;lastY=e.touches[0].clientY;}
     if(e.touches.length===2){const dx=e.touches[0].clientX-e.touches[1].clientX,dy=e.touches[0].clientY-e.touches[1].clientY;pinchDist=Math.sqrt(dx*dx+dy*dy);}
   },{passive:false});
   canvas.addEventListener('touchmove',e=>{
     e.preventDefault();
-    if(e.touches.length===1){const ts = zoom > 1.1 ? 0.009/zoom*2.5 : 0.009;rotY+=(e.touches[0].clientX-lastX)*ts;rotX+=(e.touches[0].clientY-lastY)*ts;rotX=Math.max(-1.4,Math.min(1.4,rotX));lastX=e.touches[0].clientX;lastY=e.touches[0].clientY;}
-    if(e.touches.length===2&&pinchDist){const dx=e.touches[0].clientX-e.touches[1].clientX,dy=e.touches[0].clientY-e.touches[1].clientY;const d=Math.sqrt(dx*dx+dy*dy);zoom=Math.max(0.15,Math.min(4.0,zoom*d/pinchDist));pinchDist=d;}
+    if(e.touches.length===2&&pinchDist){const dx=e.touches[0].clientX-e.touches[1].clientX,dy=e.touches[0].clientY-e.touches[1].clientY;const d=Math.sqrt(dx*dx+dy*dy);zoom=Math.max(0.03,Math.min(4.0,zoom*d/pinchDist));pinchDist=d;}
   },{passive:false});
-  canvas.addEventListener('touchend',()=>{pinchDist=null;if(globeAutoRot) setTimeout(()=>{if(window._globeRotRef) window._globeRotRef.autoRot=true;},4000);});
+  canvas.addEventListener('touchend',()=>{pinchDist=null;});
+
   canvas.addEventListener('mousemove',e=>{
     const hit=hitTest(e.clientX,e.clientY);
     if(hit){
@@ -7179,7 +7517,7 @@ function buildElisaSbost() {
 
 loadPagesLocalOnly();
 caricaStatoModalitaLocale();
-onYearSlider(121);
+setCurrentYear(122);
 controllaLockdownAlAvvio(); // mostra lockdown subito se attivo in localStorage
 updateSidebar();
 navigateTo('Main');
