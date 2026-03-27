@@ -706,6 +706,66 @@ clearfix::after { content: ''; display: block; clear: both; }
   /* Tabelle scorrevoli su mobile */
   .infobox { overflow-x: auto; display: block; }
   table { min-width: 0; }
+  /* FIX GLOBO MOBILE */
+  #globe-container {
+    width: 100% !important;
+    max-width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+  
+  #globe-canvas {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100%;
+    border-radius: 50%;
+  }
+  
+  #map2d-canvas {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100%;
+    touch-action: none;
+  }
+  
+  #map-controls {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  #year-slider-wrap {
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+  #year-slider-wrap div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+  }
+  
+  #year-slider-wrap button {
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+  
+  #year-input {
+    min-width: 80px;
+    min-height: 44px;
+    font-size: 16px;
+  }
+  
+  #globe-tooltip {
+    font-size: 14px;
+    padding: 6px 12px;
+    white-space: nowrap;
+    background: rgba(0,0,0,0.85);
+  }
 }
 
 /* ── MODALITÀ LOCKDOWN ── */
@@ -1187,7 +1247,7 @@ const DEFAULT_PAGES = {
   <li><a onclick="navigateTo('AleDoria')"><b>AleDoria</b></a> — Inventore della famiglia Sbost. Ha creato gli Sbost Bot domestici, musicali, e gli Spisso Bot — armi acustiche che usano la parola «Spisso» come raggio sonoro.</li>
   <li><a onclick="navigateTo('Terza Guerra degli Avengers')"><b>⚡ Alessio Spisso²</b></a> — Sopravvissuto alla Bomba Spissica. Si è risvegliato nel 109 dM come Alessio Spisso², potenziato. Ha ricostruito Serrano con Zella e l'ha fatta volare.</li>
 </ul>
-<p><b>Le Guerre degli Avengers</b></p>
+<p><b>Le Guerre</b></p>
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
   <li><a onclick="navigateTo('Prima Guerra degli Avengers')"><b>Prima Guerra degli Avengers</b></a> — Zella, il Capo degli Avengers, tenta di riportare in vita Iron Spisso Man. La guerra più folle della storia dell'America.</li>
   <li><a onclick="navigateTo('Seconda Guerra degli Avengers')"><b>Seconda Guerra degli Avengers</b></a> — Iron Spisso Man è tornato ma si comporta male. Zella prende il casco di Darth Vader e regola i conti. Finisce con una stretta di mano.</li>
@@ -1195,6 +1255,7 @@ const DEFAULT_PAGES = {
   <li><a onclick="navigateTo('La Guerra Finale')"><b>La Guerra Finale</b></a> — 104–107 dM. Il cielo era arancione. Serrano non c'era più. L'ultima parola fu "Spisso".</li>
   <li><a onclick="navigateTo('Bomba Spissica')"><b>Bomba Spissica</b></a> — L'arma che ha cancellato Serrano dalla mappa.</li>
   <li><a onclick="navigateTo('Terza Guerra degli Avengers')"><b>⚡ Terza Guerra degli Avengers</b></a> — 109 dM. Alessio Spisso² si è risvegliato. Serrano è stata ricostruita e ora vola. La guerra contro Alex Spisso è ricominciata.</li>
+  <li><a onclick="navigateTo('La guerra delle Piante contro gli Zombi')"><b>🌱 Guerra delle Piante contro gli Zombi</b></a> — 124 dM. Lo Zio di Sbost clona sé stesso, ma il primo clone manomise la macchina e crea un esercito di zombi che invade Serrano. L'ultimo cittadino di Serrano resiste con un giardino di piante modificate.</li>
 </ul>
 
 <p><b>Gli Avengers e l'America</b></p>
@@ -1585,6 +1646,18 @@ const DEFAULT_PAGES = {
     wikitext: "",
     history: [],
     content: ""
+  },
+  "La guerra delle Piante contro gli Zombi": {
+    title: "La guerra delle Piante contro gli Zombi",
+    wikitext: "",
+    history: [],
+    content: ""
+  },
+  "Primo Clone dello Zio di Sbost": {
+    title: "Primo Clone dello Zio di Sbost",
+    wikitext: "",
+    history: [],
+    content: ""
   }
 };
 
@@ -1660,6 +1733,8 @@ DEFAULT_PAGES["Jacopo Martucci"] = { title: "Jacopo Martucci", content: buildJac
 DEFAULT_PAGES["Elisa Sbost"] = { title: "Elisa Sbost", content: buildElisaSbost() };
 DEFAULT_PAGES["Terza Guerra degli Avengers"].content = buildTerzaGuerraAvengers();
 DEFAULT_PAGES["Minerale Spisso"].content = buildMineraleSpisso();
+DEFAULT_PAGES["La guerra delle Piante contro gli Zombi"].content = buildGuerraPianteZombi();
+DEFAULT_PAGES["Primo Clone dello Zio di Sbost"].content = buildPrimoCloneZioSbost();
 
 
 function buildSalDaSpicci() {
@@ -3945,9 +4020,14 @@ function buildPrimaGuerraAvengers() {
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
 <div style="margin:0 0 16px;background:#000;border-radius:4px;overflow:hidden;max-width:560px">
-  <video controls style="width:100%;display:block" onerror="this.parentElement.innerHTML='<p style=\'color:#aaa;padding:12px;font-family:sans-serif;font-size:13px\'>⚠️ Video non trovato — metti <b>prima_guerra.mp4</b> nella stessa cartella dell\'HTML.</p>'">
-    <source src="prima_guerra.mp4" type="video/mp4">
-  </video>
+<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin:0 0 16px;background:#000;border-radius:4px;">
+  <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+    src="https://www.youtube.com/embed/wMRoQ_xqJwM" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+  </iframe>
+</div>
 </div>
 <div class="infobox">
   <div class="infobox-title">Prima Guerra degli Avengers</div>
@@ -3989,9 +4069,14 @@ function buildSecondaGuerraAvengers() {
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
 <div style="margin:0 0 16px;background:#000;border-radius:4px;overflow:hidden;max-width:560px">
-  <video controls style="width:100%;display:block" onerror="this.parentElement.innerHTML='<p style=\'color:#aaa;padding:12px;font-family:sans-serif;font-size:13px\'>⚠️ Video non trovato — metti <b>seconda_guerra.mp4</b> nella stessa cartella dell\'HTML.</p>'">
-    <source src="seconda_guerra.mp4" type="video/mp4">
-  </video>
+<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin:0 0 16px;background:#000;border-radius:4px;">
+  <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+    src="https://www.youtube.com/embed/Qyt1ApKK8b0" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+  </iframe>
+</div>
 </div>
 <div class="infobox">
   <div class="infobox-title">Seconda Guerra degli Avengers</div>
@@ -5879,7 +5964,13 @@ function buildFilippine() {
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Filippine</a> <a>Famiglia Pocchia</a> <a>Salento</a> <a>Stati nati nel 108 dM</a> <a>Calimera</a></div>`;
 }
+function buildGuerraPianteZombi() {
+  return `<div class="wiki-notice">... tutto il tuo contenuto ...</div>`;
+}
 
+function buildPrimoCloneZioSbost() {
+  return `<div class="wiki-notice">... tutto il tuo contenuto ...</div>`;
+}
 // ══════════════════════════════════════════════════════
 //  GLOBO INTERATTIVO — pagina principale
 // ══════════════════════════════════════════════════════
@@ -7362,15 +7453,47 @@ window.addEventListener('mouseup', () => {
   window.addEventListener('mouseup',()=>{
     dragging=false; canvas.style.cursor='default';
   });
-  canvas.addEventListener('touchstart',e=>{
+  // TOUCH per mobile - drag e pinch zoom
+  canvas.addEventListener('touchstart', function(e) {
     e.preventDefault();
-    if(e.touches.length===2){const dx=e.touches[0].clientX-e.touches[1].clientX,dy=e.touches[0].clientY-e.touches[1].clientY;pinchDist=Math.sqrt(dx*dx+dy*dy);}
-  },{passive:false});
-  canvas.addEventListener('touchmove',e=>{
+    if (e.touches.length === 1) {
+      dragging = true;
+      lastX = e.touches[0].clientX;
+      lastY = e.touches[0].clientY;
+    }
+    if (e.touches.length === 2) {
+      const dx = e.touches[0].clientX - e.touches[1].clientX;
+      const dy = e.touches[0].clientY - e.touches[1].clientY;
+      pinchDist = Math.sqrt(dx*dx + dy*dy);
+    }
+  }, { passive: false });
+  
+  canvas.addEventListener('touchmove', function(e) {
     e.preventDefault();
-    if(e.touches.length===2&&pinchDist){const dx=e.touches[0].clientX-e.touches[1].clientX,dy=e.touches[0].clientY-e.touches[1].clientY;const d=Math.sqrt(dx*dx+dy*dy);zoom=Math.max(0.03,Math.min(4.0,zoom*d/pinchDist));pinchDist=d;}
-  },{passive:false});
-  canvas.addEventListener('touchend',()=>{pinchDist=null;});
+    if (e.touches.length === 1 && dragging) {
+      const dx = e.touches[0].clientX - lastX;
+      const dy = e.touches[0].clientY - lastY;
+      rotY += dx * 0.005;
+      rotX += dy * 0.005;
+      rotX = Math.max(-1.5, Math.min(1.5, rotX));
+      lastX = e.touches[0].clientX;
+      lastY = e.touches[0].clientY;
+      window._globeDirty = true;
+    }
+    if (e.touches.length === 2 && pinchDist) {
+      const dx = e.touches[0].clientX - e.touches[1].clientX;
+      const dy = e.touches[0].clientY - e.touches[1].clientY;
+      const d = Math.sqrt(dx*dx + dy*dy);
+      zoom = Math.max(0.6, Math.min(2.2, zoom * (d / pinchDist)));
+      pinchDist = d;
+      window._globeDirty = true;
+    }
+  }, { passive: false });
+  
+  canvas.addEventListener('touchend', function() {
+    dragging = false;
+    pinchDist = null;
+  });
 
   canvas.addEventListener('mousemove',e=>{
     const hit=hitTest(e.clientX,e.clientY);
@@ -7513,6 +7636,148 @@ function buildElisaSbost() {
 <p>Elisa Sbost è diventata uno degli esercizi commerciali più noti de <a onclick="navigateTo('La Cantina')">La Cantina</a> dopo la fondazione dello stato nel 109 dM, principalmente perché suo zio la cita ogni volta che descrive come ha iniziato la sua campagna di vendetta.</p>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Famiglia Sbost</a> <a>Castri</a> <a>La Cantina</a></div>`;
+}
+
+function buildGuerraPianteZombi() {
+  return `<div class="wiki-notice"><span class="ni">🧠</span><span>Questa voce documenta la più strana invasione di Serrano volante: un esercito di cloni zombi dello Zio di Sbost, fermato solo da un vicino di casa e un arsenale di piante geneticamente modificate.</span></div>
+<h1 class="page-title">La guerra delle Piante contro gli Zombi</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Guerra delle Piante contro gli Zombi</div>
+ <div style="text-align:center;padding:8px 6px 4px"><img src="piante_vs_zombi.jpeg" alt="Piante contro zombi" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <table>
+    <tr><td><b>Periodo</b></td><td>124 dM</td></tr>
+    <tr><td><b>Luogo</b></td><td><a onclick="navigateTo('Serrano')">Serrano volante</a></td></tr>
+    <tr><td><b>Aggressore</b></td><td><a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> · <a onclick="navigateTo('Primo Clone dello Zio di Sbost')">Primo Clone</a></td></tr>
+    <tr><td><b>Difensore</b></td><td>L'ultimo cittadino di Serrano · <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a></td></tr>
+    <tr><td><b>Armi degli aggressori</b></td><td>104 cloni zombi dello Zio di Sbost</td></tr>
+    <tr><td><b>Armi dei difensori</b></td><td>Piante geneticamente modificate da Alessio</td></tr>
+    <tr><td><b>Esito</b></td><td>Fuga del Primo Clone · Liberazione di Serrano</td></tr>
+  </table>
+</div>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#antefatti-gpz">Antefatti — l'assedio impossibile</a></li>
+    <li><a href="#macchina-gpz">La macchina del clonaggio (124 dM)</a></li>
+    <li><a href="#primo-gpz">Il Primo Clone — perfetto e infido</a></li>
+    <li><a href="#sabotaggio-gpz">Il sabotaggio — nascono gli zombi</a></li>
+    <li><a href="#invasione-gpz">L'invasione di Serrano</a></li>
+    <li><a href="#piante-gpz">Piante contro zombi — la resistenza</a></li>
+    <li><a href="#fuga-gpz">La fuga del Primo Clone e la liberazione</a></li>
+    <li><a href="#conseguenze-gpz">Conseguenze</a></li>
+  </ol>
+</div>
+
+<h2 id="antefatti-gpz">Antefatti — l'assedio impossibile <span class="edit-link" onclick="openEditor('La guerra delle Piante contro gli Zombi')">[modifica]</span></h2>
+<p>Dopo la sconfitta nella <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers</a> e la morte di <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a>, <a onclick="navigateTo('La Cantina')">La Cantina</a> era ancora in piedi. <a onclick="navigateTo('Zio di Sbost')">Lo Zio di Sbost</a> aveva conquistato <a onclick="navigateTo('Napoli')">Napoli</a>, aveva catturato <a onclick="navigateTo('Morello')">Morello</a> (ora <b>Morellato Pelato</b>), ma c'era una spina che ancora non riusciva a togliersi: <b>Serrano volante</b>.</p>
+<p>La città volante era protetta dalle <b>difese anti-Spisso</b> — lo stesso scudo che aveva fermato nove Bombe Spissiche nel 112 dM. Gli <b>Spisso Bot</b> di <a onclick="navigateTo('AleDoria')">AleDoria</a>, che avevano conquistato le <a onclick="navigateTo('Filippine')">Filippine</a> e Napoli, erano inutili contro Serrano: la parola «Spisso» rimbalzava sullo scudo senza fare danni. Lo Zio di Sbost aveva bisogno di un'arma diversa. Qualcosa che non fosse Spisso. Qualcosa che potesse entrare.</p>
+
+<h2 id="macchina-gpz">La macchina del clonaggio (124 dM) <span class="edit-link" onclick="openEditor('La guerra delle Piante contro gli Zombi')">[modifica]</span></h2>
+<p>Nel <b>124 dM</b>, dopo due anni di lavoro, <a onclick="navigateTo('AleDoria')">AleDoria</a> completò la <b>macchina del clonaggio</b>. Era un aggeggio ingombrante, fatto di tubi di rame, condensatori rubati dai laboratori di Serrano prima della caduta, e un manuale di istruzioni scritto in un dialetto che solo AleDoria capiva. Funzionava così: inserisci un campione biologico, premi un pulsante, e dopo qualche ora esce una copia identica. Era la soluzione perfetta per aggirare le difese di Serrano — non servivano Bot, servivano soldati veri. Tanti soldati. Tutti uguali.</p>
+
+<h2 id="primo-gpz">Il Primo Clone — perfetto e infido <span class="edit-link" onclick="openEditor('La guerra delle Piante contro gli Zombi')">[modifica]</span></h2>
+<p>Lo Zio di Sbost si sottopose personalmente al primo test. Inserì un campione della sua saliva nella macchina, premette il pulsante, e attese. Dopo sei ore, la macchina emise un fischio. La camera si aprì. Dentro c'era un uomo identico a lui — stesso viso, stessa uniforme doganale, stessa espressione di chi ha passato troppi anni nei capelli di qualcuno. Il <b>Primo Clone dello Zio di Sbost</b> era perfetto. Parlava, pensava, obbediva. Lo Zio di Sbost gli spiegò il piano: la macchina era sua, poteva usarla per creare altre copie. Il suo compito era produrre <b>104 cloni</b> — abbastanza per infiltrarsi in ogni angolo di Serrano volante. Poi lo Zio di Sbost si allontanò per occuparsi di altri affari, convinto che il suo clone avrebbe seguito le istruzioni alla lettera.</p>
+
+<h2 id="sabotaggio-gpz">Il sabotaggio — nascono gli zombi <span class="edit-link" onclick="openEditor('La guerra delle Piante contro gli Zombi')">[modifica]</span></h2>
+<p>Il Primo Clone rimase solo con la macchina. La osservò a lungo. Poi, con una precisione che AleDoria stesso avrebbe ammirato, <b>manomise i parametri</b>. Non sapeva perché lo fece — forse per noia, forse per vedere cosa sarebbe successo, forse perché anche un clone perfetto, quando è solo, comincia a fare domande che non dovrebbe farsi. Premette il pulsante. La macchina partì. Quando la camera si aprì, quello che uscì non era una copia perfetta dello Zio di Sbost. Era qualcosa di <b>diverso</b>. La pelle era grigia. Gli occhi erano vuoti. La bocca si muoveva in continuazione, come se stesse cercando di masticare qualcosa che non c'era. Era uno <b>zombi</b>. Il Primo Clone non si fermò. Continuò a clonare. Ogni volta usciva uno zombi. Ogni volta il processo si ripeteva. In poche ore, la stanza era piena di <b>104 cloni zombi dello Zio di Sbost</b>, tutti uguali, tutti in piedi, tutti con la bocca che si muoveva senza fare rumore.</p>
+<p>Quando lo Zio di Sbost tornò, non trovò il suo clone perfetto. Il Primo Clone si era nascosto. Trovò invece cento e quattro zombi che lo guardavano con occhi spenti. Esitò un istante. Poi decise che andavano bene lo stesso. «Avanti» disse. «Serrano ci aspetta.»</p>
+<p>Gli zombi lo seguirono. Obbedivano solo a due voci: quella dello Zio di Sbost e quella del Primo Clone, che da qualche parte nella città di Castri aspettava il momento giusto.</p>
+
+<h2 id="invasione-gpz">L'invasione di Serrano <span class="edit-link" onclick="openEditor('La guerra delle Piante contro gli Zombi')">[modifica]</span></h2>
+<p>Gli zombi arrivarono a Serrano volante di notte, trasportati da vecchi aerei della Camorra Salentina che La Cantina aveva requisito. Non avevano bisogno di sfondare le difese — non erano Bot, non usavano la parola Spisso. Erano solo corpi, tanti corpi, che si lasciavano cadere sulla città. Le difese anti-Spisso non li riconobbero come minaccia. Passarono.</p>
+<p>In poche ore gli zombi occuparono <b>tutta Serrano</b>. I cittadini fuggirono, si barricarono, cercarono riparo. Le strade erano piene di cloni grigi che camminavano senza meta, cercando qualcosa che non sapevano definire. L'unico posto che resistette fu la casa di <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a>. Lo scudo personale di Alessio, più potente di quello cittadino, teneva lontani gli zombi. Ma c'era un problema: il <b>vicino di casa</b> di Alessio non era riuscito ad arrivare in tempo. Si era nascosto nel cortile, poi era corso, e quando gli zombi lo inseguirono, Alessio aprì la porta e lo fece entrare.</p>
+<p>Da quel momento, il vicino non uscì più. Era intrappolato in casa con Alessio, circondato da cento e quattro zombi che aspettavano fuori.</p>
+
+<div style="float:right;margin:0 0 16px 20px;width:250px;text-align:center;font-family:sans-serif;font-size:12px">
+  <img src="piante_vs_zombi_2.jpeg" alt="Piante contro zombi - battaglia" style="width:100%;border:1px solid #a2a9b1;border-radius:4px" onerror="this.style.display='none'">
+  <div style="color:#54595d;margin-top:4px">Gli sparaseed difendono la casa di Alessio</div>
+</div>
+<p>Alessio aveva un hobby segreto: da quando si era ritirato dalla guerra, passava il tempo a modificare geneticamente le piante. Lo faceva con gli appunti del nonno <a onclick="navigateTo('Ermenegildo Spisso')">Gildo</a> e con l'aiuto di <a onclick="navigateTo('MariaTeresa Friolo')">Maria</a>, che era venuta a vivere con lui dopo la fine della guerra. Non era un'arma. Era un giardino. Ma quando gli zombi arrivarono, Alessio capì che quel giardino poteva salvare Serrano.</p>
+<p>Spiegò al vicino come funzionavano le piante:</p>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><b>I Girasoli</b> producevano energia solare, l'unica cosa che poteva far crescere le altre piante in fretta.</li>
+  <li><b>Gli Sparasemi</b> sparavano proiettili di cheddar acido, gli stessi che Morello aveva usato per pulire Napoli.</li>
+  <li><b>Le Noci</b> erano piante corazzate che bloccavano il passaggio degli zombi.</li>
+  <li><b>Le Catapulte di Cavolo</b> lanciavano ortaggi pesanti sul tetto, dove gli sparaseed non arrivavano.</li>
+</ul>
+<p>Il vicino, che non aveva mai combattuto in vita sua, imparò a piantare. Alessio, che non poteva uscire perché gli zombi lo riconoscevano e lo aspettavano, gli dava istruzioni dalla finestra. Il vicino difendeva la casa. Alessio gli passava i semi. Fuori, gli zombi avanzavano in file ordinate, seguendo le istruzioni che il Primo Clone aveva dato loro prima di sparire.</p>
+<p>La guerra durò giorni. Ogni notte arrivavano nuove ondate. Ogni giorno il vicino piantava nuovi girasoli, nuovi sparaseed, nuove noci. Imparò a riconoscere i diversi tipi di zombi: quelli con i coni in testa erano più resistenti, quelli con i secchi ancora di più, quelli con i palloncini volavano sopra le piante. Alessio gli insegnò a usare i funghi di notte, quando non c'era sole, e le lanterne per vedere nella nebbia che AleDoria aveva creato per confondere i difensori.</p>
+<p>Alla fine, dopo l'ultimo attacco, il vicino aveva piantato così tanti sparaseed che la casa di Alessio sembrava una giungla. Gli zombi erano stati respinti. La strada era libera.</p>
+
+<h2 id="fuga-gpz">La fuga del Primo Clone e la liberazione <span class="edit-link" onclick="openEditor('La guerra delle Piante contro gli Zombi')">[modifica]</span></h2>
+<p>Quando Alessio uscì di casa, trovò gli zombi ancora in piedi, ma immobili. Non attaccavano più. Non seguivano ordini. Qualcosa era cambiato. Alessio capì subito: chi li comandava se n'era andato. Il <b>Primo Clone</b>, nascosto a Castri durante tutta l'invasione, aveva abbandonato il suo esercito. Non si sa perché. Forse aveva paura di Alessio. Forse si era stancato. Forse, da perfetto clone dello Zio di Sbost, aveva capito che la vendetta non era una cosa che si fa per procura — doveva farla lui stesso, di persona, un'altra volta.</p>
+<p>Senza il Primo Clone, gli zombi persero la loro volontà. Si dispersero per Serrano, vagando senza meta, finché i cittadini non li catturarono uno a uno. Alcuni furono distrutti. Altri furono studiati. Nessuno riuscì mai a trovare il Primo Clone. Era scomparso, insieme alla macchina del clonaggio, in qualche angolo del Salento.</p>
+<p>Lo Zio di Sbost, quando seppe del fallimento, non parlò per tre giorni. Non commentò mai pubblicamente la scomparsa del suo clone perfetto. Forse non sapeva cosa dire. Forse, in un angolo della sua mente, si chiedeva se il Primo Clone fosse fuggito per paura o perché aveva capito qualcosa che lui, l'originale, non aveva mai voluto capire.</p>
+
+<h2 id="conseguenze-gpz">Conseguenze <span class="edit-link" onclick="openEditor('La guerra delle Piante contro gli Zombi')">[modifica]</span></h2>
+<p>La guerra delle Piante contro gli Zombi fu l'ultimo tentativo di <a onclick="navigateTo('La Cantina')">La Cantina</a> di conquistare Serrano. Dopo il fallimento, lo Zio di Sbost si concentrò sulla gestione di Napoli e del Salento, e non attaccò mai più la città volante.</p>
+<p>A Serrano, il vicino di Alessio divenne una leggenda. La sua casa era ancora piena di sparaseed quando i soccorsi arrivarono. Non volle mai raccontare la storia per intero. Diceva solo: «Alessio mi ha dato i semi. Io li ho piantati.»</p>
+<p>Alessio, dal canto suo, non parlò mai dell'accaduto. Continuò a modificare le piante nel suo giardino, con Maria che ogni tanto lo guardava e gli chiedeva se stesse preparando un altro esercito. Alessio sorrideva e non rispondeva.</p>
+<p>Il <b>Primo Clone dello Zio di Sbost</b> non fu mai trovato. AleDoria tentò di rintracciare la macchina del clonaggio con i suoi strumenti, ma il segnale era sparito. Qualcuno disse di aver visto un uomo in uniforme doganale camminare da solo lungo la costa salentina, diretto verso sud. Non si voltò mai indietro.</p>
+<p>La Pocchiaciclopedia registra questa storia come la più assurda mai documentata. E anche la più vera.</p>
+
+<div class="stub-box"><span style="font-size:22px">🌱</span><span>Un vicino di casa, un pugno di semi, e cento e quattro cloni zombi di un doganiere vendicativo. La guerra delle Piante contro gli Zombi è la dimostrazione che a Serrano non si vince con le armi. Si vince con i girasoli.</span></div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Guerre</a> <a>Serrano</a> <a>La Cantina</a> <a>Zio di Sbost</a> <a>Alessio Spisso</a> <a>Piante geneticamente modificate</a> <a>Clonazione</a></div>`;
+}
+
+function buildPrimoCloneZioSbost() {
+  return `<div class="wiki-notice"><span class="ni">🧬</span><span>Il Primo Clone dello Zio di Sbost fu perfetto — troppo perfetto. Manomise la macchina del clonaggio, creò un esercito di zombi, invase Serrano, e poi scomparve. Nessuno sa dove sia. Nessuno sa cosa voglia.</span></div>
+<h1 class="page-title">Primo Clone dello Zio di Sbost</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Primo Clone dello Zio di Sbost</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="primo_clone.jpg" alt="Primo Clone" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <table>
+    <tr><td><b>Creato da</b></td><td><a onclick="navigateTo('AleDoria')">AleDoria</a> (macchina del clonaggio)</td></tr>
+    <tr><td><b>Anno di creazione</b></td><td>124 dM</td></tr>
+    <tr><td><b>Creatore immediato</b></td><td><a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> (campione biologico)</td></tr>
+    <tr><td><b>Qualità</b></td><td>Clone perfetto — identico all'originale</td></tr>
+    <tr><td><b>Azione principale</b></td><td>Manomissione della macchina del clonaggio · Creazione di 104 cloni zombi · Invasione di Serrano</td></tr>
+    <tr><td><b>Esito</b></td><td>Scomparso durante l'invasione · Destino sconosciuto</td></tr>
+  </table>
+</div>
+
+<div class="toc-box"><div class="toc-title">Indice</div><ol>
+  <li><a href="#creazione-pc">La creazione</a></li>
+  <li><a href="#perfetto-pc">Il clone perfetto</a></li>
+  <li><a href="#sabotaggio-pc">Il sabotaggio</a></li>
+  <li><a href="#invasione-pc">Il ruolo nell'invasione di Serrano</a></li>
+  <li><a href="#fuga-pc">La fuga</a></li>
+  <li><a href="#teorie-pc">Teorie sulla scomparsa</a></li>
+</ol></div>
+
+<h2 id="creazione-pc">La creazione <span class="edit-link" onclick="openEditor('Primo Clone dello Zio di Sbost')">[modifica]</span></h2>
+<p>Nel 124 dM, dopo anni di tentativi falliti, <a onclick="navigateTo('AleDoria')">AleDoria</a> completò la macchina del clonaggio. Lo <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> si offrì volontario per il primo test. Inserì un campione della sua saliva nella camera, premette il pulsante, e attese sei ore. Quando la macchina si aprì, il Primo Clone era lì: stesso viso, stessa uniforme doganale, stessa espressione di chi ha passato troppo tempo nei capelli di <a onclick="navigateTo('Morello')">Morello</a>. Lo Zio di Sbost lo esaminò a lungo. Era identico. Parlava, pensava, obbediva. Era perfetto.</p>
+
+<h2 id="perfetto-pc">Il clone perfetto <span class="edit-link" onclick="openEditor('Primo Clone dello Zio di Sbost')">[modifica]</span></h2>
+<p>Il Primo Clone non era solo una copia fisica. Possedeva anche la memoria, la personalità, le ossessioni dell'originale. Sapeva tutto della vendetta contro Morello, della conquista di Napoli, della prigione di Castri. Sapeva anche, forse, qualcosa che lo Zio di Sbost non voleva ammettere: che la vendetta, dopo un po', non porta da nessuna parte. Lo Zio di Sbost gli spiegò il piano: usare la macchina per creare 104 cloni, infiltrarli a Serrano volante, occupare la città. Poi si allontanò per occuparsi di altri affari, convinto che il suo clone avrebbe seguito le istruzioni. Lasciò il Primo Clone da solo con la macchina.</p>
+
+<h2 id="sabotaggio-pc">Il sabotaggio <span class="edit-link" onclick="openEditor('Primo Clone dello Zio di Sbost')">[modifica]</span></h2>
+<p>Il Primo Clone rimase a lungo in silenzio, osservando la macchina. Poi, con una calma che AleDoria stesso avrebbe ammirato, iniziò a modificare i parametri. Non si sa perché lo fece. Forse per noia. Forse per vedere cosa sarebbe successo. Forse perché, da clone perfetto, conosceva la mente dello Zio di Sbost meglio di quanto lo Zio conoscesse sé stesso — e sapeva che l'originale, nel profondo, non voleva davvero conquistare Serrano. Voleva solo qualcosa da inseguire. Il Primo Clone gliela diede. Manomise i comandi, poi premette il pulsante. La macchina partì. Quando la camera si aprì, non uscì un clone perfetto. Uscì uno <b>zombi</b>. Il Primo Clone non si fermò. Continuò a clonare, ancora e ancora, finché la stanza fu piena di cento e quattro cloni zombi dello Zio di Sbost, tutti uguali, tutti in piedi, tutti con la bocca che si muoveva senza fare rumore. Poi si nascose.</p>
+
+<h2 id="invasione-pc">Il ruolo nell'invasione di Serrano <span class="edit-link" onclick="openEditor('Primo Clone dello Zio di Sbost')">[modifica]</span></h2>
+<p>Quando lo Zio di Sbost tornò, non trovò il Primo Clone. Trovò gli zombi. Il Primo Clone non si fece vedere. Da qualche parte nella città di Castri, osservava da lontano. Gli zombi obbedivano a due voci: quella dello Zio di Sbost e quella del Primo Clone. Durante l'invasione di Serrano, il Primo Clone non partecipò mai direttamente. Restò nell'ombra, lasciando che il suo esercito combattesse da solo. Forse voleva vedere cosa sarebbe successo. Forse aspettava il momento giusto per intervenire. Il momento non arrivò mai.</p>
+
+<h2 id="fuga-pc">La fuga <span class="edit-link" onclick="openEditor('Primo Clone dello Zio di Sbost')">[modifica]</span></h2>
+<p>Quando <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a> uscì di casa dopo aver respinto gli zombi, il Primo Clone era già lontano. Aveva abbandonato il suo esercito. Non si sa perché. Forse aveva paura di Alessio. Forse si era stancato. Forse, da perfetto clone dello Zio di Sbost, aveva capito che la vendetta è una cosa che si fa di persona — e che un esercito di cloni non può sostituire la mano che preme il grilletto. Prese la macchina del clonaggio e scomparve. AleDoria tentò di rintracciarla con i suoi strumenti, ma il segnale era sparito.</p>
+
+<h2 id="teorie-pc">Teorie sulla scomparsa <span class="edit-link" onclick="openEditor('Primo Clone dello Zio di Sbost')">[modifica]</span></h2>
+<p>La scomparsa del Primo Clone generò infinite speculazioni. Le teorie più diffuse sono tre:</p>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><b>La fuga verso sud</b>: Qualcuno disse di aver visto un uomo in uniforme doganale camminare da solo lungo la costa salentina, diretto verso sud, senza mai voltarsi indietro.</li>
+  <li><b>La macchina nascosta</b>: Il Primo Clone avrebbe nascosto la macchina del clonaggio in un luogo segreto, in attesa di usarla di nuovo, quando gli zombi fossero stati dimenticati.</li>
+  <li><b>L'identità rubata</b>: La teoria più inquietante sostiene che il Primo Clone non sia fuggito — abbia sostituito l'originale. Che lo Zio di Sbost a Castri non sia più l'originale da quel giorno. Nessuno ha mai potuto verificare. Lo Zio di Sbost non ha mai commentato.</li>
+</ul>
+<p>La Pocchiaciclopedia non ha una versione ufficiale. Registra i fatti e lascia al lettore la scelta di cosa credere.</p>
+
+<div class="stub-box"><span style="font-size:22px">🧬</span><span>Il Primo Clone è perfetto. È scomparso. Forse è ancora lì, da qualche parte, ad aspettare. Forse lo hai già incontrato e non lo sai.</span></div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Clonazione</a> <a>La Cantina</a> <a>Zio di Sbost</a> <a>Personaggi scomparsi</a> <a>Guerra delle Piante contro gli Zombi</a></div>`;
 }
 
 loadPagesLocalOnly();
