@@ -1162,7 +1162,7 @@ const DEFAULT_PAGES = {
       <button onclick="changeYear(-10)" style="padding:3px 7px;border:1px solid #a2a9b1;background:#f8f9fa;border-radius:3px;cursor:pointer;font-size:11px">−10</button>
       <button onclick="changeYear(-5)"  style="padding:3px 7px;border:1px solid #a2a9b1;background:#f8f9fa;border-radius:3px;cursor:pointer;font-size:11px">−5</button>
       <button onclick="changeYear(-1)"  style="padding:3px 7px;border:1px solid #a2a9b1;background:#f8f9fa;border-radius:3px;cursor:pointer;font-size:11px">−1</button>
-      <input id="year-input" type="number" min="0" value="124"
+      <input id="year-input" type="number" min="0" value="126"
         style="width:84px;padding:3px 6px;border:1px solid #a2a9b1;border-radius:3px;font-size:14px;font-weight:700;color:#3680b0;text-align:center"
         oninput="onYearSlider(this.value)"
         onchange="onYearSlider(this.value)"
@@ -1234,6 +1234,12 @@ const DEFAULT_PAGES = {
   <li><a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')"><b>F.O.N.D.A.M.E.N.T.A.</b></a> — <i>Fondamenti Ontologici della Natura, della Dimensione, dell'Architettura, della Materia, dell'Energia, dei Nessi, della Topologia e dell'Assoluto.</i></li>
   <li><a onclick="navigateTo('L.E.G.G.I.')"><b>L.E.G.G.I.</b></a> — <i>Leggi Empiriche della Gravità, della Genesi, dell'Inerzia e dei Interscambi cosmici.</i></li>
   <li><a onclick="navigateTo('Ignoto di Napoli')"><b>Ignoto di Napoli</b></a> — Il misterioso autore delle L.E.G.G.I. Noto anche come Specchia.</li>
+<li><a onclick="navigateTo('Il Cheddar')"><b>Il Cheddar</b></a> — La teoria unificata del cosmo secondo AleDoria (113 dM). Il Sole è Cheddar incandescente, la Luna è Cheddar grigio, l'acqua è Cheddar e saliva di Ludo.</li>
+<li><a onclick="navigateTo('Sole')"><b>Sole</b></a> — Cheddar incandescente. La stella centrale del Sistema Cheddar.</li>
+<li><a onclick="navigateTo('Luna')"><b>Luna</b></a> — Cheddar grigio solido. Il satellite della Terra, stagionato nello spazio.</li>
+<li><a onclick="navigateTo('I Mille Occhi di Ludo')"><b>I Mille Occhi di Ludo</b></a> — Il muro di stelle fisse che chiude il cosmo. Gli occhi di Ludo che ci osservano.</li>
+<li><a onclick="navigateTo('Pianeta Zecca')"><b>Pianeta Zecca</b></a> — Il corpo celeste anomalo che cresce con gli insulti. Giovanni Zecca trasformato.</li>
+<li><a onclick="navigateTo('Sistema Cheddar')"><b>Sistema Cheddar</b></a> — Il sistema solare pocchiano.</li>
 </ul>
 
 <p><b>Nuovi personaggi e armi</b></p>
@@ -1244,9 +1250,10 @@ const DEFAULT_PAGES = {
   <li><a onclick="navigateTo('MariaTeresa Friolo')"><b>MariaTeresa Friolo</b></a> — Compagna di Alessio in India.</li>
   <li><a onclick="navigateTo('Raggio Nero')"><b>Raggio Nero</b></a> — L'arma nigeriana che ha mandato gli Avengers in mare.</li>
   <li><a onclick="navigateTo('Zio di Sbost')"><b>Zio di Sbost (Flavio Sbost)</b></a> — Doganale tra Castri e Serrano. Fermò Morello nel 104 dM, fu nascosto nei capelli con l'Aria di Napoli, si risvegliò nel 107 dM dopo la Bomba Spissica e scappò. Il 13 Maggio 109 dM fondò <a onclick="navigateTo('La Cantina')">La Cantina</a> per vendicarsi di Morello.</li>
+<li><a onclick="navigateTo('Primo Clone dello Zio di Sbost')"><b>Charlie Sbirk</b></a> — Il Primo Clone dello Zio di Sbost. Scomparso dopo la Guerra degli Zombi, è riapparso come filosofo democratico, fondando la prima democrazia a Castri nel 126 dM.</li>
   <li><a onclick="navigateTo('La Cantina')"><b>La Cantina</b></a> — Stato fondato il 13 Maggio 109 dM dallo Zio di Sbost a Castri, in ribellione alle Filippine. Ha inventato gli Sbost Bot e lo Spisso Bot.</li>
   <li><a onclick="navigateTo('AleDoria')"><b>AleDoria</b></a> — Inventore della famiglia Sbost. Ha creato gli Sbost Bot domestici, musicali, e gli Spisso Bot — armi acustiche che usano la parola «Spisso» come raggio sonoro.</li>
-  <li><a onclick="navigateTo('Terza Guerra degli Avengers')"><b>⚡ Alessio Spisso²</b></a> — Sopravvissuto alla Bomba Spissica. Si è risvegliato nel 109 dM come Alessio Spisso², potenziato. Ha ricostruito Serrano con Zella e l'ha fatta volare.</li>
+  <li><a onclick="navigateTo('Terza Guerra degli Avengers')"><b>Alessio Spisso²</b></a> — Sopravvissuto alla Bomba Spissica. Si è risvegliato nel 109 dM come Alessio Spisso², potenziato. Ha ricostruito Serrano con Zella e l'ha fatta volare.</li>
 </ul>
 <p><b>Le Guerre</b></p>
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
@@ -1257,6 +1264,7 @@ const DEFAULT_PAGES = {
   <li><a onclick="navigateTo('Bomba Spissica')"><b>Bomba Spissica</b></a> — L'arma che ha cancellato Serrano dalla mappa.</li>
   <li><a onclick="navigateTo('Terza Guerra degli Avengers')"><b>⚡ Terza Guerra degli Avengers</b></a> — 109 dM. Alessio Spisso² si è risvegliato. Serrano è stata ricostruita e ora vola. La guerra contro Alex Spisso è ricominciata.</li>
   <li><a onclick="navigateTo('La guerra delle Piante contro gli Zombi')"><b>🌱 Guerra delle Piante contro gli Zombi</b></a> — 124 dM. Lo Zio di Sbost clona sé stesso, ma il primo clone manomise la macchina e crea un esercito di zombi che invade Serrano. L'ultimo cittadino di Serrano resiste con un giardino di piante modificate.</li>
+  <li><a onclick="navigateTo('Grande Spaccatura degli Sbost')"><b>🏛️ Grande Spaccatura degli Sbost (126 dM)</b></a> — La ribellione di AleDoria, la prima democrazia a Castri e la monarchia costituzionale a Napoli.</li>
 </ul>
 
 <p><b>Gli Avengers e l'America</b></p>
@@ -1751,6 +1759,12 @@ DEFAULT_PAGES["Mancarella"].content = buildMancarella();
 DEFAULT_PAGES["Massimo Floris"] = { title: "Massimo Floris", content: buildMassimoFloris() };
 DEFAULT_PAGES["La caduta di Napoli"] = { title: "La caduta di Napoli", content: buildCadutaNapoli() };
 DEFAULT_PAGES["Martano"] = { title: "Martano", content: buildMartano() };
+DEFAULT_PAGES["Il Cheddar"] = { title: "Il Cheddar", content: buildCheddar() };
+DEFAULT_PAGES["Sistema Cheddar"] = { title: "Sistema Cheddar", content: buildSistemaCheddar() };
+DEFAULT_PAGES["Sole"] = { title: "Sole", content: buildSole() };
+DEFAULT_PAGES["Luna"] = { title: "Luna", content: buildLuna() };
+DEFAULT_PAGES["I Mille Occhi di Ludo"] = { title: "I Mille Occhi di Ludo", content: buildMilleOcchiLudo() };
+DEFAULT_PAGES["Grande Spaccatura degli Sbost"] = { title: "Grande Spaccatura degli Sbost", content: buildGrandeSpaccaturaSbost() };
 
 
 function buildSalDaSpicci() {
@@ -2161,6 +2175,140 @@ function buildFondamenta() {
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Fisica teorica</a> <a>Cosmologia</a> <a>Ermenegildo Spisso</a> <a>Topismo</a> <a>Testi fondamentali</a></div>`;
 }
 
+function buildMilleOcchiLudo() {
+  return `<div class="wiki-notice"><span class="ni">✨</span><span>I Mille Occhi di Ludo sono il confine del <a onclick="navigateTo('Sistema Cheddar')">Sistema Cheddar</a>. Un muro di stelle fisse che, secondo la tradizione topista, sono gli occhi di <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico</a> che osservano il mondo.</span></div>
+<h1 class="page-title">I Mille Occhi di Ludo</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">I Mille Occhi di Ludo</div>
+  <div style="text-align:center;padding:8px 6px 4px">
+    <img src="mille_occhi.jpg" alt="I Mille Occhi di Ludo" style="width:100%;max-width:200px;border-radius:12px;margin:0 auto;display:block;border:2px solid #ffaa44" onerror="this.style.display='none'">
+    <div style="font-size:11px;color:#ffaa66;margin-top:6px">✨ Il muro di stelle che ci osserva</div>
+  </div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Natura</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Muro di stelle fisse — confine del cosmo</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Composizione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Cheddar fossilizzato (secondo AleDoria) · Occhi di Ludo (secondo i topisti)</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Numero di stelle</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Mille — né una di più, né una di meno</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Posizione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Oltre l'orbita del <a onclick="navigateTo('Pianeta Zecca')">Pianeta Zecca</a></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Teoria di riferimento</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">AleDoria, "Teoria del Cheddar Universale" (113 dM) · Tradizione topista</td></tr>
+   </table>
+</div>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#natura-occhi">Natura e origine</a></li>
+    <li><a href="#teoria-occhi">La teoria di AleDoria — Cheddar fossilizzato</a></li>
+    <li><a href="#teologia-occhi">La visione topista — gli occhi di Ludo</a></li>
+    <li><a href="#confine-occhi">Il confine del cosmo</a></li>
+    <li><a href="#significato-occhi">Significato spirituale</a></li>
+  </ol>
+</div>
+
+<h2 id="natura-occhi">Natura e origine <span class="edit-link" onclick="openEditor('I Mille Occhi di Ludo')">[modifica]</span></h2>
+<p>Oltre l'orbita del <a onclick="navigateTo('Pianeta Zecca')">Pianeta Zecca</a>, il cielo è chiuso da un <b>muro di stelle fisse</b>, conosciuto come <b>I Mille Occhi di Ludo</b>. Queste stelle non si muovono come i pianeti. Sono fisse, immutabili, eppure brillano di una luce che non si spegne mai.</p>
+<p>La loro origine è avvolta nel mistero. Secondo la tradizione, esistono da sempre, poste da <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> al momento della creazione del mondo per segnare il confine del suo dominio.</p>
+
+<h2 id="teoria-occhi">La teoria di AleDoria — Cheddar fossilizzato <span class="edit-link" onclick="openEditor('I Mille Occhi di Ludo')">[modifica]</span></h2>
+<p>Nel 113 dM, <a onclick="navigateTo('AleDoria')">AleDoria</a> propose una spiegazione scientifica per le stelle fisse. Nella sua <a onclick="navigateTo('Il Cheddar')">Teoria del Cheddar Universale</a>, sostenne che I Mille Occhi di Ludo sono fatti di <b>Cheddar fossilizzato</b>, cristallizzato in forma di luce eterna.</p>
+<p>«Quando Ludo creò il mondo» scrisse AleDoria, «il Cheddar in eccesso si cristallizzò ai confini del cosmo. Non era più formaggio da mangiare, ma formaggio da guardare. La sua luce è la memoria della creazione, fissata per sempre.»</p>
+<p>Secondo questa teoria, ogni stella è un cristallo di Cheddar di dimensioni immense, che emette luce perché conserva ancora l'energia del momento in cui Ludo lo formò. Non si spengono perché non hanno bisogno di combustione: sono come gemme che brillano di luce riflessa, riflessa dal primo istante del mondo.</p>
+
+<h2 id="teologia-occhi">La visione topista — gli occhi di Ludo <span class="edit-link" onclick="openEditor('I Mille Occhi di Ludo')">[modifica]</span></h2>
+<p>I <a onclick="navigateTo('Topismo')">Ludotopici</a> rifiutano la spiegazione di AleDoria, o meglio la integrano in una visione più ampia. Per loro, I Mille Occhi di Ludo non sono semplici cristalli di Cheddar. Sono gli <b>occhi di <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico</a></b> che osservano il mondo.</p>
+<p>«Ogni stella» recita il testo sacro topista, «è un occhio che Ludo aprì il primo giorno. Le aprì tutte, e da allora non le ha mai chiuse. Mille occhi guardano il mondo. Mille occhi vedono tutto. Non c'è angolo della Terra che non sia osservato, non c'è pensiero che non sia noto.»</p>
+<p>I mille occhi non sono mille, spiegano i teologi topisti, ma molte di più. «Mille» è un numero simbolico, che significa «tutti». Ogni stella è un occhio. Ogni occhio vede tutto. Non c'è posto dove nascondersi.</p>
+
+<h2 id="confine-occhi">Il confine del cosmo <span class="edit-link" onclick="openEditor('I Mille Occhi di Ludo')">[modifica]</span></h2>
+<p>I Mille Occhi di Ludo non sono solo stelle: sono il confine del cosmo. Oltre di loro non c'è nulla. Secondo AleDoria, lo spazio finisce lì, come una parete di Cheddar cristallizzato che avvolge il sistema solare.</p>
+<p>«Oltre gli Occhi» scrisse, «non c'è spazio, non c'è tempo, non c'è Cheddar. C'è solo Ludo. E Ludo non ha bisogno di spazio: è già ovunque.»</p>
+<p>I Ludotopici aggiungono: «Oltre gli Occhi c'è Ludo stesso. Guardare oltre gli Occhi significa guardare Ludo in faccia. E nessuno, tranne il <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a>, ha mai osato farlo.»</p>
+
+<h2 id="significato-occhi">Significato spirituale <span class="edit-link" onclick="openEditor('I Mille Occhi di Ludo')">[modifica]</span></h2>
+<p>Per i credenti, I Mille Occhi di Ludo hanno un profondo significato spirituale. Sono il promemoria che ogni azione è osservata, ogni pensiero è noto, ogni preghiera è ascoltata. «Non c'è bisogno di gridare» dice un detto topista. «Ludo ti vede. Ludo ti sente. Anche se sussurri, uno dei mille occhi sta guardando proprio dove sei.»</p>
+<p>Pregare di notte, sotto le stelle, è considerato particolarmente efficace: si è più vicini agli occhi di Ludo, e le stelle brillano più forti quando non c'è il Sole a distrarre. I bambini topisti imparano fin da piccoli a salutare le stelle prima di andare a dormire, ringraziando Ludo per aver tenuto gli occhi aperti un altro giorno.</p>
+<p>E quando una stella cade — un evento raro e spettacolare — i Ludotopici dicono che Ludo ha sbattuto le palpebre. Per un istante, un occhio si è chiuso. E in quell'istante, se si è abbastanza veloci, si può chiedere una grazia prima che si riapra.</p>
+
+<div class="stub-box" style="background:#0a1a2a;border-left-color:#ffaa44;color:#ffdd99">
+  <span style="font-size:22px">✨</span>
+  <span><b>«I Mille Occhi di Ludo ci guardano. Sempre. Da mille direzioni. Non possiamo nasconderci. Non possiamo nemmeno provarci.»</b> — Detto topista.</span>
+</div>
+
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Stelle</a> <a>Cheddar</a> <a>Sistema Cheddar</a> <a>Topismo</a> <a>Ludovico Pio Tommasi</a> <a>Cosmologia</a></div>`;
+}
+
+function buildLuna() {
+  return `<div class="wiki-notice"><span class="ni">🌙</span><span>La Luna è l'unico satellite naturale della Terra. Secondo la <a onclick="navigateTo('Il Cheddar')">Teoria del Cheddar Universale</a>, è fatta di Cheddar grigio e solido, stagionato per millenni nello spazio.</span></div>
+<h1 class="page-title">Luna</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Luna</div>
+  <div style="text-align:center;padding:8px 6px 4px">
+    <img src="luna_cheddar.jpg" alt="La Luna" style="width:100%;max-width:200px;border-radius:50%;margin:0 auto;display:block;border:2px solid #b0b0b0" onerror="this.style.display='none'">
+    <div style="font-size:11px;color:#b0b0b0;margin-top:6px">🌙 Cheddar grigio solido</div>
+  </div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Tipo</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Satellite naturale</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Composizione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Cheddar grigio solido (stagionato)</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Diametro</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">3.474 km (circa 1/4 della Terra)</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Distanza dalla Terra</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">384.400 km</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Periodo orbitale</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">27,3 giorni</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Teoria di riferimento</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">AleDoria, "Teoria del Cheddar Universale" (113 dM)</td></tr>
+   </table>
+</div>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#natura-luna">Natura della Luna</a></li>
+    <li><a href="#superficie-luna">La superficie — Cheddar stagionato</a></li>
+    <li><a href="#fasi-luna">Le fasi lunari</a></li>
+    <li><a href="#eclissi-luna">Le eclissi</a></li>
+    <li><a href="#teologia-luna">La Luna nella teologia topista</a></li>
+  </ol>
+</div>
+
+<h2 id="natura-luna">Natura della Luna <span class="edit-link" onclick="openEditor('Luna')">[modifica]</span></h2>
+<p>La <b>Luna</b> è l'unico satellite naturale della Terra. Secondo la <a onclick="navigateTo('Il Cheddar')">Teoria del Cheddar Universale</a> di <a onclick="navigateTo('AleDoria')">AleDoria</a>, la Luna è composta da <b>Cheddar grigio e solido</b>. Dopo millenni di esposizione allo spazio, il formaggio lunare ha perso il suo colore giallo originale, diventando grigio come una crosta di formaggio stagionato troppo a lungo.</p>
+<p>Non brilla di luce propria, ma riflette quella del <a onclick="navigateTo('Sole')">Sole</a>. Questo è il motivo per cui la vediamo nel cielo notturno: sta semplicemente rimandandoci la luce del Cheddar incandescente solare.</p>
+
+<h2 id="superficie-luna">La superficie — Cheddar stagionato <span class="edit-link" onclick="openEditor('Luna')">[modifica]</span></h2>
+<p>La superficie lunare è coperta di crateri, formazioni che AleDoria spiegò come «buchi nel formaggio» causati da impatti di meteoriti nel corso di milioni di anni. I crateri più grandi, come Tycho e Copernico, sono visibili anche a occhio nudo dalla Terra.</p>
+<p>Le aree scure che si vedono sulla Luna, chiamate un tempo "mari" dagli astronomi, sono secondo AleDoria zone dove il Cheddar si è raffreddato più lentamente, formando una crosta più liscia e uniforme. «È come il fondo di una forma di formaggio» scrisse. «Più stagionato, più scuro.»</p>
+<p>Sulla Luna non c'è atmosfera — o meglio, non c'è Cheddar aeriforme come sulla Terra. Il Cheddar lunare è completamente solido, indurito, immutabile. Le impronte degli astronauti che vi hanno camminato resteranno impresse per milioni di anni, perché senza vento o pioggia, nulla le cancellerà.</p>
+
+<h2 id="fasi-luna">Le fasi lunari <span class="edit-link" onclick="openEditor('Luna')">[modifica]</span></h2>
+<p>Le fasi lunari sono dovute alla rotazione della Luna su sé stessa mentre il Cheddar solare la illumina da diverse angolazioni:</p>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><b>Luna nuova</b> — la faccia illuminata è opposta alla Terra; noi vediamo solo il lato in ombra, il Cheddar grigio che non riflette luce.</li>
+  <li><b>Luna crescente</b> — una piccola fetta di Cheddar illuminato comincia a mostrarsi.</li>
+  <li><b>Primo quarto</b> — metà della Luna è illuminata.</li>
+  <li><b>Luna piena</b> — tutta la faccia illuminata è rivolta verso la Terra.</li>
+  <li><b>Ultimo quarto</b> — di nuovo metà illuminata, ma dall'altro lato.</li>
+  <li><b>Luna calante</b> — la luce diminuisce fino a scomparire.</li>
+</ul>
+<p>«È come guardare un formaggio dal lato sbagliato» scrisse AleDoria. «Non è meno formaggio. È solo meno illuminato.»</p>
+
+<h2 id="eclissi-luna">Le eclissi <span class="edit-link" onclick="openEditor('Luna')">[modifica]</span></h2>
+<p>Durante un'eclissi lunare, la Terra si frappone tra il Sole e la Luna, proiettando la sua ombra sul satellite. L'ombra terrestre, fatta di Cheddar atmosferico, tinge la Luna di un rosso scuro. I topisti chiamano questo fenomeno «il sangue del formaggio» e lo considerano un momento di profondo significato spirituale.</p>
+<p>Durante un'eclissi solare, invece, è la Luna a frapporsi tra la Terra e il Sole, proiettando la sua ombra sul nostro pianeta. Per pochi minuti, il Cheddar grigio lunare copre il Cheddar incandescente solare, e il giorno diventa notte. I topisti vedono in questo l'occhio di Ludo che si chiude per ascoltare meglio le preghiere.</p>
+
+<h2 id="teologia-luna">La Luna nella teologia topista <span class="edit-link" onclick="openEditor('Luna')">[modifica]</span></h2>
+<p>Per i <a onclick="navigateTo('Topismo')">Ludotopici</a>, la Luna ha un ruolo speciale. Se il Sole è l'occhio principale di <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico</a>, la Luna è il suo occhio notturno, quello che veglia sul mondo quando l'altro riposa. «Ludo non dorme mai» recita un detto topista. «Quando il Sole tramonta, la Luna si accende. È lo stesso occhio, che si gira dall'altra parte.»</p>
+<p>I Ludotopici pregano rivolti verso la Luna durante la notte, specialmente quando è piena. Le eclissi lunari sono momenti in cui Ludo trattiene il respiro per ascoltare le preghiere più importanti. Le eclissi solari sono momenti in cui chiude l'occhio per riflettere, e in quel silenzio si possono udire le risposte.</p>
+
+<div class="stub-box" style="background:#1a1f2a;border-left-color:#b0b0b0">
+  <span style="font-size:22px">🌙</span>
+  <span><b>«La Luna è Cheddar stagionato nello spazio. Non brilla di luce propria, ma riflette quella del Sole. Come noi riflettiamo la luce di Ludo.»</b> — Dottrina topista.</span>
+</div>
+
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Satelliti</a> <a>Cheddar</a> <a>Sistema Cheddar</a> <a>Corpi celesti</a> <a>Topismo</a></div>`;
+}
+
 function buildLeggi() {
   return `<div class="wiki-notice"><span class="ni">⚖️</span><span>L.E.G.G.I. è l'opera di un autore sconosciuto. Si pensa che sia di Napoli. Nessuno è riuscito a confermare né a smentire questa ipotesi, il che a Napoli è considerato normale.</span></div>
 <h1 class="page-title">L.E.G.G.I.</h1>
@@ -2376,7 +2524,7 @@ function buildGiovanniZecca() {
 <p>Quando Giovanni smise di insegnare il C++ e si dedicò solo a Python, <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludo</a> non fu contento. Ludo aveva una visione precisa dell'ordine delle cose: prima le basi, poi le applicazioni. Il C++ era le basi. Python era un'applicazione. Non si saltano le basi.</p>
 <p>Giovanni non era d'accordo. Python era meglio — più chiaro, più potente, più leggibile. Il C++ era lo strumento con cui aveva costruito Python, ma uno strumento di costruzione non deve essere insegnato a chi deve solo usare l'edificio. La discussione andò avanti per settimane. Ludo, che preferiva il Latino alla programmazione e trovava l'intera vicenda irritante, nel <b>1 dM</b> pronunciò la maledizione:</p>
 <p style="margin:12px 24px;padding:12px 16px;border-left:3px solid #7b1fa2;background:#f3e5f5;font-family:sans-serif;font-size:13px"><i>«Ogni volta che qualcuno ti dirà in faccia la parola Ciccione, il Cheddar dentro di te aumenterà.»</i></p>
-<p>Giovanni rifiutò comunque di insegnare il C++. La maledizione rimase attiva. Era lo stesso anno in cui Morello arrivava a Napoli — un anno particolarmente denso per la storia di questo universo.</p>
+<p>Giovanni rifiutò comunque di insegnare il C++. La maledizione rimase attiva. Era lo stesso anno in cui Morello arrivava a Napoli — un anno particolarmente denso per la storia di questo universo. La maledizione, secondo la <a onclick="navigateTo('Il Cheddar')">Teoria del Cheddar Universale</a> di AleDoria, non è magia ma chimica: la parola "Ciccione" provoca una reazione nel Cheddar che compone il corpo umano. Giovanni era fatto di Cheddar più puro degli altri, e per questo reagiva in modo più violento.</p>
 
 <h2 id="citta-gz">L'insegnamento alle città (3–90 dM) <span class="edit-link" onclick="openEditor('Giovanni Zecca')">[modifica]</span></h2>
 <p>Dopo la maledizione Giovanni non smise di insegnare. Cambiò solo il tipo di studenti. Gli uomini comuni avevano già imparato abbastanza — Word, PowerPoint, qualche linguaggio di programmazione. Quello che mancava erano le grandi città: istituzioni complesse, sistemi di governo, architetture burocratiche che avevano bisogno di qualcuno che capisse come si scrive un programma che dura.</p>
@@ -2400,6 +2548,7 @@ function buildGiovanniZecca() {
 <div class="stub-box"><span style="font-size:22px">🐍</span><span>Giovanni Zecca rimane il caso più noto di crescita causata da insulti.</span></div>
 </div>`;
 }
+
 function buildPianetaZecca() {
   return `<div class="wiki-notice"><span class="ni">🪐</span><span>Il Pianeta Zecca è la voce cosmica dedicata alla massa crescente di Giovanni Zecca, alla sua orbita attorno alla Terra e alla sua sensibilità verso la parola «Ciccione».</span></div>
 <h1 class="page-title">Pianeta Zecca</h1>
@@ -2423,6 +2572,138 @@ function buildPianetaZecca() {
 <div class="stub-box"><span style="font-size:22px">🪐</span><span>Pianeta Zecca cresce con gli insulti, orbita con dignità e non dimentica niente.</span></div>
 </div>`;
 }
+
+function buildSistemaCheddar() {
+  return `<div class="wiki-notice"><span class="ni">🌌</span><span>Il Sistema Cheddar è il sistema solare in cui si trova il mondo pocchiano. Secondo la <a onclick="navigateTo('Il Cheddar')">Teoria del Cheddar Universale</a>, tutti i corpi celesti sono fatti di Cheddar in diverse forme. Le stelle fisse sono conosciute anche come <b>I Mille Occhi di Ludo</b>.</span></div>
+<h1 class="page-title">Sistema Cheddar</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Sistema Cheddar</div>
+  <div style="text-align:center;padding:8px 6px 4px;font-size:48px">🧀🌍🌕☀️</div>
+  <div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Il sistema solare — tutto Cheddar, tutto Ludo</div>
+  <table style="width:100%;border-collapse:collapse">
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Stella centrale</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Sole')">Sole (Cheddar incandescente)</a></td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Pianeti</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Terra (Cheddar terrestre) · altri sconosciuti</td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Satellite</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Luna')">Luna (Cheddar grigio solido)</a></td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Corpo anomalo</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Pianeta Zecca')">Pianeta Zecca</a> — orbita ellittica, massa variabile</td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Confine cosmico</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('I Mille Occhi di Ludo')"><b>I Mille Occhi di Ludo</b></a> — il muro di stelle fisse</td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Teoria di riferimento</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">AleDoria, "Teoria del Cheddar Universale" (113 dM)</td></tr>
+    </table>
+</div>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#sole-sc">☀️ Il Sole — Cheddar incandescente</a></li>
+    <li><a href="#terra-sc">🌍 La Terra — Cheddar terrestre</a></li>
+    <li><a href="#luna-sc">🌙 La Luna — Cheddar grigio e solido</a></li>
+    <li><a href="#zecca-sc">🪐 Il Pianeta Zecca — l'irregolarità orbitale</a></li>
+    <li><a href="#occhi-sc">✨ I Mille Occhi di Ludo — il muro di stelle</a></li>
+    <li><a href="#teoria-sc">📖 La visione di AleDoria</a></li>
+    <li><a href="#voci-correlate-sc">🔗 Voci correlate</a></li>
+  </ol>
+</div>
+
+<h2 id="sole-sc">☀️ Il Sole — Cheddar incandescente <span class="edit-link" onclick="openEditor('Sistema Cheddar')">[modifica]</span></h2>
+<div style="float:right;margin:0 0 16px 20px;width:140px;text-align:center;background:#1a1f2a;padding:12px;border-radius:16px">
+  <img src="sole_cheddar.jpg" alt="Il Sole di Cheddar" style="width:100px;height:100px;border-radius:50%;object-fit:cover;margin:0 auto;display:block" onerror="this.style.display='none'">
+  <div style="font-size:12px;color:#ffaa66;margin-top:8px">☀️ Cheddar incandescente</div>
+  <div style="font-size:10px;color:#888">5.500°C — la temperatura perfetta</div>
+</div>
+<p>Il <b><a onclick="navigateTo('Sole')">Sole</a></b> è una sfera immensa di <b>Cheddar incandescente</b>. La sua luce e il suo calore sono il risultato della combustione eterna del formaggio, alimentata dalla stessa energia che <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> usò per creare il mondo.</p>
+<p>Secondo <a onclick="navigateTo('AleDoria')">AleDoria</a>, la temperatura superficiale è di circa 5.500 gradi — la temperatura perfetta per fondere il Cheddar senza bruciarlo. Le macchie solari sono grumi di Cheddar più denso. I brillamenti sono esplosioni di Cheddar particolarmente grasso.</p>
+<p>Ogni giorno, il Sole trasforma tonnellate di Cheddar in energia luminosa. Se potessimo avvicinarci, sentiremmo l'odore di formaggio fuso che permea tutto il sistema solare.</p>
+<div style="clear:both"></div>
+
+<h2 id="terra-sc">🌍 La Terra — Cheddar terrestre <span class="edit-link" onclick="openEditor('Sistema Cheddar')">[modifica]</span></h2>
+<div style="float:right;margin:0 0 16px 20px;width:140px;text-align:center;background:#1a1f2a;padding:12px;border-radius:16px">
+  <img src="terra_cheddar.jpg" alt="La Terra di Cheddar" style="width:100px;height:100px;border-radius:50%;object-fit:cover;margin:0 auto;display:block" onerror="this.style.display='none'">
+  <div style="font-size:12px;color:#4caf50;margin-top:8px">🌍 Cheddar terrestre</div>
+  <div style="font-size:10px;color:#888">Nucleo fuso · crosta solida</div>
+</div>
+<p>La <b>Terra</b> è fatta di <b>Cheddar terrestre</b>. Il nucleo è Cheddar fuso e caldo, il mantello è Cheddar semi-solido in lento movimento, la crosta è Cheddar raffreddato e indurito che forma i continenti e i fondali oceanici.</p>
+<p>L'atmosfera è Cheddar aeriforme, così rarefatto da essere invisibile. «Quando respirate» scrisse AleDoria, «inspirate Cheddar. Quando parlate, espirate Cheddar. Il formaggio è dentro di voi.»</p>
+<p>I terremoti sono fratture nella crosta di formaggio. I vulcani sono eruzioni di Cheddar fuso che risale dal nucleo. I fossili sono impronte di antichi esseri viventi rimaste impresse nel Cheddar prima che si solidificasse.</p>
+<div style="clear:both"></div>
+
+<h2 id="luna-sc">🌙 La Luna — Cheddar grigio e solido <span class="edit-link" onclick="openEditor('Sistema Cheddar')">[modifica]</span></h2>
+<div style="float:right;margin:0 0 16px 20px;width:140px;text-align:center;background:#1a1f2a;padding:12px;border-radius:16px">
+  <img src="luna_cheddar.jpg" alt="La Luna di Cheddar" style="width:100px;height:100px;border-radius:50%;object-fit:cover;margin:0 auto;display:block" onerror="this.style.display='none'">
+  <div style="font-size:12px;color:#b0b0b0;margin-top:8px">🌙 Cheddar grigio solido</div>
+  <div style="font-size:10px;color:#888">Stagionata nello spazio</div>
+</div>
+<p>La <b><a onclick="navigateTo('Luna')">Luna</a></b> è il satellite della Terra, composta da <b>Cheddar grigio e solido</b>. Dopo millenni di esposizione allo spazio, il formaggio lunare ha perso il suo colore giallo originale, diventando grigio come una crosta di formaggio stagionato troppo a lungo.</p>
+<p>Non brilla di luce propria, ma riflette quella del Sole. Le fasi lunari sono dovute alla rotazione della Luna su sé stessa mentre il Cheddar solare la illumina da diverse angolazioni. Durante l'eclissi lunare, la Terra proietta la sua ombra di Cheddar sulla Luna, tingendola di un rosso scuro che i topisti chiamano «il sangue del formaggio».</p>
+<div style="clear:both"></div>
+
+<h2 id="zecca-sc">🪐 Il Pianeta Zecca — l'irregolarità orbitale <span class="edit-link" onclick="openEditor('Sistema Cheddar')">[modifica]</span></h2>
+<div style="float:right;margin:0 0 16px 20px;width:140px;text-align:center;background:#1a1f2a;padding:12px;border-radius:16px">
+  <img src="zecca_pianeta.jpg" alt="Pianeta Zecca" style="width:100px;height:100px;border-radius:50%;object-fit:cover;margin:0 auto;display:block" onerror="this.style.display='none'">
+  <div style="font-size:12px;color:#ffaa66;margin-top:8px">🪐 Orbita ellittica</div>
+  <div style="font-size:10px;color:#888">Massa variabile con gli insulti</div>
+</div>
+<p>Il <b><a onclick="navigateTo('Pianeta Zecca')">Pianeta Zecca</a></b> è un corpo celeste anomalo che orbita tra la Terra e il Sole. La sua orbita è fortemente ellittica e la sua massa varia nel tempo in funzione degli insulti ricevuti dal suo abitante principale, <a onclick="navigateTo('Giovanni Zecca')">Giovanni Zecca</a>.</p>
+<p>Il <b>24 Marzo 122 dM</b> Giovanni Zecca fu lanciato nello spazio da <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico</a> e divenne il Pianeta Zecca. La sua massa è attualmente circa un terzo di quella terrestre, ma continua a crescere ogni volta che qualcuno pronuncia la parola «Ciccione».</p>
+<p>Gli astronomi di Castri lo osservano regolarmente. Quando si avvicina alla Terra, le maree si alzano. Quando si allontana, si dice che Giovanni stia ascoltando gli insulti da lontano.</p>
+<div style="clear:both"></div>
+
+<h2 id="occhi-sc">✨ I Mille Occhi di Ludo — il muro di stelle <span class="edit-link" onclick="openEditor('Sistema Cheddar')">[modifica]</span></h2>
+<div style="float:right;margin:0 0 16px 20px;width:140px;text-align:center;background:#1a1f2a;padding:12px;border-radius:16px">
+  <img src="mille_occhi.jpg" alt="I Mille Occhi di Ludo" style="width:100px;height:100px;border-radius:12px;object-fit:cover;margin:0 auto;display:block" onerror="this.style.display='none'">
+  <div style="font-size:12px;color:#ffaa66;margin-top:8px">✨ I Mille Occhi di Ludo</div>
+  <div style="font-size:10px;color:#888">Il confine del cosmo</div>
+</div>
+<p>Oltre l'orbita del <a onclick="navigateTo('Pianeta Zecca')">Pianeta Zecca</a>, il cielo è chiuso da un <b>muro di stelle fisse</b>, conosciuto come <b><a onclick="navigateTo('I Mille Occhi di Ludo')">I Mille Occhi di Ludo</a></b>. Secondo la tradizione topista, queste stelle non sono soli lontani, ma gli occhi di <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico</a> che osservano il mondo.</p>
+<p>Ogni stella è un occhio che non chiude mai le palpebre. «Ludo ci guarda» recita un detto topista. «Sempre. Da mille direzioni. Non possiamo nasconderci. Non possiamo nemmeno provarci.»</p>
+<p>AleDoria, nella sua <a onclick="navigateTo('Il Cheddar')">Teoria del Cheddar Universale</a>, propose che le stelle fisse siano fatte di <b>Cheddar fossilizzato</b>, cristallizzato in forma di luce eterna. La sua teoria non fu mai verificata. Ma i Ludotopici la accettarono come complemento naturale alla rivelazione: gli occhi di Ludo sono fatti di Cheddar, perché tutto è Cheddar.</p>
+<div style="clear:both"></div>
+
+<h2 id="teoria-sc">📖 La visione di AleDoria <span class="edit-link" onclick="openEditor('Sistema Cheddar')">[modifica]</span></h2>
+<p>Nel 113 dM, <a onclick="navigateTo('AleDoria')">AleDoria</a> pubblicò la <b>Teoria del Cheddar Universale</b>, in cui sosteneva che l'intero cosmo è composto da Cheddar in diverse forme. La comunità scientifica non la prese sul serio. I Ludotopici la adottarono come verità rivelata.</p>
+<p>Oggi, la teoria sopravvive in pochi circoli: tra gli inventori di Castri, tra i fedeli di Ludo, e tra i bambini di Martano che la imparano a scuola il 24 Marzo, il giorno della Liberazione dal Cheddar.</p>
+
+<h2 id="voci-correlate-sc">🔗 Voci correlate <span class="edit-link" onclick="openEditor('Sistema Cheddar')">[modifica]</span></h2>
+<div style="display:flex;flex-wrap:wrap;gap:16px;margin:20px 0;justify-content:center">
+  <div style="background:#1a1f2a;border-radius:16px;padding:16px;width:200px;text-align:center;border:1px solid #ffaa4433">
+    <a onclick="navigateTo('Sole')" style="text-decoration:none">
+      <div style="font-size:48px">☀️</div>
+      <div style="font-weight:bold;color:#ffaa66">Sole</div>
+      <div style="font-size:11px;color:#888">Cheddar incandescente</div>
+    </a>
+  </div>
+  <div style="background:#1a1f2a;border-radius:16px;padding:16px;width:200px;text-align:center;border:1px solid #4caf5033">
+    <a onclick="navigateTo('Luna')" style="text-decoration:none">
+      <div style="font-size:48px">🌙</div>
+      <div style="font-weight:bold;color:#b0b0b0">Luna</div>
+      <div style="font-size:11px;color:#888">Cheddar grigio solido</div>
+    </a>
+  </div>
+  <div style="background:#1a1f2a;border-radius:16px;padding:16px;width:200px;text-align:center;border:1px solid #ffaa6633">
+    <a onclick="navigateTo('Pianeta Zecca')" style="text-decoration:none">
+      <div style="font-size:48px">🪐</div>
+      <div style="font-weight:bold;color:#ffaa66">Pianeta Zecca</div>
+      <div style="font-size:11px;color:#888">Orbita ellittica, massa variabile</div>
+    </a>
+  </div>
+  <div style="background:#1a1f2a;border-radius:16px;padding:16px;width:200px;text-align:center;border:1px solid #ffaa4433">
+    <a onclick="navigateTo('I Mille Occhi di Ludo')" style="text-decoration:none">
+      <div style="font-size:48px">✨👁️✨</div>
+      <div style="font-weight:bold;color:#ffaa66">I Mille Occhi di Ludo</div>
+      <div style="font-size:11px;color:#888">Il muro di stelle che ci osserva</div>
+    </a>
+  </div>
+</div>
+
+<div class="stub-box" style="background:#0a1a2a;border-left-color:#ffaa44;color:#ffdd99">
+  <span style="font-size:22px">🌌</span>
+  <span><b>«I Mille Occhi di Ludo ci guardano. Sempre. Da mille direzioni. Non possiamo nasconderci. Non possiamo nemmeno provarci.»</b> — Detto topista.</span>
+</div>
+
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Sistema solare</a> <a>Cheddar</a> <a>Cosmologia</a> <a>AleDoria</a> <a>Ludovico Pio Tommasi</a> <a>Topismo</a> <a>I Mille Occhi di Ludo</a> <a>Pianeta Zecca</a></div>`;
+}
+
 function buildTopusMaximus() {
   return `<div class="wiki-notice"><span class="ni">✝️</span><span>Questa voce contiene informazioni su un martirio. I Ludotopici sono pregati di non prendersela troppo durante la lettura.</span></div>
 <h1 class="page-title">Topus Maximus</h1>
@@ -2715,6 +2996,192 @@ function buildNapoli() {
 </ul>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Città della Campania</a> <a>Napoli</a> <a>Criminalità organizzata in Italia</a> <a>Disastri vulcanici</a> <a>Posti che sono tornati bellissimi</a></div>`;
+}
+
+function buildGrandeSpaccaturaSbost() {
+  return `<div class="wiki-notice"><span class="ni">⚔️</span><span>La Grande Spaccatura degli Sbost (126 dM) fu il conflitto politico che divise la famiglia Sbost e portò alla nascita della prima democrazia nel mondo pocchiano, seguita dalla prima monarchia costituzionale.</span></div>
+<h1 class="page-title">Grande Spaccatura degli Sbost</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Grande Spaccatura degli Sbost</div>
+  <div style="text-align:center;padding:8px 6px 4px;font-size:48px">⚔️🏛️👑</div>
+  <div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">La guerra che cambiò la politica del Salento</div>
+  <table style="width:100%;border-collapse:collapse">
+       <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Periodo</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>126 dM</b> (2043 d.C.)</td></tr>
+       <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Luogo</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Castri · Napoli · Salento</td></tr>
+       <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Causa</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Dibattito sulla democrazia · Rivelazione del Primo Clone</td></tr>
+       <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Protagonisti</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> · <a onclick="navigateTo('AleDoria')">AleDoria</a> · <b>Charlie Sbirk</b> (Primo Clone)</td></tr>
+       <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Esito</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Divisione: Castri diventa democrazia · Napoli diventa monarchia costituzionale</td></tr>
+     </table>
+</div>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#antefatti-gs">Antefatti — il Primo Clone scomparso</a></li>
+    <li><a href="#charlie-gs">Charlie Sbirk — l'ascesa politica</a>
+      <ol>
+        <li><a href="#carriera-gs">La carriera politica (125–126 dM)</a></li>
+        <li><a href="#dibattito-gs">Il dibattito sulla democrazia</a></li>
+      </ol>
+    </li>
+    <li><a href="#conversione-gs">La conversione di AleDoria</a></li>
+    <li><a href="#ribellione-gs">La ribellione di Napoli (primavera 126 dM)</a>
+      <ol>
+        <li><a href="#furto-gs">Il furto dei Bot</a></li>
+        <li><a href="#cacciata-gs">La cacciata dello Zio di Sbost</a></li>
+      </ol>
+    </li>
+    <li><a href="#democrazia-gs">La prima democrazia (estate 126 dM)</a></li>
+    <li><a href="#esilio-gs">L'esilio della famiglia Sbost</a></li>
+    <li><a href="#monarchia-gs">La monarchia costituzionale di Napoli (autunno 126 dM)</a></li>
+    <li><a href="#conseguenze-gs">Conseguenze</a></li>
+  </ol>
+</div>
+
+<h2 id="antefatti-gs">Antefatti — il Primo Clone scomparso <span class="edit-link" onclick="openEditor('Grande Spaccatura degli Sbost')">[modifica]</span></h2>
+<p>Nel <b>124 dM</b>, durante la <a onclick="navigateTo('La guerra delle Piante contro gli Zombi')">Guerra delle Piante contro gli Zombi</a>, il <a onclick="navigateTo('Primo Clone dello Zio di Sbost')">Primo Clone dello Zio di Sbost</a> era scomparso dopo aver sabotato la macchina del clonaggio e creato un esercito di 104 cloni zombi. Nessuno sapeva dove fosse finito. Si pensava fosse fuggito verso sud, forse morto, forse disperso.</p>
+<p>Invece, il Primo Clone aveva un piano. Non voleva solo vendicarsi dello Zio di Sbost. Voleva <b>sostituirlo</b>. Per farlo, non gli bastava la forza bruta — serviva qualcosa di più potente: il consenso popolare.</p>
+
+<h2 id="charlie-gs">Charlie Sbirk — l'ascesa politica <span class="edit-link" onclick="openEditor('Grande Spaccatura degli Sbost')">[modifica]</span></h2>
+<p>All'inizio del <b>125 dM</b>, un uomo di nome <b>Charlie Sbirk</b> comparve a Castri. Nessuno lo conosceva. Parlava con un accento strano, simile a quello dello Zio di Sbost ma più giovane, più energico. Diceva di essere un filosofo itinerante, venuto da lontano per portare nuove idee. In realtà era il Primo Clone, che aveva cambiato aspetto (capelli più corti, barba curata, vestiti eleganti) e si era inventato una nuova identità.</p>
+
+<h3 id="carriera-gs">La carriera politica (125–126 dM)</h3>
+<p>Charlie Sbirk iniziò a frequentare le piazze di Castri, poi di Calimera, poi di Lecce. Parlava ai mercati, alle osterie, ai porti. Il suo messaggio era semplice e nuovo: <b>la democrazia</b>. «Perché» chiedeva, «un solo uomo decide tutto? Perché la famiglia Sbost governa da decenni senza che nessuno l'abbia mai votata? Perché Napoli è stata conquistata e sottomessa come un popolo di schiavi?»</p>
+<p>La gente ascoltava. All'inizio pochi, poi sempre di più. Charlie aveva un modo di parlare che faceva sentire ognuno importante. Non prometteva ricchezze, non prometteva potere. Prometteva <b>diritti</b>. Prometteva che un giorno chiunque avrebbe potuto parlare, votare, scegliere.</p>
+<p>In pochi mesi, Charlie Sbirk divenne una figura pubblica rispettata. Le sue conferenze attiravano folle sempre più numerose. Pubblicò un opuscolo intitolato <i>"La Voce del Popolo"</i>, che circolò in tutto il Salento. Nessuno sospettava che sotto quelle parole si nascondesse il clone dello Zio di Sbost.</p>
+
+<h3 id="dibattito-gs">Il dibattito sulla democrazia (inverno 125–126 dM)</h3>
+<p>Il culmine dell'ascesa di Charlie fu un grande dibattito pubblico tenuto a Castri nel gennaio del <b>126 dM</b>. Di fronte a una folla di migliaia di persone, Charlie espose la sua tesi:</p>
+<blockquote style="margin:16px 24px;padding:12px 16px;border-left:3px solid #ffaa44;background:#1a1f2a">
+  <p style="margin:0;font-style:italic">«Da Serrano a Napoli, da Castri a Calimera, ovunque guardo vedo dittatori. Morello governava Napoli da solo. Alex Spisso ha preso l'America con una bomba. Lo Zio di Sbost ha conquistato Napoli con i Bot. E ora? Chi decide chi comanda? Nessuno. Decidono i più forti. Ma la forza non è giustizia. La forza non è diritto. Noi abbiamo bisogno di qualcosa di nuovo: la <b>democrazia</b>. Il potere al popolo. Che sia il popolo a scegliere chi lo governa.»</p>
+</blockquote>
+<p>La folla applaudì. Tra il pubblico c'era <a onclick="navigateTo('AleDoria')">AleDoria</a>, il nipote dello Zio di Sbost, l'inventore degli Sbost Bot. Ascoltò in silenzio. Poi, senza farsi notare, se ne andò. Ma le parole di Charlie gli erano rimaste dentro.</p>
+
+<h2 id="conversione-gs">La conversione di AleDoria <span class="edit-link" onclick="openEditor('Grande Spaccatura degli Sbost')">[modifica]</span></h2>
+<p>AleDoria tornò a Napoli, dove viveva dopo la conquista del 115 dM. Per giorni non parlò con nessuno. Ripensava a ciò che avevano fatto: la conquista delle Filippine, l'invasione di Napoli, la cattura di Morello in bagno. Per anni aveva giustificato tutto con la vendetta dello Zio, con la necessità di costruire uno stato forte. Ma Charlie Sbirk gli aveva fatto vedere le cose da un'altra prospettiva: <b>non stavano costruendo uno stato, stavano imponendo una dittatura</b>.</p>
+<p>Nel febbraio del <b>126 dM</b>, AleDoria scrisse una lunga lettera allo Zio di Sbost. Gli chiedeva di convocare un'assemblea, di discutere le idee di Charlie, di aprire un dibattito su come governare. Lo Zio rispose con una sola frase: «Se tutti hanno potere, i più stupidi rovinano tutto.» AleDoria rileggeva la lettera, la rileggeva, e capì. Suo zio non avrebbe mai cambiato idea.</p>
+
+<h2 id="ribellione-gs">La ribellione di Napoli (primavera 126 dM) <span class="edit-link" onclick="openEditor('Grande Spaccatura degli Sbost')">[modifica]</span></h2>
+
+<h3 id="furto-gs">Il furto dei Bot (marzo 126 dM)</h3>
+<p>AleDoria sapeva di non poter sconfiggere suo zio con le armi tradizionali. Ma aveva un vantaggio: <b>i Bot</b>. Lui li aveva costruiti. Lui conosceva i loro codici, i loro punti deboli, le loro override. Nella notte del <b>15 marzo 126 dM</b>, AleDoria si presentò alla fabbrica di Castri. Le guardie, che lo conoscevano, lo fecero passare senza problemi. In poche ore, AleDoria riprogrammò tutti gli Sbost Bot. Non li distrusse. Li convinse — o meglio, li riprogrammò — a seguire un nuovo scopo: <b>difendere la democrazia</b>.</p>
+<p>All'alba, una flotta di 300 Bot marciò verso Napoli. Non per conquistare, ma per liberare. AleDoria li guidava personalmente.</p>
+
+<h3 id="cacciata-gs">La cacciata dello Zio di Sbost (aprile 126 dM)</h3>
+<p>Quando i Bot arrivarono a Napoli, lo Zio di Sbost non oppose resistenza. Non perché non potesse — aveva ancora lealtà nella famiglia — ma perché vide nei Bot la stessa tecnologia che lui stesso aveva usato per conquistare il potere. «Hai vinto» disse a AleDoria. «Hai usato le mie stesse armi.» AleDoria scosse la testa. «Non sono le tue armi. Sono i tuoi errori. Li ho solo fatti vedere a tutti.»</p>
+<p>Lo Zio di Sbost fu cacciato da Napoli. Non fu imprigionato, non fu ucciso. Fu semplicemente <b>esiliato</b>. AleDoria gli diede un cavallo e lo accompagnò fino al confine. «Vattene» disse. «E non tornare.» Lo Zio non rispose. Partì verso sud, verso il luogo dove era iniziato tutto, e scomparve.</p>
+
+<h2 id="democrazia-gs">La prima democrazia (estate 126 dM) <span class="edit-link" onclick="openEditor('Grande Spaccatura degli Sbost')">[modifica]</span></h2>
+<p>Dopo la cacciata dello Zio, Charlie Sbirk tornò a Castri da trionfatore. Le sue idee avevano vinto. Le sue parole avevano convinto il più potente inventore della famiglia Sbost a ribellarsi. Ora, diceva, era il momento di costruire qualcosa di nuovo.</p>
+<p>Nel <b>giugno 126 dM</b>, Charlie convocò la prima <b>Assemblea del Popolo</b> a Castri. Tutti i cittadini maggiorenni furono invitati a votare per i propri rappresentanti. Per la prima volta nella storia del mondo pocchiano, <b>si votava</b>. Le elezioni furono caotiche, disordinate, piene di errori. Ma funzionarono. Quando i risultati furono proclamati, Charlie Sbirk era il nuovo capo de <a onclick="navigateTo('La Cantina')">La Cantina</a>.</p>
+<p>La prima cosa che fece fu firmare un decreto: <b>l'esilio della famiglia Sbost</b>. «La democrazia» dichiarò, «non può convivere con chi ha governato con la forza per decenni. Perché la democrazia sia vera, chi ha oppresso deve andarsene.» AleDoria, che era presente, rimase in silenzio. Non poteva crederci. Lui, che aveva cacciato suo zio per la democrazia, ora veniva cacciato insieme a tutta la sua famiglia.</p>
+
+<h2 id="esilio-gs">L'esilio della famiglia Sbost <span class="edit-link" onclick="openEditor('Grande Spaccatura degli Sbost')">[modifica]</span></h2>
+<p>La famiglia Sbost fu costretta a lasciare Castri in massa. AleDoria, sua cugina Elisa, i parenti, tutti dovettero andarsene. Non ci fu violenza — Charlie voleva essere ricordato come il padre della democrazia, non come un tiranno — ma la ferita fu profonda. AleDoria, che aveva consegnato i Bot a Charlie, che aveva cacciato suo zio per lui, si sentì tradito.</p>
+<p>Prima di partire, scrisse una lettera a Charlie. Gli chiedeva spiegazioni. Charlie rispose con poche righe: «La democrazia non ammette privilegi. La famiglia Sbost è un privilegio. Deve andarsene. Non per odio. Per giustizia.»</p>
+<p>AleDoria lesse la lettera e non rispose. Partì per Napoli con i Bot rimasti, con sua cugina Elisa, con i pochi parenti che non avevano trovato riparo altrove. Arrivò a Napoli con un'unica certezza: non avrebbe mai più combattuto per la democrazia di Charlie.</p>
+
+<h2 id="monarchia-gs">La monarchia costituzionale di Napoli (autunno 126 dM) <span class="edit-link" onclick="openEditor('Grande Spaccatura degli Sbost')">[modifica]</span></h2>
+<p>AleDoria aveva ancora i Bot. Aveva Napoli, che era stata liberata dallo Zio ma non aveva ancora un governo stabile. Aveva il potere, ma non voleva diventare come suo zio. E non voleva diventare come Charlie. Doveva inventare qualcosa di nuovo.</p>
+<p>Nel <b>settembre 126 dM</b>, AleDoria convocò a Napoli un'assemblea di cittadini, commercianti, artigiani e intellettuali. Presentò un documento che aveva scritto nei mesi precedenti: <b>la Costituzione di Napoli</b>. Era un compromesso. AleDoria sarebbe stato il capo dello stato, con il titolo di <b>Principe di Napoli</b>, ma il suo potere sarebbe stato limitato da un <b>parlamento eletto</b> e da una <b>carta dei diritti</b> che nessuno, nemmeno lui, poteva violare.</p>
+<blockquote style="margin:16px 24px;padding:12px 16px;border-left:3px solid #4caf50;background:#1a2a1a">
+  <p style="margin:0;font-style:italic">«Non sarò un dittatore. Non sarò un tiranno. Sarò il primo cittadino di uno stato che garantisce a tutti i diritti che nessuno ci ha mai dato. Questa è una monarchia costituzionale. Il principe governa, ma la legge governa il principe. E chi non rispetta la legge, anche se è principe, sarà giudicato.»</p>
+  <footer style="margin-top:6px;font-size:11px;color:#88ff88">— AleDoria, discorso di insediamento, settembre 126 dM</footer>
+</blockquote>
+<p>Non tutti furono d'accordo. Alcuni cittadini protestarono, chiedendo la democrazia pura come a Castri. AleDoria li ascoltò, poi rispose: «La democrazia che avete visto a Castri ha cacciato me e la mia famiglia. Non perché fossimo colpevoli, ma perché eravamo scomodi. Io non caccio nessuno. Io governo con voi. Quando Charlie e io avremo chiarito, quando la democrazia sarà davvero libera, allora potremo parlare di unire i due stati. Fino ad allora, Napoli sarà una monarchia costituzionale. Perché qui nessuno viene cacciato.»</p>
+
+<h2 id="conseguenze-gs">Conseguenze <span class="edit-link" onclick="openEditor('Grande Spaccatura degli Sbost')">[modifica]</span></h2>
+<p>La Grande Spaccatura degli Sbost divise il Salento in due modelli politici opposti:</p>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><b>Castri</b> — sotto Charlie Sbirk, divenne la <b>prima democrazia</b> del mondo pocchiano. Il potere era nelle mani dell'assemblea popolare, con elezioni regolari e partiti politici nascenti.</li>
+  <li><b>Napoli</b> — sotto AleDoria, divenne una <b>monarchia costituzionale</b>. Il Principe aveva l'ultima parola, ma era vincolato da una costituzione e da un parlamento eletto.</li>
+</ul>
+<p>La famiglia Sbost fu divisa. Alcuni rimasero a Castri, abbracciando la democrazia di Charlie. Altri seguirono AleDoria a Napoli. Altri ancora scomparvero, cercando rifugio altrove. Lo Zio di Sbost, esiliato, non fu più visto. Alcuni dicono che sia tornato alla dogana dove tutto era iniziato, a vivere in silenzio. Altri dicono che sia morto lungo la strada. Altri ancora dicono che stia aspettando, come aveva aspettato per anni nei capelli di Morello, il momento giusto per tornare.</p>
+<p>Charlie Sbirk governò Castri per anni. La sua identità di clone non fu mai rivelata — o forse lo fu, ma nessuno credette a chi lo raccontava. Era troppo popolare, troppo amato. E poi, dicevano, che importa se è un clone? Le sue idee erano buone. E le idee, a differenza dei cloni, non hanno bisogno di essere originali per essere giuste.</p>
+<p>AleDoria, da Napoli, continuò a osservare. Non attaccò mai Castri, nonostante avesse i Bot. «La guerra» disse, «non risolve i problemi politici. Li congela. E io non voglio congelare nulla. Voglio che un giorno, quando saremo pronti, Castri e Napoli possano parlarsi. Da uguali a uguali.»</p>
+<p>Il sogno di una democrazia unificata non si realizzò. Ma la Grande Spaccatura cambiò per sempre il modo di pensare la politica nel Salento. Per la prima volta, la gente parlava di diritti, di costituzioni, di elezioni. Per la prima volta, anche chi non aveva potere sapeva che forse, un giorno, avrebbe potuto averlo.</p>
+
+<div class="stub-box" style="background:#1a1f2a;border-left-color:#ffaa44">
+  <span style="font-size:22px">🏛️</span>
+  <span><b>«La forza non è giustizia. La forza non è diritto.»</b> — Charlie Sbirk, dibattito sulla democrazia, gennaio 126 dM.</span>
+</div>
+
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Eventi storici</a> <a>La Cantina</a> <a>Napoli</a> <a>Famiglia Sbost</a> <a>Democrazia</a> <a>Monarchia costituzionale</a> <a>126 dM</a> <a>Grande Spaccatura</a></div>`;
+}
+
+function buildSole() {
+  return `<div class="wiki-notice"><span class="ni">☀️</span><span>Il Sole è la stella centrale del <a onclick="navigateTo('Sistema Cheddar')">Sistema Cheddar</a>. Secondo la <a onclick="navigateTo('Il Cheddar')">Teoria del Cheddar Universale</a>, è fatto di Cheddar incandescente.</span></div>
+<h1 class="page-title">Sole</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Sole</div>
+  <div style="text-align:center;padding:8px 6px 4px">
+    <img src="sole_cheddar.jpg" alt="Il Sole" style="width:100%;max-width:200px;border-radius:50%;margin:0 auto;display:block;border:2px solid #ffaa44" onerror="this.style.display='none'">
+    <div style="font-size:11px;color:#ffaa66;margin-top:6px">☀️ Cheddar incandescente</div>
+  </div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Tipo</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Stella (Cheddar incandescente)</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Temperatura</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">5.500°C — la temperatura perfetta</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Composizione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Cheddar incandescente · Cheddar fuso</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Diametro</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">1.392.700 km (circa 109 volte la Terra)</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Età</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Circa 104.670.000 anni (creato con il mondo)</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Teoria di riferimento</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">AleDoria, "Teoria del Cheddar Universale" (113 dM)</td></tr>
+   </table>
+</div>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#natura-sole">Natura del Sole</a></li>
+    <li><a href="#struttura-sole">La struttura — Cheddar a strati</a></li>
+    <li><a href="#fenomeni-sole">Fenomeni solari</a></li>
+    <li><a href="#ruolo-sole">Il ruolo nel Sistema Cheddar</a></li>
+    <li><a href="#teologia-sole">Il Sole nella teologia topista</a></li>
+  </ol>
+</div>
+
+<h2 id="natura-sole">Natura del Sole <span class="edit-link" onclick="openEditor('Sole')">[modifica]</span></h2>
+<p>Il <b>Sole</b> è la stella centrale del <a onclick="navigateTo('Sistema Cheddar')">Sistema Cheddar</a>. Secondo la <a onclick="navigateTo('Il Cheddar')">Teoria del Cheddar Universale</a> formulata da <a onclick="navigateTo('AleDoria')">AleDoria</a> nel 113 dM, il Sole è una sfera immensa di <b>Cheddar incandescente</b>. La sua luce e il suo calore sono il risultato della combustione eterna del formaggio, alimentata dalla stessa energia che <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> usò per creare il mondo.</p>
+<p>A differenza dei pianeti, il Sole non ha una crosta solida. È una palla di Cheddar fuso così caldo da brillare di luce propria. La sua superficie, chiamata fotosfera, è l'unica parte visibile dalla Terra. Sembra liscia da lontano, ma in realtà è un mare di Cheddar bollente in costante movimento.</p>
+
+<h2 id="struttura-sole">La struttura — Cheddar a strati <span class="edit-link" onclick="openEditor('Sole')">[modifica]</span></h2>
+<p>Secondo AleDoria, il Sole è composto da diversi strati di Cheddar:</p>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><b>Nucleo</b> — Cheddar extra-fuso a 15 milioni di gradi. È qui che avviene la "combustione" del formaggio che produce energia.</li>
+  <li><b>Zona radiativa</b> — Cheddar semi-liquido che trasporta l'energia verso l'esterno.</li>
+  <li><b>Zona convettiva</b> — Cheddar più denso che si muove in enormi bolle.</li>
+  <li><b>Fotosfera</b> — La "crosta" del Sole, dove la luce viene emessa nello spazio. La temperatura è di circa 5.500 gradi — la temperatura perfetta per fondere il Cheddar senza bruciarlo.</li>
+  <li><b>Cromosfera e corona</b> — Gli strati esterni, fatti di Cheddar rarefatto che si estende per milioni di chilometri.</li>
+</ul>
+
+<h2 id="fenomeni-sole">Fenomeni solari <span class="edit-link" onclick="openEditor('Sole')">[modifica]</span></h2>
+<p>Il Sole è un corpo vivo e attivo. I fenomeni che lo caratterizzano sono spiegati da AleDoria in termini caseari:</p>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><b>Macchie solari</b> — grumi di Cheddar più denso che affiorano in superficie. Sono più scure perché più fredde (circa 3.800°C).</li>
+  <li><b>Brillamenti</b> — esplosioni di Cheddar particolarmente grasso che si accendono come una fiamma. Possono durare da pochi minuti a diverse ore.</li>
+  <li><b>Vento solare</b> — un flusso continuo di Cheddar aeriforme che si espande nello spazio, raggiungendo tutti i pianeti del Sistema Cheddar.</li>
+  <li><b>Eclissi</b> — quando la Luna (Cheddar grigio solido) passa davanti al Sole, la sua ombra proietta un'oscurità temporanea sulla Terra.</li>
+</ul>
+
+<h2 id="ruolo-sole">Il ruolo nel Sistema Cheddar <span class="edit-link" onclick="openEditor('Sole')">[modifica]</span></h2>
+<p>Il Sole è il cuore del Sistema Cheddar. La sua gravità tiene in orbita tutti i pianeti, compresa la Terra. La sua luce e il suo calore rendono possibile la vita. Senza il Sole, la Terra sarebbe un blocco di Cheddar congelato e morto.</p>
+<p>Secondo i calcoli di AleDoria, il Sole consuma circa 4 milioni di tonnellate di Cheddar al secondo. A questo ritmo, il Sole ha ancora Cheddar per miliardi di anni. «Non preoccupatevi» scrisse AleDoria. «Il formaggio è tanto. E Ludo non lascerà mai che la sua luce si spenga.»</p>
+
+<h2 id="teologia-sole">Il Sole nella teologia topista <span class="edit-link" onclick="openEditor('Sole')">[modifica]</span></h2>
+<p>Per i <a onclick="navigateTo('Topismo')">Ludotopici</a>, il Sole non è solo una stella. È l'occhio principale di <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico</a>, quello che veglia sul mondo durante il giorno. «Quando il Sole splende» recita un detto topista, «Ludo ti guarda. Quando è nascosto dalle nuvole, sta solo sbattendo le palpebre.»</p>
+<p>I Ludotopici pregano rivolti verso il Sole all'alba e al tramonto. Il mezzogiorno è considerato l'ora in cui Ludo è più attento, e quindi l'ora migliore per chiedere grazie. Le eclissi solari sono considerate momenti di profondo significato spirituale: quando la Luna copre il Sole, è Ludo che chiude gli occhi per un istante, e in quel silenzio cosmico si possono ascoltare le risposte che durante il giorno sono troppo rumorose per essere sentite.</p>
+
+<div class="stub-box" style="background:#fff8e1;border-left-color:#ffaa44">
+  <span style="font-size:22px">☀️</span>
+  <span><b>«Il Sole è Cheddar incandescente. Quando lo guardi, stai guardando il formaggio che Ludo accese per darci luce.»</b> — AleDoria, Teoria del Cheddar Universale.</span>
+</div>
+
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Stelle</a> <a>Cheddar</a> <a>Sistema Cheddar</a> <a>Corpi celesti</a> <a>Topismo</a></div>`;
 }
 
 function buildClanSpisso() {
@@ -6104,7 +6571,6 @@ function buildZioDiSbost() {
     <tr><td>Fuga</td><td><b>107 dM</b> — scappa così veloce che Morello non se ne accorge</td></tr>
     <tr><td>Tentativo vendetta</td><td>12 Maggio 109 dM — chiave falsa, casa di Morello a Napoli</td></tr>
     <tr><td>Fondazione La Cantina</td><td><b>13 Maggio 109 dM</b> — dichiara lo stato, prende Castri</td></tr>
-    <tr><td>Nipote</td><td><a onclick="navigateTo('Elisa Sbost')">Elisa Sbost</a> — estetista a Castri</td></tr>
     <tr><td>Nipoti</td><td><a onclick="navigateTo('Elisa Sbost')">Elisa Sbost</a> (estetista) · <a onclick="navigateTo('AleDoria')">AleDoria</a> (inventore)</td></tr>
   </table>
 </div>
@@ -6149,8 +6615,15 @@ function buildZioDiSbost() {
 <h2 id="cantina-z">La fondazione di La Cantina — 13 Maggio 109 dM <span class="edit-link" onclick="openEditor('Zio di Sbost')">[modifica]</span></h2>
 <p>Tornato a Castri, lo Zio di Sbost chiamò tutta la <b>famiglia Sbost</b>. L'adunata fu rapida — la famiglia Sbost è numerosa e risponde alle convocazioni dello Zio con una velocità che nessuno ha mai cercato di spiegare. Il <b>13 Maggio 109 dM</b> lo Zio di Sbost dichiarò ufficialmente lo stato <b><a onclick="navigateTo('La Cantina')">La Cantina</a></b>, in ribellione alle <a onclick="navigateTo('Filippine')">Filippine</a>, prendendo il controllo di Castri.</p>
 <p>Con l'aiuto di <a onclick="navigateTo('AleDoria')">AleDoria</a> — inventore e figura chiave della famiglia Sbost — Lo stato sviluppò i propri strumenti tecnologici. Vedi <a onclick="navigateTo('La Cantina')">La Cantina</a> e <a onclick="navigateTo('AleDoria')">AleDoria</a> per i dettagli.</p>
-<div class="stub-box"><span style="font-size:22px">💈</span><span>La vecchia dogana tra Castri e Serrano, dove tutto è iniziato, è diventata famosa nel 121 dM — <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> si nascondeva lì.</span></div>
+
+<h2 id="esilio-z">L'esilio e la scomparsa (126 dM) <span class="edit-link" onclick="openEditor('Zio di Sbost')">[modifica]</span></h2>
+
+<p>Nel <b>126 dM</b>, suo nipote <a onclick="navigateTo('AleDoria')">AleDoria</a> si ribellò contro di lui, ispirato dalle idee democratiche di <b>Charlie Sbirk</b> (il <a onclick="navigateTo('Primo Clone dello Zio di Sbost')">Primo Clone</a>). AleDoria riprogrammò gli Sbost Bot e lo cacciò da Napoli. Lo Zio di Sbost fu esiliato e scomparve. Alcuni dicono che sia tornato alla dogana dove tutto era iniziato. Altri che sia morto lungo la strada. Vedi <a onclick="navigateTo('Grande Spaccatura degli Sbost')">Grande Spaccatura degli Sbost</a>.</p>
+
+<div class="stub-box"><span style="font-size:22px">💈</span><span>La vecchia dogana tra Castri e Serrano, dove tutto è iniziato, è diventata famosa nel 121 dM — <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> si nascondeva lì.
+</span></div>
 </div>
+
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Funzionari doganali</a> <a>Morello</a> <a>Capelli storici</a> <a>Castri</a> <a>Fondatori di stato</a> <a>Famiglia Sbost</a></div>`;
 }
 
@@ -6400,7 +6873,7 @@ function buildMartano() {
 
 <h2 id="piogge-m">Le piogge di Cheddar (9–122 dM) <span class="edit-link" onclick="openEditor('Martano')">[modifica]</span></h2>
 <p>Nel <b>9 dM</b> (1926 d.C.), senza alcuna spiegazione apparente, iniziò a piovere <b>Cheddar</b> su Martano. Non era un formaggio normale — era Cheddar magico, quello che <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> usava per le sue maledizioni. Grandinava Cheddar, pioveva Cheddar, cadeva Cheddar dal cielo come neve gialla e grassa. I martanesi impararono a conviverci: usavano ombrelli rinforzati, coprivano i tetti con teli di plastica, e la domenica, quando la pioggia era più leggera, uscivano con cappelli di paglia e impermeabili. Il Cheddar era inodore, ma lasciava una patina untuosa su tutto. Le strade erano scivolose. I gatti evitavano di uscire.</p>
-<p>Nessuno seppe mai perché il Cheddar cadesse su Martano. Alcuni dissero che era una maledizione di Ludo per aver maltrattato un topo. Altri dissero che era un esperimento fallito di Giovanni Zecca. Altri ancora dissero che era solo il destino di una città che aveva osato troppo. La verità non fu mai scoperta.</p>
+<p>Nessuno seppe mai perché il Cheddar cadesse su Martano. Alcuni dissero che era una maledizione di Ludo per aver maltrattato un topo. Altri dissero che era un esperimento fallito di Giovanni Zecca. Altri ancora dissero che era solo il destino di una città che aveva osato troppo. Secondo la <a onclick="navigateTo('Il Cheddar')">Teoria del Cheddar Universale</a> di AleDoria, le piogge erano dovute a un "errore di dosaggio" nella creazione: Ludo mescolò troppa saliva con troppo poco Cheddar in alcune zone dell'atmosfera. Martano era proprio sotto quella zona. «Non per colpa di Martano» scrisse AleDoria. «Solo per caso.»</p>
 
 <h2 id="zecca-m">Giovanni Zecca a Martano (90–122 dM) <span class="edit-link" onclick="openEditor('Martano')">[modifica]</span></h2>
 <p>Nel <b>90 dM</b> (2007 d.C.), <a onclick="navigateTo('Giovanni Zecca')">Giovanni Zecca</a> si stabilì a Martano. Aveva viaggiato per decenni, insegnando Python alle città del Sud, e aveva bisogno di un posto tranquillo dove fermarsi. Scelse Martano perché, nonostante la grandine di Cheddar che cadeva ininterrottamente da 81 anni, aveva un certo fascino. «La grandine non mi disturba» disse. «Ho l'ombrello.»</p>
@@ -6915,10 +7388,10 @@ function toggleRotation() {
 
 // Guerre storiche con territori coinvolti
 // ── Anno corrente selezionato dallo slider ──
-let currentYear = 124;
+let currentYear = 126;
 
 const MIN_YEAR = 0;
-const MAX_YEAR = 124;
+const MAX_YEAR = 1004;
 
 function syncYearControls() {
   const inp = document.getElementById('year-input');
@@ -6954,6 +7427,7 @@ function updateYearDescription() {
     { min:122, max:122, desc: '🐍 24 Marzo 122 dM — Giovanni Zecca sente i «Ciccione», cresce di gravità propria · Ludo lo spinge nello spazio · la caduta libera Martano dal Cheddar' },
   { min:123, max:123, desc: "🌱 Alessio torna da Maria in India · Serrano si prepara alla ricostruzione definitiva" },
   { min:124, max:124, desc: "🧬 Guerra delle Piante contro gli Zombi — lo Zio di Sbost clona sé stesso, ma il primo clone crea un esercito di zombi · l'ultimo cittadino di Serrano resiste con le piante modificate" },
+{ min:126, max:126, desc: "🏛️ 126 dM — Grande Spaccatura degli Sbost: AleDoria si ribella, Charlie Sbirk (il Primo Clone) fonda la prima democrazia a Castri, AleDoria crea la monarchia costituzionale a Napoli." },
   ];
   const p = periods.find(p => currentYear >= p.min && currentYear <= p.max) || periods[0];
   if (desc) desc.textContent = p.desc;
@@ -6968,8 +7442,23 @@ function setCurrentYear(val) {
   syncYearControls();
   if (window._globeDirty !== undefined) window._globeDirty = true;
   updateYearDescription();
-  if (globeMapMode === '2d') draw2DMap();
+  if (globeMapMode === '2d') {
+    draw2DMap();
+  } else {
+    // Forza il ridisegno del globo 3D
+    if (typeof drawGlobe === 'function') drawGlobe();
+  }
   return currentYear;
+}
+
+function forceGlobeRefresh() {
+  // Forza il ridisegno del globo all'avvio
+  if (window._globeDirty !== undefined) window._globeDirty = true;
+  if (globeMapMode === '2d' && typeof draw2DMap === 'function') {
+    draw2DMap();
+  } else if (typeof drawGlobe === 'function') {
+    drawGlobe();
+  }
 }
 
 function changeYear(delta) {
@@ -7189,14 +7678,6 @@ function initGlobe() {
   let pinchDist = null;
   let autoRot = false;
 
-  // Posizione casuale di Ludovico nello sfondo — generata una volta al caricamento
-  // Coordinate normalizzate [0,1] nell'immagine di sfondo
-  const _ludoSize = Math.round(W * 0.055 + Math.random() * W * 0.03); // ~33–51px
-  const _ludoNX   = Math.random(); // posizione X normalizzata [0,1] dentro lo sfondo
-  const _ludoNY   = 0.05 + Math.random() * 0.85; // Y normalizzata, evita i bordi estremi
-  // Ref condiviso con i controlli globali
-  window._globeRotRef = { get autoRot() { return autoRot; }, set autoRot(v) { autoRot = v; } };
-
   // Texture Terra locale
   const earthImg = new Image();
   earthImg.src = 'earth.jpg';
@@ -7215,6 +7696,12 @@ function initGlobe() {
     earthW = ec.width;
     earthH = ec.height;
     earthReady = true;
+
+  // Forza il refresh dei territori all'avvio
+  setTimeout(function() {
+    forceGlobeRefresh();
+  }, 100);
+
   };
 
   // ── Immagini Sole / Luna / Ludovico ──
@@ -7226,22 +7713,6 @@ function initGlobe() {
 
   const ludoImg = new Image();
   ludoImg.src = 'ludovico.jpg';
-
-  // ══════════════════════════════════════════════════════════════
-  //  SIMULAZIONE SISTEMA TERRA-LUNA-SOLE — camera centrata sulla Terra
-  //
-  //  Coordinate 3D mondo: Terra sempre in (0,0,0)
-  //  Unità: 1 unit = 1 raggio terrestre (R_E = 6371 km)
-  //
-  //  Distanze reali (scalate visivamente ma proporzionali):
-  //    Terra-Luna  : 60.27 R_E  →  scala sim : 60 u
-  //    Terra-Sole  : 23481 R_E  →  scala sim : 400 u
-  //    R_Sole/R_E  : 109        →  scala sim : raggio sole = 14u
-  //    R_Luna/R_E  : 0.273      →  scala sim : raggio luna = 0.273u
-  //
-  //  La camera è FISSA (segue il drag dell'utente).
-  //  La Terra ruota su se stessa autonomamente (earthSelfRot).
-  // ══════════════════════════════════════════════════════════════
 
   // earthSelfRot = rotazione assiale della Terra (sostituisce autoRot per il globo)
   let earthSelfRot = rotY; // parte dallo stesso angolo iniziale
@@ -7580,6 +8051,33 @@ function initGlobe() {
         [13.82,40.98],[13.72,41.12],[13.65,41.28],[13.72,41.50]
       ]
     },
+{
+  // NAPOLI — Monarchia Costituzionale (dal 126 dM)
+  name: 'Napoli (Monarchia Costituzionale)', navigateTo: 'Napoli',
+  color: '#2c3e66', border: '#1a2a4a', textColor: '#fff',
+  label: { lon: 14.25, lat: 40.95 }, hitR: 2.0,
+  fromYear: 126,
+  poly: [
+    [13.72,41.50],[13.85,41.35],[14.00,41.22],[14.18,41.18],
+    [14.38,41.22],[14.55,41.35],[14.72,41.22],[14.88,41.08],
+    [14.95,40.92],[15.02,40.75],[15.05,40.55],[15.00,40.38],
+    [14.90,40.25],[14.75,40.18],[14.55,40.18],[14.38,40.25],
+    [14.22,40.38],[14.08,40.52],[13.98,40.68],[13.88,40.82],
+    [13.82,40.98],[13.72,41.12],[13.65,41.28],[13.72,41.50]
+  ]
+},
+{
+  // CASTRI — Democrazia (dal 126 dM)
+  name: 'Castri (Democrazia)', navigateTo: 'La Cantina',
+  color: '#2e7d64', border: '#1a4a3a', textColor: '#fff',
+  label: { lon: 18.13, lat: 40.22 }, hitR: 1.5,
+  fromYear: 126,
+  poly: [
+    [17.95,40.30],[18.05,40.30],[18.22,40.30],[18.28,40.22],
+    [18.22,40.14],[18.10,40.10],[17.98,40.12],[17.90,40.18],
+    [17.90,40.26],[17.95,40.30]
+  ]
+},
     {
       // SERRANO — dal 23 dM al 104 dM (prima della conquista Filippine)
       name: 'Serrano', navigateTo: 'Serrano',
@@ -7705,6 +8203,7 @@ function initGlobe() {
       color: '#4e342e', border: '#3e2723', textColor: '#fff',
       label: { lon: 18.05, lat: 40.27 }, hitR: 1.5,
       fromYear: 115,
+      toYear: 125,
       poly: [
         [17.85,40.40],[18.00,40.38],[18.10,40.36],[18.20,40.32],
         [18.26,40.28],[18.20,40.22],[18.14,40.18],[18.06,40.18],
@@ -7718,6 +8217,7 @@ function initGlobe() {
       color: '#4e342e', border: '#3e2723', textColor: '#fff',
       label: { lon: 14.25, lat: 40.95 }, hitR: 2.0,
       fromYear: 115,
+      toYear: 125,
       poly: [
         [13.72,41.50],[13.85,41.35],[14.00,41.22],[14.18,41.18],
         [14.38,41.22],[14.55,41.35],[14.72,41.22],[14.88,41.08],
@@ -8235,8 +8735,14 @@ function buildLaCantina() {
 <p>Tra le macerie di Napoli restava in piedi una sola casa: quella di <a onclick="navigateTo('Morello')">Morello</a>. Lo Zio di Sbost vi andò personalmente. Si trovò davanti alla porta. Era la stessa situazione del 12 Maggio 109 dM — ma questa volta non aveva una chiave falsa. Questa volta buttò giù la porta.</p>
 <p>Tutta la famiglia Sbost entrò. Cercarono Morello in ogni stanza. Lo trovarono in bagno. La prima cosa che fecero fu tagliargli i capelli — nessun altro sarebbe più scomparso lì dentro. Morello, pelato e catturato, fu portato alla prigione di Castri.</p>
 <p>All'interno della prigione, gli fu assegnato il nome ufficiale di <b>Morellato Pelato</b>. Il nome è ritenuto da tutte le fonti sia una vendetta per i capelli che un riferimento ironico al fatto che Morello — uno degli uomini più potenti della storia di questo universo — fosse stato trovato in bagno.</p>
-<div class="stub-box"><span style="font-size:22px">🍷</span><span>Lo Zio di Sbost voleva solo entrare in casa di Morello. Alla fine ci è riuscito. Gli ci sono voluti sei anni, uno stato, due guerre, e un'armata di robot che urlano «Spisso».</span></div>
+
+<h2 id="democrazia-lc">La democrazia e la spaccatura (126 dM) <span class="edit-link" onclick="openEditor('La Cantina')">[modifica]</span></h2>
+<p>Nel <b>126 dM</b>, <b>Charlie Sbirk</b> (il <a onclick="navigateTo('Primo Clone dello Zio di Sbost')">Primo Clone</a>) promosse un movimento democratico che portò alla ribellione di <a onclick="navigateTo('AleDoria')">AleDoria</a> contro lo Zio di Sbost. Dopo la cacciata dello Zio, Charlie divenne il primo capo democratico de La Cantina ed esiliò l'intera famiglia Sbost. AleDoria fondò una monarchia costituzionale a Napoli. La Cantina rimase sotto il governo democratico di Charlie. Vedi <a onclick="navigateTo('Grande Spaccatura degli Sbost')">Grande Spaccatura degli Sbost</a>.</p>
+
+<div class="stub-box"><span style="font-size:22px">🍷</span><span>Lo Zio di Sbost voleva solo entrare in casa di Morello. Alla fine ci è riuscito. Gli ci sono voluti sei anni, uno stato, due guerre, e un'armata di robot che urlano «Spisso».
+</span></div>
 </div>
+
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Stati del mondo pocchiano</a> <a>Castri</a> <a>Famiglia Sbost</a> <a>Fondazioni 109 dM</a> <a>Napoli</a></div>`;
 }
 
@@ -8302,12 +8808,95 @@ function buildAleDoria() {
 </ul>
 <p>Dopo la conquista di Napoli, AleDoria si ritirò dalla produzione bellica. Continuò a progettare Bot domestici e musicali, ma non costruì mai più uno Spisso Bot. «Ne ho fatti abbastanza» disse a suo zio. Lo Zio di Sbost non insistette. Forse capiva. Forse no. Ma lasciò che AleDoria tornasse a fare quello che sapeva fare meglio: inventare cose che rendono la vita più facile, non più difficile.</p>
 
+<h2 id="teoria-ad">La Teoria del Cheddar Universale (113 dM) <span class="edit-link" onclick="openEditor('AleDoria')">[modifica]</span></h2>
+<p>Nel 113 dM, nel pieno della <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers</a>, AleDoria pubblicò un trattato che avrebbe cambiato per sempre la cosmologia di questo universo: <a onclick="navigateTo('Il Cheddar')"><b>La Teoria del Cheddar Universale</b></a>. In 47 pagine scritte in una notte, sosteneva che il Sole, la Luna, la Terra e persino l'acqua sono fatti di Cheddar in forme diverse. La comunità scientifica non la prese sul serio. I Ludotopici la adottarono come verità rivelata. AleDoria, che non era né scienziato né teologo, non si curò di nessuna delle due reazioni. «Ho scritto quello che ho visto» disse.</p>
+
+<h2 id="ribellione-ad">La ribellione e la monarchia costituzionale (126 dM) <span class="edit-link" onclick="openEditor('AleDoria')">[modifica]</span></h2>
+<p>Nel <b>126 dM</b>, AleDoria ascoltò i discorsi di <b>Charlie Sbirk</b> (che non sapeva essere il <a onclick="navigateTo('Primo Clone dello Zio di Sbost')">Primo Clone</a>) e si convinse che la democrazia fosse la strada giusta. Quando suo zio rifiutò di cedere il potere, AleDoria organizzò una ribellione: riprogrammò gli Spisso Bot e marciò su Napoli, cacciando lo Zio di Sbost.</p>
+<p>Dopo la ribellione, Charlie Sbirk prese il potere a Castri ed esiliò l'intera famiglia Sbost. AleDoria, tradito, si ritirò a Napoli dove fondò la <b>monarchia costituzionale</b>, diventando il primo Principe di Napoli. Vedi <a onclick="navigateTo('Grande Spaccatura degli Sbost')">Grande Spaccatura degli Sbost</a> per i dettagli.</p>
+
 <div class="stub-box" style="background:#eaf3fb;border-left-color:#3680b0">
   <span style="font-size:22px">🔧</span>
   <span><b>«La differenza tra un Bot e un'arma è il contesto.»</b> — AleDoria, inventore de La Cantina.</span>
 </div>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Inventori</a> <a>Famiglia Sbost</a> <a>La Cantina</a> <a>Tecnologia pocchiana</a> <a>Castri</a></div>`;
+}
+
+function buildCheddar() {
+  return `<div class="wiki-notice"><span class="ni">🧀</span><span>Il Cheddar è la sostanza fondamentale dell'universo creato da <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a>. Tutto ciò che esiste è, in varia forma, Cheddar. La teoria fu formalizzata da <a onclick="navigateTo('AleDoria')">AleDoria</a> nel 113 dM.</span></div>
+<h1 class="page-title">Il Cheddar</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Il Cheddar</div>
+  <div style="text-align:center;padding:8px 6px 4px;font-size:48px">🧀</div>
+  <div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">La materia prima del cosmo — il formaggio che è tutto</div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Natura</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Sostanza fondamentale dell'universo</td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Creatore</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a></td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Teoria unificata</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>113 dM</b> — <a onclick="navigateTo('AleDoria')">AleDoria</a>, "Teoria del Cheddar Universale"</td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Forme principali</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Cheddar incandescente (Sole) · Cheddar grigio solido (Luna) · Cheddar terrestre (pianeti) · Cheddar acquoso (mari) · Cheddar magico (piogge e maledizioni)</td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Simbolo</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">La sostanza che è tutto — e che tutto spiega</td></tr>
+    </table>
+</div>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#teoria-c">La Teoria del Cheddar Universale (113 dM)</a></li>
+    <li><a href="#sole-c">Il Sole — Cheddar incandescente</a></li>
+    <li><a href="#luna-c">La Luna — Cheddar grigio e solido</a></li>
+    <li><a href="#terra-c">La Terra — Cheddar terrestre</a></li>
+    <li><a href="#acqua-c">L'acqua — Cheddar e saliva di Ludo</a></li>
+    <li><a href="#piogge-c">Le piogge di Cheddar</a></li>
+    <li><a href="#cheddaracido-c">Il Cheddar acido</a></li>
+    <li><a href="#maledizione-c">La maledizione del Cheddar</a></li>
+    <li><a href="#eredita-c">L'eredità della teoria</a></li>
+  </ol>
+</div>
+
+<h2 id="teoria-c">La Teoria del Cheddar Universale (113 dM) <span class="edit-link" onclick="openEditor('Il Cheddar')">[modifica]</span></h2>
+<p>Nel <b>113 dM</b>, durante la <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers</a>, mentre la città di Serrano volava nel cielo e Alex Spisso cercava disperatamente un modo per sconfiggere suo fratello, un inventore salentino di nome <a onclick="navigateTo('AleDoria')">AleDoria</a> fece una scoperta che avrebbe cambiato per sempre la cosmologia di questo universo. Lavorando nella sua fabbrica di Castri, circondato da Sbost Bot e prototipi di Spisso Bot, AleDoria ebbe un'intuizione: <b>tutto è Cheddar</b>.</p>
+<p>La sua <b>Teoria del Cheddar Universale</b> fu presentata in un trattato di sole 47 pagine, scritto di getto in una notte di insonnia. Il titolo completo era: <i>"Considerazioni sulla natura cheddara dell'universo, con particolare riguardo alla composizione dei corpi celesti, delle acque terrestri e delle manifestazioni magiche — una teoria unificata del tutto"</i>. AleDoria la chiamò semplicemente <b>"Il Cheddar è tutto"</b>. La comunità scientifica non la prese sul serio. I Ludotopici la adottarono immediatamente come verità rivelata. AleDoria, che non era né scienziato né teologo, ma solo un inventore con troppa curiosità, non si curò di nessuna delle due reazioni. «Ho scritto quello che ho visto» disse. «Se è giusto, lo capiranno. Se è sbagliato, lo dimenticheranno.» Non fu dimenticato.</p>
+
+<h2 id="sole-c">Il Sole — Cheddar incandescente <span class="edit-link" onclick="openEditor('Il Cheddar')">[modifica]</span></h2>
+<p>Secondo la teoria di AleDoria, il Sole non è una palla di idrogeno in fusione nucleare. È una sfera immensa di <b>Cheddar incandescente</b>. La luce e il calore che riceviamo sono il risultato della combustione eterna del formaggio, alimentata dalla stessa energia che Ludo usò per creare il mondo. Il Cheddar solare è di un colore giallo-arancio intenso, con una temperatura superficiale di circa 5.500 gradi — la temperatura perfetta per fondere il Cheddar senza bruciarlo. «Se fosse più caldo» spiegò AleDoria, «diventerebbe carbone. Se fosse meno caldo, diventerebbe formaggio normale. Dio ha scelto la temperatura giusta.»</p>
+<p>Le macchie solari, secondo la teoria, sono grumi di Cheddar più denso che affiorano in superficie. I brillamenti solari sono esplosioni di Cheddar particolarmente grasso che si accendono come una fiamma. Le eclissi sono il momento in cui la Luna — di Cheddar grigio — passa davanti al Sole, coprendolo parzialmente o totalmente. AleDoria notò che durante un'eclissi totale, il Cheddar solare e quello lunare emettono una luce particolare, quasi violacea, che lui chiamò «l'ombra del formaggio». Nessuno capì cosa intendesse. Ma la definizione rimase.</p>
+
+<h2 id="luna-c">La Luna — Cheddar grigio e solido <span class="edit-link" onclick="openEditor('Il Cheddar')">[modifica]</span></h2>
+<p>Se il Sole è Cheddar incandescente, la Luna è il suo opposto complementare: <b>Cheddar grigio e solido</b>. Dopo millenni di esposizione allo spazio, il formaggio lunare ha perso il suo colore giallo originale, diventando grigio come una crosta di formaggio stagionato troppo a lungo. È duro, compatto, e secondo AleDoria «sarebbe immangiabile, ma non è questo il punto».</p>
+<p>La Luna non brilla di luce propria, ma riflette quella del Sole — un fenomeno che AleDoria spiegò con l'albedo del Cheddar stagionato. «Il formaggio vecchio riflette la luce» scrisse. «Provate a mettere una fetta di pecorino al sole e vedrete. Non sarà come la Luna, ma il principio è lo stesso.» Nessuno provò. Ma nessuno dimostrò che avesse torto.</p>
+<p>Le fasi lunari, secondo AleDoria, sono dovute alla rotazione della Luna su sé stessa mentre il Cheddar solare la illumina da diverse angolazioni. La Luna piena è quando la faccia illuminata è completamente rivolta verso la Terra; la Luna nuova è quando la faccia illuminata è opposta, e noi vediamo solo il lato in ombra — il Cheddar grigio che non riflette luce. «È come guardare un formaggio dal lato sbagliato» scrisse. «Non è meno formaggio. È solo meno illuminato.»</p>
+
+<h2 id="terra-c">La Terra — Cheddar terrestre <span class="edit-link" onclick="openEditor('Il Cheddar')">[modifica]</span></h2>
+<p>La Terra è fatta di <b>Cheddar terrestre</b>, una varietà più complessa delle altre. Il nucleo terrestre è Cheddar fuso, caldo e viscoso, che genera il campo magnetico. Il mantello è Cheddar semi-solido, in lento movimento. La crosta è Cheddar raffreddato, indurito, che forma le montagne, le pianure, i fondali oceanici. I terremoti sono fratture nella crosta di formaggio. I vulcani sono eruzioni di Cheddar fuso che risale dal nucleo. «La Terra» scrisse AleDoria, «è una palla di formaggio con dentro del formaggio più caldo. Sembra riduttivo. È riduttivo. Ma è vero.»</p>
+<p>I fossili, secondo la teoria, sono impronte di antichi esseri viventi rimaste impresse nel Cheddar prima che si solidificasse. Il carbonio, l'ossigeno, l'azoto sono forme diverse di Cheddar sottoposto a pressioni e temperature differenti. L'atmosfera stessa è Cheddar aeriforme, così rarefatto da essere invisibile ma comunque presente. «Quando respirate» scrisse AleDoria, «inspirate Cheddar. Quando parlate, espirate Cheddar. Il formaggio è dentro di voi.» La frase divenne celebre. Qualcuno la trovò poetica. Qualcuno la trovò inquietante. AleDoria pensava fosse solo vera.</p>
+
+<h2 id="acqua-c">L'acqua — Cheddar e saliva di Ludo <span class="edit-link" onclick="openEditor('Il Cheddar')">[modifica]</span></h2>
+<p>La parte più controversa della teoria di AleDoria riguardava l'acqua. Secondo lui, l'acqua non è Cheddar puro, ma una miscela di Cheddar e <b>saliva di <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a></b>. Nel momento della creazione, Ludo — assetato dopo aver lavorato per giorni alla costruzione del cosmo — sputò sulla Terra. La sua saliva si mescolò con il Cheddar terrestre, generando l'acqua. «L'acqua» scrisse AleDoria, «è il formaggio che Dio ha bagnato con la sua bocca. Per questo è limpida. Perché è stata filtrata dalle sue labbra.»</p>
+<p>I mari sono gli accumuli più grandi di questa miscela. I fiumi e i laghi sono i suoi derivati. La pioggia è Cheddar e saliva che evaporano, salgono in cielo, e poi ricadono. «Quando piove» scrisse AleDoria, «Dio sta sputando di nuovo. Ma senza cattiveria. Solo per ricordarci da dove veniamo.» I Ludotopici accolsero questa spiegazione con entusiasmo. I geologi no. AleDoria non si curò nemmeno di rispondere alle critiche.</p>
+
+<h2 id="piogge-c">Le piogge di Cheddar <span class="edit-link" onclick="openEditor('Il Cheddar')">[modifica]</span></h2>
+<p>Un caso particolare della teoria riguarda le <b>piogge di Cheddar</b> che colpirono <a onclick="navigateTo('Martano')">Martano</a> dal 9 dM al 122 dM. AleDoria spiegò il fenomeno come un «errore di dosaggio» nella creazione. Quando Ludo creò l'acqua, mescolò troppa saliva con troppo poco Cheddar in alcune zone dell'atmosfera. Il risultato fu una miscela instabile che, invece di diventare acqua, rimase Cheddar in sospensione, pronto a cadere al primo disturbo atmosferico. «Martano» scrisse, «era proprio sotto quella zona. Non per colpa di Martano. Solo per caso.» I martanesi non furono convinti. Ma accettarono la spiegazione.</p>
+
+<h2 id="cheddaracido-c">Il Cheddar acido <span class="edit-link" onclick="openEditor('Il Cheddar')">[modifica]</span></h2>
+<p>Un'altra forma speciale di Cheddar è il <b>Cheddar acido</b>, che si forma quando il Cheddar normale si mescola con la lava vulcanica. Questo tipo di Cheddar ha una proprietà unica: scioglie i rifiuti trasformandoli in acqua. Fu usato da <a onclick="navigateTo('Morello')">Morello</a> nel 104 dM per pulire Napoli dopo la seconda eruzione del Vesuvio. AleDoria studiò il fenomeno e concluse che la lava vulcanica, essendo Cheddar fuso del nucleo terrestre, reagisce con il Cheddar atmosferico formando un composto che «pulisce ciò che è sporco perché è sporco di Cheddar impuro. Il Cheddar acido non distrugge. Riconosce ciò che non è Cheddar puro e lo scioglie. È la memoria del formaggio.»</p>
+
+<h2 id="maledizione-c">La maledizione del Cheddar <span class="edit-link" onclick="openEditor('Il Cheddar')">[modifica]</span></h2>
+<p>Il Cheddar è anche il veicolo delle maledizioni di Ludo. Quando Ludo maledisse <a onclick="navigateTo('Giovanni Zecca')">Giovanni Zecca</a> con la parola «Ciccione», il Cheddar dentro Giovanni iniziò a crescere ogni volta che qualcuno lo insultava. «La maledizione» scrisse AleDoria, «non è magia. È chimica. La parola "Ciccione" provoca una reazione nel Cheddar che compone il corpo umano, facendolo espandere. Funziona solo su Giovanni perché il suo Cheddar è più puro del nostro. O più impuro. Dipende da come la si vede.»</p>
+
+<h2 id="eredita-c">L'eredità della teoria <span class="edit-link" onclick="openEditor('Il Cheddar')">[modifica]</span></h2>
+<p>La Teoria del Cheddar Universale non fu mai accettata dalla comunità scientifica. Troppi dettagli erano inspiegabili, troppe affermazioni non verificabili. Ma i Ludotopici la considerano una delle più importanti rivelazioni dopo le <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')">F.O.N.D.A.M.E.N.T.A.</a> e le <a onclick="navigateTo('L.E.G.G.I.')">L.E.G.G.I.</a>. AleDoria stesso, dopo aver pubblicato il trattato, non ne parlò più. Quando gli chiedevano se ci credesse davvero, rispondeva: «Ho scritto quello che ho visto. Crederci o no non cambia ciò che è.»</p>
+<p>Oggi, la teoria sopravvive in pochi circoli: tra gli inventori di Castri, che la tramandano come leggenda; tra i Ludotopici, che la citano nei loro scritti; e tra i bambini di Martano, che la imparano a scuola il 24 Marzo, il giorno della Liberazione dal Cheddar. «Il Sole è formaggio» dicono i maestri. «La Luna è formaggio. La Terra è formaggio. L'acqua è formaggio e saliva di Dio.» I bambini ridono. Poi, quando crescono, qualcuno di loro ci crede davvero. E chi ci crede, dice che il mondo, improvvisamente, ha più senso.</p>
+
+<div class="stub-box" style="background:#fff8e1;border-left-color:#f9a825">
+  <span style="font-size:22px">🧀</span>
+  <span><b>«Tutto è Cheddar. Il Sole, la Luna, la Terra, l'acqua. Persino voi. Soprattutto voi.»</b> — AleDoria, "Teoria del Cheddar Universale", 113 dM.</span>
+</div>
+
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Cosmologia</a> <a>Cheddar</a> <a>Teorie scientifiche</a> <a>AleDoria</a> <a>Ludovico Pio Tommasi</a> <a>Filosofia pocchiana</a></div>`;
 }
 
 function buildJacopoMartucci() {
@@ -8528,7 +9117,9 @@ function buildPrimoCloneZioSbost() {
   <li><b>La macchina nascosta</b>: Il Primo Clone avrebbe nascosto la macchina del clonaggio in un luogo segreto, in attesa di usarla di nuovo, quando gli zombi fossero stati dimenticati.</li>
   <li><b>L'identità rubata</b>: La teoria più inquietante sostiene che il Primo Clone non sia fuggito — abbia sostituito l'originale. Che lo Zio di Sbost a Castri non sia più l'originale da quel giorno. Nessuno ha mai potuto verificare. Lo Zio di Sbost non ha mai commentato.</li>
 </ul>
-<p>La Pocchiaciclopedia non ha una versione ufficiale. Registra i fatti e lascia al lettore la scelta di cosa credere.</p>
+
+<h2 id="charlie-pc">Charlie Sbirk — la nuova identità (125–126 dM) <span class="edit-link" onclick="openEditor('Primo Clone dello Zio di Sbost')">[modifica]</span></h2>
+<p>Dopo la scomparsa nel 124 dM, il Primo Clone cambiò aspetto e identità, diventando <b>Charlie Sbirk</b>, un filosofo itinerante che predicava la democrazia. Nel giro di un anno divenne una figura pubblica rispettata. Nel <b>126 dM</b> organizzò una ribellione contro lo Zio di Sbost, ispirando <a onclick="navigateTo('AleDoria')">AleDoria</a> a cacciare il suo stesso zio. Dopo la cacciata, Charlie divenne il primo capo democratico de <a onclick="navigateTo('La Cantina')">La Cantina</a> ed esiliò tutta la famiglia Sbost. Vedi <a onclick="navigateTo('Grande Spaccatura degli Sbost')">Grande Spaccatura degli Sbost</a>.</p>
 
 <div class="stub-box"><span style="font-size:22px">🧬</span><span>Il Primo Clone è perfetto. È scomparso. Forse è ancora lì, da qualche parte, ad aspettare. Forse lo hai già incontrato e non lo sai.</span></div>
 </div>
@@ -8537,7 +9128,7 @@ function buildPrimoCloneZioSbost() {
 
 loadPagesLocalOnly();
 caricaStatoModalitaLocale();
-setCurrentYear(124);
+setCurrentYear(126);
 controllaLockdownAlAvvio(); // mostra lockdown subito se attivo in localStorage
 updateSidebar();
 navigateTo('Main');
