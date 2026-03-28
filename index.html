@@ -960,26 +960,27 @@ clearfix::after { content: ''; display: block; clear: both; }
 <a onclick="navigateTo('Serrano')">Serrano</a>
 <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a>
 <a onclick="navigateTo('Calendario Morello')">Calendario Morello</a>
-<a onclick="navigateTo('Zio di Sbost')">💈 Zio di Sbost</a>
+<a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a>
 </div>
 <div class="sb-section">
 <h4>Gli Avengers</h4>
 <a onclick="navigateTo('Avengers')">Avengers</a>
 <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a>
 <a onclick="navigateTo('Zella')">Zella</a>
-<a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra</a>
-<a onclick="navigateTo('Seconda Guerra degli Avengers')">Seconda Guerra</a>
-<a onclick="navigateTo('La Guerra Finale')">⚔️ Guerra Finale</a>
-<a onclick="navigateTo('Terza Guerra degli Avengers')">⚡ Terza Guerra</a>
+<a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra degli Avengers</a>
+<a onclick="navigateTo('Seconda Guerra degli Avengers')">Seconda Guerra degli Avengers</a>
+<a onclick="navigateTo('La Guerra Finale')">Guerra Finale</a>
+<a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers</a>
 <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a>
 </div>
 <div class="sb-section">
 <h4>Il Salento</h4>
 <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a>
-<a onclick="navigateTo('Filippine')">🌿 Filippine</a>
+<a onclick="navigateTo('Filippine')">Filippine</a>
 <a onclick="navigateTo('Calimera')">Calimera</a>
 <a onclick="navigateTo('Castri')">Castri</a>
 <a onclick="navigateTo('De Morellis')">De Morellis</a>
+<a onclick="navigateTo('Martano')">Martano</a>
 </div>
 <div class="sb-section">
 <h4>Clan Spisso</h4>
@@ -1161,7 +1162,7 @@ const DEFAULT_PAGES = {
       <button onclick="changeYear(-10)" style="padding:3px 7px;border:1px solid #a2a9b1;background:#f8f9fa;border-radius:3px;cursor:pointer;font-size:11px">−10</button>
       <button onclick="changeYear(-5)"  style="padding:3px 7px;border:1px solid #a2a9b1;background:#f8f9fa;border-radius:3px;cursor:pointer;font-size:11px">−5</button>
       <button onclick="changeYear(-1)"  style="padding:3px 7px;border:1px solid #a2a9b1;background:#f8f9fa;border-radius:3px;cursor:pointer;font-size:11px">−1</button>
-      <input id="year-input" type="number" min="0" value="122"
+      <input id="year-input" type="number" min="0" value="124"
         style="width:84px;padding:3px 6px;border:1px solid #a2a9b1;border-radius:3px;font-size:14px;font-weight:700;color:#3680b0;text-align:center"
         oninput="onYearSlider(this.value)"
         onchange="onYearSlider(this.value)"
@@ -1209,7 +1210,7 @@ const DEFAULT_PAGES = {
   <li><a onclick="navigateTo('Sal da Spicci')"><b>Sal da Spicci</b></a> — Co-governatore di Napoli durante l'Età dell'Oro. Cantante straordinario. Scomparso nel 17 dM.</li>
   <li><a onclick="navigateTo('Sal da Vinci')"><b>Sal da Vinci</b></a> — Cantante di musica popolare meridionale. Somiglianza con Sal da Spicci: documentata, non commentata.</li>
   <li><a onclick="navigateTo('Ludovico Pio Tommasi')"><b>Ludovico Pio Tommasi</b></a> — Il Dio creatore di questo mondo.</li>
-  <li><a onclick="navigateTo('Giovanni Zecca')"><b>Giovanni Zecca</b></a> — Mandato da Ludo per insegnare alle scimmie. Ha inventato Python. Quando gli urlarono «Ciccione», crebbe fino ad avere una gravità propria; Ludo lo spinse nello spazio con un vento fortissimo, e la sua caduta del 24 Marzo 122 dM liberò Martano dal Cheddar.</li>
+  <li><a onclick="navigateTo('Giovanni Zecca')"><b>Giovanni Zecca</b></a> — Mandato da Ludo per insegnare alle scimmie. Ha inventato Python. Quando gli urlarono «Ciccione», crebbe fino ad avere una gravità propria; Ludo lo spinse nello spazio con un vento fortissimo, e la sua caduta del 24 Marzo 122 dM liberò <a onclick="navigateTo('Martano')">Martano</a> dal Cheddar.</li>
   <li><a onclick="navigateTo('La Fede')"><b>La Fede (Federica Didonfrancesco)</b></a> — Terza entità divina del Topismo. Appare quando hai vera fede. Specializzata nelle scoppulazioni.</li>
   <li><a onclick="navigateTo('Topus Maximus')"><b>Topus Maximus</b></a> — Figlio di Dio incarnato a Serrano. Fondatore del Topismo. Scoppulato a morte nel 103 dM.</li>
   <li><a onclick="navigateTo('Cheddar Mussolini')"><b>Cheddar Mussolini</b></a> — Leader dei Ludotopici. Guidò la Marcia su Serrano nel 104 dM.</li>
@@ -1723,7 +1724,6 @@ DEFAULT_PAGES["Sal da Vinci"].content = buildSalDaVinci();
 
 DEFAULT_PAGES["Nigeria Spartiana"].content = buildNigeriaSpartiana();
 DEFAULT_PAGES["104 Nigeriani"].content = build104Nigeriani();
-DEFAULT_PAGES["Benito Mussolini"].content = buildBenitoMussolini();
 DEFAULT_PAGES["pocchiainscatola"].content = buildPocchiaInscatola();
 DEFAULT_PAGES["Filippine"].content = buildFilippine();
 DEFAULT_PAGES["La Fede"].content = buildLaFede();
@@ -1748,6 +1748,9 @@ DEFAULT_PAGES["La guerra delle Piante contro gli Zombi"].content = buildGuerraPi
 DEFAULT_PAGES["Primo Clone dello Zio di Sbost"].content = buildPrimoCloneZioSbost();
 DEFAULT_PAGES["Pierpaolo"].content = buildPierpaolo();
 DEFAULT_PAGES["Mancarella"].content = buildMancarella();
+DEFAULT_PAGES["Massimo Floris"] = { title: "Massimo Floris", content: buildMassimoFloris() };
+DEFAULT_PAGES["La caduta di Napoli"] = { title: "La caduta di Napoli", content: buildCadutaNapoli() };
+DEFAULT_PAGES["Martano"] = { title: "Martano", content: buildMartano() };
 
 
 function buildSalDaSpicci() {
@@ -2333,7 +2336,7 @@ function buildVitoCarlo() {
 }
 
 function buildGiovanniZecca() {
-  return `<div class="wiki-notice"><span class="ni">🐍</span><span>Giovanni Zecca ha insegnato alle scimmie come usare PowerPoint, ha inventato Python, è stato maledetto da Ludo, e il suo crollo a Martano ha liberato la città dal Cheddar. In ordine.</span></div>
+  return `<div class="wiki-notice"><span class="ni">🐍</span><span>Giovanni Zecca ha insegnato alle scimmie come usare PowerPoint, ha inventato Python, è stato maledetto da Ludo, e il suo crollo a <a onclick="navigateTo('Martano')">Martano</a> ha liberato la città dal Cheddar. In ordine.</span></div>
 <h1 class="page-title">Giovanni Zecca</h1>
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
@@ -2349,11 +2352,11 @@ function buildGiovanniZecca() {
     <tr><td>Linguaggio amato</td><td>Python</td></tr>
     <tr><td>Maledizione</td><td>Alla parola «Ciccione» — il Cheddar interno aumenta</td></tr>
     <tr><td>Maledetto da</td><td><a onclick="navigateTo('Ludovico Pio Tommasi')">Ludo</a> — per aver rifiutato di insegnare il C++</td></tr>
-    <tr><td>Evento fatale</td><td>24 Marzo 122 dM — i «Ciccione» lo fanno crescere, Ludo lo spinge nello spazio, la caduta libera Martano dal Cheddar</td></tr>
+    <tr><td>Evento fatale</td><td>24 Marzo 122 dM — i «Ciccione» lo fanno crescere, Ludo lo spinge nello spazio, la caduta libera <a onclick="navigateTo('Martano')">Martano</a> dal Cheddar</td></tr>
     <tr><td>Posizione attuale</td><td>Orbita ellittica attorno alla Terra — circa 1/3 della massa terrestre</td></tr>
     <tr><td>Sopravvivenza spaziale</td><td>Respira attraverso il Cheddar</td></tr>
     <tr><td>Studente più famoso</td><td><a onclick="navigateTo('Morello')">Morello</a> — imparò il C++ e capì come programmare uno stato</td></tr>
-    <tr><td>Eroe di</td><td><a onclick="navigateTo('Jacopo Martucci')">Martano</a> — dal 122 dM, statua dedicata</td></tr>
+    <tr><td>Eroe di</td><td><a onclick="navigateTo('Martano')">Martano</a> — dal 122 dM, statua dedicata</td></tr>
   </table>
 </div>
 <h2 id="missione-gz">La missione — dalle scimmie agli uomini <span class="edit-link" onclick="openEditor('Giovanni Zecca')">[modifica]</span></h2>
@@ -2385,15 +2388,15 @@ function buildGiovanniZecca() {
 <p>Nel <b>17 dM</b> il Vesuvio eruttò. Morello sparì. Giovanni lasciò Napoli lo stesso giorno — non per paura della lava, ma perché senza Morello la città non era più interessante da insegnare. Nel senso più professionale del termine.</p>
 <p>Nei decenni successivi Giovanni continuò a spostarsi tra le città del Sud, insegnando Python agli apparati amministrativi di centri minori, aiutando borghi e paesi a costruire sistemi di gestione che sarebbero durati generazioni. Non tutte le città impararono allo stesso modo — alcune erano più veloci, altre più lente, alcune facevano domande stupide e alcune domande geniali. Giovanni le trattava tutte con uguale pazienza, anche se con uguale insofferenza per chi continuava a chiedere perché non insegnasse il C++.</p>
 
-<h2 id="martano-gz">Il trasferimento a Martano (90 dM) e il 24 Marzo 122 dM<span class="edit-link" onclick="openEditor('Giovanni Zecca')">[modifica]</span></h2>
-<p>Nel <b>90 dM</b> Giovanni si stabilì a <a onclick="navigateTo('Martano')">Martano</a>. La scelta non fu casuale — Martano era una città piccola ma con una struttura amministrativa che Giovanni trovava interessante, e con un'atmosfera che, nonostante la grandine di Cheddar che cadeva ininterrottamente dal 9 dM, aveva un certo fascino. Giovanni si adattò alla grandine. Portava sempre un ombrello.</p>
-<p>Rimase a Martano per anni, insegnando Python alla struttura municipale, ai commercianti, a chiunque volesse imparare. Erano anni tranquilli. Poche persone nella sua vita a Martano gli dissero «Ciccione» in faccia. La maledizione era attiva ma raramente innescata.</p>
+<h2 id="martano-gz">Il trasferimento a <a onclick="navigateTo('Martano')">Martano</a> (90 dM) e il 24 Marzo 122 dM<span class="edit-link" onclick="openEditor('Giovanni Zecca')">[modifica]</span></h2>
+<p>Nel <b>90 dM</b> Giovanni si stabilì a <a onclick="navigateTo('Martano')">Martano</a>. La scelta non fu casuale — <a onclick="navigateTo('Martano')">Martano</a> era una città piccola ma con una struttura amministrativa che Giovanni trovava interessante, e con un'atmosfera che, nonostante la grandine di Cheddar che cadeva ininterrottamente dal 9 dM, aveva un certo fascino. Giovanni si adattò alla grandine. Portava sempre un ombrello.</p>
+<p>Rimase a <a onclick="navigateTo('Martano')">Martano</a> per anni, insegnando Python alla struttura municipale, ai commercianti, a chiunque volesse imparare. Erano anni tranquilli. Poche persone nella sua vita a <a onclick="navigateTo('Martano')">Martano</a> gli dissero «Ciccione» in faccia. La maledizione era attiva ma raramente innescata.</p>
 <p>Poi arrivò il <b>24 Marzo 122 dM</b>.</p>
-<p>Giovanni stava camminando verso la scuola quando cadde — troppa grandine di Cheddar, la strada sconnessa, una combinazione sfortunata. La caduta provocò una piccola onda d'urto. L'onda d'urto attirò curiosità e spostò le nuvole che stavano occupando il cielo di Martano dal 9 dM. Le persone si avvicinarono. Non gli dicevano «Ciccione» direttamente — ma erano abbastanza vicine che Giovanni poteva sentire la parola circolare, sussurrata, commentata. Questo bastava. Il Cheddar aumentò.</p>
+<p>Giovanni stava camminando verso la scuola quando cadde — troppa grandine di Cheddar, la strada sconnessa, una combinazione sfortunata. La caduta provocò una piccola onda d'urto. L'onda d'urto attirò curiosità e spostò le nuvole che stavano occupando il cielo di <a onclick="navigateTo('Martano')">Martano</a> dal 9 dM. Le persone si avvicinarono. Non gli dicevano «Ciccione» direttamente — ma erano abbastanza vicine che Giovanni poteva sentire la parola circolare, sussurrata, commentata. Questo bastava. Il Cheddar aumentò.</p>
 <p>Giovanni divenne più grande. Più persone accorsero. Più persone significava più commenti, più commenti significava più Cheddar, più Cheddar significava più massa. Il ciclo si autoalimentò finché la massa fu abbastanza da avere una gravità propria — e le persone smisero di avvicinarsi per curiosità e iniziarono ad essere attratte fisicamente.</p>
 <p>Ludo intervenne. Alzò un vento fortissimo che sollevò Giovanni da terra e lo lanciò nello spazio. Giovanni, che a quel punto era circa un <b>terzo della Terra</b>, raggiunse l'orbita.</p>
 <p>Il sindaco di <a onclick="navigateTo('Martano')">Martano</a> creò una statua in suo onore per averli liberati da quelle terribili pioggie di Cheddar che occupavano il cielo di <a onclick="navigateTo('Martano')">Martano</a> dal 9 dM. Purtroppo la statua era troppo fedele a Giovanni Zecca, gli scultori vollero rispettare anche la sua enorme massa in quella caduta, e poco meno di un mese dalla creazione della statua, la base della statua incominciò a inclinarsi per il troppo peso che doveva sostenere</p>
-<p>La sua caduta fu ciò che liberò Martano dal Cheddar. Per questo la statua resta al suo posto: celebra proprio quel momento in cui il vento di Ludo, la caduta e la liberazione della città diventarono la stessa storia. Anche se è inclinata leggermente.</p>
+<p>La sua caduta fu ciò che liberò <a onclick="navigateTo('Martano')">Martano</a> dal Cheddar. Per questo la statua resta al suo posto: celebra proprio quel momento in cui il vento di Ludo, la caduta e la liberazione della città diventarono la stessa storia. Anche se è inclinata leggermente.</p>
 <div class="stub-box"><span style="font-size:22px">🐍</span><span>Giovanni Zecca rimane il caso più noto di crescita causata da insulti.</span></div>
 </div>`;
 }
@@ -2413,7 +2416,7 @@ function buildPianetaZecca() {
   </table>
 </div>
 
-<p><b>Pianeta Zecca</b> è il nome informale dato allo stato cosmico di Giovanni Zecca dopo il giorno in cui Ludo lo spinse nello spazio per salvare Martano. Giovanni non perse solo peso: perse anche ogni somiglianza con un essere che potesse essere ignorato. Le persone continuarono a chiamarlo <i>Ciccione</i> da lontano, e ogni volta che arrivava abbastanza vicino alla Terra per sentirlo, si ingrandiva di poco.</p>
+<p><b>Pianeta Zecca</b> è il nome informale dato allo stato cosmico di Giovanni Zecca dopo il giorno in cui Ludo lo spinse nello spazio per salvare <a onclick="navigateTo('Martano')">Martano</a>. Giovanni non perse solo peso: perse anche ogni somiglianza con un essere che potesse essere ignorato. Le persone continuarono a chiamarlo <i>Ciccione</i> da lontano, e ogni volta che arrivava abbastanza vicino alla Terra per sentirlo, si ingrandiva di poco.</p>
 <p>Per questo il Pianeta Zecca non è davvero un pianeta nel senso astronomico più preciso: è una presenza orbitante, massiccia, testarda, e soprattutto sensibile alle voci. Più si avvicina, più sente tutto. Più sente, più cresce. È una dinamica semplice, quasi elegante, e perfettamente adatta a un universo in cui le parole possono diventare fisica.</p>
 <p>La sua grandezza lo rende visibile a tratti e invisibile ad altri. Quando sparisce dalla vista, non è mai del tutto andato: sta solo diventando un po' più grande da qualche parte nell'orbita terrestre, aspettando che qualcuno lo richiami con la parola sbagliata.</p>
 <p>Alla fine, quando Giovanni era abbastanza vicino alla Terra, riusciva a sentire ogni singolo «Ciccione». Anche se non si vedeva, si ingrandiva di poco. E così continua.</p>
@@ -3151,7 +3154,7 @@ function buildCalendarioMorello() {
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1915 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>2 pM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali</a> conosce Pierpaolo durante il servizio militare (entrambi 18 anni)</td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1910 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>7 pM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Nascita di <b>Gennaro «o' Professore» Spisso</b>, fondatore del Clan Spisso</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1917 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>Anno 0 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Arrivo di <a onclick="navigateTo('Morello')">Morello</a> a Napoli · inizio Età dell'Oro</td></tr>
-  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1926 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>9 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Inizio piogge e grandine di Cheddar su <a onclick="navigateTo('Jacopo Martucci')">Martano</a> — origine sconosciuta · durerà 113 anni</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1926 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>9 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Inizio piogge e grandine di Cheddar su <a onclick="navigateTo('Martano')">Martano</a> — origine sconosciuta · durerà 113 anni</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1918 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>1 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Giovanni Zecca')">Giovanni Zecca</a> inventa <b>Python</b> · smette di insegnare il C++ · <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludo</a> lo maledice con il Cheddar</td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">1914 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>3 pM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Nascita di <a onclick="navigateTo('Carmelo Spisso')">Carmelo Spisso</a> (aviatore, zio di Gennaro Spisso)</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1916 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>1 pM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Morte di <a onclick="navigateTo('Carmelo Spisso')">Carmelo Spisso</a> — volo solitario su Vienna, nessun rientro</td></tr>
@@ -3181,7 +3184,7 @@ function buildCalendarioMorello() {
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">1997 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>80 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Alessio Spisso in Afghanistan</td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2004 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>87 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Intercettazioni "nipote americano"</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2006 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>89 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Operazione <a onclick="navigateTo('Riccardo Pascali')">Riccardo Pascali</a> — smantellamento del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a></td></tr>
-  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2007 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>90 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Serrano in fiamme · apparizione del <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> · <a onclick="navigateTo('Giovanni Zecca')">Giovanni Zecca</a> si stabilisce a <a onclick="navigateTo('Jacopo Martucci')">Martano</a></td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2007 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>90 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Serrano in fiamme · apparizione del <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> · <a onclick="navigateTo('Giovanni Zecca')">Giovanni Zecca</a> si stabilisce a <a onclick="navigateTo('Martano')">Martano</a></td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2009 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>92 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> (come <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a>) fonda gli <a onclick="navigateTo('Avengers')">Avengers</a> con <a onclick="navigateTo('Zella')">Zella</a></td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2017 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>100 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Attacco di <a onclick="navigateTo('Gianluca Pascali')">Gianluca Pocchia</a> alla casa di <a onclick="navigateTo('Zella')">Zella</a> · <a onclick="navigateTo('Alex Spisso')">Iron Spisso Man</a> muore intrappolato nell'edificio</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2018 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>101 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra degli Avengers</a> · subito dopo: <a onclick="navigateTo('Seconda Guerra degli Avengers')">Seconda Guerra degli Avengers</a> · Iron Spisso Man resuscitato e poi riportato all'ordine da Zella</td></tr>
@@ -3204,7 +3207,7 @@ function buildCalendarioMorello() {
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2036 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>119 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>Fine della Terza Guerra</b> · Alex usa il Minerale Spisso su Alessio · tenta di potenziare sé stesso con una bomba · viene disintegrato · Alessio perde i poteri · scoperta dello Spisso degli Spisso</td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2037 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>120 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Zella')">Zella</a> assume il controllo dell'America · base degli Avengers ricostruita</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2038 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>121 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> trovato e imprigionato — si nascondeva nella dogana dello <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> a <a onclick="navigateTo('Castri')">Castri</a></td></tr>
-  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2039 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>122 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Giovanni Zecca')">Giovanni Zecca</a> sente i «Ciccione», cresce fino ad avere una gravità propria · Ludo lo spinge nello spazio con un vento fortissimo · cade a Martano il 24 Marzo · l'onda d'urto libera la città dal Cheddar · proclamato eroe · statua inaugurata (inclinata)</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2039 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>122 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Giovanni Zecca')">Giovanni Zecca</a> sente i «Ciccione», cresce fino ad avere una gravità propria</td></tr>
 </table>
 
 <h2 id="eventi-cm">Note sulla conversione — eventi chiave <span class="edit-link" onclick="openEditor('Calendario Morello')">[modifica]</span></h2>
@@ -3322,54 +3325,67 @@ function buildMancarella() {
 <div class="wiki-article-body clearfix">
 <div class="infobox">
   <div class="infobox-title">Mancarella</div>
-  <div style="text-align:center;padding:8px 6px 4px"><img src="mancarella.jpg" alt="Mancarella" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
-  <table>
-    <tr><th>Nome completo</th><td>Sconosciuto (nota solo come "la Mancarella")</td></tr>
-    <tr><th>Nascita</th><td><b>14 Aprile 30 pM</b> (1897) — ariete, appassionata e determinata</td></tr>
-    <tr><th>Campo</th><td>Biologia, gerontologia, medicina rigenerativa</td></tr>
-    <tr><th>Scoperta principale</th><td><b>Soluzione all'invecchiamento</b> (39 dM)</td></tr>
-    <tr><th>Collaboratore</th><td><a onclick="navigateTo('Ermenegildo Spisso')">Ermenegildo "Gildo" Spisso</a></td></tr>
-    <tr><th>Stile</th><td>Scienziata all'antica — laboratorio in casa, appunti scritti a mano, esperimenti sulla propria pelle</td></tr>
-    <tr><th>Destino</th><td>Scomparsa dopo il 45 dM — forse ritiratasi, forse vittima delle sue stesse ricerche</td></tr>
-  </table>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="mancarella.jpg" alt="Mancarella" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"><div style="font-size:10px;color:#54595d;margin-top:2px">La Mancarella — la scienziata che fermò il tempo</div></div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Nome completo</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Sconosciuto (nota solo come "la Mancarella")</td></tr>
+     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Nascita</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>14 Aprile 30 pM</b> (1887), Salento</td></tr>
+     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Campo</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Biologia, gerontologia, medicina rigenerativa</td></tr>
+     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Scoperta principale</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>Soluzione all'invecchiamento</b> (39 dM)</td></tr>
+     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Collaboratore</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Ermenegildo Spisso')">Ermenegildo "Gildo" Spisso</a></td></tr>
+     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Destino</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Scomparsa dopo il 45 dM</td></tr>
+   </table>
 </div>
 
-<div class="toc-box"><div class="toc-title">Indice</div><ol>
-  <li><a href="#vita-m">Vita e formazione</a></li>
-  <li><a href="#incontro-m">L'incontro con Gildo Spisso</a></li>
-  <li><a href="#scoperta-m">La scoperta — 39 dM</a></li>
-  <li><a href="#eredita-m">L'eredità e i beneficiari</a></li>
-  <li><a href="#scomparsa-m">La scomparsa</a></li>
-</ol></div>
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#vita-m">Vita e formazione</a></li>
+    <li><a href="#incontro-m">L'incontro con Gildo Spisso</a></li>
+    <li><a href="#scoperta-m">La scoperta — 39 dM</a></li>
+    <li><a href="#principio-m">Il principio scientifico</a></li>
+    <li><a href="#eredita-m">L'eredità e i beneficiari</a></li>
+    <li><a href="#scomparsa-m">La scomparsa</a></li>
+  </ol>
+</div>
 
 <h2 id="vita-m">Vita e formazione <span class="edit-link" onclick="openEditor('Mancarella')">[modifica]</span></h2>
-<p>La Mancarella — così chiamata perché il suo vero nome non è mai stato registrato — nacque nel Salento il <b>14 Aprile 30 pM</b> (1897). Crebbe in una famiglia di contadini e mostrò fin da bambina un'intelligenza fuori dal comune. Non frequentò mai l'università: si formò da autodidatta, leggendo tutto ciò che le capitava, osservando la natura, sperimentando. Era una <b>scienziata all'antica</b>: lavorava in un laboratorio ricavato nella cantina di casa, riempiva quaderni di appunti scritti a mano con inchiostro che preparava lei stessa, e non disdegnava di testare le sue scoperte sulla propria pelle.</p>
+<p>La Mancarella — così chiamata perché il suo vero nome non è mai stato registrato — nacque nel Salento il <b>14 Aprile 30 pM</b> (1887 d.C.). Crebbe in una famiglia di contadini e mostrò fin da bambina un'intelligenza fuori dal comune. Non frequentò mai l'università: si formò da autodidatta, leggendo tutto ciò che le capitava, osservando la natura, sperimentando. Era una <b>scienziata all'antica</b>: lavorava in un laboratorio ricavato nella cantina di casa, riempiva quaderni di appunti scritti a mano con inchiostro che preparava lei stessa, e non disdegnava di testare le sue scoperte sulla propria pelle.</p>
+<p>Il soprannome "Mancarella" le fu dato dai vicini, che la vedevano sempre con un manico di scopa trasformato in strumento di misura. «Che fai, Mancarella?» le chiedevano. «Misuro il mondo» rispondeva. Nessuno capiva cosa intendesse. Lei non spiegava mai.</p>
 
 <h2 id="incontro-m">L'incontro con Gildo Spisso <span class="edit-link" onclick="openEditor('Mancarella')">[modifica]</span></h2>
-<p>La Mancarella e <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a> si incontrarono nel <b>37 dM</b> (1954), quando Gildo, dopo aver completato gli studi a Napoli, aveva 19 anni e lei 57. Nonostante la differenza d'età, Gildo rimase colpito dalla sua intelligenza e dalla sua determinazione. Si dice che si incontrarono in una libreria di Castri, dove lei stava consultando un trattato di biologia che nessun altro aveva mai preso in prestito. Cominciarono a corrispondere, poi a collaborare. Lui le forniva le basi teoriche delle <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')">F.O.N.D.A.M.E.N.T.A.</a>; lei gli portava i dati empirici, le osservazioni, le intuizioni biologiche. Era una partnership perfetta: il teorico e la sperimentatrice.</p>
+<p>La Mancarella e <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a> si incontrarono nel <b>37 dM</b> (1954 d.C.), quando Gildo, dopo aver completato gli studi a Napoli, aveva 19 anni e lei 57. Nonostante la differenza d'età, Gildo rimase colpito dalla sua intelligenza e dalla sua determinazione. Si dice che si incontrarono in una libreria di Castri, dove lei stava consultando un trattato di biologia che nessun altro aveva mai preso in prestito. Cominciarono a corrispondere, poi a collaborare. Lui le forniva le basi teoriche delle <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')">F.O.N.D.A.M.E.N.T.A.</a>; lei gli portava i dati empirici, le osservazioni, le intuizioni biologiche. Era una partnership perfetta: il teorico e la sperimentatrice.</p>
+<p>Nelle sue lettere, Gildo la descriveva con un affetto insolito per lui: «La Mancarella ha sessant'anni e lavora come se ne avesse venti. Corre, salta, si arrampica sugli alberi per prendere campioni. Dice che l'invecchiamento è una malattia. E sta cercando la cura.»</p>
 
 <h2 id="scoperta-m">La scoperta — 39 dM <span class="edit-link" onclick="openEditor('Mancarella')">[modifica]</span></h2>
-<p>Nel <b>39 dM</b> (1956), dopo anni di ricerche, la Mancarella — all'età di 59 anni — e Gildo (22 anni) raggiunsero un risultato che avrebbe cambiato la storia della medicina: <b>la soluzione all'invecchiamento</b>. Non era l'immortalità — non si poteva vivere per sempre — ma una terapia che rallentava drasticamente il processo di invecchiamento, permettendo di vivere in salute per oltre 120 anni, con lucidità mentale intatta. La scoperta si basava su un principio derivato dalle <a onclick="navigateTo('L.E.G.G.I.')">L.E.G.G.I.</a> — l'equilibrio energetico del corpo umano poteva essere "congelato" a un certo stato, sfruttando le stesse leggi che regolavano la conservazione dell'energia nel cosmo.</p>
-<p>Gildo volle pubblicare la scoperta con il nome della Mancarella, ma lei rifiutò. Non voleva fama. Non voleva che i potenti venissero a cercarla. Voleva solo che la cura fosse disponibile per chi ne avesse bisogno, senza clamore. «La scienza» scrisse in una lettera a Gildo «non ha bisogno di firme. Le firme servono ai tribunali, non ai laboratori.»</p>
+<p>Nel <b>39 dM</b> (1956 d.C.), dopo anni di ricerche, la Mancarella — all'età di 59 anni — e Gildo (22 anni) raggiunsero un risultato che avrebbe cambiato la storia della medicina: <b>la soluzione all'invecchiamento</b>. Non era l'immortalità — non si poteva vivere per sempre — ma una terapia che rallentava drasticamente il processo di invecchiamento, permettendo di vivere in salute per oltre 120 anni, con lucidità mentale intatta. La scoperta si basava su un principio derivato dalle <a onclick="navigateTo('L.E.G.G.I.')">L.E.G.G.I.</a> — l'equilibrio energetico del corpo umano poteva essere "congelato" a un certo stato, sfruttando le stesse leggi che regolavano la conservazione dell'energia nel cosmo.</p>
+<p>La Mancarella testò la terapia su sé stessa per prima. Funzionò. A 59 anni, il suo corpo smise di invecchiare. Continuò a lavorare per altri trent'anni con l'energia di una quarantenne. Gildo, che all'epoca aveva 22 anni, si sottopose alla terapia subito dopo. Visse fino al 78 dM — 78 anni — ma biologicamente ne dimostrava al massimo 50.</p>
+
+<h2 id="principio-m">Il principio scientifico <span class="edit-link" onclick="openEditor('Mancarella')">[modifica]</span></h2>
+<p>Il principio alla base della scoperta era semplice nella teoria, complesso nella pratica: il corpo umano, secondo le L.E.G.G.I., tende naturalmente a conservare l'energia. L'invecchiamento è una forma di dispersione energetica. Se si riesce a "congelare" il bilancio energetico a un certo punto, il corpo smette di disperdere e smette di invecchiare. La terapia agiva su due fronti: una serie di iniezioni che stabilizzavano le cellule staminali, e un protocollo dietetico che manteneva il metabolismo in uno stato di equilibrio costante.</p>
+<p>La Mancarella non brevettò mai la scoperta. «La scienza» scrisse in una lettera a Gildo, «non ha bisogno di firme. Le firme servono ai tribunali, non ai laboratori.» Gildo rispettò la sua volontà. Il segreto della formula morì con lei — o forse no. Alcuni dicono che i suoi quaderni siano ancora custoditi da qualche parte nel Salento, in attesa di essere ritrovati.</p>
 
 <h2 id="eredita-m">L'eredità e i beneficiari <span class="edit-link" onclick="openEditor('Mancarella')">[modifica]</span></h2>
 <p>La scoperta della Mancarella ebbe un impatto profondo sulla storia della Pocchiaciclopedia. Grazie alla sua terapia, molti personaggi poterono vivere ben oltre i 100 anni:</p>
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
   <li><b><a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali "il Pocchia"</a></b> — nato il 10 Ottobre 30 pM (1897), arrivò fino al 104 dM e oltre, restando lucido e attivo per oltre 130 anni.</li>
   <li><b><a onclick="navigateTo('Anna Pascali')">Anna Pascali</a></b> — nata il 14 Febbraio 10 pM (1907), visse abbastanza da vedere i figli diventare adulti e la famiglia prosperare.</li>
-  <li><b><a onclick="navigateTo('Morello')">Morello</a></b> — nato il 15 Agosto 30 pM (1887), sopravvisse alla prima eruzione del Vesuvio (17 dM, 1934) all'età di 47 anni, e visse fino al 115 dM (2002), quando fu catturato dallo Zio di Sbost, all'età di 115 anni.</li>
+  <li><b><a onclick="navigateTo('Morello')">Morello</a></b> — nato il 15 Agosto 30 pM (1887), sopravvisse alla prima eruzione del Vesuvio (17 dM, 1934) all'età di 47 anni, e visse fino al 115 dM (2032), quando fu catturato dallo Zio di Sbost, all'età di 115 anni.</li>
   <li><b><a onclick="navigateTo('Sal da Spicci')">Sal da Spicci</a></b> — nato il 2 Maggio 30 pM (1887), scomparve dopo l'eruzione del 17 dM (1934) all'età di 47 anni, riapparendo poi come Sal da Vinci con una carriera musicale che durò decenni.</li>
   <li><b><a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a></b> — nato il 1 Aprile 50 dM (1967), era ancora attivo nel 124 dM, all'età di 77 anni, ma biologicamente molto più giovane.</li>
+  <li><b><a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a></b> — nato nel 17 dM (1934), visse fino al 78 dM (1995), all'età di 61 anni, ma biologicamente ne dimostrava circa 40.</li>
 </ul>
-<p>La terapia non fu mai brevettata. La Mancarella non volle. Gildo rispettò la sua volontà. Il segreto della formula morì con lei — o forse no. Alcuni dicono che i suoi quaderni siano ancora custoditi da qualche parte nel Salento, in attesa di essere ritrovati.</p>
 
 <h2 id="scomparsa-m">La scomparsa <span class="edit-link" onclick="openEditor('Mancarella')">[modifica]</span></h2>
-<p>Dopo il <b>45 dM</b> (1962), la Mancarella scomparve. Non si sa se sia morta, se si sia ritirata in isolamento, o se — come sussurrano alcune voci — abbia continuato le sue ricerche in segreto. Gildo, nelle sue lettere, la menziona per l'ultima volta nel 47 dM, scrivendo: <i>«La Mancarella è andata via. Ha lasciato i quaderni. Ha detto che la scienza non ha bisogno di lei per continuare.»</i></p>
+<p>Dopo il <b>45 dM</b> (1962 d.C.), la Mancarella scomparve. Non si sa se sia morta, se si sia ritirata in isolamento, o se — come sussurrano alcune voci — abbia continuato le sue ricerche in segreto. Gildo, nelle sue lettere, la menziona per l'ultima volta nel 47 dM, scrivendo: <i>«La Mancarella è andata via. Ha lasciato i quaderni. Ha detto che la scienza non ha bisogno di lei per continuare.»</i></p>
 <p>La casa-laboratorio a Castri rimase abbandonata per anni. Qualcuno dice di aver visto una figura femminile aggirarsi nei dintorni ancora negli anni '70 dM (1990). Nessuno ha mai potuto confermare. La Pocchiaciclopedia registra la sua scomparsa come uno dei misteri più affascinanti della sua epoca.</p>
+<p>I quaderni della Mancarella non sono mai stati ritrovati. Forse sono ancora nella casa di Castri, in attesa di qualcuno che sappia leggerli. Forse sono stati distrutti. Forse la Mancarella stessa, da qualche parte, sta ancora lavorando, ferma nel tempo come nel giorno in cui scoprì la formula.</p>
 
-<div class="stub-box"><span style="font-size:22px">🔬</span><span>La Mancarella non volle la fama. Voleva solo che le persone vivessero più a lungo. Ci riuscì. Non le importava che nessuno sapesse il suo nome.</span></div>
+<div class="stub-box" style="background:#eaf3fb;border-left-color:#3680b0">
+  <span style="font-size:22px">🔬</span>
+  <span><b>«La scienza non ha bisogno di firme. Le firme servono ai tribunali, non ai laboratori.»</b> — La Mancarella.</span>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Scienziati</a> <a>Biologi</a> <a>Figure scomparse</a> <a>Scoperte scientifiche</a> <a>Salento</a> <a>Castri</a></div>`;
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Scienziati</a> <a>Biologi</a> <a>Figure scomparse</a> <a>Scoperte scientifiche</a> <a>Salento</a> <a>Castri</a> <a>Anti-invecchiamento</a></div>`;
 }
 
 function buildAnnaPascali() {
@@ -4013,6 +4029,83 @@ function buildZella() {
 </blockquote>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>Albania</a> <a>America</a> <a>Calimera</a> <a>Prima Comunione</a> <a>Terza Guerra degli Avengers</a></div>`;
+}
+
+function buildMassimoFloris() {
+  return `<div class="wiki-notice"><span class="ni">⛪</span><span>Don Massimo Floris è stato parroco di Calimera per oltre quarant'anni. Celebrò la Prima Comunione di <a onclick="navigateTo('Zella')">Zella</a> e lo vide tornare dopo la guerra.</span></div>
+<h1 class="page-title">Massimo Floris</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Don Massimo Floris</div>
+  <div style="text-align:center;padding:8px 6px 4px">
+    <img src="massimo_floris.jpg" alt="Don Massimo Floris" style="width:100%;max-width:250px;display:block;margin:0 auto;border:1px solid #a2a9b1;border-radius:4px" onerror="this.style.display='none'">
+    <div style="font-size:11px;color:#54595d;margin-top:6px">Don Massimo Floris — il parroco di Calimera</div>
+  </div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Nascita</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>15 marzo 40 dM</b> (1957), Cagliari</td></tr>
+     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Ordinazione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>68 dM</b> (1985)</td></tr>
+     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Parrocchia</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Chiesa dei Santi Eutichio e Giusta, <a onclick="navigateTo('Calimera')">Calimera</a></td></tr>
+     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Periodo a Calimera</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>72 dM – 115 dM</b> (1989–2032)</td></tr>
+     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Celebrazione nota</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Prima Comunione di <a onclick="navigateTo('Zella')">Zella</a> (circa 78 dM)</td></tr>
+     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Motto</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">«La fede non è un muro. È una porta.»</td></tr>
+   </table>
+</div>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#biografia-mf">Biografia</a>
+      <ol>
+        <li><a href="#origini-mf">Origini e vocazione</a></li>
+        <li><a href="#calimera-mf">L'arrivo a Calimera</a></li>
+      </ol>
+    </li>
+    <li><a href="#comunione-mf">La Prima Comunione di Zella</a></li>
+    <li><a href="#camorra-mf">Il rapporto con la Camorra Salentina</a></li>
+    <li><a href="#guerra-mf">La Guerra Finale e la fuga</a></li>
+    <li><a href="#ritorno-mf">Il ritorno di Zella</a></li>
+    <li><a href="#eredita-mf">L'eredità</a></li>
+  </ol>
+</div>
+
+<h2 id="biografia-mf">Biografia <span class="edit-link" onclick="openEditor('Massimo Floris')">[modifica]</span></h2>
+
+<h3 id="origini-mf">Origini e vocazione</h3>
+<p><b>Massimo Floris</b> nacque a Cagliari il <b>15 marzo 40 dM</b> (1957 d.C.) da una famiglia di pescatori. Fu l'unico dei cinque figli a intraprendere la carriera ecclesiastica, una scelta che suo padre, uomo pratico e poco incline alla spiritualità, definì «una perdita di tempo» fino al giorno in cui vide il figlio celebrare la prima messa. Quella domenica, il padre non parlò. Ma alla fine della funzione si avvicinò, gli strinse la mano e disse: «Forse avevi ragione tu.» Massimo non chiese mai a cosa si riferisse. Capì.</p>
+<p>Studiò al seminario di Cagliari, poi a Roma, dove si laureò in teologia con una tesi sulla figura del parroco nelle comunità del Sud Italia. La sua ricerca lo portò a viaggiare per la Calabria, la Sicilia e infine la Puglia. Fu in Salento che trovò qualcosa che cercava senza saperlo: una comunità che parlava greco, cantava in un dialetto millenario, e pregava con una semplicità che non aveva mai visto altrove.</p>
+
+<h3 id="calimera-mf">L'arrivo a Calimera</h3>
+<p>Nel <b>72 dM</b> (1989 d.C.), don Massimo fu nominato parroco della chiesa dei Santi Eutichio e Giusta a <a onclick="navigateTo('Calimera')">Calimera</a>. La comunità gricofona lo accolse con una diffidenza educata — era sardo, non conosceva il grico, e sembrava troppo giovane per capire le cose che contavano. Don Massimo non cercò di imporsi. Imparò il grico. Imparò a fare il pane come lo facevano loro. Imparò a stare in silenzio quando serviva. Ci volle tempo, ma alla fine la comunità lo accettò come uno di loro. «Non sei nato qui» gli disse un'anziana del paese, «ma forse Dio si è sbagliato quando ti ha fatto nascere altrove.» Don Massimo sorrise. «Dio non si sbaglia mai. Mi ha fatto nascere altrove perché potessi scegliere di venire qui.»</p>
+
+<h2 id="comunione-mf">La Prima Comunione di Zella <span class="edit-link" onclick="openEditor('Massimo Floris')">[modifica]</span></h2>
+<p>Nel <b>78 dM</b> (1995 d.C.) circa, una famiglia albanese appena arrivata a Calimera si presentò alla canonica. Avevano un figlio di circa tredici anni, alto per la sua età, con occhi scuri e un'espressione seria che la madre definì «il suo modo di difendersi da un mondo che non capisce». Il ragazzo si chiamava Zella. La famiglia voleva che ricevesse la Prima Comunione, anche se aveva già tredici anni e non aveva mai frequentato il catechismo.</p>
+<p>Don Massimo accettò senza esitare. Preparò Zella personalmente, incontrandolo dopo le messe, parlando con lui in un italiano stentato che il ragazzo capiva meglio di quanto lasciasse intendere. Non cercò mai di convertirlo a nulla — Zella aveva già la sua fede, la portava dentro come un pugno chiuso. Don Massimo gli insegnò solo che la fede non è un muro, è una porta. «La usi quando vuoi uscire» disse, «e quando vuoi tornare a casa.»</p>
+<p>Il giorno della Prima Comunione, Zella si presentò con una compostezza insolita per la sua età. Quando don Massimo gli chiese cosa avesse provato, il ragazzo rispose: «Adesso so che posso proteggere le persone.» Don Massimo non rise. Non disse che era troppo giovane per proteggere qualcuno. Disse solo: «Allora proteggile. E quando non ce la fai, ricordati che c'è Qualcuno che protegge te.» Zella annuì. Non dimenticò mai quelle parole.</p>
+
+<h2 id="camorra-mf">Il rapporto con la Camorra Salentina <span class="edit-link" onclick="openEditor('Massimo Floris')">[modifica]</span></h2>
+<p>Negli anni in cui la <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> controllava il territorio, don Massimo mantenne un rapporto ambiguo con l'organizzazione. Non la sostenne mai pubblicamente, ma non la condannò mai esplicitamente. Quando gli chiesero perché, rispose: «Il mio compito è salvare le anime, non giudicare i corpi. Se giudico, chiudo le porte. Se resto, le porte restano aperte.»</p>
+<p>In privato, però, fece più di quanto molti sapessero. Protesse ragazze e ragazzi che rischiavano di essere reclutati dall'organizzazione, offrendo loro riparo in canonica. Meditò tra famiglie in conflitto, usando la sua autorità morale per fermare rappresaglie. Quando la Camorra Salentina scoprì che ospitava un giovane che doveva essere punito, mandarono tre uomini a «parlargli». Don Massimo li fece accomodare, offrì loro un caffè, e parlò con loro per tre ore. Quando uscirono, non avevano più il coraggio di toccare il ragazzo. Qualcuno disse che don Massimo aveva fatto miracoli. Lui rise. «Non sono miracoli. Sono caffè e pazienza. Funzionano meglio delle pistole, se sai come usarli.»</p>
+
+<h2 id="guerra-mf">La Guerra Finale e la fuga <span class="edit-link" onclick="openEditor('Massimo Floris')">[modifica]</span></h2>
+<p>Quando la <a onclick="navigateTo('La Guerra Finale')">Guerra Finale</a> raggiunse il Salento, don Massimo fu tra gli ultimi a lasciare Calimera. Aprì la chiesa a chiunque cercasse rifugio, indipendentemente da fede, schieramento o passato. Tra i rifugiati c'erano uomini della Camorra Salentina, famiglie in fuga dai combattimenti, e un vecchio che nessuno riconobbe ma che don Massimo trattò con particolare riguardo. Quando la situazione divenne insostenibile, don Massimo organizzò l'evacuazione della chiesa. Fu l'ultimo a uscire, dopo aver spento le candele e chiuso la porta. Portò con sé solo il vangelo e una fotografia della sua Prima Comunione da giovane prete.</p>
+<p>Calimera fu conquistata. La chiesa fu saccheggiata, ma non bruciata — forse perché anche i soldati, entrando, sentirono il peso di quel luogo e non ebbero il coraggio di distruggerlo. Don Massimo trovò rifugio a Lecce, poi a Brindisi, poi a Bari. Ovunque andasse, celebrava messa in italiano, in grico, o nel silenzio quando non c'erano fedeli. Non perse mai la speranza di tornare.</p>
+
+<h2 id="ritorno-mf">Il ritorno di Zella <span class="edit-link" onclick="openEditor('Massimo Floris')">[modifica]</span></h2>
+<p>Nel <b>109 dM</b>, dopo la ricostruzione di <a onclick="navigateTo('Serrano')">Serrano volante</a>, don Massimo tornò a Calimera per la prima volta dopo anni. La chiesa era ancora in piedi, ma aveva bisogno di riparazioni. Mentre era in ginocchio a pregare, sentì dei passi alle spalle. Si voltò. Un uomo alto, con un'espressione seria e occhi che avevano visto la guerra, lo guardava. Don Massimo lo riconobbe subito. «Zella» disse. L'uomo annuì. «Don Massimo.»</p>
+<p>Si guardarono a lungo. Poi don Massimo disse: «Vedo che hai mantenuto la promessa.» Zella non rispose. Sorrise. E basta. Si sedettero insieme nella chiesa vuota, in silenzio. Dopo un po', Zella parlò: «La guerra non è finita. Devo andare.» Don Massimo annuì. «Lo so. Ma ricordati: la fede non è un muro. È una porta. Quando vuoi tornare, la porta è aperta.» Zella si alzò. Si fermò sulla soglia. Si voltò. «Lo so» disse. Poi uscì. Don Massimo rimase lì, a guardare la porta aperta, e sorrise.</p>
+
+<h2 id="eredita-mf">L'eredità <span class="edit-link" onclick="openEditor('Massimo Floris')">[modifica]</span></h2>
+<p>Don Massimo Floris rimase parroco di Calimera fino al <b>115 dM</b> (2032 d.C.), quando l'età e la stanchezza lo convinsero a ritirarsi. Si trasferì in una casa vicino alla chiesa, dove continua a ricevere chiunque voglia parlargli. Le sue porte sono sempre aperte. E chi entra, dice che ancora oggi, se si sta in silenzio abbastanza a lungo, si può sentire il suono delle sue parole: «La fede non è un muro. È una porta.»</p>
+<p>Della sua Prima Comunione con Zella, don Massimo non parla quasi mai. Quando glielo chiedono, sorride e cambia argomento. Ma chi lo conosce bene dice che ogni anno, nel giorno della celebrazione, accende una candela in più nella chiesa. Non dice per chi. Non serve dirlo.</p>
+
+<div class="stub-box" style="background:#eaf3fb;border-left-color:#3680b0">
+  <span style="font-size:22px">⛪</span>
+  <span><b>«La fede non è un muro. È una porta.»</b> — Don Massimo Floris, parroco di Calimera.</span>
+</div>
+
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Religiosi</a> <a>Calimera</a> <a>Figure del Salento</a> <a>Amici di Zella</a> <a>Testimoni della Guerra Finale</a></div>`;
 }
 
 function buildValerioMozzarella() {
@@ -6272,6 +6365,143 @@ function buildMariaTeresaFriolo() {
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Clan Spisso</a> <a>India</a> <a>Persone in attesa</a> <a>Giardini</a> <a>Terza Guerra degli Avengers</a> <a>Ricongiungimento</a></div>`;
 }
 
+function buildMartano() {
+  return `<div class="wiki-notice"><span class="ni">🐍</span><span>Martano è la città dove <a onclick="navigateTo('Giovanni Zecca')">Giovanni Zecca</a> trascorse gli ultimi anni prima della sua ascensione al cielo. Il 24 Marzo 122 dM fu liberata dal Cheddar grazie alla sua caduta.</span></div>
+<h1 class="page-title">Martano</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Martano</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="martano.jpg" alt="Martano" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"><div style="font-size:10px;color:#54595d;margin-top:2px">Martano — la città liberata dal Cheddar</div></div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Regione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Salento — provincia di Lecce</td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Fondazione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Antichissima — epoca messapica</td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Periodo del Cheddar</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>9 dM – 122 dM</b> (1926–2039 d.C.)</td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Liberazione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>24 Marzo 122 dM</b> — caduta di Giovanni Zecca</td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Eroe cittadino</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Giovanni Zecca')">Giovanni Zecca</a></td></tr>
+    </table>
+</div>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#storia-m">Storia antica</a></li>
+    <li><a href="#piogge-m">Le piogge di Cheddar (9–122 dM)</a></li>
+    <li><a href="#zecca-m">Giovanni Zecca a Martano (90–122 dM)</a></li>
+    <li><a href="#caduta-m">La caduta di Giovanni Zecca — 24 Marzo 122 dM</a></li>
+    <li><a href="#statua-m">La statua inclinata</a></li>
+    <li><a href="#oggi-m">Martano oggi</a></li>
+  </ol>
+</div>
+
+<h2 id="storia-m">Storia antica <span class="edit-link" onclick="openEditor('Martano')">[modifica]</span></h2>
+<p><b>Martano</b> è una città del Salento leccese, situata nel cuore della Grecìa Salentina. Fondata in epoca messapica, conserva ancora tracce delle antiche mura e un centro storico caratteristico. Per secoli fu un centro agricolo di medie dimensioni, noto per la produzione di olio d'oliva e per la sua comunità gricofona — una delle poche rimaste al mondo dove si parla ancora il griko, l'antico dialetto greco-medievale.</p>
+<p>Ma la storia di Martano, nella Pocchiaciclopedia, è segnata da un evento che la rese famosa in tutto il mondo: le piogge di Cheddar che caddero sulla città per 113 anni, e l'uomo che le fece cessare.</p>
+
+<h2 id="piogge-m">Le piogge di Cheddar (9–122 dM) <span class="edit-link" onclick="openEditor('Martano')">[modifica]</span></h2>
+<p>Nel <b>9 dM</b> (1926 d.C.), senza alcuna spiegazione apparente, iniziò a piovere <b>Cheddar</b> su Martano. Non era un formaggio normale — era Cheddar magico, quello che <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> usava per le sue maledizioni. Grandinava Cheddar, pioveva Cheddar, cadeva Cheddar dal cielo come neve gialla e grassa. I martanesi impararono a conviverci: usavano ombrelli rinforzati, coprivano i tetti con teli di plastica, e la domenica, quando la pioggia era più leggera, uscivano con cappelli di paglia e impermeabili. Il Cheddar era inodore, ma lasciava una patina untuosa su tutto. Le strade erano scivolose. I gatti evitavano di uscire.</p>
+<p>Nessuno seppe mai perché il Cheddar cadesse su Martano. Alcuni dissero che era una maledizione di Ludo per aver maltrattato un topo. Altri dissero che era un esperimento fallito di Giovanni Zecca. Altri ancora dissero che era solo il destino di una città che aveva osato troppo. La verità non fu mai scoperta.</p>
+
+<h2 id="zecca-m">Giovanni Zecca a Martano (90–122 dM) <span class="edit-link" onclick="openEditor('Martano')">[modifica]</span></h2>
+<p>Nel <b>90 dM</b> (2007 d.C.), <a onclick="navigateTo('Giovanni Zecca')">Giovanni Zecca</a> si stabilì a Martano. Aveva viaggiato per decenni, insegnando Python alle città del Sud, e aveva bisogno di un posto tranquillo dove fermarsi. Scelse Martano perché, nonostante la grandine di Cheddar che cadeva ininterrottamente da 81 anni, aveva un certo fascino. «La grandine non mi disturba» disse. «Ho l'ombrello.»</p>
+<p>Giovanni si prese in affitto una casa nel centro storico, con un piccolo giardino dove piantò erbe aromatiche che, con grande sorpresa sua e dei vicini, crescevano nonostante il Cheddar. «Il Cheddar» spiegò, «è grasso. Le piante amano il grasso. Basta lavarle dopo.» I vicini non erano convinti, ma Giovanni insisteva. Nel giardino teneva anche un computer portatile — un modello antico, ma funzionante — sul quale continuava a scrivere codice. «Python» diceva quando gli chiedevano cosa stesse facendo. «Sempre Python.»</p>
+<p>I martanesi lo accettarono come uno di loro. Lo chiamavano «u' signor Giovanni» e lo salutavano per strada. Lui ricambiava con un cenno della mano e qualche parola di griko imparata a forza di ascoltare. Non riusciva a pronunciare bene la "ch" aspirata, ma ci provava. Era apprezzato.</p>
+
+<h2 id="caduta-m">La caduta di Giovanni Zecca — 24 Marzo 122 dM <span class="edit-link" onclick="openEditor('Martano')">[modifica]</span></h2>
+<p>Il <b>24 Marzo 122 dM</b> (2039 d.C.) fu una giornata come tante a Martano. Pioveva Cheddar, come sempre. Giovanni Zecca, che ormai aveva circa 1.000.158 anni (anche se biologicamente ne dimostrava molti meno), stava camminando verso la scuola elementare dove teneva lezioni di programmazione ai bambini. Camminava piano, con il suo ombrello, quando inciampò su un sasso coperto di Cheddar. Cadde.</p>
+<p>La caduta provocò una piccola onda d'urto. L'onda d'urto attirò curiosità e spostò le nuvole che stavano occupando il cielo di Martano dal 9 dM. Le persone si avvicinarono. Non gli dicevano «Ciccione» direttamente — ma erano abbastanza vicine che Giovanni poteva sentire la parola circolare, sussurrata, commentata. Questo bastava. Il Cheddar aumentò.</p>
+<p>Giovanni divenne più grande. Più persone accorsero. Più persone significava più commenti, più commenti significava più Cheddar, più Cheddar significava più massa. Il ciclo si autoalimentò finché la massa fu abbastanza da avere una gravità propria — e le persone smisero di avvicinarsi per curiosità e iniziarono ad essere attratte fisicamente.</p>
+<p>Ludo intervenne. Alzò un vento fortissimo che sollevò Giovanni da terra e lo lanciò nello spazio. Giovanni, che a quel punto era circa un <b>terzo della Terra</b>, raggiunse l'orbita.</p>
+<p>La caduta di Giovanni — o meglio, la sua ascesa — liberò Martano dal Cheddar. Le nuvole si diradarono. Per la prima volta in 113 anni, il sole splendette sulla città. I martanesi uscirono per strada, si guardarono in faccia, e per un momento non seppero cosa fare. Poi qualcuno applaudì. Poi tutti applaudirono. Poi piansero. Poi risero. Poi, come succede in tutte le città del Sud, si misero a preparare da mangiare per festeggiare.</p>
+
+<h2 id="statua-m">La statua inclinata <span class="edit-link" onclick="openEditor('Martano')">[modifica]</span></h2>
+<p>Poco dopo la liberazione, il sindaco di Martano bandì un concorso per una statua dedicata a Giovanni Zecca. Voleva che fosse monumentale, che rappresentasse Giovanni nel momento della sua ascesa, con il vento di Ludo che lo sollevava verso il cielo. Gli scultori lavorarono per mesi. Il risultato fu una statua di bronzo alta quattro metri, con Giovanni in piedi su una base di marmo, le braccia aperte, lo sguardo rivolto verso l'alto. C'era un problema: la statua era così fedele alla realtà che riproduceva anche la massa enorme di Giovanni al momento della caduta. La base non reggeva il peso.</p>
+<p>Poco meno di un mese dopo l'inaugurazione, la statua cominciò a inclinarsi. Il piedistallo si piegò lentamente, finché la statua non assunse un'inclinazione di circa 15 gradi. Il sindaco convocò una riunione d'emergenza. Si discusse se ripararla, se sostituirla, se abbatterla. Alla fine, qualcuno propose: «La lasciamo così. È più vera.» Tutti furono d'accordo.</p>
+<p>Oggi la statua di Giovanni Zecca a Martano è ancora inclinata. I turisti la fotografano, i bambini ci giocano intorno, i vecchi ci si siedono accanto a raccontare storie. Qualcuno dice che se ci si avvicina abbastanza, si sente ancora un sussurro: «Ciccione.» Ma è solo il vento. O forse no.</p>
+
+<h2 id="oggi-m">Martano oggi <span class="edit-link" onclick="openEditor('Martano')">[modifica]</span></h2>
+<p>Martano non ha più pioggia di Cheddar. Le strade sono asciutte, i tetti sono puliti, i gatti escono quando vogliono. Ma i martanesi non hanno dimenticato. Ogni anno, il 24 Marzo, si celebra la <b>Festa della Liberazione dal Cheddar</b>. Si mangia formaggio, naturalmente — ma non Cheddar. Mai Cheddar. Quello lo lasciano agli stranieri. Al centro della festa c'è la statua inclinata, attorno alla quale si raccolgono i bambini a sentire la storia di Giovanni Zecca, l'uomo che insegnò alle scimmie, inventò Python, fu maledetto da Ludo, e liberò Martano cadendo.</p>
+<p>E Giovanni Zecca? È ancora lassù, nel <a onclick="navigateTo('Pianeta Zecca')">Pianeta Zecca</a>, che orbita intorno alla Terra. Ogni volta che qualcuno dice «Ciccione», cresce di poco. Ogni tanto, quando la sua orbita lo avvicina, si vede brillare nel cielo notturno. I martanesi lo salutano con la mano. Loro non dicono «Ciccione». Dicono: «Ciao Giovanni, grazie.»</p>
+
+<div class="stub-box" style="background:#eaf3fb;border-left-color:#3680b0">
+  <span style="font-size:22px">🐍</span>
+  <span><b>«Ciao Giovanni, grazie.»</b> — Il saluto dei martanesi al pianeta che liberò la loro città.</span>
+</div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Città del Salento</a> <a>Martano</a> <a>Giovanni Zecca</a> <a>Grecìa Salentina</a> <a>Miracoli e maledizioni</a></div>`;
+}
+
+function buildCadutaNapoli() {
+  return `<div class="wiki-notice"><span class="ni">🔥</span><span>La caduta di Napoli nel 115 dM segnò la fine dell'ultima resistenza contro <a onclick="navigateTo('La Cantina')">La Cantina</a> e la cattura di <a onclick="navigateTo('Morello')">Morello</a>. Fu il giorno in cui lo <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> completò la sua vendetta.</span></div>
+<h1 class="page-title">La caduta di Napoli</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Caduta di Napoli (115 dM)</div>
+  <div style="text-align:center;padding:8px 6px 4px;font-size:48px">🌋</div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Data</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>15 marzo 115 dM</b> (2032 d.C.)</td></tr>
+     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Attaccanti</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('La Cantina')">La Cantina</a> con armata di Spisso Bot</td></tr>
+     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Difensori</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Milizia napoletana · civili</td></tr>
+     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Comandanti attaccanti</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> · <a onclick="navigateTo('Jacopo Martucci')">Jacopo Martucci</a></td></tr>
+     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Esito</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Vittoria de La Cantina · cattura di Morello</td></tr>
+     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Conseguenze</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Napoli sotto controllo de La Cantina · Morello imprigionato come "Morellato Pelato"</td></tr>
+   </table>
+</div>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#premesse-cn">Le premesse — la vendetta dello Zio di Sbost</a></li>
+    <li><a href="#armata-cn">L'armata di Spisso Bot</a></li>
+    <li><a href="#avanzata-cn">L'avanzata su Napoli</a>
+      <ol>
+        <li><a href="#prima-cn">La caduta delle difese esterne</a></li>
+        <li><a href="#seconda-cn">L'ingresso in città</a></li>
+        <li><a href="#terza-cn">La resistenza dei napoletani</a></li>
+      </ol>
+    </li>
+    <li><a href="#morello-cn">La cattura di Morello</a></li>
+    <li><a href="#dopo-cn">Dopo la caduta</a></li>
+  </ol>
+</div>
+
+<h2 id="premesse-cn">Le premesse — la vendetta dello Zio di Sbost <span class="edit-link" onclick="openEditor('La caduta di Napoli')">[modifica]</span></h2>
+<p>La caduta di Napoli non fu un evento improvviso. Fu il culmine di una vendetta iniziata nel <b>104 dM</b>, quando <a onclick="navigateTo('Morello')">Morello</a> aveva fermato <a onclick="navigateTo('Zio di Sbost')">Flavio Sbost</a> alla dogana tra Serrano e Castri e lo aveva rinchiuso nei propri capelli per tre anni. Quando lo Zio di Sbost si risvegliò nel 107 dM, giurò vendetta. Nel 109 dM fondò <a onclick="navigateTo('La Cantina')">La Cantina</a> con l'obiettivo dichiarato di conquistare Napoli. Nel 112 dM conquistò le <a onclick="navigateTo('Filippine')">Filippine</a>. Nel 115 dM era pronto per il colpo finale.</p>
+<p>Napoli, dopo il ritorno di Morello nel 104 dM e le piogge di cheddar acido che l'avevano pulita, era tornata a essere una città prospera. Morello la governava con la stessa autorità silenziosa che aveva usato durante l'Età dell'Oro. Ma le difese di Napoli erano pensate per proteggere la città da minacce tradizionali — non da un'armata di robot che urlavano «Spisso» a volume letale.</p>
+
+<h2 id="armata-cn">L'armata di Spisso Bot <span class="edit-link" onclick="openEditor('La caduta di Napoli')">[modifica]</span></h2>
+<p>Nel 115 dM, <a onclick="navigateTo('AleDoria')">AleDoria</a> aveva prodotto oltre <b>500 Spisso Bot</b>. Non erano tutti uguali: c'erano modelli da combattimento pesante (SB-7), modelli da ricognizione (SB-4), e una serie speciale, gli SB-10, dotati di amplificatori sonori in grado di coprire un'intera piazza. Lo Zio di Sbost li schierò in tre ondate: la prima avrebbe sfondato le difese esterne, la seconda sarebbe penetrata in città, la terza avrebbe neutralizzato ogni resistenza organizzata.</p>
+<p>I Bot marciarono da Castri verso Napoli in formazione ordinata. Lungo la strada, i paesi che attraversavano si arrendevano senza combattere. Nessuno voleva essere il primo a subire un raggio Spisso a pieno volume.</p>
+
+<h2 id="avanzata-cn">L'avanzata su Napoli <span class="edit-link" onclick="openEditor('La caduta di Napoli')">[modifica]</span></h2>
+
+<h3 id="prima-cn">La caduta delle difese esterne</h3>
+<p>L'attacco iniziò all'alba del <b>15 marzo 115 dM</b>. La prima ondata di Spisso Bot colpì i posti di blocco alla periferia di Napoli. I difensori, presi alla sprovvista, non ebbero il tempo di organizzare una resistenza efficace. I Bot emettevano raffiche sonore coordinate: "Spisso — Spisso — Spisso". Chi era abbastanza vicino da sentirlo cadeva a terra privo di sensi. Chi era più lontano fuggiva. In meno di due ore, tutte le difese esterne erano cadute.</p>
+
+<h3 id="seconda-cn">L'ingresso in città</h3>
+<p>La seconda ondata entrò in Napoli attraverso il ponte della Sanità. I Bot avanzavano lentamente, coprendosi a vicenda con i raggi sonori. I napoletani che tentavano di opporsi con mezzi improvvisati — sbarricamenti, lanci di oggetti, persino secchiate d'acqua — venivano rapidamente neutralizzati. Lo Zio di Sbost, che seguiva l'avanzata da un furgone blindato, ordinò di risparmiare i civili il più possibile. «Non siamo i barbari» disse. Poi aggiunse: «Siamo peggio. I barbari non hanno i Bot.»</p>
+
+<h3 id="terza-cn">La resistenza dei napoletani</h3>
+<p>Nonostante la superiorità tecnologica degli attaccanti, i napoletani resistettero con una ferocia che nessuno aveva previsto. Nei vicoli stretti del centro storico, dove i Bot non potevano manovrare, i cittadini li affrontavano con spranghe, mattoni e persino pentole. Un gruppo di pescatori del porto riuscì a distruggere tre Bot gettandoli in mare con le reti. Una donna del quartiere Sanità ne stordì uno colpendolo ripetutamente con un martello da cucina. Ma era troppo tardi. La terza ondata era già entrata in città, e i Bot avevano preso posizione in tutti i punti strategici: piazza Municipio, piazza Dante, piazza Garibaldi. Napoli era caduta.</p>
+
+<h2 id="morello-cn">La cattura di Morello <span class="edit-link" onclick="openEditor('La caduta di Napoli')">[modifica]</span></h2>
+<p>Tra le macerie di Napoli restava in piedi una sola casa: quella di <a onclick="navigateTo('Morello')">Morello</a>. Lo Zio di Sbost vi andò personalmente. Non aveva più bisogno di una chiave falsa — questa volta buttò giù la porta. Tutta la famiglia Sbost entrò con lui. Cercarono Morello in ogni stanza. Lo trovarono in bagno.</p>
+<p>Secondo i racconti, Morello era seduto sul bordo della vasca, con un'espressione che non era paura, non era rabbia, era qualcosa di più simile alla rassegnazione. «Lo sapevo» disse, guardando lo Zio di Sbost. «Sapevo che prima o poi saresti tornato.» Lo Zio di Sbost non rispose. Fece un cenno ai suoi uomini. La prima cosa che fecero fu tagliargli i capelli — nessun altro sarebbe più scomparso lì dentro.</p>
+<p>Morello, pelato e catturato, fu portato alla prigione di Castri. Gli fu assegnato il nome ufficiale di <b>Morellato Pelato</b>. Il nome era ironico, ma la prigione era reale. L'uomo che aveva governato Napoli per diciassette anni, fondato la Camorra Salentina, aspettato ottantasette anni per il ritorno, e pulito Napoli con piogge di cheddar acido, era ora un prigioniero con un nome ridicolo in una cella salentina.</p>
+
+<h2 id="dopo-cn">Dopo la caduta <span class="edit-link" onclick="openEditor('La caduta di Napoli')">[modifica]</span></h2>
+<p>La caduta di Napoli ebbe conseguenze profonde. La città fu saccheggiata in parte — <a onclick="navigateTo('Jacopo Martucci')">Jacopo Martucci</a>, liberato dalla prigione di Castri per l'occasione, si dedicò personalmente a incendiare le case, con un entusiasmo che i testimoni descrissero come eccessivo anche per gli standard della famiglia Sbost. Ma il centro storico, per miracolo o per ordine dello Zio di Sbost, fu risparmiato.</p>
+<p>Morello rimase prigioniero a Castri per anni. Nessuno sa esattamente quanto. Le fonti discordano. Alcuni dicono che fu liberato dopo la fine della Terza Guerra. Altri che morì in prigione. Altri ancora che lo Zio di Sbost, dopo averlo tenuto abbastanza a lungo, lo lasciò andare perché «non era più divertente». La Pocchiaciclopedia non ha una versione ufficiale. Sa solo che Napoli non fu mai più la stessa.</p>
+
+<div class="stub-box" style="background:#eaf3fb;border-left-color:#3680b0">
+  <span style="font-size:22px">🔥</span>
+  <span><b>«Lo sapevo. Sapevo che prima o poi saresti tornato.»</b> — Morello allo Zio di Sbost, prima di essere catturato.</span>
+</div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Battaglie</a> <a>Napoli</a> <a>La Cantina</a> <a>Morello</a> <a>Zio di Sbost</a> <a>115 dM</a></div>`;
+}
+
 
 function buildLaGuerraFinale() {
   return `<div class="wiki-notice"><span class="ni">🔥</span><span>La Guerra Finale (104–107 dM) è il capitolo conclusivo della storia pocchiana. Serrano non esiste più. Gli Avengers nemmeno. Il cielo era arancione.</span></div>
@@ -6685,7 +6915,7 @@ function toggleRotation() {
 
 // Guerre storiche con territori coinvolti
 // ── Anno corrente selezionato dallo slider ──
-let currentYear = 121;
+let currentYear = 124;
 
 const MIN_YEAR = 0;
 const MAX_YEAR = 124;
@@ -8017,30 +8247,67 @@ function buildAleDoria() {
 <div class="wiki-article-body clearfix">
 <div class="infobox">
   <div class="infobox-title">AleDoria</div>
-  <div style="text-align:center;padding:8px 6px 4px"><img src="aledoria.jpeg" alt="AleDoria" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
-  <table>
-    <tr><td>Ruolo</td><td>Inventore ufficiale de <a onclick="navigateTo('La Cantina')">La Cantina</a></td></tr>
-    <tr><td>Famiglia</td><td>Sbost — nipote dello <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a></td></tr>
-    <tr><td>Invenzioni principali</td><td>Sbost Bot (domestico) · Sbost Bot (musicale) · Spisso Bot</td></tr>
-    <tr><td>Ispirazione principale</td><td><a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> — effetto sonoro della parola Spisso</td></tr>
-    <tr><td>Problema noto</td><td><a onclick="navigateTo('Jacopo Martucci')">Jacopo Martucci</a> — impostore che si faceva passare per lui a Castri</td></tr>
-  </table>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="aledoria.jpg" alt="AleDoria" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"><div style="font-size:10px;color:#54595d;margin-top:2px">AleDoria — l'inventore di Castri</div></div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Ruolo</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Inventore ufficiale de <a onclick="navigateTo('La Cantina')">La Cantina</a></td></tr>
+     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Famiglia</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Sbost — nipote dello <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a></td></tr>
+     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Nascita</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>12 settembre 80 dM</b> (1997), Castri</td></tr>
+     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Invenzioni principali</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Sbost Bot (domestico) · Sbost Bot (musicale) · Spisso Bot</td></tr>
+     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Ispirazione principale</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> — effetto sonoro della parola Spisso</td></tr>
+   </table>
 </div>
 
-<p>AleDoria è il nipote dello <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> e inventore ufficiale de <a onclick="navigateTo('La Cantina')">La Cantina</a>. Come <a onclick="navigateTo('Elisa Sbost')">Elisa Sbost</a> — sua cugina — è uno dei nipoti del fondatore. Quando lo Zio di Sbost fondò lo stato nel 109 dM, AleDoria era già la figura tecnica della famiglia e divenne subito responsabile dello sviluppo tecnologico del nuovo stato.</p>
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#infanzia-ad">Infanzia e formazione</a></li>
+    <li><a href="#bot-ad">Gli Sbost Bot</a>
+      <ol>
+        <li><a href="#domestici-ad">I Bot domestici</a></li>
+        <li><a href="#musicali-ad">I Bot musicali</a></li>
+      </ol>
+    </li>
+    <li><a href="#spisso-ad">Lo Spisso Bot — l'arma acustica</a></li>
+    <li><a href="#fabbrica-ad">La fabbrica di Castri</a></li>
+    <li><a href="#conquiste-ad">Il ruolo nelle conquiste de La Cantina</a></li>
+  </ol>
+</div>
 
-<h2>Gli Sbost Bot <span class="edit-link" onclick="openEditor('AleDoria')">[modifica]</span></h2>
-<p>Il primo progetto di AleDoria per La Cantina furono gli <b>Sbost Bot</b> — robot progettati per due funzioni principali: svolgere faccende domestiche, e riprodurre musica. I Bot domestici gestivano pulizie, commissioni e logistica. I Bot musicali erano più sofisticati, con sistemi di riproduzione audio di alta qualità e capacità di adattare il repertorio al contesto.</p>
-<p>I Bot divennero rapidamente il prodotto più riconoscibile de La Cantina, e la loro distribuzione garantì allo stato una fonte di reddito stabile e una presenza nel Salento che andava al di là della semplice occupazione militare di Castri.</p>
+<h2 id="infanzia-ad">Infanzia e formazione <span class="edit-link" onclick="openEditor('AleDoria')">[modifica]</span></h2>
+<p><b>AleDoria</b>, nipote dello <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a>, nacque a <b>Castri</b> il <b>12 settembre 80 dM</b> (1997 d.C.). Fin da bambino mostrò un'incredibile abilità meccanica: a sei anni smontò e rimontò una radio; a dieci costruì un piccolo robot che seguiva la luce; a quattordici, mentre i coetanei giocavano, lui progettava circuiti nel garage di famiglia. Suo zio Flavio, che all'epoca lavorava ancora alla dogana, gli portava vecchi elettrodomestici rotti da riparare. «Mi porti spazzatura» si lamentava AleDoria. «È la materia prima» rispondeva lo Zio.</p>
+<p>Non frequentò mai l'università. Imparò tutto da autodidatta, divorando manuali di ingegneria, elettronica e programmazione. La sua vera scuola fu la necessità: quando la famiglia Sbost aveva bisogno di qualcosa, AleDoria la costruiva. E quando la famiglia Sbost fondò <a onclick="navigateTo('La Cantina')">La Cantina</a> nel 109 dM, AleDoria era pronto.</p>
 
-<h2>Lo Spisso Bot — l'arma acustica <span class="edit-link" onclick="openEditor('AleDoria')">[modifica]</span></h2>
+<h2 id="bot-ad">Gli Sbost Bot <span class="edit-link" onclick="openEditor('AleDoria')">[modifica]</span></h2>
+<p>Il primo progetto di AleDoria per La Cantina furono gli <b>Sbost Bot</b>. Il nome era un omaggio alla famiglia — e anche un modo per rendere riconoscibili i prodotti. I Bot erano divisi in due categorie principali.</p>
+
+<h3 id="domestici-ad">I Bot domestici</h3>
+<p>Gli Sbost Bot domestici erano robot progettati per svolgere faccende di casa: pulivano, cucinavano su comando, facevano la spesa seguendo liste preimpostate, e persino piegavano i vestiti. La loro caratteristica distintiva era la semplicità d'uso: AleDoria li progettò con interfacce vocali in dialetto salentino, così che anche gli anziani della famiglia potessero usarli senza difficoltà. Il primo modello, l'SB-1, uscì nel 110 dM e vendette oltre mille unità nel primo anno. L'SB-3, del 112 dM, fu il primo a essere esportato fuori dal Salento, arrivando fino a Napoli e Bari.</p>
+
+<h3 id="musicali-ad">I Bot musicali</h3>
+<p>La seconda linea di Bot era più sofisticata: robot in grado di riprodurre musica con una qualità che i tecnici definirono «sorprendente per le dimensioni». AleDoria aveva studiato l'acustica con una passione quasi maniacale, e i Bot musicali potevano adattare il repertorio al contesto — musica allegra per le feste, brani rilassanti per la sera, marce militari per le parate de La Cantina. Lo Zio di Sbost ne era particolarmente orgoglioso. «Mio nipote» diceva, «ha messo la musica nelle macchine. E non le macchine che suonano — le macchine che capiscono la musica.»</p>
+
+<h2 id="spisso-ad">Lo Spisso Bot — l'arma acustica <span class="edit-link" onclick="openEditor('AleDoria')">[modifica]</span></h2>
 <p>Il progetto più ambizioso di AleDoria fu lo <b>Spisso Bot</b>. Derivato dalla funzione di riproduzione musicale dei Bot standard, lo Spisso Bot utilizzava la parola «Spisso» come raggio sonoro con potenza comparabile a un laser. AleDoria aveva studiato attentamente la <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> e il suo principio operativo — l'effetto distruttivo generato dalla risonanza della parola Spisso — e aveva identificato un modo per replicarlo in forma controllata e modulabile.</p>
-<p>Il risultato fu un'arma precisa, relativamente compatta, e tecnicamente classificabile come «dispositivo musicale» per i regolamenti doganali vigenti. Le <a onclick="navigateTo('Filippine')">Filippine</a> non erano convinte di questa classificazione. AleDoria sosteneva che dipendeva dal volume.</p>
+<p>Il risultato fu un'arma precisa, relativamente compatta, e tecnicamente classificabile come «dispositivo musicale» per i regolamenti doganali vigenti. Le <a onclick="navigateTo('Filippine')">Filippine</a> non erano convinte di questa classificazione. AleDoria sosteneva che dipendeva dal volume. Lo Spisso Bot poteva emettere tre livelli di potenza: <b>normale</b> (stordimento temporaneo), <b>amplificato</b> (incapacità motoria), e <b>massimo</b> (distruzione di bersagli inanimati). Non raggiunse mai la potenza della Bomba Spissica originale — AleDoria era un inventore, non un folle — ma per gli scopi de La Cantina era più che sufficiente.</p>
 
-<h2>L'impostore <span class="edit-link" onclick="openEditor('AleDoria')">[modifica]</span></h2>
-<p>Durante i mesi della fondazione de La Cantina, un individuo a Castri si spacciava per AleDoria chiedendo soldi per invenzioni inesistenti. Gli abitanti lo chiamavano <b>AleDoria (versione cugghiune)</b>. Il vero AleDoria era presente in città e la situazione era imbarazzante per entrambi. L'impostore fu infine arrestato e identificato come <a onclick="navigateTo('Jacopo Martucci')">Jacopo Martucci</a>, cittadino di Martano.</p>
+<h2 id="fabbrica-ad">La fabbrica di Castri <span class="edit-link" onclick="openEditor('AleDoria')">[modifica]</span></h2>
+<p>Nel 111 dM, AleDoria aprì la sua fabbrica a Castri, in un vecchio magazzino della Camorra Salentina convertito in laboratorio. Lì produceva i Bot, li testava, e li addestrava. L'addestramento era la parte più delicata: AleDoria passava ore a insegnare ai Bot a riconoscere i comandi vocali, a distinguere un ordine da una conversazione, a non attivarsi accidentalmente in mezzo a una festa. «La differenza tra un Bot e un'arma» spiegava, «è il contesto. Un Bot che suona musica è un Bot. Un Bot che dice Spisso in mezzo alla piazza è una dichiarazione di guerra.»</p>
+<p>La fabbrica divenne presto un punto di riferimento a Castri. I turisti (pochi, ma c'erano) chiedevano di visitarla. AleDoria li accontentava raramente. «È un laboratorio» diceva, «non un luna park.» Ma ogni tanto, se qualcuno si mostrava genuinamente interessato, lo faceva entrare e gli spiegava come funzionava un Bot. Nessuno capiva tutto. AleDoria sorrideva. «Nessuno capisce mai tutto. L'importante è voler capire.»</p>
+
+<h2 id="conquiste-ad">Il ruolo nelle conquiste de La Cantina <span class="edit-link" onclick="openEditor('AleDoria')">[modifica]</span></h2>
+<p>Gli Spisso Bot furono determinanti in due eventi chiave della storia de La Cantina:</p>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><b>112 dM — Conquista delle Filippine</b>: un'armata di Spisso Bot avanzò da Castri verso Calimera, usando i raggi sonori in formazione coordinata. AleDoria aveva programmato tattiche di fuoco incrociato che resero il difendersi estremamente difficile. Le Filippine caddero in meno di una settimana.</li>
+  <li><b>115 dM — Conquista di Napoli</b>: un'armata molto più grande marciò su Napoli. Gli Spisso Bot furono schierati in massa, e la città cadde in poche ore. Fu la prima volta che i Bot furono usati in un'area urbana densamente popolata. AleDoria non partecipò all'operazione. «Li ho costruiti» disse, «non devo vederli usare.»</li>
+</ul>
+<p>Dopo la conquista di Napoli, AleDoria si ritirò dalla produzione bellica. Continuò a progettare Bot domestici e musicali, ma non costruì mai più uno Spisso Bot. «Ne ho fatti abbastanza» disse a suo zio. Lo Zio di Sbost non insistette. Forse capiva. Forse no. Ma lasciò che AleDoria tornasse a fare quello che sapeva fare meglio: inventare cose che rendono la vita più facile, non più difficile.</p>
+
+<div class="stub-box" style="background:#eaf3fb;border-left-color:#3680b0">
+  <span style="font-size:22px">🔧</span>
+  <span><b>«La differenza tra un Bot e un'arma è il contesto.»</b> — AleDoria, inventore de La Cantina.</span>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Inventori</a> <a>Famiglia Sbost</a> <a>La Cantina</a> <a>Tecnologia pocchiana</a></div>`;
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Inventori</a> <a>Famiglia Sbost</a> <a>La Cantina</a> <a>Tecnologia pocchiana</a> <a>Castri</a></div>`;
 }
 
 function buildJacopoMartucci() {
@@ -8050,20 +8317,59 @@ function buildJacopoMartucci() {
 <div class="wiki-article-body clearfix">
 <div class="infobox">
   <div class="infobox-title">Jacopo Martucci</div>
-  <table>
-    <tr><td>Alias usato</td><td>AleDoria (versione cugghiune)</td></tr>
-    <tr><td>Origine</td><td>Martano — sotto controllo di <a onclick="navigateTo('Serrano')">Serrano</a></td></tr>
-    <tr><td>Attività</td><td>Fingersi <a onclick="navigateTo('AleDoria')">AleDoria</a> a Castri per raccogliere fondi</td></tr>
-    <tr><td>Obiettivo reale</td><td>Raccogliere abbastanza soldi per bruciare la casa di <a onclick="navigateTo('Alessio Spisso')">Alessio</a> a Serrano</td></tr>
-    <tr><td>Esito</td><td>Arrestato a Castri · identità scoperta all'interrogatorio</td></tr>
-  </table>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="jacopo_martucci.jpg" alt="Jacopo Martucci" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"><div style="font-size:10px;color:#54595d;margin-top:2px">Jacopo Martucci — l'impostore di Castri</div></div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Alias usato</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">AleDoria (versione cugghiune)</td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Origine</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Martano')">Martano</a> — sotto controllo di Serrano</td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Periodo di attività</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">109 dM (2026 d.C.)</td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Attività</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Fingersi <a onclick="navigateTo('AleDoria')">AleDoria</a> a Castri per raccogliere fondi</td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Obiettivo reale</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Raccogliere abbastanza soldi per bruciare la casa di <a onclick="navigateTo('Alessio Spisso')">Alessio</a> a Serrano</td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Esito</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Arrestato a Castri · identità scoperta all'interrogatorio</td></tr>
+    </table>
 </div>
 
-<p><b>Jacopo Martucci</b> era un cittadino di Martano — piccola città vicino a Serrano, sotto controllo di Serrano — che nel periodo successivo alla fondazione de <a onclick="navigateTo('La Cantina')">La Cantina</a> si trasferì a Castri spacciandosi per <a onclick="navigateTo('AleDoria')">AleDoria</a>, l'inventore della famiglia Sbost, chiedendo denaro per invenzioni che non aveva mai realizzato.</p>
-<p>Il piano aveva un difetto strutturale evidente: il vero AleDoria era già a Castri. Gli abitanti di Castri sapevano che Martucci non era AleDoria perché avevano AleDoria di fronte. Continuarono a chiamarlo <b>AleDoria (versione cugghiune)</b> e tollerarono la sua presenza per settimane per ragioni che nessuno ha mai formalizzato.</p>
-<p>Dopo molti giorni, Martucci fu arrestato. All'interrogatorio emerse che il suo obiettivo reale era raccogliere abbastanza denaro da finanziare un viaggio a Serrano per bruciare la casa di <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a>. Le motivazioni specifiche di questa intenzione non furono mai completamente chiarite. Martucci fu trattenuto a Castri e la casa di Alessio rimase intatta.</p>
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#origini-jm">Origini e motivazioni</a></li>
+    <li><a href="#castri-jm">L'arrivo a Castri e l'identità rubata</a></li>
+    <li><a href="#impostura-jm">L'impostura — AleDoria (versione cugghiune)</a></li>
+    <li><a href="#arresto-jm">L'arresto e l'interrogatorio</a></li>
+    <li><a href="#prigionia-jm">La prigionia a Castri</a></li>
+    <li><a href="#napoli-jm">La liberazione e l'incendio di Napoli</a></li>
+  </ol>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Castri</a> <a>Martano</a> <a>Impostori</a> <a>La Cantina</a></div>`;
+
+<h2 id="origini-jm">Origini e motivazioni <span class="edit-link" onclick="openEditor('Jacopo Martucci')">[modifica]</span></h2>
+<p><b>Jacopo Martucci</b> nacque a <a onclick="navigateTo('Martano')">Martano</a> in una data imprecisata, probabilmente intorno al 70 dM (1987 d.C.). Era un uomo comune, con un lavoro comune, una vita comune. Ma aveva un'ossessione: odiava <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a>. Non si sa perché. Forse per un torto subito, forse per invidia, forse perché, come succede in certe storie, l'odio non ha bisogno di ragioni. Lui diceva che Alessio aveva rovinato Serrano, che il suo ritorno aveva distrutto la vita di tante persone, che qualcuno doveva fargliela pagare. Nessuno gli credette mai del tutto, ma Jacopo era convinto.</p>
+<p>Nel 109 dM, quando la notizia della fondazione de <a onclick="navigateTo('La Cantina')">La Cantina</a> si sparse, Jacopo vide un'opportunità. Se riusciva a raccogliere abbastanza soldi, sarebbe andato a Serrano e avrebbe bruciato la casa di Alessio. Era un piano semplice. Forse troppo semplice. Ma Jacopo non era un uomo complesso.</p>
+
+<h2 id="castri-jm">L'arrivo a Castri e l'identità rubata <span class="edit-link" onclick="openEditor('Jacopo Martucci')">[modifica]</span></h2>
+<p>Jacopo arrivò a Castri nel 109 dM, pochi giorni dopo la fondazione de La Cantina. La città era in fermento: lo <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> aveva appena preso il potere, la famiglia Sbost si stava organizzando, e tutti parlavano di <a onclick="navigateTo('AleDoria')">AleDoria</a>, l'inventore geniale che avrebbe dato a La Cantina la sua tecnologia. Jacopo ascoltò. Poi ebbe un'idea. Se AleDoria era così famoso, perché non fingersi lui? Nessuno a Castri lo conosceva. Poteva presentarsi come l'inventore, chiedere soldi per "progetti segreti", e poi sparire con il bottino.</p>
+<p>Non sapeva che il vero AleDoria era già a Castri, al lavoro nella sua fabbrica.</p>
+
+<h2 id="impostura-jm">L'impostura — AleDoria (versione cugghiune) <span class="edit-link" onclick="openEditor('Jacopo Martucci')">[modifica]</span></h2>
+<p>Jacopo iniziò a girare per Castri presentandosi come AleDoria. Diceva di essere l'inventore, mostrava progetti disegnati su fogli di carta (rubati da un vecchio manuale di elettronica), e chiedeva finanziamenti per "prototipi rivoluzionari". La gente di Castri, che non aveva mai visto AleDoria in faccia, ci cascò. Qualcuno gli diede soldi. Qualcun altro lo invitò a cena per sentire parlare delle sue invenzioni. Jacopo intascava e parlava. Parlava molto. Forse troppo.</p>
+<p>Dopo qualche giorno, qualcuno cominciò a sospettare. «AleDoria» dicevano, «ma non è che assomigli a quello della fabbrica?» Jacopo non capiva. Poi lo portarono a vedere la fabbrica. Lì c'era il vero AleDoria, che stava saldando un circuito su un prototipo di Sbost Bot. Si guardarono. Jacopo impallidì. AleDoria lo guardò, poi chiese: «Chi sei?» Jacopo scappò. Ma era troppo tardi. La voce si sparse. Da quel giorno, i martanesi lo chiamarono <b>AleDoria (versione cugghiune)</b>. La versione cugghiune — quella sbagliata, quella che non funziona, quella che nessuno aveva chiesto.</p>
+
+<h2 id="arresto-jm">L'arresto e l'interrogatorio <span class="edit-link" onclick="openEditor('Jacopo Martucci')">[modifica]</span></h2>
+<p>Jacopo fu arrestato pochi giorni dopo, mentre tentava di lasciare Castri con i soldi raccolti. Lo portarono di fronte allo Zio di Sbost e ad AleDoria. L'interrogatorio fu breve. «Perché ti sei finto mio nipote?» chiese lo Zio. Jacopo non rispose. «Perché hai rubato la mia identità?» chiese AleDoria. Jacopo abbassò lo sguardo. Poi, dopo un lungo silenzio, disse la verità: voleva i soldi per andare a Serrano e bruciare la casa di Alessio Spisso.</p>
+<p>Lo Zio di Sbost lo guardò a lungo. «Alessio Spisso?» chiese. «Quello che vola?» Jacopo annuì. Lo Zio rise. «E come pensavi di entrare a Serrano volante?» Jacopo non aveva pensato a quello. Lo Zio smise di ridere. «Portatelo in prigione» ordinò. «Lo terremo per quando avremo bisogno di qualcuno che bruci le case.»</p>
+
+<h2 id="prigionia-jm">La prigionia a Castri <span class="edit-link" onclick="openEditor('Jacopo Martucci')">[modifica]</span></h2>
+<p>Jacopo trascorse i successivi sei anni in prigione a Castri. Non era una prigione severa — poteva camminare nel cortile, ricevere visite, parlare con le guardie. Ma non poteva uscire. Lo Zio di Sbost lo teneva lì «per quando avremo bisogno di un incendiario». Jacopo aspettava. Passava il tempo a pensare a Serrano, alla casa di Alessio, a come avrebbe potuto bruciarla se mai fosse stato liberato. Non perse mai la speranza. Non perse mai l'odio.</p>
+
+<h2 id="napoli-jm">La liberazione e l'incendio di Napoli <span class="edit-link" onclick="openEditor('Jacopo Martucci')">[modifica]</span></h2>
+<p>Nel <b>115 dM</b>, quando La Cantina si preparò a marciare su Napoli, lo Zio di Sbost ricordò di avere un prigioniero che bruciava le case. Fece liberare Jacopo. «Ti do quello che volevi» disse. «Puoi bruciare. Non la casa di Alessio — quella è a Serrano, e Serrano vola. Ma puoi bruciare Napoli. È una città intera. Non ti basta?» Jacopo annuì. Era più di quanto avesse mai sperato.</p>
+<p>Jacopo partecipò all'attacco a Napoli con un entusiasmo che i testimoni descrissero come eccessivo anche per gli standard della famiglia Sbost. Incendiò case, negozi, magazzini. Correva per le strade con una torcia, ridendo, gridando: «AleDoria! AleDoria (versione cugghiune)!» Qualcuno disse che era impazzito. Altri dissero che era solo contento. Quando Napoli fu conquistata e Morello catturato, Jacopo si fermò. Guardò le fiamme. Poi si sedette su un marciapiede e pianse. Nessuno seppe mai se fosse per la gioia o per qualcos'altro.</p>
+<p>Dopo la caduta di Napoli, Jacopo scomparve. Non tornò a Castri. Non tornò a <a onclick="navigateTo('Martano')">Martano</a>. Qualcuno disse di averlo visto a Serrano, anni dopo, che guardava la casa di Alessio da lontano. Non provò mai ad avvicinarsi. Forse aveva capito che certe ossessioni, dopo un po', diventano più pesanti delle case che si volevano bruciare.</p>
+
+<div class="stub-box" style="background:#eaf3fb;border-left-color:#3680b0">
+  <span style="font-size:22px">🎭</span>
+  <span><b>«AleDoria! AleDoria (versione cugghiune)!»</b> — Jacopo Martucci durante l'incendio di Napoli, 115 dM.</span>
+</div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Impostori</a> <a>Castri</a> <a>Martano</a> <a>La Cantina</a> <a>Personaggi minori</a> <a>Incendiari</a></div>`;
 }
 
 function buildElisaSbost() {
@@ -8180,7 +8486,7 @@ function buildPrimoCloneZioSbost() {
 <div class="wiki-article-body clearfix">
 <div class="infobox">
   <div class="infobox-title">Primo Clone dello Zio di Sbost</div>
-  <div style="text-align:center;padding:8px 6px 4px"><img src="primo_clone.jpg" alt="Primo Clone" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="primo_clone.png" alt="Primo Clone" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
   <table>
     <tr><td><b>Creato da</b></td><td><a onclick="navigateTo('AleDoria')">AleDoria</a> (macchina del clonaggio)</td></tr>
     <tr><td><b>Anno di creazione</b></td><td>124 dM</td></tr>
