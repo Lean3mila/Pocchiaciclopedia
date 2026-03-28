@@ -966,7 +966,7 @@ clearfix::after { content: ''; display: block; clear: both; }
 <h4>Gli Avengers</h4>
 <a onclick="navigateTo('Avengers')">Avengers</a>
 <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a>
-<a onclick="navigateTo('Zella (Avengers)')">Zella</a>
+<a onclick="navigateTo('Zella')">Zella</a>
 <a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra</a>
 <a onclick="navigateTo('Seconda Guerra degli Avengers')">Seconda Guerra</a>
 <a onclick="navigateTo('La Guerra Finale')">⚔️ Guerra Finale</a>
@@ -1497,8 +1497,8 @@ const DEFAULT_PAGES = {
     history: [],
     content: ""
   },
-  "Spider Sparm": {
-    title: "Spider Sparm",
+  "Spider Trovè": {
+    title: "Spider Trovè",
     wikitext: "",
     history: [],
     content: ""
@@ -1701,10 +1701,10 @@ DEFAULT_PAGES["Avengers"].content = buildAvengers();
 DEFAULT_PAGES["Iron Spisso Man"].content = buildIronSpissoMan();
 DEFAULT_PAGES["Prima Guerra degli Avengers"].content = buildPrimaGuerraAvengers();
 DEFAULT_PAGES["Seconda Guerra degli Avengers"].content = buildSecondaGuerraAvengers();
-DEFAULT_PAGES["Zella (Avengers)"].content = buildZellaAvengers();
+DEFAULT_PAGES["Zella"].content = buildZella();
 DEFAULT_PAGES["Valerio Mozzarella"].content = buildValerioMozzarella();
 DEFAULT_PAGES["Nicolò"].content = buildNicolo();
-DEFAULT_PAGES["Spider Sparm"].content = buildSpiderSparm();
+DEFAULT_PAGES["Spider Trovè"].content = buildSpiderTrovè();
 DEFAULT_PAGES["Emanuele Pascali"].content = buildEmanuelePascali();
 DEFAULT_PAGES["Francesco Maggiore"].content = buildFrancescoMaggiore();
 DEFAULT_PAGES["Spisshor"].content = buildSpisshor();
@@ -1723,7 +1723,6 @@ DEFAULT_PAGES["Sal da Vinci"].content = buildSalDaVinci();
 
 DEFAULT_PAGES["Nigeria Spartiana"].content = buildNigeriaSpartiana();
 DEFAULT_PAGES["104 Nigeriani"].content = build104Nigeriani();
-DEFAULT_PAGES["Zella"].content = buildZella();
 DEFAULT_PAGES["Benito Mussolini"].content = buildBenitoMussolini();
 DEFAULT_PAGES["pocchiainscatola"].content = buildPocchiaInscatola();
 DEFAULT_PAGES["Filippine"].content = buildFilippine();
@@ -2564,7 +2563,7 @@ function buildSerrano() {
 <p>Non è mai stato chiarito se Alex avesse scelto Serrano come obiettivo per ragioni tattiche o per ragioni personali. Probabilmente entrambe. Probabilmente la distinzione non gli interessava.</p>
 
 <h2 id="ritorno-s">Il ritorno — 109 dM <span class="edit-link" onclick="openEditor('Serrano')">[modifica]</span></h2>
-<p>Nel <b>109 dM</b> <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a> si risvegliò tra le macerie del cratere dove era stata Serrano. Era sopravvissuto alla Bomba Spissica perché era lo Spisso degli Spisso — il figlio minore, immune e potenziato dall'esplosione che avrebbe dovuto ucciderlo. Si risvegliò come <b>Alessio Spisso²</b>. Trovò <a onclick="navigateTo('Zella (Avengers)')">Zella</a>, l'unico altro sopravvissuto. Insieme cominciarono a ricostruire.</p>
+<p>Nel <b>109 dM</b> <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a> si risvegliò tra le macerie del cratere dove era stata Serrano. Era sopravvissuto alla Bomba Spissica perché era lo Spisso degli Spisso — il figlio minore, immune e potenziato dall'esplosione che avrebbe dovuto ucciderlo. Si risvegliò come <b>Alessio Spisso²</b>. Trovò <a onclick="navigateTo('Zella')">Zella</a>, l'unico altro sopravvissuto. Insieme cominciarono a ricostruire.</p>
 <p>Usando le <a onclick="navigateTo('L.E.G.G.I.')">L.E.G.G.I.</a> costruirono uno scudo che rendeva Serrano immune a qualsiasi Bomba Spissica. Usando le <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')">F.O.N.D.A.M.E.N.T.A.</a> — e la forza di Alessio come fonte di energia — la città si staccò dal suolo. Serrano tornò. Diversa, ricostruita, volante.</p>
 <p>Nel <b>117 dM</b>, durante la <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers</a>, <a onclick="navigateTo('Alice Sportella')">Alice Sportella</a> analizzò il terreno di Serrano e scoprì il <a onclick="navigateTo('Minerale Spisso')">Minerale Spisso</a> — un cristallo formatosi nell'impatto della Bomba, capace di bloccare i poteri acquisiti tramite esposizione a essa.</p>
 
@@ -2904,19 +2903,19 @@ function buildAlexSpisso() {
 <p>Fin dall'inizio Alex dimostrò una caratteristica che avrebbe definito tutta la sua vita: la capacità di costruire lealtà intorno a sé, e la disponibilità a tradirle nel momento in cui diventavano un ostacolo. Lo fece con il clan, con il fratello, con gli Avengers. In ogni caso aveva una giustificazione. In ogni caso la giustificazione era lui stesso.</p>
 
 <h2 id="avengers-ax">La fondazione degli Avengers e Iron Spisso Man <span class="edit-link" onclick="openEditor('Alex Spisso')">[modifica]</span></h2>
-<p>In America, Alex fondò gli <a onclick="navigateTo('Avengers')">Avengers</a> e assunse il nome di battaglia <b>Iron Spisso Man</b>. L'organizzazione crebbe rapidamente, attrarre figure di ogni genere — tra cui <a onclick="navigateTo('Zella (Avengers)')">Zella</a>, che sarebbe diventato il suo successore, e in seguito persino sua madre <a onclick="navigateTo('Ilaria Spisso')">Ilaria</a>, mascherata come <b>Spisshor</b> senza che lui lo sapesse. Alex costruì gli Avengers come se fossero la sua famiglia ideale: leale, efficiente, disposta a seguirlo. Li chiamava «i miei schiavi» — una cosa che disse ad alta voce solo una volta, nell'ultima telefonata con Alessio, quando non c'era più niente da perdere.</p>
+<p>In America, Alex fondò gli <a onclick="navigateTo('Avengers')">Avengers</a> e assunse il nome di battaglia <b>Iron Spisso Man</b>. L'organizzazione crebbe rapidamente, attrarre figure di ogni genere — tra cui <a onclick="navigateTo('Zella')">Zella</a>, che sarebbe diventato il suo successore, e in seguito persino sua madre <a onclick="navigateTo('Ilaria Spisso')">Ilaria</a>, mascherata come <b>Spisshor</b> senza che lui lo sapesse. Alex costruì gli Avengers come se fossero la sua famiglia ideale: leale, efficiente, disposta a seguirlo. Li chiamava «i miei schiavi» — una cosa che disse ad alta voce solo una volta, nell'ultima telefonata con Alessio, quando non c'era più niente da perdere.</p>
 
 <h2 id="morte-ax">La morte e la resurrezione <span class="edit-link" onclick="openEditor('Alex Spisso')">[modifica]</span></h2>
-<p>Nell'100 dM Alex morì nell'attacco alla casa di <a onclick="navigateTo('Zella (Avengers)')">Zella</a> — un attacco che aveva lui stesso orchestrato, nell'ambito di un piano rimasto incomprensibile fino all'ultimo. Lo stesso attacco fu il casus belli della <a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra degli Avengers</a>: Zella, convinto che Iron Spisso Man potesse essere riportato in vita, radunò gli Avengers e li guidò in una campagna per recuperarne il corpo e resuscitarlo. Ci riuscì. Alex tornò in vita senza che nessuno capisse esattamente come. Gli Avengers pensavano di aver riportato il loro fondatore. Alex sapeva di essere stato riportato da strumenti che aveva già pianificato di usare e poi eliminare.</p>
+<p>Nell'100 dM Alex morì nell'attacco alla casa di <a onclick="navigateTo('Zella')">Zella</a> — un attacco che aveva lui stesso orchestrato, nell'ambito di un piano rimasto incomprensibile fino all'ultimo. Lo stesso attacco fu il casus belli della <a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra degli Avengers</a>: Zella, convinto che Iron Spisso Man potesse essere riportato in vita, radunò gli Avengers e li guidò in una campagna per recuperarne il corpo e resuscitarlo. Ci riuscì. Alex tornò in vita senza che nessuno capisse esattamente come. Gli Avengers pensavano di aver riportato il loro fondatore. Alex sapeva di essere stato riportato da strumenti che aveva già pianificato di usare e poi eliminare.</p>
 
 <h2 id="arresto-ax">L'arresto del clan e la scomparsa <span class="edit-link" onclick="openEditor('Alex Spisso')">[modifica]</span></h2>
 <p>Nell'anno 89 dM — mentre era ancora operativo come Iron Spisso Man in America — le forze dell'ordine guidate da <a onclick="navigateTo('Riccardo Pascali')">Riccardo Pascali</a> in Italia arrestarono tutti i membri del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> presenti sul territorio. Alex fu tra i fermati durante uno dei suoi rari ritorni in Italia. L'unico escluso fu il fratello <a onclick="navigateTo('Alessio Spisso')">Alessio</a>, che si trovava in India. Dopo la scarcerazione Alex non tornò né in Italia né alla vita precedente. Tornò in America, dagli Avengers, e accelerò i suoi piani.</p>
 
 <h2 id="ritorno-ax">Il ritorno e la Guerra Finale <span class="edit-link" onclick="openEditor('Alex Spisso')">[modifica]</span></h2>
-<p>Nel 104 dM, con l'inizio della <a onclick="navigateTo('La Guerra Finale')">Guerra Finale</a>, Alex — come Iron Spisso Man — era formalmente il co-leader degli Avengers insieme a <a onclick="navigateTo('Zella (Avengers)')">Zella</a>. Partecipò alle operazioni contro la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> e alla conquista di <a onclick="navigateTo('Serrano')">Serrano</a> nel 105 dM. Durante questo periodo iniziò segretamente la costruzione della <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a>, usando gli appunti inediti del nonno <a onclick="navigateTo('Ermenegildo Spisso')">Gildo</a> — portati da <a onclick="navigateTo('Ilaria Spisso')">Ilaria</a> dalla cantina di Alessio all'insaputa di tutti. Disse agli Avengers che era impegnato con la logistica. Nessuno chiese dettagli.</p>
+<p>Nel 104 dM, con l'inizio della <a onclick="navigateTo('La Guerra Finale')">Guerra Finale</a>, Alex — come Iron Spisso Man — era formalmente il co-leader degli Avengers insieme a <a onclick="navigateTo('Zella')">Zella</a>. Partecipò alle operazioni contro la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> e alla conquista di <a onclick="navigateTo('Serrano')">Serrano</a> nel 105 dM. Durante questo periodo iniziò segretamente la costruzione della <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a>, usando gli appunti inediti del nonno <a onclick="navigateTo('Ermenegildo Spisso')">Gildo</a> — portati da <a onclick="navigateTo('Ilaria Spisso')">Ilaria</a> dalla cantina di Alessio all'insaputa di tutti. Disse agli Avengers che era impegnato con la logistica. Nessuno chiese dettagli.</p>
 
 <h2 id="tradimento-ax">Il tradimento degli Avengers <span class="edit-link" onclick="openEditor('Alex Spisso')">[modifica]</span></h2>
-<p>Nel 107 dM la bomba era pronta. Alex orchestrò un attacco via terra su Serrano per tenervi impegnati tutti gli Avengers — Zella, Francesco Maggiore, Spider Sparm, Valerio Mozzarella, Nicolò, Emanuele Pascali — e suo fratello Alessio, che era stato reintegrato dall'organizzazione grazie all'intervento di Ilaria. Lui rimase indietro. «Logistica», disse di nuovo.</p>
+<p>Nel 107 dM la bomba era pronta. Alex orchestrò un attacco via terra su Serrano per tenervi impegnati tutti gli Avengers — Zella, Francesco Maggiore, Spider Trovè, Valerio Mozzarella, Nicolò, Emanuele Pascali — e suo fratello Alessio, che era stato reintegrato dall'organizzazione grazie all'intervento di Ilaria. Lui rimase indietro. «Logistica», disse di nuovo.</p>
 <p>Nei minuti prima della detonazione, Alessio chiamò per aggiornamenti. Alex, con la bomba già attivata e il tempo ridotto a un minuto, rivelò tutto: che era stato lui a distruggere la casa di Zella nel 100 dM. Che gli Avengers lo avevano resuscitato senza capire che stavano resuscitando il loro carnefice. Che li aveva usati per anni. Che Alessio era sempre stato nella lista — «prima degli Avengers, prima di tutti». E che aveva iniziato a fare pulizia in famiglia, come aveva fatto suo padre con Gildo.</p>
 
 <h2 id="bomba-ax">La Bomba Spissica e la caduta di Serrano <span class="edit-link" onclick="openEditor('Alex Spisso')">[modifica]</span></h2>
@@ -3183,8 +3182,8 @@ function buildCalendarioMorello() {
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2004 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>87 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Intercettazioni "nipote americano"</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2006 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>89 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Operazione <a onclick="navigateTo('Riccardo Pascali')">Riccardo Pascali</a> — smantellamento del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a></td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2007 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>90 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Serrano in fiamme · apparizione del <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> · <a onclick="navigateTo('Giovanni Zecca')">Giovanni Zecca</a> si stabilisce a <a onclick="navigateTo('Jacopo Martucci')">Martano</a></td></tr>
-  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2009 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>92 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> (come <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a>) fonda gli <a onclick="navigateTo('Avengers')">Avengers</a> con <a onclick="navigateTo('Zella (Avengers)')">Zella</a></td></tr>
-  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2017 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>100 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Attacco di <a onclick="navigateTo('Gianluca Pascali')">Gianluca Pocchia</a> alla casa di <a onclick="navigateTo('Zella (Avengers)')">Zella</a> · <a onclick="navigateTo('Alex Spisso')">Iron Spisso Man</a> muore intrappolato nell'edificio</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2009 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>92 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> (come <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a>) fonda gli <a onclick="navigateTo('Avengers')">Avengers</a> con <a onclick="navigateTo('Zella')">Zella</a></td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2017 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>100 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Attacco di <a onclick="navigateTo('Gianluca Pascali')">Gianluca Pocchia</a> alla casa di <a onclick="navigateTo('Zella')">Zella</a> · <a onclick="navigateTo('Alex Spisso')">Iron Spisso Man</a> muore intrappolato nell'edificio</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2018 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>101 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra degli Avengers</a> · subito dopo: <a onclick="navigateTo('Seconda Guerra degli Avengers')">Seconda Guerra degli Avengers</a> · Iron Spisso Man resuscitato e poi riportato all'ordine da Zella</td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2020 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>103 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Il <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> viene scoppulato a morte</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2021 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>104 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Pensionamento di <a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali</a> · cielo arancione · <a onclick="navigateTo('Cheddar Mussolini')">Cheddar Mussolini</a> guida la Marcia su Serrano · dittatura topista · attacco Avengers a Nigeria · <a onclick="navigateTo('Raggio Nero')">Raggio Nero</a> butta Avengers in mare · missile colpisce Vesuvio · <b>seconda eruzione</b> · ritorno di <a onclick="navigateTo('Morello')">Morello</a> giovane · piogge di cheddar acido su Napoli</td></tr>
@@ -3192,7 +3191,7 @@ function buildCalendarioMorello() {
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2023 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>106 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Nigeria lancia <a onclick="navigateTo('Raggio Nero')">Raggi Neri</a> anche su Pocchia e Camorra Salentina · <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> inizia la produzione (segreta)</td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2024 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>107 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b><a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> detonata su Serrano</b> · tutti gli Avengers dichiarati morti · <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> prende il potere in America · Nigeria si arrende</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2025 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>108 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> diventa 22° Segretario alla Difesa USA (25 gennaio) · <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> cessa di esistere — nasce lo stato delle <b>Filippine</b>, capitale <b>Calimera</b></td></tr>
-  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2026 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>109 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Risveglio di <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso²</a> · ritrovamento di <a onclick="navigateTo('Zella (Avengers)')">Zella</a> · ricostruzione e decollo di <a onclick="navigateTo('Serrano')">Serrano</a> · <b>13 Maggio</b>: lo <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> fonda <a onclick="navigateTo('La Cantina')">La Cantina</a> a Castri</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2026 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>109 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Risveglio di <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso²</a> · ritrovamento di <a onclick="navigateTo('Zella')">Zella</a> · ricostruzione e decollo di <a onclick="navigateTo('Serrano')">Serrano</a> · <b>13 Maggio</b>: lo <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> fonda <a onclick="navigateTo('La Cantina')">La Cantina</a> a Castri</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2027 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>110 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> avvisa Alex del ritorno di Alessio · Alex ordina costruzione di 10 nuove Bombe Spissiche</td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2028 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>111 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Alessio e Zella dichiarano Alex capo illecito · Zella dichiarato legittimo capo dell'America · inizio ufficiale <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers</a></td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2029 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>112 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Alex lancia 9 Bombe Spissiche su Serrano — tutte distrutte · Alessio annuncia produzione propria bomba · <a onclick="navigateTo('La Cantina')">La Cantina</a> conquista le <a onclick="navigateTo('Filippine')">Filippine</a> con gli Spisso Bot — i Pocchia fuggono a <a onclick="navigateTo('Serrano')">Serrano</a></td></tr>
@@ -3203,14 +3202,14 @@ function buildCalendarioMorello() {
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2034 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>117 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Zella resuscita tutti gli Avengers con le armi di Darth Vader</td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2035 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>118 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Attacco all'America · <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> si ribella con il Raggio Nero · Alessio intercetta l'ultima bomba di Alex e la rilancia sull'America</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2036 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>119 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>Fine della Terza Guerra</b> · Alex usa il Minerale Spisso su Alessio · tenta di potenziare sé stesso con una bomba · viene disintegrato · Alessio perde i poteri · scoperta dello Spisso degli Spisso</td></tr>
-  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2037 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>120 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Zella (Avengers)')">Zella</a> assume il controllo dell'America · base degli Avengers ricostruita</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2037 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>120 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Zella')">Zella</a> assume il controllo dell'America · base degli Avengers ricostruita</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2038 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>121 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> trovato e imprigionato — si nascondeva nella dogana dello <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> a <a onclick="navigateTo('Castri')">Castri</a></td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2039 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>122 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Giovanni Zecca')">Giovanni Zecca</a> sente i «Ciccione», cresce fino ad avere una gravità propria · Ludo lo spinge nello spazio con un vento fortissimo · cade a Martano il 24 Marzo · l'onda d'urto libera la città dal Cheddar · proclamato eroe · statua inaugurata (inclinata)</td></tr>
 </table>
 
 <h2 id="eventi-cm">Note sulla conversione — eventi chiave <span class="edit-link" onclick="openEditor('Calendario Morello')">[modifica]</span></h2>
 <p>L'Anno 0 dM — il 1917 d.C. — è l'anno dell'arrivo di Morello a Napoli. Tutto il sistema ruota intorno a questo momento. Gli eventi che seguono sono datati in avanti (dM), quelli precedenti all'indietro (pM).</p>
-<p>Gli <a onclick="navigateTo('Avengers')">Avengers</a> furono fondati nel <b>92 dM</b> (2009) da <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> come <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a>, con <a onclick="navigateTo('Zella (Avengers)')">Zella</a> — dopo la scomparsa di Morello e con Alex già adulto. Le <a onclick="navigateTo('Prima Guerra degli Avengers')">Guerre degli Avengers</a> avvennero nel <b>101 dM</b> (2018). L'attacco alla casa di Zella e la morte di Iron Spisso Man nel <b>100 dM</b> (2017). La <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> fu fondata dai <a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a> nel <b>52 dM</b> (1969).</p>
+<p>Gli <a onclick="navigateTo('Avengers')">Avengers</a> furono fondati nel <b>92 dM</b> (2009) da <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> come <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a>, con <a onclick="navigateTo('Zella')">Zella</a> — dopo la scomparsa di Morello e con Alex già adulto. Le <a onclick="navigateTo('Prima Guerra degli Avengers')">Guerre degli Avengers</a> avvennero nel <b>101 dM</b> (2018). L'attacco alla casa di Zella e la morte di Iron Spisso Man nel <b>100 dM</b> (2017). La <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> fu fondata dai <a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a> nel <b>52 dM</b> (1969).</p>
 <p>Il <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> fu fondato nel <b>23 dM</b> (1940) e smantellato nell'<b>89 dM</b> (2006), sessantasei anni dopo.</p>
 
 <p>La <a onclick="navigateTo('La Guerra Finale')">Guerra Finale</a> (104–107 dM) è il periodo più denso di eventi nella storia del calendario: la seconda eruzione del Vesuvio, il ritorno di Morello, la conquista di Serrano, la Bomba Spissica. Il 107 dM è l'ultimo anno documentato con certezza. Il futuro è, al momento, un cratere.</p>
@@ -3701,22 +3700,6 @@ function buildPocchiaInscatola() {
 }
 
 
-
-
-
-function buildZella() {
-  return `<h1 class="page-title">Zella</h1>
-<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
-<div class="wiki-article-body clearfix">
-<div class="wiki-notice"><span class="ni">🦸</span><span>Per il profilo completo di Zella come Capo degli Avengers, vedi <a onclick="navigateTo('Zella (Avengers)')">Zella (Avengers)</a>. Questa voce è il reindirizzamento principale.</span></div>
-<p><b>Zella</b> fu il Capo degli <a onclick="navigateTo('Avengers')">Avengers</a> e leader de facto dell'America fino al 107 dM. Albanese di origine, emigrato negli USA. Fu tra i fondatori degli Avengers. Morì nel 107 dM a Serrano con tutti gli altri Avengers, tradito da <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> e dalla <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a>.</p>
-<p>La sua casa fu attaccata e distrutta da Gianluca Pocchia l'<b>11 settembre 100 dM</b> (2017 d.C.) — data che segnò la storia degli Avengers.</p>
-<p>Vedi anche: <a onclick="navigateTo('Zella (Avengers)')">Zella (Avengers)</a> · <a onclick="navigateTo('Avengers')">Avengers</a> · <a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra degli Avengers</a> · <a onclick="navigateTo('Seconda Guerra degli Avengers')">Seconda Guerra degli Avengers</a></p>
-</div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>America</a> <a>Albania</a></div>`;
-}
-
-
 function buildAmericaFascista() {
   return `<div class="wiki-notice"><span class="ni">🛡️</span><span>L'America ha cambiato tre governi in vent'anni. Dal 119 dM è di nuovo nelle mani degli Avengers, con Zella come capo legittimo. Le città colpite dalle bombe stanno ancora ricostruendo.</span></div>
 <h1 class="page-title">America (Avengers)</h1>
@@ -3726,7 +3709,7 @@ function buildAmericaFascista() {
   <div class="infobox-title">America — Stato degli Avengers</div>
   <div style="text-align:center;padding:8px 6px 4px;font-size:48px">🛡️</div>
   <table>
-    <tr><td>Capo attuale</td><td><a onclick="navigateTo('Zella (Avengers)')">Zella</a> (dal 119 dM)</td></tr>
+    <tr><td>Capo attuale</td><td><a onclick="navigateTo('Zella')">Zella</a> (dal 119 dM)</td></tr>
     <tr><td>Ex dittatore</td><td><a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> (107–119 dM) — disintegrato</td></tr>
     <tr><td>Fondatore degli Avengers</td><td><a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a></td></tr>
     <tr><td>Capitale</td><td>Washington D.C.</td></tr>
@@ -3735,7 +3718,7 @@ function buildAmericaFascista() {
     <tr><td>Stato attuale</td><td>Governo legittimo ripristinato · in ricostruzione</td></tr>
   </table>
 </div>
-<p>L'<b>America</b> è il paese controllato dagli <a onclick="navigateTo('Avengers')">Avengers</a> sin dalla loro fondazione. Ha attraversato tre fasi politiche distinte nel giro di vent'anni: governo degli Avengers sotto <a onclick="navigateTo('Zella (Avengers)')">Zella</a>, dittatura di <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> (107–119 dM), e ritorno al governo legittimo dopo la <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers</a>.</p>
+<p>L'<b>America</b> è il paese controllato dagli <a onclick="navigateTo('Avengers')">Avengers</a> sin dalla loro fondazione. Ha attraversato tre fasi politiche distinte nel giro di vent'anni: governo degli Avengers sotto <a onclick="navigateTo('Zella')">Zella</a>, dittatura di <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> (107–119 dM), e ritorno al governo legittimo dopo la <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers</a>.</p>
 
 <div class="toc-box"><div class="toc-title">Indice</div><ol>
   <li><a href="#avengers-am">Gli Avengers al governo</a></li>
@@ -3762,7 +3745,7 @@ function buildAmericaFascista() {
 <p>Nel <b>118 dM</b>, dopo la ribellione della <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a>, Alex lanciò l'ultima bomba rimasta sulla Nigeria — intercettata da Alessio in volo. Alessio la rilancia sull'America, colpendo <b>Denver</b>. L'effetto delle bombe era calibrato per infrastrutture militari, non per la popolazione civile, ma i danni urbani furono significativi. Le città sono ancora in ricostruzione.</p>
 
 <h2 id="liberazione-am">La liberazione e il ritorno di Zella (119 dM) <span class="edit-link" onclick="openEditor('America (Avengers)')">[modifica]</span></h2>
-<p>Nel <b>119 dM</b> Alex fu disintegrato dalla propria bomba nel tentativo fallito di ottenere i poteri di Alessio. Con la sua morte, il regime crollò. <a onclick="navigateTo('Zella (Avengers)')">Zella</a> — dichiarato capo legittimo dal <b>111 dM</b> — assunse il governo con gli Avengers resuscitati. Fu la prima transizione di potere ordinata nella storia recente del paese.</p>
+<p>Nel <b>119 dM</b> Alex fu disintegrato dalla propria bomba nel tentativo fallito di ottenere i poteri di Alessio. Con la sua morte, il regime crollò. <a onclick="navigateTo('Zella')">Zella</a> — dichiarato capo legittimo dal <b>111 dM</b> — assunse il governo con gli Avengers resuscitati. Fu la prima transizione di potere ordinata nella storia recente del paese.</p>
 <p>Nel <b>121 dM</b> <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> fu trovato nascosto nella vecchia dogana dello <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> a <a onclick="navigateTo('Castri')">Castri</a> e arrestato.</p>
 
 <h2 id="oggi-am">Stato attuale <span class="edit-link" onclick="openEditor('America (Avengers)')">[modifica]</span></h2>
@@ -3873,7 +3856,7 @@ function buildAvengers() {
   <table>
     <tr><td>Tipo</td><td>Organizzazione eroica · governo de facto dell'America</td></tr>
     <tr><td>Fondatore</td><td><a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a></td></tr>
-    <tr><td>Capo attuale</td><td><a onclick="navigateTo('Zella (Avengers)')">Zella</a></td></tr>
+    <tr><td>Capo attuale</td><td><a onclick="navigateTo('Zella')">Zella</a></td></tr>
     <tr><td>Sede</td><td>America</td></tr>
     <tr><td>Nemici</td><td><a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a></td></tr>
     <tr><td>Bandiera</td><td>Bandiera degli Avengers (vedi sotto)</td></tr>
@@ -3890,7 +3873,7 @@ function buildAvengers() {
 </div>
 
 <h2 id="storia-av">Storia <span class="edit-link" onclick="openEditor('Avengers')">[modifica]</span></h2>
-<p>Gli <b>Avengers</b> furono fondati da <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a>, il protettore di Serrano, che dall'America costruì l'organizzazione più potente dell'emisfero occidentale. Dopo la morte di Iron Spisso Man (avvenuta nello stesso anno dell'attacco alla casa di <a onclick="navigateTo('Zella (Avengers)')">Zella</a>), il comando passò a Zella — fino al 107 dM, quando tutti gli Avengers furono eliminati dalla Bomba Spissica.</p>
+<p>Gli <b>Avengers</b> furono fondati da <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a>, il protettore di Serrano, che dall'America costruì l'organizzazione più potente dell'emisfero occidentale. Dopo la morte di Iron Spisso Man (avvenuta nello stesso anno dell'attacco alla casa di <a onclick="navigateTo('Zella')">Zella</a>), il comando passò a Zella — fino al 107 dM, quando tutti gli Avengers furono eliminati dalla Bomba Spissica.</p>
 <p>Gli Avengers non sono solo un gruppo di eroi: sono il governo. L'America che conoscevi non esiste — c'è l'America degli Avengers, e la bandiera dello stato è la loro bandiera.</p>
 
 <h2 id="membri-av">Membri <span class="edit-link" onclick="openEditor('Avengers')">[modifica]</span></h2>
@@ -3899,7 +3882,7 @@ function buildAvengers() {
   <li><a onclick="navigateTo('Zella (Avengers)')"><b>Zella</b></a> — Ex-Capo degli Avengers. L'Albanese. Morto nel 107 dM a Serrano.</li>
   <li><a onclick="navigateTo('Valerio Mozzarella')"><b>Valerio Mozzarella</b></a> — Il Capitan Bianco. Morto nel 107 dM a Serrano.</li>
   <li><a onclick="navigateTo('Nicolò')"><b>Nicolò</b></a> — Fratello di Francesco Maggiore. Morto nel 107 dM a Serrano.</li>
-  <li><a onclick="navigateTo('Spider Sparm')"><b>Spider Sparm</b></a> — Spider-Man. Inventore. Morto nel 107 dM a Serrano.</li>
+  <li><a onclick="navigateTo('Spider Trovè')"><b>Spider Trovè</b></a> — Spider-Man. Inventore. Morto nel 107 dM a Serrano.</li>
   <li><a onclick="navigateTo('Emanuele Pascali')"><b>Emanuele Pascali</b></a> — Della Famiglia Pocchia. Ha seguito i suoi sogni negli Avengers. Morto nel 107 dM a Serrano.</li>
   <li><a onclick="navigateTo('Francesco Maggiore')"><b>Francesco Maggiore</b></a> — Ha lo Scudo Maggiore, che si ingrandisce e rimpicciolisce. Trattato male da Iron Spisso Man.</li>
   <li><a onclick="navigateTo('Spisshor')"><b>Spisshor</b></a> — In realtà <a onclick="navigateTo('Ilaria Spisso')">Ilaria Spisso</a>, madre di Alex e Alessio. Unica ad uscire dagli Avengers prima del 107 dM.</li>
@@ -3919,13 +3902,13 @@ function buildIronSpissoMan() {
 <div class="wiki-article-body clearfix">
 <div class="infobox">
   <div class="infobox-title">Iron Spisso Man</div>
-  <div style="text-align:center;padding:8px 6px 4px"><img src="iron_spisso_man.jpg" alt="Iron Spisso Man" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="iron_spisso_man.png" alt="Iron Spisso Man" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
   <table>
     <tr><td>Vera identità</td><td><b>Sconosciuta</b> (si pensa <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a>)</td></tr>
     <tr><td>Nascita</td><td>Serrano — Clan Spisso</td></tr>
     <tr><td>Ruolo</td><td>Fondatore degli Avengers · <b>dittatore dell'America</b> (dal 107 dM)</td></tr>
     <tr><td>Morte (prima)</td><td>Stesso anno dell'attacco alla casa di Zella</td></tr>
-    <tr><td>Resurrezione</td><td>Per mano di <a onclick="navigateTo('Zella (Avengers)')">Zella</a> usando le armi di Darth Vader</td></tr>
+    <tr><td>Resurrezione</td><td>Per mano di <a onclick="navigateTo('Zella')">Zella</a> usando le armi di Darth Vader</td></tr>
     <tr><td>Comportamento post-resurrezione</td><td>Problematico</td></tr>
   </table>
 </div>
@@ -3945,13 +3928,13 @@ function buildIronSpissoMan() {
 <p>Il suo nome deriva dall'armatura di ferro e dal suo legame con il Clan Spisso — l'unico supereroe al mondo il cui cognome da supereroe è uguale al cognome di famiglia. Una scelta discutibile sul piano della segretezza. Ma è Serrano. Ci si aspetta coerenza.</p>
 
 <h2 id="morte-ism">La morte <span class="edit-link" onclick="openEditor('Iron Spisso Man')">[modifica]</span></h2>
-<p>Iron Spisso Man morì nello stesso anno dell'attacco alla casa di <a onclick="navigateTo('Zella (Avengers)')">Zella</a> — l'infame attacco di Gianluca Pocchia dell'11 settembre <b>100 dM</b> (vedi <a onclick="navigateTo('Zella (Avengers)')">voce Zella</a>). Se ci sia un collegamento tra le due tragiche date è materia di dibattito. Zella non risponde a questa domanda.</p>
+<p>Iron Spisso Man morì nello stesso anno dell'attacco alla casa di <a onclick="navigateTo('Zella')">Zella</a> — l'infame attacco di Gianluca Pocchia dell'11 settembre <b>100 dM</b> (vedi <a onclick="navigateTo('Zella (Avengers)')">voce Zella</a>). Se ci sia un collegamento tra le due tragiche date è materia di dibattito. Zella non risponde a questa domanda.</p>
 
 <h2 id="ritorno-ism">Il ritorno <span class="edit-link" onclick="openEditor('Iron Spisso Man')">[modifica]</span></h2>
 <p>Dopo la morte di Iron Spisso Man, Zella osservò gli Avengers sgretolarsi senza la loro figura fondatrice. Decise che l'unico modo per riportarli alla grandezza era riportare in vita il loro creatore. Recuperò le armi e il casco di Darth Vader e, attraverso un processo che la Pocchiaciclopedia classifica pudicamente come «operazione di resurrezione tecno-magica», riuscì nell'impresa. Iron Spisso Man tornò.</p>
 
 <h2 id="comportamento-ism">Il comportamento dopo il ritorno <span class="edit-link" onclick="openEditor('Iron Spisso Man')">[modifica]</span></h2>
-<p>Non era esattamente lui. O forse era troppo lui. Iron Spisso Man tornato si comportava in modo inaccettabile con i colleghi Avengers. A <a onclick="navigateTo('Francesco Maggiore')">Francesco Maggiore</a> disse che il suo scudo era «un pezzo di plastica». A <a onclick="navigateTo('Spider Sparm')">Spider Sparm</a>, che gli stava mostrando orgogliosamente le sue invenzioni costruite con la tecnologia di Iron Spisso Man stesso, non dedicò nemmeno un secondo di attenzione genuina.</p>
+<p>Non era esattamente lui. O forse era troppo lui. Iron Spisso Man tornato si comportava in modo inaccettabile con i colleghi Avengers. A <a onclick="navigateTo('Francesco Maggiore')">Francesco Maggiore</a> disse che il suo scudo era «un pezzo di plastica». A <a onclick="navigateTo('Spider Trovè')">Spider Trovè</a>, che gli stava mostrando orgogliosamente le sue invenzioni costruite con la tecnologia di Iron Spisso Man stesso, non dedicò nemmeno un secondo di attenzione genuina.</p>
 <p>Questo portò alla <a onclick="navigateTo('Seconda Guerra degli Avengers')">Seconda Guerra degli Avengers</a>.</p>
 <blockquote style="margin:16px 24px;padding:12px 16px;border-left:3px solid #a2a9b1;font-style:italic;font-family:'Source Serif 4',serif;font-size:13.5px;color:#333">
   «Il tuo scudo è un pezzo di plastica.»
@@ -3961,9 +3944,9 @@ function buildIronSpissoMan() {
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>Clan Spisso</a> <a>Serrano</a> <a>Identità sconosciuta</a></div>`;
 }
 
-function buildZellaAvengers() {
-  return `<div class="wiki-notice"><span class="ni">⚡</span><span>Questa voce riguarda Zella come Capo degli Avengers. Non toccare la sua casa.</span></div>
-<h1 class="page-title">Zella (Avengers)</h1>
+function buildZella() {
+  return `<div class="wiki-notice"><span class="ni">⚡</span><span>Zella è il Capo degli Avengers e il leader legittimo dell'America dopo la <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra</a>. È sopravvissuto alla Bomba Spissica ed è tornato per liberare l'America.</span></div>
+<h1 class="page-title">Zella</h1>
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
 <div class="infobox">
@@ -3986,20 +3969,20 @@ function buildZellaAvengers() {
 <div class="toc-box">
   <div class="toc-title">Indice</div>
   <ol>
-    <li><a href="#casa-zav">L'attacco alla casa</a></li>
-    <li><a href="#comunione-zav">La Prima Comunione a Calimera</a></li>
-    <li><a href="#piano-zav">Il piano per riportare Iron Spisso Man</a></li>
-    <li><a href="#seconda-zav">La Seconda Guerra</a></li>
-    <li><a href="#terza-zav">La Terza Guerra e il ritorno</a></li>
-    <li><a href="#citazioni-zav">Citazioni notevoli</a></li>
+    <li><a href="#casa-z">L'attacco alla casa</a></li>
+    <li><a href="#comunione-z">La Prima Comunione a Calimera</a></li>
+    <li><a href="#piano-z">Il piano per riportare Iron Spisso Man</a></li>
+    <li><a href="#seconda-z">La Seconda Guerra</a></li>
+    <li><a href="#terza-z">La Terza Guerra e il ritorno</a></li>
+    <li><a href="#citazioni-z">Citazioni notevoli</a></li>
   </ol>
 </div>
 
-<h2 id="casa-zav">L'attacco alla casa <span class="edit-link" onclick="openEditor('Zella (Avengers)')">[modifica]</span></h2>
+<h2 id="casa-z">L'attacco alla casa <span class="edit-link" onclick="openEditor('Zella')">[modifica]</span></h2>
 <p><b>Zella</b> è il Capo degli <a onclick="navigateTo('Avengers')">Avengers</a> e, per estensione, il leader de facto dell'America. È albanese di origine, e a chi gli chiede come si sente a guidare un paese che non è il suo risponde con un silenzio eloquente.</p>
 <p>La sua casa fu attaccata e distrutta da Gianluca Pocchia l'<b>11 settembre 100 dM</b> (2017 d.C.). Alex Spisso / Iron Spisso Man rimase intrappolato nell'edificio e morì nello stesso giorno. L'attacco avvenne mentre Iron Spisso Man era ancora vivo. La perdita della casa e la morte del fondatore degli Avengers nello stesso anno segnarono Zella profondamente, al punto che il suo obiettivo principale diventò riportare Iron Spisso Man in vita.</p>
 
-<h2 id="comunione-zav">La Prima Comunione a Calimera <span class="edit-link" onclick="openEditor('Zella (Avengers)')">[modifica]</span></h2>
+<h2 id="comunione-z">La Prima Comunione a Calimera <span class="edit-link" onclick="openEditor('Zella')">[modifica]</span></h2>
 
 <div style="float:right;margin:0 0 20px 20px;width:280px;background:#f8f9fa;border:1px solid #eaecf0;border-radius:4px;overflow:hidden">
   <img src="massimo_floris.png" alt="Don Massimo Floris" style="width:100%;display:block" onerror="this.style.display='none'">
@@ -4011,19 +3994,19 @@ function buildZellaAvengers() {
 <p>Il legame di Zella con Calimera non si è mai interrotto del tutto. Quando tornò in Italia durante la <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra</a>, fece tappa nella chiesa dove aveva ricevuto la comunione, trovando ancora don Massimo, ormai anziano, che lo riconobbe e gli disse: «Vedo che hai mantenuto la promessa.» Zella non rispose. Sorrise e basta.</p>
 <div style="clear:both"></div>
 
-<h2 id="piano-zav">Il piano per riportare Iron Spisso Man <span class="edit-link" onclick="openEditor('Zella (Avengers)')">[modifica]</span></h2>
+<h2 id="piano-z">Il piano per riportare Iron Spisso Man <span class="edit-link" onclick="openEditor('Zella')">[modifica]</span></h2>
 <p>Zella recuperò le armi di Darth Vader — la spada laser, il casco, i poteri — convinto che fossero la chiave. La teoria era che l'energia delle armi galattiche potesse attraversare la barriera tra i vivi e i morti. Era una teoria senza basi scientifiche. Funzionò comunque.</p>
 <p>Iron Spisso Man tornò. Zella aveva fatto la cosa giusta. Poi Iron Spisso Man iniziò a comportarsi male.</p>
 
-<h2 id="seconda-zav">La Seconda Guerra <span class="edit-link" onclick="openEditor('Zella (Avengers)')">[modifica]</span></h2>
+<h2 id="seconda-z">La Seconda Guerra <span class="edit-link" onclick="openEditor('Zella')">[modifica]</span></h2>
 <p>Zella avvertì Iron Spisso Man più volte. Era paziente. Era ragionevole. Poi disse le parole che sono entrate nella storia (vedi sotto). Iron Spisso Man non ascoltò. Zella prese il casco di Darth Vader, lo indossò di nascosto, e tornò dagli Avengers.</p>
 <p>Quello che seguì fu la <a onclick="navigateTo('Seconda Guerra degli Avengers')">Seconda Guerra degli Avengers</a>: breve, precisa, e terminata con una spada laser nel posto sbagliato. Poi una stretta di mano.</p>
 
-<h2 id="terza-zav">La Terza Guerra e il ritorno <span class="edit-link" onclick="openEditor('Zella (Avengers)')">[modifica]</span></h2>
+<h2 id="terza-z">La Terza Guerra e il ritorno <span class="edit-link" onclick="openEditor('Zella')">[modifica]</span></h2>
 <p>Quando la <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> colpì Serrano nel 107 dM, Zella era in ricognizione fuori dal raggio diretto dell'esplosione. Sopravvisse. Negli anni successivi visse nascosto, fino a quando non fu ritrovato da <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso²</a> nel 109 dM. Insieme ricostruirono Serrano e la fecero volare.</p>
 <p>Nel 111 dM Zella fu dichiarato legittimo capo dell'America. Durante la <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra</a> guidò gli Avengers resuscitati alla vittoria contro Alex Spisso, che nel 119 dM fu disintegrato dalla sua stessa bomba. Dal 119 dM Zella governa l'America, con Serrano volante come avamposto avanzato degli Avengers.</p>
 
-<h2 id="citazioni-zav">Citazioni notevoli <span class="edit-link" onclick="openEditor('Zella (Avengers)')">[modifica]</span></h2>
+<h2 id="citazioni-z">Citazioni notevoli <span class="edit-link" onclick="openEditor('Zella')">[modifica]</span></h2>
 <blockquote style="margin:16px 24px;padding:12px 16px;border-left:3px solid #a2a9b1;font-style:italic;font-family:'Source Serif 4',serif;font-size:13.5px;color:#333">
   «Se tocchi la mia casa e il casco di Darth Vader questa spada laser te la ficco nel culo»
   <footer style="margin-top:6px;font-size:12px;color:#54595d;font-style:normal">— Zella a Iron Spisso Man, poco prima della Seconda Guerra degli Avengers.</footer>
@@ -4031,145 +4014,312 @@ function buildZellaAvengers() {
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>Albania</a> <a>America</a> <a>Calimera</a> <a>Prima Comunione</a> <a>Terza Guerra degli Avengers</a></div>`;
 }
+
 function buildValerioMozzarella() {
-  return `<h1 class="page-title">Valerio Mozzarella</h1>
+  return `<div class="wiki-notice"><span class="ni">🤍</span><span>Il Capitan Bianco è l'arma segreta di Zella: il suo potere accecante ha ribaltato più scontri di quanto si possa contare.</span></div>
+<h1 class="page-title">Valerio Mozzarella</h1>
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
 <div class="infobox">
   <div class="infobox-title">Valerio Mozzarella</div>
-  <div style="text-align:center;padding:8px;font-size:48px">🤍</div>
-  <div style="text-align:center;padding:4px 6px 4px"><img src="valerio.jpg" alt="Valerio Mozzarella" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
-  <table>
-    <tr><td>Alias</td><td>Il Capitan Bianco</td></tr>
-    <tr><td>Organizzazione</td><td><a onclick="navigateTo('Avengers')">Avengers</a></td></tr>
-    <tr><td>Potere principale</td><td>È talmente bianco da accecare il nemico</td></tr>
-    <tr><td>Schieramento PGA</td><td>Con Zella</td></tr>
-  </table>
+  <div style="text-align:center;padding:8px 6px 4px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+    <div style="flex:1;min-width:120px"><img src="valerio.png" alt="Valerio Mozzarella" style="width:100%;max-width:180px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"><div style="font-size:10px;color:#54595d;margin-top:2px">Valerio Mozzarella — il Capitan Bianco</div></div>
+  </div>
+  <table style="width:100%;border-collapse:collapse">
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Alias</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Il Capitan Bianco</td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Organizzazione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Avengers')">Avengers</a></td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Potere principale</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">È talmente bianco da accecare il nemico</td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Schieramento PGA</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Con Zella</td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Status</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Resuscitato nel 117 dM</td></tr>
+    </table>
 </div>
-<h2>Descrizione <span class="edit-link" onclick="openEditor('Valerio Mozzarella')">[modifica]</span></h2>
-<p><b>Valerio Mozzarella</b>, detto il <b>Capitan Bianco</b>, è uno degli Avengers. Il suo potere è semplice, brutale ed efficace: è talmente bianco che guardarlo direttamente causa cecità temporanea al nemico. Nessuno ha mai capito se sia una mutazione, un effetto dell'armatura o semplicemente un fatto biologico. Valerio non risponde a questa domanda.</p>
-<p>Combatté nella <a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra degli Avengers</a> a fianco di <a onclick="navigateTo('Zella (Avengers)')">Zella</a>.</p>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#origine-vm">Origine del potere</a></li>
+    <li><a href="#primaguerra-vm">La Prima Guerra degli Avengers</a></li>
+    <li><a href="#caduta-vm">La caduta di Serrano e la resurrezione</a></li>
+    <li><a href="#terzaguerra-vm">Il ruolo nella Terza Guerra</a></li>
+  </ol>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>Prima Guerra degli Avengers</a></div>`;
+
+<h2 id="origine-vm">Origine del potere <span class="edit-link" onclick="openEditor('Valerio Mozzarella')">[modifica]</span></h2>
+<p><b>Valerio Mozzarella</b>, detto il <b>Capitan Bianco</b>, è uno degli Avengers più temuti sul campo di battaglia — non per la sua forza fisica, ma per un potere tanto semplice quanto devastante: è talmente bianco che guardarlo direttamente causa cecità temporanea al nemico. L'effetto dura abbastanza a lungo da permettere agli Avengers di neutralizzare gli avversari prima che recuperino la vista.</p>
+<p>L'origine del suo potere è dibattuta. Alcuni sostengono sia una mutazione spontanea, altri un effetto collaterale di un'esposizione accidentale a una versione primitiva del <a onclick="navigateTo('Raggio Nero')">Raggio Nero</a> durante un'operazione in Nigeria. La versione più accreditata, tramandata dagli stessi Avengers, è che Valerio sia nato così — e che sua madre, una donna di origini svedesi, fosse ancora più bianca di lui. Valerio non risponde a questa domanda, ma quando gliela fanno sorride in un modo che chi lo conosce interpreta come conferma.</p>
+
+<h2 id="primaguerra-vm">La Prima Guerra degli Avengers <span class="edit-link" onclick="openEditor('Valerio Mozzarella')">[modifica]</span></h2>
+<p>Durante la <a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra degli Avengers</a>, Valerio fu uno dei pilastri del fronte di Zella. Il suo potere si rivelò decisivo in più di un'occasione: in uno scontro chiave, accecò simultaneamente tre avversari permettendo a <a onclick="navigateTo('Zella')">Zella</a> di avanzare indisturbato. Fu anche l'unico a fermare <a onclick="navigateTo('Francesco Maggiore')">Francesco Maggiore</a> quando questi tentò di usare lo Scudo Maggiore in modalità offensiva — un lampo di biancore accecante e Francesco perse la mira, permettendo agli altri di disarmarlo.</p>
+<p>Dopo la guerra, quando Iron Spisso Man tornò arrogante, Valerio fu tra i primi a voltargli le spalle. «Se non mi riconosci» disse, «forse non sei mai stato quello che credevamo.» Iron Spisso Man non rispose. Forse non lo vide.</p>
+
+<h2 id="caduta-vm">La caduta di Serrano e la resurrezione <span class="edit-link" onclick="openEditor('Valerio Mozzarella')">[modifica]</span></h2>
+<p>Quando la <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> colpì Serrano nel 107 dM, Valerio era tra gli Avengers schierati sul campo. Fu uno degli ultimi a vedere la luce prima che tutto diventasse bianco — bianco come lui, ma di un bianco che non era più il suo. Fu dichiarato morto con tutti gli altri.</p>
+<p>Nel <b>117 dM</b>, quando Zella resuscitò gli Avengers usando le armi di Darth Vader, Valerio fu il secondo a tornare (dopo Zella stesso). La prima cosa che fece fu aprire gli occhi e guardarsi intorno. «Sto ancora accecando?» chiese. Zella annuì. Valerio sorrise. «Bene. Almeno quello non me lo toglie nessuno.»</p>
+
+<h2 id="terzaguerra-vm">Il ruolo nella Terza Guerra <span class="edit-link" onclick="openEditor('Valerio Mozzarella')">[modifica]</span></h2>
+<p>Nella <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers</a>, Valerio fu impiegato come arma tattica contro le postazioni fortificate di Alex Spisso. In un'operazione notturna, si posizionò sul tetto di un grattacielo di New York e, al momento giusto, illuminò l'intero quartiere con la sua bianchezza, accecando le difese nemiche abbastanza a lungo da permettere l'attacco di Zella e <a onclick="navigateTo('Alessio Spisso')">Alessio</a>. Fu l'unico Avenger a non subire danni durante l'intera offensiva — nessuno riusciva a colpirlo perché nessuno riusciva a guardarlo.</p>
+<p>Dopo la guerra, Zella gli chiese se volesse togliersi la maschera, ormai che la pace era tornata. Valerio rispose di no. «La maschera non serve a proteggere me» disse. «Serve a proteggere chi mi guarda.»</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>Prima Guerra degli Avengers</a> <a>Terza Guerra degli Avengers</a> <a>Capitan Bianco</a></div>`;
 }
 
 function buildNicolo() {
-  return `<h1 class="page-title">Nicolò</h1>
+  return `<div class="wiki-notice"><span class="ni">🖤</span><span>Nicolò è il fratello minore di Francesco Maggiore. Mentre Francesco combatteva contro Zella, Nicolò era dall'altra parte. La guerra li divise. La pace li riunì.</span></div>
+<h1 class="page-title">Nicolò</h1>
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
 <div class="infobox">
   <div class="infobox-title">Nicolò</div>
-  <div style="text-align:center;padding:8px;font-size:48px">🖤</div>
-  <div style="text-align:center;padding:4px 6px 4px"><img src="nicolo.jpg" alt="Nicolò" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
-  <table>
-    <tr><td>Fratello</td><td><a onclick="navigateTo('Francesco Maggiore')">Francesco Maggiore</a></td></tr>
-    <tr><td>Organizzazione</td><td><a onclick="navigateTo('Avengers')">Avengers</a></td></tr>
-    <tr><td>Schieramento PGA</td><td>Con Zella</td></tr>
-  </table>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="nicolo.jpeg" alt="Nicolò" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"><div style="font-size:10px;color:#54595d;margin-top:2px">Nicolò — il fratello che scelse Zella</div></div>
+  <table style="width:100%;border-collapse:collapse">
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Fratello</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Francesco Maggiore')">Francesco Maggiore</a></td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Organizzazione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Avengers')">Avengers</a></td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Schieramento PGA</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Con Zella</td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Potere</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Agilità sovrumana e riflessi potenziati</td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Status</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Resuscitato nel 117 dM</td></tr>
+    </table>
 </div>
-<h2>Descrizione <span class="edit-link" onclick="openEditor('Nicolò')">[modifica]</span></h2>
-<p><b>Nicolò</b> è uno degli Avengers, fratello di <a onclick="navigateTo('Francesco Maggiore')">Francesco Maggiore</a>. Combatté nella <a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra degli Avengers</a> a fianco di <a onclick="navigateTo('Zella (Avengers)')">Zella</a>. Il suo rapporto col fratello, che combatteva dall'altra parte, è descritto dai testimoni come «complicato ma non irrecuperabile».</p>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#fratelli-n">I fratelli divisi</a></li>
+    <li><a href="#primaguerra-n">La Prima Guerra</a></li>
+    <li><a href="#riconciliazione-n">La riconciliazione</a></li>
+    <li><a href="#terzaguerra-n">La Terza Guerra e il ritorno</a></li>
+  </ol>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>Prima Guerra degli Avengers</a></div>`;
+
+<h2 id="fratelli-n">I fratelli divisi <span class="edit-link" onclick="openEditor('Nicolò')">[modifica]</span></h2>
+<p><b>Nicolò</b> è uno degli Avengers, fratello minore di <a onclick="navigateTo('Francesco Maggiore')">Francesco Maggiore</a>. I due fratelli crebbero insieme nel quartiere di Scampia, a Napoli, prima di essere reclutati negli Avengers per le loro abilità straordinarie. Nicolò sviluppò riflessi e agilità fuori dal comune — capace di schivare proiettili e muoversi tra i nemici come un'ombra. Francesco, invece, ricevette lo Scudo Maggiore, che lo rese una barriera vivente.</p>
+<p>Nonostante la differenza nei poteri, i due erano inseparabili — fino alla <a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra degli Avengers</a>. Quando Zella si schierò contro Iron Spisso Man, Francesco scelse di seguire il fondatore. Nicolò scelse Zella. Nessuno dei due cambiò idea. La guerra li divise.</p>
+
+<h2 id="primaguerra-n">La Prima Guerra <span class="edit-link" onclick="openEditor('Nicolò')">[modifica]</span></h2>
+<p>Durante la Prima Guerra, Nicolò affrontò suo fratello in più di un'occasione. I due si evitavano sul campo, cercando di non finire uno contro l'altro, ma la guerra non concede eccezioni. In uno scontro decisivo, Francesco fu incaricato di proteggere un avamposto strategico. Nicolò fu mandato a prenderlo. Si trovarono faccia a faccia. Nicolò non attaccò. Francesco non alzò lo scudo. Rimasero a guardarsi per minuti, finché Zella, che aveva visto la scena da lontano, ordinò a Nicolò di ritirarsi. «Non si fa la guerra ai fratelli» disse Zella. «Nemmeno quando si è in guerra.»</p>
+
+<h2 id="riconciliazione-n">La riconciliazione <span class="edit-link" onclick="openEditor('Nicolò')">[modifica]</span></h2>
+<p>Quando la Seconda Guerra finì e Iron Spisso Man fu riportato all'ordine, Francesco e Nicolò si incontrarono per la prima volta dopo la guerra. Si guardarono a lungo. Poi Francesco disse: «Lo Scudo Maggiore... Zella dice che è un pezzo di plastica.» Nicolò rispose: «Lo so. L'ho sentito.» Silenzio. Poi Francesco: «Non è vero. È un buono scudo.» Nicolò: «Lo so.»</p>
+<p>Non si dissero altro. Ma da quel giorno, quando gli Avengers si riunivano, i due fratelli stavano vicini. Qualcuno notò che Francesco teneva lo scudo leggermente inclinato verso Nicolò, come se volesse proteggerlo anche quando non serviva. Nicolò, dal canto suo, si muoveva sempre in modo da coprire il punto cieco di Francesco. Era la loro guerra. Era la loro pace.</p>
+
+<h2 id="terzaguerra-n">La Terza Guerra e il ritorno <span class="edit-link" onclick="openEditor('Nicolò')">[modifica]</span></h2>
+<p>Quando la <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> colpì Serrano nel 107 dM, Nicolò era in prima linea con gli altri Avengers. Fu dichiarato morto. Nel <b>117 dM</b> Zella lo resuscitò insieme a tutti gli altri. La prima cosa che Nicolò chiese, appena riaperti gli occhi, fu: «Dov'è Francesco?» Francesco era lì, accanto a lui, con lo scudo già sollevato a proteggerli entrambi. «Non ti lascio più» disse Francesco. Nicolò annuì. «Lo so.»</p>
+<p>Nella <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers</a>, i due fratelli combatterono fianco a fianco per la prima volta senza schieramenti opposti. La loro coordinazione era perfetta: Francesco bloccava con lo scudo, Nicolò colpiva negli spazi aperti. Zella li osservava da lontano e, secondo i testimoni, sorrise. «Adesso sì che sono Avengers» disse.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>Prima Guerra degli Avengers</a> <a>Fratelli</a> <a>Terza Guerra degli Avengers</a></div>`;
 }
 
-function buildSpiderSparm() {
-  return `<h1 class="page-title">Spider Sparm</h1>
+function buildSpiderTrovè() {
+  return `<div class="wiki-notice"><span class="ni">🕷️</span><span>Spider Trovè è l'inventore degli Avengers. Dopo la <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra</a> è tornato in servizio attivo e ha rivelato il suo volto al mondo.</span></div>
+<h1 class="page-title">Spider Trovè</h1>
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
 <div class="infobox">
-  <div class="infobox-title">Spider Sparm</div>
-  <div style="text-align:center;padding:8px;font-size:48px">🕷️</div>
-  <div style="text-align:center;padding:4px 6px 4px"><img src="spider_sparm.jpg" alt="Spider Sparm" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
-  <table>
-    <tr><td>Alias</td><td>Spider-Man nero</td></tr>
-    <tr><td>Organizzazione</td><td><a onclick="navigateTo('Avengers')">Avengers</a></td></tr>
-    <tr><td>Specialità</td><td>Invenzioni tecnologiche basate sulla tecnologia di Iron Spisso Man</td></tr>
-    <tr><td>Schieramento PGA</td><td>Con Zella</td></tr>
-    <tr><td>Trattato da ISM</td><td>Male. Molto male.</td></tr>
-  </table>
+  <div class="infobox-title">Spider Trovè</div>
+  <div style="text-align:center;padding:8px 6px 4px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+    <div style="flex:1;min-width:120px"><img src="spider_trove.png" alt="Spider Trovè con maschera" style="width:100%;max-width:180px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"><div style="font-size:10px;color:#54595d;margin-top:2px">Spider Trovè in azione</div></div>
+    <div style="flex:1;min-width:120px"><img src="spider_trove_senza_maschera.jpeg" alt="Spider Trovè senza maschera" style="width:100%;max-width:180px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"><div style="font-size:10px;color:#54595d;margin-top:2px">Spider Trovè — il volto dietro la maschera</div></div>
+  </div>
+  <table style="width:100%;border-collapse:collapse">
+     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Alias</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Spider-Man nero</td></tr>
+     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Organizzazione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Avengers')">Avengers</a></td></tr>
+     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Specialità</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Invenzioni tecnologiche basate sulla tecnologia di Iron Spisso Man</td></tr>
+     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Schieramento PGA</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Con Zella</td></tr>
+     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Trattato da ISM</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Male. Molto male.</td></tr>
+   </table>
 </div>
-<h2>Descrizione <span class="edit-link" onclick="openEditor('Spider Sparm')">[modifica]</span></h2>
-<p><b>Spider Sparm</b> è lo Spider-Man degli Avengers. Inventore prodigioso, costruì numerosi dispositivi utilizzando la tecnologia di <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a> come base — e quando volle mostrare queste invenzioni allo stesso Iron Spisso Man dopo la sua resurrezione, ricevette in cambio disinteresse totale e scortesia. Questo fu uno degli episodi che spinse <a onclick="navigateTo('Zella (Avengers)')">Zella</a> ad agire.</p>
-<p>Combatté nella <a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra degli Avengers</a> a fianco di Zella.</p>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#descrizione-st">Descrizione</a></li>
+    <li><a href="#invenzioni-st">Le invenzioni</a></li>
+    <li><a href="#maschera-st">Il volto dietro la maschera</a></li>
+    <li><a href="#guerre-st">Le Guerre degli Avengers</a></li>
+    <li><a href="#ritorno-st">Il ritorno dopo la Bomba Spissica</a></li>
+  </ol>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>Inventori</a></div>`;
+
+<h2 id="descrizione-st">Descrizione <span class="edit-link" onclick="openEditor('Spider Trovè')">[modifica]</span></h2>
+<p><b>Spider Trovè</b> è lo Spider-Man degli Avengers. Inventore prodigioso, costruì numerosi dispositivi utilizzando la tecnologia di <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a> come base — e quando volle mostrare queste invenzioni allo stesso Iron Spisso Man dopo la sua resurrezione, ricevette in cambio disinteresse totale e scortesia. Questo fu uno degli episodi che spinse <a onclick="navigateTo('Zella')">Zella</a> ad agire.</p>
+
+<h2 id="invenzioni-st">Le invenzioni <span class="edit-link" onclick="openEditor('Spider Trovè')">[modifica]</span></h2>
+<p>Tra le sue creazioni più celebri si ricordano:</p>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><b>Ragnatela Acida</b> — una rete in grado di sciogliere le armature nemiche</li>
+  <li><b>Rivelatore di Spisso</b> — un dispositivo portatile che segnalava la presenza di energia spissica</li>
+  <li><b>Comunicatore Subacqueo</b> — usato dagli Avengers dopo la caduta in mare del 104 dM</li>
+  <li><b>Scudo Sonico Portatile</b> — versione ridotta dello scudo di Serrano, in grado di proteggere una singola persona dalla Bomba Spissica</li>
+</ul>
+<p>Iron Spisso Man, dopo la resurrezione, definì queste invenzioni «giocattoli». Spider Trovè non lo dimenticò mai.</p>
+
+<h2 id="maschera-st">Il volto dietro la maschera <span class="edit-link" onclick="openEditor('Spider Trovè')">[modifica]</span></h2>
+<p>Per anni, Spider Trovè mantenne segreta la sua identità. Nessuno degli Avengers — tranne forse Zella — aveva mai visto il suo volto. Fu solo dopo la <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers</a>, quando Alex Spisso fu sconfitto e l'America fu liberata, che Spider Trovè si tolse la maschera pubblicamente per la prima volta.</p>
+<p>La rivelazione fu un evento inaspettato: sotto la maschera non c'era un volto segnato dalle battaglie, ma quello di un uomo giovane, con occhi curiosi e un'espressione che i fotografi descrissero come «sorpreso di essere lì». Qualcuno chiese perché avesse aspettato così tanto. Lui rispose: «Perché prima non era finita. Adesso sì.»</p>
+<p>Da quel giorno, Spider Trovè combatte senza maschera. Non per necessità — la maschera non ha mai avuto una funzione protettiva — ma perché, come ha detto, «se devo essere l'inventore di un mondo nuovo, voglio farlo con la faccia che ho».</p>
+
+<h2 id="guerre-st">Le Guerre degli Avengers <span class="edit-link" onclick="openEditor('Spider Trovè')">[modifica]</span></h2>
+<p>Spider Trovè combatté nella <a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra degli Avengers</a> a fianco di Zella. Fu tra i primi a schierarsi contro Iron Spisso Man quando il fondatore tornò arrogante e irrispettoso. Durante la <a onclick="navigateTo('Seconda Guerra degli Avengers')">Seconda Guerra degli Avengers</a> progettò le contromisure che permisero a Zella di neutralizzare Iron Spisso Man senza ucciderlo.</p>
+
+<h2 id="ritorno-st">Il ritorno dopo la Bomba Spissica <span class="edit-link" onclick="openEditor('Spider Trovè')">[modifica]</span></h2>
+<p>Quando la <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> colpì Serrano nel 107 dM, Spider Trovè fu dichiarato morto con tutti gli altri Avengers. Nel <b>117 dM</b> fu resuscitato da Zella usando le armi di Darth Vader. Da allora è tornato in servizio attivo, e ha ripreso a lavorare alle sue invenzioni con rinnovato entusiasmo.</p>
+<p>La prima cosa che fece dopo essere tornato in vita fu costruire un nuovo rivelatore di Spisso, più potente del precedente. La seconda fu mandare un messaggio a Iron Spisso Man — che era ancora vivo all'epoca — con su scritto: «I miei giocattoli sono ancora qui. Tu invece?» Alex non rispose mai.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>Inventori</a> <a>Terza Guerra degli Avengers</a> <a>Spider Trovè</a></div>`;
 }
 
 function buildEmanuelePascali() {
-  return `<div class="wiki-notice"><span class="ni">🦅</span><span>Emanuele Pascali ha lasciato la Famiglia Pocchia per seguire i suoi sogni. Non gliene si può fare una colpa.</span></div>
+  return `<div class="wiki-notice"><span class="ni">🦅</span><span>Emanuele Pascali ha lasciato la <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> per seguire i suoi sogni. Non gliene si può fare una colpa — e alla fine i sogni lo hanno riportato a casa.</span></div>
 <h1 class="page-title">Emanuele Pascali</h1>
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
 <div class="infobox">
   <div class="infobox-title">Emanuele Pascali</div>
-  <div style="text-align:center;padding:8px;font-size:48px">🦅</div>
-  <div style="text-align:center;padding:4px 6px 4px"><img src="emanuele.jpg" alt="Emanuele Pascali" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
-  <table>
-    <tr><td>Famiglia di origine</td><td><a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a></td></tr>
-    <tr><td>Organizzazione attuale</td><td><a onclick="navigateTo('Avengers')">Avengers</a></td></tr>
-    <tr><td>Schieramento PGA</td><td>Con Zella</td></tr>
-    <tr><td>Motivazione</td><td>Seguire i propri sogni</td></tr>
-  </table>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="emanuele.png" alt="Emanuele Pascali" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"><div style="font-size:10px;color:#54595d;margin-top:2px">Emanuele — l'Avenger che venne dal Salento</div></div>
+  <table style="width:100%;border-collapse:collapse">
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Famiglia di origine</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a></td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Organizzazione attuale</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Avengers')">Avengers</a></td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Schieramento PGA</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Con Zella</td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Potere</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Volo e proiezione di energia luminosa</td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Motivazione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Seguire i propri sogni</td></tr>
+    </table>
 </div>
-<h2>Descrizione <span class="edit-link" onclick="openEditor('Emanuele Pascali')">[modifica]</span></h2>
-<p><b>Emanuele Pascali</b> è un membro della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> che ha lasciato la famiglia per unirsi agli <a onclick="navigateTo('Avengers')">Avengers</a>. La decisione non fu presa con leggerezza — la Famiglia Pocchia non è il tipo di famiglia da cui ci si allontana senza pensarci — ma Emanuele aveva sogni più grandi di quello che Caserta poteva offrire.</p>
-<p>Combatté nella <a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra degli Avengers</a> a fianco di <a onclick="navigateTo('Zella (Avengers)')">Zella</a>, schierandosi chiaramente contro <a onclick="navigateTo('Francesco Maggiore')">Francesco Maggiore</a>.</p>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#fuga-ep">La fuga dalla famiglia</a></li>
+    <li><a href="#poteri-ep">L'acquisizione dei poteri</a></li>
+    <li><a href="#primaguerra-ep">La Prima Guerra</a></li>
+    <li><a href="#ritorno-ep">Il ritorno a casa</a></li>
+    <li><a href="#terzaguerra-ep">La Terza Guerra e la riconciliazione</a></li>
+  </ol>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>Famiglia Pocchia</a> <a>Sognatori</a></div>`;
+
+<h2 id="fuga-ep">La fuga dalla famiglia <span class="edit-link" onclick="openEditor('Emanuele Pascali')">[modifica]</span></h2>
+<p><b>Emanuele Pascali</b> è un membro della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> che ha lasciato la famiglia per unirsi agli <a onclick="navigateTo('Avengers')">Avengers</a>. La decisione non fu presa con leggerezza — la Famiglia Pocchia non è il tipo di famiglia da cui ci si allontana senza pensarci — ma Emanuele aveva sogni più grandi di quello che il Salento poteva offrire. Voleva volare. Voleva proteggere le persone. Voleva essere qualcosa di più di un nome in un albero genealogico.</p>
+<p>Il padre, <a onclick="navigateTo('Gianluca Pascali')">Gianluca</a>, non si oppose. «Se devi andare» disse, «vai e fatti onore. Ma ricorda da dove vieni.» La madre, <a onclick="navigateTo('Anna Pascali')">Anna</a>, non disse nulla. Non ne aveva bisogno. Emanuele sapeva già che sarebbe stato il benvenuto, se fosse tornato. Partì per l'America con una valigia e la benedizione silenziosa di sua madre.</p>
+
+<h2 id="poteri-ep">L'acquisizione dei poteri <span class="edit-link" onclick="openEditor('Emanuele Pascali')">[modifica]</span></h2>
+<p>Una volta in America, Emanuele fu reclutato da <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a> in persona. Fu sottoposto a un programma di addestramento sperimentale che gli conferì due poteri: il volo e la capacità di proiettare energia luminosa dalle mani. Era il primo e unico Avenger a possedere entrambe le capacità. Iron Spisso Man lo definì «il mio esperimento riuscito». Emanuele, che aveva lasciato la famiglia proprio per non essere definito "l'esperimento di qualcuno", non apprezzò il termine. Ma rimase.</p>
+
+<h2 id="primaguerra-ep">La Prima Guerra <span class="edit-link" onclick="openEditor('Emanuele Pascali')">[modifica]</span></h2>
+<p>Durante la <a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra degli Avengers</a>, Emanuele combatté a fianco di <a onclick="navigateTo('Zella')">Zella</a>. Il suo potere di volo e la sua capacità di illuminare il campo di battaglia lo resero prezioso in più di un'occasione. Fu lui a trovare il punto debole nella formazione di <a onclick="navigateTo('Francesco Maggiore')">Francesco Maggiore</a> e <a onclick="navigateTo('Spisshor')">Spisshor</a>, permettendo a Zella di sfondare le loro difese.</p>
+<p>Dopo la guerra, quando Iron Spisso Man tornò arrogante, Emanuele fu tra i primi a schierarsi con Zella. «Non ho lasciato una famiglia per entrare in un'altra che mi tratta uguale» disse. Iron Spisso Man rise. Emanuele non rise.</p>
+
+<h2 id="ritorno-ep">Il ritorno a casa <span class="edit-link" onclick="openEditor('Emanuele Pascali')">[modifica]</span></h2>
+<p>Dopo la <a onclick="navigateTo('Seconda Guerra degli Avengers')">Seconda Guerra</a>, Emanuele tornò nel Salento per la prima volta dopo anni. Trovò Calimera come l'aveva lasciata, sua madre Anna ancora silenziosa, suo padre Gianluca ancora imponente. Non ci furono scene. Gianluca gli chiese solo: «Hai fatto onore?» Emanuele rispose: «Credo di sì.» Gianluca annuì. «Allora va bene.» Anna gli preparò da mangiare. Emanuele rimase una settimana. Poi tornò in America.</p>
+
+<h2 id="terzaguerra-ep">La Terza Guerra e la riconciliazione <span class="edit-link" onclick="openEditor('Emanuele Pascali')">[modifica]</span></h2>
+<p>Quando la <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> colpì Serrano, Emanuele era con gli altri Avengers. Fu dichiarato morto. Nel <b>117 dM</b> Zella lo resuscitò insieme a tutti gli altri. Fu l'ultimo a tornare. Quando aprì gli occhi, la prima cosa che vide fu il volto di Zella. «Ben tornato» disse Zella. Emanuele sorrise. «Non sapevo di essere andato da qualche parte.» Zella non rispose. Ma Emanuele capì. Era andato via. Era tornato. Era quello che contava.</p>
+<p>Nella <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers</a>, Emanuele combatté con una determinazione nuova. Non per i sogni di quando era partito, ma per la consapevolezza di ciò che aveva trovato. Alla fine della guerra, tornò di nuovo a Calimera. Stavolta portò con sé la sua uniforme degli Avengers. La appese nella stanza della sua infanzia, accanto alle foto di famiglia. Sua madre la vide, non disse nulla. Suo padre la vide, annuì. Era a posto.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>Famiglia Pocchia</a> <a>Sognatori</a> <a>Prima Guerra degli Avengers</a> <a>Terza Guerra degli Avengers</a></div>`;
 }
 
 function buildFrancescoMaggiore() {
-  return `<h1 class="page-title">Francesco Maggiore</h1>
+  return `<div class="wiki-notice"><span class="ni">🛡️</span><span>Francesco Maggiore ha sempre saputo che il suo scudo valeva più di un pezzo di plastica. Iron Spisso Man glielo disse. Francesco glielo fece vedere.</span></div>
+<h1 class="page-title">Francesco Maggiore</h1>
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
 <div class="infobox">
   <div class="infobox-title">Francesco Maggiore</div>
-  <div style="text-align:center;padding:8px;font-size:48px">🛡️</div>
-  <div style="text-align:center;padding:4px 6px 4px"><img src="francesco.jpg" alt="Francesco Maggiore" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
-  <table>
-    <tr><td>Arma</td><td>Scudo Maggiore — si ingrandisce e rimpicciolisce</td></tr>
-    <tr><td>Fratello</td><td><a onclick="navigateTo('Nicolò')">Nicolò</a></td></tr>
-    <tr><td>Organizzazione</td><td><a onclick="navigateTo('Avengers')">Avengers</a></td></tr>
-    <tr><td>Schieramento PGA</td><td>Contro Zella</td></tr>
-    <tr><td>Trattato da ISM</td><td>Male. Il suo scudo era «un pezzo di plastica».</td></tr>
-  </table>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="francesco.png" alt="Francesco Maggiore" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"><div style="font-size:10px;color:#54595d;margin-top:2px">Francesco Maggiore e lo Scudo Maggiore</div></div>
+  <table style="width:100%;border-collapse:collapse">
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Arma</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Scudo Maggiore — si ingrandisce e rimpicciolisce</td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Fratello</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Nicolò')">Nicolò</a></td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Organizzazione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Avengers')">Avengers</a></td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Schieramento PGA</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Contro Zella (Prima Guerra), con Zella (dopo)</td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Trattato da ISM</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Male. Il suo scudo era «un pezzo di plastica»</td></tr>
+    </table>
 </div>
-<h2>Descrizione <span class="edit-link" onclick="openEditor('Francesco Maggiore')">[modifica]</span></h2>
-<p><b>Francesco Maggiore</b> è un membro degli <a onclick="navigateTo('Avengers')">Avengers</a>, fratello di <a onclick="navigateTo('Nicolò')">Nicolò</a>. La sua arma è lo <b>Scudo Maggiore</b>, uno scudo tecnologico in grado di ingrandirsi e rimpicciolirsi a comando — una delle armi più versatili dell'intera organizzazione.</p>
-<p><a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a> dopo la sua resurrezione lo definì pubblicamente «un pezzo di plastica». Francesco Maggiore non dimenticò né perdonò.</p>
 
-<h2>La Prima Guerra degli Avengers <span class="edit-link" onclick="openEditor('Francesco Maggiore')">[modifica]</span></h2>
-<p>Nella <a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra degli Avengers</a> combatté <b>contro</b> <a onclick="navigateTo('Zella (Avengers)')">Zella</a>, a fianco di <a onclick="navigateTo('Spisshor')">Spisshor</a>. Lo scudo Maggiore si rivelò fondamentale nello scontro — ingrandendosi per bloccare gli attacchi elettrici di Zella, rimpicciolendosi per contrattacchi rapidi.</p>
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#scudo-fm">Lo Scudo Maggiore</a></li>
+    <li><a href="#insulto-fm">L'insulto di Iron Spisso Man</a></li>
+    <li><a href="#primaguerra-fm">La Prima Guerra</a></li>
+    <li><a href="#secondaguerra-fm">La Seconda Guerra</a></li>
+    <li><a href="#terzaguerra-fm">La Terza Guerra e il riscatto</a></li>
+  </ol>
+</div>
 
+<h2 id="scudo-fm">Lo Scudo Maggiore <span class="edit-link" onclick="openEditor('Francesco Maggiore')">[modifica]</span></h2>
+<p><b>Francesco Maggiore</b> è un membro degli <a onclick="navigateTo('Avengers')">Avengers</a>, fratello di <a onclick="navigateTo('Nicolò')">Nicolò</a>. La sua arma è lo <b>Scudo Maggiore</b>, uno scudo tecnologico in grado di ingrandirsi e rimpicciolirsi a comando — una delle armi più versatili dell'intera organizzazione. Può diventare grande abbastanza da proteggere un gruppo di Avengers, o piccolo abbastanza da essere usato come arma da lancio precisa. Francesco lo padroneggia con una maestria che pochi apprezzano — e che Iron Spisso Man, dopo la sua resurrezione, definì «un pezzo di plastica».</p>
+<p>Lo scudo fu costruito da <a onclick="navigateTo('Spider Sparm')">Spider Sparm</a> usando la tecnologia di Iron Spisso Man come base. Francesco lo ricevette come regalo di benvenuto quando entrò negli Avengers, e da allora non lo ha mai lasciato. Dorme con lo scudo accanto al letto. Quando gli chiedono perché, risponde: «Non si sa mai.»</p>
+
+<h2 id="insulto-fm">L'insulto di Iron Spisso Man <span class="edit-link" onclick="openEditor('Francesco Maggiore')">[modifica]</span></h2>
+<p>Dopo che Zella resuscitò Iron Spisso Man, il fondatore tornò più arrogante di prima. In una riunione degli Avengers, Francesco gli mostrò lo Scudo Maggiore, orgoglioso di come lo aveva perfezionato negli anni. Iron Spisso Man lo guardò, poi disse: «Il tuo scudo è un pezzo di plastica.» Silenzio in sala. Francesco non rispose. Ma qualcosa si ruppe dentro di lui. Da quel giorno, Francesco non si rivolse più a Iron Spisso Man se non per missioni obbligate. E quando Zella decise di agire, Francesco fu il primo a seguirlo.</p>
 <blockquote style="margin:16px 24px;padding:12px 16px;border-left:3px solid #a2a9b1;font-style:italic;font-family:'Source Serif 4',serif;font-size:13.5px;color:#333">
   «Il tuo scudo è un pezzo di plastica.»
   <footer style="margin-top:6px;font-size:12px;color:#54595d;font-style:normal">— Iron Spisso Man a Francesco Maggiore. Citazione che ha cambiato la storia degli Avengers.</footer>
 </blockquote>
+
+<h2 id="primaguerra-fm">La Prima Guerra <span class="edit-link" onclick="openEditor('Francesco Maggiore')">[modifica]</span></h2>
+<p>Nella <a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra degli Avengers</a> Francesco combatté <b>contro</b> <a onclick="navigateTo('Zella')">Zella</a>, a fianco di <a onclick="navigateTo('Spisshor')">Spisshor</a>. Lo scudo Maggiore si rivelò fondamentale nello scontro — ingrandendosi per bloccare gli attacchi elettrici di Zella, rimpicciolendosi per contrattacchi rapidi<p>Nella <a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra degli Avengers</a> Francesco combatté <b>contro</b> <a onclick="navigateTo('Zella')">Zella</a>, a fianco di <a onclick="navigateTo('Spisshor')">Spisshor</a>. Lo scudo Maggiore si rivelò fondamentale nello scontro — ingrandendosi per bloccare gli attacchi elettrici di Zella, rimpicciolendosi per contrattacchi rapidi. Ma Francesco non combatteva con il cuore. Era arrabbiato con Iron Spisso Man, ma non aveva ancora il coraggio di voltargli le spalle. Era più facile combattere contro Zella che ammettere che il suo idolo lo aveva tradito.</p>
+<p>Durante lo scontro, Nicolò, suo fratello, si trovò davanti a lui. Si guardarono. Nessuno dei due attaccò. Fu Zella a fermare tutto. «Non si fa la guerra ai fratelli» disse. Francesco abbassò lo scudo. Non disse nulla. Ma da quel momento, qualcosa cambiò.</p>
+
+<h2 id="secondaguerra-fm">La Seconda Guerra <span class="edit-link" onclick="openEditor('Francesco Maggiore')">[modifica]</span></h2>
+<p>Quando Zella affrontò Iron Spisso Man nella <a onclick="navigateTo('Seconda Guerra degli Avengers')">Seconda Guerra degli Avengers</a>, Francesco non combatté. Stette a guardare. Vide Zella prendere il casco di Darth Vader, vide la spada laser colpire nel posto sbagliato, vide Iron Spisso Man cadere. Non si mosse. Quando Zella alzò la mano per la stretta di pace, Francesco fu il primo ad applaudire. Iron Spisso Man non lo guardò mai.</p>
+<p>Dopo la guerra, Francesco trovò Nicolò e gli disse: «Zella dice che il mio scudo è un pezzo di plastica.» Nicolò rispose: «Lo so. L'ho sentito.» Francesco abbassò lo scudo. «Non è vero. È un buono scudo.» Nicolò annuì. «Lo so.» Da quel giorno, Francesco e Nicolò tornarono a stare vicini.</p>
+
+<h2 id="terzaguerra-fm">La Terza Guerra e il riscatto <span class="edit-link" onclick="openEditor('Francesco Maggiore')">[modifica]</span></h2>
+<p>Quando la <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> colpì Serrano, Francesco era in prima linea con lo scudo alzato. Non fece in tempo a proteggere nessuno. Fu dichiarato morto. Nel <b>117 dM</b> Zella lo resuscitò insieme a tutti gli altri. La prima cosa che Francesco fece, appena riaperti gli occhi, fu prendere lo scudo. Era lì, accanto a lui. «Plastica» mormorò. Poi sorrise.</p>
+<p>Nella <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers</a>, Francesco fu posto a capo della difesa di Serrano volante. Lo scudo Maggiore, ingrandito al massimo, copriva interi quartieri della città. Quando Alex Spisso lanciò le sue bombe, Francesco le bloccò una a una. Dopo la guerra, Zella gli mise una mano sulla spalla e disse: «Non è plastica.» Francesco non rispose. Ma tenne lo scudo alzato per tutto il tempo che servì.</p>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>Prima Guerra degli Avengers</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>Prima Guerra degli Avengers</a> <a>Seconda Guerra degli Avengers</a> <a>Terza Guerra degli Avengers</a> <a>Scudo Maggiore</a></div>`;
 }
 
 function buildSpisshor() {
-  return `<h1 class="page-title">Spisshor</h1>
+  return `<div class="wiki-notice"><span class="ni">🔨</span><span>Spisshor era il più fedele degli Avengers — nessuno sapeva che sotto la maschera si nascondeva la madre del fondatore.</span></div>
+<h1 class="page-title">Spisshor</h1>
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
 <div class="infobox">
   <div class="infobox-title">Spisshor</div>
-  <div style="text-align:center;padding:8px;font-size:48px">🔨</div>
-  <div style="text-align:center;padding:4px 6px 4px"><img src="spisshor.jpg" alt="Spisshor / Ilaria Spisso" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
-  <table>
-    <tr><td>Arma</td><td>Martello</td></tr>
-    <tr><td>Carattere</td><td>Grande fan del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a></td></tr>
-    <tr><td>Organizzazione</td><td><a onclick="navigateTo('Avengers')">Avengers</a></td></tr>
-    <tr><td>Schieramento PGA</td><td>Contro Zella (con Francesco Maggiore)</td></tr>
-  </table>
+  <div style="text-align:center;padding:8px 6px 4px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+    <div style="flex:1;min-width:120px"><img src="spisshor.png" alt="Spisshor in azione" style="width:100%;max-width:180px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"><div style="font-size:10px;color:#54595d;margin-top:2px">Spisshor — l'Avenger mascherato</div></div>
+    <div style="flex:1;min-width:120px"><img src="ilaria_spisso.jpg" alt="Ilaria Spisso" style="width:100%;max-width:180px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"><div style="font-size:10px;color:#54595d;margin-top:2px">Ilaria Spisso — il volto sotto la maschera</div></div>
+  </div>
+  <table style="width:100%;border-collapse:collapse">
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Arma</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Martello da guerra · Torte (in passato)</td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Vera identità</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Ilaria Spisso')">Ilaria Spisso</a> — madre di Alex e Alessio</td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Organizzazione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Avengers')">Avengers</a> (ex)</td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Schieramento PGA</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Contro Zella (Prima Guerra), poi uscita</td></tr>
+      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Status</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Ritirata in India con Alessio (107 dM)</td></tr>
+    </table>
 </div>
-<h2>Descrizione <span class="edit-link" onclick="openEditor('Spisshor')">[modifica]</span></h2>
-<p><b>Spisshor</b> è uno degli Avengers, armato di martello e caratterizzato da una devozione quasi religiosa al <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a>. Il fatto che il fondatore degli Avengers venga proprio da Serrano, cuore del Clan Spisso, non è per lui una coincidenza — è una conferma dell'ordine cosmico delle cose.</p>
-<p>Nella <a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra degli Avengers</a> combatté contro <a onclick="navigateTo('Zella (Avengers)')">Zella</a>, a fianco di <a onclick="navigateTo('Francesco Maggiore')">Francesco Maggiore</a>.</p>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#identita-sh">L'identità nascosta</a></li>
+    <li><a href="#primaguerra-sh">La Prima Guerra</a></li>
+    <li><a href="#torte-sh">Il segreto delle torte</a></li>
+    <li><a href="#rivelazione-sh">La rivelazione</a></li>
+    <li><a href="#india-sh">La fuga in India</a></li>
+  </ol>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>Clan Spisso (fan)</a></div>`;
+
+<h2 id="identita-sh">L'identità nascosta <span class="edit-link" onclick="openEditor('Spisshor')">[modifica]</span></h2>
+<p><b>Spisshor</b> è stato per anni uno degli Avengers più rispettati. Armato di un martello da guerra e di una forza sovrumana, era considerato il braccio destro di <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a>. Nessuno sapeva che sotto la maschera si nascondeva <a onclick="navigateTo('Ilaria Spisso')">Ilaria Spisso</a> — la madre del fondatore. Alex Spisso lo sapeva, ma non lo rivelò mai. Per anni, madre e figlio combatterono fianco a fianco senza che nessuno degli altri Avengers sospettasse nulla.</p>
+<p>Il nome Spisshor era un gioco: <i>Spiss</i> dal cognome che non poteva più usare pubblicamente dopo la fuga dall'Italia, <i>hor</i> da una parola in un dialetto che conosceva da bambina. Alex lo scelse per lei. «Nessuno capirà» disse. Aveva ragione. Nessuno capì.</p>
+
+<h2 id="primaguerra-sh">La Prima Guerra <span class="edit-link" onclick="openEditor('Spisshor')">[modifica]</span></h2>
+<p>Nella <a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra degli Avengers</a>, Spisshor combatté <b>contro</b> <a onclick="navigateTo('Zella')">Zella</a>, a fianco di <a onclick="navigateTo('Francesco Maggiore')">Francesco Maggiore</a>. Il suo martello e la sua esperienza furono determinanti per rallentare l'avanzata del fronte di Zella. Ma il suo cuore non era nella guerra. Sapeva cosa stava diventando suo figlio. Sapeva che prima o poi avrebbe dovuto scegliere. Durante uno scontro, si trovò faccia a faccia con Zella. Si guardarono. Zella le chiese: «Perché lo difendi?» Spisshor non rispose. Alzò il martello. Ma non colpì.</p>
+
+<h2 id="torte-sh">Il segreto delle torte <span class="edit-link" onclick="openEditor('Spisshor')">[modifica]</span></h2>
+<p>Prima di diventare Spisshor, Ilaria era conosciuta nel clan come la <b>Donna delle Torte</b>. Le sue torte erano famose per i poteri temporanei che conferivano: volo, forza, resistenza. La verità, emersa durante l'<a onclick="navigateTo('Operazione Brick')">Operazione Brick</a>, era più semplice: <b>nelle torte c'era droga</b>. Dopo la fuga in America, Ilaria smise di fare torte — o almeno, smise di farle con ingredienti illegali. Come Spisshor, portava con sé solo il martello. Ma ogni tanto, quando la nostalgia era troppa, si chiudeva in cucina e preparava una torta. Solo per sé. Solo per ricordare.</p>
+
+<h2 id="rivelazione-sh">La rivelazione <span class="edit-link" onclick="openEditor('Spisshor')">[modifica]</span></h2>
+<p>Nel <b>105 dM</b>, dopo la conquista di Serrano, Spisshor si tolse la maschera per la prima volta davanti a tutti gli Avengers. Nessuno se lo aspettava. Nessuno sapeva che sotto l'armatura c'era una donna. Nessuno sapeva che era la madre di Iron Spisso Man. Zella, che per anni aveva combattuto al suo fianco e contro di lei, la guardò a lungo. Poi disse solo: «Avrei dovuto capirlo.» Ilaria annuì. «Lo so.» Poi se ne andò. Nessuno la fermò.</p>
+<p>Fu l'unica a uscire dagli Avengers prima della Bomba Spissica. L'unica che capì in tempo dove stava andando suo figlio.</p>
+
+<h2 id="india-sh">La fuga in India <span class="edit-link" onclick="openEditor('Spisshor')">[modifica]</span></h2>
+<p>Nel <b>107 dM</b>, Ilaria raggiunse l'India. Quando <a onclick="navigateTo('Alessio Spisso')">Alessio</a> aprì la porta armato e sorpreso, lei si tolse la maschera. Alessio riconobbe sua madre. La abbracciò. Lei tirò fuori una torta dalla tasca — una torta della domenica, senza ingredienti speciali, solo farina, zucchero e uova. Alessio la mangiò senza fare domande. Poi Ilaria raccontò tutto ciò che stava succedendo nel mondo. Alessio ascoltò, scese in cantina, e portò su i libri di <a onclick="navigateTo('Ermenegildo Spisso')">Gildo</a>.</p>
+<p>Non sapeva che quei libri avrebbero portato alla costruzione della Bomba Spissica. Non sapeva che suo fratello li avrebbe usati per cancellare Serrano. Sapeva solo che sua madre era tornata. Per ora, bastava.</p>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>Prima Guerra degli Avengers</a> <a>Clan Spisso (ex)</a> <a>Donna delle Torte</a> <a>Identità rivelate</a></div>`;
 }
 
 function buildPrimaGuerraAvengers() {
@@ -4190,8 +4340,8 @@ function buildPrimaGuerraAvengers() {
 <div class="infobox">
   <div class="infobox-title">Prima Guerra degli Avengers</div>
   <table>
-    <tr><td>Causa</td><td><a onclick="navigateTo('Zella (Avengers)')">Zella</a> vuole riportare in vita <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a> usando le armi di Darth Vader</td></tr>
-    <tr><td>Fronte di Zella</td><td>Zella · <a onclick="navigateTo('Valerio Mozzarella')">Valerio Mozzarella</a> · <a onclick="navigateTo('Nicolò')">Nicolò</a> · <a onclick="navigateTo('Spider Sparm')">Spider Sparm</a> · <a onclick="navigateTo('Emanuele Pascali')">Emanuele Pascali</a></td></tr>
+    <tr><td>Causa</td><td><a onclick="navigateTo('Zella')">Zella</a> vuole riportare in vita <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a> usando le armi di Darth Vader</td></tr>
+    <tr><td>Fronte di Zella</td><td>Zella · <a onclick="navigateTo('Valerio Mozzarella')">Valerio Mozzarella</a> · <a onclick="navigateTo('Nicolò')">Nicolò</a> · <a onclick="navigateTo('Spider Trovè')">Spider Trovè</a> · <a onclick="navigateTo('Emanuele Pascali')">Emanuele Pascali</a></td></tr>
     <tr><td>Fronte avversario</td><td><a onclick="navigateTo('Francesco Maggiore')">Francesco Maggiore</a> · <a onclick="navigateTo('Spisshor')">Spisshor</a></td></tr>
     <tr><td>Esito</td><td>Vittoria di Zella — Iron Spisso Man resuscitato</td></tr>
   </table>
@@ -4211,7 +4361,7 @@ function buildPrimaGuerraAvengers() {
 <p>La logica era che solo un conflitto abbastanza intenso tra gli Avengers potesse generare l'energia necessaria alla resurrezione. Era una teoria strana. Funzionò.</p>
 
 <h2 id="schieramenti-pga">Gli schieramenti <span class="edit-link" onclick="openEditor('Prima Guerra degli Avengers')">[modifica]</span></h2>
-<p><b>Fronte di Zella:</b> <a onclick="navigateTo('Zella (Avengers)')">Zella</a> stesso, <a onclick="navigateTo('Valerio Mozzarella')">Valerio Mozzarella</a> il Capitan Bianco (la cui bianchezza accecante si rivelò tattica fondamentale), <a onclick="navigateTo('Nicolò')">Nicolò</a> fratello di Francesco Maggiore, <a onclick="navigateTo('Spider Sparm')">Spider Sparm</a> con la sua tecnologia, e <a onclick="navigateTo('Emanuele Pascali')">Emanuele Pascali</a> della Famiglia Pocchia che aveva lasciato tutto per seguire i suoi sogni.</p>
+<p><b>Fronte di Zella:</b> <a onclick="navigateTo('Zella')">Zella</a> stesso, <a onclick="navigateTo('Valerio Mozzarella')">Valerio Mozzarella</a> il Capitan Bianco (la cui bianchezza accecante si rivelò tattica fondamentale), <a onclick="navigateTo('Nicolò')">Nicolò</a> fratello di Francesco Maggiore, <a onclick="navigateTo('Spider Trovè')">Spider Trovè</a> con la sua tecnologia, e <a onclick="navigateTo('Emanuele Pascali')">Emanuele Pascali</a> della Famiglia Pocchia che aveva lasciato tutto per seguire i suoi sogni.</p>
 <p><b>Fronte avversario:</b> <a onclick="navigateTo('Francesco Maggiore')">Francesco Maggiore</a> con il suo Scudo Maggiore che si ingrandisce e rimpicciolisce, e <a onclick="navigateTo('Spisshor')">Spisshor</a> con il suo martello, grande fan del Clan Spisso.</p>
 
 <h2 id="svolgimento-pga">Lo svolgimento e l'esito <span class="edit-link" onclick="openEditor('Prima Guerra degli Avengers')">[modifica]</span></h2>
@@ -4240,7 +4390,7 @@ function buildSecondaGuerraAvengers() {
   <div class="infobox-title">Seconda Guerra degli Avengers</div>
   <table>
     <tr><td>Causa</td><td>Iron Spisso Man tratta male i colleghi Avengers</td></tr>
-    <tr><td>Combattenti</td><td><a onclick="navigateTo('Zella (Avengers)')">Zella</a> vs <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a> (solo lui)</td></tr>
+    <tr><td>Combattenti</td><td><a onclick="navigateTo('Zella')">Zella</a> vs <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a> (solo lui)</td></tr>
     <tr><td>Strumento di Zella</td><td>Casco di Darth Vader · poteri elettrici · spada laser</td></tr>
     <tr><td>Tecnica finale</td><td>Spada laser nel posto sbagliato</td></tr>
     <tr><td>Risoluzione</td><td>Stretta di mano — patto contro la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a></td></tr>
@@ -4258,7 +4408,7 @@ function buildSecondaGuerraAvengers() {
 </div>
 
 <h2 id="causa-sga">La causa <span class="edit-link" onclick="openEditor('Seconda Guerra degli Avengers')">[modifica]</span></h2>
-<p>Il piano di <a onclick="navigateTo('Zella (Avengers)')">Zella</a> aveva funzionato: <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a> era tornato. Ma qualcosa non andava. Iron Spisso Man si comportava male con gli Avengers — in particolare con <a onclick="navigateTo('Francesco Maggiore')">Francesco Maggiore</a>, a cui disse che il suo scudo era «un pezzo di plastica», e con <a onclick="navigateTo('Spider Sparm')">Spider Sparm</a>, a cui non dedicò la minima attenzione mentre gli mostrava le sue invenzioni costruite sulla sua stessa tecnologia.</p>
+<p>Il piano di <a onclick="navigateTo('Zella')">Zella</a> aveva funzionato: <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a> era tornato. Ma qualcosa non andava. Iron Spisso Man si comportava male con gli Avengers — in particolare con <a onclick="navigateTo('Francesco Maggiore')">Francesco Maggiore</a>, a cui disse che il suo scudo era «un pezzo di plastica», e con <a onclick="navigateTo('Spider Trovè')">Spider Trovè</a>, a cui non dedicò la minima attenzione mentre gli mostrava le sue invenzioni costruite sulla sua stessa tecnologia.</p>
 
 <blockquote style="margin:16px 24px;padding:12px 16px;border-left:3px solid #a2a9b1;font-style:italic;font-family:'Source Serif 4',serif;font-size:13.5px;color:#333">
   «Il tuo scudo è un pezzo di plastica.»
@@ -5824,7 +5974,7 @@ function buildTerzaGuerraAvengers() {
   <table>
     <tr><td>Periodo</td><td><b>111–119 dM</b></td></tr>
     <tr><td>Esito</td><td>Vittoria degli Avengers · Alex disintegrato · Alessio perde i poteri</td></tr>
-    <tr><td>Fronte degli Avengers</td><td><a onclick="navigateTo('Alessio Spisso')">Alessio Spisso²</a> · <a onclick="navigateTo('Zella (Avengers)')">Zella</a> · Avengers resuscitati</td></tr>
+    <tr><td>Fronte degli Avengers</td><td><a onclick="navigateTo('Alessio Spisso')">Alessio Spisso²</a> · <a onclick="navigateTo('Zella')">Zella</a> · Avengers resuscitati</td></tr>
     <tr><td>Fronte americano</td><td><a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> · <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a></td></tr>
     <tr><td>Alleati degli Avengers</td><td><a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> (dal 118 dM)</td></tr>
     <tr><td>Arma decisiva</td><td>Bomba Spissica degli Avengers (116 dM) · Bomba rilanciata di Alessio (118 dM)</td></tr>
@@ -5861,7 +6011,7 @@ function buildTerzaGuerraAvengers() {
 <p>Era già uno Spisso. La Bomba non distrugge gli Spisso — li potenzia. Cercando di sollevarsi dalle macerie, Alessio sollevò senza accorgersene un blocco di cemento da trecento chili. Poi fluttuò. Capì di essere diventato <b>Alessio Spisso²</b> — la seconda potenza, creata dall'energia che avrebbe dovuto ucciderlo.</p>
 
 <h2 id="zella-tg">Il ritrovamento di Zella <span class="edit-link" onclick="openEditor('Terza Guerra degli Avengers')">[modifica]</span></h2>
-<p><a onclick="navigateTo('Zella (Avengers)')">Zella</a> era sopravvissuto in ricognizione lontana dal raggio diretto. Quando Alessio lo trovò stava costruendo un rifugio. Zella voleva arrendersi. Alessio gli offrì una ricostruzione invece di una battaglia. Zella accettò.</p>
+<p><a onclick="navigateTo('Zella')">Zella</a> era sopravvissuto in ricognizione lontana dal raggio diretto. Quando Alessio lo trovò stava costruendo un rifugio. Zella voleva arrendersi. Alessio gli offrì una ricostruzione invece di una battaglia. Zella accettò.</p>
 
 <h2 id="serrano-tg">La ricostruzione e il volo di Serrano <span class="edit-link" onclick="openEditor('Terza Guerra degli Avengers')">[modifica]</span></h2>
 <p>Con le <a onclick="navigateTo('L.E.G.G.I.')">L.E.G.G.I.</a> costruirono lo scudo anti-Bomba Spissica. Con le <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')">F.O.N.D.A.M.E.N.T.A.</a> — e Alessio come fonte di energia — fecero volare Serrano. Nel corso del 109 dM la città si staccò dal suolo.</p>
@@ -5912,7 +6062,7 @@ function buildTerzaGuerraAvengers() {
 <p>L'effetto sulle città colpite fu devastante ma non letale nel senso della Bomba Spissica originale: la bomba era calibrata per distruggere infrastrutture militari e basi operative americane, non per cancellare città dalla mappa. Era un messaggio, non una cancellazione.</p>
 
 <h2 id="avengers-tg">117–118 dM — La resurrezione degli Avengers e l'attacco <span class="edit-link" onclick="openEditor('Terza Guerra degli Avengers')">[modifica]</span></h2>
-<p>Nel <b>117 dM</b> Zella usò le armi di Darth Vader — il casco, la spada laser, i poteri — che aveva portato dall'America prima della prima Bomba Spissica, anticipando che avrebbe potuto averne bisogno. Come già aveva fatto nelle guerre precedenti, le usò per riportare in vita tutti gli Avengers caduti nel 107 dM: Zella, Francesco Maggiore, Spider Sparm, Valerio Mozzarella, Nicolò, Emanuele Pascali — tutti. La resurrezione fu completata nel corso dell'anno.</p>
+<p>Nel <b>117 dM</b> Zella usò le armi di Darth Vader — il casco, la spada laser, i poteri — che aveva portato dall'America prima della prima Bomba Spissica, anticipando che avrebbe potuto averne bisogno. Come già aveva fatto nelle guerre precedenti, le usò per riportare in vita tutti gli Avengers caduti nel 107 dM: Zella, Francesco Maggiore, Spider Trovè, Valerio Mozzarella, Nicolò, Emanuele Pascali — tutti. La resurrezione fu completata nel corso dell'anno.</p>
 <p>Nel <b>118 dM</b>, dopo essersi preparati, gli Avengers resuscitati attaccarono l'America. L'attacco fu coordinato: Alessio dall'aria, Zella a terra con gli altri Avengers. Sette giorni dopo l'inizio dell'offensiva, la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> si ribellò — aveva aspettato il momento giusto, e il momento giusto era quando le basi militari americane erano già sotto pressione.</p>
 
 <h2 id="nigeria-tg">118 dM — La Nigeria, l'ultima bomba e Alessio <span class="edit-link" onclick="openEditor('Terza Guerra degli Avengers')">[modifica]</span></h2>
@@ -5937,7 +6087,7 @@ function buildTerzaGuerraAvengers() {
 <p>In India, <a onclick="navigateTo('MariaTeresa Friolo')">Maria</a> aspettava notizie. Erano passati anni dall'ultima volta che Alessio le aveva detto qualcosa di diretto — non una trasmissione, non un messaggio di guerra, ma qualcosa che le era indirizzato. La guerra era finita. Il nome di Alessio era ovunque. E Maria, in India, aspettava che qualcuno si ricordasse di dirle qualcosa.</p>
 <p>Pensava che Alessio si fosse scordato di lei. Non sapeva ancora che Alessio stava fermo nel posto dove era stato suo fratello, a guardare il vuoto.</p>
 <h2 id="conseguenze-tg">Conseguenze <span class="edit-link" onclick="openEditor('Terza Guerra degli Avengers')">[modifica]</span></h2>
-<p>Con la morte di Alex nel 119 dM la guerra finì. <a onclick="navigateTo('Zella (Avengers)')">Zella</a> — il legittimo capo dichiarato nel 111 dM — assunse il controllo dell'America insieme agli altri Avengers resuscitati. La dittatura di Alex era durata dodici anni, dal 107 al 119 dM. Le elezioni furono indette. Questa volta.</p>
+<p>Con la morte di Alex nel 119 dM la guerra finì. <a onclick="navigateTo('Zella')">Zella</a> — il legittimo capo dichiarato nel 111 dM — assunse il controllo dell'America insieme agli altri Avengers resuscitati. La dittatura di Alex era durata dodici anni, dal 107 al 119 dM. Le elezioni furono indette. Questa volta.</p>
 <p>La base degli Avengers era stata distrutta durante i combattimenti del 118–119 dM. Nel <b>120 dM</b> fu completamente ricostruita — nuova sede, nuova struttura, con Serrano volante come avamposto avanzato.</p>
 <p>Nel <b>121 dM</b> <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> fu trovato e imprigionato. Si nascondeva nella dogana tra <a onclick="navigateTo('Castri')">Castri</a> e Serrano — la stessa dogana dello <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a>, rimasta abbandonata dall'epoca in cui Morello aveva fatto sparire il funzionario nei suoi capelli. Era l'ultimo posto dove qualcuno avrebbe pensato di cercarlo. Non abbastanza ultimo.</p>
 <div class="stub-box"><span style="font-size:22px">⚡</span><span>La Terza Guerra degli Avengers è finita. Zella governa l'America. Pete è in prigione nella vecchia dogana dello Zio di Sbost. Alessio ha perso i poteri. Maria aspetta in India.</span></div>
@@ -6102,7 +6252,7 @@ function buildLaGuerraFinale() {
 <p>E poi: «O Alessio, tu sei sempre stato nella lista. Prima degli Avengers, prima di tutti. I nuovi Avengers tipo Zella mi stavano rubando il potere, ma io ho iniziato nella nostra famiglia a fare pulizia come fece nostro padre con Gildo.»</p>
 <p>Alessio capì. Capì che dietro l'attentato di Rashid — quello per cui lui aveva lasciato tutto ed era scappato in India — c'era suo fratello. Capì anche, in quel momento, che non avrebbe potuto fare niente. Un minuto era troppo poco per avvisare tutti. Troppo poco per scappare. Troppo poco per qualsiasi cosa che valesse la pena fare.</p>
 <p>Quindi Alessio fece la sola cosa che aveva senso: continuò a parlare. Fece domande. Tenne la linea aperta. Ascoltò la voce di suo fratello fino all'ultimo secondo.</p>
-<p>Lo stereo militare cadde dal cielo su Serrano. Gli Avengers lo videro arrivare. Guardarono in alto — Zella, Francesco Maggiore, Spider Sparm, Valerio Mozzarella, Nicolò, Emanuele Pascali, tutti — con quella strana calma che arriva quando non c'è più niente da fare.</p>
+<p>Lo stereo militare cadde dal cielo su Serrano. Gli Avengers lo videro arrivare. Guardarono in alto — Zella, Francesco Maggiore, Spider Trovè, Valerio Mozzarella, Nicolò, Emanuele Pascali, tutti — con quella strana calma che arriva quando non c'è più niente da fare.</p>
 <p>L'ultima cosa che sentirono fu: <b>«Spisso.»</b></p>
 <p>Serrano scomparve dalla mappa. Al posto di una grande città, un cratere.</p>
 
