@@ -990,6 +990,16 @@ clearfix::after { content: ''; display: block; clear: both; }
 <a onclick="navigateTo('Operazione Brick')">🧱 Operazione Brick</a>
 </div>
 <div class="sb-section">
+<h4>🐆 I Puma</h4>
+<a onclick="navigateTo('I Puma')">I Puma</a>
+<a onclick="navigateTo('Nicolò Donno')">Nicolò Donno</a>
+<a onclick="navigateTo('Antonio Cazzato')">Antonio Cazzato</a>
+<a onclick="navigateTo('Maria Grazia Calò')">Maria Grazia Calò</a>
+<a onclick="navigateTo('Andrea Sponziello')">Andrea Sponziello</a>
+<a onclick="navigateTo('Flavia Aventeggiato')">Flavia Aventeggiato</a>
+<a onclick="navigateTo('Vandalismo Democratico di Serrano')">🖌️ Vandalismo Democratico</a>
+</div>
+<div class="sb-section">
 <h4>Tutte le pagine</h4>
 <div id="sidebar-pages"></div>
 </div>
@@ -1265,6 +1275,17 @@ const DEFAULT_PAGES = {
   <li><a onclick="navigateTo('Terza Guerra degli Avengers')"><b>⚡ Terza Guerra degli Avengers</b></a> — 109 dM. Alessio Spisso² si è risvegliato. Serrano è stata ricostruita e ora vola. La guerra contro Alex Spisso è ricominciata.</li>
   <li><a onclick="navigateTo('La guerra delle Piante contro gli Zombi')"><b>🌱 Guerra delle Piante contro gli Zombi</b></a> — 124 dM. Lo Zio di Sbost clona sé stesso, ma il primo clone manomise la macchina e crea un esercito di zombi che invade Serrano. L'ultimo cittadino di Serrano resiste con un giardino di piante modificate.</li>
   <li><a onclick="navigateTo('Grande Spaccatura degli Sbost')"><b>🏛️ Grande Spaccatura degli Sbost (126 dM)</b></a> — La ribellione di AleDoria, la prima democrazia a Castri e la monarchia costituzionale a Napoli.</li>
+  <li><a onclick="navigateTo('Vandalismo Democratico di Serrano')"><b>🖌️ Vandalismo Democratico di Serrano (127 dM)</b></a> — Diciannove muri, quarantasette bombolette, una notte. Il primo atto politico della gioventù democratica di Serrano — opera dei <a onclick="navigateTo('I Puma')">Puma</a>. Alessio non rispose.</li>
+</ul>
+
+<p><b>🐆 I Puma — Maranza di Serrano</b></p>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><a onclick="navigateTo('I Puma')"><b>I Puma</b></a> — Il gruppo di maranza di Serrano. Ispirati dalla democrazia di Charlie Sbirk, nemici di Alessio Spisso. Nel 127 dM hanno vandalizzato 19 muri della città.</li>
+  <li><a onclick="navigateTo('Nicolò Donno')"><b>Nicolò Donno</b></a> — 16 anni. L'organizzatore silenzioso. Parla poco, decide tutto. Tuta nera, occhiali da sole fissi, catena d'oro.</li>
+  <li><a onclick="navigateTo('Antonio Cazzato')"><b>Antonio Cazzato</b></a> — 18 anni. Il Matematico e Fisico Ribelle. Ha lasciato la scuola ma studia da solo. Calcola traiettorie di bombolette spray al millimetro.</li>
+  <li><a onclick="navigateTo('Maria Grazia Calò')"><b>Maria Grazia Calò</b></a> — 17 anni. L'artista del gruppo. Ogni puma stilizzato su ogni muro di Serrano è suo. Il murales di Charlie Sbirk alla stazione è undici metri di storia.</li>
+  <li><a onclick="navigateTo('Andrea Sponziello')"><b>Andrea Sponziello</b></a> — 19 anni. Il fisico con la startup. Ha co-fondato FlaNova con <a onclick="navigateTo('Flavia Aventeggiato')">Flavia</a>. Ottimista cronico.</li>
+  <li><a onclick="navigateTo('Flavia Aventeggiato')"><b>Flavia Aventeggiato</b></a> — 16 anni. Di <a onclick="navigateTo('Calimera')">Calimera</a>, a forma di pera. Co-fondatrice di FlaNova. Ha l'odio più personale per Alessio — otto mesi senza residenza quando si trasferì a Serrano.</li>
 </ul>
 
 <p><b>Gli Avengers e l'America</b></p>
@@ -3794,7 +3815,7 @@ function buildMancarella() {
 <div class="wiki-article-body clearfix">
 <div class="infobox">
   <div class="infobox-title">Mancarella</div>
-  <div style="text-align:center;padding:8px 6px 4px"><img src="mancarella.jpg" alt="Mancarella" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"><div style="font-size:10px;color:#54595d;margin-top:2px">La Mancarella — la scienziata che fermò il tempo</div></div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="mancarella.jpeg" alt="Mancarella" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"><div style="font-size:10px;color:#54595d;margin-top:2px">La Mancarella — la scienziata che fermò il tempo</div></div>
   <table style="width:100%;border-collapse:collapse">
     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Nome completo</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Sconosciuto (nota solo come "la Mancarella")</td></tr>
      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Nascita</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>14 Aprile 30 pM</b> (1887), Salento</td></tr>
@@ -9126,6 +9147,417 @@ function buildPrimoCloneZioSbost() {
 <div class="stub-box"><span style="font-size:22px">🧬</span><span>Il Primo Clone è perfetto. È scomparso. Forse è ancora lì, da qualche parte, ad aspettare. Forse lo hai già incontrato e non lo sai.</span></div>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Clonazione</a> <a>La Cantina</a> <a>Zio di Sbost</a> <a>Personaggi scomparsi</a> <a>Guerra delle Piante contro gli Zombi</a></div>`;
+}
+
+DEFAULT_PAGES["I Puma"] = { title: "I Puma", content: buildIPuma() };
+DEFAULT_PAGES["Nicolò Donno"] = { title: "Nicolò Donno", content: buildNicoloDonno() };
+DEFAULT_PAGES["Antonio Cazzato"] = { title: "Antonio Cazzato", content: buildAntonioCazzato() };
+DEFAULT_PAGES["Maria Grazia Calò"] = { title: "Maria Grazia Calò", content: buildMariaGraziaCalò() };
+DEFAULT_PAGES["Andrea Sponziello"] = { title: "Andrea Sponziello", content: buildAndreaSponziello() };
+DEFAULT_PAGES["Flavia Aventeggiato"] = { title: "Flavia Aventeggiato", content: buildFlaviaAventeggiato() };
+DEFAULT_PAGES["Vandalismo Democratico di Serrano"] = { title: "Vandalismo Democratico di Serrano", content: buildVandalismoSerrano() };
+
+function buildIPuma() {
+  return `<div class="wiki-notice"><span class="ni">🐆</span><span>I Puma sono il gruppo di maranza di <a onclick="navigateTo('Serrano')">Serrano</a>. Giovani, incazzati, ispirati da <a onclick="navigateTo('Primo Clone dello Zio di Sbost')">Charlie Sbirk</a> e nemici giurati di <a onclick="navigateTo('Alessio Spisso')">Alessio</a>. Il 127 dM hanno lasciato il segno — letteralmente — su ogni muro della città.</span></div>
+<h1 class="page-title">I Puma</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">I Puma</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="puma.png" alt="Puma" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <div style="text-align:center;padding:10px 6px 6px">
+    <div style="font-size:10px;color:#54595d;margin-top:4px">Il logo dei Puma sui muri di Serrano</div>
+  </div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Tipo</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Banda giovanile / Collettivo democratico</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Fondazione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">126 dM — subito dopo la <a onclick="navigateTo('Grande Spaccatura degli Sbost')">Grande Spaccatura</a></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Sede</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Serrano')">Serrano</a> (città volante)</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Componenti</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Nicolò Donno')">Nicolò Donno</a> · <a onclick="navigateTo('Antonio Cazzato')">Antonio Cazzato</a> · <a onclick="navigateTo('Maria Grazia Calò')">Maria Grazia Calò</a> · <a onclick="navigateTo('Andrea Sponziello')">Andrea Sponziello</a> · <a onclick="navigateTo('Flavia Aventeggiato')">Flavia Aventeggiato</a></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Ispirazione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Primo Clone dello Zio di Sbost')">Charlie Sbirk</a> · democrazia · libertà</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Nemico dichiarato</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Azione principale</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Vandalismo Democratico di Serrano')">Vandalismo Democratico</a> — 127 dM</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Stile</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Tute, gel, catene d'oro, spray, occhiali da sole anche di notte</td></tr>
+  </table>
+</div>
+
+<div class="toc-box"><div class="toc-title">Indice</div><ol>
+  <li><a href="#origini-puma">Origini e fondazione</a></li>
+  <li><a href="#nome-puma">Il nome</a></li>
+  <li><a href="#ideologia-puma">L'ideologia democratica</a></li>
+  <li><a href="#alessio-puma">L'odio per Alessio Spisso</a></li>
+  <li><a href="#componenti-puma">I componenti</a></li>
+  <li><a href="#vandalismo-puma">Il Vandalismo Democratico del 127 dM</a></li>
+  <li><a href="#eredita-puma">L'eredità</a></li>
+</ol></div>
+
+<h2 id="origini-puma">Origini e fondazione <span class="edit-link" onclick="openEditor('I Puma')">[modifica]</span></h2>
+<p>I Puma nacquero nel <b>126 dM</b>, immediatamente dopo la <a onclick="navigateTo('Grande Spaccatura degli Sbost')">Grande Spaccatura degli Sbost</a>. La notizia che a Castri qualcuno aveva cacciato un tiranno e instaurato una democrazia girò per tutto il Salento come una scossa elettrica. A Serrano, cinque ragazzi tra i sedici e i diciannove anni la sentirono in cinque posti diversi, e tutti ebbero la stessa reazione: era possibile. Si poteva fare. Qualcuno lo aveva già fatto.</p>
+<p>Si trovarono per la prima volta una sera tardi, vicino alla fontana dismessa del quartiere basso di Serrano. Nessuno aveva organizzato l'incontro — era successo per caso, o per quella logica strana per cui le persone simili finiscono sempre per trovarsi. Parlarono tutta la notte. Di democrazia, di libertà, di Serrano che da quando era diventata una città volante sembrava più distante dal popolo che mai. E di Alessio Spisso.</p>
+<p>Prima di separarsi, avevano già un nome.</p>
+
+<h2 id="nome-puma">Il nome <span class="edit-link" onclick="openEditor('I Puma')">[modifica]</span></h2>
+<p>Perché «Puma»? La risposta ufficiale del gruppo è: «perché il puma è il felino che corre più veloce quando nessuno se lo aspetta». La risposta ufficiosa, quella che trapelò da fonti vicine a <a onclick="navigateTo('Nicolò Donno')">Nicolò</a>, è molto più semplice: <a onclick="navigateTo('Antonio Cazzato')">Antonio Cazzato</a> aveva una coppia di scarpe Puma nuove quella sera, qualcuno disse «sembriamo i Puma» e il nome rimase. La versione romantica è quella ufficiale. La versione vera è probabilmente l'altra.</p>
+<p>Il simbolo — un puma stilizzato spray arancio su fondo scuro, disegnato in meno di venti secondi da <a onclick="navigateTo('Maria Grazia Calò')">Maria Grazia</a> sul muretto della fontana — divenne il logo del gruppo. Apparve nei mesi successivi su ogni muro di Serrano.</p>
+
+<h2 id="ideologia-puma">L'ideologia democratica <span class="edit-link" onclick="openEditor('I Puma')">[modifica]</span></h2>
+<p>I Puma non sono una banda criminale, anche se si comportano come tale abbastanza spesso da rendere la distinzione difficile da spiegare ai genitori. Nella loro testa, sono un collettivo democratico. Si ispirano ai discorsi di <a onclick="navigateTo('Primo Clone dello Zio di Sbost')">Charlie Sbirk</a>, che hanno sentito riportati di seconda mano da qualcuno che era stato a Castri, che li aveva ascoltati da un mercante ambulante, che probabilmente li aveva parafrasati in modo creativo.</p>
+<p>Il punto centrale dell'ideologia dei Puma: Serrano volante non appartiene a tutti — appartiene a chi l'ha fatta volare, cioè ad <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a>. I cittadini normali, i maranza, i giovani — non hanno voce. Questa ingiustizia richiede una risposta. La risposta, secondo i Puma, è il caos creativo: fare abbastanza rumore finché qualcuno non è costretto ad ascoltare.</p>
+<p>Il manifesto dei Puma — scritto da <a onclick="navigateTo('Antonio Cazzato')">Antonio Cazzato</a> su un foglio di quaderno — diceva: <i>«Serrano è di tutti. Anche nostra. Anche loro vedrà.»</i> La grammatica era imperfetta. Il messaggio era chiaro.</p>
+
+<h2 id="alessio-puma">L'odio per Alessio Spisso <span class="edit-link" onclick="openEditor('I Puma')">[modifica]</span></h2>
+<p>L'odio dei Puma per <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a> non è personale, nel senso che nessuno di loro lo ha mai incontrato di persona. È strutturale: Alessio ha preso una città normale, ci ha messo le ali, e adesso chi vuole decidere del proprio quartiere deve chiedere il permesso a uno che vive sopra le nuvole. Letteralmente.</p>
+<p>C'è però un elemento che i Puma non ammettono pubblicamente: Alessio non li conosce. Non sa che esistono. Questa cosa li fa impazzire più di qualsiasi ingiustizia politica. Hanno fatto cose enormi — per i loro standard — e lui non ha nemmeno guardato giù. Ogni azione dei Puma porta lo stesso sottotesto: <i>guardaci</i>.</p>
+
+<h2 id="componenti-puma">I componenti <span class="edit-link" onclick="openEditor('I Puma')">[modifica]</span></h2>
+<p>I Puma sono in cinque. Nessuna gerarchia ufficiale, anche se è evidente che alcune persone contano più di altre.</p>
+<ul style="margin:0 0 14px 24px;font-family:sans-serif;font-size:13px;line-height:2.2">
+  <li><a onclick="navigateTo('Nicolò Donno')"><b>Nicolò Donno</b></a> (16 anni) — L'organizzatore silenzioso. Parla meno, decide di più.</li>
+  <li><a onclick="navigateTo('Antonio Cazzato')"><b>Antonio Cazzato</b></a> (18 anni) — Il Matematico e Fisico Ribelle. Ha lasciato la scuola. Calcola traiettorie di bombolette spray con precisione inquietante.</li>
+  <li><a onclick="navigateTo('Maria Grazia Calò')"><b>Maria Grazia Calò</b></a> (17 anni) — L'artista del gruppo. Ogni tag dei Puma è suo.</li>
+  <li><a onclick="navigateTo('Andrea Sponziello')"><b>Andrea Sponziello</b></a> (19 anni) — Il fisico con la startup. Co-fondatore di FlaNova con <a onclick="navigateTo('Flavia Aventeggiato')">Flavia</a>.</li>
+  <li><a onclick="navigateTo('Flavia Aventeggiato')"><b>Flavia Aventeggiato</b></a> (16 anni) — Di <a onclick="navigateTo('Calimera')">Calimera</a>. La più pericolosa. Ha una forma e un carattere che disorientano chiunque la sottovaluti.</li>
+</ul>
+
+<h2 id="vandalismo-puma">Il Vandalismo Democratico del 127 dM <span class="edit-link" onclick="openEditor('I Puma')">[modifica]</span></h2>
+<p>Nel <b>127 dM</b>, un anno dopo la democrazia nata a Castri, i Puma realizzarono la loro opera più importante: il <a onclick="navigateTo('Vandalismo Democratico di Serrano')">Vandalismo Democratico di Serrano</a>. In una notte sola, con quarantasette bombolette spray e un piano che <a onclick="navigateTo('Antonio Cazzato')">Antonio</a> aveva calcolato al millimetro, coprirono diciannove muri della città con slogan, puma stilizzati e il volto di Charlie Sbirk.</p>
+<p>Alessio Spisso non commentò. Il che, per i Puma, fu sia una vittoria che un'ulteriore umiliazione.</p>
+
+<h2 id="eredita-puma">L'eredità <span class="edit-link" onclick="openEditor('I Puma')">[modifica]</span></h2>
+<p>I Puma esistono ancora. Continuano a rivendicare muri, a tenersi riunioni alla fontana dismessa, a parlare di democrazia e libertà con la stessa passione della prima notte. Nessuno li ha fermati. Nessuno li ha presi sul serio abbastanza da fermarli. Entrambe le cose, a seconda del punto di vista, sono un successo o un fallimento.</p>
+<p>Quello che è certo è che i muri di Serrano non sono più gli stessi. E in una città volante dove tutto cambia, qualcosa che rimane — anche se è spray su un muro — non è poca cosa.</p>
+
+<div class="stub-box"><span style="font-size:22px">🐆</span><span>I Puma non chiedono il permesso. Non ringraziano. Lasciano un segno e spariscono nel buio della città volante, dove i muri sono bianchi e le bombolette non finiscono mai.</span></div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Bande giovanili</a> <a>Serrano</a> <a>Democratici</a> <a>Maranza</a> <a>Nemici di Alessio Spisso</a></div>`;
+}
+
+function buildNicoloDonno() {
+  return `<div class="wiki-notice"><span class="ni">😶</span><span>Nicolò Donno parla poco. Decide tutto. È il centro di gravità silenzioso dei <a onclick="navigateTo('I Puma')">Puma</a> — il tipo che non alza la voce perché non ne ha bisogno.</span></div>
+<h1 class="page-title">Nicolò Donno</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Nicolò Donno</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="ND.jpg" alt="Nicolo Donno" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <div style="text-align:center;padding:10px 6px 6px">
+    <div style="font-size:10px;color:#54595d;margin-top:4px">Nicolò Donno — l'organizzatore silenzioso</div>
+  </div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Nato</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">111 dM (2028 d.C.) · Serrano</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Età (127 dM)</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">16 anni</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Ruolo nei Puma</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Organizzatore / Centro decisionale</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Carattere</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Silenzioso · metodico · imprevedibile</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Stile</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Tuta nera · occhiali da sole fissi · catena d'oro</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Gruppo</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('I Puma')">I Puma</a></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Nemico</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a></td></tr>
+  </table>
+</div>
+
+<div class="toc-box"><div class="toc-title">Indice</div><ol>
+  <li><a href="#profilo-nd">Profilo</a></li>
+  <li><a href="#puma-nd">Ruolo nei Puma</a></li>
+  <li><a href="#alessio-nd">Il problema Alessio</a></li>
+  <li><a href="#stile-nd">Lo stile</a></li>
+</ol></div>
+
+<h2 id="profilo-nd">Profilo <span class="edit-link" onclick="openEditor('Nicolò Donno')">[modifica]</span></h2>
+<p><b>Nicolò Donno</b> nacque a <a onclick="navigateTo('Serrano')">Serrano</a> nell'<b>111 dM</b> (2028 d.C.), tre anni dopo che la città aveva iniziato a volare. Non ha mai conosciuto Serrano a terra — per lui le nuvole sotto i piedi sono la normalità. Questo, paradossalmente, lo ha reso il più convinto degli idealisti: se non ricordi com'era prima, sai solo com'è adesso, e com'è adesso non ti piace.</p>
+<p>Frequentava le scuole medie di Serrano con rendimento sufficiente ma non entusiasmante. Nel <b>126 dM</b>, dopo la <a onclick="navigateTo('Grande Spaccatura degli Sbost')">Grande Spaccatura</a>, decise che la scuola poteva aspettare e la rivoluzione no. Non la abbandonò — la sospese. Distinzione che tiene molto a fare.</p>
+
+<h2 id="puma-nd">Ruolo nei Puma <span class="edit-link" onclick="openEditor('Nicolò Donno')">[modifica]</span></h2>
+<p>Nicolò non è il leader dichiarato dei <a onclick="navigateTo('I Puma')">Puma</a> — il gruppo non ha leader dichiarati, fa parte dell'ideologia democratica. Tuttavia, ogni volta che c'è una decisione da prendere, alla fine si aspetta che Nicolò dica la sua. E quando la dice, la discussione finisce. Non perché lo imponga — semplicemente quando parla sembra che abbia già pensato a tutto quello che gli altri stavano ancora cercando di articolare.</p>
+<p>Organizzò il <a onclick="navigateTo('Vandalismo Democratico di Serrano')">Vandalismo Democratico del 127 dM</a> con la precisione di un'operazione militare: sopralluoghi, orari, percorsi di fuga, distribuzione bombolette per colore e muro. Nessuno glielo chiese. Lo fece e basta.</p>
+
+<h2 id="alessio-nd">Il problema Alessio <span class="edit-link" onclick="openEditor('Nicolò Donno')">[modifica]</span></h2>
+<p>Nicolò non parla spesso di <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a>. Quando lo fa, usa un tono piatto e ragionato che è in qualche modo più inquietante di qualsiasi sfogo. Ritiene che Alessio sia un problema strutturale, non personale: una persona sola che ha troppo potere su una città intera, che non ha mai chiesto il permesso a nessuno di far volare quella città, e che ora vive sopra le nuvole in senso letterale mentre il resto delle persone ci vive in senso figurato.</p>
+<p>«Non lo odio» disse Nicolò una volta, di notte, alla fontana. «È il sistema che odio. Lui è solo il simbolo.» <a onclick="navigateTo('Flavia Aventeggiato')">Flavia</a> disse: «Io invece lo odio anche personalmente.» Nicolò non commentò.</p>
+
+<h2 id="stile-nd">Lo stile <span class="edit-link" onclick="openEditor('Nicolò Donno')">[modifica]</span></h2>
+<p>Tuta nera sempre. Occhiali da sole in ogni stagione e condizione atmosferica. Catena d'oro che non è stato visto togliere mai. Non spiega la scelta degli occhiali. Quando qualcuno glielo chiede, li abbassa leggermente, guarda l'interlocutore sopra le lenti, poi li rialza. La conversazione finisce lì.</p>
+
+<div class="stub-box"><span style="font-size:22px">😶</span><span>Nicolò Donno non urla. Non ha bisogno di urlare. I muri di Serrano parlano già per lui.</span></div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>I Puma</a> <a>Maranza di Serrano</a> <a>Democratici</a> <a>Serrano</a></div>`;
+}
+
+function buildAntonioCazzato() {
+  return `<div class="wiki-notice"><span class="ni">📐</span><span>Antonio Cazzato è il Matematico e Fisico Ribelle dei <a onclick="navigateTo('I Puma')">Puma</a>. Ha lasciato la scuola ma non lo studio — perché la differenza, dice, è enorme.</span></div>
+<h1 class="page-title">Antonio Cazzato</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Antonio Cazzato</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="cazzy.jpg" alt="Antonio Cazzato" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <div style="text-align:center;padding:10px 6px 6px">
+    <div style="font-size:10px;color:#54595d;margin-top:4px">Antonio Cazzato — il Matematico Ribelle</div>
+  </div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Nato</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">109 dM (2026 d.C.) · Serrano</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Età (127 dM)</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">18 anni</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Soprannome</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Il Matematico · Il Fisico Ribelle</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Ruolo nei Puma</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Stratega tecnico · autore del Manifesto</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Specialità</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Matematica · fisica · traiettorie spray</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Gruppo</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('I Puma')">I Puma</a></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Nemico</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a></td></tr>
+  </table>
+</div>
+
+<div class="toc-box"><div class="toc-title">Indice</div><ol>
+  <li><a href="#profilo-ac">Profilo</a></li>
+  <li><a href="#scuola-ac">Lo scontro con la scuola</a></li>
+  <li><a href="#fisica-ac">La Fisica Ribelle</a></li>
+  <li><a href="#manifesto-ac">Il Manifesto dei Puma</a></li>
+  <li><a href="#alessio-ac">L'odio per Alessio</a></li>
+</ol></div>
+
+<h2 id="profilo-ac">Profilo <span class="edit-link" onclick="openEditor('Antonio Cazzato')">[modifica]</span></h2>
+<p><b>Antonio Cazzato</b> nacque a <a onclick="navigateTo('Serrano')">Serrano</a> nel <b>109 dM</b> (2026 d.C.), l'anno in cui la città fu ricostruita e fatta volare. Crescere in una città che galleggia nel cielo ha avuto su Antonio un effetto preciso: lo ha reso ossessionato dalla fisica. Non dalla fisica scolastica — quella, come dice lui, «è fisica per pecoroni». La fisica di Antonio è quella che spiega perché Serrano vola, come funziona la gravità a bassa quota, e come calcolare la parabola di una bomboletta spray su un muro a quindici metri con vento laterale di tre nodi.</p>
+<p>È il più vecchio dei <a onclick="navigateTo('I Puma')">Puma</a> con diciotto anni al momento del <a onclick="navigateTo('Vandalismo Democratico di Serrano')">Vandalismo del 127 dM</a>. Il nome sull'atto di nascita è Antonio. Nel gruppo lo chiamano semplicemente «il Matematico».</p>
+
+<h2 id="scuola-ac">Lo scontro con la scuola <span class="edit-link" onclick="openEditor('Antonio Cazzato')">[modifica]</span></h2>
+<p>Antonio andava molto bene in matematica e fisica. Il problema era tutto il resto. Letteratura, storia, educazione civica: le considerava, collettivamente, «roba inventata per tenere i giovani fermi». Un professore, stanco dei commenti, lo mandò dal preside. Il preside chiamò i genitori. I genitori smisero di insistere.</p>
+<p>Un giorno Antonio smise semplicemente di andare a scuola. Quando qualcuno gli chiese perché, disse: «Ho già imparato quello che potevano insegnarmi.» Era una bugia a metà — la matematica e la fisica avevano ancora molto da offrirgli. Ma la scuola, con i suoi orari e le sue regole, non era il posto giusto. Studia ancora, da solo, con libri trovati in giro. Sa cose sulla meccanica dei fluidi che nessuno dei suoi ex-compagni sa. Nessuno glielo ha mai confermato, perché non lo ha mai detto a nessuno tranne ai Puma.</p>
+
+<h2 id="fisica-ac">La Fisica Ribelle <span class="edit-link" onclick="openEditor('Antonio Cazzato')">[modifica]</span></h2>
+<p>La specialità di Antonio — quella che lo rende indispensabile — è l'applicazione della fisica a problemi pratici di vandalismo. Sa calcolare con precisione inquietante la traiettoria ottimale di una bomboletta tenendo conto di: distanza dal bersaglio, angolo di inclinazione, pressione residua nella bomboletta, velocità del vento, eventuale rimbalzo dell'aerosol su superfici concave.</p>
+<p>Per il <a onclick="navigateTo('Vandalismo Democratico di Serrano')">Vandalismo del 127 dM</a>, preparò una mappa con diciannove muri e le istruzioni precise per ognuno. <a onclick="navigateTo('Maria Grazia Calò')">Maria Grazia</a> seguì le istruzioni. Tutti i disegni uscirono perfetti. Antonio non disse niente, ma tutti capirono che era soddisfatto.</p>
+
+<h2 id="manifesto-ac">Il Manifesto dei Puma <span class="edit-link" onclick="openEditor('Antonio Cazzato')">[modifica]</span></h2>
+<p>Il giorno prima del Vandalismo, Antonio scrisse il manifesto ufficiale dei Puma su un foglio strappato da un quaderno a righe:</p>
+<blockquote style="margin:12px 24px;padding:10px 16px;border-left:3px solid #a2a9b1;font-family:serif;font-style:italic;font-size:13.5px;color:#202122">«Serrano è di tutti. Anche nostra. Anche loro vedrà.»</blockquote>
+<p>La grammatica imperfetta dell'ultima frase fu segnalata da <a onclick="navigateTo('Nicolò Donno')">Nicolò</a>. Antonio disse che era intenzionale: «La grammatica perfetta è roba del potere.» Il manifesto fu fotografato e diffuso su tre reti locali. Ebbe diciannove visualizzazioni in una settimana — un record assoluto per Serrano.</p>
+
+<h2 id="alessio-ac">L'odio per Alessio <span class="edit-link" onclick="openEditor('Antonio Cazzato')">[modifica]</span></h2>
+<p>Antonio odia <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a> in modo specifico e tecnico. Alessio ha usato conoscenze di fisica avanzata per il beneficio di pochi invece di condividerle con tutti. «Se sai come funziona il mondo» dice Antonio, «hai il dovere di dirlo a tutti. Non di tenerlo per te e farlo volare.» La metafora è volutamente ambigua: non è mai chiaro se «farlo volare» si riferisca alla conoscenza o alla città.</p>
+
+<div class="stub-box"><span style="font-size:22px">📐</span><span>Antonio Cazzato ha calcolato l'angolo esatto a cui puntare una bomboletta spray su ogni muro di Serrano. È ancora convinto che questo sia un uso legittimo della fisica. Non ha torto.</span></div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>I Puma</a> <a>Maranza di Serrano</a> <a>Fisici autodidatti</a> <a>Democratici</a></div>`;
+}
+
+function buildMariaGraziaCalò() {
+  return `<div class="wiki-notice"><span class="ni">🎨</span><span>Maria Grazia Calò è l'artista dei <a onclick="navigateTo('I Puma')">Puma</a>. Ogni puma stilizzato su ogni muro di Serrano è opera sua. Ha trasformato il vandalismo in una forma d'arte che nessuno ha il coraggio di cancellare.</span></div>
+<h1 class="page-title">Maria Grazia Calò</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Maria Grazia Calò</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="MG.jpg" alt="Maria Grazia Calò" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <div style="text-align:center;padding:10px 6px 6px">
+    <div style="font-size:10px;color:#54595d;margin-top:4px">Maria Grazia Calò — l'artista dei muri</div>
+  </div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Nata</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">110 dM (2027 d.C.) · Serrano</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Età (127 dM)</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">17 anni</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Soprannome</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Mago (nel gruppo)</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Ruolo nei Puma</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Artista ufficiale · tag writer</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Ha creato</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Logo Puma · 19 murali nel Vandalismo</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Gruppo</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('I Puma')">I Puma</a></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Nemico</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a></td></tr>
+  </table>
+</div>
+
+<div class="toc-box"><div class="toc-title">Indice</div><ol>
+  <li><a href="#profilo-mgc">Profilo</a></li>
+  <li><a href="#arte-mgc">L'arte sui muri</a></li>
+  <li><a href="#logo-mgc">La nascita del logo Puma</a></li>
+  <li><a href="#vandalismo-mgc">Il Vandalismo del 127 dM</a></li>
+  <li><a href="#alessio-mgc">La lettura di Alessio</a></li>
+</ol></div>
+
+<h2 id="profilo-mgc">Profilo <span class="edit-link" onclick="openEditor('Maria Grazia Calò')">[modifica]</span></h2>
+<p><b>Maria Grazia Calò</b>, detta <i>Mago</i> dai <a onclick="navigateTo('I Puma')">Puma</a> (abbreviazione di Maria Grazia, non di magico — anche se i risultati sembrano smentire questo), nacque a <a onclick="navigateTo('Serrano')">Serrano</a> nel <b>110 dM</b> (2027 d.C.). Ha diciassette anni al momento del <a onclick="navigateTo('Vandalismo Democratico di Serrano')">Vandalismo Democratico</a>. È l'unica del gruppo ad avere ancora un'ottima media scolastica — il che crea una certa dissonanza con il fatto che passa le notti a disegnare sui muri.</p>
+<p>I professori preferiscono non commentare i muri. Maria Grazia preferisce non commentare i voti.</p>
+
+<h2 id="arte-mgc">L'arte sui muri <span class="edit-link" onclick="openEditor('Maria Grazia Calò')">[modifica]</span></h2>
+<p>Maria Grazia ha cominciato a disegnare sui muri a undici anni, con i pennarelli. A tredici era passata alle bombolette. A diciassette, la precisione dei suoi tratti è tale che alcuni hanno ipotizzato che usasse stencil — Maria Grazia trova l'ipotesi offensiva. Tutto a mano libera. Tutto a memoria. Tutto in meno di quattro minuti per disegno, perché dopo i quattro minuti il rischio di essere visti sale esponenzialmente (<a onclick="navigateTo('Antonio Cazzato')">Antonio</a> ha fatto i calcoli).</p>
+<p>Il suo stile è riconoscibile: linee nette, nessun tratto esitante, un'economia di segni che rende i soggetti immediatamente leggibili anche a distanza.</p>
+
+<h2 id="logo-mgc">La nascita del logo Puma <span class="edit-link" onclick="openEditor('Maria Grazia Calò')">[modifica]</span></h2>
+<p>Il logo nacque quella prima sera alla fontana. Qualcuno disse «sembriamo i Puma» e Maria Grazia prese una bomboletta dalla borsa — la portava sempre — e disegnò un puma sul muretto in diciotto secondi. Era buio. Usò il sensore luminoso del telefono di <a onclick="navigateTo('Nicolò Donno')">Nicolò</a> come torcia. Il gruppo guardò. Nessuno disse niente. Il logo era già perfetto.</p>
+<p>Il muretto alla fontana ha ancora quel puma. Nessuno ha mai provato a cancellarlo.</p>
+
+<h2 id="vandalismo-mgc">Il Vandalismo del 127 dM <span class="edit-link" onclick="openEditor('Maria Grazia Calò')">[modifica]</span></h2>
+<p>Nel <a onclick="navigateTo('Vandalismo Democratico di Serrano')">Vandalismo del 127 dM</a>, Maria Grazia realizzò diciannove interventi seguendo le coordinate di <a onclick="navigateTo('Antonio Cazzato')">Antonio</a>. Il murales più grande — il ritratto di <a onclick="navigateTo('Primo Clone dello Zio di Sbost')">Charlie Sbirk</a> sulla parete della vecchia stazione — misura undici metri ed fu realizzato in undici minuti. Fu fotografato da un passante notturno. La fotografia non mostra il volto di Maria Grazia — solo la sua sagoma, la bomboletta, e il murales.</p>
+
+<h2 id="alessio-mgc">La lettura di Alessio <span class="edit-link" onclick="openEditor('Maria Grazia Calò')">[modifica]</span></h2>
+<p>Maria Grazia ha di <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a> una visione più complessa degli altri. Non lo odia per quello che ha fatto — lo odia per quello che non ha fatto. «Con quello che sa fare» dice, «avrebbe potuto creare qualcosa di bello per tutti. Un parco. Un monumento. Un posto dove la gente va e dice: questo è mio. Invece ha fatto volare una città e se n'è andato a stare sopra.» Pausa. «È uno spreco.» Nessuno l'ha mai contraddetta su questo.</p>
+
+<div class="stub-box"><span style="font-size:22px">🎨</span><span>Il primo puma su un muro di Serrano fu disegnato in diciotto secondi. I successivi furono disegnati con la stessa mano, la stessa certezza. Qualcuno li ha visti. Alessio no.</span></div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>I Puma</a> <a>Maranza di Serrano</a> <a>Street art</a> <a>Democratici</a></div>`;
+}
+
+function buildAndreaSponziello() {
+  return `<div class="wiki-notice"><span class="ni">💡</span><span>Andrea Sponziello è il fisico con la startup dei <a onclick="navigateTo('I Puma')">Puma</a>. Ha co-fondato FlaNova con <a onclick="navigateTo('Flavia Aventeggiato')">Flavia Aventeggiato</a>. L'azienda esiste. Cosa fa esattamente è ancora oggetto di discussione interna.</span></div>
+<h1 class="page-title">Andrea Sponziello</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Andrea Sponziello</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="sponziello.jpg" alt="Andrea Sponziello" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <div style="text-align:center;padding:10px 6px 6px">
+    <div style="font-size:10px;color:#54595d;margin-top:4px">Andrea Sponziello — il fisico con la startup</div>
+  </div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Nato</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">108 dM (2025 d.C.) · Serrano</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Età (127 dM)</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">19 anni</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Ruolo nei Puma</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Tecnologo · idealista pratico</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Startup</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">FlaNova — co-fondatore con <a onclick="navigateTo('Flavia Aventeggiato')">Flavia Aventeggiato</a></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Cosa fa FlaNova</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Tecnologia energetica democratica per città aeree (30% del tempo funziona)</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Gruppo</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('I Puma')">I Puma</a></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Nemico</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a></td></tr>
+  </table>
+</div>
+
+<div class="toc-box"><div class="toc-title">Indice</div><ol>
+  <li><a href="#profilo-as">Profilo</a></li>
+  <li><a href="#startup-as">FlaNova — la startup con Flavia</a></li>
+  <li><a href="#puma-as">Il ruolo nei Puma</a></li>
+  <li><a href="#alessio-as">L'odio per Alessio</a></li>
+</ol></div>
+
+<h2 id="profilo-as">Profilo <span class="edit-link" onclick="openEditor('Andrea Sponziello')">[modifica]</span></h2>
+<p><b>Andrea Sponziello</b> è il più vecchio dei <a onclick="navigateTo('I Puma')">Puma</a> a diciannove anni, e il più ottimista. Dove <a onclick="navigateTo('Nicolò Donno')">Nicolò</a> vede sistemi, <a onclick="navigateTo('Antonio Cazzato')">Antonio</a> vede leggi fisiche e <a onclick="navigateTo('Maria Grazia Calò')">Maria Grazia</a> vede muri bianchi, Andrea vede opportunità. Questo lo rende sia il membro più motivante del gruppo sia quello che a volte fa sembrare tutto troppo facile.</p>
+<p>Nacque a <a onclick="navigateTo('Serrano')">Serrano</a> nel <b>108 dM</b> (2025 d.C.), l'anno in cui le Filippine erano appena state fondate. Ha vissuto tutta l'adolescenza in una città volante e, anziché trovarlo normale come gli altri, lo trova ispirante: «Siamo su una piattaforma fisica nel cielo. Qualcuno ci ha messo qui. Noi possiamo decidere cosa farne.»</p>
+
+<h2 id="startup-as">FlaNova — la startup con Flavia <span class="edit-link" onclick="openEditor('Andrea Sponziello')">[modifica]</span></h2>
+<p>Nel <b>126 dM</b>, ispirato dalla democrazia di Castri, Andrea convinse <a onclick="navigateTo('Flavia Aventeggiato')">Flavia Aventeggiato</a> a co-fondare una startup. Il nome — <b>FlaNova</b> — è, a seconda di chi racconta, una combinazione del soprannome di Flavia («Flavia») col concetto di «nova» come esplosione stellare, oppure il risultato di una conversazione avuta mentre Flavia mangiava un'eclair al cioccolato. Le due versioni coesistono.</p>
+<p>FlaNova sviluppa un sistema di distribuzione energetica per Serrano che non sia controllato da un'unica entità — cioè, non da Alessio. Il prototipo esiste. Funziona il trenta percento delle volte. Andrea chiama questo «un ottimo punto di partenza». Flavia lo chiama «un problema da risolvere».</p>
+
+<h2 id="puma-as">Il ruolo nei Puma <span class="edit-link" onclick="openEditor('Andrea Sponziello')">[modifica]</span></h2>
+<p>Nei Puma, Andrea porta energia e idee — spesso troppe, troppo velocemente. Per il <a onclick="navigateTo('Vandalismo Democratico di Serrano')">Vandalismo del 127 dM</a> propose di proiettare il logo dei Puma nel cielo notturno con un sistema di luci costruito in garage. Il sistema non funzionò. Contribuì invece portando dodici bombolette spray e tenendo d'occhio i passanti — il che fu forse più utile del sistema luminoso.</p>
+
+<h2 id="alessio-as">L'odio per Alessio <span class="edit-link" onclick="openEditor('Andrea Sponziello')">[modifica]</span></h2>
+<p>Andrea odia <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a> in modo pragmatico: Alessio controlla l'infrastruttura di Serrano e questo impedisce a chiunque altro di innovare. È un monopolio. I monopoli uccidono l'innovazione. L'innovazione è l'unica cosa che può salvare la democrazia. Quello che non dice mai — ma che <a onclick="navigateTo('Flavia Aventeggiato')">Flavia</a> sa — è che in fondo ammira quello che Alessio ha costruito. Lo ammira e lo detesta per le stesse ragioni. Questo conflitto lo tiene sveglio la notte, quando non è già sveglio per lavorare alla startup.</p>
+
+<div class="stub-box"><span style="font-size:22px">💡</span><span>FlaNova funziona il trenta percento delle volte. Andrea Sponziello chiama questo «un ottimo punto di partenza». Continua a lavorarci.</span></div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>I Puma</a> <a>Maranza di Serrano</a> <a>Imprenditori</a> <a>Democratici</a> <a>FlaNova</a></div>`;
+}
+
+function buildFlaviaAventeggiato() {
+  return `<div class="wiki-notice"><span class="ni">🍐</span><span>Flavia Aventeggiato è di <a onclick="navigateTo('Calimera')">Calimera</a>, ha una forma a pera e un carattere che ha mandato in crisi chiunque l'abbia sottovalutata. Co-fondatrice di FlaNova e membro dei <a onclick="navigateTo('I Puma')">Puma</a>.</span></div>
+<h1 class="page-title">Flavia Aventeggiato</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Flavia Aventeggiato</div>
+ <div style="text-align:center;padding:8px 6px 4px"><img src="aventeggiato.png" alt="Flavia Aventeggiato" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" 
+  <div style="text-align:center;padding:10px 6px 6px">
+    <div style="font-size:10px;color:#54595d;margin-top:4px">Flavia Aventeggiato — di Calimera, a forma di pera</div>
+  </div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Nata</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">111 dM (2028 d.C.) · <a onclick="navigateTo('Calimera')">Calimera</a></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Età (127 dM)</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">16 anni</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Origine</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Calimera')">Calimera</a> (capitale delle Filippine)</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Forma fisica</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">A pera — spalle strette, fianchi larghi</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Ruolo nei Puma</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Voce critica · logistica · co-fondatrice FlaNova</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Startup</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">FlaNova (co-fondatrice con <a onclick="navigateTo('Andrea Sponziello')">Andrea Sponziello</a>)</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Nemico</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a> (odio personale dichiarato)</td></tr>
+  </table>
+</div>
+
+<div class="toc-box"><div class="toc-title">Indice</div><ol>
+  <li><a href="#profilo-ea">Profilo</a></li>
+  <li><a href="#calimera-ea">Le origini di Calimera</a></li>
+  <li><a href="#aspetto-ea">La forma a pera</a></li>
+  <li><a href="#puma-ea">Nei Puma</a></li>
+  <li><a href="#flanova-ea">FlaNova</a></li>
+  <li><a href="#alessio-ea">L'odio personale per Alessio</a></li>
+</ol></div>
+
+<h2 id="profilo-ea">Profilo <span class="edit-link" onclick="openEditor('Flavia Aventeggiato')">[modifica]</span></h2>
+<p><b>Flavia Aventeggiato</b> nacque a <a onclick="navigateTo('Calimera')">Calimera</a> nell'<b>111 dM</b> (2028 d.C.), capitale delle <a onclick="navigateTo('Filippine')">Filippine</a>. Si trasferì a <a onclick="navigateTo('Serrano')">Serrano</a> con la famiglia nel 123 dM, quando il padre trovò lavoro nella città volante. Ha sedici anni al momento del <a onclick="navigateTo('Vandalismo Democratico di Serrano')">Vandalismo Democratico</a>. È la più giovane dei <a onclick="navigateTo('I Puma')">Puma</a> e, secondo la valutazione unanime degli altri quattro, quella di cui bisogna aver più riguardo.</p>
+<p>Questa valutazione non deriva dall'età, ma dal carattere: Flavia ha la capacità di identificare il punto esatto in cui una conversazione può diventare scomoda per l'interlocutore e di andarci direttamente. Chi la sottovaluta a causa dell'aspetto fisico — che è, a tutti gli effetti, a forma di pera — generalmente se ne pente.</p>
+
+<h2 id="calimera-ea">Le origini di Calimera <span class="edit-link" onclick="openEditor('Flavia Aventeggiato')">[modifica]</span></h2>
+<p>Crescere a <a onclick="navigateTo('Calimera')">Calimera</a>, capitale delle Filippine, ha dato a Flavia una prospettiva che gli altri Puma non hanno: ha vissuto in un posto dove l'identità politica si costruisce su strati di storia complessa. La Camorra Salentina che diventa le Filippine, le conquiste de La Cantina, la città che cambia padroni ma continua a essere sé stessa. Flavia ha assorbito questa resilienza. Sa che le cose cambiano. Sa anche come non cambiare insieme a loro.</p>
+<p>A Serrano si sente outsider nel senso migliore: vede le cose da una distanza che i serranoesi non hanno, e questa distanza le dà una lucidità che completa le passioni degli altri.</p>
+
+<h2 id="aspetto-ea">La forma a pera <span class="edit-link" onclick="openEditor('Flavia Aventeggiato')">[modifica]</span></h2>
+<p>Flavia Aventeggiato ha una conformazione fisica che i Puma descrivono, quando ne parlano tra loro, come «a pera»: spalle strette, fianchi larghi, centro di gravità basso. Questa caratteristica è stata notata, commentata e usata contro di lei con sufficiente frequenza da averla resa estremamente reattiva sull'argomento — nel senso che chiunque la commenti in sua presenza finisce la conversazione in una posizione scomoda, sia fisicamente che retoricamente.</p>
+<p>«La mia forma» disse una volta Flavia, con la calma che i Puma conoscono e temono, «è un vantaggio balistico. Sono bassa e larga. Sono stabile. Voi invece siete alti e cadete.» Non fu contraddetta. Tra i Puma l'argomento non viene mai sollevato. Non perché sia vietato — nessuno vuole sperimentare le conseguenze.</p>
+
+<h2 id="puma-ea">Nei Puma <span class="edit-link" onclick="openEditor('Flavia Aventeggiato')">[modifica]</span></h2>
+<p>Flavia portò nel gruppo la voce critica che mancava. Mentre <a onclick="navigateTo('Andrea Sponziello')">Andrea</a> entusiasma e propone, <a onclick="navigateTo('Antonio Cazzato')">Antonio</a> calcola e <a onclick="navigateTo('Nicolò Donno')">Nicolò</a> organizza, Flavia chiede: ma perché? Non per sabotare — per migliorare. Il piano del <a onclick="navigateTo('Vandalismo Democratico di Serrano')">Vandalismo</a> passò per almeno quattro versioni prima che Flavia fosse soddisfatta dei percorsi di fuga. «Se ci prendono» disse, «è inutile aver disegnato tutto perfetto.» Aveva ragione. Non li presero.</p>
+<p>Nel Vandalismo, Flavia si occupò della logistica di entrata e uscita dai siti. Fu lei a fischiare il segnale per l'undicesimo sito — il murales di Charlie Sbirk era quasi finito, il tempo era scaduto. <a onclick="navigateTo('Maria Grazia Calò')">Maria Grazia</a> completò l'occhio sinistro in dieci secondi e scappò. Il murales è intero.</p>
+
+<h2 id="flanova-ea">FlaNova <span class="edit-link" onclick="openEditor('Flavia Aventeggiato')">[modifica]</span></h2>
+<p>Quando <a onclick="navigateTo('Andrea Sponziello')">Andrea</a> le propose di co-fondare FlaNova, Flavia rispose: «Solo se il nome non fa schifo.» Il nome proposto era «AeroNova». Flavia disse che faceva schifo. Dopo venti minuti di nomi proposti a turno, «FlaNova» fu scelto — ispirato, a seconda di chi racconta, al soprannome «Flavia» di Flavia o a un'eclair al cioccolato. Le due versioni coesistono e non si escludono.</p>
+<p>In FlaNova, Flavia si occupa della parte operativa. Ogni volta che Andrea ha un'idea, Flavia calcola quanto può andare storto e prepara il piano B. Il prototipo energetico funziona il trenta percento delle volte. Flavia ha un appunto con le condizioni esatte in cui funziona. Nessuno ha ancora capito il pattern. Flavia dice di essere vicina.</p>
+
+<h2 id="alessio-ea">L'odio personale per Alessio <span class="edit-link" onclick="openEditor('Flavia Aventeggiato')">[modifica]</span></h2>
+<p>Flavia è l'unica dei Puma che dichiara esplicitamente un odio <i>personale</i> per <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a> — non strutturale, non politico: personale. La ragione è specifica. Quando si trasferì a Serrano nel 123 dM, la famiglia Aventeggiato incontrò le prime difficoltà burocratiche legate all'essere «immigrati» in una città volante. Le pratiche per la residenza richiedevano l'approvazione di una commissione che risponde, in ultima istanza, all'amministrazione della città. E l'amministrazione risponde ad Alessio Spisso.</p>
+<p>Passarono otto mesi prima che la famiglia ottenesse la residenza. Otto mesi in cui Flavia viveva a Serrano senza esistere ufficialmente. Alessio probabilmente non sa che è successo. Questa è la parte che Flavia trova più difficile da perdonare: non la cattiveria, ma l'indifferenza.</p>
+<p>«Quando <a onclick="navigateTo('Nicolò Donno')">Nicolò</a> dice che lo odia per il sistema, ha ragione» disse Flavia una notte alla fontana. «Il sistema è lui. Ma io lo odio anche per quello che mi ha fatto personalmente, anche se lui non lo sa. Forse soprattutto per quello.» Nessuno disse niente. Poi <a onclick="navigateTo('Maria Grazia Calò')">Maria Grazia</a> aprì una bomboletta e disegnò un puma sul muro accanto a loro. Era il puma più arrabbiato che avesse mai disegnato.</p>
+
+<div class="stub-box"><span style="font-size:22px">🍐</span><span>Flavia Aventeggiato è di Calimera, ha una forma a pera e un odio per Alessio Spisso che è al tempo stesso strutturale, politico e profondamente personale. Chiunque voglia sottolineare solo la prima di queste tre caratteristiche impara presto a non farlo.</span></div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>I Puma</a> <a>Maranza di Serrano</a> <a>Calimera</a> <a>FlaNova</a> <a>Democratici</a></div>`;
+}
+
+function buildVandalismoSerrano() {
+  return `<div class="wiki-notice"><span class="ni">🖌️</span><span>Nella notte tra il 14 e il 15 Marzo del 127 dM, diciannove muri di Serrano cambiarono faccia per sempre. Fu il primo atto politico della gioventù democratica della città volante.</span></div>
+<h1 class="page-title">Vandalismo Democratico di Serrano</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Vandalismo Democratico di Serrano</div>
+  <div style="text-align:center;padding:10px 6px 8px">
+    <div style="font-size:10px;color:#54595d;margin-top:4px">I muri di Serrano — notte del Vandalismo Democratico</div>
+  </div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Data</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Notte 14–15 Marzo 127 dM</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Luogo</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Serrano')">Serrano</a> — 19 siti</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Responsabili</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('I Puma')">I Puma</a></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Ispirazione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Democrazia di Castri (<a onclick="navigateTo('Grande Spaccatura degli Sbost')">Grande Spaccatura</a>, 126 dM) · <a onclick="navigateTo('Primo Clone dello Zio di Sbost')">Charlie Sbirk</a></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Materiali</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">47 bombolette spray · 5 operatori</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Target</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a> (simbolico)</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Risposta di Alessio</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Nessuna risposta pubblica</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Conseguenze</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Muri non cancellati · nessun arresto</td></tr>
+  </table>
+</div>
+
+<div class="toc-box"><div class="toc-title">Indice</div><ol>
+  <li><a href="#contesto-vds">Il contesto — dopo la Grande Spaccatura</a></li>
+  <li><a href="#preparazione-vds">La preparazione</a></li>
+  <li><a href="#notte-vds">La notte del 14 Marzo</a></li>
+  <li><a href="#opere-vds">Le opere principali</a></li>
+  <li><a href="#reazioni-vds">Le reazioni</a></li>
+  <li><a href="#eredita-vds">L'eredità</a></li>
+</ol></div>
+
+<h2 id="contesto-vds">Il contesto — dopo la Grande Spaccatura <span class="edit-link" onclick="openEditor('Vandalismo Democratico di Serrano')">[modifica]</span></h2>
+<p>Il Vandalismo Democratico non può essere capito senza il suo contesto: la <a onclick="navigateTo('Grande Spaccatura degli Sbost')">Grande Spaccatura degli Sbost</a> del <b>126 dM</b>. A Castri, <a onclick="navigateTo('Primo Clone dello Zio di Sbost')">Charlie Sbirk</a> aveva convinto <a onclick="navigateTo('AleDoria')">AleDoria</a> a cacciare lo Zio di Sbost e instaurare la prima democrazia del Salento. La notizia girò per tutto il territorio come una corrente d'aria calda — invisibile ma presente ovunque.</p>
+<p>A Serrano, cinque ragazzi la sentirono e pensarono: se a Castri si può fare, perché qui no? La risposta ovvia era <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a>, che teneva la città tra le mani — era lui che l'aveva fatta volare, lui che ne controllava l'infrastruttura, lui che viveva sopra le nuvole mentre il resto della gente viveva sotto. L'ispirazione di Charlie Sbirk aveva dato ai <a onclick="navigateTo('I Puma')">Puma</a> qualcosa di essenziale: la prova che era possibile. Come disse <a onclick="navigateTo('Nicolò Donno')">Nicolò</a>: «Non ci mancava il coraggio. Ci mancava l'esempio.»</p>
+
+<h2 id="preparazione-vds">La preparazione <span class="edit-link" onclick="openEditor('Vandalismo Democratico di Serrano')">[modifica]</span></h2>
+<p>La preparazione durò tre settimane. <a onclick="navigateTo('Nicolò Donno')">Nicolò</a> organizzò i sopralluoghi: ogni muro fu visitato almeno due volte, a orari diversi, per valutare flusso di passanti, illuminazione, vie di fuga. <a onclick="navigateTo('Antonio Cazzato')">Antonio</a> elaborò la mappa operativa con istruzioni precise per ogni sito: bomboletta, distanza, angolo, tempo massimo. <a onclick="navigateTo('Maria Grazia Calò')">Maria Grazia</a> pensò ogni disegno — non li praticò, non ce n'era bisogno. <a onclick="navigateTo('Flavia Aventeggiato')">Flavia</a> preparò quattro versioni dei percorsi di fuga con varianti per ogni sito. <a onclick="navigateTo('Andrea Sponziello')">Andrea</a> tentò di costruire un sistema di proiezione luminosa per il logo nel cielo. Il sistema non funzionò. Portò comunque dodici bombolette spray.</p>
+
+<h2 id="notte-vds">La notte del 14 Marzo <span class="edit-link" onclick="openEditor('Vandalismo Democratico di Serrano')">[modifica]</span></h2>
+<p>Alle 23:15 del 14 Marzo 127 dM i cinque Puma si ritrovarono alla fontana dismessa del quartiere basso. Portavano quarantasette bombolette, un orologio (di Flavia), una mappa operativa (di Antonio), e zero telefoni — Nicolò aveva deciso che i telefoni rimanevano a casa. Si divisero in due gruppi: Nicolò, Maria Grazia e Antonio al quartiere basso e alla stazione; Andrea e Flavia al quartiere nord e alla zona dell'amministrazione. Undici siti per il primo gruppo, otto per il secondo. Ricongiungimento alla fontana entro le 2:30.</p>
+<p>Alle 2:17 erano tutti alla fontana. Diciannove muri completati. Maria Grazia aveva le mani viola, blu e arancione. Antonio aveva un graffio sul braccio. Andrea stava ancora tremando per l'eccitazione. Flavia era l'unica completamente calma. Nicolò guardò il gruppo. Poi disse: «Andiamo.» Andarono.</p>
+
+<h2 id="opere-vds">Le opere principali <span class="edit-link" onclick="openEditor('Vandalismo Democratico di Serrano')">[modifica]</span></h2>
+<ul style="margin:0 0 14px 24px;font-family:sans-serif;font-size:13px;line-height:2.2">
+  <li><b>Il murales di Charlie Sbirk</b> (Stazione di Serrano, 11 metri) — Il ritratto del filosofo democratico realizzato in undici minuti. Fu fotografato da un passante notturno prima che i Puma si allontanassero. La foto circolò — senza mostrare il volto di <a onclick="navigateTo('Maria Grazia Calò')">Maria Grazia</a>.</li>
+  <li><b>Il Manifesto</b> (muro del mercato) — Tre righe, lettere alte quaranta centimetri, blu su bianco: «Serrano è di tutti. Anche nostra. Anche loro vedrà.»</li>
+  <li><b>Il puma arrabbiato</b> (zona amministrazione) — Il più espressivo che Maria Grazia abbia mai disegnato. L'amministrazione non lo cancellò. Non è chiaro perché.</li>
+  <li><b>La serie dei diciassette puma piccoli</b> — Puma stilizzati da trenta centimetri distribuiti su tutti i muri residenziali. Ogni puma è identico. L'identità è il punto.</li>
+</ul>
+
+<h2 id="reazioni-vds">Le reazioni <span class="edit-link" onclick="openEditor('Vandalismo Democratico di Serrano')">[modifica]</span></h2>
+<p><a onclick="navigateTo('Alessio Spisso')"><b>Alessio Spisso</b></a> non commentò pubblicamente. Secondo alcune fonti fu informato il mattino del 15 Marzo e disse: «Ah.» poi tornò a quello che stava facendo. Per i Puma questo silenzio fu interpretato in due modi: come una vittoria (non poteva ignorarli) e come un'ulteriore umiliazione (poteva ignorarli lo stesso).</p>
+<p><b>L'amministrazione di Serrano</b> aprì un fascicolo. Il fascicolo non portò ad arresti. I muri non furono cancellati nel termine solito di una settimana. Dopo un mese erano ancora lì. Non si sa se per mancanza di risorse, distrazione, o deliberata scelta di non dare ai Puma l'attenzione di una risposta ufficiale.</p>
+
+<h2 id="eredita-vds">L'eredità <span class="edit-link" onclick="openEditor('Vandalismo Democratico di Serrano')">[modifica]</span></h2>
+<p>I muri del Vandalismo Democratico esistono ancora. Il murales di Charlie Sbirk alla stazione è diventato un punto di riferimento informale: la gente ci va a fare fotografie, ci si dà appuntamento, qualcuno ha lasciato dei fiori ai piedi del muro senza spiegare perché. <a onclick="navigateTo('Maria Grazia Calò')">Maria Grazia</a> è andata a vederlo di notte, una volta, da sola. I Puma che erano con lei dicono che sorrideva.</p>
+<p>Il Vandalismo Democratico di Serrano fu il primo atto politico della gioventù democratica della città volante. Non cambiò niente nell'immediato. Lasciò un segno. A volte basta.</p>
+
+<div class="stub-box"><span style="font-size:22px">🖌️</span><span>Il 14 Marzo 127 dM, cinque ragazzi dipinsero diciannove muri in una notte. Alessio Spisso non rispose. I muri restarono. I Puma andarono a dormire alle tre di mattina e il giorno dopo erano a scuola — tranne Antonio, che non ci va più, ma era comunque sveglio.</span></div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>I Puma</a> <a>Serrano</a> <a>127 dM</a> <a>Street art</a> <a>Democrazia</a> <a>Nemici di Alessio Spisso</a></div>`;
 }
 
 loadPagesLocalOnly();
