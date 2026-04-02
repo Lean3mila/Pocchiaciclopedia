@@ -1063,7 +1063,7 @@ clearfix::after { content: ''; display: block; clear: both; }
     <h4>Guerre</h4>
     <a onclick="navigateTo('Prima Guerra degli Avengers')">Prima Guerra degli Avengers (101 dM)</a>
     <a onclick="navigateTo('Seconda Guerra degli Avengers')">Seconda Guerra degli Avengers (101 dM)</a>
-    <a onclick="navigateTo('La Guerra Finale')">La Guerra Finale (104–107 dM)</a>
+    <a onclick="navigateTo('La Prima Guerra Pocchiana')">La Prima Guerra Pocchiana (104–107 dM)</a>
     <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers (111–119 dM)</a>
     <a onclick="navigateTo('La guerra delle Piante contro gli Zombi')">Guerra delle Piante contro gli Zombi (124 dM)</a>
     <a onclick="navigateTo('Grande Spaccatura degli Sbost')">Grande Spaccatura degli Sbost (126 dM)</a>
@@ -1413,7 +1413,7 @@ const DEFAULT_PAGES = {
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
   <li><a onclick="navigateTo('Prima Guerra degli Avengers')"><b>Prima Guerra degli Avengers (101 dM)</b></a> — Zella resuscita Iron Spisso Man con le armi di Darth Vader.</li>
   <li><a onclick="navigateTo('Seconda Guerra degli Avengers')"><b>Seconda Guerra degli Avengers (101 dM)</b></a> — Zella contro Iron Spisso Man, finisce con una stretta di mano.</li>
-  <li><a onclick="navigateTo('La Guerra Finale')"><b>La Guerra Finale (104–107 dM)</b></a> — Il cielo arancione, la Bomba Spissica cancella Serrano.</li>
+  <li><a onclick="navigateTo('La Prima Guerra Pocchiana')"><b>La Prima Guerra Pocchiana (104–107 dM)</b></a> — Il cielo arancione, la Bomba Spissica cancella Serrano.</li>
   <li><a onclick="navigateTo('Terza Guerra degli Avengers')"><b>Terza Guerra degli Avengers (111–119 dM)</b></a> — Alessio Spisso² contro Alex Spisso, finisce con la disintegrazione di Alex.</li>
   <li><a onclick="navigateTo('La guerra delle Piante contro gli Zombi')"><b>Guerra delle Piante contro gli Zombi (124 dM)</b></a> — L'invasione di Serrano da parte dei cloni zombi dello Zio di Sbost.</li>
   <li><a onclick="navigateTo('Grande Spaccatura degli Sbost')"><b>Grande Spaccatura degli Sbost (126 dM)</b></a> — La ribellione di AleDoria contro lo Zio di Sbost, nasce la democrazia.</li>
@@ -1425,13 +1425,14 @@ const DEFAULT_PAGES = {
   <li><a onclick="navigateTo('Operazione Brick')"><b>Operazione Brick (89 dM)</b></a> — Riccardo Pascali smantella il Clan Spisso.</li>
   <li><a onclick="navigateTo('Bomba Spissica')"><b>Bomba Spissica (107 dM)</b></a> — Alex Spisso cancella Serrano dalla mappa.</li>
   <li><a onclick="navigateTo('La caduta di Napoli')"><b>Caduta di Napoli (115 dM)</b></a> — La Cantina conquista Napoli, Morello catturato.</li>
-  <li><a onclick="navigateTo('La Grande Partita tra le Fiamme')"><b>Grande Partita tra le Fiamme (131 dM)</b></a> — La partita che liberò Corigliano, con Bomber e Renna.</li>
   <li><a onclick="navigateTo('Vandalismo Democratico di Serrano')"><b>Vandalismo Democratico di Serrano (127 dM)</b></a> — I Puma dipingono 19 muri in una notte.</li>
+  <li><a onclick="navigateTo('La Grande Partita tra le Fiamme')"><b>Grande Partita tra le Fiamme (131 dM)</b></a> — La partita che liberò Corigliano, con Bomber e Renna.</li>
   <li><a onclick="navigateTo('Processo a Charlie Sbirk')"><b>Processo a Charlie Sbirk (157 dM)</b></a> — Morello e Zio di Sbost accusano il clone dittatore.</li>
   <li><a onclick="navigateTo('Editto di Colella')"><b>Editto di Colella (193 dM)</b></a> — Anna Colella istituisce i Calassi, alfabetizza l'impero.</li>
   <li><a onclick="navigateTo('Proclamazione Regno d\'Italia')"><b>Proclamazione Regno d'Italia (219 dM)</b></a> — AleDoria unifica la penisola.</li>
   <li><a onclick="navigateTo('Referendum Unificazione 230 dM')"><b>Referendum Unificazione (230 dM)</b></a> — Serrano (62%), Castri (89%), Corigliano (51%) votano SI.</li>
   <li><a onclick="navigateTo('Unificazione Italiana 231 dM')"><b>Unificazione Italiana (231 dM)</b></a> — Serrano, Castri e Corigliano entrano nel Regno con autonomia.</li>
+  <li><a onclick="navigateTo('Isola di Flavio')"><b>Isola di Flavio (127 dM - 246 dM)</b></a> — Isola dello Zio di Sbost e Morello.</li>
 </ul>
 
 <h2>Scienza e cosmologia</h2>
@@ -1781,8 +1782,8 @@ const DEFAULT_PAGES = {
     history: [],
     content: ""
   },
-  "La Guerra Finale": {
-    title: "La Guerra Finale",
+  "La Prima Guerra Pocchiana": {
+    title: "La Prima Guerra Pocchiana",
     wikitext: "",
     history: [],
     content: ""
@@ -1918,7 +1919,7 @@ DEFAULT_PAGES["Alice Sportella"].content = buildAliceSportella();
 DEFAULT_PAGES["Figli di Filippo"].content = buildFigliFilippo();
 DEFAULT_PAGES["Raggio Nero"].content = buildRaggioNero();
 DEFAULT_PAGES["Ilaria Spisso"].content = buildIlariaSpisso();
-DEFAULT_PAGES["La Guerra Finale"].content = buildLaGuerraFinale();
+DEFAULT_PAGES["La Prima Guerra Pocchiana"].content = buildLaGuerraFinale();
 DEFAULT_PAGES["Bomba Spissica"].content = buildBombaSpissica();
 DEFAULT_PAGES["MariaTeresa Friolo"].content = buildMariaTeresaFriolo();
 DEFAULT_PAGES["Operazione Brick"].content = buildOperazioneBrick();
@@ -1964,6 +1965,9 @@ DEFAULT_PAGES["Repubblica di Serrano"]= { title: "Repubblica di Serrano", conten
 DEFAULT_PAGES["Terranova"]= { title: "Terranova (NewFoundLand)", content: buildTerranova(), wikitext: "", history: [] };
 DEFAULT_PAGES["Guerra Americana"] = { title: "Guerra Americana", content: buildGuerraAmericana(), wikitext: "", history: [] };
 DEFAULT_PAGES["New York Inglese"] = { title: "New York Inglese (New London)", content: buildNewYorkInglese(), wikitext: "", history: [] };
+DEFAULT_PAGES["Isola di Flavio"] = { title: "Isola di Flavio", content: buildIsolaDiFlavio(), wikitext: "", history: [] };
+DEFAULT_PAGES["Carola La Rosa"] = { title: "Carola La Rosa", content: buildCarolaLaRosa(), wikitext: "", history: [] };
+DEFAULT_PAGES["Carola Feudo"] = { title: "Carola Feudo", content: buildCarolaFeudo(), wikitext: "", history: [] };
 
 
 function buildSalDaSpicci() {
@@ -2190,7 +2194,7 @@ function buildCamoraSalentina() {
 <p>Il Salento, a differenza di Napoli o di Serrano (oggi un cratere), non ha mai vissuto un crollo drammatico dell'ordine pubblico durante l'era della Camorra Salentina. Dal 108 dM è territorio delle <a onclick="navigateTo('Filippine')">Filippine</a>. Considerarlo tale implica accettare la premessa che l'ordine possa essere garantito da chi opera fuori dalla legge — premessa che a Napoli troverebbero ovvia e che altrove troverebbero inquietante.</p>
 
 <h2 id="fine-cs2">La fine: nascita delle Filippine (108 dM) <span class="edit-link" onclick="openEditor('Camorra Salentina')">[modifica]</span></h2>
-<p>Nel <b>108 dM</b>, dopo la <a onclick="navigateTo('La Guerra Finale')">Guerra Finale</a> e la presa di potere della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> sul Salento, la Camorra Salentina cessò ufficialmente di esistere come organizzazione criminale. <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> e <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a> la trasformarono in qualcosa di diverso: uno stato vero e proprio, battezzato <b>le Filippine</b>.</p>
+<p>Nel <b>108 dM</b>, dopo la <a onclick="navigateTo('La Prima Guerra Pocchiana')">Prima Guerra Pocchiana</a> e la presa di potere della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> sul Salento, la Camorra Salentina cessò ufficialmente di esistere come organizzazione criminale. <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> e <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a> la trasformarono in qualcosa di diverso: uno stato vero e proprio, battezzato <b>le Filippine</b>.</p>
 <p>Non fu una semplice ridenominazione. La struttura criminale — cerchi di fiducia, controllo del territorio, infiltrazione economica — fu convertita in apparato di governo: le masserie divennero municipalità, i nodi logistici divennero infrastrutture, i codici del silenzio divennero leggi. Era, in sostanza, la stessa cosa con un'intestazione diversa. Ma l'intestazione contava.</p>
 <p>La capitale delle Filippine è <b>Calimera</b>. La seconda città più importante è <b>Castri</b> (fino al 109 dM, quando diventa la capitale di <a onclick="navigateTo('La Cantina')">La Cantina</a>). Entrambe erano già nell'orbita storica della Camorra Salentina — ora ne sono i centri istituzionali. <a onclick="navigateTo('Morello')">Morello</a> — alias De Morellis — nel frattempo era tornato a Napoli dopo aver rivelato la sua vera identità in seguito all'eruzione del Vesuvio. Le Filippine erano dei Pocchia.</p>
 <div class="stub-box"><span style="font-size:22px"></span><span>Questa voce descrive un'organizzazione che non esiste più. Le Filippine esistono al suo posto. Aggiornare di conseguenza.</span></div>
@@ -3032,7 +3036,7 @@ function buildTopismo() {
 <p>Dopo la morte del Topus Maximus, i Ludotopici si riorganizzarono sotto la guida della <a onclick="navigateTo('Cheddar Mussolini')">Strega Cheddar Mussolini</a>. Nel 104 dM marciarono su Serrano e instaurarono la dittatura topista — religione obbligatoria, eresia vietata, Famiglia Pocchia dichiarata nemica del Dio. La dittatura durò un anno.</p>
 
 <h3 id="caduta-t">La caduta — 105 dM</h3>
-<p>Nel 105 dM, durante la <a onclick="navigateTo('La Guerra Finale')">Guerra Finale</a>, <a onclick="navigateTo('Filippo Pascali')">Filippo</a> e <a onclick="navigateTo('Alice Sportella')">Alice</a> conquistarono Serrano in 67 giorni. Cheddar Mussolini fu trovata nel palazzo del governo e appesa a testa in giù. La dittatura topista cessò di esistere. Due anni dopo, la <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> cancellò Serrano dalla mappa. Il Topismo perse la sua città santa, ma non la fede.</p>
+<p>Nel 105 dM, durante la <a onclick="navigateTo('La Prima Guerra Pocchiana')">Prima Guerra Pocchiana</a>, <a onclick="navigateTo('Filippo Pascali')">Filippo</a> e <a onclick="navigateTo('Alice Sportella')">Alice</a> conquistarono Serrano in 67 giorni. Cheddar Mussolini fu trovata nel palazzo del governo e appesa a testa in giù. La dittatura topista cessò di esistere. Due anni dopo, la <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> cancellò Serrano dalla mappa. Il Topismo perse la sua città santa, ma non la fede.</p>
 
 <h3 id="resurrezione-t">La resurrezione del Topus Maximus — 131 dM <span class="edit-link" onclick="openEditor('Topismo')">[modifica]</span></h3>
 <p>Nel <b>131 dM</b>, ventotto anni dopo la scoppulazione, il Topus Maximus tornò. Le <b>Streghe Topiste</b> — fedelissime che non avevano mai abbandonato la fede — si riunirono in segreto a Serrano e compirono il rito della resurrezione. Non fu facile: ci vollero tre notti, sette candele di Cheddar, e la recitazione integrale delle <a onclick="navigateTo('L.E.G.G.I.')">L.E.G.G.I.</a> al contrario. Ma funzionò.</p>
@@ -3107,7 +3111,7 @@ function buildSerrano() {
 
 <h2 id="dittatura-s">La dittatura topista (104–105 dM) <span class="edit-link" onclick="openEditor('Serrano')">[modifica]</span></h2>
 <p>Nel <b>104 dM</b> <a onclick="navigateTo('Cheddar Mussolini')">Cheddar Mussolini</a> guidò la Marcia su Serrano, rovesciò il governo esistente e instaurò la dittatura topista. La <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> fu dichiarata nemica del Dio. La città fu militarizzata. Chi dissente veniva scoppulato, il che nella liturgia topista era sia punizione che atto di fede.</p>
-<p>La dittatura durò un anno. Nel <b>105 dM</b>, durante la <a onclick="navigateTo('La Guerra Finale')">Guerra Finale</a>, <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a> e <a onclick="navigateTo('Alice Sportella')">Alice Sportella</a> coordinarono l'attacco: Filippo dall'aria con i cannoni a cheddar e la scoppula volante, Alice a terra con le forze della Camorra Salentina. Serrano fu conquistata in 67 giorni. Cheddar Mussolini fu trovata nel palazzo del governo e appesa a testa in giù — esattamente come aveva fatto ai suoi nemici.</p>
+<p>La dittatura durò un anno. Nel <b>105 dM</b>, durante la <a onclick="navigateTo('La Prima Guerra Pocchiana')">Prima Guerra Pocchiana</a>, <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a> e <a onclick="navigateTo('Alice Sportella')">Alice Sportella</a> coordinarono l'attacco: Filippo dall'aria con i cannoni a cheddar e la scoppula volante, Alice a terra con le forze della Camorra Salentina. Serrano fu conquistata in 67 giorni. Cheddar Mussolini fu trovata nel palazzo del governo e appesa a testa in giù — esattamente come aveva fatto ai suoi nemici.</p>
 
 <h2 id="conquista-s">Serrano liberata (105–107 dM) <span class="edit-link" onclick="openEditor('Serrano')">[modifica]</span></h2>
 <p>Dopo la conquista, Serrano fu temporaneamente sotto il controllo degli <a onclick="navigateTo('Avengers')">Avengers</a> e della Famiglia Pocchia. Due anni di relativa normalità, durante i quali la città cercava di capire cosa fosse diventata: non più spissica, non più topista, non ancora niente di definito. I suoi abitanti avevano attraversato il clan, il collasso, gli incendi, la teocrazia e una dittatura militare nel giro di vent'anni. La stanchezza era documentabile.</p>
@@ -3142,7 +3146,7 @@ function buildSerrano() {
 </div>
 <div class="stub-box"><span style="font-size:22px">⚡</span><span>Serrano esiste di nuovo — e ora vola. Vedi <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers</a>.</span></div>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Città</a> <a>Clan Spisso</a> <a>Topismo</a> <a>La Guerra Finale</a> <a>Bomba Spissica</a> <a>Terza Guerra degli Avengers</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Città</a> <a>Clan Spisso</a> <a>Topismo</a> <a>La Prima Guerra Pocchiana</a> <a>Bomba Spissica</a> <a>Terza Guerra degli Avengers</a></div>`;
 }
 
 function buildCheddarMussolini() {
@@ -3261,7 +3265,7 @@ function buildNapoli() {
   <li><a onclick="navigateTo('Sal da Spicci')">Sal da Spicci</a></li>
   <li><a onclick="navigateTo('Sal da Vinci')">Sal da Vinci</a></li>
   <li><a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a></li>
-  <li><a onclick="navigateTo('La Guerra Finale')">La Guerra Finale</a></li>
+  <li><a onclick="navigateTo('La Prima Guerra Pocchiana')">La Prima Guerra Pocchiana</a></li>
   <li><a onclick="navigateTo('De Morellis')">De Morellis (Morello)</a></li>
 </ul>
 </div>
@@ -3634,7 +3638,7 @@ function buildAlexSpisso() {
   <li><a href="#avengers-ax">La fondazione degli Avengers e Iron Spisso Man</a></li>
   <li><a href="#morte-ax">La morte e la resurrezione</a></li>
   <li><a href="#arresto-ax">L'arresto del clan e la scomparsa</a></li>
-  <li><a href="#ritorno-ax">Il ritorno e la Guerra Finale</a></li>
+  <li><a href="#ritorno-ax">Il ritorno e la Prima Guerra Pocchiana</a></li>
   <li><a href="#tradimento-ax">Il tradimento degli Avengers</a></li>
   <li><a href="#bomba-ax">La Bomba Spissica e la caduta di Serrano</a></li>
   <li><a href="#dopo-ax">Dopo Serrano — la dittatura</a></li>
@@ -3653,8 +3657,8 @@ function buildAlexSpisso() {
 <h2 id="arresto-ax">L'arresto del clan e la scomparsa <span class="edit-link" onclick="openEditor('Alex Spisso')">[modifica]</span></h2>
 <p>Nell'anno 89 dM — mentre era ancora operativo come Iron Spisso Man in America — le forze dell'ordine guidate da <a onclick="navigateTo('Riccardo Pascali')">Riccardo Pascali</a> in Italia arrestarono tutti i membri del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> presenti sul territorio. Alex fu tra i fermati durante uno dei suoi rari ritorni in Italia. L'unico escluso fu il fratello <a onclick="navigateTo('Alessio Spisso')">Alessio</a>, che si trovava in India. Dopo la scarcerazione Alex non tornò né in Italia né alla vita precedente. Tornò in America, dagli Avengers, e accelerò i suoi piani.</p>
 
-<h2 id="ritorno-ax">Il ritorno e la Guerra Finale <span class="edit-link" onclick="openEditor('Alex Spisso')">[modifica]</span></h2>
-<p>Nel 104 dM, con l'inizio della <a onclick="navigateTo('La Guerra Finale')">Guerra Finale</a>, Alex — come Iron Spisso Man — era formalmente il co-leader degli Avengers insieme a <a onclick="navigateTo('Zella')">Zella</a>. Partecipò alle operazioni contro la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> e alla conquista di <a onclick="navigateTo('Serrano')">Serrano</a> nel 105 dM. Durante questo periodo iniziò segretamente la costruzione della <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a>, usando gli appunti inediti del nonno <a onclick="navigateTo('Ermenegildo Spisso')">Gildo</a> — portati da <a onclick="navigateTo('Ilaria Spisso')">Ilaria</a> dalla cantina di Alessio all'insaputa di tutti. Disse agli Avengers che era impegnato con la logistica. Nessuno chiese dettagli.</p>
+<h2 id="ritorno-ax">Il ritorno e la Prima Guerra Pocchiana <span class="edit-link" onclick="openEditor('Alex Spisso')">[modifica]</span></h2>
+<p>Nel 104 dM, con l'inizio della <a onclick="navigateTo('La Prima Guerra Pocchiana')">Prima Guerra Pocchiana</a>, Alex — come Iron Spisso Man — era formalmente il co-leader degli Avengers insieme a <a onclick="navigateTo('Zella')">Zella</a>. Partecipò alle operazioni contro la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> e alla conquista di <a onclick="navigateTo('Serrano')">Serrano</a> nel 105 dM. Durante questo periodo iniziò segretamente la costruzione della <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a>, usando gli appunti inediti del nonno <a onclick="navigateTo('Ermenegildo Spisso')">Gildo</a> — portati da <a onclick="navigateTo('Ilaria Spisso')">Ilaria</a> dalla cantina di Alessio all'insaputa di tutti. Disse agli Avengers che era impegnato con la logistica. Nessuno chiese dettagli.</p>
 
 <h2 id="tradimento-ax">Il tradimento degli Avengers <span class="edit-link" onclick="openEditor('Alex Spisso')">[modifica]</span></h2>
 <p>Nel 107 dM la bomba era pronta. Alex orchestrò un attacco via terra su Serrano per tenervi impegnati tutti gli Avengers — Zella, Francesco Maggiore, Spider Trovè, Valerio Mozzarella, Nicolò, Emanuele Pascali — e suo fratello Alessio, che era stato reintegrato dall'organizzazione grazie all'intervento di Ilaria. Lui rimase indietro. «Logistica», disse di nuovo.</p>
@@ -3668,7 +3672,7 @@ function buildAlexSpisso() {
 <p>Di suo fratello Alessio — che era ancora in linea con lui quando la bomba detonò — non si sa nulla. Di sua madre <a onclick="navigateTo('Ilaria Spisso')">Ilaria</a>, che aveva lasciato gli Avengers prima della detonazione, non è chiaro se sia al corrente di dove si trovi. A Napoli, <a onclick="navigateTo('Morello')">Morello</a> guardò il cratere da lontano e non disse nulla.</p>
 <div class="stub-box"><span style="font-size:22px">🛡️</span><span>Iron Spisso Man è il dittatore dell'America. Nel 109 dM Alessio Spisso² si è risvegliato e Serrano è tornata — e vola. Le elezioni sono ancora in attesa.</span></div>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Clan Spisso</a> <a>Avengers</a> <a>Iron Spisso Man</a> <a>Dittatori</a> <a>La Guerra Finale</a> <a>Bomba Spissica</a></div>`;}
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Clan Spisso</a> <a>Avengers</a> <a>Iron Spisso Man</a> <a>Dittatori</a> <a>La Prima Guerra Pocchiana</a> <a>Bomba Spissica</a></div>`;}
 
 
 function buildAlessioSpisso() {
@@ -3691,7 +3695,7 @@ function buildAlessioSpisso() {
     <tr><td>Al momento dell'arresto del clan</td><td>In India — non arrestato</td></tr>
   </table>
 </div>
-<p><b>Alessio Spisso</b> è il figlio minore di Salvatore Spisso, fratello di <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> e zio biologico di <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a>. La sua è la storia più complicata dell'intera famiglia: un uomo che ha cercato di servire il clan in un paese straniero, è stato tradito da chi aveva scelto di fidarsi, si è ritirato in India, ed è poi tornato nel 107 dM per partecipare alla <a onclick="navigateTo('La Guerra Finale')">Guerra Finale</a> — scoprendo nel modo peggiore possibile che dietro il tradimento di Rashid c'era suo fratello. Sopravvisse alla Bomba Spissica. Nel 109 dM si risvegliò tra le macerie di Serrano come Alessio Spisso² — potenziato, non distrutto. Vedi <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers</a>.</p>
+<p><b>Alessio Spisso</b> è il figlio minore di Salvatore Spisso, fratello di <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> e zio biologico di <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a>. La sua è la storia più complicata dell'intera famiglia: un uomo che ha cercato di servire il clan in un paese straniero, è stato tradito da chi aveva scelto di fidarsi, si è ritirato in India, ed è poi tornato nel 107 dM per partecipare alla <a onclick="navigateTo('La Prima Guerra Pocchiana')">Prima Guerra Pocchiana</a> — scoprendo nel modo peggiore possibile che dietro il tradimento di Rashid c'era suo fratello. Sopravvisse alla Bomba Spissica. Nel 109 dM si risvegliò tra le macerie di Serrano come Alessio Spisso² — potenziato, non distrutto. Vedi <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers</a>.</p>
 
 <div class="toc-box">
   <div class="toc-title">Indice</div>
@@ -3706,7 +3710,7 @@ function buildAlessioSpisso() {
     </li>
     <li><a href="#india-as">L'India e Maria</a></li>
     <li><a href="#lettere-as">Le lettere e il loro ruolo</a></li>
-    <li><a href="#guerra-as">Il ritorno e la Guerra Finale</a></li>
+    <li><a href="#guerra-as">Il ritorno e la Prima Guerra Pocchiana</a></li>
   </ol>
 </div>
 
@@ -3740,7 +3744,7 @@ function buildAlessioSpisso() {
 <p>Le diciassette lettere scritte da Alessio al fratello Alex — incluse quelle del periodo afghano, che documentano la missione con una precisione involontaria — furono recuperate da <a onclick="navigateTo('Riccardo Pascali')">Riccardo Pascali</a> durante le indagini sul clan. Non contenevano informazioni operative dirette, ma restituivano l'intera struttura della famiglia Spisso come entità umana: le dinamiche di potere, i non detti, la geografia emotiva di una famiglia criminale. Incluso l'ordine di eliminazione, deducibile dalla progressione delle ultime lettere con una chiarezza che il tribunale trovò sufficiente.</p>
 <p>Nelle mani di Riccardo divennero uno degli strumenti più efficaci per documentare e smantellare il clan — e per mostrare al mondo chi fosse davvero <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a>.</p>
 
-<h2 id="guerra-as">Il ritorno e la Guerra Finale <span class="edit-link" onclick="openEditor('Alessio Spisso')">[modifica]</span></h2>
+<h2 id="guerra-as">Il ritorno e la Prima Guerra Pocchiana <span class="edit-link" onclick="openEditor('Alessio Spisso')">[modifica]</span></h2>
 <p>Nel 107 dM <a onclick="navigateTo('Ilaria Spisso')">Ilaria Spisso</a> — sua madre, che aveva operato per anni negli Avengers come Spisshor senza che lui lo sapesse — raggiunse l'India. Quando aprì la porta armato e sorpreso, lei si tolse la maschera. Alessio riconobbe sua madre, la abbracciò, e mangiò una torta della domenica. Ilaria raccontò tutto ciò che stava succedendo nel mondo. Alessio scese in cantina e portò su i libri del nonno <a onclick="navigateTo('Ermenegildo Spisso')">Gildo</a> — tra cui gli appunti del secondo volume incompiuto delle F.O.N.D.A.M.E.N.T.A., contenenti la teoria della <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a>. Non sapeva cosa stava consegnando.</p>
 <p>Decise di partire e unirsi agli Avengers. <a onclick="navigateTo('MariaTeresa Friolo')">Maria</a> non fu d'accordo — disse che tornare nel caos della sua famiglia era esattamente quello che tutti si aspettavano che non facesse. Alessio la ascoltò, poi promise che sarebbe tornato. Maria accettò la promessa con quella combinazione di fiducia e scetticismo che si sviluppa dopo anni con una persona che fa promesse in buona fede in circostanze che non le rispettano.</p>
 <p>Durante l'attacco finale a Serrano nel 107 dM, mentre era in posizione con gli altri Avengers, Alessio chiamò Alex per aggiornamenti. Alex rivelò tutto nell'ultimo minuto: il piano, il tradimento di Rashid su suo ordine, il fatto che Alessio fosse sempre stato nella lista — «prima degli Avengers, prima di tutti». Un minuto era troppo poco per fare qualcosa. Alessio continuò a parlare, a fare domande, a tenere la linea aperta fino alla fine.</p>
@@ -3760,7 +3764,7 @@ function buildAlessioSpisso() {
 
 <div class="stub-box"><span style="font-size:22px">🌹</span><span>Alessio è tornato da Maria. Le piante di Serrano hanno un'aiuola in più. Non sparano. È già abbastanza.</span></div>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Clan Spisso</a> <a>Avengers</a> <a>La Guerra Finale</a> <a>Terza Guerra degli Avengers</a> <a>Afghanistan</a> <a>India</a> <a>Ricongiungimento</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Clan Spisso</a> <a>Avengers</a> <a>La Prima Guerra Pocchiana</a> <a>Terza Guerra degli Avengers</a> <a>Afghanistan</a> <a>India</a> <a>Ricongiungimento</a></div>`;
 }
 
 function buildMorello() {
@@ -3824,14 +3828,14 @@ function buildMorello() {
 <p>Attorno alla figura di Morello si è sviluppata nel tempo una tradizione religiosa informale nota come <b>Morellanesimo</b>. I credenti — concentrati principalmente a Napoli e nel Salento — venerano Morello come figura salvifica e custode dell'ordine urbano perduto. I precetti fondamentali includono il rispetto per i servizi pubblici, la raccolta differenziata come atto di fede, e la convinzione che Napoli possa tornare bella. Quest'ultimo punto è considerato dai non credenti la parte più difficile da sostenere empiricamente.</p>
 
 <h2 id="profezia-m">La Profezia del Ritorno — avverata (104 dM) <span class="edit-link" onclick="openEditor('Morello')">[modifica]</span></h2>
-<p>Il nucleo del Morellanesimo era la <b>Profezia del Ritorno</b>: quando il Vesuvio fosse eruttato per la seconda volta, Morello sarebbe tornato. Nel <b>104 dM</b> la profezia si è avverata — per colpa di un missile mal calibrato sparato dagli <a onclick="navigateTo('Avengers')">Avengers</a> verso l'Africa durante <a onclick="navigateTo('La Guerra Finale')">La Guerra Finale</a>. Il missile colpì il Vesuvio, che eruttò.</p>
+<p>Il nucleo del Morellanesimo era la <b>Profezia del Ritorno</b>: quando il Vesuvio fosse eruttato per la seconda volta, Morello sarebbe tornato. Nel <b>104 dM</b> la profezia si è avverata — per colpa di un missile mal calibrato sparato dagli <a onclick="navigateTo('Avengers')">Avengers</a> verso l'Africa durante <a onclick="navigateTo('La Prima Guerra Pocchiana')">La Prima Guerra Pocchiana</a>. Il missile colpì il Vesuvio, che eruttò.</p>
 <p>De Morellis — il vecchissimo capo della <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> la cui somiglianza con Morello era documentata da anni — fu costretto a rivelare la sua identità. <b>De Morellis era Morello.</b> Era sopravvissuto alla prima eruzione del 17 dM, era andato al Sud, aveva fondato la Camorra Salentina, aveva cambiato nome e aspetto, aveva aspettato. Quando il Vesuvio eruttò di nuovo, tornò giovane: i capelli ricci alla Caparezza, l'andatura di chi sa come va a finire.</p>
 <p>Il suo ritorno portò con sé le <b>piogge di cheddar acido</b> — prodotto dall'incontro tra il cheddar normale e la lava vesuviana — che scioglievano solo i rifiuti trasformandoli in acqua. Napoli, per la prima volta in decenni, fu pulita. Le strade brillarono. I napoletani non sapevano se piangere di gioia o di imbarazzo per quanto avevano aspettato.</p>
 <p>Morello tornò a Napoli. La profezia era mantenuta.</p>
 
 <h2 id="zbost-m">Lo Zio di Sbost nei capelli — 104–107 dM <span class="edit-link" onclick="openEditor('Morello')">[modifica]</span></h2>
 <p>Nel <b>104 dM</b>, durante il viaggio di ritorno da Serrano verso Napoli, Morello fu fermato alla dogana tra Serrano e Castri da <a onclick="navigateTo('Zio di Sbost')">Flavio Sbost</a>, detto lo Zio di Sbost — funzionario doganale scrupoloso che aveva rilevato un'irregolarità nei documenti di transito. Morello non discusse a lungo. Usò l'<b>Aria di Napoli</b> — uno shampoo di sua invenzione che produce un sonno profondo in chi ne viene a contatto — e nascose il funzionario nei propri capelli.</p>
-<p>Lo Zio di Sbost rimase nei capelli di Morello dal 104 dM al 107 dM — addormentato, inconsapevole della Guerra Finale, della Bomba Spissica, di tutto. Nel <b>107 dM</b>, quando la Bomba Spissica cadde su Serrano, l'onda d'urto disturbò i capelli di Morello abbastanza da interrompere l'effetto. Lo Zio di Sbost si svegliò, si orientò, e scappò così veloce che Morello non se ne accorse.</p>
+<p>Lo Zio di Sbost rimase nei capelli di Morello dal 104 dM al 107 dM — addormentato, inconsapevole della Prima Guerra Pocchiana, della Bomba Spissica, di tutto. Nel <b>107 dM</b>, quando la Bomba Spissica cadde su Serrano, l'onda d'urto disturbò i capelli di Morello abbastanza da interrompere l'effetto. Lo Zio di Sbost si svegliò, si orientò, e scappò così veloce che Morello non se ne accorse.</p>
 
 <h2 id="cantina-m">La Cantina e la caduta di Napoli — 109–115 dM <span class="edit-link" onclick="openEditor('Morello')">[modifica]</span></h2>
 <p>Nel <b>109 dM</b> lo Zio di Sbost fondò <a onclick="navigateTo('La Cantina')">La Cantina</a> a Castri con l'obiettivo dichiarato di vendicarsi di Morello conquistando Napoli. Con l'aiuto del nipote <a onclick="navigateTo('AleDoria')">AleDoria</a>, sviluppò gli Sbost Bot e gli <b>Spisso Bot</b> — robot che usano la parola «Spisso» come raggio sonoro. Nel <b>112 dM</b> La Cantina conquistò le <a onclick="navigateTo('Filippine')">Filippine</a>. Nel <b>115 dM</b> arrivò a Napoli.</p>
@@ -3954,7 +3958,7 @@ function buildCalendarioMorello() {
 <p>Gli <a onclick="navigateTo('Avengers')">Avengers</a> furono fondati nel <b>92 dM</b> (2009) da <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> come <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a>, con <a onclick="navigateTo('Zella')">Zella</a> — dopo la scomparsa di Morello e con Alex già adulto. Le <a onclick="navigateTo('Prima Guerra degli Avengers')">Guerre degli Avengers</a> avvennero nel <b>101 dM</b> (2018). L'attacco alla casa di Zella e la morte di Iron Spisso Man nel <b>100 dM</b> (2017). La <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> fu fondata dai <a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a> nel <b>52 dM</b> (1969).</p>
 <p>Il <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> fu fondato nel <b>23 dM</b> (1940) e smantellato nell'<b>89 dM</b> (2006), sessantasei anni dopo.</p>
 
-<p>La <a onclick="navigateTo('La Guerra Finale')">Guerra Finale</a> (104–107 dM) è il periodo più denso di eventi nella storia del calendario: la seconda eruzione del Vesuvio, il ritorno di Morello, la conquista di Serrano, la Bomba Spissica. Il 107 dM è l'ultimo anno documentato con certezza. Il futuro è, al momento, un cratere.</p>
+<p>La <a onclick="navigateTo('La Prima Guerra Pocchiana')">Prima Guerra Pocchiana</a> (104–107 dM) è il periodo più denso di eventi nella storia del calendario: la seconda eruzione del Vesuvio, il ritorno di Morello, la conquista di Serrano, la Bomba Spissica. Il 107 dM è l'ultimo anno documentato con certezza. Il futuro è, al momento, un cratere.</p>
 
 <h2 id="uso-cm">Uso attuale <span class="edit-link" onclick="openEditor('Calendario Morello')">[modifica]</span></h2>
 <p>Il calendario è usato informalmente nei vicoli del centro storico di Napoli e nelle aree del Salento legate alla <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a>. I seguaci del Morellanesimo lo adottano come sistema esclusivo, rifiutando il calendario gregoriano per i propri documenti interni. <b>Pocchiaciclopedia</b> lo adotta come sistema ufficiale per tutte le voci.</p>
@@ -4196,13 +4200,13 @@ function buildFilippoPascali() {
 </div>
 <h2>La famiglia e Alice Sportella <span class="edit-link" onclick="openEditor('Filippo Pascali')">[modifica]</span></h2>
 <p>Filippo si è sposato con <a onclick="navigateTo('Alice Sportella')">Alice Sportella</a>, con cui ha avuto tre figli: <a onclick="navigateTo('Figli di Filippo')">Luca, Gino e Carla</a>, tutti e tre nati con la sindrome di Down. Anni dopo il matrimonio fu scoperto che Alice era una parente di Filippo. La famiglia andò avanti.</p>
-<h2>La Guerra Finale (104–107 dM) <span class="edit-link" onclick="openEditor('Filippo Pascali')">[modifica]</span></h2>
-<p>Durante <a onclick="navigateTo('La Guerra Finale')">La Guerra Finale</a>, Filippo guidò gli attacchi aerei su Serrano usando cannoni a cheddar e la scoppula volante — invenzione teorizzata da <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a>. Nel 105 dM, coordinato con Alice a terra, riuscì a conquistare Serrano in 67 giorni. Insieme a <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> prese il controllo della <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a>.</p>
+<h2>La Prima Guerra Pocchiana (104–107 dM) <span class="edit-link" onclick="openEditor('Filippo Pascali')">[modifica]</span></h2>
+<p>Durante <a onclick="navigateTo('La Prima Guerra Pocchiana')">La Prima Guerra Pocchiana</a>, Filippo guidò gli attacchi aerei su Serrano usando cannoni a cheddar e la scoppula volante — invenzione teorizzata da <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a>. Nel 105 dM, coordinato con Alice a terra, riuscì a conquistare Serrano in 67 giorni. Insieme a <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> prese il controllo della <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a>.</p>
 
 <h2>La fuga dalle Filippine — 112 dM <span class="edit-link" onclick="openEditor('Filippo Pascali')">[modifica]</span></h2>
 <p>Nel <b>112 dM</b>, mentre la <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers</a> dominava l'attenzione mondiale, <a onclick="navigateTo('La Cantina')">La Cantina</a> — lo stato fondato dallo <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> a Castri — attaccò le <a onclick="navigateTo('Filippine')">Filippine</a> con un'armata di <a onclick="navigateTo('AleDoria')">Spisso Bot</a>. Filippo e <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> non erano in posizione di resistere — le loro forze erano impegnate altrove, e la velocità dell'attacco non lasciò margine di risposta. Evacuarono con Alice e i figli e si rifugiarono a <a onclick="navigateTo('Serrano')">Serrano</a>, la città volante ancora sotto il controllo di Alessio. Le Filippine caddero.</p>
 <p>Filippo non ha commentato pubblicamente la perdita. Chi lo conosce descrive la faccenda come la cosa che lo infastidisce di più dalla scomparsa di Morello — il che, considerato tutto, è già qualcosa.</p>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Famiglia Pocchia</a> <a>Militari italiani</a> <a>Decorati con Medaglia d'Onore</a> <a>Amici di Morello</a> <a>La Guerra Finale</a> <a>Filippine</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Famiglia Pocchia</a> <a>Militari italiani</a> <a>Decorati con Medaglia d'Onore</a> <a>Amici di Morello</a> <a>La Prima Guerra Pocchiana</a> <a>Filippine</a></div>`;
 }
 
 function buildRiccardoPascali() {
@@ -4284,7 +4288,7 @@ function buildRiccardoPascali() {
 <p>Il collegamento tra <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> e <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> — portato alla luce da Riccardo attraverso i registri anagrafici americani ottenuti per via diplomatica — fu incluso nella sentenza come elemento biografico ma non come capo d'imputazione. Lo scandalo internazionale che ne seguì, quando le carte divennero pubbliche, fu il colpo finale alla rete di protezioni politiche che il clan aveva costruito negli anni.</p>
 
 <h2 id="dopo-r">Dopo — le Filippine <span class="edit-link" onclick="openEditor('Riccardo Pascali')">[modifica]</span></h2>
-<p>Con il Clan Spisso smantellato, Riccardo aveva fatto la cosa per cui si era alzato ogni mattina per decenni. Quello che rimase fu qualcosa di più tranquillo — un lavoro ordinario, casi ordinari, la soddisfazione discreta di chi sa di aver fatto una cosa difficile nel modo giusto. Poi arrivò la <a onclick="navigateTo('La Guerra Finale')">Guerra Finale</a>.</p>
+<p>Con il Clan Spisso smantellato, Riccardo aveva fatto la cosa per cui si era alzato ogni mattina per decenni. Quello che rimase fu qualcosa di più tranquillo — un lavoro ordinario, casi ordinari, la soddisfazione discreta di chi sa di aver fatto una cosa difficile nel modo giusto. Poi arrivò la <a onclick="navigateTo('La Prima Guerra Pocchiana')">Prima Guerra Pocchiana</a>.</p>
 <p>Nel 105 dM Riccardo e <a onclick="navigateTo('Filippo Pascali')">Filippo</a> presero il controllo della <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> rimasta senza guida dopo la partenza di Morello. Nel 108 dM la trasformarono nelle <a onclick="navigateTo('Filippine')">Filippine</a>. Riccardo ne gestisce l'amministrazione e l'ordine. Nel <b>112 dM</b> <a onclick="navigateTo('La Cantina')">La Cantina</a> attaccò con gli Spisso Bot e i Pocchia evacuarono su <a onclick="navigateTo('Serrano')">Serrano</a> — le Filippine caddero. Riccardo sta aspettando di riprenderle. È il tipo di persona che sa aspettare.</p>
 <div class="stub-box"><span style="font-size:22px"></span><span>Rick Brick. Il mattone che ha fatto cadere il clan. Ha perso le Filippine nel 112 dM. Ci starà lavorando su.</span></div>
 </div>
@@ -4584,7 +4588,7 @@ function buildGuerraAmericana() {
 <p>I Calassi volanti circondarono Terranova da nord, sud e est. Gli Avengers erano intrappolati.</p>
 
 <h3 id="raggio-ga">Il Raggio Nero perfezionato <span class="edit-link" onclick="openEditor('Guerra Americana')">[modifica]</span></h3>
-<p>Anna Colella aveva stipulato un accordo segreto con la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a>. In cambio di concessioni commerciali e alleanza militare, la Nigeria aveva fornito all'Impero il progetto del <b>Raggio Nero</b> — l'arma che durante la <a onclick="navigateTo('La Guerra Finale')">Guerra Finale</a> aveva fatto cadere gli Avengers in mare, neutralizzando i loro poteri temporaneamente.</p>
+<p>Anna Colella aveva stipulato un accordo segreto con la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a>. In cambio di concessioni commerciali e alleanza militare, la Nigeria aveva fornito all'Impero il progetto del <b>Raggio Nero</b> — l'arma che durante la <a onclick="navigateTo('La Prima Guerra Pocchiana')">Prima Guerra Pocchiana</a> aveva fatto cadere gli Avengers in mare, neutralizzando i loro poteri temporaneamente.</p>
 <p>Gli scienziati dell'Impero avevano perfezionato la tecnologia. Il Raggio Nero non neutralizzava più solo temporaneamente. Questa nuova versione, montata su ogni Calasso volante, era in grado di <b>annullare i poteri per sempre</b>. Una volta colpiti, gli Avengers non avrebbero più recuperato le loro capacità. Mai più.</p>
 
 <h2 id="caduta-ga">La caduta degli Avengers — poteri persi per sempre <span class="edit-link" onclick="openEditor('Guerra Americana')">[modifica]</span></h2>
@@ -4665,7 +4669,7 @@ function buildNigeriaSpartiana() {
     <li><a href="#espansione-ns">L'espansione in tutta l'Africa</a></li>
     <li><a href="#avengers-ns">Il conflitto con gli Avengers</a></li>
     <li><a href="#raggio-ns">Il Raggio Nero</a></li>
-    <li><a href="#guerrafinale-ns">La Guerra Finale e la resa (107 dM)</a></li>
+    <li><a href="#guerrafinale-ns">La Prima Guerra Pocchiana e la resa (107 dM)</a></li>
   </ol>
 </div>
 
@@ -4686,7 +4690,7 @@ function buildNigeriaSpartiana() {
 <h2 id="raggio-ns">Il Raggio Nero <span class="edit-link" onclick="openEditor('Nigeria Spartiana')">[modifica]</span></h2>
 <p>L'arma principale della Nigeria Spartiana è il <a onclick="navigateTo('Raggio Nero')">Raggio Nero</a> — un dispositivo che annulla poteri, ricchezza e la capacità di volare. Chi viene colpito non viene ferito: viene svuotato. I poteri scompaiono, i conti si azzerano, le capacità speciali cessano di funzionare esattamente dove fa più male. Per i dettagli tecnici, vedere la voce dedicata.</p>
 
-<h2 id="guerrafinale-ns">La Guerra Finale e la resa (107 dM) <span class="edit-link" onclick="openEditor('Nigeria Spartiana')">[modifica]</span></h2>
+<h2 id="guerrafinale-ns">La Prima Guerra Pocchiana e la resa (107 dM) <span class="edit-link" onclick="openEditor('Nigeria Spartiana')">[modifica]</span></h2>
 <p>Nel <b>107 dM</b>, quando la <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> cancellò Serrano dalla mappa, la Nigeria Spartiana assistette all'esplosione dai satelliti. La dimostrazione di una forza capace di cancellare un'intera città con una sola parola fu sufficiente: la Nigeria Spartiana si arrese entro ventiquattro ore.</p>
 <p>Gli accordi firmati permisero all'America — ora sotto il controllo di <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> — accesso ai porti africani, controllo commerciale e presenza militare su tutto il territorio controllato. La Nigeria Spartiana, pur di non essere <b>Spissata</b>, concesse tutto quello che le fu chiesto. Controllare l'Africa non serve a nulla se l'Africa non esiste più.</p>
 
@@ -4696,7 +4700,7 @@ function buildNigeriaSpartiana() {
 <p>Con la fine della guerra e la morte di Alex nel 119 dM, la Nigeria Spartiana è tornata indipendente. La rivendicazione sull'intera Africa è ancora ufficialmente in vigore. Nessuno ha ancora trovato il coraggio di chiedere quanto di quella rivendicazione sia effettivo.</p>
 <div class="stub-box"><span style="font-size:22px">⬛</span><span>La Nigeria Spartiana dichiara di controllare tutta l'Africa. In realtà controlla la Nigeria e piccole aree vicine. Nessuno glielo dice perché c'è il Raggio Nero.</span></div>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Paesi africani</a> <a>Fondati nel 104 dM</a> <a>Superpotenze</a> <a>La Guerra Finale</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Paesi africani</a> <a>Fondati nel 104 dM</a> <a>Superpotenze</a> <a>La Prima Guerra Pocchiana</a></div>`;
 }
 
 
@@ -4746,7 +4750,7 @@ function buildAvengers() {
 <p>Gli <b>Avengers</b> furono fondati nel <b>92 dM</b> da <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a> (alias <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a>), il protettore di Serrano. Dall'America, costruì l'organizzazione più potente dell'emisfero occidentale, unendo eroi con poteri straordinari sotto un'unica bandiera. Dopo la morte di Iron Spisso Man nell'<b>100 dM</b> (durante l'attacco alla casa di <a onclick="navigateTo('Zella')">Zella</a>), il comando passò a Zella.</p>
 
 <h3 id="caduta-av">La caduta — Bomba Spissica (107 dM)</h3>
-<p>Nel <b>107 dM</b>, durante <a onclick="navigateTo('La Guerra Finale')">La Guerra Finale</a>, Iron Spisso Man — tornato in vita e più potente che mai — tradì l'organizzazione che aveva fondato. Mentre tutti gli Avengers erano schierati a Serrano, Alex fece cadere la <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> sulla città. Zella, Francesco Maggiore, Spider Trovè, Valerio Mozzarella, Nicolò, Emanuele Pascali — tutti furono dichiarati morti. L'unica a uscirne in anticipo fu <a onclick="navigateTo('Ilaria Spisso')">Ilaria Spisso / Spisshor</a>, che aveva capito prima degli altri dove stava andando la situazione. Alex prese il potere in America, instaurando una dittatura.</p>
+<p>Nel <b>107 dM</b>, durante <a onclick="navigateTo('La Prima Guerra Pocchiana')">La Prima Guerra Pocchiana</a>, Iron Spisso Man — tornato in vita e più potente che mai — tradì l'organizzazione che aveva fondato. Mentre tutti gli Avengers erano schierati a Serrano, Alex fece cadere la <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> sulla città. Zella, Francesco Maggiore, Spider Trovè, Valerio Mozzarella, Nicolò, Emanuele Pascali — tutti furono dichiarati morti. L'unica a uscirne in anticipo fu <a onclick="navigateTo('Ilaria Spisso')">Ilaria Spisso / Spisshor</a>, che aveva capito prima degli altri dove stava andando la situazione. Alex prese il potere in America, instaurando una dittatura.</p>
 
 <h3 id="resurrezione-av">La resurrezione (117 dM)</h3>
 <p>Nel <b>117 dM</b>, durante la <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers</a>, Zella — che era sopravvissuto perché in ricognizione fuori dal raggio della bomba — usò le armi di Darth Vader (il casco, la spada laser, i poteri) che aveva portato dall'America prima della guerra. Come aveva già fatto per riportare in vita Iron Spisso Man nella Prima Guerra, questa volta le usò per resuscitare tutti gli Avengers caduti nel 107 dM: Francesco Maggiore, Spider Trovè, Valerio Mozzarella, Nicolò, Emanuele Pascali — tutti tornarono. Fu il punto di svolta della Terza Guerra.</p>
@@ -4771,7 +4775,7 @@ function buildAvengers() {
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
   <li><a onclick="navigateTo('Prima Guerra degli Avengers')"><b>Prima Guerra degli Avengers</b></a> (101 dM) — Zella resuscita Iron Spisso Man con le armi di Darth Vader.</li>
   <li><a onclick="navigateTo('Seconda Guerra degli Avengers')"><b>Seconda Guerra degli Avengers</b></a> (101 dM) — Zella contro Iron Spisso Man. Finisce con una stretta di mano.</li>
-  <li><a onclick="navigateTo('La Guerra Finale')"><b>La Guerra Finale</b></a> (104–107 dM) — La Bomba Spissica cancella Serrano. Alex prende il potere.</li>
+  <li><a onclick="navigateTo('La Prima Guerra Pocchiana')"><b>La Prima Guerra Pocchiana</b></a> (104–107 dM) — La Bomba Spissica cancella Serrano. Alex prende il potere.</li>
   <li><a onclick="navigateTo('Terza Guerra degli Avengers')"><b>Terza Guerra degli Avengers</b></a> (111–119 dM) — La rivincita. Alessio Spisso², Zella e gli Avengers resuscitati sconfiggono Alex. Alex disintegrato. Zella governa l'America.</li>
 </ul>
 
@@ -4936,7 +4940,7 @@ function buildMassimoFloris() {
     </li>
     <li><a href="#comunione-mf">La Prima Comunione di Zella</a></li>
     <li><a href="#camorra-mf">Il rapporto con la Camorra Salentina</a></li>
-    <li><a href="#guerra-mf">La Guerra Finale e la fuga</a></li>
+    <li><a href="#guerra-mf">La Prima Guerra Pocchiana e la fuga</a></li>
     <li><a href="#ritorno-mf">Il ritorno di Zella</a></li>
     <li><a href="#eredita-mf">L'eredità</a></li>
   </ol>
@@ -4960,8 +4964,8 @@ function buildMassimoFloris() {
 <p>Negli anni in cui la <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> controllava il territorio, don Massimo mantenne un rapporto ambiguo con l'organizzazione. Non la sostenne mai pubblicamente, ma non la condannò mai esplicitamente. Quando gli chiesero perché, rispose: «Il mio compito è salvare le anime, non giudicare i corpi. Se giudico, chiudo le porte. Se resto, le porte restano aperte.»</p>
 <p>In privato, però, fece più di quanto molti sapessero. Protesse ragazze e ragazzi che rischiavano di essere reclutati dall'organizzazione, offrendo loro riparo in canonica. Meditò tra famiglie in conflitto, usando la sua autorità morale per fermare rappresaglie. Quando la Camorra Salentina scoprì che ospitava un giovane che doveva essere punito, mandarono tre uomini a «parlargli». Don Massimo li fece accomodare, offrì loro un caffè, e parlò con loro per tre ore. Quando uscirono, non avevano più il coraggio di toccare il ragazzo. Qualcuno disse che don Massimo aveva fatto miracoli. Lui rise. «Non sono miracoli. Sono caffè e pazienza. Funzionano meglio delle pistole, se sai come usarli.»</p>
 
-<h2 id="guerra-mf">La Guerra Finale e la fuga <span class="edit-link" onclick="openEditor('Massimo Floris')">[modifica]</span></h2>
-<p>Quando la <a onclick="navigateTo('La Guerra Finale')">Guerra Finale</a> raggiunse il Salento, don Massimo fu tra gli ultimi a lasciare Calimera. Aprì la chiesa a chiunque cercasse rifugio, indipendentemente da fede, schieramento o passato. Tra i rifugiati c'erano uomini della Camorra Salentina, famiglie in fuga dai combattimenti, e un vecchio che nessuno riconobbe ma che don Massimo trattò con particolare riguardo. Quando la situazione divenne insostenibile, don Massimo organizzò l'evacuazione della chiesa. Fu l'ultimo a uscire, dopo aver spento le candele e chiuso la porta. Portò con sé solo il vangelo e una fotografia della sua Prima Comunione da giovane prete.</p>
+<h2 id="guerra-mf">La Prima Guerra Pocchiana e la fuga <span class="edit-link" onclick="openEditor('Massimo Floris')">[modifica]</span></h2>
+<p>Quando la <a onclick="navigateTo('La Prima Guerra Pocchiana')">Prima Guerra Pocchiana</a> raggiunse il Salento, don Massimo fu tra gli ultimi a lasciare Calimera. Aprì la chiesa a chiunque cercasse rifugio, indipendentemente da fede, schieramento o passato. Tra i rifugiati c'erano uomini della Camorra Salentina, famiglie in fuga dai combattimenti, e un vecchio che nessuno riconobbe ma che don Massimo trattò con particolare riguardo. Quando la situazione divenne insostenibile, don Massimo organizzò l'evacuazione della chiesa. Fu l'ultimo a uscire, dopo aver spento le candele e chiuso la porta. Portò con sé solo il vangelo e una fotografia della sua Prima Comunione da giovane prete.</p>
 <p>Calimera fu conquistata. La chiesa fu saccheggiata, ma non bruciata — forse perché anche i soldati, entrando, sentirono il peso di quel luogo e non ebbero il coraggio di distruggerlo. Don Massimo trovò rifugio a Lecce, poi a Brindisi, poi a Bari. Ovunque andasse, celebrava messa in italiano, in grico, o nel silenzio quando non c'erano fedeli. Non perse mai la speranza di tornare.</p>
 
 <h2 id="ritorno-mf">Il ritorno di Zella <span class="edit-link" onclick="openEditor('Massimo Floris')">[modifica]</span></h2>
@@ -4978,7 +4982,7 @@ function buildMassimoFloris() {
 </div>
 
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Religiosi</a> <a>Calimera</a> <a>Figure del Salento</a> <a>Amici di Zella</a> <a>Testimoni della Guerra Finale</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Religiosi</a> <a>Calimera</a> <a>Figure del Salento</a> <a>Amici di Zella</a> <a>Testimoni della Prima Guerra Pocchiana</a></div>`;
 }
 
 function buildNewYorkInglese() {
@@ -5099,7 +5103,7 @@ function buildValerioMozzarella() {
 
 <h2 id="caduta-vm">La caduta di Serrano e la resurrezione <span class="edit-link" onclick="openEditor('Valerio Mozzarella')">[modifica]</span></h2>
 <p>Quando la <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> colpì Serrano nel 107 dM, Valerio era tra gli Avengers schierati sul campo. Fu uno degli ultimi a vedere la luce prima che tutto diventasse bianco — bianco come lui, ma di un bianco che non era più il suo. Fu dichiarato morto con tutti gli altri.</p>
-<p>Nel <b>117 dM</b>, quando Zella resuscitò gli Avengers usando le armi di Darth Vader, Valerio fu il secondo a tornare (dopo Zella stesso). La prima cosa che fece fu aprire gli occhi e guardarsi intorno. «Sto ancora accecando?» chiese. Zella annuì. Valerio sorrise. «Bene. Almeno quello non me lo toglie nessuno.»</p>
+<p>Nel <b>117 dM</b>, quando Zella resuscitò gli Avengers usando le armi di Darth Vader, Valerio fu il secondo a tornare. La prima cosa che fece fu aprire gli occhi e guardarsi intorno. «Sto ancora accecando?» chiese. Zella annuì. Valerio sorrise. «Bene. Almeno quello non me lo toglie nessuno.»</p>
 
 <h2 id="terzaguerra-vm">Il ruolo nella Terza Guerra <span class="edit-link" onclick="openEditor('Valerio Mozzarella')">[modifica]</span></h2>
 <p>Nella <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers</a>, Valerio fu impiegato come arma tattica contro le postazioni fortificate di Alex Spisso. In un'operazione notturna, si posizionò sul tetto di un grattacielo di New York e, al momento giusto, illuminò l'intero quartiere con la sua bianchezza, accecando le difese nemiche abbastanza a lungo da permettere l'attacco di Zella e <a onclick="navigateTo('Alessio Spisso')">Alessio</a>. Fu l'unico Avenger a non subire danni durante l'intera offensiva — nessuno riusciva a colpirlo perché nessuno riusciva a guardarlo.</p>
@@ -6708,16 +6712,16 @@ function buildAliceSportella() {
     <tr><td>Marito</td><td><a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a></td></tr>
     <tr><td>Figli</td><td><a onclick="navigateTo('Figli di Filippo')">Luca, Gino e Carla Pascali</a></td></tr>
     <tr><td>Legame con Filippo</td><td>Coniugi — e parenti (scoperto post-matrimonio)</td></tr>
-    <tr><td>Ruolo Guerra Finale</td><td>Co-comandante attacco a Serrano (105 dM)</td></tr>
+    <tr><td>Ruolo Prima Guerra Pocchiana</td><td>Co-comandante attacco a Serrano (105 dM)</td></tr>
     <tr><td>Organizzazione</td><td><a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> (dopo caduta De Morellis)</td></tr>
   </table>
 </div>
 <p><b>Alice Sportella</b> è la moglie di <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a> e madre di <a onclick="navigateTo('Figli di Filippo')">Luca, Gino e Carla</a>. Il matrimonio fu considerato per anni uno dei più solidi della storia della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> — fino alla scoperta che Alice era una parente di Filippo. Elaborarono la notizia con la filosofia pratica della famiglia: il matrimonio era fatto, i figli nati, andare avanti era l'unica opzione sensata.</p>
 <p>I tre figli nacquero con la sindrome di Down. Filippo e Alice li hanno cresciuti con affetto totale. Sono descritti da chiunque li conosca come straordinariamente felici — che, data la storia della famiglia, è probabilmente la cosa più notevole di tutta la vicenda.</p>
-<p>Nel 105 dM, durante <a onclick="navigateTo('La Guerra Finale')">La Guerra Finale</a>, Alice coordinò le operazioni a terra durante l'attacco a Serrano mentre Filippo guidava dall'aria. Dopo la conquista, Alice e Filippo — con <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> — presero il controllo della Camorra Salentina rimasta senza guida. Nel 108 dM la trasformarono nelle <a onclick="navigateTo('Filippine')">Filippine</a>, con capitale <b>Calimera</b>. Alice si stabilì a Calimera con Filippo e i tre figli.</p>
+<p>Nel 105 dM, durante <a onclick="navigateTo('La Prima Guerra Pocchiana')">La Prima Guerra Pocchiana</a>, Alice coordinò le operazioni a terra durante l'attacco a Serrano mentre Filippo guidava dall'aria. Dopo la conquista, Alice e Filippo — con <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> — presero il controllo della Camorra Salentina rimasta senza guida. Nel 108 dM la trasformarono nelle <a onclick="navigateTo('Filippine')">Filippine</a>, con capitale <b>Calimera</b>. Alice si stabilì a Calimera con Filippo e i tre figli.</p>
 <p>Nel <b>112 dM</b> <a onclick="navigateTo('La Cantina')">La Cantina</a> attaccò le Filippine con gli Spisso Bot durante la <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers</a>. Alice, Filippo e i figli evacuarono su <a onclick="navigateTo('Serrano')">Serrano</a>. Luca, Gino e Carla non capirono bene perché stessero partendo di fretta. Alice spiegò che si trattava di un trasferimento temporaneo. Gino chiese se poteva portare i biscotti.</p>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Famiglia Pocchia</a> <a>Camorra Salentina</a> <a>La Guerra Finale</a> <a>Filippine</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Famiglia Pocchia</a> <a>Camorra Salentina</a> <a>La Prima Guerra Pocchiana</a> <a>Filippine</a></div>`;
 }
 
 function buildFigliFilippo() {
@@ -6761,7 +6765,7 @@ function buildRaggioNero() {
 <h2>Uso offensivo — 106 dM <span class="edit-link" onclick="openEditor('Raggio Nero')">[modifica]</span></h2>
 <p>Dal 106 dM la Nigeria iniziò ad usare il Raggio anche in modo offensivo, colpendo la <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> e la <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a>, ritenendole alleate degli Avengers. I raggi colpirono basi nel Salento, azzerando risorse della Camorra Salentina. Questo accelerò la necessità di trovare una soluzione definitiva al conflitto.</p>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Nigeria Spartiana</a> <a>Armi</a> <a>La Guerra Finale</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Nigeria Spartiana</a> <a>Armi</a> <a>La Prima Guerra Pocchiana</a></div>`;
 }
 
 function buildIlariaSpisso() {
@@ -6825,7 +6829,7 @@ function buildIlariaSpisso() {
 <p>Dopo la conquista di Serrano nel 105 dM, Ilaria uscì ufficialmente dagli Avengers. Si tolse la maschera davanti a tutti e se ne andò. Gli Avengers capirono in quel momento che Spisshor era una donna. Nessuno disse nulla, forse perché c'era altro di cui preoccuparsi, forse perché era il tipo di rivelazione che, a quel punto, non cambiava niente di importante.</p>
 <div class="stub-box"><span style="font-size:22px">🎂</span><span>Se Ilaria ti offre una torta, forse chiedile cosa c'è dentro. Forse.</span></div>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Clan Spisso</a> <a>Avengers</a> <a>La Guerra Finale</a> <a>Operazione Brick</a> <a>Fuggitivi</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Clan Spisso</a> <a>Avengers</a> <a>La Prima Guerra Pocchiana</a> <a>Operazione Brick</a> <a>Fuggitivi</a></div>`;
 }
 
 function buildBombaSpissica() {
@@ -6854,7 +6858,7 @@ function buildBombaSpissica() {
 <p>La Nigeria Spartiana, testimone dell'esplosione, si arrese immediatamente. Il termine <b>«Spissare»</b> entrò nel vocabolario geopolitico per indicare la cancellazione totale di un obiettivo. Alex prese il controllo dell'America. Tutti gli Avengers furono dichiarati morti. Di Alessio, che era ancora in linea con Alex quando la bomba detonò, non si seppe più nulla.</p>
 <div class="stub-box"><span style="font-size:22px">💥</span><span>Aggiornare se qualcuno sopravvissuto si fa vivo. Aspettiamo fiduciosi.</span></div>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Armi</a> <a>La Guerra Finale</a> <a>Alex Spisso</a> <a>Serrano</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Armi</a> <a>La Prima Guerra Pocchiana</a> <a>Alex Spisso</a> <a>Serrano</a></div>`;
 }
 
 function buildOperazioneBrick() {
@@ -7359,7 +7363,7 @@ function buildAnnaColella() {
 <p>Ma su una cosa le tre erano sempre <b>d'accordo</b>: <i>«I ragazzi dovevano copiare tutte le tabelle con i vocaboli sul quaderno.»</i> Era il principio fondamentale del sistema educativo dell'impero.</p>
 
 <h2 id="eredita-ac">L'eredità <span class="edit-link" onclick="openEditor('Anna Colella')">[modifica]</span></h2>
-<p>Anna Colella è ricordata come una delle più grandi riformatrici dell'era post-Guerra Finale, e come colei che dimostrò che il metodo Morello era sbagliato. Il suo impero sopravvive ancora oggi, e i Calassi — con la loro apertura agli adulti — continuano a educare generazioni di sudditi bilingui. Il suo modello fu studiato e copiato in tutta Europa, e l'Editto di Colella è considerato uno dei documenti fondamentali della storia dell'istruzione moderna.</p>
+<p>Anna Colella è ricordata come una delle più grandi riformatrici dell'era post-Prima Guerra Pocchiana, e come colei che dimostrò che il metodo Morello era sbagliato. Il suo impero sopravvive ancora oggi, e i Calassi — con la loro apertura agli adulti — continuano a educare generazioni di sudditi bilingui. Il suo modello fu studiato e copiato in tutta Europa, e l'Editto di Colella è considerato uno dei documenti fondamentali della storia dell'istruzione moderna.</p>
 
 <div class="stub-box" style="background:#fff8e1;border-left-color:#f9a825">
   <span style="font-size:22px">📜</span>
@@ -7484,7 +7488,7 @@ function buildGuerraAmericana() {
 <p>I Calassi volanti circondarono Terranova da nord, sud e est. Gli Avengers erano intrappolati.</p>
 
 <h3 id="raggio-ga">Il Raggio Nero perfezionato <span class="edit-link" onclick="openEditor('Guerra Americana')">[modifica]</span></h3>
-<p>Anna Colella aveva stipulato un accordo segreto con la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a>. In cambio di concessioni commerciali e alleanza militare, la Nigeria aveva fornito all'Impero il progetto del <b>Raggio Nero</b> — l'arma che durante la <a onclick="navigateTo('La Guerra Finale')">Guerra Finale</a> aveva fatto cadere gli Avengers in mare, neutralizzando i loro poteri temporaneamente.</p>
+<p>Anna Colella aveva stipulato un accordo segreto con la <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a>. In cambio di concessioni commerciali e alleanza militare, la Nigeria aveva fornito all'Impero il progetto del <b>Raggio Nero</b> — l'arma che durante la <a onclick="navigateTo('La Prima Guerra Pocchiana')">Prima Guerra Pocchiana</a> aveva fatto cadere gli Avengers in mare, neutralizzando i loro poteri temporaneamente.</p>
 <p>Gli scienziati dell'Impero avevano perfezionato la tecnologia. Il Raggio Nero non neutralizzava più solo temporaneamente. Questa nuova versione, montata su ogni Calasso volante, era in grado di <b>annullare i poteri per sempre</b>. Una volta colpiti, gli Avengers non avrebbero più recuperato le loro capacità. Mai più.</p>
 
 <h2 id="caduta-ga">La caduta degli Avengers — poteri persi per sempre <span class="edit-link" onclick="openEditor('Guerra Americana')">[modifica]</span></h2>
@@ -7624,7 +7628,7 @@ function buildUKFrance() {
 <p>Ma su una cosa le tre erano <b>d'accordo</b>: <i>«I ragazzi dovevano copiare tutte le tabelle con i vocaboli sul quaderno.»</i> Era il principio fondamentale di tutto il sistema educativo dell'impero.</p>
 
 <h2 id="eredita-ukf">L'eredità dell'Impero <span class="edit-link" onclick="openEditor('The United Kingdom of Great Britain and France')">[modifica]</span></h2>
-<p>Il Regno Unito di Gran Bretagna e Francia rimane uno degli stati più influenti dell'era post-Guerra Finale. La sua rapida alfabetizzazione, ottenuta in meno di un decennio, divenne un modello studiato in tutta Europa — e una <b>smentita definitiva</b> del metodo Morello. I Calassi — con i loro metodi rigorosi, le tabelle da copiare, e l'apertura agli adulti — formarono generazioni di cittadini bilingui che avrebbero portato avanti l'eredità dell'Imperatrice Anna Colella.</p>
+<p>Il Regno Unito di Gran Bretagna e Francia rimane uno degli stati più influenti dell'era post-Prima Guerra Pocchiana. La sua rapida alfabetizzazione, ottenuta in meno di un decennio, divenne un modello studiato in tutta Europa — e una <b>smentita definitiva</b> del metodo Morello. I Calassi — con i loro metodi rigorosi, le tabelle da copiare, e l'apertura agli adulti — formarono generazioni di cittadini bilingui che avrebbero portato avanti l'eredità dell'Imperatrice Anna Colella.</p>
 
 <h2 id="espansione-ukf">L'espansione coloniale — 235 dM e oltre <span class="edit-link" onclick="openEditor('The United Kingdom of Great Britain and France')">[modifica]</span></h2>
 
@@ -8175,12 +8179,12 @@ function buildZioDiSbost() {
 <p><b>Flavio Sbost</b>, universalmente noto come <b>Zio di Sbost</b> per ragioni che nessuno ha mai chiarito del tutto — non aveva nipoti noti al momento dell'assunzione, e il soprannome precedeva qualsiasi relazione familiare documentata — lavorava alla dogana tra <a onclick="navigateTo('Castri')">Castri</a> e <a onclick="navigateTo('Serrano')">Serrano</a> da almeno un decennio prima dell'incidente. Era descritto dai colleghi come scrupoloso, metodico, e dotato di quella particolare varietà di coraggio burocratico che porta le persone a fermare i carri anche quando i cavalli sembrano nervosi. Aveva fermato contrabbandieri, sequestrato merce non dichiarata, fatto rispettare tariffe doganali in un'epoca in cui farlo richiedeva carattere. Era bravo nel suo lavoro.</p>
 
 <h2 id="incidente-z">L'incidente con Morello — 104 dM <span class="edit-link" onclick="openEditor('Zio di Sbost')">[modifica]</span></h2>
-<p>Nel <b>104 dM</b>, durante i giorni concitati della <a onclick="navigateTo('La Guerra Finale')">Guerra Finale</a>, <a onclick="navigateTo('Morello')">Morello</a> aveva fatto un breve viaggio a <a onclick="navigateTo('Serrano')">Serrano</a> per sbrigare un affare personale — i dettagli dell'affare non sono mai stati chiariti, e chi ha provato a indagare ha ricevuto risposte vaghe da entrambe le parti. Al ritorno verso Napoli, Morello si trovò a passare dalla dogana tra Serrano e Castri.</p>
+<p>Nel <b>104 dM</b>, durante i giorni concitati della <a onclick="navigateTo('La Prima Guerra Pocchiana')">Prima Guerra Pocchiana</a>, <a onclick="navigateTo('Morello')">Morello</a> aveva fatto un breve viaggio a <a onclick="navigateTo('Serrano')">Serrano</a> per sbrigare un affare personale — i dettagli dell'affare non sono mai stati chiariti, e chi ha provato a indagare ha ricevuto risposte vaghe da entrambe le parti. Al ritorno verso Napoli, Morello si trovò a passare dalla dogana tra Serrano e Castri.</p>
 <p>Lo Zio di Sbost lo fermò. Morello non aveva i documenti necessari al transito — o meglio, li aveva, ma il formato non era quello previsto dal regolamento doganale aggiornato. La distinzione era tecnica, ma lo Zio di Sbost era un uomo tecnico.</p>
 <p>Morello non discusse a lungo. Sollevò una mano verso i propri capelli — folti, ricci, strutturalmente improbabili — e lo Zio di Sbost scomparve all'interno. Non violentemente. Non con un gesto brusco. Un momento c'era, il momento dopo no. Per farlo dormire nel frattempo, Morello aveva usato l'<b>Aria di Napoli</b>, uno shampoo di sua invenzione che produce uno stato di sonno profondo e indefinito in chi vi entra in contatto. Lo Zio di Sbost cadde addormentato quasi immediatamente. Morello continuò verso Napoli.</p>
 
 <h2 id="capelli-z">Gli anni nei capelli <span class="edit-link" onclick="openEditor('Zio di Sbost')">[modifica]</span></h2>
-<p>Lo Zio di Sbost rimase nei capelli di Morello per tre anni — dal 104 dM al 107 dM — addormentato e inconsapevole di tutto ciò che accadeva fuori. Non visse la <a onclick="navigateTo('La Guerra Finale')">Guerra Finale</a>. Non sentì le bombe. Non sapeva nulla della <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a>. Dormiva, probabilmente con un'espressione tranquilla, in uno spazio topologico che nessuno ha ancora saputo descrivere con precisione.</p>
+<p>Lo Zio di Sbost rimase nei capelli di Morello per tre anni — dal 104 dM al 107 dM — addormentato e inconsapevole di tutto ciò che accadeva fuori. Non visse la <a onclick="navigateTo('La Prima Guerra Pocchiana')">Prima Guerra Pocchiana</a>. Non sentì le bombe. Non sapeva nulla della <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a>. Dormiva, probabilmente con un'espressione tranquilla, in uno spazio topologico che nessuno ha ancora saputo descrivere con precisione.</p>
 <p>La teoria più accreditata — elaborata da chi ha letto i paragrafi inediti delle <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')">F.O.N.D.A.M.E.N.T.A.</a> di <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a> — è che i capelli di Morello costituiscano una «piega nel tessuto del presente», un luogo dove qualcosa può essere contenuto senza essere consumato. Lo Zio di Sbost era contenuto. Non era consumato.</p>
 
 <h2 id="risveglio-z">Il risveglio — 107 dM <span class="edit-link" onclick="openEditor('Zio di Sbost')">[modifica]</span></h2>
@@ -8563,12 +8567,12 @@ function buildCadutaNapoli() {
 
 
 function buildLaGuerraFinale() {
-  return `<div class="wiki-notice"><span class="ni"></span><span>La Guerra Finale (104–107 dM) è il capitolo conclusivo della storia pocchiana. Serrano non esiste più. Gli Avengers nemmeno. Il cielo era arancione.</span></div>
-<h1 class="page-title">La Guerra Finale</h1>
+  return `<div class="wiki-notice"><span class="ni"></span><span>La Prima Guerra Pocchiana (104–107 dM) è il capitolo conclusivo della storia pocchiana. Serrano non esiste più. Gli Avengers nemmeno. Il cielo era arancione.</span></div>
+<h1 class="page-title">La Prima Guerra Pocchiana</h1>
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
 <div class="infobox">
-  <div class="infobox-title">La Guerra Finale</div>
+  <div class="infobox-title">La Prima Guerra Pocchiana</div>
   <table>
     <tr><td>Periodo</td><td><b>104–107 dM</b> (2021–2024 d.C.)</td></tr>
     <tr><td>Scintilla</td><td>Attacco Avengers a porti nigeriani · eruzione del Vesuvio · ritorno di Morello</td></tr>
@@ -8596,43 +8600,43 @@ function buildLaGuerraFinale() {
   </ol>
 </div>
 
-<h2 id="presagi-gf">I presagi — il cielo arancione (104 dM) <span class="edit-link" onclick="openEditor('La Guerra Finale')">[modifica]</span></h2>
+<h2 id="presagi-gf">I presagi — il cielo arancione (104 dM) <span class="edit-link" onclick="openEditor('La Prima Guerra Pocchiana')">[modifica]</span></h2>
 <p>Da anni, il cielo sopra Serrano si tingeva di arancione nelle notti chiare. Non sempre — ma abbastanza spesso da essere notato, abbastanza a lungo da non poter essere ignorato. I <b>Topisti</b> sapevano cosa significava: le stelle formavano il numero <b>104</b>, e il 104 era il <b>compleanno di Ludovico</b>. O la Fine. Dipendeva da come ti alzavi la mattina.</p>
 <p>I Topisti lo chiamavano con due nomi, usati spesso in coppia, quasi fossero sinonimi: «Il Compleanno di Ludo» per chi viveva ancora nella speranza, «La Fine» per chi aveva già smesso di sperare che fossero la stessa cosa. Nessuno dei due nomi era sbagliato. Il 104 dM fu entrambe le cose.</p>
 
-<h2 id="filippo-gf">Filippo Pascali e la guerra quotidiana <span class="edit-link" onclick="openEditor('La Guerra Finale')">[modifica]</span></h2>
+<h2 id="filippo-gf">Filippo Pascali e la guerra quotidiana <span class="edit-link" onclick="openEditor('La Prima Guerra Pocchiana')">[modifica]</span></h2>
 <p><a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a> si svegliava la mattina, salutava <a onclick="navigateTo('Alice Sportella')">Alice</a>, guardava i tre bambini fare colazione con quella serenità che gli sembrava ogni giorno più preziosa e più impossibile da proteggere, e andava a far esplodere una base della Camorra Salentina nemica. Poi tornava a casa.</p>
 <p>Era una vita stancante nel modo in cui sono stancanti le cose che non finiscono mai. La <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> si era integrata nella struttura della <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> dopo la partenza di <a onclick="navigateTo('De Morellis')">De Morellis</a> — o meglio, si era infilata nel vuoto di potere che quella partenza aveva lasciato. Filippo faceva parte di Serrano, e Serrano era in guerra con i Topisti: i fedeli di <a onclick="navigateTo('Topismo')">Topismo</a> che dopo la <a onclick="navigateTo('Cheddar Mussolini')">Marcia su Serrano</a> del 104 dM avevano scoperto che la <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> si nascondeva nella Camorra Salentina — e avevano ricominciato gli attacchi.</p>
 <p>Filippo attaccava dagli aerei, usando due invenzioni: i <b>cannoni a cheddar</b> — dispositivi che sparavano blocchi di cheddar acido capaci di bloccare i movimenti nemici sigillando porte, veicoli e strade — e la <b>scoppula volante</b>, invenzione teorizzata da <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a> nei suoi appunti e messa in pratica dalla Camorra Salentina: una scoppulazione sferrata da altitudine sufficiente a garantire il fattore sorpresa assoluto.</p>
 
-<h2 id="nigeria-gf">La Nigeria e gli Avengers in mare <span class="edit-link" onclick="openEditor('La Guerra Finale')">[modifica]</span></h2>
+<h2 id="nigeria-gf">La Nigeria e gli Avengers in mare <span class="edit-link" onclick="openEditor('La Prima Guerra Pocchiana')">[modifica]</span></h2>
 <p>La <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> era rimasta neutrale fino al 104 dM. Poi gli <a onclick="navigateTo('Avengers')">Avengers</a> distrussero alcuni porti nigeriani in quello che descrissero come «un'operazione preventiva». La Nigeria non la vide allo stesso modo.</p>
 <p>La risposta fu immediata: gli Avengers attaccarono direttamente la capitale nigeriana volando con i loro poteri in formazione. Era un piano pensato come un blitz. Divenne un bagno. Il <a onclick="navigateTo('Raggio Nero')">Raggio Nero</a> — l'arma nigeriana che annulla poteri, ricchezza e la capacità di volare sopra il mare — fu attivato in modalità difensiva sull'intera area. I poteri degli Avengers si spensero simultaneamente. La formazione si dissolse in caduta libera sull'oceano Atlantico. Il viaggio di ritorno a nuoto durò giorni. Gli americani che li videro arrivare a riva offrirono asciugamani. Vennero rifiutati con dignità ferita.</p>
 <p>Non riuscendo ad attaccare direttamente, l'America iniziò a lanciare missili verso l'Africa. La guerra continuava. Per sbaglio, uno di quei missili colpì il Vesuvio.</p>
 
-<h2 id="vesuvio-gf">Il Vesuvio e il ritorno di Morello (104 dM) <span class="edit-link" onclick="openEditor('La Guerra Finale')">[modifica]</span></h2>
+<h2 id="vesuvio-gf">Il Vesuvio e il ritorno di Morello (104 dM) <span class="edit-link" onclick="openEditor('La Prima Guerra Pocchiana')">[modifica]</span></h2>
 <p>La seconda eruzione del Vesuvio, quella che da decenni il Morellanesimo attendeva come segno del ritorno, arrivò nel 104 dM per colpa di un missile mal calibrato sparato dagli Avengers verso l'Africa. Nessuno dei Morellanisti ha mai commentato questa circostanza. La profezia si era avverata. Non importava come.</p>
 <p><a onclick="navigateTo('De Morellis')">De Morellis</a> — il vecchissimo capo della Camorra Salentina la cui somiglianza con Morello era documentata da tre fonti indipendenti e ignorata da tutte le autorità — fu costretto dall'eruzione a rivelare la sua identità. <b>De Morellis era Morello.</b> Era sopravvissuto alla prima eruzione, era andato al Sud, aveva cambiato nome e aspetto, aveva aspettato. Ora il Vesuvio eruttava di nuovo, e lui tornò giovane: i capelli ricci alla Caparezza, l'andatura di chi ha tutto il tempo del mondo, il sorriso di chi sapeva come sarebbe finita.</p>
 <p>Il suo ritorno portò con sé due cose: pulizia e piogge di <b>cheddar acido</b>. Il cheddar acido — formato dall'incontro del cheddar normale con la lava vesuviana — aveva una proprietà unica: scioglieva solo i rifiuti, trasformandoli in acqua. Napoli, per la prima volta in decenni, fu pulita. Le strade brillavano. L'aria era fresca. I napoletani non sapevano se piangere di gioia o di imbarazzo per aver impiegato così tanto.</p>
 
-<h2 id="spisso-gf">Il piano degli Spisso da America <span class="edit-link" onclick="openEditor('La Guerra Finale')">[modifica]</span></h2>
+<h2 id="spisso-gf">Il piano degli Spisso da America <span class="edit-link" onclick="openEditor('La Prima Guerra Pocchiana')">[modifica]</span></h2>
 <p>Con il caos della guerra, il <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> — trasferitosi in America dopo le indagini di Riccardo — decise che era il momento. Tutta la famiglia era là: <a onclick="navigateTo('Alex Spisso')">Alex</a>, <a onclick="navigateTo('Ilaria Spisso')">Ilaria</a> (mascherata come Spisshor), i parenti. <b>Alex era Iron Spisso Man.</b> Lo era sempre stato. E come uno dei capi principali degli <a onclick="navigateTo('Avengers')">Avengers</a>, convinse l'organizzazione ad appoggiare la riconquista di Serrano dai Topisti — presentandolo come una liberazione.</p>
 <p><a onclick="navigateTo('Ilaria Spisso')">Ilaria / Spisshor</a> fu l'unica a dire che il governo topista, per quanto brutale, era stabile — e che destabilizzarlo avrebbe aperto un vuoto pericoloso. Disse anche che la bomba che circolava negli appunti di Gildo era un'idea che non andava mai messa in pratica. Nessuno la ascoltò. In entrambi i casi.</p>
 
-<h2 id="105-gf">105 dM — La conquista di Serrano <span class="edit-link" onclick="openEditor('La Guerra Finale')">[modifica]</span></h2>
+<h2 id="105-gf">105 dM — La conquista di Serrano <span class="edit-link" onclick="openEditor('La Prima Guerra Pocchiana')">[modifica]</span></h2>
 <p>Il bombardamento su Serrano fu approvato dagli Avengers. Quando la data fu fissata, alcune spie avvisarono Alice e Filippo con largo anticipo. La coppia coordinò un grande attacco simultaneo: Filippo dall'aria con i cannoni a cheddar e la scoppula volante, Alice a terra con le forze della Camorra Salentina.</p>
 <p>La <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> senza <a onclick="navigateTo('De Morellis')">De Morellis</a> — che era tornato a Napoli — era entrata nel caos. Aveva perso il suo leader più carismatico, la struttura si era sgretolata, e i vari gruppi interni si stavano sbranando. In quel momento <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> e Filippo presero il controllo. Li unificarono. Stabilizzarono. Lo fecero con quella combinazione di autorità naturale e deterrenza che la famiglia aveva sviluppato nel corso di generazioni.</p>
 <p>L'attacco a Serrano fu coordinato con l'offensiva degli Avengers. Serrano fu conquistata in <b>67 giorni</b>. <a onclick="navigateTo('Cheddar Mussolini')">Cheddar Mussolini</a> fu trovata nel palazzo del governo e appesa a testa in giù — esattamente come aveva fatto ai suoi nemici. La dittatura topista cessò di esistere.</p>
 
-<h2 id="camorra-gf">I Pocchia prendono la Camorra Salentina <span class="edit-link" onclick="openEditor('La Guerra Finale')">[modifica]</span></h2>
+<h2 id="camorra-gf">I Pocchia prendono la Camorra Salentina <span class="edit-link" onclick="openEditor('La Prima Guerra Pocchiana')">[modifica]</span></h2>
 <p>La prima cosa che Riccardo e Filippo fecero con il potere fu abbattere le statue di De Morellis. Quella che un giorno era stata l'icona della Camorra Salentina diventò il Traditore della Patria — il leader che aveva abbandonato la sua organizzazione nel momento del bisogno tornando a Napoli per la sua gloria personale. Le statue caddero in silenzio. Nessuno protestò. I muri del palazzo restarono vuoti per mesi.</p>
 <p>Riccardo prese la gestione amministrativa e investigativa. Filippo la parte operativa e militare. Alice supervisionò le relazioni esterne. Era una divisione del lavoro che rispecchiava perfettamente chi erano: Riccardo il metodico, Filippo l'esecutore, Alice il punto di connessione tra i due.</p>
 
-<h2 id="106-gf">106 dM — La bomba inizia la produzione <span class="edit-link" onclick="openEditor('La Guerra Finale')">[modifica]</span></h2>
+<h2 id="106-gf">106 dM — La bomba inizia la produzione <span class="edit-link" onclick="openEditor('La Prima Guerra Pocchiana')">[modifica]</span></h2>
 <p>Nel 106 dM la Nigeria continuava ad attaccare, ora usando il <a onclick="navigateTo('Raggio Nero')">Raggio Nero</a> anche sulla Famiglia Pocchia e sulla Camorra Salentina, convinta che fossero alleate degli Avengers. I raggi colpirono basi nel Salento, azzerando temporaneamente risorse e comunicazioni.</p>
 <p>Mentre questo accadeva, nei laboratori segreti dell'America, <a onclick="navigateTo('Alex Spisso')">Alex</a> aveva dato inizio alla costruzione di qualcosa che nessuno sapeva ancora cosa fosse. Aveva preso gli appunti di Gildo dalla cantina di Alessio — portati da Ilaria — e aveva letto il capitolo che Gildo non aveva mai pubblicato: la teoria della parola come arma assoluta. La <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> era in produzione. Nessuno degli Avengers lo sapeva. Alex disse che era impegnato con la logistica.</p>
 
-<h2 id="107-gf">107 dM — La detonazione <span class="edit-link" onclick="openEditor('La Guerra Finale')">[modifica]</span></h2>
+<h2 id="107-gf">107 dM — La detonazione <span class="edit-link" onclick="openEditor('La Prima Guerra Pocchiana')">[modifica]</span></h2>
 <p>Nel 107 dM la bomba era pronta. Alex mandò tutti gli Avengers e Alessio — riunito all'organizzazione grazie a Ilaria e ai libri di Gildo — in attacco via terra a Serrano. Lui rimase indietro. «Logistica», disse di nuovo.</p>
 <p>Nei minuti prima della detonazione, <a onclick="navigateTo('Alessio Spisso')">Alessio</a> chiamò Alex per sapere a che punto fosse la bomba. Alex, convinto che non ci fosse più tempo per fermare nulla, rivelò tutto. Che era stato lui a distruggere la casa di Zella. Che era morto là dentro, che gli Avengers lo avevano riportato in vita senza saperlo, che li aveva usati per anni chiamandoli «i suoi schiavi». Che il piano non era liberare Serrano — era eliminare gli Avengers, togliersi di mezzo tutti gli ostacoli, prendere il potere in America tutto per lui.</p>
 <p>E poi: «O Alessio, tu sei sempre stato nella lista. Prima degli Avengers, prima di tutti. I nuovi Avengers tipo Zella mi stavano rubando il potere, ma io ho iniziato nella nostra famiglia a fare pulizia come fece nostro padre con Gildo.»</p>
@@ -8642,7 +8646,7 @@ function buildLaGuerraFinale() {
 <p>L'ultima cosa che sentirono fu: <b>«Spisso.»</b></p>
 <p>Serrano scomparve dalla mappa. Al posto di una grande città, un cratere.</p>
 
-<h2 id="dopo-gf">Dopo Serrano <span class="edit-link" onclick="openEditor('La Guerra Finale')">[modifica]</span></h2>
+<h2 id="dopo-gf">Dopo Serrano <span class="edit-link" onclick="openEditor('La Prima Guerra Pocchiana')">[modifica]</span></h2>
 <p>La Nigeria Spartiana, che aveva assistito all'esplosione dai satelliti, si arrese entro ventiquattro ore. Firmò accordi che permettevano all'America tutto quello che aveva sempre voluto: accesso ai porti, controllo commerciale, presenza militare. Pur di non essere <b>Spissata</b> — il termine entrò nel vocabolario geopolitico mondiale nel giro di giorni.</p>
 <p>Tutti gli Avengers furono dichiarati morti. Alex Spisso, ufficialmente Iron Spisso Man, annunciò che assumeva il controllo temporaneo dell'America «in attesa di elezioni». Le elezioni non furono mai indette. La guerra era finita.</p>
 <p>A Napoli, Morello guardò il cratere da lontano e non disse nulla. <a onclick="navigateTo('Gianluca Pascali')">Gianluca</a> era in pensione da anni. <a onclick="navigateTo('Anna Pascali')">Anna</a> non aveva commentato nulla, come sempre. Riccardo e Filippo stavano costruendo quello che sarebbe diventato, nel 108 dM, lo stato delle <b>Filippine</b> — nate dalla Camorra Salentina, con capitale <b>Calimera</b> e seconda città <b>Castri</b> (che nel 109 dM diventerà la capitale di <a onclick="navigateTo('La Cantina')">La Cantina</a>). <a onclick="navigateTo('Alice Sportella')">Alice</a> stava mettendo a letto Luca, Gino e Carla a Calimera.</p>
@@ -8679,7 +8683,7 @@ function buildFilippine() {
 </ol></div>
 
 <h2 id="origine-f">Origine e fondazione <span class="edit-link" onclick="openEditor('Filippine')">[modifica]</span></h2>
-<p>La <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> era rimasta senza guida dopo che <a onclick="navigateTo('De Morellis')">De Morellis</a> — rivelatosi essere <a onclick="navigateTo('Morello')">Morello</a> in persona — era tornato a Napoli nel 104 dM. Nel 105 dM Riccardo e Filippo la stabilizzarono durante la <a onclick="navigateTo('La Guerra Finale')">Guerra Finale</a>. Nel 108 dM completarono la trasformazione: struttura criminale convertita in apparato di stato. Masserie diventarono municipalità. I codici del silenzio divennero leggi. Era la stessa cosa con un'intestazione diversa — ma l'intestazione contava.</p>
+<p>La <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> era rimasta senza guida dopo che <a onclick="navigateTo('De Morellis')">De Morellis</a> — rivelatosi essere <a onclick="navigateTo('Morello')">Morello</a> in persona — era tornato a Napoli nel 104 dM. Nel 105 dM Riccardo e Filippo la stabilizzarono durante la <a onclick="navigateTo('La Prima Guerra Pocchiana')">Prima Guerra Pocchiana</a>. Nel 108 dM completarono la trasformazione: struttura criminale convertita in apparato di stato. Masserie diventarono municipalità. I codici del silenzio divennero leggi. Era la stessa cosa con un'intestazione diversa — ma l'intestazione contava.</p>
 
 <h2 id="struttura-f">Struttura di governo <span class="edit-link" onclick="openEditor('Filippine')">[modifica]</span></h2>
 <p>Le Filippine sono governate dalla <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a>. <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> si occupa dell'amministrazione e dell'ordine. <a onclick="navigateTo('Filippo Pascali')">Filippo</a> gestisce la parte militare e operativa. <a onclick="navigateTo('Alice Sportella')">Alice Sportella</a>, moglie di Filippo, supervisiona le relazioni esterne e la diplomazia.</p>
@@ -8825,7 +8829,224 @@ function buildCalogiuri() {
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Governatrici</a> <a>Educatrici</a> <a>The United Kingdom of Great Britain and France</a> <a>Calogiuri</a> <a>Distretto francese</a> <a>Metodi severi</a></div>`;
 }
 
+function buildIsolaDiFlavio() {
+  return `<div class="wiki-notice"><span class="ni">🏝️</span><span>Questa voce descrive il patto segreto tra <a onclick="navigateTo('Morello')">Morello</a> e <a onclick="navigateTo('Zio di Sbost')">lo Zio di Sbost</a>. Un'isola, un codice cifrato, e un traffico di minorenni che ha tenuto in scacco il Salento per decenni. Le accuse emersero solo durante il processo di unificazione all'Italia.</span></div>
+<h1 class="page-title">L'Isola di Flavio (Il patto segreto)</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">L'Isola di Flavio</div>
+  <div style="text-align:center;padding:8px 6px 4px;font-size:48px">🏝️🤝🔞</div>
+  <div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Il patto che ha cambiato la storia del Salento</div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Periodo attività</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">127 dM – 156 dM (interruzione) · 156–246 dM (ripresa) </div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Fondatori</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Morello')">Morello</a> · <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a></div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Collaboratore chiave</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('AleDoria')">AleDoria</a> (gestione operativa 136–156 dM)</div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Luogo</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Isola privata nel Mar Ionio (coordinate riservate)</div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Scopo dichiarato</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Ristrutturazione di un resort di lusso</div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Scopo reale</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Traffico di minorenni per ottenere favori politici</div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Scoperta</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">246 dM — dai funzionari del <a onclick="navigateTo('Regno d\'Italia')">Regno d'Italia</a></div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Esito</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Processo (247–248 dM) · abdicazione di AleDoria · fine della monarchia</div></div></td></tr>
+  </table>
+</div>
 
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#contesto-if">Il contesto — l'esilio silenzioso (126–127 dM)</a></li>
+    <li><a href="#codice-if">Il codice Morello e le lettere cifrate</a></li>
+    <li><a href="#costruzione-if">La costruzione dell'isola (129–132 dM)</a></li>
+    <li><a href="#boom-if">Il boom del potere (132–136 dM)</a></li>
+    <li><a href="#arresto-if">L'arresto e il ruolo di AleDoria (136–156 dM)</a></li>
+    <li><a href="#liberazione-if">La liberazione e la ripresa (156–246 dM)</a></li>
+    <li><a href="#processo-if">Il processo e la caduta (247–248 dM)</a></li>
+    <li><a href="#conseguenze-if">Conseguenze: la fine della monarchia</a></li>
+  </ol>
+</div>
+
+<h2 id="contesto-if">Il contesto — l'esilio silenzioso (126–127 dM) <span class="edit-link" onclick="openEditor('Isola di Flavio')">[modifica]</span></h2>
+<p>Dopo la <a onclick="navigateTo('Grande Spaccatura degli Sbost')">Grande Spaccatura del 126 dM</a>, lo Zio di Sbost era stato cacciato da Castri e si era rifugiato a <a onclick="navigateTo('Serrano')">Serrano</a>. La città volante, ancora scossa dalla <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra</a> e dalle conseguenze della <a onclick="navigateTo('La guerra delle Piante contro gli Zombi')">Guerra degli Zombi</a>, era troppo impegnata a ricostruirsi per notare l'arrivo di un doganiere esiliato. Lo Zio di Sbost passeggiava per le strade di Serrano, guardava i muri ancora macchiati di Cheddar acido, e pensava. Doveva riguadagnare potere. Doveva riconquistare ciò che aveva perso.</p>
+<p>Ma come? L'esercito era di AleDoria. I Bot erano di AleDoria. La democrazia era di Charlie Sbirk. Lo Zio di Sbost non aveva più nulla. A meno che...</p>
+
+<h2 id="codice-if">Il codice Morello e le lettere cifrate (127 dM) <span class="edit-link" onclick="openEditor('Isola di Flavio')">[modifica]</span></h2>
+<p>L'idea fu semplice e folle: portare tutte le persone più importanti dalla propria parte. Per farlo, serviva un luogo segreto. Un luogo dove offrire loro ciò che non potevano trovare altrove: potere, denaro, e compagnia giovane. Lo Zio di Sbost, che non era certo un moralista, sapeva che il modo più rapido per ottenere favori era attraverso il ricatto e il compromesso. Ma per iniziare, serviva un socio potente. Serviva Morello.</p>
+<p>Nel <b>127 dM</b>, lo Zio di Sbost inviò a Morello — che all'epoca viveva in esilio volontario in una località segreta del Salento — una lettera senza nome. Dentro, c'era un decifratore del <b>codice Morello</b>. Morello, che aveva inventato quel codice, lo riconobbe subito: era una versione del cifrario di Cesare, dove ogni lettera veniva spostata di 5 posizioni nell'alfabeto. Non capì a cosa servisse. La seconda lettera, però, chiarì tutto.</p>
+<p>Morello applicò il codice. Il testo decifrato diceva: <i>«Mettiamo da parte le differenze. Dimentichiamo il passato. Apriamo un'isola per portare dalla nostra parte chi conta. Firmato: Flavio.»</i> Morello capì. Era lo Zio di Sbost. Dopo giorni di riflessione, rispose con una sola frase: <i>«Accetto. Ma voglio il controllo della sicurezza.»</i> Lo Zio di Sbost accettò. Il patto era siglato.</p>
+
+<h2 id="costruzione-if">La costruzione dell'isola (129–132 dM) <span class="edit-link" onclick="openEditor('Isola di Flavio')">[modifica]</span></h2>
+<p>I lavori iniziarono nel <b>129 dM</b>, su un'isola privata nel Mar Ionio, acquistata con fondi provenienti da prestanome e società fantasma delle Filippine. L'isola era piccola, ma aveva una baia riparata e una posizione strategica — lontana dalle rotte principali, vicina abbastanza da raggiungerla in poche ore da Napoli o Castri. Morello progettò le strutture di sicurezza: telecamere nascoste, microfoni, bunker sotterranei. Lo Zio di Sbost si occupò della logistica: ville, piscine, camere da letto insonorizzate.</p>
+<p>Nel <b>132 dM</b>, l'isola era pronta. Il costo totale fu di circa 12 milioni di Dollari Nigeriani (pagati in parte con fondi della Camorra Salentina e in parte con prestiti da banche svizzere). Morello e lo Zio di Sbost la inaugurarono con una cena a lume di candela, da soli. «E adesso?» chiese lo Zio. «Adesso» rispose Morello, «aspettiamo che la gente venga da noi.»</p>
+
+<h2 id="boom-if">Il boom del potere (132–136 dM) <span class="edit-link" onclick="openEditor('Isola di Flavio')">[modifica]</span></h2>
+<p>Dopo la <a onclick="navigateTo('La Grande Partita tra le Fiamme')">Grande Partita del 131 dM</a> e la liberazione di Corigliano, la fama di Morello e dello Zio di Sbost crebbe enormemente. La loro riconciliazione pubblica — avvenuta davanti a un bar di Martano nel 133 dM — fu interpretata da tutti come un miracolo di pace. In realtà, era solo marketing. L'isola cominciò a ricevere i primi ospiti: politici di Castri, generali della Nigeria Spartiana, imprenditori delle Filippine, persino qualche membro degli Avengers in pensione.</p>
+<p>L'offerta era semplice: vieni all'isola, rilassati, divertiti. E nel frattempo, parliamo di affari. Morello offriva sicurezza e strategia. Lo Zio di Sbost offriva contatti e denaro. I minorenni — reclutati in silenzio da orfanotrofi e famiglie povere del Salento — offrivano ciò che i potenti cercavano. Nessuno chiedeva mai i loro nomi. Nessuno li ha mai ritrovati.</p>
+<p>Nel <b>136 dM</b>, l'isola aveva già ospitato oltre cinquanta personalità di spicco. Morello e lo Zio di Sbost avevano costruito una rete di ricatti e favori che rendeva il loro potere quasi illimitato. Fu grazie a questa rete che fondarono l'<a onclick="navigateTo('Alleanza per la Verità')">Alleanza per la Verità</a> e sfidarono Charlie Sbirk alle elezioni. Sapevano di poter contare sull'appoggio di tutti coloro che avevano visitato l'isola.</p>
+
+<h2 id="arresto-if">L'arresto e il ruolo di AleDoria (136–156 dM) <span class="edit-link" onclick="openEditor('Isola di Flavio')">[modifica]</span></h2>
+<p>Quando Charlie Sbirk dichiarò la dittatura e fece arrestare Morello e lo Zio di Sbost, l'isola rischiò di chiudere per sempre. Ma AleDoria, il nipote dello Zio di Sbost, si sentiva in colpa. Era stato lui, anni prima, a cacciare suo zio e a credere alle bugie del clone. Aveva dato a Charlie Sbirk il potere di distruggere la democrazia. Ora, poteva rimediare.</p>
+<p>AleDoria prese in gestione l'isola in segreto. Non partecipava alle feste — si limitava a mantenerle operative. Aggiornava i sistemi di sicurezza, gestiva i conti, teneva in funzione le telecamere. Lo faceva per senso di colpa, per lealtà alla famiglia, e forse perché, nel profondo, sapeva che quelle prove sarebbero servite un giorno per rovesciare Charlie. «Quando mio zio uscirà» si ripeteva, «troverà tutto come l'ha lasciato.»</p>
+<p>Per vent'anni, AleDoria mantenne l'isola in funzione. Le attività continuarono, anche se a ritmo ridotto. Nessuno sospettava nulla. I registri contabili, però, erano conservati in un caveau protetto da un codice che solo AleDoria conosceva.</p>
+
+<h2 id="liberazione-if">La liberazione e la ripresa (156–246 dM) <span class="edit-link" onclick="openEditor('Isola di Flavio')">[modifica]</span></h2>
+<p>Quando Morello e lo Zio di Sbost furono liberati nel <b>156 dM</b>, tornarono all'isola per la prima volta dopo vent'anni. La trovarono intatta, grazie ad AleDoria. Abbracciarono il nipote, che pianse. «Ho sbagliato» disse AleDoria. «Vi ho creduto, al clone. Non vi ho mai perdonato per averlo fatto. Ma ora... ora voglio aiutarvi a riparare.» Morello lo guardò a lungo. Poi disse: «Non si ripara. Si continua.»</p>
+<p>E continuarono. Dal <b>156 dM</b> al <b>246 dM</b>, l'isola tornò a essere il centro del potere occulta del Salento. Morello e lo Zio di Sbost, ormai diarchi di Castri, usarono l'isola per consolidare la loro influenza su tutta la penisola. Quando arrivò l'unificazione con l'Italia, nel 231 dM, la videro come un'opportunità: potevano concentrarsi sull'isola e lasciare che AleDoria gestisse il Regno. Per quindici anni, il piano funzionò alla perfezione.</p>
+
+<h2 id="processo-if">Il processo e la caduta (247–248 dM) <span class="edit-link" onclick="openEditor('Isola di Flavio')">[modifica]</span></h2>
+<p>Nel <b>246 dM</b>, alcuni funzionari del Regno d'Italia, durante un controllo di routine sui documenti fiscali di Castri, trovarono una nota a piè di pagina che citava una «Isola di Flavio — spese di manutenzione». La cifra era sospetta: oltre 2 milioni di lire italiane all'anno. I funzionari approfondirono. Scoprirono conti offshore, società fantasma, e una serie di transazioni che risalivano fino al 127 dM. L'isola esisteva davvero.</p>
+<p>Il caso fu portato in Parlamento. L'accusa fu affidata a due sorelle avvocatesse: <b><a onclick="navigateTo('Carola la Rosa')">Carola la Rosa (detta Rucola)</a></b> e <b><a onclick="navigateTo('Carola Feudo')">Carola Feudo (detta Rocambolesca)</a></b>. Le due, note per i loro soprannomi bizzarri e la loro ferocia in aula, costruirono un caso in meno di un anno. Le prove erano schiaccianti: le lettere cifrate di Morello, i registri contabili di AleDoria, le testimonianze di alcune vittime sopravvissute (ormai anziane, ma lucide).</p>
+<p>Il processo si tenne a Napoli tra il <b>247 e il 248 dM</b>. Fu un evento mediatico senza precedenti. Le aule erano gremite. I giornalisti accorrevano da tutta Europa. Durante l'udienza del 12 marzo 247 dM, Carola la Rosa mostrò al giudice il codice Morello decifrato e lesse la lettera originale ad alta voce. L'aula rimase in silenzio. Poi scoppiò il pandemonio.</p>
+<p>Il momento più alto fu quando Carola Feudo chiamò a testimoniare un ex-sicario dell'isola, che raccontò di aver personalmente scortato minorenni nelle camere di politici e generali. L'uomo parlò per tre ore. Alla fine, si rivolse a Morello e allo Zio di Sbost e disse: «Voi non siete nemmeno degni di stare in cella con la gente che avete rovinato.» Morello non rispose. Lo Zio di Sbost abbassò lo sguardo.</p>
+
+<h2 id="conseguenze-if">Conseguenze: la fine della monarchia <span class="edit-link" onclick="openEditor('Isola di Flavio')">[modifica]</span></h2>
+<p>La sentenza arrivò il <b>15 settembre 248 dM</b>: Morello e lo Zio di Sbost furono condannati all'ergastolo. AleDoria, riconosciuto colpevole di favoreggiamento e occultamento di prove, fu costretto ad abdicare per violazione dell'<b>Articolo 12 della Costituzione del Regno d'Italia</b> («Il Re o la Regina devono agire nell'interesse superiore della nazione, con onore e trasparenza»).</p>
+<p>Con l'abdicazione di AleDoria, il Regno d'Italia perse il suo sovrano. Il Parlamento, in seduta d'emergenza, dichiarò decaduta la monarchia e proclamò la <b>Repubblica d'Italia</b>. Il nuovo rappresentante cerimoniale (senza poteri esecutivi) fu eletto dal Parlamento nel 249 dM. La Pocchiaciclopedia non ha ancora registrato il nome del primo rappresentante, ma la data è storica: da quel giorno, l'Italia non ha più avuto un re.</p>
+<p>L'Isola di Flavio fu confiscata e trasformata in un museo della memoria. Le sue ville sono oggi visitabili, con pannelli che spiegano la storia del patto segreto. Una targa all'ingresso recita: <i>«Qui, per oltre un secolo, il potere ha calpestato l'innocenza. Non dimentichiamo mai.»</i> Morello e lo Zio di Sbost, intanto, scontano la loro pena in due carceri diverse. Non si parlano più. L'alleanza, dopo 121 anni, è finalmente finita.</p>
+
+<div class="stub-box" style="background:#fdecea;border-left-color:#c62828">
+  <span style="font-size:22px">⚖️</span>
+  <span><b>«Voi non siete nemmeno degni di stare in cella con la gente che avete rovinato.»</b> — Testimonianza al processo, 247 dM.</span>
+</div>
+
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Scandali</a> <a>Morello</a> <a>Zio di Sbost</a> <a>AleDoria</a> <a>Processi</a> <a>Regno d'Italia</a> <a>Repubblica d'Italia</a> <a>Traffico di minori</a></div>`;
+}
+
+function buildCarolaLaRosa() {
+  return `<div class="wiki-notice"><span class="ni">🥗</span><span>Carola la Rosa, detta Rucola, è un'avvocatessa penalista di fama internazionale. Insieme alla sorella <a onclick="navigateTo('Carola Feudo')">Carola Feudo (Rocambolesca)</a>, ha guidato l'accusa nel processo contro <a onclick="navigateTo('Morello')">Morello</a>, <a onclick="navigateTo('Zio di Sbost')">lo Zio di Sbost</a> e <a onclick="navigateTo('AleDoria')">AleDoria</a> per i crimini dell'<a onclick="navigateTo('Isola di Flavio')">Isola di Flavio</a>. Il suo soprannome deriva da un errore di battitura in un verbale d'udienza.</span></div>
+<h1 class="page-title">Carola la Rosa (detta Rucola)</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Carola la Rosa — Rucola</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="rucola.jpg" alt="Carola la Rosa" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1;border-radius:4px" onerror="this.style.display='none'"></div>
+  <div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Il ritratto ufficiale di Carola la Rosa</div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Nome completo</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Carola la Rosa</div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Soprannome</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>Rucola</b> (dal latino <i>eruca</i>, pianta erbacea)</div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Sorella</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Carola Feudo')">Carola Feudo (Rocambolesca)</a></div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Professione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Avvocatessa penalista</div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Specialità</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Crimini economici, riciclaggio, traffico di esseri umani</div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Azione celebre</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Accusa nel processo all'<a onclick="navigateTo('Isola di Flavio')">Isola di Flavio</a> (247–248 dM)</div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Frase celebre</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">«La legge non è un'insalata. Si mangia tutta, anche le parti amare.»</div></div></td></tr>
+  </table>
+</div>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#origini-cr">Origini e formazione</a></li>
+    <li><a href="#nome-cr">Il soprannome "Rucola" — un errore di battitura</a></li>
+    <li><a href="#carriera-cr">La carriera e la fama</a></li>
+    <li><a href="#processo-cr">Il processo all'Isola di Flavio</a></li>
+    <li><a href="#eredita-cr">L'eredità e il presente</a></li>
+  </ol>
+</div>
+
+<h2 id="origini-cr">Origini e formazione <span class="edit-link" onclick="openEditor('Carola la Rosa')">[modifica]</span></h2>
+<p><b>Carola la Rosa</b> nacque a Napoli nel <b>200 dM</b> (2117 d.C.) da una famiglia di magistrati. Il padre, Giudice la Rosa, era noto per la sua severità; la madre, avvocatessa, per la sua capacità di arringare le giurie. Carola crebbe in un ambiente in cui la legge era la seconda lingua di famiglia — dopo il napoletano, naturalmente. Studiò giurisprudenza all'Università di Napoli, laureandosi con lode nel <b>222 dM</b> con una tesi sul riciclaggio di denaro nelle organizzazioni criminali del Salento.</p>
+<p>Dopo la laurea, lavorò come assistente del padre, poi come pubblico ministero a Castri. La sua carriera decollò quando smantellò una rete di contrabbando di opere d'arte tra la Nigeria Spartiana e l'America degli Avengers. Da quel momento, divenne la penalista più temuta della penisola.</p>
+
+<h2 id="nome-cr">Il soprannome "Rucola" — un errore di battitura <span class="edit-link" onclick="openEditor('Carola la Rosa')">[modifica]</span></h2>
+<p>Il soprannome <b>Rucola</b> ha un'origine curiosa e involontaria. Nel <b>230 dM</b>, durante un processo per frode fiscale, il cancelliere del tribunale di Napoli scrisse il nome di Carola in modo errato nel verbale d'udienza: invece di «Carola la Rosa», scrisse «Carola la Rucola». L'errore fu dovuto a un refuso — il cancelliere aveva mangiato un'insalata di rucola a pranzo e il suo cervello, stanco, aveva associato il nome all'ortaggio.</p>
+<p>Carola, quando lesse il verbale, rise per cinque minuti di fila. Poi decise di tenere il soprannome. «Rucola» disse, «è amara, piccante, e non piace a tutti. Esattamente come me.» Da quel giorno, nei circoli legali, viene chiamata affettuosamente «Rucola». Lei stessa firma talvolta i suoi pareri con un disegno di una foglia di rucola accanto al nome.</p>
+
+<h2 id="carriera-cr">La carriera e la fama <span class="edit-link" onclick="openEditor('Carola la Rosa')">[modifica]</span></h2>
+<p>Carola la Rosa è specializzata in crimini economici, riciclaggio e traffico di esseri umani. Ha vinto quarantatré casi su quarantacinque, con una percentuale di successo che i suoi colleghi definiscono «imbarazzante per l'accusa». Il suo metodo è meticoloso: passa mesi a studiare i documenti, a trovare le incongruenze, a costruire castelli di prove che crollano solo se l'imputato ha un alibi di ferro. E anche in quel caso, spesso il castello resiste.</p>
+<p>È nota anche per il suo stile in aula: parla piano, quasi sussurra, ma ogni parola è tagliente come una lama. I giudici la ascoltano con attenzione. Gli avvocati della difesa la temono. Gli imputati, quando la vedono alzarsi in piedi, sanno che la partita è già cominciata e che loro sono in svantaggio.</p>
+
+<h2 id="processo-cr">Il processo all'Isola di Flavio (247–248 dM) <span class="edit-link" onclick="openEditor('Carola la Rosa')">[modifica]</span></h2>
+<p>Il caso più importante della sua carriera fu il processo all'<a onclick="navigateTo('Isola di Flavio')">Isola di Flavio</a>. Insieme alla sorella <a onclick="navigateTo('Carola Feudo')">Carola Feudo (Rocambolesca)</a>, Carola costruì un impianto accusatorio che fece tremare le fondamenta del <a onclick="navigateTo('Regno d\'Italia')">Regno d'Italia</a>. Le prove erano centinaia: lettere cifrate, registri contabili, testimonianze di vittime e complici. Carola le organizzò in una sequenza logica così serrata che la difesa, per quanto abile, non riuscì mai a trovare un varco.</p>
+<p>Il momento più alto fu quando Carola lesse in aula la lettera originale di Morello allo Zio di Sbost, decifrata con il codice Morello. La lettera, scritta di pugno da Morello, diceva: <i>«Accetto. Ma voglio il controllo della sicurezza. E voglio che i minori siano selezionati con cura. Non voglio problemi.»</i> L'aula rimase in silenzio. Poi Carola si girò verso Morello e chiese: «Riconosce la sua scrittura, eccellenza?» Morello non rispose. Ma il suo silenzio fu più eloquente di qualsiasi parola.</p>
+
+<h2 id="eredita-cr">L'eredità e il presente <span class="edit-link" onclick="openEditor('Carola la Rosa')">[modifica]</span></h2>
+<p>Dopo la condanna di Morello, dello Zio di Sbost e l'abdicazione di AleDoria, Carola la Rosa divenne un'icona nazionale. Fu proposta come primo rappresentante della <b>Repubblica d'Italia</b> nel 249 dM, ma rifiutò. «La politica non fa per me» disse. «Preferisco le aule dei tribunali. Lì si fa giustizia. In Parlamento si fa compromesso.»</p>
+<p>Oggi Carola la Rosa vive a Napoli, in una casa con un grande giardino dove coltiva — ironia della sorte — rucola. Ogni volta che qualcuno le chiede del suo soprannome, sorride e offre un'insalata. Nessuno ha mai rifiutato.</p>
+
+<div class="stub-box" style="background:#eaf3fb;border-left-color:#3680b0">
+  <span style="font-size:22px">🥗</span>
+  <span><b>«La legge non è un'insalata. Si mangia tutta, anche le parti amare.»</b> — Carola la Rosa, detta Rucola.</span>
+</div>
+
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Avvocati</a> <a>Penalisti</a> <a>Figure della Repubblica d'Italia</a> <a>Processo all'Isola di Flavio</a></div>`;
+}
+
+function buildCarolaFeudo() {
+  return `<div class="wiki-notice"><span class="ni">🎪</span><span>Carola Feudo, detta Rocambolesca, è un'avvocatessa penalista di fama internazionale. Insieme alla sorella <a onclick="navigateTo('Carola la Rosa')">Carola la Rosa (Rucola)</a>, ha guidato l'accusa nel processo contro <a onclick="navigateTo('Morello')">Morello</a>, <a onclick="navigateTo('Zio di Sbost')">lo Zio di Sbost</a> e <a onclick="navigateTo('AleDoria')">AleDoria</a> per i crimini dell'<a onclick="navigateTo('Isola di Flavio')">Isola di Flavio</a>. Il suo soprannome le fu dato da un giudice dopo un'udienza memorabile.</span></div>
+<h1 class="page-title">Carola Feudo (detta Rocambolesca)</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Carola Feudo — Rocambolesca</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="rocmambo.jpg" alt="Carola Feudo" style="width:100%;max-width:200px;display:block;margin:0 auto;border:1px solid #a2a9b1;border-radius:4px" onerror="this.style.display='none'"></div>
+  <div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Carola Feudo in aula — il suo stile inconfondibile</div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Nome completo</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Carola Feudo</div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Soprannome</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>Rocambolesca</b> (dal francese <i>rocambolesque</i>, avventuroso e incredibile)</div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Sorella</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Carola la Rosa')">Carola la Rosa (Rucola)</a></div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Professione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Avvocatessa penalista</div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Specialità</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Crimini contro l'infanzia, traffico di esseri umani, reati sessuali</div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Azione celebre</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Accusa nel processo all'<a onclick="navigateTo('Isola di Flavio')">Isola di Flavio</a> (247–248 dM)</div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Frase celebre</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">«La verità è come un funambolo: ha bisogno di equilibrio per non cadere. Io sono la rete.»</div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Origine soprannome</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Giudice Fontana — dopo l'udienza del 12 marzo 247 dM</div></div></td></tr>
+  </table>
+</div>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#origini-cf">Origini e formazione</a></li>
+    <li><a href="#soprannome-cf">Il soprannome "Rocambolesca" — l'udienza del 12 marzo</a></li>
+    <li><a href="#stile-cf">Lo stile Rocambolesco</a></li>
+    <li><a href="#sorella-cf">Il rapporto con la sorella Rucola</a></li>
+    <li><a href="#processo-cf">Il processo all'Isola di Flavio</a>
+      <ol><li><a href="#testimone-cf">Il testimone chiave e la svolta</a></li></ol>
+    </li>
+    <li><a href="#eredita-cf">L'eredità e il presente</a></li>
+  </ol>
+</div>
+
+<h2 id="origini-cf">Origini e formazione <span class="edit-link" onclick="openEditor('Carola Feudo')">[modifica]</span></h2>
+<p><b>Carola Feudo</b> nacque a Napoli nel <b>202 dM</b> (2119 d.C.) da una famiglia di magistrati, due anni dopo la sorella Carola la Rosa. Se la sorella maggiore era seria e metodica, Carola Feudo era l'opposto: esuberante, teatrale, capace di trasformare un'aula di tribunale in un palcoscenico. Il padre, Giudice la Rosa, diceva di lei: «Carola non è un'avvocatessa. È un'artista che ha scelto la legge come tela.»</p>
+<p>Studiò giurisprudenza all'Università di Napoli, laureandosi con lode nel <b>224 dM</b> con una tesi sulla protezione dei minori nei procedimenti penali. La sua carriera iniziò come avvocata d'ufficio, difendendo chi non poteva permettersi un difensore. Fu lì che sviluppò la sua famosa "empatia selettiva" — la capacità di entrare in sintonia con le vittime senza perdere mai di vista la verità processuale.</p>
+
+<h2 id="soprannome-cf">Il soprannome "Rocambolesca" — l'udienza del 12 marzo <span class="edit-link" onclick="openEditor('Carola Feudo')">[modifica]</span></h2>
+<p>Il soprannome <b>Rocambolesca</b> nacque durante l'udienza del <b>12 marzo 247 dM</b>, la prima del processo all'Isola di Flavio. Carola Feudo stava interrogando un testimone chiave — un ex-sicario dell'isola che aveva assistito personalmente ai crimini. La difesa, composta dai migliori avvocati che i soldi di Morello e dello Zio di Sbost potessero comprare, tentò in ogni modo di far cadere la testimonianza.</p>
+<p>Carola non si lasciò intimidire. In una sequenza di domande che durò oltre due ore, smontò punto per punto le obiezioni della difesa, portò alla luce contraddizioni che nessuno aveva notato, e alla fine strappò al testimone la confessione più importante: <i>«Morello era presente. Lo vidi con i miei occhi. Diede l'ordine di selezionare i minori con cura.»</i></p>
+<p>Alla fine dell'udienza, il presidente del tribunale, Giudice Ambrogio Fontana, si tolse gli occhiali, guardò Carola e disse: «Avvocato Feudo, quello che ho appena visto è stato semplicemente rocambolesco.» Il soprannome rimase. Carola lo accolse con un sorriso. «Rocambolesca» ripeté. «Mi piace. Suona come una che non molla mai.»</p>
+
+<h2 id="stile-cf">Lo stile Rocambolesco <span class="edit-link" onclick="openEditor('Carola Feudo')">[modifica]</span></h2>
+<p>Carola Feudo è nota per il suo stile inconfondibile in aula. A differenza della sorella Rucola, che parla piano e colpisce con la logica, Rocambolesca è un turbine di energia. Gesticola, si alza in piedi, cammina tra i banchi, si avvicina ai testimoni fin quasi a toccarli. I giudici a volte la richiamano all'ordine. Lei sorride, si scusa, e continua.</p>
+<p>La sua strategia è semplice: rendere la verità così evidente che nessuno possa ignorarla. «La legge è complicata» dice. «La verità no. La verità è semplice. A volte fa male. Ma è semplice.» Questa filosofia l'ha portata a vincere quarantuno casi su quarantatré — una percentuale leggermente inferiore a quella della sorella, ma ottenuta con casi più difficili e testimoni più reticenti.</p>
+<p>È anche nota per il suo guardaroba: indossa sempre tailleur colorati — rosso, giallo, viola — che la fanno risaltare in aula. «Il nero» dice, «lo lascio agli imputati. Io porto i colori della verità.»</p>
+
+<h2 id="sorella-cf">Il rapporto con la sorella Rucola <span class="edit-link" onclick="openEditor('Carola Feudo')">[modifica]</span></h2>
+<p>Il rapporto tra le due sorelle è complesso e affettuoso. Carola la Rosa (Rucola) è la maggiore, più riflessiva, più metodica. Carola Feudo (Rocambolesca) è la minore, più impulsiva, più teatrale. Insieme formano una squadra quasi perfetta: Rucola prepara l'impianto accusatorio con precisione chirurgica, Rocambolesca lo presenta in aula con la forza di un ciclone.</p>
+<p>«Mia sorella» dice Rucola, «è il martello. Io sono lo scalpello. Il martello rompe le difese. Lo scalpello scolpisce la verità.» Rocambolesca, dal canto suo, dice: «Mia sorella è la mappa. Io sono la strada. La mappa ti dice dove andare. La strada ti ci porta.»</p>
+<p>Non sempre sono d'accordo. Durante la preparazione del processo all'Isola di Flavio, litigarono per giorni sull'ordine in cui presentare le prove. Alla fine, trovarono un compromesso: Rucola avrebbe gestito i documenti, Rocambolesca i testimoni. Funzionò.</p>
+
+<h2 id="processo-cf">Il processo all'Isola di Flavio (247–248 dM) <span class="edit-link" onclick="openEditor('Carola Feudo')">[modifica]</span></h2>
+<p>Il caso più importante della sua carriera fu il processo all'<a onclick="navigateTo('Isola di Flavio')">Isola di Flavio</a>. Mentre la sorella Rucola si occupava dei documenti — lettere cifrate, registri contabili, transazioni bancarie — Rocambolesca gestì i testimoni. Erano decine: ex dipendenti dell'isola, vittime sopravvissute, complici pentiti. Carola li preparò uno a uno, con pazienza infinita. Ascoltava le loro storie, le rielaborava, le restituiva in aula con una potenza che faceva piangere i giurati.</p>
+
+<h3 id="testimone-cf">Il testimone chiave e la svolta</h3>
+<p>Il momento più alto del processo fu quando Carola chiamò a testimoniare l'ex-sicario dell'isola. L'uomo, che aveva passato anni a scortare minorenni nelle camere di politici e generali, era terrorizzato. Sapeva che Morello e lo Zio di Sbost avevano contatti ovunque. Sapeva che se avesse parlato, la sua vita sarebbe stata in pericolo.</p>
+<p>Carola lo guardò. Poi, con una calma che nessuno si aspettava da lei, gli chiese: «Quanti anni ha il più giovane che ha portato in quella stanza?» L'uomo non rispose. «Glielo chiedo ancora» ripeté Carola. «Quanti anni?» L'uomo abbassò lo sguardo. «Dodici» sussurrò. «Dodici anni.»</p>
+<p>L'aula esplose. I giornalisti scrivevano freneticamente. I giudici si scambiarono sguardi. Carola non si fermò. Per tre ore, con una sequenza di domande che i cronisti definirono «spietata e magistrale», fece uscire dall'uomo ogni dettaglio: i nomi, le date, i luoghi, gli ordini. Alla fine, l'uomo si rivolse a Morello e allo Zio di Sbost e disse: «Voi non siete nemmeno degni di stare in cella con la gente che avete rovinato.»</p>
+<p>Fu il momento che decise il processo. La sentenza arrivò il 15 settembre 248 dM: Morello e Zio di Sbost condannati all'ergastolo. AleDoria costretto ad abdicare. Carola Feudo uscì dal tribunale con la sorella, si abbracciarono, e non dissero nulla. Non c'era bisogno.</p>
+
+<h2 id="eredita-cf">L'eredità e il presente <span class="edit-link" onclick="openEditor('Carola Feudo')">[modifica]</span></h2>
+<p>Dopo il processo, Carola Feudo divenne un'icona nazionale insieme alla sorella. Fu proposta come giudice della Corte Suprema della Repubblica d'Italia nel 250 dM, ma rifiutò. «Preferisco stare in aula» disse. «Da giudice si giudica. Da avvocato si lotta. Io sono nata per lottare.»</p>
+<p>Oggi Carola Feudo vive a Napoli, in una casa vicino a quella della sorella. Ogni domenica pranzano insieme. Rucola porta l'insalata di rucola. Rocambolesca porta il dolce. Non parlano mai dei processi. Quando qualcuno glielo chiede, sorridono e cambiano argomento. «Quello» dice Rocambolesca, «è lavoro. Questo è famiglia. Non si mescolano.»</p>
+<p>Il suo soprannome è ormai leggenda. Nei tribunali di tutta Italia, quando un avvocato fa una mossa particolarmente audace, i colleghi dicono: «Ha fatto una Rocambolesca.» Carola Feudo, quando lo sente, sorride. «Sono onorata» dice. «Ma nessuno può fare una Rocambolesca come me. Ci vuole il tailleur colorato.»</p>
+
+<div class="stub-box" style="background:#eaf3fb;border-left-color:#3680b0">
+  <span style="font-size:22px">🎪</span>
+  <span><b>«La verità è come un funambolo: ha bisogno di equilibrio per non cadere. Io sono la rete.»</b> — Carola Feudo, detta Rocambolesca.</span>
+</div>
+
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Avvocati</a> <a>Penalisti</a> <a>Figure della Repubblica d'Italia</a> <a>Processo all'Isola di Flavio</a> <a>Sorelle celebri</a></div>`;
+}
 
 // ══════════════════════════════════════════════════════
 //  GLOBO INTERATTIVO — pagina principale
