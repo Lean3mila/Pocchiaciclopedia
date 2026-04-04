@@ -1056,7 +1056,9 @@ clearfix::after { content: ''; display: block; clear: both; }
     <h4>Religione e sistema di datazione</h4>
     <a onclick="navigateTo('Topismo')">Topismo</a>
     <a onclick="navigateTo('Calendario Morello')">Calendario Morello</a>
-    <a onclick="navigateTo('Morellanesimo')">Morellanesimo</a>
+     <a onclick="navigateTo('Ebraismo')"><b>Ebraismo</b></a>
+    <a onclick="navigateTo('Nestola')"><b>Nestola (il Medico Nano)</b></a>
+
   </div>
 
   <div class="sb-section">
@@ -1407,6 +1409,8 @@ const DEFAULT_PAGES = {
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
   <li><a onclick="navigateTo('Topismo')"><b>Topismo</b></a> — La religione dei Ludotopici, fondata dal Topus Maximus.</li>
   <li><a onclick="navigateTo('Calendario Morello')"><b>Calendario Morello</b></a> — Il sistema di datazione usato in questa enciclopedia.</li>
+  <li><a onclick="navigateTo('Ebraismo')"><b>Ebraismo</b></a> - Religione creata dopo le ricerche di Nestola, crede in Ludo ma non nelle sue false reincarnazioni.</li>
+  <li><a onclick="navigateTo('Nestola')"><b>Nestola (il Medico Nano)</b></a> - Colui che ha rotto il Topismo in due, come ha rotto la casa di Bomber.</li>
 </ul>
 
 <h2>Guerre</h2>
@@ -1968,6 +1972,8 @@ DEFAULT_PAGES["New York Inglese"] = { title: "New York Inglese (New London)", co
 DEFAULT_PAGES["Isola di Flavio"] = { title: "Isola di Flavio", content: buildIsolaDiFlavio(), wikitext: "", history: [] };
 DEFAULT_PAGES["Carola La Rosa"] = { title: "Carola La Rosa", content: buildCarolaLaRosa(), wikitext: "", history: [] };
 DEFAULT_PAGES["Carola Feudo"] = { title: "Carola Feudo", content: buildCarolaFeudo(), wikitext: "", history: [] };
+DEFAULT_PAGES["Ebraismo"] = { title: "Ebraismo", content: buildEbraismo(), wikitext: "", history: [] };
+DEFAULT_PAGES["Nestola"] = { title: "Nestola (il Medico Nano)", content: buildNestola(), wikitext: "", history: [] };
 
 
 function buildSalDaSpicci() {
@@ -2374,6 +2380,9 @@ function buildFondamenta() {
 
 <h2>Ricezione <span class="edit-link" onclick="openEditor('F.O.N.D.A.M.E.N.T.A.')">[modifica]</span></h2>
 <p>La comunità scientifica accolse le F.O.N.D.A.M.E.N.T.A. con una divisione che non si è mai sanata: la parte fisicamente verificabile della teoria fu considerata brillante; la parte metafisica fu considerata «ambiziosa» (dagli entusiasti) o «fuori dai canoni» (dagli scettici). I Ludotopici la adottarono immediatamente come testo sacro laico. Gildo disse che «la verità non appartiene a chi la usa» e non aggiunse altro. Le <a onclick="navigateTo('L.E.G.G.I.')">L.E.G.G.I.</a> dell'<a onclick="navigateTo('Ignoto di Napoli')">Ignoto di Napoli</a>, pubblicate in forma anonima nello stesso decennio, forniscono il complemento empirico che le F.O.N.D.A.M.E.N.T.A. lasciano aperto.</p>
+
+<h2>Avviso sull'uso liturgico — 147 dM <span class="edit-link" onclick="openEditor('F.O.N.D.A.M.E.N.T.A.')">[modifica]</span></h2>
+<div class="wiki-notice" style="background:#fff3cd;border-left-color:#ffc107"><span class="ni">⚠️</span><span>Nel <b>147 dM</b>, le ricerche di <a onclick="navigateTo('Nestola')">Nestola</a> hanno dimostrato che il <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> e <a onclick="navigateTo('Bomber')">Bomber</a> erano impostori privi di attributi divini. Poiché i Ludotopici avevano adottato le F.O.N.D.A.M.E.N.T.A. come testo sacro in virtù dell'autorità del Topus Maximus, l'uso liturgico di quest'opera è ora basato su una fondazione rivelatasi fraudolenta. Questo non invalida la parte scientificamente verificabile della teoria, ma qualsiasi lettura teologica del testo deve tenere conto di questa circostanza.</span></div>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Fisica teorica</a> <a>Cosmologia</a> <a>Ermenegildo Spisso</a> <a>Topismo</a> <a>Testi fondamentali</a></div>`;
 }
@@ -2432,6 +2441,8 @@ function buildMilleOcchiLudo() {
 <p>Per i credenti, I Mille Occhi di Ludo hanno un profondo significato spirituale. Sono il promemoria che ogni azione è osservata, ogni pensiero è noto, ogni preghiera è ascoltata. «Non c'è bisogno di gridare» dice un detto topista. «Ludo ti vede. Ludo ti sente. Anche se sussurri, uno dei mille occhi sta guardando proprio dove sei.»</p>
 <p>Pregare di notte, sotto le stelle, è considerato particolarmente efficace: si è più vicini agli occhi di Ludo, e le stelle brillano più forti quando non c'è il Sole a distrarre. I bambini topisti imparano fin da piccoli a salutare le stelle prima di andare a dormire, ringraziando Ludo per aver tenuto gli occhi aperti un altro giorno.</p>
 <p>E quando una stella cade — un evento raro e spettacolare — i Ludotopici dicono che Ludo ha sbattuto le palpebre. Per un istante, un occhio si è chiuso. E in quell'istante, se si è abbastanza veloci, si può chiedere una grazia prima che si riapra.</p>
+
+<div class="wiki-notice" style="background:#fff3cd;border-left-color:#ffc107"><span class="ni">⚠️</span><span>Nel <b>147 dM</b>, le ricerche di <a onclick="navigateTo('Nestola')">Nestola</a> hanno dimostrato che le figure divine del <a onclick="navigateTo('Topismo')">Topismo</a> erano impostori umani. Questa scoperta ha causato una crisi nella comunità dei Ludotopici. Alcune sezioni di questa voce — in particolare la visione topista degli Occhi di Ludo — riflettono una tradizione religiosa oggi contestata. Le informazioni astronomiche e cosmologiche rimangono valide indipendentemente dalle questioni teologiche.</span></div>
 
 <div class="stub-box" style="background:#0a1a2a;border-left-color:#ffaa44;color:#ffdd99">
   <span style="font-size:22px">✨</span>
@@ -2553,6 +2564,9 @@ function buildLeggi() {
 
 <h2>Il mistero dell'autore <span class="edit-link" onclick="openEditor('L.E.G.G.I.')">[modifica]</span></h2>
 <p>Nonostante decenni di ricerche, l'identità di Specchia è rimasta sconosciuta. L'ipotesi più accreditata è che si tratti di un professore dell'Università di Napoli che scelse l'anonimato per ragioni accademiche — all'epoca, una teoria che citava esplicitamente la volontà divina come costante fisica non era esattamente un biglietto da visita per la carriera universitaria. La seconda ipotesi è che fosse un Ludotopico con formazione scientifica. La terza — sostenuta da una piccola ma appassionata scuola di pensiero — è che Specchia fosse lo stesso <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a>, che avrebbe scritto il complemento empirico del proprio lavoro teorico sotto pseudonimo. A sostegno di questa tesi c'è anche un'interpretazione del nome scelto: <b>Specchia come Specchio</b> — ovvero un riflesso di Gildo, il suo alter ego empirico, il volto che guardava il mondo dal lato opposto della stessa verità. Gildo non commentò mai questa ipotesi, il che è stato interpretato sia come smentita che come conferma, a seconda di chi lo interpreta.</p>
+
+<h2>Avviso sull'uso liturgico — 147 dM <span class="edit-link" onclick="openEditor('L.E.G.G.I.')">[modifica]</span></h2>
+<div class="wiki-notice" style="background:#fff3cd;border-left-color:#ffc107"><span class="ni">⚠️</span><span>Nel <b>147 dM</b>, le ricerche di <a onclick="navigateTo('Nestola')">Nestola</a> hanno dimostrato che il <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> e <a onclick="navigateTo('Bomber')">Bomber</a> erano impostori. Le L.E.G.G.I. sono state usate dai Ludotopici come testo liturgico in virtù dell'autorità di queste figure — autorità rivelatasi fraudolenta. Come per le <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')">F.O.N.D.A.M.E.N.T.A.</a>, la parte scientificamente verificabile resta valida, ma qualsiasi lettura teologica deve tenere conto di questa circostanza.</span></div>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Fisica empirica</a> <a>Leggi cosmiche</a> <a>Ignoto di Napoli</a> <a>Topismo</a> <a>Testi anonimi</a></div>`;
 }
@@ -2657,6 +2671,9 @@ function buildLudovicoPioTommasi() {
 
 <h2 id="incarnazione-l">L'incarnazione: il Topus Maximus <span class="edit-link" onclick="openEditor('Ludovico Pio Tommasi')">[modifica]</span></h2>
 <p>Nell'anno 90 dM, in seguito agli incendi di <a onclick="navigateTo('Serrano')">Serrano</a>, Ludovico Pio Tommasi scelse di incarnarsi nel mondo come <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> — Dio fatto uomo, o più precisamente: Re dei topi fatto topista. L'incarnazione aveva lo scopo di ripristinare l'ordine a Serrano, rivelare il vero Dio del mondo ai suoi abitanti e fondare il <a onclick="navigateTo('Topismo')">Topismo</a>. Due di queste tre cose riuscirono bene. La terza si concluse nel 103 dM con uno scoppulamento.</p>
+
+<h2 id="rettifica-l">Rettifica sull'incarnazione — 147 dM <span class="edit-link" onclick="openEditor('Ludovico Pio Tommasi')">[modifica]</span></h2>
+<div class="wiki-notice" style="background:#fff3cd;border-left-color:#ffc107"><span class="ni">⚠️</span><span>Nel <b>147 dM</b>, le ricerche di <a onclick="navigateTo('Nestola')">Nestola</a> hanno dimostrato che il Topus Maximus <b>non era</b> un'incarnazione di Ludovico Pio Tommasi. Era <b>Phil Patai</b>, nato a Calimera, un essere umano senza poteri divini. Suo figlio <b>Pio Patai</b> (alias <a onclick="navigateTo('Bomber')">Bomber</a>) continuò la frode. Le prove includono la corrispondenza anagrafica, l'esperimento in Anatolia del 146 dM, e l'assenza di qualsiasi potere verificabile in entrambi i soggetti. Questa voce descrive la dottrina topista tradizionale, che attribuisce a Ludovico un'incarnazione terrena. Tale dottrina è ora contestata dalle ricerche di Nestola e rigettata dall'<a onclick="navigateTo('Ebraismo')">Ebraismo</a>, che mantiene la fede in Ludo ma rifiuta le false incarnazioni.</span></div>
 
 <h2 id="culto-l">Il Topismo <span class="edit-link" onclick="openEditor('Ludovico Pio Tommasi')">[modifica]</span></h2>
 <p>La religione fondata dal Topus Maximus in nome di Ludovico è il <a onclick="navigateTo('Topismo')">Topismo</a>. I fedeli, detti <b>Ludotopici</b>, venerano Ludovico come creatore e padre, il Topus Maximus come suo figlio incarnato e martire, e i topi come simbolo della condizione umana. Il Topismo è sopravvissuto alla morte del suo fondatore terreno con la solidità tipica delle religioni che hanno subìto un martirio spettacolare.</p>
@@ -2951,6 +2968,11 @@ function buildTopusMaximus() {
 
 <h2 id="eredita-tm">L'eredità <span class="edit-link" onclick="openEditor('Topus Maximus')">[modifica]</span></h2>
 <p>Un anno dopo la morte del Topus Maximus, nel 104 dM, i <b>Ludotopici</b> guidati dalla <a onclick="navigateTo('Cheddar Mussolini')">Strega Cheddar Mussolini</a> organizzarono la <b>Marcia su Serrano</b>, ripresero il controllo della città e instaurarono la <b>dittatura topista</b>. Era, nelle intenzioni dichiarate, una vendetta per il martirio. Era, nei fatti, una presa di potere. Queste due cose non si escludono necessariamente.</p>
+
+<h3 id="identita-tm">La vera identità — Phil Patai <span class="edit-link" onclick="openEditor('Topus Maximus')">[modifica]</span></h3>
+<p>Le ricerche di <a onclick="navigateTo('Nestola')">Nestola</a> hanno dimostrato che Topus Maximus non era il figlio di Ludo. Era <b>Phil Patai</b>, nato a <a onclick="navigateTo('Calimera')">Calimera</a> intorno all'anno della presunta apparizione. Phil scomparve dai registri anagrafici quando avrebbe dovuto avere circa 18 anni — proprio l'età in cui Topus Maximus comparve a Serrano. Non aveva poteri divini. Era un impostore.</p>
+<p>Anni dopo, suo figlio <b>Pio Patai</b> avrebbe preso il suo posto come <a onclick="navigateTo('Bomber')">Bomber</a>, continuando la frode. La somiglianza tra Topus e Bomber non era miracolosa: era ereditaria. Padre e figlio, due impostori, una stessa menzogna.</p>
+
 <div class="stub-box"><span style="font-size:22px">🐀</span><span>Il Topus Maximus è venerato come martire. Contestare questa classificazione è tecnicamente eretico secondo il diritto topista.</span></div>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Topismo</a> <a>Martiri</a> <a>Incarnazioni divine</a> <a>Serrano</a> <a>Figure messianiche</a></div>`;
@@ -3042,6 +3064,11 @@ function buildTopismo() {
 <p>Nel <b>131 dM</b>, ventotto anni dopo la scoppulazione, il Topus Maximus tornò. Le <b>Streghe Topiste</b> — fedelissime che non avevano mai abbandonato la fede — si riunirono in segreto a Serrano e compirono il rito della resurrezione. Non fu facile: ci vollero tre notti, sette candele di Cheddar, e la recitazione integrale delle <a onclick="navigateTo('L.E.G.G.I.')">L.E.G.G.I.</a> al contrario. Ma funzionò.</p>
 <p>Il Topus Maximus uscì dalla tomba e annunciò un nuovo nome: <b><a onclick="navigateTo('Bomber')">Bomber</a></b>. «Ho già fatto il figlio di Dio» disse. «Ora faccio gol.» Il suo ritorno fu celebrato in tutta la comunità topista come il segno che la fede non muore mai.</p>
 
+<h2 id="crisi-t">La crisi dell'Ebraismo — la scoperta di Nestola (147 dM) <span class="edit-link" onclick="openEditor('Topismo')">[modifica]</span></h2>
+<p>Nel <b>147 dM</b>, <a onclick="navigateTo('Nestola')">Nestola</a> pubblicò le sue ricerche. Dimostrò che <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> era <b>Phil Patai</b> di Calimera, e <a onclick="navigateTo('Bomber')">Bomber</a> era <b>Pio Patai</b> di Serrano, suo figlio. Padre e figlio avevano orchestrato una frode durata decenni, fingendosi il figlio di Dio per ottenere potere. I loro poteri erano fittizi. I loro miracoli erano trucchi. La loro resurrezione era un cambio di persona.</p>
+<p>La reazione dei Topisti fu divisa. Alcuni rifiutarono le prove, aggrappandosi alla fede. Altri, sconvolti, abbandonarono il Topismo. Molti di questi si convertirono all'<b><a onclick="navigateTo('Ebraismo')">Ebraismo</a></b>, la nuova fede fondata da Nestola, che mantiene la fede in Ludo ma rifiuta le sue false incarnazioni.</p>
+<p>Oggi il Topismo è una religione in declino. Le sue comunità si sono ridotte, le sue chiese sono semivuote. Ma esiste ancora. La fede, anche quando è basata sulla menzogna, è difficile da estirpare.</p>
+
 <h2 id="oggi-t">Il Topismo oggi <span class="edit-link" onclick="openEditor('Topismo')">[modifica]</span></h2>
 <p>Dopo la distruzione di Serrano, i Ludotopici si sono sparsi per il mondo. Non hanno più una città santa, non hanno più una gerarchia centrale. Ma la fede è sopravvissuta. Si riuniscono in case private, in cantine, in luoghi segreti dove nessuno li cerca. La dottrina è tramandata oralmente, di generazione in generazione. I bambini topisti imparano fin da piccoli a salutare le stelle prima di andare a dormire, ringraziando Ludo per aver tenuto gli occhi aperti un altro giorno.</p>
 <p>Con il ritorno del Topus Maximus come Bomber, molti hanno ripreso a sperare. Ogni anno, il 15 Luglio, i Ludotopici si riuniscono a Corigliano per assistere alla partita tra Bomber e Renna, e per ricordare che anche dopo la fine, dopo la bomba, dopo la dittatura, la fede può tornare. Come Bomber. Come i mille occhi di Ludo che non si chiudono mai.</p>
@@ -3074,6 +3101,10 @@ function buildSerrano() {
     <tr><td>Ricostruzione</td><td><b>109 dM</b> — Alessio Spisso² e Zella</td></tr>
     <tr><td>Stato attuale</td><td><b>Città volante</b> — immune alla Bomba Spissica · base degli Avengers</td></tr>
     <tr><td>Scoperta nel sottosuolo</td><td><a onclick="navigateTo('Minerale Spisso')">Minerale Spisso</a> (117 dM)</td></tr>
+    <tr><td>Abdicazione di Alessio</td><td><b>156 dM</b> — prima democrazia di Serrano</td></tr>
+    <tr><td>Repubblica di Serrano</td><td><b>156–231 dM</b> — Pentanarchia dei <a onclick="navigateTo('I Puma')">Puma</a></td></tr>
+    <tr><td>Referendum unificazione</td><td><b>230 dM</b> — 62% SI, 38% NO</td></tr>
+    <tr><td>Unificazione</td><td><b>231 dM</b> — Stato autonomo del <a onclick="navigateTo('Regno d\'Italia')">Regno d'Italia</a></td></tr>
   </table>
 </div>
 
@@ -3087,6 +3118,9 @@ function buildSerrano() {
   <li><a href="#fine-s">La fine — 107 dM</a></li>
   <li><a href="#ritorno-s">Il ritorno — 109 dM</a></li>
   <li><a href="#terza-s">La Terza Guerra e la fine di Alex (111–119 dM)</a></li>
+  <li><a href="#alessio-s">L'abdicazione di Alessio — 156 dM</a></li>
+  <li><a href="#repubblica-s">La Repubblica di Serrano (156–231 dM)</a></li>
+  <li><a href="#referendum-s">Il referendum del 230 dM e l'unificazione</a></li>
 </ol></div>
 
 <h2 id="origini-s">Origini e separazione da Napoli <span class="edit-link" onclick="openEditor('Serrano')">[modifica]</span></h2>
@@ -3144,9 +3178,20 @@ function buildSerrano() {
     <div style="padding:4px 8px 8px;color:#54595d;font-style:italic">Dal 109 dM. Immune alla Bomba. In volo.</div>
   </div>
 </div>
-<div class="stub-box"><span style="font-size:22px">⚡</span><span>Serrano esiste di nuovo — e ora vola. Vedi <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers</a>.</span></div>
+<h2 id="alessio-s">L'abdicazione di Alessio — 156 dM <span class="edit-link" onclick="openEditor('Serrano')">[modifica]</span></h2>
+<p>Nel <b>156 dM</b>, <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a> — che aveva governato Serrano per decenni dopo la Terza Guerra — convocò una riunione pubblica. Il suo messaggio fu breve: <i>«Non voglio più governare. Voglio vivere. Serrano deve scegliere da sola il suo futuro.»</i> Fu il primo atto di abdicazione volontaria nella storia della città. Non fu imposta da rivoluzioni né da pressioni esterne. Alessio si alzò, lasciò il palazzo, e non tornò a fare politica.</p>
+
+<h2 id="repubblica-s">La Repubblica di Serrano (156–231 dM) <span class="edit-link" onclick="openEditor('Serrano')">[modifica]</span></h2>
+<p>Dopo l'abdicazione di Alessio, i <a onclick="navigateTo('I Puma')">Puma</a> — i cinque maranza che nel 127 dM avevano dipinto diciannove muri di Serrano con slogan democratici — si ricandidarono alle elezioni. Proposero la <b>Pentanarchia</b>: cinque governanti con potere paritario, unanimità obbligatoria per ogni decisione, costituzione inamovibile senza referendum. Vinsero con l'87% dei voti.</p>
+<p>Per settantacinque anni Serrano fu governata dalla Repubblica. La Pentanarchia si rivelò stabile. I muri del Vandalismo Democratico, restaurati, diventarono monumento. La vecchia fontana dismessa dove tutto era iniziato nel 127 dM ricevette una targa. Vedi <a onclick="navigateTo('Repubblica di Serrano')">Repubblica di Serrano</a> per i dettagli della costituzione e delle elezioni.</p>
+
+<h2 id="referendum-s">Il referendum del 230 dM e l'unificazione <span class="edit-link" onclick="openEditor('Serrano')">[modifica]</span></h2>
+<p>Nel <b>230 dM</b>, i cittadini di Serrano furono chiamati a esprimersi su un referendum: unirsi al <a onclick="navigateTo('Regno d\'Italia')">Regno d'Italia</a> o rimanere indipendenti. Il risultato fu del <b>62% SI, 38% NO</b>. I Puma si divisero: Nicolò e Maria Grazia votarono Sì; Antonio e Flavia votarono No; Andrea non votò, dicendo che «il voto è segreto, cazzo».</p>
+<p>Il <b>15 Luglio 231 dM</b>, i rappresentanti di Serrano firmarono l'atto di unificazione con il Regno d'Italia come <b>stato autonomo</b>, mantenendo la Pentanarchia, la Costituzione del 156 dM e la propria identità culturale. Serrano continua a volare — immune, ricostruita, autonoma.</p>
+
+<div class="stub-box"><span style="font-size:22px">⚡</span><span>Serrano è volata sopra la sua storia: clan, incendi, martirio, dittatura, bomba, resurrezione, democrazia, unificazione. Ogni strato è ancora lì, sotto le nuove fondamenta. Anche il cratere, anche i muri dei Puma.</span></div>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Città</a> <a>Clan Spisso</a> <a>Topismo</a> <a>La Prima Guerra Pocchiana</a> <a>Bomba Spissica</a> <a>Terza Guerra degli Avengers</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Città</a> <a>Clan Spisso</a> <a>Topismo</a> <a>La Prima Guerra Pocchiana</a> <a>Bomba Spissica</a> <a>Terza Guerra degli Avengers</a> <a>Repubblica di Serrano</a> <a>230 dM</a> <a>Unificazione italiana</a></div>`;
 }
 
 function buildCheddarMussolini() {
@@ -3786,7 +3831,7 @@ function buildMorello() {
     <tr><th>Contatti attuali</th><td>Si dice ancora in contatto con Filippo</td></tr>
     <tr><th>Religione dedicata</th><td><b>Morellanesimo</b></td></tr>
     <tr><th>Profezia</th><td>Tornato nel 104 dM (2021) — profezia avverata</td></tr>
-    <tr><th>Stato attuale</th><td>Prigioniero a Castri dal 115 dM (2032) — nome ufficiale: <b>Morellato Pelato</b></td></tr>
+    <tr><th>Stato attuale</th><td>Prigioniero a Castri dal 115 dM · liberato 156 dM · <b>Diarco di Castri</b> (158 dM) · condannato all'ergastolo (248 dM)</td></tr>
   </table>
 </div>
 <p><b>Morello</b> è una delle figure più enigmatiche e influenti dell'intera storia narrata in questa enciclopedia. Co-governatore di <a onclick="navigateTo('Napoli')">Napoli</a> durante l'Età dell'Oro, scomparso dopo l'eruzione del Vesuvio nell'Anno 17 dM, amico d'infanzia di <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a>, e oggetto di una religione che ne attende il ritorno alla seconda eruzione del Vesuvio — quando, secondo la profezia, Napoli tornerà d'oro.</p>
@@ -3841,9 +3886,21 @@ function buildMorello() {
 <p>Nel <b>109 dM</b> lo Zio di Sbost fondò <a onclick="navigateTo('La Cantina')">La Cantina</a> a Castri con l'obiettivo dichiarato di vendicarsi di Morello conquistando Napoli. Con l'aiuto del nipote <a onclick="navigateTo('AleDoria')">AleDoria</a>, sviluppò gli Sbost Bot e gli <b>Spisso Bot</b> — robot che usano la parola «Spisso» come raggio sonoro. Nel <b>112 dM</b> La Cantina conquistò le <a onclick="navigateTo('Filippine')">Filippine</a>. Nel <b>115 dM</b> arrivò a Napoli.</p>
 <p>Morello fu trovato in bagno. La Cantina lo catturò. La prima cosa che fecero fu tagliargli i capelli — nessun altro sarebbe mai più scomparso lì dentro. Morello, pelato, fu portato nella prigione di Castri con il nome ufficiale di <b>Morellato Pelato</b>.</p>
 <p>L'uomo che era sopravvissuto alla prima eruzione del Vesuvio, aveva governato Napoli per diciassette anni, aveva gestito la Camorra Salentina per ottantasette anni sotto falso nome, era tornato giovane nel 104 dM e aveva pulito Napoli con piogge di cheddar acido — si trovava ora in una prigione salentina, senza capelli, catturato in bagno da un funzionario doganale vendicativo. La Pocchiaciclopedia registra questo senza commento.</p>
-<div class="wiki-notice" style="background:#fff8e1;border-left-color:#f9a825"><span class="ni">🌋</span><span>Nel <b>104 dM</b> Morello ha rivelato la sua identità. Nel <b>115 dM</b> è stato catturato da <a onclick="navigateTo('La Cantina')">La Cantina</a> e si trova nella prigione di Castri come <b>Morellato Pelato</b>.</span></div>
+
+<h2 id="liberazione-m">La liberazione e la diarchia (156–158 dM) <span class="edit-link" onclick="openEditor('Morello')">[modifica]</span></h2>
+<p>Nel <b>156 dM</b>, in seguito alla <a onclick="navigateTo('Rivolta di Castri')">Rivolta di Castri</a> e al <a onclick="navigateTo('Processo a Charlie Sbirk')">processo del 157–158 dM</a>, Morello fu liberato dalla prigione di Castri. Non fu un'amnistia — fu una necessità politica. Castri era senza governo, e il comitato provvisorio cercava figure con esperienza. Morello, per quanto controverso, ne aveva più di chiunque altro: aveva governato Napoli, diretto la Camorra Salentina, e sopravvissuto a quasi tutto ciò che questo universo aveva tentato di riservargli.</p>
+<p>Dopo mesi di trattative, nel <b>158 dM</b> fu annunciata la nuova forma di governo di Castri: una <b>diarchia</b>, sul modello di quella che aveva governato Napoli durante l'Età dell'Oro. I due diarchi erano <b>Morello</b> e <b><a onclick="navigateTo('Zio di Sbost')">lo Zio di Sbost</a></b> — i due nemici che si erano combattuti per decenni governavano ora insieme. La loro prima dichiarazione congiunta fu: <i>«Abbiamo passato anni in prigione per mano di chi aveva promesso libertà. Non permetteremo mai più che ciò accada.»</i></p>
+
+<h2 id="referendum-m">Il referendum del 230 dM <span class="edit-link" onclick="openEditor('Morello')">[modifica]</span></h2>
+<p>Nel <b>230 dM</b>, i cittadini di Castri furono chiamati a votare per l'unificazione con il <a onclick="navigateTo('Regno d\'Italia')">Regno d'Italia</a>. L'89% votò Sì. Morello non commentò il risultato pubblicamente. In privato disse: «L'Italia è un'idea che avevo avuto prima io. Ma AleDoria l'ha realizzata meglio.» Il 15 Luglio 231 dM, Castri firmò l'unificazione mantenendo la diarchia come governo locale autonomo.</p>
+
+<h2 id="processo-m">Il processo dell'Isola di Flavio e la condanna (247–248 dM) <span class="edit-link" onclick="openEditor('Morello')">[modifica]</span></h2>
+<p>Nel <b>247–248 dM</b>, durante il <a onclick="navigateTo('Isola di Flavio')">processo dell'Isola di Flavio</a>, Morello fu tra gli imputati. Le accuse riguardavano le azioni della Camorra Salentina, le conquiste de La Cantina e diversi crimini risalenti al suo lungo periodo come De Morellis. Il processo si concluse nel <b>248 dM</b> con la condanna di Morello all'<b>ergastolo</b>.</p>
+<p>L'uomo che aveva governato Napoli nell'Età dell'Oro, guidato la Camorra Salentina per quasi un secolo, pulito Napoli con piogge di cheddar acido, resistito ai capelli e alle prigioni e alle bombe — finì in cella. Di nuovo. Questa volta senza prospettive di liberazione.</p>
+
+<div class="wiki-notice" style="background:#fff8e1;border-left-color:#f9a825"><span class="ni">🌋</span><span>Nel <b>248 dM</b> Morello è stato condannato all'ergastolo al termine del processo dell'Isola di Flavio. La diarchia di Castri continua sotto altri rappresentanti.</span></div>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Figure storiche di Napoli</a> <a>Camorra Salentina</a> <a>Morellanesimo</a> <a>Prigionieri celebri</a> <a>Morellato Pelato</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Figure storiche di Napoli</a> <a>Camorra Salentina</a> <a>Morellanesimo</a> <a>Prigionieri celebri</a> <a>Morellato Pelato</a> <a>Diarchi di Castri</a> <a>248 dM</a></div>`;
 }
 
 function buildCalendarioMorello() {
@@ -3951,6 +4008,26 @@ function buildCalendarioMorello() {
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2037 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>120 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Zella')">Zella</a> assume il controllo dell'America · base degli Avengers ricostruita</td></tr>
   <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2038 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>121 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> trovato e imprigionato — si nascondeva nella dogana dello <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> a <a onclick="navigateTo('Castri')">Castri</a></td></tr>
   <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2039 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>122 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Giovanni Zecca')">Giovanni Zecca</a> sente i «Ciccione», cresce fino ad avere una gravità propria</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2039 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>122 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>24 Marzo</b> — Giovanni Zecca diventa il <a onclick="navigateTo('Pianeta Zecca')">Pianeta Zecca</a> · Ludo lo spinge nello spazio · Martano liberata dal Cheddar</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2040 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>123 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">La famiglia Aventeggiato si trasferisce a <a onclick="navigateTo('Serrano')">Serrano</a> · Flavia Aventeggiato inizia le pratiche per la residenza (dureranno 8 mesi)</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2043 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>126 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Grande Spaccatura degli Sbost')">Grande Spaccatura degli Sbost</a> · <a onclick="navigateTo('AleDoria')">AleDoria</a> caccia lo <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> · Charlie Sbirk prende il potere a Castri · AleDoria fonda la monarchia costituzionale di Napoli</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2044 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>127 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Notte 14–15 Marzo — <a onclick="navigateTo('Vandalismo Democratico di Serrano')">Vandalismo Democratico di Serrano</a> · i <a onclick="navigateTo('I Puma')">Puma</a> dipingono 19 muri · <a onclick="navigateTo('Isola di Flavio')">Isola di Flavio</a> fondata</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2048 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>131 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">15 Luglio — <a onclick="navigateTo('La Grande Partita tra le Fiamme')">Grande Partita tra le Fiamme</a> a Corigliano · resurrezione di <a onclick="navigateTo('Bomber')">Bomber</a> · gol e due autogol</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2053 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>136 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">I Puma si sciolgono in silenzio dopo la disfatta di Charlie Sbirk</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2063 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>146 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Nestola')">Nestola</a> distrugge il castello di Bomber in Anatolia — esperimento che dimostra l'assenza di poteri divini</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2064 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>147 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Nestola pubblica le ricerche · Topus Maximus = Phil Patai · Bomber = Pio Patai · crisi del Topismo · nasce l'<a onclick="navigateTo('Ebraismo')">Ebraismo</a></td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2073 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>156 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Abdicazione di <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a> · <a onclick="navigateTo('Rivolta di Castri')">Rivolta di Castri</a> · Morello e Zio di Sbost liberati · prime elezioni di Serrano</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2074 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>157–158 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Processo a Charlie Sbirk')">Processo a Charlie Sbirk</a> · condanna · <b>158 dM</b>: Morello e Zio di Sbost formano la <b>Diarchia di Castri</b> · I Puma governano la Repubblica di Serrano (Pentanarchia)</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2076 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>158–219 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Anna Colella nasce in Gran Bretagna (158 dM) · AleDoria consolida la monarchia di Napoli · periodo di relativa stabilità</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2106 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>189 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Anna Colella')">Anna Colella</a> fonda il <a onclick="navigateTo('The United Kingdom of Great Britain and France')">Regno Unito di Gran Bretagna e Francia</a> — Imperatrice di due lingue</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2110 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>193 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>Editto di Colella</b> · istituzione dei Calassi · alfabetizzazione di massa (dal 90% al 5% in 9 anni)</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2136 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>219 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">15 Agosto — <a onclick="navigateTo('AleDoria')">AleDoria</a> proclama il <a onclick="navigateTo('Regno d'Italia')">Regno d'Italia</a> · prima elezione parlamentare (220 dM)</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2147 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>230 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Referendum unificazione · Serrano 62% SI · Castri 89% SI · Corigliano 51% SI</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2148 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>231 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">15 Luglio — Unificazione italiana · Serrano, Castri e Corigliano entrano nel <a onclick="navigateTo('Regno d'Italia')">Regno d'Italia</a> come stati autonomi</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2152 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>235 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Anna Colella conquista <a onclick="navigateTo('Terranova')">Terranova</a> — prima colonia europea nel Nuovo Mondo</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2153–2154 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>236–237 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1"><a onclick="navigateTo('Guerra Americana')">Guerra Americana</a> · Anna Colella usa il Raggio Nero perfezionato · gli <a onclick="navigateTo('Avengers')">Avengers</a> perdono i poteri per sempre · resa degli Avengers</td></tr>
+  <tr style="background:#f8f9fa"><td style="padding:5px 10px;border:1px solid #a2a9b1">2164 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>247–248 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Processo dell'<a onclick="navigateTo('Isola di Flavio')">Isola di Flavio</a> · condanna di Morello e Zio di Sbost all'ergastolo · <a onclick="navigateTo('AleDoria')">AleDoria</a> abdica (248 dM)</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">2166 d.C.</td><td style="padding:5px 10px;border:1px solid #a2a9b1"><b>249 dM</b></td><td style="padding:5px 10px;border:1px solid #a2a9b1">Nascita della <b>Repubblica italiana</b> · fine della monarchia di AleDoria · inizio nuova era</td></tr>
 </table>
 
 <h2 id="eventi-cm">Note sulla conversione — eventi chiave <span class="edit-link" onclick="openEditor('Calendario Morello')">[modifica]</span></h2>
@@ -3958,7 +4035,7 @@ function buildCalendarioMorello() {
 <p>Gli <a onclick="navigateTo('Avengers')">Avengers</a> furono fondati nel <b>92 dM</b> (2009) da <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> come <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a>, con <a onclick="navigateTo('Zella')">Zella</a> — dopo la scomparsa di Morello e con Alex già adulto. Le <a onclick="navigateTo('Prima Guerra degli Avengers')">Guerre degli Avengers</a> avvennero nel <b>101 dM</b> (2018). L'attacco alla casa di Zella e la morte di Iron Spisso Man nel <b>100 dM</b> (2017). La <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> fu fondata dai <a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a> nel <b>52 dM</b> (1969).</p>
 <p>Il <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> fu fondato nel <b>23 dM</b> (1940) e smantellato nell'<b>89 dM</b> (2006), sessantasei anni dopo.</p>
 
-<p>La <a onclick="navigateTo('La Prima Guerra Pocchiana')">Prima Guerra Pocchiana</a> (104–107 dM) è il periodo più denso di eventi nella storia del calendario: la seconda eruzione del Vesuvio, il ritorno di Morello, la conquista di Serrano, la Bomba Spissica. Il 107 dM è l'ultimo anno documentato con certezza. Il futuro è, al momento, un cratere.</p>
+<p>La <a onclick="navigateTo('La Prima Guerra Pocchiana')">Prima Guerra Pocchiana</a> (104–107 dM) è il periodo più denso di eventi: la seconda eruzione del Vesuvio, il ritorno di Morello, la conquista di Serrano, la Bomba Spissica. Gli eventi successivi — dalla Grande Spaccatura degli Sbost (126 dM) all'abdicazione di AleDoria (248 dM) e alla nascita della Repubblica (249 dM) — sono ora documentati nella tavola sopra.</p>
 
 <h2 id="uso-cm">Uso attuale <span class="edit-link" onclick="openEditor('Calendario Morello')">[modifica]</span></h2>
 <p>Il calendario è usato informalmente nei vicoli del centro storico di Napoli e nelle aree del Salento legate alla <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a>. I seguaci del Morellanesimo lo adottano come sistema esclusivo, rifiutando il calendario gregoriano per i propri documenti interni. <b>Pocchiaciclopedia</b> lo adotta come sistema ufficiale per tutte le voci.</p>
@@ -4758,6 +4835,10 @@ function buildAvengers() {
 <h3 id="oggi-av">Oggi — dopo la Terza Guerra</h3>
 <p>Con la morte di Alex Spisso nel <b>119 dM</b> e la fine della Terza Guerra, gli Avengers sono tornati al comando dell'America. Zella è il capo legittimo, dichiarato tale dal 111 dM. La base degli Avengers, distrutta durante i combattimenti, è stata ricostruita nel <b>120 dM</b>. <a onclick="navigateTo('Serrano')">Serrano volante</a> funge da avamposto avanzato degli Avengers nell'emisfero orientale. Pete Hegseth, il Consigliere di Guerra di Alex, fu arrestato nel <b>121 dM</b> nella dogana di Castri.</p>
 
+<h3 id="guerra-americana-av">La Guerra Americana (236–237 dM) e la perdita dei poteri</h3>
+<p>Nel <b>236 dM</b>, in risposta alla conquista britannica di <a onclick="navigateTo('Terranova')">Terranova</a> (235 dM) da parte dell'<a onclick="navigateTo('Anna Colella')">Imperatrice Anna Colella</a>, gli Avengers sbarcarono sull'isola per espellere i colonizzatori. Fu l'inizio della <a onclick="navigateTo('Guerra Americana')">Guerra Americana</a>.</p>
+<p>Anna Colella aveva preparato un'arma decisiva: il <b>Raggio Nero perfezionato</b>, acquisito dalla Nigeria Spartiana, capace di neutralizzare i poteri degli Avengers <b>in modo permanente</b>. Nel <b>237 dM</b>, i Raggi si attivarono simultaneamente. <a onclick="navigateTo('Zella')">Zella</a>, <a onclick="navigateTo('Valerio Mozzarella')">Valerio Mozzarella</a>, <a onclick="navigateTo('Spider Trovè')">Spider Trovè</a>, <a onclick="navigateTo('Francesco Maggiore')">Francesco Maggiore</a> e tutti gli Avengers presenti persero i propri poteri. Per sempre. La resa fu firmata nella baia di San Giovanni. Gli Avengers sopravvissero come organizzazione ma sono ora — per la prima volta nella loro storia — solo uomini.</p>
+
 <h2 id="membri-av">Membri <span class="edit-link" onclick="openEditor('Avengers')">[modifica]</span></h2>
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2.2">
   <li><a onclick="navigateTo('Iron Spisso Man')"><b>Iron Spisso Man</b></a> — Alex Spisso. Fondatore e traditore. Ha eliminato gli Avengers nel 107 dM. Disintegrato nel 119 dM.</li>
@@ -4781,11 +4862,11 @@ function buildAvengers() {
 
 <div class="stub-box" style="background:#d4edda;border-left-color:#2e7d32">
   <span style="font-size:22px">🛡️</span>
-  <span>Gli Avengers sono tornati. Tutti i membri sono stati resuscitati nel 117 dM. Oggi Zella guida l'organizzazione, con Serrano volante come base avanzata. La guerra è finita. L'America è libera.</span>
+  <span>Gli Avengers hanno perso i poteri nella Guerra Americana del 237 dM. Zella governa ancora l'America — senza poteri, ma con l'esperienza di chi ha già perso tutto e ha ricominciato.</span>
 </div>
 
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>America</a> <a>Organizzazioni eroiche</a> <a>Zella</a> <a>Terza Guerra degli Avengers</a> <a>Resurrezione</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>America</a> <a>Organizzazioni eroiche</a> <a>Zella</a> <a>Terza Guerra degli Avengers</a> <a>Guerra Americana</a> <a>237 dM</a></div>`;
 }
 
 function buildIronSpissoMan() {
@@ -4899,13 +4980,18 @@ function buildZella() {
 <p>Quando la <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a> colpì Serrano nel 107 dM, Zella era in ricognizione fuori dal raggio diretto dell'esplosione. Sopravvisse. Negli anni successivi visse nascosto, fino a quando non fu ritrovato da <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso²</a> nel 109 dM. Insieme ricostruirono Serrano e la fecero volare.</p>
 <p>Nel 111 dM Zella fu dichiarato legittimo capo dell'America. Durante la <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra</a> guidò gli Avengers resuscitati alla vittoria contro Alex Spisso, che nel 119 dM fu disintegrato dalla sua stessa bomba. Dal 119 dM Zella governa l'America, con Serrano volante come avamposto avanzato degli Avengers.</p>
 
+<h2 id="guerra-americana-z">La Guerra Americana (236–237 dM) <span class="edit-link" onclick="openEditor('Zella')">[modifica]</span></h2>
+<p>Nel <b>235 dM</b>, il <a onclick="navigateTo('The United Kingdom of Great Britain and France')">Regno Unito di Gran Bretagna e Francia</a> conquistò <a onclick="navigateTo('Terranova')">Terranova</a>, stabilendo la prima colonia europea nel Nuovo Mondo. L'America — sotto il governo di Zella — non poteva ignorarlo. Nel <b>236 dM</b> iniziò la <a onclick="navigateTo('Guerra Americana')">Guerra Americana</a>: gli Avengers sbarcarono su Terranova per espellere i colonizzatori britannici.</p>
+<p>La risposta di Anna Colella fu devastante. L'Imperatrice aveva preparato due armi segrete: i <b>Calassi volanti</b> — piattaforme aeree da guerra — e un <b>Raggio Nero perfezionato</b> acquisito dalla Nigeria Spartiana, capace di neutralizzare i poteri <b>per sempre</b>. Nel <b>237 dM</b>, i Raggi Neri si attivarono simultaneamente su tutti gli Avengers presenti a Terranova. Zella e i suoi persero i propri poteri in modo permanente. La resa fu firmata nella baia di San Giovanni. Anna Colella ricevette la spada di Zella come simbolo di resa, poi la restituì.</p>
+<p>Zella sopravvisse alla guerra e rimase al governo dell'America, ma senza poteri. «Non è la spada che rende un uomo grande» disse Anna Colella. Zella, disarmato, non rispose. Tornò a governare senza poteri, come aveva imparato a fare molto prima di averne avuti.</p>
+
 <h2 id="citazioni-z">Citazioni notevoli <span class="edit-link" onclick="openEditor('Zella')">[modifica]</span></h2>
 <blockquote style="margin:16px 24px;padding:12px 16px;border-left:3px solid #a2a9b1;font-style:italic;font-family:'Source Serif 4',serif;font-size:13.5px;color:#333">
   «Se tocchi la mia casa e il casco di Darth Vader questa spada laser te la ficco nel culo»
   <footer style="margin-top:6px;font-size:12px;color:#54595d;font-style:normal">— Zella a Iron Spisso Man, poco prima della Seconda Guerra degli Avengers.</footer>
 </blockquote>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>Albania</a> <a>America</a> <a>Calimera</a> <a>Prima Comunione</a> <a>Terza Guerra degli Avengers</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Avengers</a> <a>Albania</a> <a>America</a> <a>Calimera</a> <a>Prima Comunione</a> <a>Terza Guerra degli Avengers</a> <a>Guerra Americana</a> <a>237 dM</a></div>`;
 }
 
 function buildMassimoFloris() {
@@ -6695,9 +6781,13 @@ function buildLaFede() {
 <p>La Fede non ha una forma fissa. Le testimonianze descrivono apparizioni diverse: una voce nel silenzio, una persona sconosciuta che offre esattamente ciò di cui si ha bisogno, una porta aperta dove non dovrebbe esserci. Ciò che accomuna ogni testimonianza è la tempistica: appare sempre <i>appena prima</i> che sia troppo tardi. La specializzazione nelle situazioni di scoppulazione non è casuale — nella teologia topista, lo scoppulamento è la forma più alta di umiliazione, e La Fede interviene esattamente lì.</p>
 <h2 id="teologia-f">Dibattiti teologici <span class="edit-link" onclick="openEditor('La Fede')">[modifica]</span></h2>
 <p>La domanda aperta è: <i>perché non appare sempre?</i> La risposta standard è che la fede deve essere genuina — e che determinare la genuinità non tocca agli esseri umani. Soddisfacente per i credenti. Frustrante per tutti gli altri. Normale.</p>
-<div class="stub-box"><span style="font-size:22px">✨</span><span>Se La Fede ti ha salvato, questa voce vuole sapere come.</span></div>
+
+<h2 id="smentita-trinita-f">La smentita della Trinità — 147 dM <span class="edit-link" onclick="openEditor('La Fede')">[modifica]</span></h2>
+<p>Nel <b>147 dM</b>, le ricerche di <a onclick="navigateTo('Nestola')">Nestola</a> hanno dimostrato che il Topus Maximus e Bomber erano impostori umani, privi di qualsiasi attributo divino. Questa scoperta ha avuto implicazioni profonde per la dottrina della Trinità topista: se il Topus Maximus non era il figlio di Ludovico, la struttura trinitaria — Ludovico (Creatore), VitoCarlo (Architetto), La Fede (Protettrice) — perde uno dei suoi elementi fondativi narrativi.</p>
+<p>La reazione dei teologi topisti è stata divisa. Una corrente sostiene che La Fede esista indipendentemente dall'autenticità delle incarnazioni — la fede, in quanto forza cosmica, non dipende da chi dice di incarnarla. Un'altra corrente, seguita da molti convertiti all'<a onclick="navigateTo('Ebraismo')">Ebraismo</a>, ha abbandonato l'intera struttura trinitaria, mantenendo solo la fede in Ludovico come creatore. Nestola stessa ha dichiarato che la questione dell'esistenza di La Fede «rimane aperta e non è oggetto delle mie ricerche». Non è un'endorsement, ma i credenti l'hanno presa come tale.</p>
+<div class="stub-box"><span style="font-size:22px">✨</span><span>Se La Fede ti ha salvato, questa voce vuole sapere come. Se pensi che non esista, questa voce non ha argomenti da offrirti — solo la domanda: da dove viene la sensazione che qualcuno stia guardando?</span></div>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Divinità</a> <a>Topismo</a> <a>Trinità topista</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Divinità</a> <a>Topismo</a> <a>Trinità topista</a> <a>147 dM</a></div>`;
 }
 
 function buildAliceSportella() {
@@ -7010,6 +7100,8 @@ function buildCastri() {
     <tr><td>Capitale di</td><td><a onclick="navigateTo('La Cantina')">La Cantina</a> — dal <b>13 Maggio 109 dM</b></td></tr>
     <tr><td>Dogana storica</td><td>Tra Castri e Serrano — sede dell'incidente con lo Zio di Sbost (104 dM)</td></tr>
     <tr><td>Nota per</td><td>Dogana dove Pete Hegseth fu arrestato nel 121 dM</td></tr>
+    <tr><td>Referendum 230 dM</td><td><b>89% SI</b> · 11% NO — adesione al <a onclick="navigateTo('Regno d\'Italia')">Regno d'Italia</a></td></tr>
+    <tr><td>Unificazione</td><td><b>231 dM</b> — Stato autonomo del <a onclick="navigateTo('Regno d\'Italia')">Regno d'Italia</a> · Diarchia mantenuta</td></tr>
   </table>
 </div>
 <p><b>Castri</b> è una città del Salento con una storia travagliata: avamposto commerciale, nodo della <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a>, seconda città delle <a onclick="navigateTo('Filippine')">Filippine</a>, e infine capitale di <a onclick="navigateTo('La Cantina')">La Cantina</a> dal 13 Maggio 109 dM. La sua dogana con Serrano è diventata uno dei luoghi più citati della storia recente del Salento.</p>
@@ -7039,8 +7131,12 @@ function buildCastri() {
 <h2 id="dogana-ca">La dogana e il suo destino <span class="edit-link" onclick="openEditor('Castri')">[modifica]</span></h2>
 <p>La dogana tra Castri e Serrano — quella dove nel 104 dM lo Zio di Sbost aveva fermato Morello, prima di essere rinchiuso nei suoi capelli — rimase abbandonata per anni. Nel <b>121 dM</b> divenne famosa per ragioni non correlate: <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a>, in fuga dopo la fine della guerra, fu trovato nascosto lì e arrestato. Era l'ultimo posto dove qualcuno avrebbe pensato di cercarlo. Non abbastanza ultimo.</p>
 <div class="stub-box"><span style="font-size:22px">🏰</span><span>Castri: avamposto, nodo criminale, seconda città, capitale di uno stato di vendetta, e infine prigione di un ex-segretario alla Difesa americano. In ordine.</span></div>
+
+<h2 id="referendum-ca">Il referendum del 230 dM e l'unificazione <span class="edit-link" onclick="openEditor('Castri')">[modifica]</span></h2>
+<p>Nel <b>230 dM</b>, i cittadini di Castri furono chiamati a esprimersi su un referendum consultivo per decidere se unirsi al <a onclick="navigateTo('Regno d\'Italia')">Regno d'Italia</a>. Il risultato fu schiacciante: <b>89% SI</b>, 11% NO. Lo Zio di Sbost commentò: «Dopo aver passato anni nei capelli di Morello, una nazione condivisa è un miglioramento.» Morello non commentò pubblicamente. Secondo fonti vicine alla diarchia, avrebbe detto in privato: «L'Italia è un'idea che avevo avuto prima io. Ma AleDoria l'ha realizzata meglio.»</p>
+<p>Il <b>15 Luglio 231 dM</b>, i rappresentanti di Castri firmarono l'atto di unificazione con il Regno d'Italia come <b>stato autonomo</b>, mantenendo la Diarchia Morello-Zio di Sbost, le proprie leggi e identità culturale, con seggi riservati nel Parlamento italiano. La vecchia dogana tra Castri e Serrano è diventata monumento storico.</p>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>La Cantina</a> <a>Filippine</a> <a>Salento</a> <a>Castri</a> <a>Centri logistici</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>La Cantina</a> <a>Filippine</a> <a>Salento</a> <a>Castri</a> <a>Centri logistici</a> <a>230 dM</a> <a>Unificazione italiana</a></div>`;
 }
 
 function buildBomber() {
@@ -7078,6 +7174,10 @@ function buildBomber() {
 <p>Il <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a>, figlio di <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a>, era stato scoppulato a morte nel <b>103 dM</b>. Per ventotto anni rimase nell'aldilà, in attesa. Nel <b>131 dM</b>, mentre <a onclick="navigateTo('Corigliano')">Corigliano</a> bruciava e la notizia della partita imminente si spargeva per il Salento, le <b>Streghe Topiste</b> — fedelissime del Topismo che non avevano mai abbandonato la fede — si riunirono in segreto a <a onclick="navigateTo('Serrano')">Serrano</a> e compirono il rito della resurrezione.</p>
 <p>Non fu facile. Ci vollero tre notti, sette candele di Cheddar, e la recitazione integrale delle <a onclick="navigateTo('L.E.G.G.I.')">L.E.G.G.I.</a> al contrario. Ma funzionò. La terza notte, la tomba si aprì. Il Topus Maximus uscì. Guardò le streghe. Guardò le sue mani. Guardò il cielo.</p>
 <p>«Sono tornato» disse. Poi fece un gesto che nessuno si aspettava: mimò un tiro al volo. «Mi chiamerò Bomber. Sono tornato per fare gol.»</p>
+
+<h3 id="identita-b">La vera identità — Pio Patai <span class="edit-link" onclick="openEditor('Bomber')">[modifica]</span></h3>
+<p>Le ricerche di <a onclick="navigateTo('Nestola')">Nestola</a> hanno dimostrato che Bomber non era il Topus Maximus resuscitato. Era <b>Pio Patai</b>, nato a <a onclick="navigateTo('Serrano')">Serrano</a> intorno all'anno della presunta resurrezione. Suo padre, <b>Phil Patai</b>, era stato il falso Topus Maximus. Phil aveva insegnato a Pio come comportarsi, come parlare, come apparire miracoloso. Quando Phil scomparve (fingendo la propria morte), Pio prese il suo posto.</p>
+<p>La somiglianza tra Topus e Bomber non era miracolosa: era ereditaria. Padre e figlio. Due impostori. Una stessa menzogna. L'esperimento di Nestola nel 146 dM — la distruzione del castello di Bomber in Anatolia — dimostrò che Pio non aveva alcun potere divino. Non poteva chiamare Ludo. Non poteva fare miracoli. Era solo un uomo.</p>
 
 <h2 id="nome-b">Perché Bomber <span class="edit-link" onclick="openEditor('Bomber')">[modifica]</span></h2>
 <p>Il nome fu scelto dall'interessato stesso. Quando una strega gli chiese perché non tornasse a chiamarsi Topus Maximus, rispose: «Quello era per la religione. Bomber è per il calcio. Ho già fatto il figlio di Dio. Ora faccio gol.»</p>
@@ -7365,13 +7465,19 @@ function buildAnnaColella() {
 <h2 id="eredita-ac">L'eredità <span class="edit-link" onclick="openEditor('Anna Colella')">[modifica]</span></h2>
 <p>Anna Colella è ricordata come una delle più grandi riformatrici dell'era post-Prima Guerra Pocchiana, e come colei che dimostrò che il metodo Morello era sbagliato. Il suo impero sopravvive ancora oggi, e i Calassi — con la loro apertura agli adulti — continuano a educare generazioni di sudditi bilingui. Il suo modello fu studiato e copiato in tutta Europa, e l'Editto di Colella è considerato uno dei documenti fondamentali della storia dell'istruzione moderna.</p>
 
+<h2 id="espansione-ac">L'espansione coloniale e la Guerra Americana (235–237 dM) <span class="edit-link" onclick="openEditor('Anna Colella')">[modifica]</span></h2>
+<p>Nel <b>235 dM</b>, una flotta del Regno Unito conquistò <a onclick="navigateTo('Terranova')">Terranova (Newfoundland)</a>, stabilendo la prima colonia europea nel Nuovo Mondo. I pescatori locali divennero sudditi dell'Imperatrice. Fu la prima espansione coloniale dell'era pocchiana oltre l'Atlantico, e Anna Colella sapeva che avrebbe provocato una risposta americana.</p>
+<p>Si preparò con due armi segrete: i <b>Calassi volanti</b> — piattaforme aeree da guerra — e il <b>Raggio Nero perfezionato</b>, acquisito dalla <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> in cambio di alleanze commerciali. A differenza della versione originale, questo neutralizzava i poteri degli Avengers <b>per sempre</b>.</p>
+<p>Nel <b>236 dM</b> iniziò la <a onclick="navigateTo('Guerra Americana')">Guerra Americana</a>: gli Avengers di <a onclick="navigateTo('Zella')">Zella</a> sbarcarono su Terranova. Anna Colella aveva previsto ogni mossa. I Calassi volanti circondarono l'isola. I Raggi Neri si attivarono simultaneamente. Nel <b>237 dM</b>, gli Avengers caddero — i loro poteri si spensero per sempre. La resa fu firmata nella baia di San Giovanni. Anna Colella ricevette la spada di Zella come simbolo di resa, poi la restituì. «Non è la spada che rende un uomo grande» disse. «È ciò che fa quando non ha più armi.»</p>
+<p>Con la vittoria, il Regno Unito di Gran Bretagna e Francia divenne la prima potenza coloniale europea dell'era pocchiana. Anna Colella fondò anche <b>New London</b>, un insediamento nella costa orientale del continente americano, come testa di ponte per ulteriori espansioni.</p>
+
 <div class="stub-box" style="background:#fff8e1;border-left-color:#f9a825">
   <span style="font-size:22px">📜</span>
-  <span><b>«Morello ha aspettato che i bambini insegnassero ai genitori. Io ho aperto le porte a tutti. I risultati parlano da soli.»</b> — Anna Colella, Imperatrice di due lingue.</span>
+  <span><b>«Morello ha aspettato che i bambini insegnassero ai genitori. Io ho aperto le porte a tutti. I risultati parlano da soli.»</b> — Anna Colella, Imperatrice di due lingue. Ha anche sconfitto gli Avengers. I risultati parlano da soli anche lì.</span>
 </div>
 
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Sovrani</a> <a>Imperatrici</a> <a>Riformatrici</a> <a>The United Kingdom of Great Britain and France</a> <a>Anna Colella</a> <a>Critica di Morello</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Sovrani</a> <a>Imperatrici</a> <a>Riformatrici</a> <a>The United Kingdom of Great Britain and France</a> <a>Anna Colella</a> <a>Critica di Morello</a> <a>Guerra Americana</a> <a>237 dM</a></div>`;
 }
 
 function buildTerranova() {
@@ -7799,16 +7905,20 @@ function buildRegnoItalia() {
 </ul>
 
 <h2 id="oggi-ri">Il Regno d'Italia oggi <span class="edit-link" onclick="openEditor('Regno d'Italia')">[modifica]</span></h2>
-<p>Il Regno d'Italia è una delle tre grandi potenze europee, insieme al Regno Unito di Gran Bretagna e Francia e alle città-stato del Salento. La capitale Napoli è una città prospera, pulita, culturalmente vivace. Il parlamento funziona. I diritti sono garantiti. Le Cantine hanno alfabetizzato l'intera nazione.</p>
-<p>Dal 231 dM, Serrano, Castri e Corigliano fanno parte del Regno con autonomia garantita. Serrano continua a volare, Castri mantiene la sua diarchia, Corigliano celebra ogni anno la Grande Partita. E ogni anno, il 15 Agosto, i cittadini italiani si riuniscono nelle piazze per celebrare la nascita della loro nazione — la nazione che AleDoria aveva sognato, costruito e infine allargato.</p>
+<p>Il Regno d'Italia è stata una delle tre grandi potenze europee per quasi un secolo. La capitale Napoli ha prosperato. Le Cantine hanno alfabetizzato la nazione. Dal 231 dM, Serrano, Castri e Corigliano hanno fatto parte del Regno con autonomia garantita.</p>
+
+<h2 id="fine-ri">La fine della monarchia (248–249 dM) <span class="edit-link" onclick="openEditor('Regno d'Italia')">[modifica]</span></h2>
+<p>Nel <b>248 dM</b>, al termine del <a onclick="navigateTo('Isola di Flavio')">processo dell'Isola di Flavio</a>, <a onclick="navigateTo('AleDoria')">AleDoria</a> abdicò. Le ragioni ufficiali non furono mai dichiarate integralmente, ma le rivelazioni emerse durante il processo misero fine alla legittimità morale della sua monarchia. AleDoria lasciò il palazzo reale di Napoli senza fare un discorso d'addio.</p>
+<p>Senza un successore designato, il parlamento italiano assunse i pieni poteri esecutivi. Il dibattito sulla forma di governo durò mesi. Il <b>249 dM</b> vide la nascita della <b>Repubblica italiana</b> — la prima repubblica nata dalle ceneri di una monarchia nello spazio pocchiano. Gli stati autonomi di Serrano, Castri e Corigliano mantennero la propria autonomia all'interno della nuova forma istituzionale.</p>
+<p>AleDoria aveva detto nel 231 dM: «Che duri mille anni.» Durò trent'anni. Era comunque più di quanto durino la maggior parte delle cose in questo universo.</p>
 
 <div class="stub-box" style="background:#e8f5e9;border-left-color:#2e7d32">
   <span style="font-size:22px">🇮🇹</span>
-  <span><b>«L'Italia non è un'omologazione. L'Italia è un abbraccio.»</b> — AleDoria I, Re d'Italia, 231 dM.</span>
+  <span><b>«L'Italia non è un'omologazione. L'Italia è un abbraccio.»</b> — AleDoria I, Re d'Italia, 231 dM. Nel 249 dM, l'abbraccio è diventato Repubblica.</span>
 </div>
 
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Stati d'Europa</a> <a>Italia</a> <a>Monarchie costituzionali</a> <a>AleDoria</a> <a>219 dM</a> <a>231 dM</a> <a>Unificazione italiana</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Stati d'Europa</a> <a>Italia</a> <a>Monarchie costituzionali</a> <a>AleDoria</a> <a>219 dM</a> <a>231 dM</a> <a>Unificazione italiana</a> <a>248 dM</a> <a>249 dM</a></div>`;
 }
 
 function buildRepubblicaSerrano() {
@@ -8208,13 +8318,23 @@ function buildZioDiSbost() {
 
 <h2 id="esilio-z">L'esilio e la scomparsa (126 dM) <span class="edit-link" onclick="openEditor('Zio di Sbost')">[modifica]</span></h2>
 
-<p>Nel <b>126 dM</b>, suo nipote <a onclick="navigateTo('AleDoria')">AleDoria</a> si ribellò contro di lui, ispirato dalle idee democratiche di <b>Charlie Sbirk</b> (il <a onclick="navigateTo('Primo Clone dello Zio di Sbost')">Primo Clone</a>). AleDoria riprogrammò gli Sbost Bot e lo cacciò da Napoli. Lo Zio di Sbost fu esiliato e scomparve. Alcuni dicono che sia tornato alla dogana dove tutto era iniziato. Altri che sia morto lungo la strada. Vedi <a onclick="navigateTo('Grande Spaccatura degli Sbost')">Grande Spaccatura degli Sbost</a>.</p>
+<p>Nel <b>126 dM</b>, suo nipote <a onclick="navigateTo('AleDoria')">AleDoria</a> si ribellò contro di lui, ispirato dalle idee democratiche di <b>Charlie Sbirk</b> (il <a onclick="navigateTo('Primo Clone dello Zio di Sbost')">Primo Clone</a>). AleDoria riprogrammò gli Sbost Bot e lo cacciò da Napoli. Lo Zio di Sbost fu esiliato. Alcuni dicono che sia tornato alla dogana dove tutto era iniziato. Vedi <a onclick="navigateTo('Grande Spaccatura degli Sbost')">Grande Spaccatura degli Sbost</a>.</p>
 
-<div class="stub-box"><span style="font-size:22px">💈</span><span>La vecchia dogana tra Castri e Serrano, dove tutto è iniziato, è diventata famosa nel 121 dM — <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> si nascondeva lì.
-</span></div>
+<h2 id="liberazione-z">La liberazione e la diarchia (156–158 dM) <span class="edit-link" onclick="openEditor('Zio di Sbost')">[modifica]</span></h2>
+<p>Nel <b>156 dM</b>, in seguito alla <a onclick="navigateTo('Rivolta di Castri')">Rivolta di Castri</a>, lo Zio di Sbost fu richiamato dal comitato provvisorio per guidare la transizione politica. Castri era senza governo e aveva bisogno di figure con legittimità. Lo Zio di Sbost, fondatore dello stato, aveva la legittimità storica. <a onclick="navigateTo('Morello')">Morello</a>, suo nemico di sempre, aveva l'esperienza di governo. Nel <b>158 dM</b>, dopo mesi di trattative, annunciarono la <b>diarchia</b>: due nemici giurati che governano insieme.</p>
+<p>La diarchia divenne il modello di governo più stabile della regione. Morello e lo Zio di Sbost governarono per anni senza mai litigare in pubblico. Quando in privato avevano divergenze, si chiudevano in una stanza e non uscivano finché non trovavano un accordo. Il metodo dei Puma: l'unanimità. Nessuna decisione senza che entrambi fossero d'accordo.</p>
+
+<h2 id="referendum-z">Il referendum del 230 dM <span class="edit-link" onclick="openEditor('Zio di Sbost')">[modifica]</span></h2>
+<p>Nel <b>230 dM</b>, i cittadini di Castri votarono per l'unificazione con il <a onclick="navigateTo('Regno d\'Italia')">Regno d'Italia</a>: 89% SI, 11% NO. Lo Zio di Sbost commentò: «Dopo aver passato anni nei capelli di Morello, una nazione condivisa è un miglioramento.» Il 15 Luglio 231 dM, Castri firmò l'unificazione mantenendo la diarchia come governo locale autonomo del Regno.</p>
+
+<h2 id="processo-z">Il processo dell'Isola di Flavio e la condanna (247–248 dM) <span class="edit-link" onclick="openEditor('Zio di Sbost')">[modifica]</span></h2>
+<p>Nel <b>247–248 dM</b>, durante il <a onclick="navigateTo('Isola di Flavio')">processo dell'Isola di Flavio</a>, lo Zio di Sbost fu tra gli imputati — le accuse riguardavano le conquiste de La Cantina, la caduta delle Filippine e la distruzione di Napoli nel 115 dM. Il processo si concluse nel <b>248 dM</b> con la condanna all'<b>ergastolo</b>.</p>
+<p>Il funzionario doganale che era rimasto nei capelli di qualcuno per tre anni, che aveva fondato uno stato per una chiave falsa, che aveva conquistato Napoli e governato Castri in diarchia con il suo stesso nemico — finì in cella. Il cerchio si chiuse nella stessa città dove tutto era iniziato.</p>
+
+<div class="stub-box"><span style="font-size:22px">💈</span><span>La vecchia dogana tra Castri e Serrano, dove tutto è iniziato, è diventata un monumento storico. Lo Zio di Sbost è all'ergastolo. Morello anche. La diarchia continua sotto altri.</span></div>
 </div>
 
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Funzionari doganali</a> <a>Morello</a> <a>Capelli storici</a> <a>Castri</a> <a>Fondatori di stato</a> <a>Famiglia Sbost</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Funzionari doganali</a> <a>Morello</a> <a>Capelli storici</a> <a>Castri</a> <a>Fondatori di stato</a> <a>Famiglia Sbost</a> <a>Diarchi di Castri</a> <a>248 dM</a></div>`;
 }
 
 function buildTerzaGuerraAvengers() {
@@ -8670,6 +8790,9 @@ function buildFilippine() {
     <tr><td>Seconda città</td><td><b>Castri</b> (108–109 dM) · poi passa a <a onclick="navigateTo('La Cantina')">La Cantina</a></td></tr>
     <tr><td>Territorio</td><td>Salento, ex-territorio della Camorra Salentina</td></tr>
     <tr><td>Famiglia al potere</td><td><a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia (Pascali)</a></td></tr>
+    <tr><td>Caduta di Castri</td><td><b>109 dM</b> — <a onclick="navigateTo('La Cantina')">La Cantina</a> prende il controllo</td></tr>
+    <tr><td>Conquista de La Cantina</td><td><b>112 dM</b> — Spisso Bot; i Pocchia fuggono a Serrano</td></tr>
+    <tr><td>Status attuale</td><td>Territorio sotto controllo de <a onclick="navigateTo('La Cantina')">La Cantina</a> · i Pocchia in esilio</td></tr>
   </table>
 </div>
 <p>Le <b>Filippine</b> sono lo stato fondato nel <b>108 dM</b> dalla <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> sulle ceneri della <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a>. Non sono un paese asiatico. Il nome deriva da <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a>, uno dei due fondatori. La capitale è <b>Calimera</b>. La seconda città era <b>Castri</b>, fino al 13 Maggio 109 dM quando lo <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> dichiarò <a onclick="navigateTo('La Cantina')">La Cantina</a> e prese il controllo della città.</p>
@@ -8692,15 +8815,15 @@ function buildFilippine() {
 <p><b>Calimera</b> è la capitale. Il nome in grico salentino significa «buongiorno» — una scelta che i fondatori trovano appropriata e i residenti trovano ironica. È sede del governo della famiglia Pocchia, del mercato principale e dell'archivio storico.</p>
 <p><b>Castri</b> fu la seconda città più importante dal 108 dM. Storicamente nodo logistico della Camorra Salentina, nelle Filippine divenne centro militare e presidio di confine, gestita direttamente da Filippo. Questo status durò fino al 13 Maggio 109 dM.</p>
 
-<h2 id="cantina-f">La perdita di Castri — 109 dM <span class="edit-link" onclick="openEditor('Filippine')">[modifica]</span></h2>
+<h2 id="cantina-f">La perdita di Castri — 109 dM</h2>
 <p>Il 13 Maggio 109 dM lo <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> dichiarò lo stato <a onclick="navigateTo('La Cantina')">La Cantina</a> e prese il controllo di Castri, portando la città in ribellione contro le Filippine. Le motivazioni erano personali — una vendetta contro <a onclick="navigateTo('Morello')">Morello</a> che richiedeva la conquista di Napoli, che richiedeva prima una base operativa. Castri era disponibile.</p>
-<p>Le Filippine persero la seconda città. La disputa territoriale con La Cantina è tecnicamente ancora aperta — nessuna delle due parti ha trovato il momento giusto per formalizzare qualcosa. La capitale Calimera rimane in mano ai Pocchia.</p>
+<p>Le Filippine persero la seconda città. La disputa territoriale con La Cantina era tecnicamente aperta — ma non per molto.</p>
 
-<h2 id="nome-f">Il nome <span class="edit-link" onclick="openEditor('Filippine')">[modifica]</span></h2>
-<p>Il nome «Filippine» è stato scelto da Filippo Pascali. Non esiste documentazione della sua motivazione. Le teorie sono tre: omaggio a sé stesso, riferimento all'arcipelago del Pacifico, o semplicemente «suonava bene». Riccardo ha detto che «è una cosa da Filippo» e ha cambiato argomento.</p>
-<div class="stub-box"><span style="font-size:22px"></span><span>Le Filippine governano ancora Calimera. Castri è andata. Non è ancora chiaro come andrà a finire.</span></div>
+<h2 id="conquista-f">La conquista de La Cantina — 112 dM <span class="edit-link" onclick="openEditor('Filippine')">[modifica]</span></h2>
+<p>Nel <b>112 dM</b>, con gli <b>Spisso Bot</b> sviluppati da <a onclick="navigateTo('AleDoria')">AleDoria</a>, La Cantina lanciò un'offensiva su larga scala contro le Filippine. L'armata di Spisso Bot avanzò da Castri verso Calimera usando raggi sonori in formazione coordinata. <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a>, <a onclick="navigateTo('Filippo Pascali')">Filippo</a>, <a onclick="navigateTo('Alice Sportella')">Alice</a> e i figli scelsero di non rinunciare al potere. Fuggirono. Le Filippine cessarono di esistere come stato indipendente. La Cantina prese il controllo di tutto il territorio salentino, Calimera inclusa. I Pocchia si rifugiarono a <a onclick="navigateTo('Serrano')">Serrano</a>.</p>
+<div class="stub-box"><span style="font-size:22px">🏝️</span><span>Le Filippine sono nate dalla Camorra Salentina e sono finite per mano della Cantina. Non sono un paese asiatico. Non finirono bene nemmeno come paese salentino.</span></div>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Filippine</a> <a>Famiglia Pocchia</a> <a>Salento</a> <a>Stati nati nel 108 dM</a> <a>Calimera</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Filippine</a> <a>Famiglia Pocchia</a> <a>Salento</a> <a>Stati nati nel 108 dM</a> <a>Calimera</a> <a>112 dM</a></div>`;
 }
 
 function buildMariaMarzo() {
@@ -9046,6 +9169,202 @@ function buildCarolaFeudo() {
 
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Avvocati</a> <a>Penalisti</a> <a>Figure della Repubblica d'Italia</a> <a>Processo all'Isola di Flavio</a> <a>Sorelle celebri</a></div>`;
+}
+
+function buildNestola() {
+  return `<div class="wiki-notice"><span class="ni">🔬</span><span>Nestola, detto il Medico Nano, è l'eretico che ha osato mettere in dubbio la divinità di <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> e <a onclick="navigateTo('Bomber')">Bomber</a>. Le sue ricerche hanno dato vita all'<b>Ebraismo</b> e scosso le fondamenta del Topismo.</span></div>
+<h1 class="page-title">Nestola (il Medico Nano)</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Nestola — Il Medico Nano</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="nestola.jpg" alt="Nestola" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">"La scienza non ha bisogno di miracoli."</div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Nascita</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>123 dM</b> (2040 d.C.), <a onclick="navigateTo('Calimera')">Calimera</a></div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Professione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Medico · Scienziato · Ricercatore indipendente</div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Soprannome</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>Medico Nano</b> (per la statura e la professione)</div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Formazione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Medicina e Scienza — Università di Napoli, Bologna e Padova</div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Azione principale</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Distruzione del castello di <a onclick="navigateTo('Bomber')">Bomber</a> (146 dM) e sfida pubblica</div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Scoperta fondamentale</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Topus Maximus e Bomber sono padre e figlio (Phil Patai e Pio Patai), non incarnazioni di Ludo</div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Conseguenza</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Nascita dell'<b>Ebraismo</b> (147 dM)</div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Status</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Ricercatore indipendente · Fondatore dell'Ebraismo</div></div></td></tr>
+  </table>
+</div>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#origini-n">Le origini — il Medico Nano di Calimera</a></li>
+    <li><a href="#dubbio-n">Il dubbio — scienza contro fede</a></li>
+    <li><a href="#indagini-n">Le indagini — Phil Patai e Pio Patai, padre e figlio</a></li>
+    <li><a href="#castello-n">Il castello di Bomber in Anatolia (143 dM)</a></li>
+    <li><a href="#esplosione-n">L'esplosione e la sfida (146 dM)</a></li>
+    <li><a href="#conclusioni-n">Le conclusioni — Topus e Bomber sono impostori</a></li>
+    <li><a href="#reazioni-n">Le reazioni — la risposta dei Topisti e di AleDoria</a></li>
+    <li><a href="#ebraismo-n">L'Ebraismo — una nuova fede (147 dM)</a></li>
+    <li><a href="#isola-n">Le ricerche per l'Isola di Flavio (149 dM)</a></li>
+  </ol>
+</div>
+
+<h2 id="origini-n">Le origini — il Medico Nano di Calimera <span class="edit-link" onclick="openEditor('Nestola')">[modifica]</span></h2>
+<p>Nestola nacque a <b>Calimera</b> nel <b>123 dM</b> (2040 d.C.), lo stesso anno in cui Giovanni Zecca veniva spinto nello spazio e Martano veniva liberato dal Cheddar. Fin da bambino mostrò un'intelligenza vivace e una statura modesta — caratteristiche che gli valsero il soprannome di <b>Medico Nano</b> quando, anni dopo, intraprese la professione medica. Ma Nestola non era solo un medico: era uno scienziato. E come scienziato, credeva in una sola cosa: la verità si dimostra, non si dichiara.</p>
+<p>Studiò Medicina e Scienza nelle più prestigiose università italiane: Napoli, Bologna, Padova. Ovunque andasse, portava con sé due cose: una valigia di libri e una domanda che non smetteva mai di porsi: «Come facciamo a sapere che è vero?»</p>
+
+<h2 id="dubbio-n">Il dubbio — scienza contro fede <span class="edit-link" onclick="openEditor('Nestola')">[modifica]</span></h2>
+<p>Durante i suoi studi, Nestola si accorse di una cosa che lo turbava profondamente: molti dei libri di scienza che leggeva erano basati su studi di persone estremamente <b>Topiste</b>. Le <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')">F.O.N.D.A.M.E.N.T.A.</a> di Gildo Spisso, le <a onclick="navigateTo('L.E.G.G.I.')">L.E.G.G.I.</a> dell'Ignoto di Napoli, persino la <a onclick="navigateTo('Il Cheddar')">Teoria del Cheddar Universale</a> di AleDoria — tutte opere scritte da uomini che, in un modo o nell'altro, credevano in <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a>.</p>
+<p>«La scienza» scriveva Nestola nei suoi appunti, «non può basarsi sulla fede. Se un'affermazione è vera, deve essere verificabile indipendentemente da chi la fa. Se dipende dalla divinità di chi la scrive, allora non è scienza. È teologia travestita.»</p>
+
+<h2 id="indagini-n">Le indagini — Phil Patai e Pio Patai, padre e figlio <span class="edit-link" onclick="openEditor('Nestola')">[modifica]</span></h2>
+<p>Nestola decise di verificare personalmente le basi del Topismo. Iniziò dalle presunte incarnazioni di Ludo: <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> e <a onclick="navigateTo('Bomber')">Bomber</a>. Se erano davvero la stessa persona, o se erano davvero il figlio di Dio fatto uomo, allora dovevano esserci prove nei registri anagrafici delle città in cui erano comparsi.</p>
+<p>Le sue ricerche lo portarono a due scoperte sconcertanti:</p>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><b>Nei registri di <a onclick="navigateTo('Serrano')">Serrano</a></b>, trovò il nome di una persona chiamata <b>Phil Patai</b>, nato circa 18 anni prima dell'epoca della presunta apparizione di Topus Maximus. Phil Patai scomparve dai registri quando avrebbe dovuto avere circa 18 anni — proprio l'età in cui Topus Maximus era comparso a Serrano.</li>
+  <li><b>Nei registri di <a onclick="navigateTo('Calimera')">Calimera</a></b>, trovò i dati di un certo <b>Pio Patai</b>, nato circa 18 anni prima dell'epoca della resurrezione di Bomber. Anche Pio Patai scomparve dai registri quando avrebbe dovuto avere circa 18 anni — proprio l'età in cui Bomber era risorto.</li>
+</ul>
+<p>Nestola continuò a scavare. Scoprì che <b>Phil Patai e Pio Patai erano padre e figlio</b>. Phil aveva insegnato a Pio come comportarsi: come parlare, come muoversi, come apparire miracoloso. Il piano era semplice: Phil sarebbe scomparso all'età di 18 anni, sarebbe ricomparso come <b>Topus Maximus</b>, avrebbe fondato il Topismo, e sarebbe stato "martirizzato" (cioè, sarebbe semplicemente scomparso di nuovo, per non farsi più vedere). Anni dopo, suo figlio Pio — cresciuto nell'arte dell'inganno — avrebbe compiuto 18 anni, sarebbe scomparso, e sarebbe ricomparso come <b>Bomber</b>, il figlio di Dio resuscitato.</p>
+<p><b>Ecco perché Topus e Bomber erano così simili:</b> non perché uno fosse la resurrezione dell'altro, ma perché erano <b>padre e figlio</b>. La somiglianza fisica era ereditaria, non miracolosa. I gesti, le parole, le espressioni — tutto era stato insegnato da Phil a Pio. Non c'era nulla di divino. C'era solo una famiglia di impostori che si passava la maschera del "Figlio di Dio" di generazione in generazione.</p>
+<p><b>Ludo non c'entrava nulla.</b> Non aveva mai parlato a Phil Patai. Non aveva mai incaricato nessuno di agire in suo nome. Phil e Pio avevano agito da soli, spinti dalla sete di potere e dalla volontà di controllare le masse attraverso la religione. Avevano costruito un impero di fede sulla menzogna, e per decenni nessuno aveva osato metterlo in discussione.</p>
+
+<h2 id="castello-n">Il castello di Bomber in Anatolia (143 dM) <span class="edit-link" onclick="openEditor('Nestola')">[modifica]</span></h2>
+<p>Nel frattempo, Pio Patai — alias Bomber — si era ritirato in <b>Anatolia</b> (l'odierna Turchia) e si era fatto costruire un imponente <b>castello di cobblestone</b>. I lavori iniziarono nel <b>143 dM</b> e durarono tre anni. Il castello, secondo le descrizioni dell'epoca, era massiccio, grigio, imponente — esattamente come ci si aspetterebbe da un uomo che ha ingannato il mondo per decenni e vuole godersi i frutti della sua frode in pace.</p>
+<p>Nestola, che nel frattempo aveva continuato le sue ricerche, venne a sapere dell'esistenza del castello. E vide un'opportunità.</p>
+
+<h2 id="esplosione-n">L'esplosione e la sfida (146 dM) <span class="edit-link" onclick="openEditor('Nestola')">[modifica]</span></h2>
+<p>Nel <b>146 dM</b>, dopo tre anni dalla costruzione del castello, Nestola si presentò in Anatolia. Non da solo: portò con sé una quantità di esplosivo sufficiente a far saltare in aria l'intera struttura. Lo piazzò, attese il momento giusto, e fece brillare la carica.</p>
+<p>Il castello di Bomber crollò in una nuvola di polvere e detriti. Nestola non scappò. Rimase lì, in mezzo alle macerie, ad aspettare.</p>
+<p>Non dovette aspettare molto. <a onclick="navigateTo('Bomber')">Bomber</a> — o colui che si faceva chiamare Bomber, cioè Pio Patai — arrivò di corsa, furioso. «Non ti rendi conto di quello che hai fatto?» urlò. «Mi hai fatto esplodere la casa! Io sono il figlio di Ludo e nipote di VitoCarlo!»</p>
+<p>Nestola lo guardò. Era calmo. Troppo calmo. Poi disse: «E allora chiamali. Chiama Ludo. Digli che sono qui.»</p>
+<p>Bomber esitò. «Cosa?»</p>
+<p>«Chiamali» ripeté Nestola. «Se sei davvero suo figlio, se hai davvero i suoi poteri, chiamalo. O fai qualcosa. Un miracolo. Una prova. Qualsiasi cosa.»</p>
+<p>Bomber non rispose. Non poteva. Perché non aveva poteri. Non era il figlio di Ludo. Era Pio Patai, figlio di Phil Patai, un uomo che aveva imparato dal padre come fingersi un dio. E la parte, ora, era finita.</p>
+
+<h2 id="conclusioni-n">Le conclusioni — Topus e Bomber sono impostori <span class="edit-link" onclick="openEditor('Nestola')">[modifica]</span></h2>
+<p>Nestola registrò tutto. L'esitazione di Bomber, il silenzio dei cieli, l'assenza di qualsiasi intervento divino. Tornato a Calimera, scrisse un trattato in cui esponeva le sue conclusioni:</p>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><b>Topus Maximus e Bomber sono due persone diverse: padre e figlio.</b> Le prove anagrafiche dimostrano l'esistenza di Phil Patai e Pio Patai, due individui distinti, padre e figlio, nati in anni diversi, in città diverse.</li>
+  <li><b>Non hanno poteri divini.</b> La mancata reazione all'esplosione del castello e l'incapacità di Bomber di fornire qualsiasi prova della sua natura divina dimostrano che i suoi poteri — come quelli di Topus — erano fittizi.</li>
+  <li><b>I presunti miracoli sono messi in scena.</b> Phil ha insegnato a Pio come comportarsi: i gesti, le parole, le apparizioni. Non c'era nulla di soprannaturale. Era teatro.</li>
+  <li><b>La somiglianza tra Topus e Bomber è ereditaria, non miracolosa.</b> Erano padre e figlio. Per questo si assomigliavano. Non c'era bisogno di resurrezione.</li>
+  <li><b>Ludo non c'entra nulla.</b> Ludo non ha mai incaricato Phil o Pio di agire in suo nome. Non ha mai parlato loro. Non ha mai approvato le loro azioni. Hanno agito da soli, per sete di potere.</li>
+  <li><b>I messaggi di Topus e Bomber sono contraddittori perché sono due persone diverse.</b> Phil insegnava una cosa, Pio ne insegnava un'altra. Non c'era coerenza perché non c'era un'autorità divina a garantirla.</li>
+</ul>
+<p>La conclusione finale di Nestola fu lapidaria: <b>«Ludovico Pio Tommasi non si è mai incarnato. Topus Maximus e Bomber sono impostori, padre e figlio. Il Topismo è una religione costruita sulla menzogna di due uomini che volevano il potere.»</b></p>
+
+<h2 id="reazioni-n">Le reazioni — la risposta dei Topisti e di AleDoria <span class="edit-link" onclick="openEditor('Nestola')">[modifica]</span></h2>
+<p>Le conclusioni di Nestola furono rese pubbliche nel <b>147 dM</b>. La reazione dei <b>Topisti</b> fu immediata e feroce. Le autorità religiose chiesero a gran voce l'arresto del «Medico Nano» per blasfemia e sovversione. Cercarono di convincere i governatori di Napoli, Castri e Serrano a processarlo e a costringerlo a ritrattare, dichiarando che le sue ricerche erano opere di finzione.</p>
+<p>Ma nessun governante rispose. Né <a onclick="navigateTo('Primo Clone dello Zio di Sbost')">Charlie Sbirk</a>, nè <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a> vollero saperne. Il caso di Nestola non era una questione di stato — era una questione di fede, e la fede, avevano imparato, non si impone con la forza.</p>
+<p>L'unico a rispondere fu <b><a onclick="navigateTo('AleDoria')">AleDoria</a></b>, il Principe di Napoli e Re d'Italia. La sua risposta fu inaspettata: dopo un'attenta analisi dei documenti presentati da Nestola, AleDoria dichiarò pubblicamente che le ricerche del Medico Nano erano <b>scientificamente valide</b>. E, con onestà intellettuale, ammise: <b>«Avevo torto. Le mie teorie sul Cheddar universale erano basate su presupposti errati. Nestola ha dimostrato che non c'è alcuna prova dell'intervento divino nel mondo. Topus e Bomber erano impostori, padre e figlio.»</b></p>
+<p>La dichiarazione di AleDoria fu uno choc per i Topisti. Molti di loro, indignati, lasciarono Napoli e si ritirarono in altre città. Ma altri, invece, furono colpiti dalla sincerità di AleDoria. Cominciarono a mettere in discussione le loro stesse credenze. Alcuni smisero di credere del tutto in Ludo. Altri continuarono a credere in Ludo, ma non più in Topus e Bomber, ritenendoli semplici impostori che avevano usurpato un ruolo divino.</p>
+
+<h2 id="ebraismo-n">L'Ebraismo — una nuova fede (147 dM) <span class="edit-link" onclick="openEditor('Nestola')">[modifica]</span></h2>
+<p>Tra coloro che accettarono le scoperte di Nestola, nacque una nuova corrente di pensiero. Non era più possibile credere in Topus e Bomber come incarnazioni di Ludo. Ma era ancora possibile credere in Ludo stesso — in un Dio creatore, lontano, forse disinteressato, ma comunque esistente.</p>
+<p>Questa nuova fede prese il nome di <b>Ebraismo</b>. Il nome fu scelto da Nestola stesso, in omaggio a una tradizione antica che già in altri mondi aveva rifiutato le incarnazioni divine e si era concentrata su un Dio unico, trascendente, non rappresentabile. Gli Ebraisti non riconoscono Topus Maximus, non riconoscono Bomber, non riconoscono alcuna incarnazione terrena di Ludo. Credono in Ludo — ma in un Ludo che non si manifesta, che non interviene, che ha creato il mondo e poi si è ritirato, lasciando gli uomini liberi di cercare la verità con la ragione.</p>
+<p>Il simbolo dell'Ebraismo è una <b>stella a sei punte</b>, che rappresenta l'equilibrio tra cielo e terra, tra ragione e fede, tra ciò che si sa e ciò che si spera. Nestola la scelse perché, disse, «non ha angoli acuti che possono ferire, né curve che possono ingannare. È una stella che guarda in tutte le direzioni, come la verità dovrebbe fare.»</p>
+
+<h2 id="isola-n">Le ricerche per l'Isola di Flavio (149 dM) <span class="edit-link" onclick="openEditor('Nestola')">[modifica]</span></h2>
+<p>Due anni dopo il rilascio delle sue prime ricerche, nel <b>149 dM</b>, Nestola iniziò un nuovo progetto. Aveva sentito parlare di un'isola dove <a onclick="navigateTo('Bomber')">Bomber</a> amava andare — un luogo segreto, lontano da occhi indiscreti, dove forse si nascondevano altre verità scomode. Cominciò a raccogliere informazioni, a interrogare marinai, a frugare negli archivi delle dogane.</p>
+<p>Le sue ricerche sarebbero durate anni. E alla fine, lo avrebbero portato a scoprire qualcosa di molto più grande di un semplice castello di cobblestone: l'<b><a onclick="navigateTo('Isola di Flavio')">Isola di Flavio</a></b>, il patto segreto tra <a onclick="navigateTo('Morello')">Morello</a> e <a onclick="navigateTo('Zio di Sbost')">lo Zio di Sbost</a>, e la rete di crimini che aveva tenuto in scacco il Salento per oltre un secolo.</p>
+<p>Ma questa è un'altra storia.</p>
+
+<div class="stub-box" style="background:#eaf3fb;border-left-color:#3680b0">
+  <span style="font-size:22px">🔬</span>
+  <span><b>«La scienza non ha bisogno di miracoli. Ha bisogno di prove. E le prove dicono che Topus e Bomber non sono mai stati ciò che dicevano di essere. Erano padre e figlio. Erano impostori.»</b> — Nestola, il Medico Nano.</span>
+</div>
+
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Scienziati</a> <a>Medici</a> <a>Eretici</a> <a>Fondatori di religioni</a> <a>Ebraismo</a> <a>Calimera</a> <a>Critici del Topismo</a></div>`;
+}
+
+// ══════════════════════════════════════════════════════
+//  PAGINA: EBRAISMO — LA FEDE DELLA RAGIONE
+// ══════════════════════════════════════════════════════
+
+function buildEbraismo() {
+  return `<div class="wiki-notice"><span class="ni">✡️</span><span>L'Ebraismo è la fede nata dalle scoperte di <a onclick="navigateTo('Nestola')">Nestola</a>. Rifiuta Topus e Bomber come impostori, ma mantiene la fede in un <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico</a> lontano e trascendente. Il suo simbolo è la Stella a sei punte.</span></div>
+<h1 class="page-title">Ebraismo</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Ebraismo</div>
+  <div style="text-align:center;padding:8px 6px 4px;font-size:48px">✡️</div>
+  <div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">La Stella a sei punte — equilibrio tra ragione e fede</div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Fondatore</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Nestola')">Nestola</a> (detto il Medico Nano)</div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Anno di fondazione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>147 dM</b></div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Luogo di nascita</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Calimera')">Calimera</a></div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Divinità</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> (Dio creatore, trascendente, non incarnato)</div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Rifiuta</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> · <a onclick="navigateTo('Bomber')">Bomber</a> · Qualsiasi incarnazione terrena di Ludo</div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Testi sacri</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Le scoperte di Nestola · La ragione · La scienza verificabile</div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Simbolo</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Stella a sei punte (equilibrio tra cielo e terra, ragione e fede)</div></div></td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Motto</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><i>«La verità non ha bisogno di miracoli.»</i></div></div></td></tr>
+  </table>
+</div>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#nascita-e">La nascita dell'Ebraismo (147 dM)</a></li>
+    <li><a href="#principi-e">I principi fondamentali</a>
+      <ol><li><a href="#ludo-e">Ludovico — il Dio lontano</a></li><li><a href="#rifiuto-e">Il rifiuto delle incarnazioni</a></li><li><a href="#ragione-e">La ragione come guida</a></li></ol>
+    </li>
+    <li><a href="#nestola-e">Il ruolo di Nestola</a></li>
+    <li><a href="#simbolo-e">Il simbolo — la Stella a sei punte</a></li>
+    <li><a href="#diffusione-e">La diffusione e i primi seguaci</a></li>
+    <li><a href="#topismo-e">Il rapporto con il Topismo</a></li>
+    <li><a href="#oggi-e">L'Ebraismo oggi</a></li>
+  </ol>
+</div>
+
+<h2 id="nascita-e">La nascita dell'Ebraismo (147 dM) <span class="edit-link" onclick="openEditor('Ebraismo')">[modifica]</span></h2>
+<p>Nel <b>147 dM</b>, un anno dopo la storica sfida di <a onclick="navigateTo('Nestola')">Nestola</a> a <a onclick="navigateTo('Bomber')">Bomber</a> in Anatolia, il Medico Nano pubblicò le sue conclusioni. Le prove erano schiaccianti: <b>Topus Maximus e Bomber non erano il figlio di Dio</b>. Erano due impostori, padre e figlio — <b>Phil Patai e Pio Patai</b> — che avevano costruito una frode teologica per decenni.</p>
+<p>La reazione del mondo fu sconvolgente. Molti persero la fede. Altri si aggrapparono ancora più forte alle loro credenze, rifiutando le prove. Ma un gruppo di persone — scienziati, medici, filosofi, e comuni cittadini stanchi delle menzogne — scelse una strada diversa. Non abbandonarono l'idea di un Dio creatore. Abbandonarono l'idea che quel Dio si fosse mai incarnato in uomini bugiardi.</p>
+<p>Nacque così l'<b>Ebraismo</b>. Nestola ne fu il fondatore, ma non il profeta. «Non sono un profeta» disse. «Sono uno scienziato. Ho trovato la verità. Chi vuole seguirla, la segua. Chi non vuole, continui pure a credere alle favole di Phil e Pio Patai.»</p>
+
+<h2 id="principi-e">I principi fondamentali <span class="edit-link" onclick="openEditor('Ebraismo')">[modifica]</span></h2>
+
+<h3 id="ludo-e">Ludovico — il Dio lontano <span class="edit-link" onclick="openEditor('Ebraismo')">[modifica]</span></h3>
+<p>Gli Ebraisti credono in <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> come unico Dio creatore. Ma lo concepiscono come un'entità <b>trascendente e lontana</b>, che ha creato il mondo e poi si è ritirato, lasciando gli uomini liberi di governarsi con la ragione. Ludo non interviene nelle vicende umane. Non manda profeti. Non si incarna. Non ascolta preghiere nel senso tradizionale del termine. Ludo è — e basta.</p>
+
+<h3 id="rifiuto-e">Il rifiuto delle incarnazioni <span class="edit-link" onclick="openEditor('Ebraismo')">[modifica]</span></h3>
+<p>Il principio cardine dell'Ebraismo è il <b>rifiuto categorico di qualsiasi incarnazione terrena di Ludo</b>. <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> e <a onclick="navigateTo('Bomber')">Bomber</a> non sono il figlio di Dio. Sono Phil Patai e Pio Patai, padre e figlio, due uomini che hanno orchestrato una frode per decenni. I loro insegnamenti sono menzogne. I loro miracoli sono trucchi. La loro resurrezione è un cambio di persona.</p>
+<p>L'Ebraismo non riconosce alcun santo, alcun messia, alcuna figura divina incarnata. L'unica autorità è Ludo stesso — e Ludo non parla, non scrive, non si mostra.</p>
+
+<h3 id="ragione-e">La ragione come guida <span class="edit-link" onclick="openEditor('Ebraismo')">[modifica]</span></h3>
+<p>Senza profeti, senza messia, senza miracoli, come si fa a distinguere il vero dal falso? La risposta dell'Ebraismo è: <b>con la ragione e con la scienza</b>. Gli Ebraisti non accettano nulla che non sia verificabile. Non credono sulla parola di nessuno. Le <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')">F.O.N.D.A.M.E.N.T.A.</a> di Gildo Spisso sono valide solo nelle parti che possono essere dimostrate. Le <a onclick="navigateTo('L.E.G.G.I.')">L.E.G.G.I.</a> dell'Ignoto di Napoli sono valide solo nelle parti che non contraddicono l'osservazione. La <a onclick="navigateTo('Il Cheddar')">Teoria del Cheddar Universale</a> di AleDoria è stata ritrattata dallo stesso AleDoria dopo le scoperte di Nestola.</p>
+<p>«La fede» dice un detto ebraista, «non è un atto di credulità. È un atto di fiducia nella ragione. Se qualcosa non può essere spiegato, non significa che sia miracoloso. Significa solo che non abbiamo ancora abbastanza informazioni.»</p>
+
+<h2 id="nestola-e">Il ruolo di Nestola <span class="edit-link" onclick="openEditor('Ebraismo')">[modifica]</span></h2>
+<p>Nestola non è considerato un profeta o un messia. È considerato uno <b>scienziato</b>. Ha applicato il metodo scientifico alla teologia, ha raccolto prove, ha formulato ipotesi, le ha verificate, e ha tratto conclusioni. La sua autorità non deriva da una rivelazione divina, ma dalla qualità delle sue prove. Chiunque può ripetere i suoi esperimenti. Chiunque può verificare i suoi risultati. Questa è la forza dell'Ebraismo: non dipende da una persona, ma da un metodo.</p>
+<p>Nestola stesso ha rifiutato qualsiasi ruolo di guida spirituale. «Io non sono il vostro capo» disse ai primi seguaci. «Sono il vostro collega. Controllate i miei dati. Verificate le mie fonti. E se trovate un errore, correggetemi. La verità è di tutti, non è mia.»</p>
+
+<h2 id="simbolo-e">Il simbolo — la Stella a sei punte <span class="edit-link" onclick="openEditor('Ebraismo')">[modifica]</span></h2>
+<p>Il simbolo dell'Ebraismo è la <b>Stella a sei punte</b> (✡️). Nestola la scelse per il suo significato geometrico e filosofico: è una figura composta da due triangoli equilateri intrecciati, uno rivolto verso l'alto (il cielo, Ludo) e uno verso il basso (la terra, l'umanità). I due triangoli non sono separati: si intrecciano, si sostengono a vicenda, ma rimangono distinti. Il cielo non invade la terra. La terra non raggiunge il cielo. C'è equilibrio, non fusione.</p>
+<p>«Ludo è lassù» spiegò Nestola. «Noi siamo quaggiù. Non c'è un ponte che ci colleghi, se non la ragione. La Stella a sei punte rappresenta questo: due mondi distinti, che si guardano, si rispettano, ma non si mescolano. Ludo non si incarna. Noi non diventiamo dei. E va bene così.»</p>
+
+<h2 id="diffusione-e">La diffusione e i primi seguaci <span class="edit-link" onclick="openEditor('Ebraismo')">[modifica]</span></h2>
+<p>L'Ebraismo si diffuse inizialmente tra gli scienziati e gli intellettuali delle università italiane. Molti medici, fisici, astronomi e filosofi abbracciarono la nuova fede, attratti dal suo rigore razionale. Le prime comunità ebraiste sorsero a Napoli, Bologna e Padova — le stesse città dove Nestola aveva studiato.</p>
+<p>A Calimera, la città natale di Nestola, l'Ebraismo divenne rapidamente la religione predominante. I calimeresi, orgogliosi del loro concittadino, abbandonarono in massa il Topismo e si convertirono alla nuova fede. La chiesa dei Santi Eutichio e Giusta, dove <a onclick="navigateTo('Zella')">Zella</a> aveva ricevuto la Prima Comunione, fu riconvertita in un centro di studi ebraisti. La statua di Nestola — piccolo, con un libro in mano — fu eretta nella piazza principale.</p>
+<p>Non tutti furono contenti. I Topisti più accaniti tentarono di boicottare le comunità ebraiste, ma senza successo. I governanti — Morello, lo Zio di Sbost, il governo democratico di Serrano — si rifiutarono di intervenire. La libertà di religione, avevano imparato, era un diritto fondamentale.</p>
+
+<h2 id="topismo-e">Il rapporto con il Topismo <span class="edit-link" onclick="openEditor('Ebraismo')">[modifica]</span></h2>
+<p>Il rapporto tra Ebraismo e Topismo è complesso. Non è una guerra aperta — gli Ebraisti non cercano di convertire i Topisti con la forza, e i Topisti hanno imparato a convivere con gli Ebraisti. Ma la tensione è palpabile. I Topisti considerano gli Ebraisti degli eretici che hanno rifiutato la vera rivelazione di Ludo. Gli Ebraisti considerano i Topisti delle vittime di una frode millenaria, che credono ancora a due impostori padre e figlio.</p>
+<p>Un detto ebraista recita: «I Topisti pregano Ludo attraverso Phil e Pio. Noi preghiamo Ludo direttamente. Loro hanno bisogno di intermediari. Noi no. Questo è ciò che ci rende liberi.»</p>
+<p>Un detto topista, in risposta, recita: «Gli Ebraisti hanno la testa piena di numeri e il cuore vuoto. Noi abbiamo la fede. Loro hanno i dubbi. Quando moriranno, Ludo li guarderà e dirà: "Perché non avete creduto in mio figlio?" E loro non sapranno cosa rispondere.»</p>
+<p>Nestola, quando sentì questo detto, rise. «Se Ludo mi chiederà perché non ho creduto in suo figlio, gli risponderò: "Perché suo figlio era Pio Patai di Serrano, e ho i documenti che lo provano." Poi gli mostrerò i registri anagrafici. E Ludo, se è giusto, dovrà darmi ragione.»</p>
+
+<h2 id="oggi-e">L'Ebraismo oggi <span class="edit-link" onclick="openEditor('Ebraismo')">[modifica]</span></h2>
+<p>L'Ebraismo è oggi una delle fedi più diffuse nel Salento e in Italia. Le sue comunità sono attive nella ricerca scientifica, nell'istruzione e nella promozione del pensiero critico. I centri di studio ebraisti — chiamati <b>Sinagoghe della Ragione</b> — sono luoghi dove si discute di scienza, filosofia e teologia, senza dogmi, senza imposizioni, senza paura di sbagliare.</p>
+<p>Il simbolo della Stella a sei punte è visibile su molti edifici pubblici. I bambini ebraisti imparano fin da piccoli a distinguere una teoria scientifica da una credenza religiosa, e a non confondere le due cose. «La scienza ti dice come funziona il mondo» è una delle prime lezioni. «La fede ti dice perché vale la pena viverci. Non confondere le due cose.»</p>
+<p>E Nestola, il Medico Nano, vive ancora a Calimera, circondato dai suoi libri e dai suoi appunti. Non ha mai smesso di cercare la verità. Le sue ricerche sull'<b><a onclick="navigateTo('Isola di Flavio')">Isola di Flavio</a></b> sono ancora in corso. Chissà cosa troverà.</p>
+
+<div class="stub-box" style="background:#eaf3fb;border-left-color:#3680b0">
+  <span style="font-size:22px">✡️</span>
+  <span><b>«La verità non ha bisogno di miracoli. Ha bisogno di prove. E le prove sono dalla nostra parte.»</b> — Nestola, fondatore dell'Ebraismo.</span>
+</div>
+
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Religioni</a> <a>Ebraismo</a> <a>Fedi razionali</a> <a>Nestola</a> <a>Calimera</a> <a>Critiche al Topismo</a></div>`;
 }
 
 // ══════════════════════════════════════════════════════
@@ -18936,16 +19255,24 @@ function buildAleDoria() {
 <h2 id="teoria-ad">La Teoria del Cheddar Universale (113 dM) <span class="edit-link" onclick="openEditor('AleDoria')">[modifica]</span></h2>
 <p>Nel 113 dM, nel pieno della <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers</a>, AleDoria pubblicò un trattato che avrebbe cambiato per sempre la cosmologia di questo universo: <a onclick="navigateTo('Il Cheddar')"><b>La Teoria del Cheddar Universale</b></a>. In 47 pagine scritte in una notte, sosteneva che il Sole, la Luna, la Terra e persino l'acqua sono fatti di Cheddar in forme diverse. La comunità scientifica non la prese sul serio. I Ludotopici la adottarono come verità rivelata. AleDoria, che non era né scienziato né teologo, non si curò di nessuna delle due reazioni. «Ho scritto quello che ho visto» disse.</p>
 
+<h2 id="ritrattazione-ad">La ritrattazione dopo Nestola (147 dM) <span class="edit-link" onclick="openEditor('AleDoria')">[modifica]</span></h2>
+<p>Nel <b>147 dM</b>, dopo le ricerche di <a onclick="navigateTo('Nestola')">Nestola</a> che dimostrarono che Topus Maximus e Bomber erano impostori — Phil e Pio Patai, padre e figlio — AleDoria fu costretto a riconsiderare la propria Teoria del Cheddar Universale. Aveva costruito l'intera teoria cosmologica sulla struttura ontologica delle <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')">F.O.N.D.A.M.E.N.T.A.</a>, che a loro volta erano state validate dai Ludotopici sulla base dell'autorità del Topus Maximus — un'autorità rivelatasi fasulla.</p>
+<p>AleDoria pubblicò una nota di ritrattazione: <i>«La mia teoria non dipende dalla divinità di Topus Maximus. Dipende da ciò che ho osservato. Le osservazioni non cambiano. Ma riconosco che ho costruito una parte del quadro teorico su una fondazione che altri hanno usato per giustificare credenze basate sulla frode. Di questo mi scuso. La teoria del Cheddar può stare in piedi senza impostori.»</i> La ritrattazione soddisfece pochi: i Ludotopici la considerarono un tradimento; i fisici non l'avevano mai presa sul serio comunque.</p>
+
 <h2 id="ribellione-ad">La ribellione e la monarchia costituzionale (126 dM) <span class="edit-link" onclick="openEditor('AleDoria')">[modifica]</span></h2>
 <p>Nel <b>126 dM</b>, AleDoria ascoltò i discorsi di <b>Charlie Sbirk</b> (che non sapeva essere il <a onclick="navigateTo('Primo Clone dello Zio di Sbost')">Primo Clone</a>) e si convinse che la democrazia fosse la strada giusta. Quando suo zio rifiutò di cedere il potere, AleDoria organizzò una ribellione: riprogrammò gli Spisso Bot e marciò su Napoli, cacciando lo Zio di Sbost.</p>
 <p>Dopo la ribellione, Charlie Sbirk prese il potere a Castri ed esiliò l'intera famiglia Sbost. AleDoria, tradito, si ritirò a Napoli dove fondò la <b>monarchia costituzionale</b>, diventando il primo Principe di Napoli. Vedi <a onclick="navigateTo('Grande Spaccatura degli Sbost')">Grande Spaccatura degli Sbost</a> per i dettagli.</p>
 
+<h2 id="regno-ad">Il Regno d'Italia e l'abdicazione (219–248 dM) <span class="edit-link" onclick="openEditor('AleDoria')">[modifica]</span></h2>
+<p>Nel <b>219 dM</b>, AleDoria proclamò il <a onclick="navigateTo('Regno d\'Italia')">Regno d'Italia</a>, unificando la penisola sotto una monarchia costituzionale. Fondò le Cantine educative, siglò trattati con il <a onclick="navigateTo('The United Kingdom of Great Britain and France')">Regno Unito di Gran Bretagna e Francia</a>, e nel 231 dM incorporò Serrano, Castri e Corigliano come stati autonomi.</p>
+<p>Nel <b>248 dM</b>, al termine del <a onclick="navigateTo('Isola di Flavio')">processo dell'Isola di Flavio</a>, AleDoria abdicò. Le ragioni ufficiali non furono mai dichiarate integralmente. Alcuni storici le collegano all'esito del processo e alle rivelazioni emerse; altri al peso di quasi un secolo di governo. AleDoria lasciò il palazzo reale di Napoli e non vi fece più ritorno. Il <b>249 dM</b> vide la nascita della Repubblica italiana.</p>
+
 <div class="stub-box" style="background:#eaf3fb;border-left-color:#3680b0">
   <span style="font-size:22px">🔧</span>
-  <span><b>«La differenza tra un Bot e un'arma è il contesto.»</b> — AleDoria, inventore de La Cantina.</span>
+  <span><b>«La differenza tra un Bot e un'arma è il contesto.»</b> — AleDoria, inventore de La Cantina. Ha costruito uno stato, un regno, e alla fine ha lasciato entrambi.</span>
 </div>
 </div>
-<div class="wiki-cats"><strong>Categorie:</strong> <a>Inventori</a> <a>Famiglia Sbost</a> <a>La Cantina</a> <a>Tecnologia pocchiana</a> <a>Castri</a></div>`;
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Inventori</a> <a>Famiglia Sbost</a> <a>La Cantina</a> <a>Tecnologia pocchiana</a> <a>Castri</a> <a>Regno d'Italia</a> <a>248 dM</a></div>`;
 }
 
 function buildCheddar() {
