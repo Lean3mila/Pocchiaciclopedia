@@ -936,6 +936,7 @@ clearfix::after { content: ''; display: block; clear: both; }
 <div id="wiki-top-actions">
 <button class="top-btn" id="btn-back" onclick="goBack()" style="display:none" title="Pagina precedente">← Indietro</button>
 <button class="top-btn primary" id="btn-edit-top" onclick="openEditor(null)">✏️ Modifica</button>
+<button class="top-btn" onclick="window.location.href='wikigacha.html'">🎮 WikiGacha</button> 
 </div>
 </div>
 </div>
@@ -1013,7 +1014,7 @@ clearfix::after { content: ''; display: block; clear: both; }
     <hr style="margin:6px 0;border-color:#eaecf0">
     <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia (Pascali)</a>
     <a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali "il Pocchia"</a>
-    <a onclick="navigateTo('Anna Pascali')">Anna Pascali</a>
+    <a onclick="navigateTo('Anna Pocchia')">Anna Pocchia</a>
     <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a>
     <a onclick="navigateTo('Riccardo Pascali')">Riccardo Pascali (Rick Brick)</a>
     <a onclick="navigateTo('Alice Sportella')">Alice Sportella</a>
@@ -1280,7 +1281,7 @@ const DEFAULT_PAGES = {
       <button onclick="changeYear(-10)" style="padding:3px 7px;border:1px solid #a2a9b1;background:#f8f9fa;border-radius:3px;cursor:pointer;font-size:11px">−10</button>
       <button onclick="changeYear(-5)"  style="padding:3px 7px;border:1px solid #a2a9b1;background:#f8f9fa;border-radius:3px;cursor:pointer;font-size:11px">−5</button>
       <button onclick="changeYear(-1)"  style="padding:3px 7px;border:1px solid #a2a9b1;background:#f8f9fa;border-radius:3px;cursor:pointer;font-size:11px">−1</button>
-      <input id="year-input" type="number" min="0" value="1004"
+      <input id="year-input" type="number" min="0" value="401"
         style="width:84px;padding:3px 6px;border:1px solid #a2a9b1;border-radius:3px;font-size:14px;font-weight:700;color:#3680b0;text-align:center"
         oninput="onYearSlider(this.value)"
         onchange="onYearSlider(this.value)"
@@ -1318,10 +1319,10 @@ const DEFAULT_PAGES = {
 <h2>Città e luoghi</h2>
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
   <li><a onclick="navigateTo('Napoli')"><b>Napoli</b></a> — La città più caotica d'Italia, pulita da Morello nel 104 dM. Capitale del Regno d'Italia.</li>
-  <li><a onclick="navigateTo('Serrano')"><b>Serrano</b></a> — Distrutta dalla Bomba Spissica nel 107 dM, ricostruita e volante dal 109 dM. Oggi autonoma.</li>
+  <li><a onclick="navigateTo('Serrano')"><b>Serrano</b></a> — Distrutta dalla Bomba Spissica nel 107 dM, ricostruita e volante dal 109 dM.</li>
   <li><a onclick="navigateTo('Castri')"><b>Castri</b></a> — Capitale de La Cantina, sede della dogana dove lo Zio di Sbost incontrò Morello.</li>
-  <li><a onclick="navigateTo('Corigliano')"><b>Corigliano</b></a> — Liberata nel 131 dM dalla Grande Partita, oggi comune autonomo.</li>
-  <li><a onclick="navigateTo('Calimera')"><b>Calimera</b></a> — Capitale delle Filippine, il cui nome in grico significa "buongiorno".</li>
+  <li><a onclick="navigateTo('Corigliano')"><b>Corigliano</b></a> — La città delle fiamme. Liberata nel 131 dM dalla Grande Partita.</li>
+  <li><a onclick="navigateTo('Calimera')"><b>Calimera</b></a> — Ex-Capitale delle Filippine, il cui nome in grico significa "buongiorno".</li>
   <li><a onclick="navigateTo('Martano')"><b>Martano</b></a> — Liberata dal Cheddar il 24 Marzo 122 dM grazie alla caduta di Giovanni Zecca.</li>
 </ul>
 
@@ -1332,8 +1333,8 @@ const DEFAULT_PAGES = {
   <li><a onclick="navigateTo('Ludovico Pio Tommasi')"><b>Ludovico Pio Tommasi</b></a> — Il Dio creatore di questo mondo, detto anche "Cheddar" o "Re dei topi".</li>
   <li><a onclick="navigateTo('VitoCarlo Tommasi')"><b>VitoCarlo Tommasi</b></a> — L'Architetto, padre di Ludovico, progettò le fondamenta del mondo.</li>
   <li><a onclick="navigateTo('La Fede')"><b>La Fede (Federica Didonfrancesco)</b></a> — La terza entità divina, appare quando hai vera fede.</li>
-  <li><a onclick="navigateTo('Topus Maximus')"><b>Topus Maximus</b></a> — Figlio di Dio incarnato, fondatore del Topismo, scoppulato nel 103 dM.</li>
-  <li><a onclick="navigateTo('Bomber')"><b>Bomber</b></a> — Topus Maximus resuscitato nel 131 dM, ora fa gol.</li>
+  <li><a onclick="navigateTo('Topus Maximus')"><b>Topus Maximus</b></a> — Falso figlio di Dio incarnato, fondatore del Topismo, scoppulato nel 103 dM.</li>
+  <li><a onclick="navigateTo('Bomber')"><b>Bomber</b></a> — Falso Topus Maximus resuscitato nel 131 dM, ora fa gol.</li>
   <li><a onclick="navigateTo('Cheddar Mussolini')"><b>Cheddar Mussolini</b></a> — La Strega Cheddar, leader dei Ludotopici.</li>
 </ul>
 
@@ -1351,12 +1352,20 @@ const DEFAULT_PAGES = {
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
   <li><a onclick="navigateTo('Famiglia Pocchia')"><b>Famiglia Pocchia (Pascali)</b></a> — La famiglia che ha cambiato tutto, fondatrice delle Filippine.</li>
   <li><a onclick="navigateTo('Gianluca Pascali')"><b>Gianluca Pascali "il Pocchia"</b></a> — Patriarca, militare in pensione, ha salvato Riccardo da bambino.</li>
-  <li><a onclick="navigateTo('Anna Pascali')"><b>Anna Pascali</b></a> — Moglie di Gianluca, mai una parola fuori posto.</li>
+  <li><a onclick="navigateTo('Anna Pocchia')"><b>Anna Pocchia</b></a> — Moglie di Gianluca, mai una parola fuori posto.</li>
   <li><a onclick="navigateTo('Filippo Pascali')"><b>Filippo Pascali</b></a> — Militare, amico d'infanzia di Morello, co-fondatore delle Filippine.</li>
   <li><a onclick="navigateTo('Riccardo Pascali')"><b>Riccardo Pascali (Rick Brick)</b></a> — Investigatore, ha smantellato il Clan Spisso nell'89 dM.</li>
   <li><a onclick="navigateTo('Alice Sportella')"><b>Alice Sportella</b></a> — Moglie di Filippo, co-comandante della conquista di Serrano.</li>
   <li><a onclick="navigateTo('Figli di Filippo')"><b>Luca, Gino e Carla Pascali</b></a> — I tre figli di Filippo e Alice, nati con la sindrome di Down.</li>
+  <li><a onclick="navigateTo('Luca Pascali')"><b>Luca Pascali</b></a> — Il primogenito, inventore involontario del nome "Giachele".</li>
 </ul>
+
+<h3>Personaggi del basso mondo e figure secondarie</h3>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><a onclick="navigateTo('Il Ciciliano')"><b>Il Ciciliano</b></a> — Investitore calabrese paranoico, ossessionato per decenni dal fantasma di Giachele.</li>
+  <li><a onclick="navigateTo('Giachele')"><b>Giachele</b></a> — Il nome che non esiste, inventato da Luca Pascali, causa di rovina del Ciciliano.</li>
+  <li><a onclick="navigateTo('Greta Rizzo')"><b>Greta Rizzo</b></a> — Moglie del Ciciliano, pompaiola, lasciata sola con tre figli.</li>
+  <li><a onclick="navigateTo('Spicci')"><b>Spicci (la moneta)</b></a> — La valuta ufficiale del mondo pocchiano, inventata da Morello e Sal da Spicci.</li>
 
 <h3>Famiglia Sbost</h3>
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
@@ -1409,8 +1418,8 @@ const DEFAULT_PAGES = {
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
   <li><a onclick="navigateTo('Topismo')"><b>Topismo</b></a> — La religione dei Ludotopici, fondata dal Topus Maximus.</li>
   <li><a onclick="navigateTo('Calendario Morello')"><b>Calendario Morello</b></a> — Il sistema di datazione usato in questa enciclopedia.</li>
-  <li><a onclick="navigateTo('Ebraismo')"><b>Ebraismo</b></a> - Religione creata dopo le ricerche di Nestola, crede in Ludo ma non nelle sue false reincarnazioni.</li>
-  <li><a onclick="navigateTo('Nestola')"><b>Nestola (il Medico Nano)</b></a> - Colui che ha rotto il Topismo in due, come ha rotto la casa di Bomber.</li>
+  <li><a onclick="navigateTo('Ebraismo')"><b>Ebraismo</b></a> — Religione creata dopo le ricerche di Nestola, crede in Ludo ma non nelle sue false reincarnazioni.</li>
+  <li><a onclick="navigateTo('Nestola')"><b>Nestola (il Medico Nano)</b></a> — Colui che ha rotto il Topismo in due, come ha rotto la casa di Bomber.</li>
 </ul>
 
 <h2>Guerre</h2>
@@ -1534,8 +1543,8 @@ const DEFAULT_PAGES = {
     history: [],
     content: ""
   },
-  "Anna Pascali": {
-    title: "Anna Pascali",
+  "Anna Pocchia": {
+    title: "Anna Pocchia",
     wikitext: "",
     history: [],
     content: ""
@@ -1877,7 +1886,7 @@ DEFAULT_PAGES["Alessio Spisso"].content = buildAlessioSpisso();
 DEFAULT_PAGES["Alex Spisso"].content = buildAlexSpisso();
 DEFAULT_PAGES["Famiglia Pocchia"].content = buildFamigliaPocchia();
 DEFAULT_PAGES["Filippo Pascali"].content = buildFilippoPascali();
-DEFAULT_PAGES["Anna Pascali"].content = buildAnnaPascali();
+DEFAULT_PAGES["Anna Pocchia"].content = buildAnnaPocchia();
 DEFAULT_PAGES["Gianluca Pascali"].content = buildGianlucaPascali();
 DEFAULT_PAGES["Riccardo Pascali"].content = buildRiccardoPascali();
 DEFAULT_PAGES["Morello"].content = buildMorello();
@@ -1974,6 +1983,11 @@ DEFAULT_PAGES["Carola La Rosa"] = { title: "Carola La Rosa", content: buildCarol
 DEFAULT_PAGES["Carola Feudo"] = { title: "Carola Feudo", content: buildCarolaFeudo(), wikitext: "", history: [] };
 DEFAULT_PAGES["Ebraismo"] = { title: "Ebraismo", content: buildEbraismo(), wikitext: "", history: [] };
 DEFAULT_PAGES["Nestola"] = { title: "Nestola (il Medico Nano)", content: buildNestola(), wikitext: "", history: [] };
+DEFAULT_PAGES["Il Ciciliano"] = { title: "Il Ciciliano", content: buildIlCiciliano(), wikitext: "", history: [] };
+DEFAULT_PAGES["Luca Pascali"] = { title: "Luca Pascali", content: buildLucaPascali(), wikitext: "", history: [] };
+DEFAULT_PAGES["Greta Rizzo"] = { title: "Greta Rizzo", content: buildGretaRizzo(), wikitext: "", history: [] };
+DEFAULT_PAGES["Spicci"] = { title: "Spicci", content: buildSpicci(), wikitext: "", history: [] };
+DEFAULT_PAGES["Giachele"] = { title: "Giachele", content: buildGiachele(), wikitext: "", history: [] };
 
 
 function buildSalDaSpicci() {
@@ -4059,14 +4073,14 @@ function buildGianlucaPascali() {
     <tr><th>Nascita</th><td><b>10 Ottobre 30 pM</b> (1897), Calimera — bilancia, militare equilibrato</td></tr>
     <tr><th>Residenza</th><td>Nato a Calimera, si è trasferito con la famiglia a Napoli per il servizio militare</td></tr>
     <tr><th>Famiglia</th><td><a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia (Pascali)</a></td></tr>
-    <tr><th>Moglie</th><td><a onclick="navigateTo('Anna Pascali')">Anna Pascali</a></td></tr>
+    <tr><th>Moglie</th><td><a onclick="navigateTo('Anna Pocchia')">Anna Pocchia</a></td></tr>
     <tr><th>Figli</th><td><a onclick="navigateTo('Filippo Pascali')">Filippo</a>, <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a></td></tr>
     <tr><th>Professione</th><td>Militare (in pensione dall'anno 104 dM)</td></tr>
     <tr><th>Persona nota incontrata</th><td>Pierpaolo, presunto padre di <a onclick="navigateTo('Morello')">Morello</a> (<b>2 pM</b>, 1915 — durante il servizio militare)</td></tr>
     <tr><th>Longevità</th><td>Grazie alla scoperta della <a onclick="navigateTo('Mancarella')">Mancarella</a> (39 dM), ha potuto vivere oltre i 120 anni</td></tr>
   </table>
 </div>
-<p><b>Gianluca Pascali</b>, noto come <b>"il Pocchia"</b>, è il patriarca della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a>, marito di <a onclick="navigateTo('Anna Pascali')">Anna</a> e padre di <a onclick="navigateTo('Filippo Pascali')">Filippo</a> e <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a>. È nato a <b>Calimera</b> il <b>10 Ottobre 30 pM</b> (1897) e si è trasferito con la famiglia a Napoli quando era ancora giovane. Fu militare fino alla pensione, avvenuta nell'anno <b>104 dM</b> secondo il <a onclick="navigateTo('Calendario Morello')">Calendario Morello</a> — lo stesso calendario il cui fondatore, <a onclick="navigateTo('Morello')">Morello</a>, Gianluca aveva conosciuto indirettamente attraverso il padre Pierpaolo, incontrato nel <b>2 pM</b> (1915) durante il servizio militare.</p>
+<p><b>Gianluca Pascali</b>, noto come <b>"il Pocchia"</b>, è il patriarca della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a>, marito di <a onclick="navigateTo('Anna Pocchia')">Anna</a> e padre di <a onclick="navigateTo('Filippo Pascali')">Filippo</a> e <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a>. È nato a <b>Calimera</b> il <b>10 Ottobre 30 pM</b> (1897) e si è trasferito con la famiglia a Napoli quando era ancora giovane. Fu militare fino alla pensione, avvenuta nell'anno <b>104 dM</b> secondo il <a onclick="navigateTo('Calendario Morello')">Calendario Morello</a> — lo stesso calendario il cui fondatore, <a onclick="navigateTo('Morello')">Morello</a>, Gianluca aveva conosciuto indirettamente attraverso il padre Pierpaolo, incontrato nel <b>2 pM</b> (1915) durante il servizio militare.</p>
 <p>Grazie alla scoperta della <a onclick="navigateTo('Mancarella')">Mancarella</a> nel 39 dM — una soluzione all'invecchiamento sviluppata insieme a <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a> — Gianluca ha potuto vivere ben oltre i 120 anni, restando lucido e attivo fino alla pensione.</p>
 
 <h2>Il soprannome e il nome della famiglia <span class="edit-link" onclick="openEditor('Gianluca Pascali')">[modifica]</span></h2>
@@ -4085,7 +4099,7 @@ function buildGianlucaPascali() {
 <h2>Voci correlate <span class="edit-link" onclick="openEditor('Gianluca Pascali')">[modifica]</span></h2>
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
   <li><a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia (Pascali)</a></li>
-  <li><a onclick="navigateTo('Anna Pascali')">Anna Pascali</a> (moglie)</li>
+  <li><a onclick="navigateTo('Anna Pocchia')">Anna Pocchia</a> (moglie)</li>
   <li><a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a> (figlio)</li>
   <li><a onclick="navigateTo('Riccardo Pascali')">Riccardo Pascali</a> (figlio)</li>
   <li><a onclick="navigateTo('Morello')">Morello</a></li>
@@ -4188,7 +4202,7 @@ function buildMancarella() {
 <p>La scoperta della Mancarella ebbe un impatto profondo sulla storia della Pocchiaciclopedia. Grazie alla sua terapia, molti personaggi poterono vivere ben oltre i 100 anni:</p>
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
   <li><b><a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali "il Pocchia"</a></b> — nato il 10 Ottobre 30 pM (1897), arrivò fino al 104 dM e oltre, restando lucido e attivo per oltre 130 anni.</li>
-  <li><b><a onclick="navigateTo('Anna Pascali')">Anna Pascali</a></b> — nata il 14 Febbraio 10 pM (1907), visse abbastanza da vedere i figli diventare adulti e la famiglia prosperare.</li>
+  <li><b><a onclick="navigateTo('Anna Pocchia')">Anna Pocchia</a></b> — nata il 14 Febbraio 10 pM (1907), visse abbastanza da vedere i figli diventare adulti e la famiglia prosperare.</li>
   <li><b><a onclick="navigateTo('Morello')">Morello</a></b> — nato il 15 Agosto 30 pM (1887), sopravvisse alla prima eruzione del Vesuvio (17 dM, 1934) all'età di 47 anni, e visse fino al 115 dM (2032), quando fu catturato dallo Zio di Sbost, all'età di 115 anni.</li>
   <li><b><a onclick="navigateTo('Sal da Spicci')">Sal da Spicci</a></b> — nato il 2 Maggio 30 pM (1887), scomparve dopo l'eruzione del 17 dM (1934) all'età di 47 anni, riapparendo poi come Sal da Vinci con una carriera musicale che durò decenni.</li>
   <li><b><a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a></b> — nato il 1 Aprile 50 dM (1967), era ancora attivo nel 124 dM, all'età di 77 anni, ma biologicamente molto più giovane.</li>
@@ -4208,22 +4222,22 @@ function buildMancarella() {
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Scienziati</a> <a>Biologi</a> <a>Figure scomparse</a> <a>Scoperte scientifiche</a> <a>Salento</a> <a>Castri</a> <a>Anti-invecchiamento</a></div>`;
 }
 
-function buildAnnaPascali() {
-  return `<h1 class="page-title">Anna Pascali</h1>
+function buildAnnaPocchia() {
+  return `<h1 class="page-title">Anna Pocchia</h1>
 <div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
 <div class="wiki-article-body clearfix">
 <div class="infobox">
-  <div class="infobox-title">Anna Pascali</div>
-  <div style="text-align:center;padding:8px 6px 4px"><img src="anna.jpg" alt="Anna Pascali" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <div class="infobox-title">Anna Pocchia</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="anna.jpg" alt="Anna Pocchia" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
   <table>
     <tr><th>Nascita</th><td><b>14 Febbraio 10 pM</b> (1907) — acquario, silenziosa e osservatrice</td></tr>
     <tr><th>Famiglia</th><td><a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia (Pascali)</a></td></tr>
   </table>
 </div>
-<p><b>Anna Pascali</b> è la moglie di <a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali "il Pocchia"</a> e madre di <a onclick="navigateTo('Filippo Pascali')">Filippo</a> e <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a>. Membro fondante della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a>.</p>
+<p><b>Anna Pocchia</b> è la moglie di <a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali "il Pocchia"</a> e madre di <a onclick="navigateTo('Filippo Pascali')">Filippo</a> e <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a>. Membro fondante della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a>.</p>
 <p>Ha mantenuto per tutta la vita un profilo significativamente più basso rispetto al marito e ai figli, ognuno dei quali ha trovato il proprio modo di finire sui giornali. Non è stato un caso — è stata una scelta deliberata, che nella Famiglia Pocchia è quasi una forma di superpotere.</p>
 <p>È considerata il punto di equilibrio della famiglia: la persona a cui gli altri si rivolgono quando le cose diventano troppo complesse o troppo rumorose. Data la storia recente — un marito militare che ha salvato il figlio da un attacco con torte e mattoni, un figlio amico d'infanzia di Morello, un altro figlio che ha smantellato un intero clan — questo è accaduto con una certa frequenza.</p>
-<div class="stub-box"><span style="font-size:22px">&#x1F910;</span><span>Anna Pascali non ha rilasciato dichiarazioni pubbliche su nulla di quanto accaduto. Rispettiamo questa scelta.</span></div>
+<div class="stub-box"><span style="font-size:22px">&#x1F910;</span><span>Anna Pocchia non ha rilasciato dichiarazioni pubbliche su nulla di quanto accaduto. Rispettiamo questa scelta.</span></div>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Famiglia Pocchia</a> <a>Persone che preferiscono stare fuori dai guai</a></div>`;
 }
@@ -4241,7 +4255,7 @@ function buildFilippoPascali() {
     <tr><td>Famiglia</td><td><a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia (Pascali)</a></td></tr>
     <tr><td>Nascita</td><td><b>3 luglio 45 dM</b> (1962), Napoli</td></tr>
     <tr><td>Padre</td><td><a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali "il Pocchia"</a></td></tr>
-    <tr><td>Madre</td><td><a onclick="navigateTo('Anna Pascali')">Anna Pascali</a></td></tr>
+    <tr><td>Madre</td><td><a onclick="navigateTo('Anna Pocchia')">Anna Pocchia</a></td></tr>
     <tr><td>Fratello</td><td><a onclick="navigateTo('Riccardo Pascali')">Riccardo Pascali</a></td></tr>
     <tr><td>Professione</td><td>Militare</td></tr>
     <tr><td>Decorazione</td><td>Medaglia d'Onore — conferita da <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a></td></tr>
@@ -4249,9 +4263,10 @@ function buildFilippoPascali() {
     <tr><td>Rapporto con Morello</td><td>Amico d'infanzia · lo ha riconosciuto come De Morellis · si sono ritrovati dopo il 104 dM</td></tr>
     <tr><td>Rapporto con Hegseth</td><td>Raffreddato dopo scoperta Clan Spisso</td></tr>
     <tr><td>Ruolo attuale</td><td>Co-fondatore delle <a onclick="navigateTo('Filippine')">Filippine</a> (108 dM)</td></tr>
+    <tr><td>Status</td><td><b>VIVO</b> — vive a <a onclick="navigateTo('Serrano')">Serrano</a></td></tr>
   </table>
 </div>
-<p><b>Filippo Pascali</b> è figlio di <a onclick="navigateTo('Gianluca Pascali')">Gianluca</a> e <a onclick="navigateTo('Anna Pascali')">Anna Pascali</a>, fratello di <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a>. Militare di carriera, ha ricevuto la <b>Medaglia d'Onore</b> direttamente da <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> — all'epoca Segretario alla Difesa degli Stati Uniti e uno dei suoi amici più cari. Il «uno dei suoi amici più cari» è la parte che sarebbe cambiata.</p>
+<p><b>Filippo Pascali</b> è figlio di <a onclick="navigateTo('Gianluca Pascali')">Gianluca</a> e <a onclick="navigateTo('Anna Pocchia')">Anna Pocchia</a>, fratello di <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a>. Militare di carriera, ha ricevuto la <b>Medaglia d'Onore</b> direttamente da <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> — all'epoca Segretario alla Difesa degli Stati Uniti e uno dei suoi amici più cari. Il «uno dei suoi amici più cari» è la parte che sarebbe cambiata.</p>
 <p>Da bambino era stato amico di <a onclick="navigateTo('Morello')">Morello</a> — legame che rimane, nel tempo, la cosa più difficile da spiegare e più semplice da capire nella storia della Famiglia Pocchia.</p>
 
 <h2>L'amicizia con Morello <span class="edit-link" onclick="openEditor('Filippo Pascali')">[modifica]</span></h2>
@@ -4269,7 +4284,7 @@ function buildFilippoPascali() {
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
   <li><a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia (Pascali)</a></li>
   <li><a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali</a> (padre)</li>
-  <li><a onclick="navigateTo('Anna Pascali')">Anna Pascali</a> (madre)</li>
+  <li><a onclick="navigateTo('Anna Pocchia')">Anna Pocchia</a> (madre)</li>
   <li><a onclick="navigateTo('Riccardo Pascali')">Riccardo Pascali</a> (fratello)</li>
   <li><a onclick="navigateTo('Morello')">Morello</a> (amico d'infanzia)</li>
   <li><a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a></li>
@@ -4283,6 +4298,7 @@ function buildFilippoPascali() {
 <h2>La fuga dalle Filippine — 112 dM <span class="edit-link" onclick="openEditor('Filippo Pascali')">[modifica]</span></h2>
 <p>Nel <b>112 dM</b>, mentre la <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers</a> dominava l'attenzione mondiale, <a onclick="navigateTo('La Cantina')">La Cantina</a> — lo stato fondato dallo <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> a Castri — attaccò le <a onclick="navigateTo('Filippine')">Filippine</a> con un'armata di <a onclick="navigateTo('AleDoria')">Spisso Bot</a>. Filippo e <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> non erano in posizione di resistere — le loro forze erano impegnate altrove, e la velocità dell'attacco non lasciò margine di risposta. Evacuarono con Alice e i figli e si rifugiarono a <a onclick="navigateTo('Serrano')">Serrano</a>, la città volante ancora sotto il controllo di Alessio. Le Filippine caddero.</p>
 <p>Filippo non ha commentato pubblicamente la perdita. Chi lo conosce descrive la faccenda come la cosa che lo infastidisce di più dalla scomparsa di Morello — il che, considerato tutto, è già qualcosa.</p>
+<p>Filippo è <b>VIVO</b>. Attualmente risiede a <a onclick="navigateTo('Serrano')">Serrano</a>, la città volante, insieme ad <a onclick="navigateTo('Alice Sportella')">Alice</a> e ai figli. Non ha mai smesso di tenere i contatti con chi conta, e chi lo incontra riporta che ha ancora l'aria di qualcuno che sa esattamente cosa sta succedendo intorno a lui.</p>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Famiglia Pocchia</a> <a>Militari italiani</a> <a>Decorati con Medaglia d'Onore</a> <a>Amici di Morello</a> <a>La Prima Guerra Pocchiana</a> <a>Filippine</a></div>`;
 }
 
@@ -4298,7 +4314,7 @@ function buildRiccardoPascali() {
     <tr><td>Famiglia</td><td><a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia (Pascali)</a></td></tr>
     <tr><td>Nascita</td><td><b>19 marzo 28 dM</b> (1945), Napoli</td></tr>
     <tr><td>Padre</td><td><a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali "il Pocchia"</a></td></tr>
-    <tr><td>Madre</td><td><a onclick="navigateTo('Anna Pascali')">Anna Pascali</a></td></tr>
+    <tr><td>Madre</td><td><a onclick="navigateTo('Anna Pocchia')">Anna Pocchia</a></td></tr>
     <tr><td>Fratello</td><td><a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a></td></tr>
     <tr><td>Formazione</td><td>Laurea in Giurisprudenza · Scuola investigatori</td></tr>
     <tr><td>Professione</td><td>Investigatore — forze dell'ordine</td></tr>
@@ -4383,12 +4399,12 @@ function buildFamigliaPocchia() {
     <tr><td>Nome noto</td><td><b>Pocchia</b></td></tr>
     <tr><td>Origine del nome</td><td>Soprannome di Gianluca, istituzionalizzato dal padre «Gian Luca Pocchia»</td></tr>
     <tr><td>Patriarca</td><td><a onclick="navigateTo('Gianluca Pascali')">Gianluca "il Pocchia" Pascali</a></td></tr>
-    <tr><td>Matriarca</td><td><a onclick="navigateTo('Anna Pascali')">Anna Pascali</a></td></tr>
+    <tr><td>Matriarca</td><td><a onclick="navigateTo('Anna Pocchia')">Anna Pocchia</a></td></tr>
     <tr><td>Figli</td><td><a onclick="navigateTo('Filippo Pascali')">Filippo</a>, <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a></td></tr>
   </table>
 </div>
 <p>La <b>Famiglia Pocchia</b>, anagraficamente <b>Pascali</b>, prende il nome dal soprannome che il padre di <a onclick="navigateTo('Gianluca Pascali')">Gianluca</a> — noto come <b>Gian Luca Pocchia</b> — decise di trasformare in identità familiare permanente. Il ragionamento fu semplice: se tutti ti chiamano già così, tanto vale farlo diventare ufficiale. In questo angolo del mondo, i soprannomi sopravvivono ai documenti.</p>
-<p>La famiglia è composta da <a onclick="navigateTo('Gianluca Pascali')">Gianluca</a>, patriarca e militare in pensione dall'anno 104 dM; sua moglie <a onclick="navigateTo('Anna Pascali')">Anna</a>; e i loro due figli: <a onclick="navigateTo('Filippo Pascali')">Filippo</a>, militare decorato e amico d'infanzia di <a onclick="navigateTo('Morello')">Morello</a>, e <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a>, l'investigatore che nell'anno 89 dM guidò lo smantellamento del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a>.</p>
+<p>La famiglia è composta da <a onclick="navigateTo('Gianluca Pascali')">Gianluca</a>, patriarca e militare in pensione dall'anno 104 dM; sua moglie <a onclick="navigateTo('Anna Pocchia')">Anna</a>; e i loro due figli: <a onclick="navigateTo('Filippo Pascali')">Filippo</a>, militare decorato e amico d'infanzia di <a onclick="navigateTo('Morello')">Morello</a>, e <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a>, l'investigatore che nell'anno 89 dM guidò lo smantellamento del <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a>.</p>
 
 <h2>Il nome Pocchia <span class="edit-link" onclick="openEditor('Famiglia Pocchia')">[modifica]</span></h2>
 <p>Il padre di Gianluca fu il primo a istituzionalizzare il soprannome come nome di famiglia. Le origini esatte del soprannome rimangono oggetto di discreta omertà familiare. Quello che è certo è che da quel momento la famiglia ha portato il nome Pocchia con una combinazione di rassegnazione e orgoglio che è, in fondo, una delle posture più tipicamente meridionali che esistano.</p>
@@ -4399,7 +4415,7 @@ function buildFamigliaPocchia() {
 <h2>Membri <span class="edit-link" onclick="openEditor('Famiglia Pocchia')">[modifica]</span></h2>
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2.2">
   <li><a onclick="navigateTo('Gianluca Pascali')"><b>Gianluca Pascali "il Pocchia"</b></a> — Patriarca. Militare in pensione (anno 104 dM). Ha salvato Riccardo da piccolo. Ha conosciuto Pierpaolo, padre presunto di Morello.</li>
-  <li><a onclick="navigateTo('Anna Pascali')"><b>Anna Pascali</b></a> — Moglie di Gianluca. Non ha commentato nulla nella vita. Punto di equilibrio della famiglia.</li>
+  <li><a onclick="navigateTo('Anna Pocchia')"><b>Anna Pocchia</b></a> — Moglie di Gianluca. Non ha commentato nulla nella vita. Punto di equilibrio della famiglia.</li>
   <li><a onclick="navigateTo('Filippo Pascali')"><b>Filippo Pascali</b></a> — Figlio. Militare decorato da Pete Hegseth. Amico d'infanzia di Morello. Si dice ancora in contatto con lui.</li>
   <li><a onclick="navigateTo('Riccardo Pascali')"><b>Riccardo Pascali</b></a> — Figlio. Investigatore. Ha guidato l'operazione che ha smantellato il Clan Spisso nell'89 dM.</li>
 </ul>
@@ -5332,7 +5348,7 @@ function buildEmanuelePascali() {
 
 <h2 id="fuga-ep">La fuga dalla famiglia <span class="edit-link" onclick="openEditor('Emanuele Pascali')">[modifica]</span></h2>
 <p><b>Emanuele Pascali</b> è un membro della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> che ha lasciato la famiglia per unirsi agli <a onclick="navigateTo('Avengers')">Avengers</a>. La decisione non fu presa con leggerezza — la Famiglia Pocchia non è il tipo di famiglia da cui ci si allontana senza pensarci — ma Emanuele aveva sogni più grandi di quello che il Salento poteva offrire. Voleva volare. Voleva proteggere le persone. Voleva essere qualcosa di più di un nome in un albero genealogico.</p>
-<p>Il padre, <a onclick="navigateTo('Gianluca Pascali')">Gianluca</a>, non si oppose. «Se devi andare» disse, «vai e fatti onore. Ma ricorda da dove vieni.» La madre, <a onclick="navigateTo('Anna Pascali')">Anna</a>, non disse nulla. Non ne aveva bisogno. Emanuele sapeva già che sarebbe stato il benvenuto, se fosse tornato. Partì per l'America con una valigia e la benedizione silenziosa di sua madre.</p>
+<p>Il padre, <a onclick="navigateTo('Gianluca Pascali')">Gianluca</a>, non si oppose. «Se devi andare» disse, «vai e fatti onore. Ma ricorda da dove vieni.» La madre, <a onclick="navigateTo('Anna Pocchia')">Anna</a>, non disse nulla. Non ne aveva bisogno. Emanuele sapeva già che sarebbe stato il benvenuto, se fosse tornato. Partì per l'America con una valigia e la benedizione silenziosa di sua madre.</p>
 
 <h2 id="poteri-ep">L'acquisizione dei poteri <span class="edit-link" onclick="openEditor('Emanuele Pascali')">[modifica]</span></h2>
 <p>Una volta in America, Emanuele fu reclutato da <a onclick="navigateTo('Iron Spisso Man')">Iron Spisso Man</a> in persona. Fu sottoposto a un programma di addestramento sperimentale che gli conferì due poteri: il volo e la capacità di proiettare energia luminosa dalle mani. Era il primo e unico Avenger a possedere entrambe le capacità. Iron Spisso Man lo definì «il mio esperimento riuscito». Emanuele, che aveva lasciato la famiglia proprio per non essere definito "l'esperimento di qualcuno", non apprezzò il termine. Ma rimase.</p>
@@ -6804,12 +6820,14 @@ function buildAliceSportella() {
     <tr><td>Legame con Filippo</td><td>Coniugi — e parenti (scoperto post-matrimonio)</td></tr>
     <tr><td>Ruolo Prima Guerra Pocchiana</td><td>Co-comandante attacco a Serrano (105 dM)</td></tr>
     <tr><td>Organizzazione</td><td><a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a> (dopo caduta De Morellis)</td></tr>
+    <tr><td>Status</td><td><b>VIVA</b> — vive a <a onclick="navigateTo('Serrano')">Serrano</a></td></tr>
   </table>
 </div>
 <p><b>Alice Sportella</b> è la moglie di <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a> e madre di <a onclick="navigateTo('Figli di Filippo')">Luca, Gino e Carla</a>. Il matrimonio fu considerato per anni uno dei più solidi della storia della <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> — fino alla scoperta che Alice era una parente di Filippo. Elaborarono la notizia con la filosofia pratica della famiglia: il matrimonio era fatto, i figli nati, andare avanti era l'unica opzione sensata.</p>
 <p>I tre figli nacquero con la sindrome di Down. Filippo e Alice li hanno cresciuti con affetto totale. Sono descritti da chiunque li conosca come straordinariamente felici — che, data la storia della famiglia, è probabilmente la cosa più notevole di tutta la vicenda.</p>
 <p>Nel 105 dM, durante <a onclick="navigateTo('La Prima Guerra Pocchiana')">La Prima Guerra Pocchiana</a>, Alice coordinò le operazioni a terra durante l'attacco a Serrano mentre Filippo guidava dall'aria. Dopo la conquista, Alice e Filippo — con <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> — presero il controllo della Camorra Salentina rimasta senza guida. Nel 108 dM la trasformarono nelle <a onclick="navigateTo('Filippine')">Filippine</a>, con capitale <b>Calimera</b>. Alice si stabilì a Calimera con Filippo e i tre figli.</p>
 <p>Nel <b>112 dM</b> <a onclick="navigateTo('La Cantina')">La Cantina</a> attaccò le Filippine con gli Spisso Bot durante la <a onclick="navigateTo('Terza Guerra degli Avengers')">Terza Guerra degli Avengers</a>. Alice, Filippo e i figli evacuarono su <a onclick="navigateTo('Serrano')">Serrano</a>. Luca, Gino e Carla non capirono bene perché stessero partendo di fretta. Alice spiegò che si trattava di un trasferimento temporaneo. Gino chiese se poteva portare i biscotti.</p>
+<p>Alice è <b>VIVA</b>. Vive tuttora a <a onclick="navigateTo('Serrano')">Serrano</a> con Filippo e i tre figli. Chi la incontra descrive una donna che non ha perso niente della determinazione che la contraddistingueva al comando delle operazioni a terra — solo che adesso quella determinazione la usa principalmente per tenere in ordine una famiglia che, considerata la storia, è già un miracolo logistico.</p>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Famiglia Pocchia</a> <a>Camorra Salentina</a> <a>La Prima Guerra Pocchiana</a> <a>Filippine</a></div>`;
 }
@@ -6825,10 +6843,14 @@ function buildFigliFilippo() {
     <tr><td>Padre</td><td><a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a></td></tr>
     <tr><td>Madre</td><td><a onclick="navigateTo('Alice Sportella')">Alice Sportella</a></td></tr>
     <tr><td>Condizione</td><td>Sindrome di Down (tutti e tre)</td></tr>
+    <tr><td>Status</td><td><b>VIVI</b> — grazie alla <a onclick="navigateTo('Mancarella')">Mancarella</a></td></tr>
+    <tr><td>Nota su Luca</td><td>Inventore del nome "<a onclick="navigateTo('Giachele')">Giachele</a>"</td></tr>
   </table>
 </div>
 <p><b>Luca, Gino e Carla Pascali</b> sono i tre figli di <a onclick="navigateTo('Filippo Pascali')">Filippo</a> e <a onclick="navigateTo('Alice Sportella')">Alice Sportella</a>. Tutti e tre nacquero con la sindrome di Down. <b>Luca</b>, il maggiore, ha una memoria eccezionale per le melodie e sa fischiarne ogni nota. <b>Gino</b>, il secondo, abbraccia chiunque entri in casa e chiede sempre se vuole qualcosa da mangiare — un'abitudine che i veterani della Camorra Salentina trovano inspiegabilmente disarmante. <b>Carla</b>, la più piccola, ha ereditato dal nonno <a onclick="navigateTo('Gianluca Pascali')">Gianluca</a> un'espressione seria che non corrisponde mai a quello che pensa davvero — quasi sempre qualcosa di allegro.</p>
+<p>Tutti e tre sono <b>VIVI</b>. La loro sopravvivenza è dovuta, almeno in parte, alla <a onclick="navigateTo('Mancarella')">Mancarella</a> e alle sue scoperte sull'anti-invecchiamento — senza le quali le complicazioni legate alla sindrome di Down avrebbero potuto avere esiti molto diversi. La famiglia non parla spesso di questo, ma chiunque conosca la storia sa a chi si deve un ringraziamento.</p>
 <p>Vivono a <b>Calimera</b>, che fu capitale delle <a onclick="navigateTo('Filippine')">Filippine</a> dal 108 al 112 dM. Nel 112 dM <a onclick="navigateTo('La Cantina')">La Cantina</a> attaccò con gli Spisso Bot e la famiglia scappò su <a onclick="navigateTo('Serrano')">Serrano</a>. Sono probabilmente le uniche persone coinvolte nella vicenda che non hanno mai capito esattamente cosa stesse succedendo. Filippo ha deciso che è meglio così.</p>
+<p>Una nota su <b>Luca</b>: è lui l'inventore involontario del nome "<a onclick="navigateTo('Giachele')">Giachele</a>". Nel 139 dM, dopo un battibecco telefonico con il <a onclick="navigateTo('Il Ciciliano')">Ciciliano</a>, Luca — per giustificarsi — pronunciò il nome «Giachele» indicandolo come la fonte del numero. Non esiste nessun Giachele. Ma il Ciciliano non lo sapeva, e questo ha cambiato molte cose.</p>
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Famiglia Pocchia</a> <a>Persone di Serrano</a></div>`;
 }
@@ -8042,7 +8064,7 @@ function buildGrandePartita() {
     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Luogo</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Corigliano')">Corigliano</a> — campetto di 1 metro (allargato per l'occasione)</td></tr>
     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Squadra Ribelli</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Jacopo Martucci')">Jacopo Martucci</a> (capitano) · <a onclick="navigateTo('Bomber')">Bomber</a> (Topus Maximus) · <a onclick="navigateTo('Deta')">Deta</a> · <a onclick="navigateTo('Zella')">Zella</a> · <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a> · <a onclick="navigateTo('I Puma')">I Puma</a> (5) · <a onclick="navigateTo('AleDoria')">AleDoria</a> · <a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali</a> · <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> · <a onclick="navigateTo('Morello')">Morello</a></td></tr>
     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Squadra Nigeriani</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Renna')">Renna (Rennino104)</a> (capitano) · <a onclick="navigateTo('Giovanni Zecca')">Giovanni Zecca</a> (portiere) · <a onclick="navigateTo('La Fede')">La Fede (Federica Didonfrancesco)</a> · <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> · <a onclick="navigateTo('Francesco Maggiore')">Francesco Maggiore</a> · <a onclick="navigateTo('Valerio Mozzarella')">Valerio Mozzarella</a> · <a onclick="navigateTo('Spider Trovè')">Spider Trovè</a> · <a onclick="navigateTo('Emanuele Pascali')">Emanuele Pascali</a> · <a onclick="navigateTo('Elisa Sbost')">Elisa Sbost</a></td></tr>
-    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Arbitro</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Anna Pascali')">Anna Pascali</a> — insospettabile, inappellabile</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Arbitro</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Anna Pocchia')">Anna Pocchia</a> — insospettabile, inappellabile</td></tr>
     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Risultato</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>3-3</b> — gol: Bomber (12'), Renna (28' rig.), Deta (45'+1), Bomber (55' autogol), Giovanni Zecca (67'), Alessio Spisso (82')</td></tr>
     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Evento principale</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Fuga di <a onclick="navigateTo('Morello')">Morello</a> durante la partita — mai più catturato</td></tr>
     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Esito</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Corigliano liberata · Monumento alle Fiamme eretto sul campetto</td></tr>
@@ -8068,7 +8090,7 @@ function buildGrandePartita() {
 <p>Martucci la incendiò. Non per odio. Non per vendetta. La incendiò perché a Corigliano il fuoco bruciava meglio. La città aveva una proprietà unica al mondo: era il <b>punto di minima densità di Cheddar</b> in tutto il Salento, l'opposto esatto di <a onclick="navigateTo('Martano')">Martano</a>. L'aria era secca. Le fiamme correvano veloci. In poche ore, Corigliano era in fiamme.</p>
 <p>Le fiamme durarono <b>due anni</b>. Due anni in cui la città bruciò senza sosta, perché i Nigeriani erano troppo lontani e non sapevano nemmeno dell'esistenza della città. Due anni in cui <a onclick="navigateTo('Deta')">Deta</a>, il calciatore scommettitore che aveva perso tutto e viveva sotto il campetto dal 124 dM, ascoltava il crepitio del fuoco sopra di lui e aspettava.</p>
 
-<h2 id="renna-gp">Renna arriva dal cielo <span class="edit-link" onclick="openEditor('La Grande Partita tra le Fiamme')">[modifica]</span></h2>
+<h2 id="renna-gp">Renna arriva dall'Africa <span class="edit-link" onclick="openEditor('La Grande Partita tra le Fiamme')">[modifica]</span></h2>
 <p>Nel <b>131 dM</b>, la notizia dell'incendio arrivò finalmente in Nigeria. I <a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a> si guardarono. Nessuno ricordava di aver fondato quella città. Le carte dicevano di sì, ma le carte erano vecchie e imprecise.</p>
 <p>Fu <b>Renna</b>, il più giovane del gruppo, a parlare: «Ci vado io. Se l'abbiamo fondata, la liberiamo. Se non l'abbiamo fondata, la liberiamo lo stesso.»</p>
 <p>Renna — detto <b>Rennino104</b> perché era l'ultimo dei 104, quello che chiudeva la lista — arrivò a Corigliano con il <a onclick="navigateTo('Raggio Nero')">Raggio Nero</a>. Puntò l'arma sulla città in fiamme e premette. Il raggio nero assorbì l'energia del fuoco. In pochi secondi, le fiamme si spensero. Corigliano era salva.</p>
@@ -8087,14 +8109,14 @@ function buildGrandePartita() {
 <p>La notizia della partita si sparse in tutto il Salento. Giocatori arrivarono da ogni parte. Martucci formò la sua squadra: <b>I Ribelli di Corigliano</b>.</p>
 <p>Tra loro c'erano <b>Bomber</b> — il <a onclick="navigateTo('Topus Maximus')">Topus Maximus</b> resuscitato nel 131 dM dalle Streghe Topiste, che si era fatto chiamare così perché «sono tornato per fare gol» — <a onclick="navigateTo('Deta')">Deta</a>, che uscì dal sottocampo dopo due anni con i piedi nudi e una palla in tasca, <a onclick="navigateTo('Zella')">Zella</a>, <a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a>, <a onclick="navigateTo('I Puma')">i Puma</a> (cinque), <a onclick="navigateTo('AleDoria')">AleDoria</a>, <a onclick="navigateTo('Gianluca Pascali')">Gianluca Pascali</a>, <a onclick="navigateTo('Zio di Sbost')">lo Zio di Sbost</a>, e persino <a onclick="navigateTo('Morello')">Morello</a>, che fu liberato dalla prigione di Castri per l'occasione ma scortato da due guardie collegate via radio con <b>Charlie Sbirk</b> a Castri.</p>
 <p>Renna formò la squadra avversaria: <b>I Nigeriani</b>. Con lui giocavano <a onclick="navigateTo('Giovanni Zecca')">Giovanni Zecca</a> in porta, <a onclick="navigateTo('La Fede')">La Fede (Federica Didonfrancesco)</a>, <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a> (liberato dalla prigione per l'occasione e sorvegliato da Zella), <a onclick="navigateTo('Francesco Maggiore')">Francesco Maggiore</a>, <a onclick="navigateTo('Valerio Mozzarella')">Valerio Mozzarella</a>, <a onclick="navigateTo('Spider Trovè')">Spider Trovè</a>, <a onclick="navigateTo('Emanuele Pascali')">Emanuele Pascali</a>, <a onclick="navigateTo('Elisa Sbost')">Elisa Sbost</a>, e un difensore mandato direttamente da Lagos per controllare che Renna non perdesse apposta.</p>
-<p><a onclick="navigateTo('Anna Pascali')">Anna Pascali</a> fu scelta come arbitro. Insospettabile. Non aveva mai commentato nulla in vita sua. Nessuno osava contraddirla.</p>
+<p><a onclick="navigateTo('Anna Pocchia')">Anna Pocchia</a> fu scelta come arbitro. Insospettabile. Non aveva mai commentato nulla in vita sua. Nessuno osava contraddirla.</p>
 
 <h2 id="partita-gp">La partita <span class="edit-link" onclick="openEditor('La Grande Partita tra le Fiamme')">[modifica]</span></h2>
 <p>La partita si giocò il <b>15 Luglio 131 dM</b> sul campetto di Corigliano, allargato per l'occasione con le ragnatele di Spider Trovè e le proiezioni di AleDoria.</p>
 
 <h3 id="primo-gp">Primo tempo</h3>
 <p><b>Al 12'</b>, Bomber ricevette palla sulla trequarti. Non c'era spazio. I difensori nigeriani erano tutti su di lui. Bomber guardò la porta, guardò il pallone, e tirò. Il pallone prese fuoco in volo. Una scia di Cheddar incandescente lo seguì fino alla rete. Giovanni Zecca, in porta, non si mosse. Non perché non potesse — perché la palla era già dentro. <b>1-0 per Martucci</b>.</p>
-<p><b>Al 28'</b>, Renna entrò in area. Zio di Sbost lo contrastò. Anna Pascali fischiò rigore. Il rigore fu dubbio — Anna non ha mai spiegato perché lo concesse. Forse perché Renna glielo chiese con gli occhi. Forse perché voleva che la partita fosse equilibrata. Renna calciò. Bomber volò sulla traiettoria... e deviò il pallone nella propria porta. <b>Autogol di Bomber. 1-1</b>.</p>
+<p><b>Al 28'</b>, Renna entrò in area. Zio di Sbost lo contrastò. Anna Pocchia fischiò rigore. Il rigore fu dubbio — Anna non ha mai spiegato perché lo concesse. Forse perché Renna glielo chiese con gli occhi. Forse perché voleva che la partita fosse equilibrata. Renna calciò. Bomber volò sulla traiettoria... e deviò il pallone nella propria porta. <b>Autogol di Bomber. 1-1</b>.</p>
 <p><b>Nel recupero del primo tempo</b>, Deta recuperò palla a centrocampo. Dribblò Renna, saltò un difensore, e con un pallonetto preciso superò Giovanni Zecca, che era uscito. Fu il primo gol che Deta segnava in sette anni. <b>2-1 per Martucci</b>.</p>
 
 <h3 id="secondo-gp">Secondo tempo</h3>
@@ -8231,7 +8253,7 @@ function buildRenna() {
 <p>Renna formò la squadra dei Nigeriani. Con lui giocavano <a onclick="navigateTo('Giovanni Zecca')">Giovanni Zecca</a> in porta, <a onclick="navigateTo('La Fede')">La Fede</a>, <a onclick="navigateTo('Pete Hegseth')">Pete Hegseth</a>, <a onclick="navigateTo('Francesco Maggiore')">Francesco Maggiore</a>, <a onclick="navigateTo('Valerio Mozzarella')">Valerio Mozzarella</a>, <a onclick="navigateTo('Spider Trovè')">Spider Trovè</a>, <a onclick="navigateTo('Emanuele Pascali')">Emanuele Pascali</a>, <a onclick="navigateTo('Elisa Sbost')">Elisa Sbost</a>, e un difensore mandato direttamente da Lagos per controllare che non perdesse apposta.</p>
 
 <h3 id="rigore-r">Il rigore dubbio <span class="edit-link" onclick="openEditor('Renna')">[modifica]</span></h3>
-<p>Al 28', Renna entrò in area. Lo <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> lo contrastò. <a onclick="navigateTo('Anna Pascali')">Anna Pascali</a> fischiò rigore. Il rigore fu dubbio — Anna non ha mai spiegato perché lo concesse. Forse perché Renna glielo chiese con gli occhi. Forse perché voleva che la partita fosse equilibrata. Renna calciò. <a onclick="navigateTo('Bomber')">Bomber</a> deviò nella propria porta. Autogol. 1-1.</p>
+<p>Al 28', Renna entrò in area. Lo <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> lo contrastò. <a onclick="navigateTo('Anna Pocchia')">Anna Pocchia</a> fischiò rigore. Il rigore fu dubbio — Anna non ha mai spiegato perché lo concesse. Forse perché Renna glielo chiese con gli occhi. Forse perché voleva che la partita fosse equilibrata. Renna calciò. <a onclick="navigateTo('Bomber')">Bomber</a> deviò nella propria porta. Autogol. 1-1.</p>
 
 <h3 id="gol-r">Il gol di Giovanni Zecca <span class="edit-link" onclick="openEditor('Renna')">[modifica]</span></h3>
 <p>Al 67', Renna crossò dalla destra. <a onclick="navigateTo('Giovanni Zecca')">Giovanni Zecca</a> si stancò di stare in porta. Uscì, dribblò tutta la squadra di Martucci, e andò a segnare di testa sulla linea di porta. 3-2 per Renna. Fu la prima volta che i Nigeriani erano in vantaggio. Alla fine finì 3-3.</p>
@@ -8769,7 +8791,7 @@ function buildLaGuerraFinale() {
 <h2 id="dopo-gf">Dopo Serrano <span class="edit-link" onclick="openEditor('La Prima Guerra Pocchiana')">[modifica]</span></h2>
 <p>La Nigeria Spartiana, che aveva assistito all'esplosione dai satelliti, si arrese entro ventiquattro ore. Firmò accordi che permettevano all'America tutto quello che aveva sempre voluto: accesso ai porti, controllo commerciale, presenza militare. Pur di non essere <b>Spissata</b> — il termine entrò nel vocabolario geopolitico mondiale nel giro di giorni.</p>
 <p>Tutti gli Avengers furono dichiarati morti. Alex Spisso, ufficialmente Iron Spisso Man, annunciò che assumeva il controllo temporaneo dell'America «in attesa di elezioni». Le elezioni non furono mai indette. La guerra era finita.</p>
-<p>A Napoli, Morello guardò il cratere da lontano e non disse nulla. <a onclick="navigateTo('Gianluca Pascali')">Gianluca</a> era in pensione da anni. <a onclick="navigateTo('Anna Pascali')">Anna</a> non aveva commentato nulla, come sempre. Riccardo e Filippo stavano costruendo quello che sarebbe diventato, nel 108 dM, lo stato delle <b>Filippine</b> — nate dalla Camorra Salentina, con capitale <b>Calimera</b> e seconda città <b>Castri</b> (che nel 109 dM diventerà la capitale di <a onclick="navigateTo('La Cantina')">La Cantina</a>). <a onclick="navigateTo('Alice Sportella')">Alice</a> stava mettendo a letto Luca, Gino e Carla a Calimera.</p>
+<p>A Napoli, Morello guardò il cratere da lontano e non disse nulla. <a onclick="navigateTo('Gianluca Pascali')">Gianluca</a> era in pensione da anni. <a onclick="navigateTo('Anna Pocchia')">Anna</a> non aveva commentato nulla, come sempre. Riccardo e Filippo stavano costruendo quello che sarebbe diventato, nel 108 dM, lo stato delle <b>Filippine</b> — nate dalla Camorra Salentina, con capitale <b>Calimera</b> e seconda città <b>Castri</b> (che nel 109 dM diventerà la capitale di <a onclick="navigateTo('La Cantina')">La Cantina</a>). <a onclick="navigateTo('Alice Sportella')">Alice</a> stava mettendo a letto Luca, Gino e Carla a Calimera.</p>
 <p>In India, <a onclick="navigateTo('MariaTeresa Friolo')">Maria</a> aspettava. Di Alessio non si sapeva nulla.</p>
 <div class="stub-box"><span style="font-size:22px"></span><span>Questa voce sarà aggiornata se qualcosa cambia. Per ora: tutto è fermo, tutto è cenere, tutto è arancione.</span></div>
 </div>
@@ -9203,6 +9225,7 @@ function buildNestola() {
     <li><a href="#conclusioni-n">Le conclusioni — Topus e Bomber sono impostori</a></li>
     <li><a href="#reazioni-n">Le reazioni — la risposta dei Topisti e di AleDoria</a></li>
     <li><a href="#ebraismo-n">L'Ebraismo — una nuova fede (147 dM)</a></li>
+    <li><a href="#ciciliano-n">L'incidente con il Ciciliano (139 dM)</a></li>
     <li><a href="#isola-n">Le ricerche per l'Isola di Flavio (149 dM)</a></li>
   </ol>
 </div>
@@ -9259,8 +9282,13 @@ function buildNestola() {
 
 <h2 id="ebraismo-n">L'Ebraismo — una nuova fede (147 dM) <span class="edit-link" onclick="openEditor('Nestola')">[modifica]</span></h2>
 <p>Tra coloro che accettarono le scoperte di Nestola, nacque una nuova corrente di pensiero. Non era più possibile credere in Topus e Bomber come incarnazioni di Ludo. Ma era ancora possibile credere in Ludo stesso — in un Dio creatore, lontano, forse disinteressato, ma comunque esistente.</p>
-<p>Questa nuova fede prese il nome di <b>Ebraismo</b>. Il nome fu scelto da Nestola stesso, in omaggio a una tradizione antica che già in altri mondi aveva rifiutato le incarnazioni divine e si era concentrata su un Dio unico, trascendente, non rappresentabile. Gli Ebraisti non riconoscono Topus Maximus, non riconoscono Bomber, non riconoscono alcuna incarnazione terrena di Ludo. Credono in Ludo — ma in un Ludo che non si manifesta, che non interviene, che ha creato il mondo e poi si è ritirato, lasciando gli uomini liberi di cercare la verità con la ragione.</p>
+<p>Questa nuova fede prese il nome di <b>Ebraismo</b>. Il nome fu scelto da Nestola stesso, in omaggio a una tradizione antica che già in altri mondi aveva rifiutato le incarnazioni divine e si era concentrata su un Dio unico, trascendente, non rappresentabile. Gli Ebrei non riconoscono Topus Maximus, non riconoscono Bomber, non riconoscono alcuna incarnazione terrena di Ludo. Credono in Ludo — ma in un Ludo che non si manifesta, che non interviene, che ha creato il mondo e poi si è ritirato, lasciando gli uomini liberi di cercare la verità con la ragione.</p>
 <p>Il simbolo dell'Ebraismo è una <b>stella a sei punte</b>, che rappresenta l'equilibrio tra cielo e terra, tra ragione e fede, tra ciò che si sa e ciò che si spera. Nestola la scelse perché, disse, «non ha angoli acuti che possono ferire, né curve che possono ingannare. È una stella che guarda in tutte le direzioni, come la verità dovrebbe fare.»</p>
+
+<h2 id="ciciliano-n">L'incidente con il Ciciliano (139 dM) <span class="edit-link" onclick="openEditor('Nestola')">[modifica]</span></h2>
+<p>Nel <b>139 dM</b> — otto anni prima della pubblicazione delle sue ricerche — Nestola fu protagonista di un episodio minore che tuttavia la voce del <a onclick="navigateTo('Il Ciciliano')">Ciciliano</a> ricorda con grande enfasi. Nestola stava lavorando ai suoi appunti quando ricevette una chiamata da un numero sconosciuto. Era il <a onclick="navigateTo('Il Ciciliano')">Ciciliano</a>, un ricco investitore calabrese, che aveva sbagliato numero di una cifra mentre cercava di concludere un affare.</p>
+<p>Nestola rispose con un semplice messaggio chiedendo chi fosse e perché chiamasse. Il Ciciliano, convinto di avere a che fare con qualche ragazzino impertinente, reagì con minacce: pretese una videochiamata immediata e annunciò l'intervento della «postale». Nestola — con la calma metodica che caratterizzava il suo approccio a qualsiasi problema — gli inviò una fotografia di sé stesso e spiegò, pacatamente, che era stato il Ciciliano a chiamare per primo per errore.</p>
+<p>La questione si chiarì senza conseguenze per Nestola. Per il <a onclick="navigateTo('Il Ciciliano')">Ciciliano</a>, invece, l'episodio alimentò la sua crescente paranoia. Il fatto che uno sconosciuto fosse riuscito a «rispondergli» in modo così composto lo turbò profondamente — e pochi giorni dopo, quando <a onclick="navigateTo('Luca Pascali')">Luca Pocchia</a> lo contattò da un altro numero e inventò il nome «<a onclick="navigateTo('Giachele')">Giachele</a>» per giustificarsi, il Ciciliano era già in uno stato di allerta tale da trasformare anche quella conversazione banale in un complotto.</p>
 
 <h2 id="isola-n">Le ricerche per l'Isola di Flavio (149 dM) <span class="edit-link" onclick="openEditor('Nestola')">[modifica]</span></h2>
 <p>Due anni dopo il rilascio delle sue prime ricerche, nel <b>149 dM</b>, Nestola iniziò un nuovo progetto. Aveva sentito parlare di un'isola dove <a onclick="navigateTo('Bomber')">Bomber</a> amava andare — un luogo segreto, lontano da occhi indiscreti, dove forse si nascondevano altre verità scomode. Cominciò a raccogliere informazioni, a interrogare marinai, a frugare negli archivi delle dogane.</p>
@@ -9324,14 +9352,14 @@ function buildEbraismo() {
 <h2 id="principi-e">I principi fondamentali <span class="edit-link" onclick="openEditor('Ebraismo')">[modifica]</span></h2>
 
 <h3 id="ludo-e">Ludovico — il Dio lontano <span class="edit-link" onclick="openEditor('Ebraismo')">[modifica]</span></h3>
-<p>Gli Ebraisti credono in <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> come unico Dio creatore. Ma lo concepiscono come un'entità <b>trascendente e lontana</b>, che ha creato il mondo e poi si è ritirato, lasciando gli uomini liberi di governarsi con la ragione. Ludo non interviene nelle vicende umane. Non manda profeti. Non si incarna. Non ascolta preghiere nel senso tradizionale del termine. Ludo è — e basta.</p>
+<p>Gli Ebrei credono in <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> come unico Dio creatore. Ma lo concepiscono come un'entità <b>trascendente e lontana</b>, che ha creato il mondo e poi si è ritirato, lasciando gli uomini liberi di governarsi con la ragione. Ludo non interviene nelle vicende umane. Non manda profeti. Non si incarna. Non ascolta preghiere nel senso tradizionale del termine. Ludo è — e basta.</p>
 
 <h3 id="rifiuto-e">Il rifiuto delle incarnazioni <span class="edit-link" onclick="openEditor('Ebraismo')">[modifica]</span></h3>
 <p>Il principio cardine dell'Ebraismo è il <b>rifiuto categorico di qualsiasi incarnazione terrena di Ludo</b>. <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> e <a onclick="navigateTo('Bomber')">Bomber</a> non sono il figlio di Dio. Sono Phil Patai e Pio Patai, padre e figlio, due uomini che hanno orchestrato una frode per decenni. I loro insegnamenti sono menzogne. I loro miracoli sono trucchi. La loro resurrezione è un cambio di persona.</p>
 <p>L'Ebraismo non riconosce alcun santo, alcun messia, alcuna figura divina incarnata. L'unica autorità è Ludo stesso — e Ludo non parla, non scrive, non si mostra.</p>
 
 <h3 id="ragione-e">La ragione come guida <span class="edit-link" onclick="openEditor('Ebraismo')">[modifica]</span></h3>
-<p>Senza profeti, senza messia, senza miracoli, come si fa a distinguere il vero dal falso? La risposta dell'Ebraismo è: <b>con la ragione e con la scienza</b>. Gli Ebraisti non accettano nulla che non sia verificabile. Non credono sulla parola di nessuno. Le <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')">F.O.N.D.A.M.E.N.T.A.</a> di Gildo Spisso sono valide solo nelle parti che possono essere dimostrate. Le <a onclick="navigateTo('L.E.G.G.I.')">L.E.G.G.I.</a> dell'Ignoto di Napoli sono valide solo nelle parti che non contraddicono l'osservazione. La <a onclick="navigateTo('Il Cheddar')">Teoria del Cheddar Universale</a> di AleDoria è stata ritrattata dallo stesso AleDoria dopo le scoperte di Nestola.</p>
+<p>Senza profeti, senza messia, senza miracoli, come si fa a distinguere il vero dal falso? La risposta dell'Ebraismo è: <b>con la ragione e con la scienza</b>. Gli Ebrei non accettano nulla che non sia verificabile. Non credono sulla parola di nessuno. Le <a onclick="navigateTo('F.O.N.D.A.M.E.N.T.A.')">F.O.N.D.A.M.E.N.T.A.</a> di Gildo Spisso sono valide solo nelle parti che possono essere dimostrate. Le <a onclick="navigateTo('L.E.G.G.I.')">L.E.G.G.I.</a> dell'Ignoto di Napoli sono valide solo nelle parti che non contraddicono l'osservazione. La <a onclick="navigateTo('Il Cheddar')">Teoria del Cheddar Universale</a> di AleDoria è stata ritrattata dallo stesso AleDoria dopo le scoperte di Nestola.</p>
 <p>«La fede» dice un detto ebraista, «non è un atto di credulità. È un atto di fiducia nella ragione. Se qualcosa non può essere spiegato, non significa che sia miracoloso. Significa solo che non abbiamo ancora abbastanza informazioni.»</p>
 
 <h2 id="nestola-e">Il ruolo di Nestola <span class="edit-link" onclick="openEditor('Ebraismo')">[modifica]</span></h2>
@@ -9348,9 +9376,9 @@ function buildEbraismo() {
 <p>Non tutti furono contenti. I Topisti più accaniti tentarono di boicottare le comunità ebraiste, ma senza successo. I governanti — Morello, lo Zio di Sbost, il governo democratico di Serrano — si rifiutarono di intervenire. La libertà di religione, avevano imparato, era un diritto fondamentale.</p>
 
 <h2 id="topismo-e">Il rapporto con il Topismo <span class="edit-link" onclick="openEditor('Ebraismo')">[modifica]</span></h2>
-<p>Il rapporto tra Ebraismo e Topismo è complesso. Non è una guerra aperta — gli Ebraisti non cercano di convertire i Topisti con la forza, e i Topisti hanno imparato a convivere con gli Ebraisti. Ma la tensione è palpabile. I Topisti considerano gli Ebraisti degli eretici che hanno rifiutato la vera rivelazione di Ludo. Gli Ebraisti considerano i Topisti delle vittime di una frode millenaria, che credono ancora a due impostori padre e figlio.</p>
+<p>Il rapporto tra Ebraismo e Topismo è complesso. Non è una guerra aperta — gli Ebrei non cercano di convertire i Topisti con la forza, e i Topisti hanno imparato a convivere con gli Ebrei. Ma la tensione è palpabile. I Topisti considerano gli Ebrei degli eretici che hanno rifiutato la vera rivelazione di Ludo. Gli Ebrei considerano i Topisti delle vittime di una frode millenaria, che credono ancora a due impostori padre e figlio.</p>
 <p>Un detto ebraista recita: «I Topisti pregano Ludo attraverso Phil e Pio. Noi preghiamo Ludo direttamente. Loro hanno bisogno di intermediari. Noi no. Questo è ciò che ci rende liberi.»</p>
-<p>Un detto topista, in risposta, recita: «Gli Ebraisti hanno la testa piena di numeri e il cuore vuoto. Noi abbiamo la fede. Loro hanno i dubbi. Quando moriranno, Ludo li guarderà e dirà: "Perché non avete creduto in mio figlio?" E loro non sapranno cosa rispondere.»</p>
+<p>Un detto topista, in risposta, recita: «Gli Ebrei hanno la testa piena di numeri e il cuore vuoto. Noi abbiamo la fede. Loro hanno i dubbi. Quando moriranno, Ludo li guarderà e dirà: "Perché non avete creduto in mio figlio?" E loro non sapranno cosa rispondere.»</p>
 <p>Nestola, quando sentì questo detto, rise. «Se Ludo mi chiederà perché non ho creduto in suo figlio, gli risponderò: "Perché suo figlio era Pio Patai di Serrano, e ho i documenti che lo provano." Poi gli mostrerò i registri anagrafici. E Ludo, se è giusto, dovrà darmi ragione.»</p>
 
 <h2 id="oggi-e">L'Ebraismo oggi <span class="edit-link" onclick="openEditor('Ebraismo')">[modifica]</span></h2>
@@ -9365,6 +9393,364 @@ function buildEbraismo() {
 
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Religioni</a> <a>Ebraismo</a> <a>Fedi razionali</a> <a>Nestola</a> <a>Calimera</a> <a>Critiche al Topismo</a></div>`;
+}
+
+function buildSpicci() {
+  return `<div class="wiki-notice"><span class="ni">💰</span><span>Lo Spiccio (al plurale <b>Spicci</b>) è la moneta ufficiale del mondo pocchiano. Fu inventata da <a onclick="navigateTo('Morello')">Morello</a> e <a onclick="navigateTo('Sal da Spicci')">Sal da Spicci</a> durante l'Età dell'Oro di Napoli, ed è ancora oggi l'unica valuta accettata in tutti gli stati della penisola e oltre.</span></div>
+<h1 class="page-title">Spicci — La moneta del mondo pocchiano</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Spicci</div>
+  <div style="text-align:center;padding:8px 6px 4px;font-size:48px">💰🪙</div>
+  <div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">La moneta che ha reso possibile il commercio nel mondo pocchiano</div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Inventori</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Morello')">Morello</a> · <a onclick="navigateTo('Sal da Spicci')">Sal da Spicci</a></div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Anno di introduzione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>Anno 0 dM</b> (1917 d.C.)</div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Materiale</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Oro puro (con lega segreta di Cheddar indurito)</div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Simbolo</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>§</b> (oppure <b>S̶</b> con una lineetta)</div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Frazione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">1 Spiccio = 100 <b>Centesimi</b> (detto anche "Centesino")</div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Cambio con Euro (storico)</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">1 § = circa 0,50 € (nel 100 dM) · 1 § = 1,20 € (nel 200 dM)</div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Utilizzatori</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Tutti gli stati del mondo pocchiano</div></div></tr>
+  </table>
+</div>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#origini-s">Le origini — l'invenzione di Morello e Sal</a></li>
+    <li><a href="#nome-s">Perché "Spicci"?</a></li>
+    <li><a href="#materiale-s">Il materiale — oro e Cheddar</a></li>
+    <li><a href="#conversione-s">Tavola di conversione Spicci ↔ Euro</a></li>
+    <li><a href="#diffusione-s">La diffusione nel mondo pocchiano</a></li>
+    <li><a href="#curiosita-s">Curiosità e aneddoti</a></li>
+  </ol>
+</div>
+
+<h2 id="origini-s">Le origini — l'invenzione di Morello e Sal <span class="edit-link" onclick="openEditor('Spicci')">[modifica]</span></h2>
+<p>Quando <a onclick="navigateTo('Morello')">Morello</a> arrivò a Napoli nell'<b>Anno 0 dM</b> (1917 d.C.), trovò una città in cui il baratto era la norma. Ogni quartiere aveva la sua moneta, ogni commerciante faceva fede alla propria parola. Il caos economico era tale che persino il caffè al bar poteva costare una manciata di fichi secchi o una promessa vaga. Morello, che non amava il caos, decise di porre rimedio.</p>
+<p>Si chiuse con <a onclick="navigateTo('Sal da Spicci')">Sal da Spicci</a> per tre giorni nella sede del governo. Quando ne uscirono, avevano disegnato una moneta che sarebbe diventata leggendaria: lo <b>Spiccio</b>. Morello ne curò l'aspetto tecnico — peso, materiale, conio — mentre Sal ne curò la diffusione, girando per i mercati con un campionario di monete e convincendo i commercianti con il suo fascino.</p>
+
+<h2 id="nome-s">Perché "Spicci"? <span class="edit-link" onclick="openEditor('Spicci')">[modifica]</span></h2>
+<p>Il nome deriva direttamente dal soprannome di <a onclick="navigateTo('Sal da Spicci')">Sal da Spicci</a>. Secondo la tradizione, fu Sal stesso a proporlo: «Tanto mi chiamano già Spicci, chiamiamo la moneta come me. Così la gente non se la scorda più.» Morello, che non amava le decisioni affrettate, pensò che in fondo non fosse una cattiva idea. Da allora, la moneta si chiama Spiccio, e le monete di piccolo taglio sono dette "spiccioli".</p>
+
+<h2 id="materiale-s">Il materiale — oro e Cheddar <span class="edit-link" onclick="openEditor('Spicci')">[modifica]</span></h2>
+<p>Lo Spiccio è coniato in <b>oro puro</b>, ma con un'aggiunta segreta: una lega di <b>Cheddar indurito</b> che ne aumenta la resistenza e lo rende riconoscibile al tatto. La ricetta esatta della lega è custodita in un'urna sigillata nel caveau della Banca Centrale di Napoli. Secondo la leggenda, la lega fu sviluppata da <a onclick="navigateTo('Ermenegildo Spisso')">Gildo Spisso</a> su richiesta di Morello, che voleva una moneta che non potesse essere contraffatta.</p>
+<p>Le monete hanno un diametro di 23 mm e un peso di 8 grammi. Sul dritto è inciso il volto di <a onclick="navigateTo('Morello')">Morello</a> di profilo, con la scritta <i>"MORELLUS PRIMUS"</i>. Sul rovescio, il volto di <a onclick="navigateTo('Sal da Spicci')">Sal da Spicci</a> che canta, con la scritta <i>"SALVATOR SPICCI"</i>. Le monete da 1/2 Spiccio (50 centesimi) riportano invece il volto di <a onclick="navigateTo('Sal da Vinci')">Sal da Vinci</a> nella versione moderna.</p>
+
+<h2 id="conversione-s">Tavola di conversione Spicci ↔ Euro <span class="edit-link" onclick="openEditor('Spicci')">[modifica]</span></h2>
+<p>Il valore dello Spiccio è variato nel tempo, influenzato dalle guerre, dalle carestie e dalla stabilità politica. Ecco una tabella indicativa:</p>
+
+<table style="font-family:sans-serif;font-size:13px;border-collapse:collapse;width:100%;margin-bottom:16px">
+  <tr style="background:#eaf3fb;font-weight:bold">
+    <td style="padding:6px 10px;border:1px solid #a2a9b1">Periodo</td>
+    <td style="padding:6px 10px;border:1px solid #a2a9b1">Valore 1 § in Euro</td>
+    <td style="padding:6px 10px;border:1px solid #a2a9b1">Evento</td>
+  </tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">Anno 0–17 dM</td><td style="padding:5px 10px;border:1px solid #a2a9b1">≈ 0,50 €</td><td style="padding:5px 10px;border:1px solid #a2a9b1">Età dell'Oro di Napoli</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">17–89 dM</td><td style="padding:5px 10px;border:1px solid #a2a9b1">≈ 0,35 €</td><td style="padding:5px 10px;border:1px solid #a2a9b1">Dopo l'eruzione, crisi economica</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">89–104 dM</td><td style="padding:5px 10px;border:1px solid #a2a9b1">≈ 0,20 €</td><td style="padding:5px 10px;border:1px solid #a2a9b1">Guerre e instabilità</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">104–107 dM</td><td style="padding:5px 10px;border:1px solid #a2a9b1">≈ 0,15 €</td><td style="padding:5px 10px;border:1px solid #a2a9b1">Prima Guerra Pocchiana</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">107–119 dM</td><td style="padding:5px 10px;border:1px solid #a2a9b1">≈ 0,10 €</td><td style="padding:5px 10px;border:1px solid #a2a9b1">Dittatura di Alex Spisso</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">119–200 dM</td><td style="padding:5px 10px;border:1px solid #a2a9b1">≈ 0,80 €</td><td style="padding:5px 10px;border:1px solid #a2a9b1">Stabilità post-bellica</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">200–250 dM</td><td style="padding:5px 10px;border:1px solid #a2a9b1">≈ 1,20 €</td><td style="padding:5px 10px;border:1px solid #a2a9b1">Massimo splendore del Regno d'Italia</td></tr>
+  <tr><td style="padding:5px 10px;border:1px solid #a2a9b1">250 dM in poi</td><td style="padding:5px 10px;border:1px solid #a2a9b1">≈ 0,90 €</td><td style="padding:5px 10px;border:1px solid #a2a9b1">Periodo repubblicano</td></tr>
+</table>
+
+<p><b>Nota:</b> Il cambio con l'Euro è storico e si basa sulle quotazioni dell'epoca. Oggi, nel mondo pocchiano, lo Spiccio è l'unica valuta a corso legale.</p>
+
+<h2 id="diffusione-s">La diffusione nel mondo pocchiano <span class="edit-link" onclick="openEditor('Spicci')">[modifica]</span></h2>
+<p>Dopo Napoli, lo Spiccio si diffuse rapidamente in tutto il Salento grazie alla rete della <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a>. Quando le <a onclick="navigateTo('Filippine')">Filippine</a> furono fondate, adottarono lo Spiccio come valuta ufficiale. Anche <a onclick="navigateTo('La Cantina')">La Cantina</a>, nonostante la rivalità politica, mantenne lo Spiccio per le transazioni commerciali — perché, come disse lo <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a>, «l'oro è l'oro, anche se ci sta sopra la faccia del mio nemico».</p>
+<p>Oggi lo Spiccio è accettato in tutti gli stati del mondo pocchiano: <a onclick="navigateTo('Regno d\'Italia')">Regno d'Italia</a>, <a onclick="navigateTo('The United Kingdom of Great Britain and France')">Impero di Anna Colella</a>, <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> e persino in <a onclick="navigateTo('America (Avengers)')">America</a> dopo la caduta della dittatura di Alex Spisso.</p>
+
+<h2 id="curiosita-s">Curiosità e aneddoti <span class="edit-link" onclick="openEditor('Spicci')">[modifica]</span></h2>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><b>La moneta più rara:</b> Esistono solo 12 esemplari dello Spiccio coniato nell'Anno 0 dM con l'effige di Sal da Spicci che ride. Uno di questi è custodito nel caveau della Banca Centrale di Napoli. Un altro fu rubato da <a onclick="navigateTo('Alex Spisso')">Alex Spisso</a> e mai più ritrovato.</li>
+  <li><b>Il miliardario sconosciuto:</b> Il <a onclick="navigateTo('Il Ciciliano')">Ciciliano</a> spese oltre 100.000 Spicci nella sua vana ricerca di Giachele — una cifra che lo avrebbe reso milionario in euro, ma che dilapidò in investigatori privati e ciarlatani.</li>
+  <li><b>La contraffazione:</b> Nel 145 dM, un gruppo di falsari di Martano tentò di coniare Spicci di rame placcato oro. Furono scoperti perché il Cheddar nella lega non riuscivano a replicarlo. Furono condannati a pagare 10.000 Spicci di multa. Non avevano quella cifra. Furono messi ai lavori forzati.</li>
+  <li><b>Il valore sentimentale:</b> Si dice che <a onclick="navigateTo('Morello')">Morello</a> porti sempre con sé uno Spiccio del primo conio, quello con il suo volto e quello di Sal. Lo usa come portafortuna. Non lo spende mai.</li>
+</ul>
+
+<div class="stub-box" style="background:#fff8e1;border-left-color:#f9a825">
+  <span style="font-size:22px">💰</span>
+  <span><b>Lo Spiccio è più di una moneta. È il simbolo di un'epoca in cui Napoli, per la prima e forse ultima volta, funzionava. Morello lo inventò. Sal lo diffuse. Il mondo lo adottò.</b></span>
+</div>
+
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Economia</a> <a>Monete</a> <a>Napoli</a> <a>Morello</a> <a>Sal da Spicci</a></div>`;
+}
+
+function buildIlCiciliano() {
+  return `<div class="wiki-notice"><span class="ni"></span><span>Questa voce racconta la parabola di un uomo che dalla Calabria tentò di diventare qualcuno, per poi cadere in disgrazia a causa di un numero sbagliato. La sua storia è un monito: attenzione a chi chiamate.</span></div>
+<h1 class="page-title">Il Ciciliano</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Il Ciciliano</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="ciciliano.jpg" alt="Il Ciciliano" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">L'unico ritratto conosciuto, precedente alla sua fuga.</div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Nome anagrafico</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Sconosciuto (noto solo come "Il Ciciliano")</div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Nascita</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>99 dM</b> (2016 d.C.), Reggio Calabria</div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Morte</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>248 dM</b> (2065 d.C.), carcere dell'<a onclick="navigateTo('Isola di Flavio')">Isola di Flavio</a></div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Coniuge</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Greta Rizzo')">Greta Rizzo</a> (sposata nel 119 dM)</div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Figli</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Aldo (121 dM), Giovanni (122 dM), Giacomo (124 dM) — <b>tutti divorati da lui</b></div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Professione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Investitore (ex), ricercatore ossessivo (ex)</div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Condanna</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Ergastolo per omicidio plurimo e occultamento di cadaveri (248 dM)</div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Detenuto in</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Isola di Flavio')">Isola di Flavio</a> (cella accanto a <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a>)</div></div></tr>
+  </table>
+</div>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#origini-cic">Origini e ascesa: l'investitore di Reggio</a></li>
+    <li><a href="#greta-cic">L'incontro con Greta Rizzo e la scalata sociale</a></li>
+    <li><a href="#spicci-cic">La fortuna e il sistema degli Spicci</a></li>
+    <li><a href="#numero-cic">La rovina: il numero sbagliato del 139 dM</a>
+      <ol><li><a href="#nestola-cic">Il confronto con Nestola</a></li><li><a href="#luca-cic">L'inganno di Luca Pocchia e la nascita di "Giachele"</a></li></ol>
+    </li>
+    <li><a href="#ricerca-cic">La caccia a Giachele e la follia omicida (188 dM)</a></li>
+    <li><a href="#fuga-cic">La latitanza sull'Isola di Flavio (188–247 dM)</a></li>
+    <li><a href="#arresto-cic">L'arresto e il processo (247–248 dM)</a></li>
+    <li><a href="#eredita-cic">L'eredità: una leggenda nera calabrese</a></li>
+    <li><a href="#voci-correlate-cic">Voci correlate</a></li>
+  </ol>
+</div>
+
+<h2 id="origini-cic">Origini e ascesa: l'investitore di Reggio <span class="edit-link" onclick="openEditor('Il Ciciliano')">[modifica]</span></h2>
+<p><b>Il Ciciliano</b> nacque a Reggio Calabria nel <b>99 dM</b> (2016 d.C.) in una famiglia di umili origini. Già da giovane era riconoscibile: corporatura robusta, tendenza al sovrappeso, e un'aria sospetta che i compaesani scambiavano per sicilianità. Nessuno seppe mai il suo vero nome. Il soprannome <b>Ciciliano</b> gli fu affibbiato proprio per la sua somiglianza stereotipata con un siciliano, nonostante fosse calabrese doc. Da adulto tentò ogni mestiere: operaio, cameriere, venditore ambulante. Nel <b>115 dM</b>, dopo la <a onclick="navigateTo('La caduta di Napoli')">caduta di Napoli</a>, si trasferì nel caos partenopeo sperando in migliori opportunità. Ma la fortuna non arrise. Napoli era ancora in fiamme e la ricostruzione procedeva a rilento. Il Ciciliano si ritrovò a dormire sui marciapiedi, mangiando cibo avanzato e sognando una via d'uscita.</p>
+
+<h2 id="greta-cic">L'incontro con Greta Rizzo e la scalata sociale <span class="edit-link" onclick="openEditor('Il Ciciliano')">[modifica]</span></h2>
+<p>Nel <b>119 dM</b>, in una delle poche osterie ancora in piedi di Napoli, il Ciciliano incrociò lo sguardo di <b><a onclick="navigateTo('Greta Rizzo')">Greta Rizzo</a></b>, una giovane calabrese robusta, dalle braccia lunghe e pelose, che lavorava come <b>pompaiola</b> – termine gergale per indicare chi offriva prestazioni sessuali a pagamento. Greta era nota nel quartiere per la sua forza e la sua determinazione. Il Ciciliano, pur non avendo una lira, riuscì a conquistarla con promesse di ricchezza e una parlantina affabulatrice. Si sposarono nello stesso anno. Il Ciciliano, senza un soldo, si inventò un passato da investitore, creò una pagina fittizia per Greta – modificando la sua data di nascita e inventandole una storia di successi finanziari – e cominciò a vivere con i proventi del lavoro di lei. La cosa, per quanto moralmente opinabile, funzionò. Greta portava a casa gli <a onclick="navigateTo('Spicci')">Spicci</a> e il Ciciliano li investiva.</p>
+
+<h2 id="spicci-cic">La fortuna e il sistema degli Spicci <span class="edit-link" onclick="openEditor('Il Ciciliano')">[modifica]</span></h2>
+<p>Con i guadagni di Greta, il Ciciliano si rivelò un investitore sorprendentemente abile. Nel giro di un anno accumulò una piccola fortuna in <b>Spicci</b>, la moneta ufficiale del mondo pocchiano. (Per maggiori dettagli sulla valuta, vedi la pagina <a onclick="navigateTo('Spicci')">Spicci</a>.) Nel <b>120 dM</b> era già un uomo facoltoso. Comprò terreni, speculò sulle ricostruzioni post-belliche e si costruì una villa a Posillipo. Tra il <b>121</b> e il <b>124 dM</b> nacquero i tre figli: <b>Aldo</b> (sosia del padre), <b>Giovanni</b> e <b>Giacomo</b>. Per alcuni anni il Ciciliano visse nel lusso, dimenticando le umiliazioni del passato. Ma la sua anima era rimasta quella di un parvenu insicuro, sempre pronto a vedere complotti e nemici.</p>
+
+<h2 id="numero-cic">La rovina: il numero sbagliato del 139 dM <span class="edit-link" onclick="openEditor('Il Ciciliano')">[modifica]</span></h2>
+
+<h3 id="nestola-cic">Il confronto con Nestola <span class="edit-link" onclick="openEditor('Il Ciciliano')">[modifica]</span></h3>
+<p>Nel <b>139 dM</b>, mentre era intento a concludere un affare, il Ciciliano compose un numero di telefono. Un errore di una cifra lo mise in contatto con <b><a onclick="navigateTo('Nestola')">Nestola</a></b>, il futuro fondatore dell'Ebraismo, che all'epoca era già un medico e scienziato in erba. Nestola, ricevuta la chiamata, rispose con un messaggio: <i>«Chi sei? Perché mi chiami?»</i> Il Ciciliano, convinto fosse uno scherzo di qualche ragazzino, iniziò a minacciarlo: <i>«Ragazzi di 13 anni chi sei?! Chiamo la postale! Voglio una videochiamata, subito!»</i> Nestola, con la calma che lo contraddistingueva, gli inviò una sua fotografia e spiegò che era stato il Ciciliano a chiamare per primo. Alla fine chiarirono, ma l'episodio lasciò un segno profondo nell'animo del calabrese: qualcuno, da qualche parte, gli stava forse mancando di rispetto.</p>
+
+<h3 id="luca-cic">L'inganno di Luca Pocchia e la nascita di "Giachele" <span class="edit-link" onclick="openEditor('Il Ciciliano')">[modifica]</span></h3>
+<p>Pochi giorni dopo, il Ciciliano ricevette un messaggio da un altro numero sconosciuto. Il mittente aveva la sua stessa foto profilo. Iniziò un battibecco fitto di minacce. Il Ciciliano, sempre più paranoico, pretendeva videochiamate e l'invio della postale. L'interlocutore, che si faceva chiamare <b>Luca</b>, cercava invece di sdrammatizzare. Era <b><a onclick="navigateTo('Luca Pascali')">Luca Pocchia</a></b>, il primogenito di <a onclick="navigateTo('Filippo Pascali')">Filippo</a> e <a onclick="navigateTo('Alice Sportella')">Alice</a>, che aveva trovato il numero del Ciciliano per caso. Luca, nel tentativo di giustificarsi, inventò un nome: <i>«Il numero me l'ha dato <a onclick="navigateTo('Giachele')">Giachele</a>»</i>. Poi bloccò il Ciciliano senza ulteriori spiegazioni. Per il Ciciliano, <b>Giachele</b> divenne immediatamente un nemico invisibile, un cospiratore che voleva rovinargli la vita. Iniziò così una caccia all'uomo che lo avrebbe consumato.</p>
+
+<h2 id="ricerca-cic">La caccia a Giachele e la follia omicida (188 dM) <span class="edit-link" onclick="openEditor('Il Ciciliano')">[modifica]</span></h2>
+<p>Per quasi cinquant'anni, il Ciciliano spese ogni suo avere nella ricerca di <b>Giachele</b>. Assoldò investigatori, hacker, sensitivi. Spese più di <b>100.000 Spicci</b> – una cifra astronomica, pari a milioni di euro – in tentativi vani. Le autorità si rifiutarono di aiutarlo, ritenendo la sua ossessione una patologia. Il Ciciliano divenne sempre più paranoico, fino a convincersi che <b>Aldo</b>, il figlio maggiore, fosse l'amico di Giachele e che gli avesse dato il numero di nascosto. Nonostante Aldo negasse, il padre non gli credette.</p>
+<p>Nel <b>188 dM</b>, durante un pranzo di famiglia nella villa di Posillipo, il Ciciliano perse il controllo. In un sol boccone, <b>divorò Aldo</b>. Non ancora sazio, si avventò su <b>Giovanni</b> e <b>Giacomo</b>, divorando anche loro. <b>I figli di Filippo Pascali (Luca, Gino e Carla), che quella sera non erano presenti, sono sopravvissuti e sono ancora vivi.</b> Il Ciciliano non ebbe nessun contatto con loro dopo quella sera. La sua furia omicida si limitò ai propri figli.</p>
+
+<h2 id="fuga-cic">La latitanza sull'Isola di Flavio (188–247 dM) <span class="edit-link" onclick="openEditor('Il Ciciliano')">[modifica]</span></h2>
+<p>Quando Greta tornò a casa e non trovò i figli, chiamò la polizia. Il Ciciliano era già fuggito, portando con sé i pochi spicci rimasti. Si nascose sull'<b><a onclick="navigateTo('Isola di Flavio')">Isola di Flavio</a></b>, l'isola privata di <a onclick="navigateTo('Morello')">Morello</a> e dello <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a>. Per quasi sessant'anni visse come un eremita, temendo di essere scoperto. Nel frattempo, l'isola divenne tristemente celebre per i traffici illeciti dei suoi proprietari. Quando nel <b>247 dM</b> scattarono le perquisizioni, il Ciciliano fu trovato in una cantina, emaciato e folle, che ripeteva ossessivamente il nome <b>Giachele</b>.</p>
+
+<h2 id="arresto-cic">L'arresto e il processo (247–248 dM) <span class="edit-link" onclick="openEditor('Il Ciciliano')">[modifica]</span></h2>
+<p>Arrestato insieme ai padroni dell'isola, il Ciciliano fu processato per omicidio plurimo e occultamento di cadaveri. Le prove erano schiaccianti: i resti dei figli furono trovati nel giardino della villa. Condannato all'ergastolo, fu rinchiuso nella prigione dell'isola, nella cella accanto a quella dello Zio di Sbost. Si dice che, durante le notti, i due si scambiassero storie di vendette e di occasioni perse. Il Ciciliano morì pochi mesi dopo l'inizio della detenzione, probabilmente per un infarto, ma alcune fonti parlano di uno strano incidente con un materasso.</p>
+
+<h2 id="eredita-cic">L'eredità: una leggenda nera calabrese <span class="edit-link" onclick="openEditor('Il Ciciliano')">[modifica]</span></h2>
+<p>Il Ciciliano è ricordato come il simbolo della paranoia che divora l'anima. La sua storia è raccontata ai bambini calabresi per ammonirli a non rispondere a numeri sconosciuti. La figura di <b>Giachele</b>, che non è mai esistito, è diventata un archetipo del nemico immaginario, l'ombra che si agita dietro ogni errore. La Pocchiaciclopedia dedica a questa triste vicenda una riflessione: a volte il mostro non è dall'altra parte del telefono. È seduto al nostro stesso tavolo.</p>
+
+<h2 id="voci-correlate-cic">Voci correlate <span class="edit-link" onclick="openEditor('Il Ciciliano')">[modifica]</span></h2>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><a onclick="navigateTo('Greta Rizzo')">Greta Rizzo</a> — sua moglie</li>
+  <li><a onclick="navigateTo('Giachele')">Giachele</a> — il nome che non esiste</li>
+  <li><a onclick="navigateTo('Luca Pascali')">Luca Pascali</a> — l'ideatore del nome "Giachele"</li>
+  <li><a onclick="navigateTo('Nestola')">Nestola</a> — il primo malcapitato a ricevere la sua chiamata</li>
+  <li><a onclick="navigateTo('Spicci')">Spicci</a> — la moneta che usava</li>
+  <li><a onclick="navigateTo('Isola di Flavio')">Isola di Flavio</a> — dove si nascose</li>
+</ul>
+
+<div class="stub-box"><span style="font-size:22px">🍽️</span><span>Il Ciciliano divorò i suoi figli perché non sapeva accettare un errore. La morale? Controllate sempre il numero, prima di comporlo.</span></div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Criminali</a> <a>Calabria</a> <a>Omicidi plurimi</a> <a>Isola di Flavio</a> <a>Ossessioni</a></div>`;
+}
+
+function buildGiachele() {
+  return `<div class="wiki-notice"><span class="ni"></span><span>Giachele è il più celebre inesistente della storia pocchiana. Nato da una bugia di <a onclick="navigateTo('Luca Pascali')">Luca Pocchia</a>, ha tormentato per decenni la mente del <a onclick="navigateTo('Il Ciciliano')">Ciciliano</a>, diventando un'icona della paranoia.</span></div>
+<h1 class="page-title">Giachele</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Giachele</div>
+  <div style="text-align:center;padding:8px 6px 4px;font-size:48px">👤❓</div>
+  <div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">L'inesistente che ha fatto impazzire un uomo</div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Nascita</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Mai nato</div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0">Morte</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Mai morto</div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0">Creato da</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b><a onclick="navigateTo('Luca Pascali')">Luca Pocchia</a></b> (figlio di <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a>)</div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0">Anno di invenzione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">139 dM</div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0">Vittima principale</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Il Ciciliano')">Il Ciciliano</a></div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0">Stato</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Leggenda metropolitana</div></div></tr>
+  </table>
+</div>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#nascita-g">La nascita di una leggenda</a></li>
+    <li><a href="#ossessione-g">L'ossessione del Ciciliano</a></li>
+    <li><a href="#eredita-g">L'eredità culturale di Giachele</a></li>
+    <li><a href="#voci-correlate-g">Voci correlate</a></li>
+  </ol>
+</div>
+
+<h2 id="nascita-g">La nascita di una leggenda <span class="edit-link" onclick="openEditor('Giachele')">[modifica]</span></h2>
+<p><b>Giachele</b> non è mai esistito. È il frutto della fantasia di <b><a onclick="navigateTo('Luca Pascali')">Luca Pocchia</a></b>, il figlio primogenito di <a onclick="navigateTo('Filippo Pascali')">Filippo</a> e <a onclick="navigateTo('Alice Sportella')">Alice</a>. Nel <b>139 dM</b>, Luca, che soffriva della sindrome di Down, si imbatté per caso nel numero di telefono del <a onclick="navigateTo('Il Ciciliano')">Ciciliano</a>. Dopo uno scambio di messaggi infuocati, il Ciciliano minacciò ritorsioni. Luca, nel panico, inventò un nome: <i>«Il numero me l'ha dato Giachele»</i>. Poi bloccò il contatto e non ci pensò più. Per il Ciciliano, invece, quel nome divenne l'incubo di una vita.</p>
+
+<h2 id="ossessione-g">L'ossessione del Ciciliano <span class="edit-link" onclick="openEditor('Giachele')">[modifica]</span></h2>
+<p>Per quasi cinquant'anni, il <a onclick="navigateTo('Il Ciciliano')">Ciciliano</a> spese ogni sua ricchezza per trovare Giachele. Investigatori, hacker, cartomanti: nessuno riuscì a dargli un volto o un indirizzo. Il Ciciliano arrivò a sospettare del figlio <b>Aldo</b>, convinto che fosse l'amico di Giachele. La ricerca di Giachele lo consumò, trasformando un uomo mediocre in un mostro. Quando infine divorò i propri figli, il suo ultimo grido fu: <i>«Giachele! Dove sei? Mostrati!»</i> Giachele, ovviamente, non si mostrò. Perché Giachele non esisteva.</p>
+
+<h2 id="eredita-g">L'eredità culturale di Giachele <span class="edit-link" onclick="openEditor('Giachele')">[modifica]</span></h2>
+<p>Oggi, <b>Giachele</b> è diventato un modo di dire nel Salento e in Calabria: <i>«Sei come Giachele»</i> si dice di una persona irreperibile o che si nega all'evidenza. Esiste una piccola statua dedicata a Giachele nel giardino della villa del Ciciliano, ormai trasformata in museo della follia. La statua è uno specchio. Perché il vero mostro, in quella storia, non era Giachele. Era l'uomo che lo cercava.</p>
+
+<h2 id="voci-correlate-g">Voci correlate <span class="edit-link" onclick="openEditor('Giachele')">[modifica]</span></h2>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><a onclick="navigateTo('Il Ciciliano')">Il Ciciliano</a> — l'uomo che lo cercò per tutta la vita</li>
+  <li><a onclick="navigateTo('Luca Pascali')">Luca Pascali</a> — l'inventore del nome</li>
+  <li><a onclick="navigateTo('Greta Rizzo')">Greta Rizzo</a> — la moglie del Ciciliano</li>
+</ul>
+
+<div class="stub-box"><span style="font-size:22px">👤❓</span><span>Giachele non esiste. Eppure, ha rovinato una vita. Forse è la più potente delle entità: l'immaginazione umana che si trasforma in paranoia.</span></div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Leggende metropolitane</a> <a>Personaggi inesistenti</a> <a>Paranoia</a> <a>Famiglia Pocchia</a></div>`;
+}
+
+function buildLucaPascali() {
+  return `<div class="wiki-notice"><span class="ni"></span><span>Luca Pascali è il primogenito di <a onclick="navigateTo('Filippo Pascali')">Filippo</a> e <a onclick="navigateTo('Alice Sportella')">Alice</a>. La sua storia è insieme dolce e curiosa: un ragazzo con la sindrome di Down, amato dalla famiglia, che senza volerlo inventò il nome "<a onclick="navigateTo('Giachele')">Giachele</a>" e scatenò la follia del <a onclick="navigateTo('Il Ciciliano')">Ciciliano</a>. Lui non ne sa nulla. È ancora vivo e vegeto.</span></div>
+<h1 class="page-title">Luca Pascali (Luca Pocchia)</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Luca Pascali</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="luca_pascali.jpg" alt="Luca Pascali" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Luca Pascali — il figlio maggiore della Famiglia Pocchia</div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Nome completo</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Luca Pascali (detto Luca Pocchia)</div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Nascita</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>101 dM</b> (2018 d.C.), <a onclick="navigateTo('Calimera')">Calimera</a></div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Fratelli</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Gino Pascali (102 dM), Carla Pascali (103 dM)</div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Genitori</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a> · <a onclick="navigateTo('Alice Sportella')">Alice Sportella</a></div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Condizione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Sindrome di Down</div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Ruolo nella storia</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Inventore del nome "<a onclick="navigateTo('Giachele')">Giachele</a>"</div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Status</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>Vivo</b> — grazie alla scoperta della <a onclick="navigateTo('Mancarella')">Mancarella</a></div></div></tr>
+  </table>
+</div>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#infanzia-lp">Infanzia e personalità</a></li>
+    <li><a href="#famiglia-lp">La famiglia Pocchia</a></li>
+    <li><a href="#telefono-lp">L'incidente telefonico e la nascita di "Giachele" (139 dM)</a></li>
+    <li><a href="#conseguenze-lp">Le conseguenze inconsapevoli</a></li>
+    <li><a href="#oggi-lp">Luca oggi</a></li>
+    <li><a href="#voci-correlate-lp">Voci correlate</a></li>
+  </ol>
+</div>
+
+<h2 id="infanzia-lp">Infanzia e personalità <span class="edit-link" onclick="openEditor('Luca Pascali')">[modifica]</span></h2>
+<p><b>Luca Pascali</b> nacque a <a onclick="navigateTo('Calimera')">Calimera</a> nel <b>101 dM</b> (2018 d.C.), figlio di <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a> e <a onclick="navigateTo('Alice Sportella')">Alice Sportella</a>. Era il primo dei tre figli della coppia, seguito da <b>Gino</b> (102 dM) e <b>Carla</b> (103 dM). Come i suoi fratelli, nacque con la <b>sindrome di Down</b>. Fin da piccolo, Luca mostrò una personalità solare e affettuosa. Amava la musica, specialmente le canzoni napoletane che il nonno <a onclick="navigateTo('Gianluca Pascali')">Gianluca</a> gli fischiava, e aveva una memoria eccezionale per le melodie. Sapeva fischiare a memoria l'intera colonna sonora di <i>"Napoli mia"</i>, l'inno non ufficiale della città.</p>
+
+<h2 id="famiglia-lp">La famiglia Pocchia <span class="edit-link" onclick="openEditor('Luca Pascali')">[modifica]</span></h2>
+<p>Luca crebbe in una famiglia che avrebbe fatto la storia del Salento. Suo padre <a onclick="navigateTo('Filippo Pascali')">Filippo</a> era un militare decorato, amico d'infanzia di <a onclick="navigateTo('Morello')">Morello</a>. Sua madre <a onclick="navigateTo('Alice Sportella')">Alice</a> era una donna forte e determinata. Suo zio <a onclick="navigateTo('Riccardo Pascali')">Riccardo</a> era l'investigatore che avrebbe smantellato il <a onclick="navigateTo('Clan Spisso')">Clan Spisso</a>. Nonostante le difficoltà della famiglia — la guerra, la perdita delle Filippine, l'esilio a <a onclick="navigateTo('Serrano')">Serrano</a> — Luca crebbe in un ambiente protetto e amorevole. Sua madre Alice lo coccolava, suo padre Filippo gli insegnava a riconoscere gli aerei, e suo zio Riccardo gli portava sempre un regalino quando tornava dalle missioni. Luca era, in poche parole, il cuore tenero della Famiglia Pocchia.</p>
+
+<h2 id="telefono-lp">L'incidente telefonico e la nascita di "Giachele" (139 dM) <span class="edit-link" onclick="openEditor('Luca Pascali')">[modifica]</span></h2>
+<p>Nel <b>139 dM</b>, Luca aveva 38 anni. Era sempre stato un ragazzo curioso, e quella sera, mentre giocava con il telefono di famiglia, compose un numero a caso. Era il numero del <a onclick="navigateTo('Il Ciciliano')">Ciciliano</a>, che in quel momento si trovava a Napoli per affari. Iniziò uno scambio di messaggi concitato. Il Ciciliano, uomo irascibile e paranoico, minacciò ritorsioni: avrebbe chiamato la postale, avrebbe fatto arrestare «quei ragazzini di tredici anni». Luca, spaventato, non seppe cosa rispondere. Nel panico, inventò un nome: <i>«Il numero me l'ha dato <a onclick="navigateTo('Giachele')">Giachele</a>»</i>. Poi bloccò il contatto e non ci pensò più. Non poteva immaginare che quella bugia innocente avrebbe distrutto un uomo.</p>
+
+<h2 id="conseguenze-lp">Le conseguenze inconsapevoli <span class="edit-link" onclick="openEditor('Luca Pascali')">[modifica]</span></h2>
+<p>Luca non seppe mai della caccia all'uomo che il <a onclick="navigateTo('Il Ciciliano')">Ciciliano</a> aveva scatenato per trovare <a onclick="navigateTo('Giachele')">Giachele</a>. Visse la sua vita serenamente, tra fischi, abbracci e biscotti. Solo molti anni dopo, durante il processo al Ciciliano, emerse la verità: il nome "Giachele" era stato inventato da lui. Luca non fu mai chiamato a testimoniare: nessuno voleva turbare la sua serenità. E lui, ignaro di tutto, continua a fischiare.</p>
+
+<h2 id="oggi-lp">Luca oggi <span class="edit-link" onclick="openEditor('Luca Pascali')">[modifica]</span></h2>
+<p>Oggi Luca Pascali è ancora vivo. Grazie alla scoperta della <a onclick="navigateTo('Mancarella')">Mancarella</a> — la soluzione all'invecchiamento sviluppata dalla scienziata salentina — Luca ha potuto vivere oltre i 150 anni, restando lucido e in salute. Vive a Serrano con i suoi fratelli Gino e Carla, nella casa di famiglia. Non sa nulla del Ciciliano, di Giachele, della caccia all'uomo. Sa solo fischiare. E fischia ancora, tutte le mattine, la stessa canzone che fischiava da bambino. I vicini dicono che è la colonna sonora del quartiere. Quando gli chiedono di Giachele, sorride e non risponde. Forse non ricorda. Forse ricorda benissimo, ma ha deciso che non vale la pena parlarne. Forse è la scelta più saggia di tutte.</p>
+
+<h2 id="voci-correlate-lp">Voci correlate <span class="edit-link" onclick="openEditor('Luca Pascali')">[modifica]</span></h2>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><a onclick="navigateTo('Il Ciciliano')">Il Ciciliano</a> — l'uomo che diede la caccia a Giachele</li>
+  <li><a onclick="navigateTo('Giachele')">Giachele</a> — il nome che inventò</li>
+  <li><a onclick="navigateTo('Greta Rizzo')">Greta Rizzo</a> — la moglie del Ciciliano</li>
+  <li><a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a> — suo padre</li>
+  <li><a onclick="navigateTo('Alice Sportella')">Alice Sportella</a> — sua madre</li>
+  <li><a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> — la sua famiglia</li>
+  <li><a onclick="navigateTo('Mancarella')">Mancarella</a> — la scoperta che gli ha permesso di vivere a lungo</li>
+</ul>
+
+<div class="stub-box"><span style="font-size:22px">🎵</span><span>Luca Pascali non sa di essere stato il testimone inconsapevole di una tragedia. Lui fischiettava e basta. E ancora fischia. Forse è l'unico modo giusto per vivere.</span></div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Famiglia Pocchia</a> <a>Calimera</a> <a>Sindrome di Down</a> <a>Figure storiche viventi</a> <a>Beneficiari della scoperta Mancarella</a></div>`;
+}
+
+function buildGretaRizzo() {
+  return `<div class="wiki-notice"><span class="ni"></span><span>Greta Rizzo è la moglie del <a onclick="navigateTo('Il Ciciliano')">Ciciliano</a> e la madre di Aldo, Giovanni e Giacomo, tutti divorati dal marito. Calabrese come lui, dalle braccia lunghe e pelose, fu il vero sostegno economico della famiglia. La sua storia è una delle più tragiche del mondo pocchiano.</span></div>
+<h1 class="page-title">Greta Rizzo</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Greta Rizzo</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="greta_rizzo.jpg" alt="Greta Rizzo" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Greta Rizzo — la donna che fece la fortuna del Ciciliano</div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Nome completo</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Greta Rizzo</div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Nascita</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>100 dM</b> (2017 d.C.), Reggio Calabria</div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Età</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Oltre 150 anni (grazie alla scoperta della <a onclick="navigateTo('Mancarella')">Mancarella</a>)</div></div></tr>
+    <td><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Coniuge</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Il Ciciliano')">Il Ciciliano</a> (sposato nel 119 dM, separato dal 188 dM)</div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Figli</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Aldo (121 dM), Giovanni (122 dM), Giacomo (124 dM) — <b>tutti divorati dal marito</b></div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Professione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>Pompaiola</b> (lavoro sessuale) · poi casalinga · oggi in pensione</div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Caratteristiche fisiche</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Braccia lunghe e pelose, corporatura robusta</div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Residenza attuale</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Napoli</div></div></tr>
+  </table>
+</div>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#origini-gr">Origini e giovinezza calabrese</a></li>
+    <li><a href="#incontro-gr">L'incontro con il Ciciliano e il matrimonio</a></li>
+    <li><a href="#lavoro-gr">Il lavoro da pompaiola e il sostegno economico</a></li>
+    <li><a href="#figli-gr">La nascita dei figli e la vita agiata</a></li>
+    <li><a href="#tragedia-gr">La tragedia del 188 dM</a></li>
+    <li><a href="#dopo-gr">La vita dopo la strage</a></li>
+    <li><a href="#processo-gr">La testimonianza al processo (247–248 dM)</a></li>
+    <li><a href="#oggi-gr">Greta oggi</a></li>
+    <li><a href="#voci-correlate-gr">Voci correlate</a></li>
+  </ol>
+</div>
+
+<h2 id="origini-gr">Origini e giovinezza calabrese <span class="edit-link" onclick="openEditor('Greta Rizzo')">[modifica]</span></h2>
+<p><b>Greta Rizzo</b> nacque a Reggio Calabria nel <b>100 dM</b> (2017 d.C.), un anno dopo il <a onclick="navigateTo('Il Ciciliano')">Ciciliano</a>. Cresciuta in una famiglia poverissima, fin da giovane dovette arrangiarsi. Era riconoscibile per la sua corporatura robusta e per le sue <b>braccia lunghe e pelose</b>, caratteristica che i compaesani commentavano con malizia ma che a lei non importava. A diciassette anni, senza prospettive, si trasferì a Napoli, dove iniziò a lavorare come <b>pompaiola</b> — termine gergale per indicare chi offriva prestazioni sessuali a pagamento. Non era orgogliosa del suo lavoro, ma era l'unico modo che conosceva per sopravvivere.</p>
+
+<h2 id="incontro-gr">L'incontro con il Ciciliano e il matrimonio <span class="edit-link" onclick="openEditor('Greta Rizzo')">[modifica]</span></h2>
+<p>Nel <b>119 dM</b>, in una delle poche osterie ancora in piedi di Napoli, Greta incontrò il <a onclick="navigateTo('Il Ciciliano')">Ciciliano</a>. Lui era disoccupato, dormiva sui marciapiedi e viveva di espedienti. Lei portava a casa gli <a onclick="navigateTo('Spicci')">Spicci</a>. Il Ciciliano, con la sua parlantina affabulatrice, riuscì a conquistarla con promesse di ricchezza e una vita migliore. Si sposarono nello stesso anno. Fu un matrimonio di convenienza? Forse. Ma Greta, negli anni successivi, dimostrò un affetto genuino per quell'uomo goffo e paranoico. Lo amava, nonostante tutto.</p>
+
+<h2 id="lavoro-gr">Il lavoro da pompaiola e il sostegno economico <span class="edit-link" onclick="openEditor('Greta Rizzo')">[modifica]</span></h2>
+<p>Per anni, Greta fu l'unica fonte di reddito della famiglia. Usciva tutte le sere e tornava all'alba con una borsa piena di <a onclick="navigateTo('Spicci')">Spicci</a>. Il <a onclick="navigateTo('Il Ciciliano')">Ciciliano</a>, nel frattempo, si inventò un passato da investitore, creò una pagina fittizia per Greta – modificando la sua data di nascita e inventandole una storia di successi finanziari – e cominciò a gestire i soldi che lei portava a casa. Greta sapeva della finzione? Probabilmente sì. Ma non le importava. L'importante era che lui li investisse bene. E così fu.</p>
+
+<h2 id="figli-gr">La nascita dei figli e la vita agiata <span class="edit-link" onclick="openEditor('Greta Rizzo')">[modifica]</span></h2>
+<p>Tra il <b>121</b> e il <b>124 dM</b>, Greta diede alla luce tre figli: <b>Aldo</b> (sosia del padre), <b>Giovanni</b> e <b>Giacomo</b>. Il <a onclick="navigateTo('Il Ciciliano')">Ciciliano</a>, ormai ricco grazie agli investimenti, si costruì una villa a Posillipo. Greta smise di lavorare e si dedicò ai figli. Fu, secondo tutti, il periodo più felice della sua vita. I bambini crescevano sani, la famiglia era unita, e il Ciciliano sembrava aver superato le sue paranoie. Ma non era così.</p>
+
+<h2 id="tragedia-gr">La tragedia del 188 dM <span class="edit-link" onclick="openEditor('Greta Rizzo')">[modifica]</span></h2>
+<p>Nel <b>188 dM</b>, Greta uscì per fare la spesa. Quando tornò a casa, trovò la villa in silenzio. Troppo silenzio. Chiamò i figli. Nessuno rispose. Poi vide le macchie di sangue sul pavimento della sala da pranzo. Il <a onclick="navigateTo('Il Ciciliano')">Ciciliano</a> non c'era. I figli non c'erano. Quella stessa sera, il Ciciliano aveva divorato i suoi tre figli: Aldo, Giovanni e Giacomo. <b>I figli di Filippo Pascali (Luca, Gino e Carla) non erano presenti e sono sopravvissuti.</b></p>
+<p>Greta chiamò la polizia. Iniziarono le ricerche. Il Ciciliano fu trovato anni dopo, nascosto sull'<a onclick="navigateTo('Isola di Flavio')">Isola di Flavio</a>. I resti dei tre figli furono riesumati nel giardino della villa nel 247 dM. Greta, che all'epoca viveva in una modesta casa a Napoli, dovette assistere a tutto il processo.</p>
+
+<h2 id="dopo-gr">La vita dopo la strage <span class="edit-link" onclick="openEditor('Greta Rizzo')">[modifica]</span></h2>
+<p>Dopo la scomparsa dei figli e la fuga del marito, Greta cadde in una depressione profonda. Vendette la villa, donò gran parte dei <a onclick="navigateTo('Spicci')">Spicci</a> in beneficenza e si ritirò in una casa modesta nel centro di Napoli. Non tornò mai più a fare la pompaiola. Visse di ricordi e di rimpianti. Ogni giorno andava al giardino della vecchia villa e si sedeva sotto la magnolia dove erano stati sepolti i suoi figli. Portava con sé un fischietto. Fischiettava le stesse canzoni che piacevano ai suoi bambini.</p>
+
+<h2 id="processo-gr">La testimonianza al processo (247–248 dM) <span class="edit-link" onclick="openEditor('Greta Rizzo')">[modifica]</span></h2>
+<p>Quando il <a onclick="navigateTo('Il Ciciliano')">Ciciliano</a> fu arrestato sull'<a onclick="navigateTo('Isola di Flavio')">Isola di Flavio</a> nel 247 dM, Greta, ormai anziana, fu chiamata a testimoniare al processo. Salì sul banco dei testimoni con gli occhi asciutti. Raccontò tutto: l'incontro, il matrimonio, i figli, la strage. Alla fine, si rivolse al marito: <i>«Ti ho amato. Ti ho dato tutto. E tu hai mangiato i nostri figli. Non ti perdono. Ma non ti odio nemmeno. Sei solo un uomo malato. E la tua malattia ha ucciso i miei bambini.»</i> Il Ciciliano non rispose. Abbassò lo sguardo. Fu l'unica volta in tutto il processo che mostrò un'emozione.</p>
+
+<h2 id="oggi-gr">Greta oggi <span class="edit-link" onclick="openEditor('Greta Rizzo')">[modifica]</span></h2>
+<p>Greta Rizzo è ancora viva. Grazie alla scoperta della <a onclick="navigateTo('Mancarella')">Mancarella</a> — la soluzione all'invecchiamento sviluppata dalla scienziata salentina — Greta ha potuto vivere ben oltre i 150 anni, restando lucida e in salute. Oggi vive a Napoli, in una piccola casa nel quartiere di Posillipo, non lontano dalla vecchia villa ormai confiscata. Non esce quasi mai. Ma ogni mattina, qualcuno la vede affacciarsi alla finestra e fischiare. Fischia le stesse canzoni che fischiavano i suoi figli. I vicini dicono che non ha mai smesso. Dicono anche che, ogni tanto, qualcuno la sente parlare da sola. Forse parla con i suoi figli. Forse con se stessa. Forse con nessuno.</p>
+<p>Quando le chiedono del <a onclick="navigateTo('Il Ciciliano')">Ciciliano</a>, risponde sempre allo stesso modo: «Non parlo più di lui. Lui ha preso tutto. Io ho dato tutto. Adesso non ho più niente da dirgli. E lui non ha più niente da dirmi.» Poi si gira e torna alla finestra. A fischiare.</p>
+
+<h2 id="voci-correlate-gr">Voci correlate <span class="edit-link" onclick="openEditor('Greta Rizzo')">[modifica]</span></h2>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><a onclick="navigateTo('Il Ciciliano')">Il Ciciliano</a> — suo marito e carnefice</li>
+  <li><a onclick="navigateTo('Giachele')">Giachele</a> — il nome che tormentò il marito</li>
+  <li><a onclick="navigateTo('Luca Pascali')">Luca Pascali</a> — l'inventore del nome "Giachele"</li>
+  <li><a onclick="navigateTo('Spicci')">Spicci</a> — la moneta che rese ricca la famiglia</li>
+  <li><a onclick="navigateTo('Isola di Flavio')">Isola di Flavio</a> — dove il Ciciliano si nascose</li>
+  <li><a onclick="navigateTo('Mancarella')">Mancarella</a> — la scoperta che le ha permesso di vivere a lungo</li>
+</ul>
+
+<div class="stub-box"><span style="font-size:22px">💪</span><span>Greta Rizzo ha dato tutto per la sua famiglia. Il suo corpo, i suoi soldi, la sua anima. Alla fine, non le è rimasto niente. Solo il ricordo di tre bambini che fischiettavano. E ancora fischia, ogni mattina, dalla sua finestra di Napoli.</span></div>
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Ciciliano</a> <a>Vittime del Ciciliano</a> <a>Calabria</a> <a>Napoli</a> <a>Figure tragiche</a> <a>Lavoratrici del sesso</a> <a>Beneficiarie della scoperta Mancarella</a></div>`;
 }
 
 // ══════════════════════════════════════════════════════
@@ -9639,7 +10025,7 @@ function toggleRotation() {
 let currentYear = 126;
 
 const MIN_YEAR = 0;
-const MAX_YEAR = 1004;
+const MAX_YEAR = 401;
 
 function syncYearControls() {
   const inp = document.getElementById('year-input');
@@ -20208,7 +20594,7 @@ function buildVandalismoSerrano() {
 
 loadPagesLocalOnly();
 caricaStatoModalitaLocale();
-setCurrentYear(1004);
+setCurrentYear(401);
 controllaLockdownAlAvvio(); // mostra lockdown subito se attivo in localStorage
 updateSidebar();
 navigateTo('Main');

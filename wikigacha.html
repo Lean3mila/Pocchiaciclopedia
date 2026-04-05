@@ -1,0 +1,3176 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WikiGacha — Pocchiaciclopedia</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #c9a84c;
+  --gold-light: #f0d080;
+  --gold-dark: #7a5a1a;
+  --bg-deep: #0a0608;
+  --bg-card: #130f1a;
+  --bg-panel: #1a1428;
+  --accent: #8b2fc9;
+  --accent2: #e040fb;
+  --accent3: #ff6b35;
+  --text: #e8dfc8;
+  --text-muted: #8a7a6a;
+  --border: rgba(201,168,76,0.3);
+  --common-color: #7a8a9a;
+  --rare-color: #4a90d9;
+  --epic-color: #9b59b6;
+  --legendary-color: #f39c12;
+  --mythic-color: #e74c3c;
+
+  --c-common: #7a8a9a;
+  --c-raro: #4a90d9;
+  --c-epico: #9b59b6;
+  --c-leggendario: #f39c12;
+  --c-mitico: #e74c3c;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Crimson Text', Georgia, serif;
+  background: var(--bg-deep);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(ellipse at 20% 50%, rgba(139,47,201,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.05) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* SCREENS */
+.screen { display: none; min-height: 100vh; }
+.screen.active { display: block; }
+
+/* ======================== HOME ======================== */
+#screen-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.home-logo {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold-light), var(--gold), var(--gold-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.home-subtitle {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  color: var(--text-muted);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 60px;
+}
+
+.home-coins-display {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(201,168,76,0.1);
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  padding: 8px 20px;
+  margin-bottom: 40px;
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  color: var(--gold);
+}
+
+.home-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 360px;
+}
+
+.btn-main {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+  color: #1a0a00;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(201,168,76,0.4);
+}
+
+.btn-secondary {
+  background: rgba(139,47,201,0.2);
+  border: 1px solid rgba(139,47,201,0.5);
+  color: var(--accent2);
+}
+
+.btn-secondary:hover {
+  background: rgba(139,47,201,0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(139,47,201,0.3);
+}
+
+.btn-tertiary {
+  background: rgba(201,168,76,0.08);
+  border: 1px solid var(--border);
+  color: var(--gold);
+}
+
+.btn-tertiary:hover {
+  background: rgba(201,168,76,0.15);
+}
+
+.btn-danger {
+  background: rgba(231,76,60,0.15);
+  border: 1px solid rgba(231,76,60,0.4);
+  color: #e74c3c;
+}
+.btn-danger:hover { background: rgba(231,76,60,0.25); }
+
+/* ======================== NAV ======================== */
+.game-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: rgba(10,6,8,0.95);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+}
+
+.nav-logo {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.1rem;
+  color: var(--gold);
+  cursor: pointer;
+}
+
+.nav-coins {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  color: var(--gold);
+  background: rgba(201,168,76,0.1);
+  border: 1px solid var(--border);
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+/* ======================== PACK OPENING ======================== */
+#screen-pack {
+  padding: 0;
+}
+
+.pack-area {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+}
+
+.pack-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.8rem;
+  color: var(--gold);
+  text-align: center;
+}
+
+.pack-selectors {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pack-type {
+  width: 160px;
+  height: 220px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.pack-type.bronze {
+  background: linear-gradient(135deg, #2a1a0a, #4a2a10);
+  border-color: #8b6914;
+}
+.pack-type.silver {
+  background: linear-gradient(135deg, #0f1520, #1a2540);
+  border-color: #4a90d9;
+}
+.pack-type.gold {
+  background: linear-gradient(135deg, #1a1000, #3a2800);
+  border-color: var(--gold);
+}
+.pack-type.mythic {
+  background: linear-gradient(135deg, #1a0520, #2d0840);
+  border-color: #e040fb;
+}
+
+.pack-type:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.pack-icon { font-size: 3rem; }
+.pack-name {
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+.pack-cost {
+  font-size: 0.8rem;
+  color: var(--gold);
+  font-family: 'Cinzel', serif;
+}
+.pack-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 0 10px;
+  font-style: italic;
+}
+
+/* ANIMATION OVERLAY */
+#pack-animation {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  z-index: 200;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+#pack-animation.visible { display: flex; }
+
+.pack-anim-wrapper {
+  perspective: 1000px;
+  width: 240px;
+  height: 340px;
+  cursor: pointer;
+}
+
+.pack-anim-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.4,0,0.2,1);
+  border-radius: 16px;
+}
+
+.pack-anim-inner.flipped { transform: rotateY(180deg); }
+
+.pack-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pack-front {
+  background: linear-gradient(135deg, #1a1000, #3a2800, #1a1000);
+  border: 3px solid var(--gold);
+  box-shadow: 0 0 40px rgba(201,168,76,0.4), inset 0 0 60px rgba(201,168,76,0.05);
+}
+
+.pack-front-icon { font-size: 5rem; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.1)} }
+
+.pack-back {
+  transform: rotateY(180deg);
+}
+
+.pack-hint {
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  animation: blink 1.5s infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+/* CARDS REVEAL */
+#cards-reveal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.97);
+  z-index: 200;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  gap: 30px;
+}
+
+#cards-reveal.visible { display: flex; }
+
+.reveal-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.4rem;
+  color: var(--gold);
+}
+
+.cards-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 900px;
+}
+
+/* ======================== CARDS ======================== */
+.card {
+  width: 140px;
+  height: 200px;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  flex-shrink: 0;
+}
+
+.card:hover { transform: translateY(-8px) scale(1.05); }
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-img-wrap {
+  height: 100px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #0a0608;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.card-img-placeholder {
+  font-size: 3rem;
+  opacity: 0.4;
+}
+
+.card-body {
+  flex: 1;
+  padding: 6px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: rgba(10,6,8,0.9);
+}
+
+.card-name {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+.card-rarity {
+  font-size: 0.55rem;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.card-stats {
+  display: flex;
+  gap: 4px;
+  justify-content: space-between;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.stat-val {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.stat-lbl {
+  font-size: 0.45rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* RARITY STYLES */
+.rarity-comune .card-inner { border-color: var(--c-common); background: linear-gradient(160deg, #1a1f24, #0f1318); }
+.rarity-comune .card-rarity { color: var(--c-common); }
+.rarity-comune .stat-val { color: var(--c-common); }
+
+.rarity-raro .card-inner { border-color: var(--c-raro); background: linear-gradient(160deg, #0f1a2a, #081220); }
+.rarity-raro .card-rarity { color: var(--c-raro); }
+.rarity-raro .stat-val { color: var(--c-raro); }
+.rarity-raro .card-inner::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse at 50% 0%, rgba(74,144,217,0.15), transparent 70%); pointer-events:none; }
+
+.rarity-epico .card-inner { border-color: var(--c-epico); background: linear-gradient(160deg, #1a0f2a, #120820); }
+.rarity-epico .card-rarity { color: var(--c-epico); }
+.rarity-epico .stat-val { color: var(--c-epico); }
+.rarity-epico .card-inner::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse at 50% 0%, rgba(155,89,182,0.2), transparent 70%); pointer-events:none; }
+
+.rarity-leggendario .card-inner { border-color: var(--c-leggendario); background: linear-gradient(160deg, #2a1a00, #1a1000); }
+.rarity-leggendario .card-rarity { color: var(--c-leggendario); }
+.rarity-leggendario .stat-val { color: var(--c-leggendario); }
+.rarity-leggendario .card-inner::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse at 50% 0%, rgba(243,156,18,0.25), transparent 70%); pointer-events:none; }
+.rarity-leggendario .card-inner { box-shadow: 0 0 20px rgba(243,156,18,0.3); animation: glow-gold 2s infinite; }
+@keyframes glow-gold { 0%,100%{box-shadow:0 0 20px rgba(243,156,18,0.3)} 50%{box-shadow:0 0 35px rgba(243,156,18,0.6)} }
+
+.rarity-mitico .card-inner { border-color: var(--c-mitico); background: linear-gradient(160deg, #2a0a0a, #1a0505); }
+.rarity-mitico .card-rarity { color: var(--c-mitico); }
+.rarity-mitico .stat-val { color: var(--c-mitico); }
+.rarity-mitico .card-inner::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse at 50% 0%, rgba(231,76,60,0.3), transparent 70%); pointer-events:none; }
+.rarity-mitico .card-inner { animation: glow-red 2s infinite; }
+@keyframes glow-red { 0%,100%{box-shadow:0 0 25px rgba(231,76,60,0.4)} 50%{box-shadow:0 0 50px rgba(231,76,60,0.7),0 0 80px rgba(231,76,60,0.2)} }
+
+/* Card flip animation */
+.card-flip-anim {
+  animation: cardFlipIn 0.6s ease-out forwards;
+  opacity: 0;
+}
+@keyframes cardFlipIn {
+  0% { transform: rotateY(90deg) scale(0.5); opacity:0; }
+  60% { transform: rotateY(-10deg) scale(1.05); opacity:1; }
+  100% { transform: rotateY(0) scale(1); opacity:1; }
+}
+
+/* Legendary/Mythic burst */
+.card-burst {
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: burst 0.5s ease-out forwards;
+}
+@keyframes burst {
+  0% { transform:scale(0); opacity:1; }
+  100% { transform:scale(3); opacity:0; }
+}
+
+/* ======================== COLLECTION ======================== */
+#screen-collection {
+  padding: 0;
+}
+
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.collection-filter {
+  display: flex;
+  gap: 8px;
+  padding: 16px 20px;
+  flex-wrap: wrap;
+  background: rgba(10,6,8,0.8);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 57px;
+  z-index: 40;
+  backdrop-filter: blur(10px);
+}
+
+.filter-btn {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.05em;
+}
+
+.filter-btn.active, .filter-btn:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+  background: rgba(201,168,76,0.1);
+}
+
+.card-count-badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: rgba(0,0,0,0.8);
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  font-size: 0.6rem;
+  font-family: 'Cinzel', serif;
+  color: var(--gold);
+  padding: 1px 5px;
+  z-index: 5;
+}
+
+.card-locked {
+  filter: brightness(0.15) saturate(0);
+  cursor: default;
+}
+
+.collection-stats {
+  display: flex;
+  gap: 20px;
+  padding: 12px 20px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+  background: rgba(10,6,8,0.6);
+}
+
+/* ======================== BATTLE ======================== */
+#screen-battle {
+  padding: 0;
+  min-height: 100vh;
+}
+
+.battle-setup {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.battle-setup h2 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.5rem;
+  color: var(--gold);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.deck-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.deck-slot {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.deck-slot:hover { border-color: var(--gold); }
+.deck-slot.selected { border-color: var(--accent2); background: rgba(139,47,201,0.15); }
+
+.deck-slot-img {
+  width: 40px;
+  height: 56px;
+  border-radius: 4px;
+  object-fit: cover;
+  object-position: top;
+  background: var(--bg-deep);
+}
+
+.deck-slot-info { flex: 1; }
+.deck-slot-name {
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+.deck-slot-stats {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* BATTLE ARENA */
+#battle-arena {
+  display: none;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+#battle-arena.active { display: flex; }
+
+.battle-field {
+  flex: 1;
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+  gap: 0;
+  padding: 0;
+  background: linear-gradient(180deg, #0a0510 0%, #120820 40%, #0a0510 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.battle-field::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at 50% 50%, rgba(139,47,201,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.battle-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  position: relative;
+}
+
+.battle-side.enemy { flex-direction: row-reverse; }
+
+.battle-hp-bar {
+  width: 200px;
+}
+
+.hp-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+  letter-spacing: 0.1em;
+}
+
+.hp-track {
+  height: 8px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.hp-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #27ae60, #2ecc71);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.hp-fill.low { background: linear-gradient(90deg, #e67e22, #f39c12); }
+.hp-fill.critical { background: linear-gradient(90deg, #c0392b, #e74c3c); }
+
+.hp-text {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  color: var(--gold);
+  margin-top: 4px;
+  text-align: right;
+}
+
+.battle-fighter {
+  width: 120px;
+  height: 170px;
+  position: relative;
+}
+
+.battle-fighter-card {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid var(--gold);
+  box-shadow: 0 0 20px rgba(201,168,76,0.3);
+}
+
+.battle-fighter-card img {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.battle-fighter-card .card-name-battle {
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  padding: 4px;
+  color: var(--gold);
+  text-align: center;
+}
+
+.battle-middle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  position: relative;
+}
+
+.battle-vs {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 2rem;
+  color: var(--gold);
+  text-shadow: 0 0 30px rgba(201,168,76,0.8);
+}
+
+.battle-log {
+  background: rgba(0,0,0,0.7);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--text);
+  min-height: 40px;
+  text-align: center;
+}
+
+.battle-actions {
+  display: flex;
+  gap: 12px;
+  padding: 16px 20px;
+  justify-content: center;
+  background: rgba(10,6,8,0.95);
+  flex-wrap: wrap;
+}
+
+.battle-btn {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 120px;
+}
+
+.battle-btn-attack {
+  background: linear-gradient(135deg, #8b0000, #c0392b);
+  color: white;
+}
+.battle-btn-attack:hover { box-shadow: 0 6px 20px rgba(192,57,43,0.5); transform:translateY(-2px); }
+
+.battle-btn-special {
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: #1a0a00;
+}
+.battle-btn-special:hover { box-shadow: 0 6px 20px rgba(201,168,76,0.5); transform:translateY(-2px); }
+.battle-btn-special:disabled { opacity:0.4; cursor:not-allowed; transform:none; }
+
+.battle-btn-defend {
+  background: linear-gradient(135deg, #1a3a5a, #2980b9);
+  color: white;
+}
+.battle-btn-defend:hover { box-shadow: 0 6px 20px rgba(41,128,185,0.5); transform:translateY(-2px); }
+
+/* DAMAGE FLOAT */
+.dmg-float {
+  position: absolute;
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  pointer-events: none;
+  z-index: 100;
+  animation: dmgFloat 1.2s ease-out forwards;
+}
+.dmg-float.damage { color: #e74c3c; text-shadow: 0 0 10px rgba(231,76,60,0.8); }
+.dmg-float.heal { color: #2ecc71; }
+.dmg-float.special { color: var(--gold); }
+
+@keyframes dmgFloat {
+  0% { transform:translateY(0) scale(1); opacity:1; }
+  100% { transform:translateY(-80px) scale(0.7); opacity:0; }
+}
+
+/* Battle shake */
+@keyframes shake {
+  0%,100%{transform:translateX(0)}
+  20%{transform:translateX(-10px)}
+  40%{transform:translateX(10px)}
+  60%{transform:translateX(-8px)}
+  80%{transform:translateX(8px)}
+}
+.shake { animation: shake 0.4s ease; }
+
+/* WIN/LOSE */
+.battle-result-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  z-index: 300;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.battle-result-overlay.visible { display: flex; }
+
+.result-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 3rem;
+  animation: resultPop 0.5s ease-out;
+}
+.result-title.win { color: var(--gold); text-shadow: 0 0 40px rgba(201,168,76,0.8); }
+.result-title.lose { color: #e74c3c; text-shadow: 0 0 40px rgba(231,76,60,0.6); }
+@keyframes resultPop { 0%{transform:scale(0) rotate(-10deg);opacity:0} 80%{transform:scale(1.1) rotate(2deg)} 100%{transform:scale(1) rotate(0)} }
+
+.result-rewards {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  color: var(--gold);
+}
+
+/* ======================== CARD DETAIL ======================== */
+.card-detail-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  z-index: 400;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.card-detail-overlay.visible { display: flex; }
+
+.card-detail-box {
+  background: var(--bg-panel);
+  border: 1px solid var(--gold);
+  border-radius: 16px;
+  max-width: 500px;
+  width: 100%;
+  overflow: hidden;
+  animation: slideUp 0.3s ease-out;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+@keyframes slideUp { from{transform:translateY(30px);opacity:0} to{transform:translateY(0);opacity:1} }
+
+.card-detail-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.card-detail-body { padding: 20px; }
+
+.card-detail-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.card-detail-rarity {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.card-detail-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.detail-stat {
+  text-align: center;
+  background: rgba(201,168,76,0.05);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.detail-stat-val {
+  font-family: 'Cinzel', serif;
+  font-size: 1.4rem;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.detail-stat-lbl {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.card-detail-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text);
+  font-style: italic;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+  margin-top: 4px;
+}
+
+.card-detail-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  border-radius: 50%;
+  color: var(--text);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-detail-overlay { position: relative; }
+
+/* ======================== BATTLE PICKER ======================== */
+.battle-picker {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.battle-picker h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  color: var(--gold);
+  margin: 16px 0 10px;
+  letter-spacing: 0.05em;
+}
+
+.picker-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 4px;
+}
+
+.picker-card {
+  aspect-ratio: 0.7;
+  border-radius: 8px;
+  cursor: pointer;
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+  position: relative;
+  background: var(--bg-card);
+}
+
+.picker-card:hover { transform:scale(1.05); border-color:rgba(201,168,76,0.5); }
+.picker-card.selected { border-color: var(--gold); box-shadow: 0 0 15px rgba(201,168,76,0.4); }
+
+.picker-card img {
+  width: 100%;
+  height: 65%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.picker-card-name {
+  font-family: 'Cinzel', serif;
+  font-size: 0.55rem;
+  padding: 4px;
+  text-align: center;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.picker-deck-display {
+  display: flex;
+  gap: 8px;
+  margin: 12px 0;
+  min-height: 60px;
+  background: rgba(201,168,76,0.05);
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  padding: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.picker-mini-card {
+  width: 40px;
+  height: 56px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--gold);
+  position: relative;
+  cursor: pointer;
+}
+
+.picker-mini-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.picker-mini-card .remove-x {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 14px;
+  height: 14px;
+  background: rgba(231,76,60,0.9);
+  color: white;
+  font-size: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 4px 0 4px;
+}
+
+/* MULTIPLAYER BUTTONS */
+.multiplayer-section {
+  background: rgba(139,47,201,0.1);
+  border: 1px solid rgba(139,47,201,0.4);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.multiplayer-section h3 {
+  font-family: 'Cinzel', serif;
+  color: var(--accent2);
+  margin-bottom: 12px;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.multiplayer-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.multiplayer-buttons input {
+  flex: 1;
+  min-width: 150px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text);
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+}
+
+.multiplayer-status {
+  margin-top: 12px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  display: none;
+}
+
+.multiplayer-status.waiting { background: rgba(255,193,7,0.2); color: #ffc107; display: block; }
+.multiplayer-status.active { background: rgba(76,175,80,0.2); color: #4caf50; display: block; }
+.multiplayer-status.error { background: rgba(244,67,54,0.2); color: #f44336; display: block; }
+
+/* SCROLLBARS */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* SPARKLES for legendary/mythic */
+.sparkle-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 250;
+}
+
+.sparkle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  animation: sparkleAnim 1.5s ease-out forwards;
+}
+
+@keyframes sparkleAnim {
+  0% { transform: translate(0,0) scale(1); opacity: 1; }
+  100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+}
+
+/* Utility */
+.flex { display:flex; }
+.gap-8 { gap:8px; }
+.gap-12 { gap:12px; }
+.mt-8 { margin-top:8px; }
+.mt-16 { margin-top:16px; }
+.center { text-align:center; }
+.gold { color:var(--gold); }
+.muted { color:var(--text-muted); }
+.font-cinzel { font-family:'Cinzel',serif; }
+.section-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.2rem;
+  color: var(--gold);
+  padding: 20px 20px 12px;
+}
+
+.info-box {
+  background: rgba(201,168,76,0.08);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--bg-panel);
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  color: var(--gold);
+  z-index: 500;
+  transition: transform 0.3s;
+  white-space: nowrap;
+}
+.toast.visible { transform: translateX(-50%) translateY(0); }
+
+/* Section header with back */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.btn-back {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 5px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-back:hover { color:var(--gold); border-color:var(--gold); }
+
+.section-header-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.1rem;
+  color: var(--gold);
+}
+
+/* ======================== SPECIAL ENERGY BAR ======================== */
+.energy-bar-wrap { margin-top: 6px; }
+.energy-track {
+  height: 5px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.energy-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  border-radius: 3px;
+  transition: width 0.3s;
+}
+.energy-label {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.05em;
+}
+
+/* ======================== RESPONSIVE ======================== */
+@media(max-width:500px) {
+  .cards-row { gap:10px; }
+  .card { width:110px; height:160px; }
+  .card-img-wrap { height:80px; }
+  .battle-fighter { width:90px; height:130px; }
+  .pack-type { width:130px; height:190px; }
+}
+
+/* shimmer */
+@keyframes shimmer {
+  0%{background-position:200% 0}
+  100%{background-position:-200% 0}
+}
+.shimmer-text {
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark));
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s infinite linear;
+}
+
+/* FIXED TOP NAVIGATION */
+.fixed-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10,6,8,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  background: rgba(201,168,76,0.1);
+  color: var(--gold);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav-btn:hover {
+  background: rgba(201,168,76,0.3);
+  transform: translateY(-2px);
+}
+
+.nav-btn.active {
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: #1a0a00;
+  border-color: var(--gold-light);
+}
+
+.coins-top {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  color: var(--gold);
+  background: rgba(201,168,76,0.15);
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+/* SCROLL SMOOTH */
+html {
+  scroll-behavior: smooth;
+}
+
+.fixed-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10,6,8,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
+.nav-btn {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  background: rgba(201,168,76,0.1);
+  color: var(--gold);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.nav-btn:hover { background: rgba(201,168,76,0.3); transform: translateY(-2px); }
+.nav-btn.active {
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: #1a0a00;
+  border-color: var(--gold-light);
+}
+.coins-top {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  color: var(--gold);
+  background: rgba(201,168,76,0.15);
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+</style>
+
+<!-- Firebase SDK -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+  import { getDatabase, ref, set, onValue, get, child, update, push, remove } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDthQRNEl4YBV1vZkP6SeIKwXq8-7wMS0I",
+    authDomain: "pocchiaciclopedia.firebaseapp.com",
+    databaseURL: "https://pocchiaciclopedia-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "pocchiaciclopedia",
+    storageBucket: "pocchiaciclopedia.firebasestorage.app",
+    messagingSenderId: "537954035884",
+    appId: "1:537954035884:web:6d561282b59bf80594d709",
+    measurementId: "G-RK489005Z5"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+
+  window._gachaDb = database;
+  window._gachaRef = ref;
+  window._gachaSet = set;
+  window._gachaOnValue = onValue;
+  window._gachaGet = get;
+  window._gachaChild = child;
+  window._gachaUpdate = update;
+  window._gachaPush = push;
+  window._gachaRemove = remove;
+  window._gachaReady = true;
+
+  window.dispatchEvent(new Event('gacha-firebase-ready'));
+</script>
+</head>
+<body>
+
+<!-- BARRA DI NAVIGAZIONE FISSA -->
+<div class="fixed-nav">
+  <div class="nav-links">
+    <button class="nav-btn" data-section="home" onclick="goToSection('home')">🏠 Home</button>
+    <button class="nav-btn" data-section="pack" onclick="goToSection('pack')">📦 Pacchetti</button>
+    <button class="nav-btn" data-section="collection" onclick="goToSection('collection')">📚 Collezione</button>
+    <button class="nav-btn" data-section="battle" onclick="goToSection('battle')">⚔️ Battaglia</button>
+  </div>
+  <div class="coins-top">
+    ✦ <span id="top-coins">0</span> Spicci
+  </div>
+</div>
+
+<!-- ============================= HOME ============================= -->
+<div id="screen-home" class="screen active">
+  <div class="home-logo">WikiGacha</div>
+  <div class="home-subtitle">Pocchiaciclopedia Edition</div>
+  <div class="home-coins-display">
+    ✦ <span id="home-coins">0</span> Spicci
+  </div>
+  <div class="home-menu">
+<button class="btn-main btn-primary" onclick="goToSection('pack')">📦 Apri Pacchetti</button>
+<button class="btn-main btn-secondary" onclick="goToSection('collection')">📚 La Mia Collezione</button>
+<button class="btn-main btn-tertiary" onclick="goToSection('battle')">⚔️ Battaglia</button>
+<button class="nav-btn" onclick="window.location.href='index.html'">📖 Enciclopedia</button>
+    <button class="btn-main btn-danger" onclick="confirmReset()">🗑️ Reset Dati</button>
+  </div>
+  <div style="margin-top:30px;font-size:0.8rem;color:var(--text-muted);font-style:italic;text-align:center;max-width:300px">
+    Colleziona le pagine della Pocchiaciclopedia, costruisci il tuo mazzo e sfida i nemici.
+  </div>
+</div>
+
+<!-- ============================= PACK OPENING ============================= -->
+<div id="screen-pack" class="screen">
+  <nav class="game-nav">
+    <span class="nav-logo" onclick="showScreen('home')">WikiGacha</span>
+    <div class="nav-coins">✦ <span class="coins-display">0</span> Spicci</div>
+  </nav>
+  <div class="pack-area">
+    <div class="pack-title shimmer-text">Scegli il tuo Pacchetto</div>
+    <div style="font-size:0.85rem;color:var(--text-muted);text-align:center;font-style:italic">
+      Ogni 5 minuti ricevi 50 Spicci gratuiti. Guadagni Spicci anche vincendo battaglie.
+    </div>
+    <div id="free-coins-timer" style="font-family:'Cinzel',serif;font-size:0.8rem;color:var(--gold);text-align:center"></div>
+    <div class="pack-selectors">
+      <div class="pack-type bronze" onclick="openPack('bronze')">
+        <div class="pack-icon">📜</div>
+        <div class="pack-name" style="color:#8b6914">Pacchetto Bronzo</div>
+        <div class="pack-cost">50 Spicci</div>
+        <div class="pack-desc">3 carte. Principalmente Comuni e Rare.</div>
+      </div>
+      <div class="pack-type silver" onclick="openPack('silver')">
+        <div class="pack-icon">📘</div>
+        <div class="pack-name" style="color:#4a90d9">Pacchetto Argento</div>
+        <div class="pack-cost">120 Spicci</div>
+        <div class="pack-desc">5 carte. Almeno 1 Epica garantita.</div>
+      </div>
+      <div class="pack-type gold" onclick="openPack('gold')">
+        <div class="pack-icon">📙</div>
+        <div class="pack-name" style="color:var(--gold)">Pacchetto Oro</div>
+        <div class="pack-cost">250 Spicci</div>
+        <div class="pack-desc">5 carte. Almeno 1 Leggendaria garantita.</div>
+      </div>
+      <div class="pack-type mythic" onclick="openPack('mythic')">
+        <div class="pack-icon">📕</div>
+        <div class="pack-name" style="color:#e040fb">Pacchetto Mitico</div>
+        <div class="pack-cost">500 Spicci</div>
+        <div class="pack-desc">5 carte. Alta possibilità Mitica.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PACK ANIMATION OVERLAY -->
+<div id="pack-animation">
+  <div style="font-family:'Cinzel',serif;font-size:0.9rem;color:var(--text-muted);letter-spacing:0.1em">TOCCA PER APRIRE</div>
+  <div class="pack-anim-wrapper" onclick="flipPack()">
+    <div class="pack-anim-inner" id="pack-anim-inner">
+      <div class="pack-face pack-front">
+        <div class="pack-front-icon" id="pack-front-icon">📦</div>
+        <div style="font-family:'Cinzel Decorative',serif;font-size:1rem;color:var(--gold)">POCCHIACICLOPEDIA</div>
+      </div>
+      <div class="pack-face pack-back" id="pack-back-face">
+        <!-- filled dynamically -->
+      </div>
+    </div>
+  </div>
+  <div class="pack-hint">Clicca per aprire il pacchetto</div>
+</div>
+
+<!-- CARDS REVEAL -->
+<div id="cards-reveal">
+  <div class="reveal-title shimmer-text">✦ Carte Ottenute ✦</div>
+  <div class="cards-row" id="cards-row"></div>
+  <button class="btn-main btn-tertiary" onclick="closeReveal()" style="margin-top:10px">Aggiungi alla Collezione</button>
+</div>
+
+<!-- ============================= COLLECTION ============================= -->
+<div id="screen-collection" class="screen">
+  <nav class="game-nav">
+    <span class="nav-logo" onclick="showScreen('home')">WikiGacha</span>
+    <div class="nav-coins">✦ <span class="coins-display">0</span> Spicci</div>
+  </nav>
+  <div class="collection-stats" id="collection-stats">
+    <span>Totale: <span class="gold" id="stat-total">0</span></span>
+    <span>Uniche: <span class="gold" id="stat-unique">0</span></span>
+    <span>Completamento: <span class="gold" id="stat-pct">0%</span></span>
+  </div>
+  <div class="collection-filter">
+    <button class="filter-btn active" onclick="filterCollection('all',this)">Tutte</button>
+    <button class="filter-btn" onclick="filterCollection('comune',this)" style="color:var(--c-common)">Comune</button>
+    <button class="filter-btn" onclick="filterCollection('raro',this)" style="color:var(--c-raro)">Raro</button>
+    <button class="filter-btn" onclick="filterCollection('epico',this)" style="color:var(--c-epico)">Epico</button>
+    <button class="filter-btn" onclick="filterCollection('leggendario',this)" style="color:var(--c-leggendario)">Leggendario</button>
+    <button class="filter-btn" onclick="filterCollection('mitico',this)" style="color:var(--c-mitico)">Mitico</button>
+  </div>
+  <div class="collection-grid" id="collection-grid"></div>
+</div>
+
+<!-- ============================= BATTLE ============================= -->
+<div id="screen-battle" class="screen">
+  <nav class="game-nav">
+    <span class="nav-logo" onclick="showScreen('home')">WikiGacha</span>
+    <div class="nav-coins">✦ <span class="coins-display">0</span> Spicci</div>
+  </nav>
+
+  <!-- Setup -->
+  <div id="battle-setup-panel" class="battle-setup">
+    <div class="section-title" style="padding:0;margin-bottom:20px">⚔️ Battaglia</div>
+
+    <!-- MULTIPLAYER SECTION -->
+    <div class="multiplayer-section">
+      <h3>🌐 Sfida Online</h3>
+      <div class="multiplayer-buttons">
+        <button class="btn-main btn-primary" onclick="createMultiplayerBattle()">🎮 Crea Partita</button>
+        <input type="text" id="battle-code-input" placeholder="Codice partita (es. abc123)" maxlength="20">
+        <button class="btn-main btn-secondary" onclick="joinBattleByCode()">🔗 Unisciti</button>
+      </div>
+      <div id="multiplayer-status" class="multiplayer-status"></div>
+    </div>
+
+    <div style="border-top:1px solid var(--border); margin:16px 0; text-align:center; color:var(--text-muted); font-size:0.8rem; padding-top:12px">— OPPURE —</div>
+
+    <h3 class="font-cinzel gold" style="font-size:1rem;margin-bottom:12px;margin-top:16px;letter-spacing:0.05em">Scegli le tue 3 carte da combattimento:</h3>
+
+    <div class="picker-deck-display" id="picker-deck">
+      <span class="muted" style="font-size:0.8rem;font-style:italic" id="picker-placeholder">Seleziona 3 carte dalla tua collezione →</span>
+    </div>
+
+    <div class="picker-grid" id="picker-grid"></div>
+
+    <div style="display:flex;gap:12px;margin-top:20px;justify-content:center;flex-wrap:wrap">
+      <button class="btn-main btn-primary" onclick="startBattle(false)">⚔️ Sfida il Bot</button>
+    </div>
+  </div>
+
+  <!-- Arena -->
+  <div id="battle-arena">
+    <!-- Enemy side -->
+    <div class="battle-field">
+      <div class="battle-side enemy" id="enemy-side">
+        <div>
+          <div class="battle-hp-bar">
+            <div class="hp-label" id="enemy-name-label">BOT POCCHIANO</div>
+            <div class="hp-track"><div class="hp-fill" id="enemy-hp-fill" style="width:100%"></div></div>
+            <div class="hp-text"><span id="enemy-hp-val">100</span>/<span id="enemy-hp-max">100</span></div>
+          </div>
+          <div class="energy-bar-wrap mt-8">
+            <div class="energy-label">ENERGIA SPECIALE</div>
+            <div class="energy-track"><div class="energy-fill" id="enemy-energy-fill" style="width:0%"></div></div>
+          </div>
+        </div>
+        <div class="battle-fighter" id="enemy-fighter">
+          <div class="battle-fighter-card" id="enemy-fighter-card">
+            <div style="width:100%;height:70%;background:var(--bg-deep);display:flex;align-items:center;justify-content:center;font-size:2rem">❓</div>
+            <div class="card-name-battle" id="enemy-fighter-name">???</div>
+          </div>
+        </div>
+        <div id="enemy-deck-icons" style="display:flex;flex-direction:column;gap:6px"></div>
+      </div>
+
+      <!-- VS divider -->
+      <div class="battle-middle">
+        <div class="battle-log" id="battle-log" style="width:100%;max-width:600px">In attesa di iniziare la battaglia...</div>
+      </div>
+
+      <!-- Player side -->
+      <div class="battle-side" id="player-side">
+        <div>
+          <div class="battle-hp-bar">
+            <div class="hp-label" id="player-name-label">TU</div>
+            <div class="hp-track"><div class="hp-fill" id="player-hp-fill" style="width:100%"></div></div>
+            <div class="hp-text"><span id="player-hp-val">100</span>/<span id="player-hp-max">100</span></div>
+          </div>
+          <div class="energy-bar-wrap mt-8">
+            <div class="energy-label">ENERGIA SPECIALE</div>
+            <div class="energy-track"><div class="energy-fill" id="player-energy-fill" style="width:0%"></div></div>
+          </div>
+        </div>
+        <div class="battle-fighter" id="player-fighter">
+          <div class="battle-fighter-card" id="player-fighter-card">
+            <div style="width:100%;height:70%;background:var(--bg-deep);display:flex;align-items:center;justify-content:center;font-size:2rem">?</div>
+            <div class="card-name-battle" id="player-fighter-name">Caricamento...</div>
+          </div>
+        </div>
+        <div id="player-deck-icons" style="display:flex;flex-direction:column;gap:6px"></div>
+      </div>
+    </div>
+
+    <!-- Battle actions -->
+    <div class="battle-actions">
+      <button class="battle-btn battle-btn-attack" onclick="playerAction('attack')">⚔️ Attacca</button>
+      <button class="battle-btn battle-btn-special" onclick="playerAction('special')" id="btn-special">✨ Speciale</button>
+      <button class="battle-btn battle-btn-defend" onclick="playerAction('defend')">🛡️ Difendi</button>
+      <button class="battle-btn" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);color:var(--text-muted)" onclick="surrenderBattle()">🏳️ Resa</button>
+    </div>
+  </div>
+</div>
+
+<!-- BATTLE RESULT OVERLAY -->
+<div id="battle-result-overlay" class="battle-result-overlay">
+  <div class="result-title" id="result-title">VITTORIA!</div>
+  <div class="result-rewards" id="result-rewards">+100 Spicci</div>
+  <div style="color:var(--text-muted);font-size:0.85rem;font-style:italic" id="result-subtitle"></div>
+  <div style="display:flex;gap:12px;margin-top:10px;flex-wrap:wrap;justify-content:center">
+    <button class="btn-main btn-primary" onclick="closeBattleResult()">Continua</button>
+  </div>
+</div>
+
+<!-- CARD DETAIL OVERLAY -->
+<div id="card-detail-overlay" class="card-detail-overlay" onclick="closeCardDetail(event)">
+  <div class="card-detail-box" id="card-detail-box">
+    <img src="" alt="" id="cd-img" class="card-detail-img" onerror="this.style.display='none'">
+    <div class="card-detail-body">
+      <div class="card-detail-title" id="cd-title"></div>
+      <div class="card-detail-rarity" id="cd-rarity"></div>
+      <div class="card-detail-stats">
+        <div class="detail-stat"><div class="detail-stat-val" id="cd-atk">0</div><div class="detail-stat-lbl">⚔️ Attacco</div></div>
+        <div class="detail-stat"><div class="detail-stat-val" id="cd-def">0</div><div class="detail-stat-lbl">🛡️ Difesa</div></div>
+        <div class="detail-stat"><div class="detail-stat-val" id="cd-spd">0</div><div class="detail-stat-lbl">⚡ Velocità</div></div>
+      </div>
+      <div class="card-detail-desc" id="cd-desc"></div>
+      <div style="margin-top:12px;font-size:0.75rem;color:var(--text-muted);font-family:'Cinzel',serif" id="cd-copies"></div>
+    </div>
+  </div>
+</div>
+
+<!-- SPARKLE CONTAINER -->
+<div class="sparkle-container" id="sparkle-container"></div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ============================================================
+// DATA — ALL CARDS (stessa struttura dell'originale)
+// ============================================================
+const ALL_CARDS = [
+  // MITICI
+  { id:'morello', name:'Morello', rarity:'mitico', img:'morello.jpg', atk:95, def:80, spd:90, desc:'Co-governatore di Napoli nell\'Età dell\'Oro, diarca di Castri. La persona più difficile da trovare e più impossibile da dimenticare.', ability:'Ombra Immortale' },
+  { id:'alessio_spisso', name:'Alessio Spisso', rarity:'mitico', img:'alessio.jpg', atk:85, def:75, spd:85, desc:'Il fratello ribelle sopravvissuto alla Bomba Spissica. Controlla Serrano dall\'alto delle nuvole, con l\'indifferenza di chi può permetterselo.', ability:'Signore di Serrano' },
+  { id:'iron_spisso_man', name:'Iron Spisso Man', rarity:'mitico', img:'iron_spisso_man.png', atk:98, def:60, spd:70, desc:'Alex Spisso nella sua forma definitiva. Fondatore e traditore degli Avengers, dittatore dell\'America. Ora disintegrato.', ability:'Cannone Spissico' },
+  { id:'zella', name:'Zella', rarity:'mitico', img:'zella.jpg', atk:90, def:70, spd:95, desc:'Capo degli Avengers, l\'Albanese. Governatore dell\'America. Ha sconfitto Iron Spisso Man quando nessuno ci credeva.', ability:'Scudo Albanese' },
+  { id:'aledoria', name:'AleDoria', rarity:'mitico', img:'aledoria.jpg', atk:80, def:75, spd:88, desc:'Inventore degli Sbost Bot e Spisso Bot. Oggi Re d\'Italia. Ha dimostrato che tutto è Cheddar.', ability:'Teoria del Cheddar' },
+  // LEGGENDARI
+  { id:'riccardo', name:'Riccardo Pascali', rarity:'leggendario', img:'riccardo.jpg', atk:82, def:65, spd:78, desc:'Rick Brick. Ha smantellato il Clan Spisso nell\'89 dM. Investigatore, figlio e fratello di tutto quello che conta.', ability:'Operazione Brick' },
+  { id:'filippo', name:'Filippo Pascali', rarity:'leggendario', img:'filippo.jpg', atk:78, def:70, spd:72, desc:'Militare, decorato con Medaglia d\'Onore, co-fondatore delle Filippine. Vive a Serrano con Alice e i figli.', ability:'Attacco Aereo' },
+  { id:'alice', name:'Alice Sportella', rarity:'leggendario', img:'alice_sportella.jpg', atk:72, def:68, spd:80, desc:'Co-comandante della conquista di Serrano. Moglie di Filippo, madre di Luca, Gino e Carla. Viva a Serrano.', ability:'Comando a Terra' },
+  { id:'primo_clone', name:'Charlie Sbirk', rarity:'leggendario', img:'primo_clone.png', atk:75, def:55, spd:85, desc:'Filosofo democratico, poi dittatore, poi processato. Il Primo Clone dello Zio di Sbost che superò l\'originale.', ability:'Democrazia o Dittatura' },
+  { id:'bomber', name:'Bomber', rarity:'leggendario', img:'bomber.jpg', atk:88, def:50, spd:65, desc:'Figlio di Phil Patai, impostore del Topismo. Il calciatore-figlio-di-dio che non era né figlio né dio.', ability:'Resurrezione Falsa' },
+  { id:'topus', name:'Topus Maximus', rarity:'leggendario', img:'topus.jpg', atk:85, def:60, spd:60, desc:'Phil Patai, fondatore del Topismo. Scomparso a 18 anni per fingersi incarnazione di Ludo.', ability:'Incarnazione di Ludo' },
+  { id:'zio_sbost', name:'Zio di Sbost', rarity:'leggendario', img:'rocmambo.jpg', atk:70, def:72, spd:65, desc:'Flavio Sbost, funzionario doganale diventato fondatore de La Cantina. Diarca di Castri con Morello.', ability:'Patto Segreto' },
+  { id:'nestola', name:'Nestola il Medico Nano', rarity:'leggendario', img:'nestola.jpg', atk:60, def:60, spd:75, desc:'Ha distrutto il Topismo con la scienza. Fondatore dell\'Ebraismo. Il più piccolo dei grandi.', ability:'Prova Scientifica' },
+  // EPICI (solo alcuni per brevità - nella versione completa ci sono tutti)
+  { id:'gianluca', name:'Gianluca Pascali', rarity:'epico', img:'gianluca.jpg', atk:65, def:70, spd:60, desc:'Il Pocchia. Patriarca della Famiglia Pascali. Militare in pensione che ha salvato Riccardo da bambino.', ability:'Veterano' },
+  { id:'renna', name:'Renna', rarity:'epico', img:'renna.jpg', atk:68, def:55, spd:90, desc:'Rennino104. L\'ultimo dei 104 Nigeriani. Liberò Corigliano nella Grande Partita tra le Fiamme.', ability:'Velocità Nigeriana' },
+  { id:'sal_spicci', name:'Sal da Spicci', rarity:'epico', img:'sal_da_spicci.jpg', atk:62, def:58, spd:82, desc:'Co-governatore di Napoli, amato da tutti. Cantava ai mercati. Scomparso con il Vesuvio nel 17 dM.', ability:'Carisma Assoluto' },
+  { id:'ilaria', name:'Spisshor', rarity:'epico', img:'spisshor.png', atk:75, def:55, spd:65, desc:'Ilaria Spisso, la Donna delle Torte. Madre di Alex e Alessio. Nascondeva droga nelle torte. Ex-Avenger.', ability:'Torta Esplosiva' },
+  { id:'spider', name:'Spider Trovè', rarity:'epico', img:'spider_trove.png', atk:70, def:50, spd:95, desc:'L\'inventore degli Avengers. Ha rivelato il suo volto solo dopo la guerra. Nessuno si aspettava chi fosse.', ability:'Ragnatela Pocchiana' },
+  { id:'jacopo', name:'Jacopo Martucci', rarity:'epico', img:'jacopo_martucci.jpg', atk:80, def:40, spd:70, desc:'L\'incendiario che bruciò Napoli e Corigliano. Non per rabbia — semplicemente perché poteva.', ability:'Fuoco Purificatore' },
+  { id:'anna_colella', name:'Anna Colella', rarity:'epico', img:'anna_colella.jpg', atk:55, def:72, spd:65, desc:'Imperatrice di due lingue. Fondò il Regno Unito di GB e Francia. L\'Editto di Colella ha alfabetizzato un impero.', ability:'Editto Imperiale' },
+  { id:'emanuele', name:'Emanuele Pascali', rarity:'epico', img:'emanuele.png', atk:68, def:55, spd:88, desc:'Avenger della Famiglia Pocchia. Poteri di volo. Dimostra che la famiglia Pascali è ovunque ci sia qualcosa da fare.', ability:'Volo Pocchiano' },
+  { id:'valerio', name:'Valerio Mozzarella', rarity:'epico', img:'valerio.png', atk:65, def:52, spd:78, desc:'Capitan Bianco. Acceca i nemici con la sua bianchezza immacolata. Avenger di talento lattiginoso.', ability:'Bagliore del Mozzarella' },
+  { id:'ciciliano', name:'Il Ciciliano', rarity:'epico', img:'ciciliano.jpg', atk:60, def:65, spd:55, desc:'Investitore calabrese convinto di essere perseguitato da un nemico di nome Giachele. Ha perso tutto cercandolo.', ability:'Paranoia Calabrese' },
+  // RARI e COMUNI (aggiungi gli altri se vuoi - per brevità ne metto alcuni)
+  { id:'nicolo_donno', name:'Nicolò Donno', rarity:'raro', img:'ND.jpg', atk:52, def:65, spd:70, desc:'L\'organizzatore silenzioso dei Puma. Occhiali da sole anche di notte. Niente telefoni la notte del Vandalismo.', ability:'Piano Tattico' },
+  { id:'antonio_cazzo', name:'Antonio Cazzato', rarity:'raro', img:'cazzy.jpg', atk:58, def:55, spd:65, desc:'Il Matematico Ribelle. Calcola traiettorie di bombolette spray. Non va più a scuola ma sa tutto.', ability:'Calcolo Balistico' },
+  { id:'andrea_sponz', name:'Andrea Sponziello', rarity:'raro', img:'sponziello.jpg', atk:55, def:48, spd:72, desc:'Il fisico di FlaNova. Ha un\'idea sempre accesa. Il sistema di proiezione luminosa non funzionò, ma portò 12 bombolette.', ability:'Prototipo FlaNova' },
+  { id:'flavia_av', name:'Flavia Aventeggiato', rarity:'raro', img:'aventeggiato.png', atk:50, def:60, spd:68, desc:'Di Calimera, a forma di pera. Ha l\'odio più personale per Alessio Spisso. Ha preparato 4 versioni dei percorsi di fuga.', ability:'Odio Personale' },
+  { id:'luca_p', name:'Luca Pascali', rarity:'raro', img:'luca_pascali.jpg', atk:45, def:55, spd:70, desc:'Il primogenito di Filippo e Alice. Inventore involontario del nome "Giachele". Memoria eccezionale per le melodie.', ability:'Il Nome di Giachele' },
+  { id:'pete_hegseth', name:'Pete Hegseth', rarity:'raro', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Fokker_Dr.I_Replika.jpg/280px-Fokker_Dr.I_Replika.jpg', atk:60, def:55, spd:62, desc:'Figlio biologico di Alex Spisso. Consigliere di Guerra. Amico di Filippo prima che le rivelazioni di Riccardo cambiassero tutto.', ability:'Medaglia d\'Onore' },
+  { id:'greta', name:'Greta Rizzo', rarity:'raro', img:'greta_rizzo.jpg', atk:58, def:52, spd:65, desc:'Moglie del Ciciliano. Pompaiola di Napoli, lasciata con tre figli dopo la fuga del marito. Più forte di quanto sembra.', ability:'Resistenza' },
+  { id:'raggio_nero', name:'Raggio Nero', rarity:'raro', img:'raggio_nero.jpg', atk:75, def:30, spd:99, desc:'L\'arma della Nigeria Spartiana che annulla poteri e ricchezza. Ha fatto cadere gli Avengers in mare nell\'oceano Atlantico.', ability:'Annullamento Totale' },
+  { id:'sal_vinci', name:'Sal da Vinci', rarity:'raro', img:'sal_da_vinci.jpg', atk:50, def:50, spd:75, desc:'Cantante neomelodico. Probabilmente Sal da Spicci sotto falso nome. Non ha mai commentato la somiglianza.', ability:'Voce dell\'Inganno' },
+  { id:'deta', name:'Deta', rarity:'raro', img:'deta.jpg', atk:52, def:45, spd:80, desc:'Calciatore scommettitore. Vive sotto il campetto di Corigliano. Sa fare cose con il pallone che nessuno si spiega.', ability:'Calcio Proibito' },
+  { id:'anna_pocchia', name:'Anna Pocchia', rarity:'comune', img:'anna.jpg', atk:35, def:55, spd:45, desc:'Moglie di Gianluca, mai una parola fuori posto. La matriarca silenziosa della Famiglia Pascali.', ability:'Silenzio Strategico' },
+  { id:'pierpaolo', name:'Pierpaolo', rarity:'comune', img:'pierpaolo.jpg', atk:42, def:48, spd:50, desc:'Commilitone di Gianluca Pascali. Presunto padre di Morello. Non lo sa. O forse sì.', ability:'Paternità Dubbia' },
+  { id:'giulia_donno', name:'Giulia Donno', rarity:'comune', img:'rucola.jpg', atk:38, def:45, spd:55, desc:'Pasticcera di Corigliano, sorella di Nicolò Donno. Fa i cornetti migliori del Salento.', ability:'Cornetti Ribelli' },
+  { id:'massimo_floris', name:'Don Massimo Floris', rarity:'comune', img:'massimo_floris.jpg', atk:30, def:60, spd:40, desc:'Parroco di Calimera. Celebrò la Prima Comunione di Zella. Si dice abbia perso i capelli da quel giorno.', ability:'Benedizione' },
+  { id:'gianluca_zecca', name:'Giovanni Zecca', rarity:'comune', img:'giovanni_zecca.jpg', atk:45, def:40, spd:50, desc:'Inventore di Python, maledetto da Ludo, spinto nello spazio. Ora cresce come Pianeta Zecca con gli insulti.', ability:'Maledizione di Ludo' },
+  { id:'maria_marzo', name:'Maria Marzo', rarity:'comune', img:'maria_marzo.jpg', atk:40, def:52, spd:48, desc:'Governatrice del distretto inglese. Il metodo delle tabelle. Efficiente e implacabile come una tabella Excel.', ability:'Metodo Tabellare' },
+  { id:'calogiuri', name:'Calogiuri', rarity:'comune', img:'calogiuri.jpg', atk:38, def:50, spd:45, desc:'Governatrice del distretto francese. Vietava di andare in bagno durante le sessioni di governo. Perché.', ability:'Disciplina Assoluta' },
+  { id:'luca_gino_carla', name:'Figli di Filippo', rarity:'comune', img:'figli_filippo.jpg', atk:30, def:45, spd:55, desc:'Luca, Gino e Carla Pascali. Nati con la sindrome di Down, vivi grazie alla Mancarella. Felici. Questo è tutto.', ability:'Forza della Famiglia' },
+  { id:'spicci_carta', name:'Spicci (la Moneta)', rarity:'comune', img:'sal_da_spicci.jpg', atk:25, def:30, spd:60, desc:'Lo Spiccio: la valuta pocchiana inventata da Morello e Sal. Sul dritto il volto di Morello. Sul rovescio, Sal che canta.', ability:'Valore Economico' },
+  { id:'giachele', name:'Giachele', rarity:'comune', img:'luca_pascali.jpg', atk:1, def:1, spd:99, desc:'Non esiste. Eppure ha distrutto la vita del Ciciliano. Inventato da Luca Pascali in un momento di panico.', ability:'L\'Inesistente' }
+];
+
+// ============================================================
+// GAME STATE
+// ============================================================
+let state = {
+  coins: 200,
+  collection: {}, // cardId -> count
+  lastFreeCoins: 0,
+};
+
+// Firebase ready flag
+let gachaFirebaseReady = false;
+let gachaUserId = null;
+
+const PACK_CONFIG = {
+  bronze:  { cost:50,  count:3, weights:{ comune:60, raro:30, epico:8, leggendario:2, mitico:0 } },
+  silver:  { cost:120, count:5, weights:{ comune:40, raro:35, epico:20, leggendario:4, mitico:1 }, guaranteeMin:'epico' },
+  gold:    { cost:250, count:5, weights:{ comune:20, raro:30, epico:30, leggendario:18, mitico:2 }, guaranteeMin:'leggendario' },
+  mythic:  { cost:500, count:5, weights:{ comune:5,  raro:20, epico:30, leggendario:30, mitico:15 }, guaranteeMin:'leggendario' },
+};
+
+const RARITY_ORDER = ['comune','raro','epico','leggendario','mitico'];
+const RARITY_COLORS = { comune:'#7a8a9a', raro:'#4a90d9', epico:'#9b59b6', leggendario:'#f39c12', mitico:'#e74c3c' };
+const RARITY_STARS = { comune:'★', raro:'★★', epico:'★★★', leggendario:'★★★★', mitico:'★★★★★' };
+
+const PACK_ICONS = { bronze:'📜', silver:'📘', gold:'📙', mythic:'📕' };
+
+// ============================================================
+// FIREBASE SAVE / LOAD
+// ============================================================
+
+// Ottiene o crea un ID utente persistente
+function getUserId() {
+  let userId = localStorage.getItem('wikigacha_user_id');
+  if (!userId) {
+    userId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 8);
+    localStorage.setItem('wikigacha_user_id', userId);
+  }
+  return userId;
+}
+
+// Salva lo stato su Firebase
+async function saveStateToFirebase() {
+  if (!gachaFirebaseReady || !window._gachaSet || !window._gachaRef) return;
+  try {
+    const userId = getUserId();
+    const db = window._gachaDb;
+    const ref = window._gachaRef;
+    await window._gachaSet(ref(db, 'wikigacha/users/' + userId), {
+      coins: state.coins,
+      collection: state.collection,
+      lastFreeCoins: state.lastFreeCoins,
+      lastUpdated: Date.now()
+    });
+  } catch(e) { console.warn('Firebase save error:', e); }
+}
+
+// Carica lo stato da Firebase
+async function loadStateFromFirebase() {
+  if (!gachaFirebaseReady || !window._gachaGet || !window._gachaChild || !window._gachaRef) return false;
+  try {
+    const userId = getUserId();
+    const db = window._gachaDb;
+    const ref = window._gachaRef;
+    const child = window._gachaChild;
+    const snapshot = await window._gachaGet(child(ref(db), 'wikigacha/users/' + userId));
+    if (snapshot.exists()) {
+      const data = snapshot.val();
+      state.coins = data.coins || 200;
+      state.collection = data.collection || {};
+      state.lastFreeCoins = data.lastFreeCoins || 0;
+      return true;
+    }
+  } catch(e) { console.warn('Firebase load error:', e); }
+  return false;
+}
+
+// Save locale (fallback)
+function saveStateLocal() {
+  try { localStorage.setItem('wikigacha_state', JSON.stringify(state)); } catch(e){}
+}
+
+// Save completo (locale + Firebase)
+async function saveState() {
+  saveStateLocal();
+  await saveStateToFirebase();
+}
+
+// Load completo
+async function loadState() {
+  // Prima carica da locale
+  try {
+    const s = localStorage.getItem('wikigacha_state');
+    if (s) state = JSON.parse(s);
+  } catch(e){}
+  
+  // Poi sovrascrivi con Firebase se disponibile
+  const loaded = await loadStateFromFirebase();
+  if (loaded) {
+    saveStateLocal(); // sincronizza locale
+  }
+  
+  updateCoinsDisplay();
+  updateHomeCoins();
+}
+
+// ============================================================
+// UI HELPERS
+// ============================================================
+function showScreen(name) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('screen-' + name).classList.add('active');
+  updateCoinsDisplay();
+  if (name === 'collection') renderCollection();
+  if (name === 'home') updateHomeCoins();
+  if (name === 'battle') renderBattlePicker();
+  if (name === 'pack') startFreeCoinsTimer();
+}
+
+function updateCoinsDisplay() {
+  document.querySelectorAll('.coins-display').forEach(el => el.textContent = state.coins);
+  const topCoins = document.getElementById('top-coins');
+  if (topCoins) topCoins.textContent = state.coins;
+}
+function updateHomeCoins() { document.getElementById('home-coins').textContent = state.coins; }
+
+function showToast(msg, duration=2500) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('visible');
+  setTimeout(() => t.classList.remove('visible'), duration);
+}
+
+function confirmReset() {
+  if (confirm('Vuoi davvero cancellare tutti i dati? Perderai carte e Spicci.')) {
+    state = { coins:200, collection:{}, lastFreeCoins:0 };
+    saveState();
+    updateCoinsDisplay();
+    updateHomeCoins();
+    showToast('Dati resettati. Buona fortuna!');
+  }
+}
+
+// ============================================================
+// FREE COINS TIMER
+// ============================================================
+let freeTimer;
+function startFreeCoinsTimer() {
+  clearInterval(freeTimer);
+  checkFreeCoins();
+  freeTimer = setInterval(checkFreeCoins, 10000);
+}
+
+function checkFreeCoins() {
+  const now = Date.now();
+  const elapsed = now - (state.lastFreeCoins || 0);
+  const interval = 5 * 60 * 1000;
+  const remaining = interval - elapsed;
+  const el = document.getElementById('free-coins-timer');
+  if (!el) return;
+  if (remaining <= 0) {
+    state.coins += 50;
+    state.lastFreeCoins = now;
+    saveState();
+    updateCoinsDisplay();
+    updateHomeCoins();
+    showToast('✦ +50 Spicci gratuiti!');
+    el.textContent = 'Prossimi Spicci gratuiti: 5:00';
+  } else {
+    const m = Math.floor(remaining / 60000);
+    const s = Math.floor((remaining % 60000) / 1000);
+    el.textContent = `Prossimi Spicci gratuiti: ${m}:${s.toString().padStart(2,'0')}`;
+  }
+}
+
+// ============================================================
+// PACK OPENING (uguale all'originale)
+// ============================================================
+let pendingCards = [];
+let packFlipped = false;
+
+function openPack(type) {
+  const cfg = PACK_CONFIG[type];
+  if (state.coins < cfg.cost) {
+    showToast(`❌ Spicci insufficienti! Ti servono ${cfg.cost}.`);
+    return;
+  }
+  state.coins -= cfg.cost;
+  saveState();
+  updateCoinsDisplay();
+
+  pendingCards = generatePack(type);
+  packFlipped = false;
+
+  const overlay = document.getElementById('pack-animation');
+  const inner = document.getElementById('pack-anim-inner');
+  document.getElementById('pack-front-icon').textContent = PACK_ICONS[type];
+  inner.classList.remove('flipped');
+  overlay.classList.add('visible');
+}
+
+function generatePack(type) {
+  const cfg = PACK_CONFIG[type];
+  const cards = [];
+  const hasGuarantee = cfg.guaranteeMin;
+  const guaranteeIndex = hasGuarantee ? RARITY_ORDER.indexOf(hasGuarantee) : -1;
+
+  for (let i = 0; i < cfg.count; i++) {
+    const isLastCard = i === cfg.count - 1;
+    let rarity;
+
+    if (isLastCard && hasGuarantee) {
+      const alreadyHas = cards.some(c => RARITY_ORDER.indexOf(c.rarity) >= guaranteeIndex);
+      if (!alreadyHas) rarity = rollRarityMin(cfg.weights, hasGuarantee);
+      else rarity = rollRarity(cfg.weights);
+    } else {
+      rarity = rollRarity(cfg.weights);
+    }
+
+    const pool = ALL_CARDS.filter(c => c.rarity === rarity);
+    const card = pool[Math.floor(Math.random() * pool.length)];
+    cards.push(card);
+  }
+
+  return cards.sort((a,b) => RARITY_ORDER.indexOf(b.rarity) - RARITY_ORDER.indexOf(a.rarity));
+}
+
+function rollRarity(weights) {
+  const total = Object.values(weights).reduce((a,b) => a+b, 0);
+  let rand = Math.random() * total;
+  for (const [r,w] of Object.entries(weights)) {
+    rand -= w;
+    if (rand <= 0) return r;
+  }
+  return 'comune';
+}
+
+function rollRarityMin(weights, minRarity) {
+  const minIdx = RARITY_ORDER.indexOf(minRarity);
+  const filtered = {};
+  for (const [r,w] of Object.entries(weights)) {
+    if (RARITY_ORDER.indexOf(r) >= minIdx) filtered[r] = w;
+  }
+  return rollRarity(filtered);
+}
+
+function flipPack() {
+  if (packFlipped) return;
+  packFlipped = true;
+
+  const inner = document.getElementById('pack-anim-inner');
+  inner.classList.add('flipped');
+
+  setTimeout(() => {
+    document.getElementById('pack-animation').classList.remove('visible');
+    showCardsReveal();
+  }, 900);
+}
+
+function showCardsReveal() {
+  const overlay = document.getElementById('cards-reveal');
+  overlay.classList.add('visible');
+  const row = document.getElementById('cards-row');
+  row.innerHTML = '';
+
+  let delay = 0;
+  for (const card of pendingCards) {
+    const el = createCardEl(card, false);
+    el.style.animationDelay = delay + 'ms';
+    el.classList.add('card-flip-anim');
+    el.onclick = () => showCardDetail(card);
+    row.appendChild(el);
+
+    if (RARITY_ORDER.indexOf(card.rarity) >= 3) {
+      setTimeout(() => spawnSparkles(RARITY_COLORS[card.rarity]), delay + 200);
+    }
+    delay += 200;
+  }
+}
+
+function spawnSparkles(color) {
+  const container = document.getElementById('sparkle-container');
+  for (let i = 0; i < 20; i++) {
+    const sp = document.createElement('div');
+    sp.className = 'sparkle';
+    sp.style.left = (20 + Math.random() * 60) + '%';
+    sp.style.top = (20 + Math.random() * 60) + '%';
+    sp.style.background = color;
+    sp.style.setProperty('--tx', (Math.random() * 200 - 100) + 'px');
+    sp.style.setProperty('--ty', (Math.random() * 200 - 100) + 'px');
+    sp.style.animationDelay = (Math.random() * 0.5) + 's';
+    container.appendChild(sp);
+    setTimeout(() => sp.remove(), 2000);
+  }
+}
+
+function closeReveal() {
+  document.getElementById('cards-reveal').classList.remove('visible');
+  for (const card of pendingCards) {
+    state.collection[card.id] = (state.collection[card.id] || 0) + 1;
+  }
+  saveState();
+  showToast(`✦ ${pendingCards.length} carte aggiunte alla collezione!`);
+}
+
+// ============================================================
+// CREATE CARD ELEMENT (uguale all'originale)
+// ============================================================
+function createCardEl(card, locked=false, showCount=false) {
+  const div = document.createElement('div');
+  div.className = `card rarity-${card.rarity}`;
+
+  const inner = document.createElement('div');
+  inner.className = 'card-inner';
+  if (locked) inner.classList.add('card-locked');
+
+  const imgWrap = document.createElement('div');
+  imgWrap.className = 'card-img-wrap';
+
+  if (card.img) {
+    const img = document.createElement('img');
+    img.src = card.img;
+    img.alt = card.name;
+    img.onerror = function() {
+      this.style.display='none';
+      const ph = document.createElement('div');
+      ph.className = 'card-img-placeholder';
+      ph.textContent = '📜';
+      imgWrap.appendChild(ph);
+    };
+    imgWrap.appendChild(img);
+  }
+
+  const body = document.createElement('div');
+  body.className = 'card-body';
+
+  const name = document.createElement('div');
+  name.className = 'card-name';
+  name.textContent = card.name;
+
+  const rarity = document.createElement('div');
+  rarity.className = 'card-rarity';
+  rarity.textContent = RARITY_STARS[card.rarity] + ' ' + card.rarity.toUpperCase();
+
+  const stats = document.createElement('div');
+  stats.className = 'card-stats';
+  stats.innerHTML = `
+    <div class="stat"><div class="stat-val">${card.atk}</div><div class="stat-lbl">ATK</div></div>
+    <div class="stat"><div class="stat-val">${card.def}</div><div class="stat-lbl">DEF</div></div>
+    <div class="stat"><div class="stat-val">${card.spd}</div><div class="stat-lbl">SPD</div></div>
+  `;
+
+  body.appendChild(name);
+  body.appendChild(rarity);
+  body.appendChild(stats);
+  inner.appendChild(imgWrap);
+  inner.appendChild(body);
+
+  if (showCount && state.collection[card.id] > 1) {
+    const badge = document.createElement('div');
+    badge.className = 'card-count-badge';
+    badge.textContent = 'x' + state.collection[card.id];
+    div.appendChild(badge);
+  }
+
+  div.appendChild(inner);
+  return div;
+}
+
+// ============================================================
+// COLLECTION
+// ============================================================
+let currentFilter = 'all';
+
+function renderCollection() {
+  const grid = document.getElementById('collection-grid');
+  grid.innerHTML = '';
+
+  const owned = Object.keys(state.collection);
+  let total = owned.reduce((a,id) => a + state.collection[id], 0);
+  let unique = owned.length;
+  let pct = Math.round(unique / ALL_CARDS.length * 100);
+
+  document.getElementById('stat-total').textContent = total;
+  document.getElementById('stat-unique').textContent = unique + '/' + ALL_CARDS.length;
+  document.getElementById('stat-pct').textContent = pct + '%';
+
+  const toShow = currentFilter === 'all' ? ALL_CARDS : ALL_CARDS.filter(c => c.rarity === currentFilter);
+
+  for (const card of toShow) {
+    const owned2 = state.collection[card.id] || 0;
+    const el = createCardEl(card, owned2 === 0, owned2 > 0);
+    el.onclick = () => { if (owned2 > 0) showCardDetail(card); };
+    grid.appendChild(el);
+  }
+}
+
+function filterCollection(rarity, btn) {
+  currentFilter = rarity;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderCollection();
+}
+
+// ============================================================
+// CARD DETAIL
+// ============================================================
+function showCardDetail(card) {
+  const overlay = document.getElementById('card-detail-overlay');
+  document.getElementById('cd-img').src = card.img || '';
+  document.getElementById('cd-title').textContent = card.name;
+  document.getElementById('cd-rarity').textContent = RARITY_STARS[card.rarity] + ' ' + card.rarity.toUpperCase();
+  document.getElementById('cd-rarity').style.color = RARITY_COLORS[card.rarity];
+  document.getElementById('cd-atk').textContent = card.atk;
+  document.getElementById('cd-def').textContent = card.def;
+  document.getElementById('cd-spd').textContent = card.spd;
+  document.getElementById('cd-desc').textContent = card.desc;
+  const copies = state.collection[card.id] || 0;
+  document.getElementById('cd-copies').textContent = copies > 0 ? `Copie possedute: ${copies}` : 'Non ancora sbloccata';
+  overlay.classList.add('visible');
+}
+
+function closeCardDetail(e) {
+  if (e.target === document.getElementById('card-detail-overlay')) {
+    document.getElementById('card-detail-overlay').classList.remove('visible');
+  }
+}
+
+// ============================================================
+// BATTLE SYSTEM (originale + multiplayer)
+// ============================================================
+let playerDeck = [];
+let botDeck = [];
+let battleState = {};
+
+// Variabili multiplayer
+let currentMultiplayerBattle = null;
+let multiplayerUnsubscribe = null;
+let isMultiplayerBattle = false;
+let myPlayerId = null; // 'player1' o 'player2'
+
+function renderBattlePicker() {
+  const grid = document.getElementById('picker-grid');
+  grid.innerHTML = '';
+  playerDeck = [];
+  updatePickerDeck();
+
+  const ownedCards = ALL_CARDS.filter(c => state.collection[c.id]);
+
+  if (ownedCards.length === 0) {
+    grid.innerHTML = '<div style="color:var(--text-muted);font-style:italic;font-size:0.85rem;grid-column:1/-1">Apri dei pacchetti per ottenere carte!</div>';
+    return;
+  }
+
+  for (const card of ownedCards) {
+    const div = document.createElement('div');
+    div.className = 'picker-card';
+    div.dataset.id = card.id;
+
+    const img = document.createElement('img');
+    img.src = card.img || '';
+    img.onerror = function() { this.style.display='none'; };
+    img.alt = card.name;
+
+    const name = document.createElement('div');
+    name.className = 'picker-card-name';
+    name.textContent = card.name;
+
+    div.appendChild(img);
+    div.appendChild(name);
+    div.onclick = () => togglePickerCard(card, div);
+    grid.appendChild(div);
+  }
+}
+
+function togglePickerCard(card, el) {
+  const idx = playerDeck.findIndex(c => c.id === card.id);
+  if (idx >= 0) {
+    playerDeck.splice(idx, 1);
+    el.classList.remove('selected');
+  } else {
+    if (playerDeck.length >= 3) {
+      showToast('Puoi scegliere solo 3 carte!');
+      return;
+    }
+    playerDeck.push(card);
+    el.classList.add('selected');
+  }
+  updatePickerDeck();
+}
+
+function updatePickerDeck() {
+  const deck = document.getElementById('picker-deck');
+  const ph = document.getElementById('picker-placeholder');
+  deck.innerHTML = '';
+  if (playerDeck.length === 0) {
+    ph && deck.appendChild(ph);
+    return;
+  }
+  for (const card of playerDeck) {
+    const mini = document.createElement('div');
+    mini.className = 'picker-mini-card';
+    mini.title = card.name;
+    const img = document.createElement('img');
+    img.src = card.img || '';
+    img.onerror = function(){this.style.display='none';};
+    img.alt = card.name;
+    const x = document.createElement('div');
+    x.className = 'remove-x';
+    x.textContent = '✕';
+    x.onclick = (e) => {
+      e.stopPropagation();
+      const el = document.querySelector(`.picker-card[data-id="${card.id}"]`);
+      if (el) el.classList.remove('selected');
+      playerDeck = playerDeck.filter(c => c.id !== card.id);
+      updatePickerDeck();
+    };
+    mini.appendChild(img);
+    mini.appendChild(x);
+    deck.appendChild(mini);
+  }
+
+  const remaining = document.createElement('span');
+  remaining.style.cssText = 'color:var(--text-muted);font-size:0.75rem;font-style:italic;align-self:center;margin-left:auto';
+  remaining.textContent = `${playerDeck.length}/3 selezionate`;
+  deck.appendChild(remaining);
+}
+
+function generateBotDeck() {
+  const pool = [...ALL_CARDS];
+  const shuffled = pool.sort(() => Math.random() - 0.5);
+  shuffled.sort((a,b) => RARITY_ORDER.indexOf(b.rarity) - RARITY_ORDER.indexOf(a.rarity));
+  return shuffled.slice(0, 3);
+}
+
+function startBattle(isMultiplayer, battleData = null) {
+  if (!isMultiplayer && playerDeck.length < 3) {
+    showToast('Seleziona 3 carte per iniziare!');
+    return;
+  }
+
+  if (isMultiplayer && battleData) {
+    // Avvia battaglia multiplayer esistente
+    startMultiplayerBattleSession(battleData);
+    return;
+  }
+
+  // Battaglia normale contro il Bot
+  isMultiplayerBattle = false;
+  botDeck = generateBotDeck();
+
+  const calcHP = (card) => Math.round(100 + card.def * 1.2 + card.atk * 0.5);
+
+  battleState = {
+    turn: 'player',
+    playerCards: playerDeck.map(c => ({ ...c, currentHP: calcHP(c), maxHP: calcHP(c) })),
+    botCards: botDeck.map(c => ({ ...c, currentHP: calcHP(c), maxHP: calcHP(c) })),
+    playerCardIdx: 0,
+    botCardIdx: 0,
+    playerEnergy: 0,
+    botEnergy: 0,
+    playerDefending: false,
+    botDefending: false,
+    round: 1,
+    locked: false,
+  };
+
+  document.getElementById('battle-setup-panel').style.display = 'none';
+  const arena = document.getElementById('battle-arena');
+  arena.classList.add('active');
+  document.getElementById('enemy-name-label').textContent = 'BOT POCCHIANO';
+  document.getElementById('player-name-label').textContent = 'TU';
+
+  updateBattleUI();
+  setLog(`La battaglia inizia! ${battleState.playerCards[0].name} VS ${battleState.botCards[0].name}!`);
+}
+
+// ============================================================
+// MULTIPLAYER FUNCTIONS
+// ============================================================
+
+async function createMultiplayerBattle() {
+  if (playerDeck.length < 3) {
+    showToast('Seleziona 3 carte prima di creare una partita!');
+    return;
+  }
+  
+  if (!gachaFirebaseReady) {
+    showToast('Firebase non è ancora pronto. Riprova tra qualche secondo.');
+    return;
+  }
+  
+  const userId = getUserId();
+  const battleId = 'battle_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6);
+  
+  const calcHP = (card) => Math.round(100 + card.def * 1.2 + card.atk * 0.5);
+  
+  const battleData = {
+    battleId: battleId,
+    player1: {
+      userId: userId,
+      deck: playerDeck.map(c => ({ 
+        id: c.id, 
+        name: c.name, 
+        atk: c.atk, 
+        def: c.def, 
+        spd: c.spd, 
+        img: c.img,
+        ability: c.ability || 'Attacco Speciale'
+      })),
+      currentHP: 100,
+      maxHP: 100,
+      currentCardIdx: 0,
+      energy: 0,
+      defending: false,
+      ready: true
+    },
+    player2: {
+      userId: null,
+      deck: null,
+      currentHP: 100,
+      maxHP: 100,
+      currentCardIdx: 0,
+      energy: 0,
+      defending: false,
+      ready: false
+    },
+    currentTurn: 'player1',
+    status: 'waiting', // waiting, active, finished
+    winner: null,
+    createdAt: Date.now(),
+    lastAction: Date.now(),
+    actions: []
+  };
+  
+  try {
+    const db = window._gachaDb;
+    const ref = window._gachaRef;
+    await window._gachaSet(ref(db, 'wikigacha/battles/' + battleId), battleData);
+    
+    const shortCode = battleId.slice(-6);
+    showToast(`✅ Partita creata! Codice: ${shortCode}`);
+    
+    const statusDiv = document.getElementById('multiplayer-status');
+    statusDiv.className = 'multiplayer-status waiting';
+    statusDiv.innerHTML = `🎮 In attesa di un avversario...<br>📋 Codice partita: <strong>${shortCode}</strong><br>Condividi questo codice con il tuo amico!`;
+    
+    // Ascolta per il secondo giocatore
+    listenForBattleStart(battleId);
+    
+    currentMultiplayerBattle = battleId;
+  } catch(e) {
+    console.error('Errore creazione partita:', e);
+    showToast('Errore nella creazione della partita');
+  }
+}
+
+async function joinBattleByCode() {
+  const codeInput = document.getElementById('battle-code-input');
+  const code = codeInput.value.trim();
+  
+  if (!code) {
+    showToast('Inserisci un codice partita!');
+    return;
+  }
+  
+  if (playerDeck.length < 3) {
+    showToast('Seleziona 3 carte prima di unirti a una partita!');
+    return;
+  }
+  
+  if (!gachaFirebaseReady) {
+    showToast('Firebase non è ancora pronto. Riprova tra qualche secondo.');
+    return;
+  }
+  
+  // Cerca la partita con questo codice
+  const db = window._gachaDb;
+  const ref = window._gachaRef;
+  const get = window._gachaGet;
+  const child = window._gachaChild;
+  
+  try {
+    // Cerchiamo tutte le battaglie in attesa
+    const battlesRef = ref(db, 'wikigacha/battles');
+    const snapshot = await get(battlesRef);
+    
+    let foundBattle = null;
+    let foundBattleId = null;
+    
+    if (snapshot.exists()) {
+      snapshot.forEach((childSnapshot) => {
+        const battle = childSnapshot.val();
+        const battleId = childSnapshot.key;
+        if (battleId.endsWith(code) && battle.status === 'waiting') {
+          foundBattle = battle;
+          foundBattleId = battleId;
+        }
+      });
+    }
+    
+    if (!foundBattle) {
+      showToast('Partita non trovata o già iniziata!');
+      return;
+    }
+    
+    const userId = getUserId();
+    
+    // Aggiorna la battaglia con il secondo giocatore
+    const calcHP = (card) => Math.round(100 + card.def * 1.2 + card.atk * 0.5);
+    
+    await window._gachaUpdate(ref(db, 'wikigacha/battles/' + foundBattleId), {
+      'player2/userId': userId,
+      'player2/deck': playerDeck.map(c => ({ 
+        id: c.id, 
+        name: c.name, 
+        atk: c.atk, 
+        def: c.def, 
+        spd: c.spd, 
+        img: c.img,
+        ability: c.ability || 'Attacco Speciale'
+      })),
+      'player2/ready': true,
+      'status': 'active'
+    });
+    
+    showToast('✅ Sei entrato in partita! Inizia il combattimento!');
+    
+    const statusDiv = document.getElementById('multiplayer-status');
+    statusDiv.className = 'multiplayer-status active';
+    statusDiv.innerHTML = '🎮 Partita iniziata! Preparati a combattere!';
+    
+    // Avvia la battaglia
+    startMultiplayerBattleSession(foundBattle, foundBattleId);
+    
+    currentMultiplayerBattle = foundBattleId;
+    codeInput.value = '';
+    
+  } catch(e) {
+    console.error('Errore nell\'unirsi alla partita:', e);
+    showToast('Errore nel joined della partita');
+  }
+}
+
+function listenForBattleStart(battleId) {
+  if (!gachaFirebaseReady) return;
+  
+  const db = window._gachaDb;
+  const ref = window._gachaRef;
+  const onValue = window._gachaOnValue;
+  
+  const battleRef = ref(db, 'wikigacha/battles/' + battleId);
+  
+  const unsubscribe = onValue(battleRef, (snapshot) => {
+    const battle = snapshot.val();
+    if (battle && battle.status === 'active' && battle.player2.userId) {
+      // Il secondo giocatore si è unito!
+      unsubscribe(); // Smetti di ascoltare
+      
+      const statusDiv = document.getElementById('multiplayer-status');
+      statusDiv.className = 'multiplayer-status active';
+      statusDiv.innerHTML = '🎮 Avversario trovato! La battaglia inizia!';
+      
+      setTimeout(() => {
+        startMultiplayerBattleSession(battle, battleId);
+      }, 1000);
+    }
+  });
+}
+
+function startMultiplayerBattleSession(battle, battleId) {
+  isMultiplayerBattle = true;
+  currentMultiplayerBattle = battleId;
+  
+  const userId = getUserId();
+  myPlayerId = battle.player1.userId === userId ? 'player1' : 'player2';
+  const isPlayer1 = (myPlayerId === 'player1');
+  
+  const myData = isPlayer1 ? battle.player1 : battle.player2;
+  const enemyData = isPlayer1 ? battle.player2 : battle.player1;
+  
+  // Costruisci lo stato della battaglia
+  const calcHP = (card) => Math.round(100 + card.def * 1.2 + card.atk * 0.5);
+  
+  battleState = {
+    turn: battle.currentTurn,
+    playerCards: myData.deck.map(c => ({ ...c, currentHP: calcHP(c), maxHP: calcHP(c) })),
+    botCards: enemyData.deck.map(c => ({ ...c, currentHP: calcHP(c), maxHP: calcHP(c) })),
+    playerCardIdx: myData.currentCardIdx || 0,
+    botCardIdx: enemyData.currentCardIdx || 0,
+    playerEnergy: myData.energy || 0,
+    botEnergy: enemyData.energy || 0,
+    playerDefending: myData.defending || false,
+    botDefending: enemyData.defending || false,
+    round: 1,
+    locked: false,
+    isMultiplayer: true,
+    battleId: battleId,
+    myPlayerId: myPlayerId
+  };
+  
+  document.getElementById('battle-setup-panel').style.display = 'none';
+  const arena = document.getElementById('battle-arena');
+  arena.classList.add('active');
+  
+  const enemyName = enemyData.userId ? (enemyData.userId.slice(-8)) : 'Avversario';
+  document.getElementById('enemy-name-label').textContent = `🎮 ${enemyName}`;
+  document.getElementById('player-name-label').textContent = 'TU';
+  
+  updateBattleUI();
+  setLog(`Battaglia multiplayer iniziata! ${myData.deck[0].name} VS ${enemyData.deck[0].name}`);
+  
+  // Ascolta gli aggiornamenti in tempo reale
+  listenToBattleUpdates(battleId);
+}
+
+function listenToBattleUpdates(battleId) {
+  if (multiplayerUnsubscribe) {
+    multiplayerUnsubscribe();
+  }
+  
+  if (!gachaFirebaseReady) return;
+  
+  const db = window._gachaDb;
+  const ref = window._gachaRef;
+  const onValue = window._gachaOnValue;
+  
+  const battleRef = ref(db, 'wikigacha/battles/' + battleId);
+  
+  multiplayerUnsubscribe = onValue(battleRef, (snapshot) => {
+    const battle = snapshot.val();
+    if (!battle) return;
+    
+    if (battle.status === 'finished') {
+      // La battaglia è finita
+      endMultiplayerBattle(battle.winner);
+      if (multiplayerUnsubscribe) multiplayerUnsubscribe();
+      multiplayerUnsubscribe = null;
+      return;
+    }
+    
+    // Aggiorna lo stato locale se il turno è cambiato o se ci sono azioni
+    if (battle.currentTurn !== battleState.turn) {
+      battleState.turn = battle.currentTurn;
+      updateBattleUI();
+      
+      const isMyTurn = (battle.currentTurn === battleState.myPlayerId);
+      if (isMyTurn) {
+        setLog('🎮 È il tuo turno! Scegli un\'azione.');
+      } else {
+        setLog('🎮 In attesa della mossa dell\'avversario...');
+      }
+    }
+    
+    // Aggiorna le statistiche dei giocatori
+    const userId = getUserId();
+    const isPlayer1 = (battle.player1.userId === userId);
+    const myData = isPlayer1 ? battle.player1 : battle.player2;
+    const enemyData = isPlayer1 ? battle.player2 : battle.player1;
+    
+    if (myData) {
+      battleState.playerEnergy = myData.energy || 0;
+      battleState.playerDefending = myData.defending || false;
+      battleState.playerCardIdx = myData.currentCardIdx || 0;
+      if (battleState.playerCards[battleState.playerCardIdx]) {
+        battleState.playerCards[battleState.playerCardIdx].currentHP = myData.currentHP;
+      }
+    }
+    
+    if (enemyData) {
+      battleState.botEnergy = enemyData.energy || 0;
+      battleState.botDefending = enemyData.defending || false;
+      battleState.botCardIdx = enemyData.currentCardIdx || 0;
+      if (battleState.botCards[battleState.botCardIdx]) {
+        battleState.botCards[battleState.botCardIdx].currentHP = enemyData.currentHP;
+      }
+    }
+    
+    updateBattleUI();
+  });
+}
+
+async function sendMultiplayerAction(action, value = null) {
+  if (!isMultiplayerBattle || !currentMultiplayerBattle) return;
+  if (battleState.locked) return;
+  if (battleState.turn !== battleState.myPlayerId) {
+    showToast('Non è il tuo turno!');
+    return;
+  }
+  
+  battleState.locked = true;
+  
+  const userId = getUserId();
+  const db = window._gachaDb;
+  const ref = window._gachaRef;
+  const update = window._gachaUpdate;
+  
+  const battleRef = ref(db, 'wikigacha/battles/' + currentMultiplayerBattle);
+  const snapshot = await window._gachaGet(battleRef);
+  const battle = snapshot.val();
+  
+  if (!battle || battle.status !== 'active') {
+    showToast('La partita non è più attiva');
+    battleState.locked = false;
+    return;
+  }
+  
+  const isPlayer1 = (battle.player1.userId === userId);
+  const myPlayer = isPlayer1 ? 'player1' : 'player2';
+  const enemyPlayer = isPlayer1 ? 'player2' : 'player1';
+  
+  let myData = isPlayer1 ? battle.player1 : battle.player2;
+  let enemyData = isPlayer1 ? battle.player2 : battle.player1;
+  
+  let dmg = 0;
+  let newMyEnergy = myData.energy;
+  let newMyDefending = false;
+  let newEnemyHP = enemyData.currentHP;
+  let newEnemyCardIdx = enemyData.currentCardIdx;
+  let logMessage = '';
+  
+  const myCard = myData.deck[myData.currentCardIdx];
+  const enemyCard = enemyData.deck[enemyData.currentCardIdx];
+  
+  if (action === 'attack') {
+    dmg = calculateDamage(myCard, enemyCard, false, enemyData.defending);
+    newEnemyHP = Math.max(0, enemyData.currentHP - dmg);
+    newMyEnergy = Math.min(3, myData.energy + 1);
+    logMessage = `${myCard.name} attacca per ${dmg} danni!`;
+    
+  } else if (action === 'special') {
+    if (myData.energy < 3) {
+      showToast('Energia speciale insufficiente!');
+      battleState.locked = false;
+      return;
+    }
+    newMyEnergy = 0;
+    dmg = calculateDamage(myCard, enemyCard, true, enemyData.defending);
+    newEnemyHP = Math.max(0, enemyData.currentHP - dmg);
+    logMessage = `✨ ${myCard.ability || 'Attacco Speciale'}! ${myCard.name} infligge ${dmg} danni SPECIALI!`;
+    
+  } else if (action === 'defend') {
+    newMyDefending = true;
+    newMyEnergy = Math.min(3, myData.energy + 1);
+    logMessage = `🛡️ ${myCard.name} si prepara a difendere!`;
+  }
+  
+  let battleWinner = null;
+  
+  if (newEnemyHP <= 0) {
+    newEnemyCardIdx++;
+    if (newEnemyCardIdx >= enemyData.deck.length) {
+      battleWinner = myPlayer;
+    } else {
+      logMessage += ` ${enemyCard.name} è sconfitto! Avversario manda in campo ${enemyData.deck[newEnemyCardIdx].name}!`;
+    }
+  }
+  
+  const updateData = {};
+  updateData[`${myPlayer}/energy`] = newMyEnergy;
+  updateData[`${myPlayer}/defending`] = newMyDefending;
+  updateData[`${enemyPlayer}/currentHP`] = newEnemyHP;
+  updateData[`${enemyPlayer}/currentCardIdx`] = newEnemyCardIdx;
+  updateData[`actions/${Date.now()}`] = { player: myPlayer, action: action, damage: dmg, timestamp: Date.now() };
+  
+  if (battleWinner) {
+    updateData['status'] = 'finished';
+    updateData['winner'] = battleWinner;
+  } else {
+    updateData['currentTurn'] = enemyPlayer;
+  }
+  
+  await update(battleRef, updateData);
+  setLog(logMessage);
+  
+  if (!battleWinner) {
+    battleState.locked = false;
+  }
+  
+  updateBattleUI();
+}
+
+function calculateDamage(attacker, defender, isSpecial, defenderDefending=false) {
+  let base;
+  if (isSpecial) {
+    base = Math.round(attacker.atk * 1.8 + attacker.spd * 0.3);
+  } else {
+    base = Math.round(attacker.atk * 0.9 + Math.random() * attacker.atk * 0.3);
+  }
+  const defMod = defender.def * 0.4;
+  const defBonus = defenderDefending ? defender.def * 0.5 : 0;
+  const spdMod = attacker.spd > defender.spd ? 1.1 : 0.95;
+  const dmg = Math.max(1, Math.round((base - defMod - defBonus) * spdMod));
+  return dmg;
+}
+
+function endMultiplayerBattle(winnerId) {
+  battleState.locked = true;
+  const overlay = document.getElementById('battle-result-overlay');
+  const title = document.getElementById('result-title');
+  const rewards = document.getElementById('result-rewards');
+  const subtitle = document.getElementById('result-subtitle');
+  
+  overlay.classList.add('visible');
+  
+  const userId = getUserId();
+  const iWon = (winnerId === 'player1' && battleState.myPlayerId === 'player1') ||
+               (winnerId === 'player2' && battleState.myPlayerId === 'player2');
+  
+  if (iWon) {
+    title.textContent = '✦ VITTORIA! ✦';
+    title.className = 'result-title win';
+    const earned = 100;
+    state.coins += earned;
+    saveState();
+    updateCoinsDisplay();
+    rewards.textContent = `+${earned} Spicci guadagnati!`;
+    subtitle.textContent = `Hai vinto la battaglia multiplayer! Ottimo lavoro!`;
+    spawnSparkles('#f39c12');
+  } else {
+    title.textContent = '✦ SCONFITTA ✦';
+    title.className = 'result-title lose';
+    const consolation = 30;
+    state.coins += consolation;
+    saveState();
+    updateCoinsDisplay();
+    rewards.textContent = `+${consolation} Spicci di consolazione`;
+    subtitle.textContent = `Il tuo avversario era troppo forte. Riprova!`;
+  }
+  
+  // Pulisci listener
+  if (multiplayerUnsubscribe) {
+    multiplayerUnsubscribe();
+    multiplayerUnsubscribe = null;
+  }
+  isMultiplayerBattle = false;
+  currentMultiplayerBattle = null;
+}
+
+// ============================================================
+// BATTLE UI FUNCTIONS (adattate per supportare multiplayer)
+// ============================================================
+
+function updateBattleUI() {
+  if (!battleState) return;
+  
+  const bs = battleState;
+  const pCard = bs.playerCards[bs.playerCardIdx];
+  const eCard = bs.botCards[bs.botCardIdx];
+  
+  if (!pCard || !eCard) return;
+  
+  // Player fighter
+  const pfc = document.getElementById('player-fighter-card');
+  pfc.innerHTML = `<img src="${pCard.img}" alt="${pCard.name}" style="width:100%;height:70%;object-fit:cover;object-position:top" onerror="this.style.display='none'">
+    <div class="card-name-battle" style="font-size:0.55rem;padding:4px;text-align:center;color:var(--gold)">${pCard.name}</div>`;
+  
+  // Enemy fighter
+  const efc = document.getElementById('enemy-fighter-card');
+  efc.innerHTML = `<img src="${eCard.img}" alt="${eCard.name}" style="width:100%;height:70%;object-fit:cover;object-position:top" onerror="this.style.display='none'">
+    <div class="card-name-battle" style="font-size:0.55rem;padding:4px;text-align:center;color:#e74c3c">${eCard.name}</div>`;
+  
+  // HP bars
+  updateHPBar('player', pCard);
+  updateHPBar('enemy', eCard);
+  
+  // Energy bars
+  document.getElementById('player-energy-fill').style.width = (bs.playerEnergy / 3 * 100) + '%';
+  document.getElementById('enemy-energy-fill').style.width = (bs.botEnergy / 3 * 100) + '%';
+  
+  // Special button
+  const specialBtn = document.getElementById('btn-special');
+  if (specialBtn) {
+    specialBtn.disabled = bs.playerEnergy < 3;
+    specialBtn.textContent = bs.playerEnergy >= 3 ? '✨ SPECIALE!' : `✨ Speciale (${bs.playerEnergy}/3)`;
+  }
+  
+  // Deck icons
+  renderDeckIcons('player', bs.playerCards, bs.playerCardIdx);
+  renderDeckIcons('enemy', bs.botCards, bs.botCardIdx);
+}
+
+function updateHPBar(side, card) {
+  const fill = document.getElementById(side + '-hp-fill');
+  const val = document.getElementById(side + '-hp-val');
+  const maxEl = document.getElementById(side + '-hp-max');
+  const pct = Math.max(0, card.currentHP / card.maxHP * 100);
+  fill.style.width = pct + '%';
+  fill.className = 'hp-fill' + (pct < 30 ? ' critical' : pct < 55 ? ' low' : '');
+  val.textContent = Math.max(0, card.currentHP);
+  maxEl.textContent = card.maxHP;
+}
+
+function renderDeckIcons(side, cards, currentIdx) {
+  const container = document.getElementById(side + '-deck-icons');
+  if (!container) return;
+  container.innerHTML = '';
+  cards.forEach((c, i) => {
+    const div = document.createElement('div');
+    div.style.cssText = `width:30px;height:42px;border-radius:3px;overflow:hidden;border:1px solid ${i === currentIdx ? 'var(--gold)' : 'rgba(255,255,255,0.2)'};opacity:${i < currentIdx ? '0.3' : '1'};transition:all 0.3s`;
+    const img = document.createElement('img');
+    img.src = c.img;
+    img.style.cssText = 'width:100%;height:100%;object-fit:cover;object-position:top';
+    img.onerror = function(){this.style.display='none';};
+    div.appendChild(img);
+    container.appendChild(div);
+  });
+}
+
+function setLog(msg) {
+  const logEl = document.getElementById('battle-log');
+  if (logEl) logEl.textContent = msg;
+}
+
+async function playerAction(action) {
+  if (isMultiplayerBattle) {
+    await sendMultiplayerAction(action);
+    return;
+  }
+  
+  // Battaglia normale contro il Bot (codice originale)
+  if (battleState.locked) return;
+  battleState.locked = true;
+  
+  const bs = battleState;
+  const pCard = bs.playerCards[bs.playerCardIdx];
+  const eCard = bs.botCards[bs.botCardIdx];
+  
+  bs.playerDefending = false;
+  bs.botDefending = false;
+  
+  let playerMsg = '';
+  let dmg = 0;
+  
+  if (action === 'attack') {
+    dmg = calcDamage(pCard, eCard, false);
+    applyDamage(eCard, dmg);
+    playerMsg = `${pCard.name} attacca per ${dmg} danni!`;
+    showDamageFloat('enemy', dmg, 'damage');
+    shakeElement('enemy-fighter');
+    bs.playerEnergy = Math.min(3, bs.playerEnergy + 1);
+    
+  } else if (action === 'special') {
+    if (bs.playerEnergy < 3) { battleState.locked = false; return; }
+    bs.playerEnergy = 0;
+    dmg = calcDamage(pCard, eCard, true);
+    applyDamage(eCard, dmg);
+    playerMsg = `✨ ${pCard.ability}! ${pCard.name} infligge ${dmg} danni SPECIALI!`;
+    showDamageFloat('enemy', dmg, 'special');
+    shakeElement('enemy-fighter');
+    spawnSparkles(RARITY_COLORS[pCard.rarity]);
+    
+  } else if (action === 'defend') {
+    bs.playerDefending = true;
+    playerMsg = `🛡️ ${pCard.name} si prepara a difendere!`;
+    showDamageFloat('player', '+DEF', 'heal');
+    bs.playerEnergy = Math.min(3, bs.playerEnergy + 1);
+  }
+  
+  updateBattleUI();
+  setLog(playerMsg);
+  
+  await delay(600);
+  
+  if (eCard.currentHP <= 0) {
+    bs.botCardIdx++;
+    if (bs.botCardIdx >= bs.botCards.length) {
+      endBattle(true);
+      return;
+    }
+    setLog(`${eCard.name} è sconfitto! Il bot manda avanti ${bs.botCards[bs.botCardIdx].name}!`);
+    await delay(800);
+  }
+  
+  await botTurn();
+  battleState.locked = false;
+}
+
+async function botTurn() {
+  const bs = battleState;
+  const pCard = bs.playerCards[bs.playerCardIdx];
+  const eCard = bs.botCards[bs.botCardIdx];
+  if (!eCard || eCard.currentHP <= 0) return;
+  
+  let botAction;
+  if (bs.botEnergy >= 3) botAction = 'special';
+  else if (eCard.currentHP / eCard.maxHP < 0.3 && Math.random() < 0.4) botAction = 'defend';
+  else botAction = Math.random() < 0.85 ? 'attack' : 'defend';
+  
+  let botMsg = '';
+  let dmg = 0;
+  
+  if (botAction === 'attack') {
+    dmg = calcDamage(eCard, pCard, false, bs.playerDefending);
+    applyDamage(pCard, dmg);
+    botMsg = `${eCard.name} contrattacca per ${dmg} danni!`;
+    showDamageFloat('player', dmg, 'damage');
+    shakeElement('player-fighter');
+    bs.botEnergy = Math.min(3, bs.botEnergy + 1);
+    
+  } else if (botAction === 'special') {
+    bs.botEnergy = 0;
+    dmg = calcDamage(eCard, pCard, true, bs.playerDefending);
+    applyDamage(pCard, dmg);
+    botMsg = `💀 ${eCard.name} usa ${eCard.ability}! ${dmg} danni!`;
+    showDamageFloat('player', dmg, 'special');
+    shakeElement('player-fighter');
+    
+  } else {
+    bs.botDefending = true;
+    botMsg = `${eCard.name} si difende!`;
+    bs.botEnergy = Math.min(3, bs.botEnergy + 1);
+  }
+  
+  updateBattleUI();
+  setLog(botMsg);
+  
+  await delay(600);
+  
+  if (pCard.currentHP <= 0) {
+    bs.playerCardIdx++;
+    if (bs.playerCardIdx >= bs.playerCards.length) {
+      endBattle(false);
+      return;
+    }
+    bs.playerEnergy = 0;
+    setLog(`${pCard.name} è sconfitto! Mandi in campo ${bs.playerCards[bs.playerCardIdx].name}!`);
+    await delay(800);
+  }
+  
+  updateBattleUI();
+  bs.round++;
+}
+
+function calcDamage(attacker, defender, isSpecial, defenderDefending=false) {
+  let base;
+  if (isSpecial) {
+    base = Math.round(attacker.atk * 1.8 + attacker.spd * 0.3);
+  } else {
+    base = Math.round(attacker.atk * 0.9 + Math.random() * attacker.atk * 0.3);
+  }
+  const defMod = defender.def * 0.4;
+  const defBonus = defenderDefending ? defender.def * 0.5 : 0;
+  const spdMod = attacker.spd > defender.spd ? 1.1 : 0.95;
+  const dmg = Math.max(1, Math.round((base - defMod - defBonus) * spdMod));
+  return dmg;
+}
+
+function applyDamage(card, dmg) {
+  card.currentHP = Math.max(0, card.currentHP - dmg);
+}
+
+function showDamageFloat(side, val, type) {
+  const container = document.getElementById(side + '-fighter');
+  const el = document.createElement('div');
+  el.className = `dmg-float ${type}`;
+  el.textContent = type === 'damage' || type === 'special' ? `-${val}` : val;
+  el.style.left = (30 + Math.random() * 40) + '%';
+  el.style.top = '20%';
+  container.style.position = 'relative';
+  container.appendChild(el);
+  setTimeout(() => el.remove(), 1200);
+}
+
+function shakeElement(id) {
+  const el = document.getElementById(id);
+  el.classList.add('shake');
+  setTimeout(() => el.classList.remove('shake'), 500);
+}
+
+function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+function endBattle(playerWon) {
+  battleState.locked = true;
+  const overlay = document.getElementById('battle-result-overlay');
+  const title = document.getElementById('result-title');
+  const rewards = document.getElementById('result-rewards');
+  const subtitle = document.getElementById('result-subtitle');
+  
+  overlay.classList.add('visible');
+  
+  if (playerWon) {
+    title.textContent = '✦ VITTORIA! ✦';
+    title.className = 'result-title win';
+    const earned = 80 + battleState.round * 5;
+    state.coins += earned;
+    saveState();
+    updateCoinsDisplay();
+    rewards.textContent = `+${earned} Spicci guadagnati!`;
+    subtitle.textContent = `Hai vinto in ${battleState.round} round. Ottimo lavoro!`;
+    spawnSparkles('#f39c12');
+    setTimeout(() => spawnSparkles('#e040fb'), 300);
+  } else {
+    title.textContent = '✦ SCONFITTA ✦';
+    title.className = 'result-title lose';
+    const consolation = 20;
+    state.coins += consolation;
+    saveState();
+    updateCoinsDisplay();
+    rewards.textContent = `+${consolation} Spicci di consolazione`;
+    subtitle.textContent = `Il Bot Pocchiano era più forte questa volta. Riprova!`;
+  }
+}
+
+function closeBattleResult() {
+  document.getElementById('battle-result-overlay').classList.remove('visible');
+  document.getElementById('battle-arena').classList.remove('active');
+  document.getElementById('battle-setup-panel').style.display = '';
+  
+  // Pulisci stato multiplayer se necessario
+  if (multiplayerUnsubscribe) {
+    multiplayerUnsubscribe();
+    multiplayerUnsubscribe = null;
+  }
+  isMultiplayerBattle = false;
+  currentMultiplayerBattle = null;
+  
+  // Reset multiplayer status UI
+  const statusDiv = document.getElementById('multiplayer-status');
+  if (statusDiv) {
+    statusDiv.className = 'multiplayer-status';
+    statusDiv.innerHTML = '';
+  }
+  
+  updateHomeCoins();
+  renderBattlePicker();
+}
+
+function surrenderBattle() {
+  if (!confirm('Sei sicuro di volerti arrendere?')) return;
+  
+  if (isMultiplayerBattle && currentMultiplayerBattle) {
+    // Invia resa al multiplayer
+    const userId = getUserId();
+    const db = window._gachaDb;
+    const ref = window._gachaRef;
+    const update = window._gachaUpdate;
+    
+    const battleRef = ref(db, 'wikigacha/battles/' + currentMultiplayerBattle);
+    const winner = (battleState.myPlayerId === 'player1') ? 'player2' : 'player1';
+    update(battleRef, { status: 'finished', winner: winner });
+  }
+  
+  endBattle(false);
+}
+
+// ============================================================
+// FIREBASE INIT
+// ============================================================
+
+function initGachaFirebase() {
+  return new Promise((resolve) => {
+    if (window._gachaReady) {
+      gachaFirebaseReady = true;
+      resolve();
+    } else {
+      window.addEventListener('gacha-firebase-ready', () => {
+        gachaFirebaseReady = true;
+        resolve();
+      }, { once: true });
+      setTimeout(() => {
+        if (!gachaFirebaseReady) {
+          console.warn('Firebase timeout, using localStorage only');
+          gachaFirebaseReady = false;
+          resolve();
+        }
+      }, 5000);
+    }
+  });
+}
+
+// ========== NAVIGAZIONE CON SCROLL ==========
+function goToSection(sectionName) {
+  showScreen(sectionName);
+  window.location.hash = sectionName;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  history.pushState({ section: sectionName }, '', '#' + sectionName);
+}
+
+function checkHashOnLoad() {
+  const hash = window.location.hash.substring(1);
+  if (hash && ['home', 'pack', 'collection', 'battle'].includes(hash)) {
+    showScreen(hash);
+  } else {
+    showScreen('home');
+  }
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+window.addEventListener('popstate', function(event) {
+  const hash = window.location.hash.substring(1);
+  if (hash && ['home', 'pack', 'collection', 'battle'].includes(hash)) {
+    showScreen(hash);
+  } else {
+    showScreen('home');
+  }
+  window.scrollTo({ top: 0, behavior: 'instant' });
+});
+
+// Salva la funzione originale
+const originalShowScreen = showScreen;
+showScreen = function(name) {
+  originalShowScreen(name);
+  document.querySelectorAll('.nav-btn').forEach(btn => {
+    const btnSection = btn.getAttribute('data-section');
+    if (btnSection === name) btn.classList.add('active');
+    else btn.classList.remove('active');
+  });
+}
+
+// ============================================================
+// INIT
+// ============================================================
+
+async function init() {
+  await initGachaFirebase();
+  await loadState();
+  updateCoinsDisplay();
+  updateHomeCoins();
+  startFreeCoinsTimer();
+}
+
+init();
+checkHashOnLoad();
+</script>
+</body>
+</html>
