@@ -1757,6 +1757,11 @@ let state = {
   lastFreeCoins: 0,
 };
 
+// Variabili multiplayer
+let currentBattleId = null;
+let battleUnsubscribe = null;
+let isMultiplayerMode = false;
+
 // Firebase ready flag
 let gachaFirebaseReady = false;
 let gachaUserId = null;
@@ -2861,11 +2866,16 @@ function setLog(msg) {
   if (logEl) logEl.textContent = msg;
 }
 
+// Salva la funzione originale
+const originalPlayerAction = playerAction;
+
 async function playerAction(action) {
-  if (isMultiplayerBattle) {
+  if (isMultiplayerMode) {
     await sendMultiplayerAction(action);
-    return;
+  } else {
+    await originalPlayerAction(action);
   }
+}
   
   // Battaglia normale contro il Bot (codice originale)
   if (battleState.locked) return;
@@ -3167,6 +3177,269 @@ async function init() {
   updateCoinsDisplay();
   updateHomeCoins();
   startFreeCoinsTimer();
+}
+
+// ========== MULTIPLAYER ==========
+
+async function createBattle() {
+  if (playerDeck.length < 3) {
+    showToast('Seleziona 3 carte prima di creare una partita!');
+    return;
+  }
+  
+  if (!window._gachaReady) {
+    showToast('Firebase non è pronto. Riprova tra qualche secondo.');
+    return;
+  }
+  
+  const battleId = 'b_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6);
+  const userId = getUserId();
+  
+  const battleData = {
+    player1: {
+      userId: userId,
+      deck: playerDeck.map(c => ({
+        id: c.id, name: c.name, atk: c.atk, def: c.def, spd: c.spd,
+        img: c.img, ability: c.ability || 'Attacco Speciale'
+      })),
+      currentHp: 100, maxHp: 100, currentCard: 0, energy: 0, defending: false, ready: true
+    },
+    player2: {
+      userId: null, deck: null, currentHp: 100, maxHp: 100, currentCard: 0, energy: 0, defending: false, ready: false
+    },
+    turn: 'player1', status: 'waiting', winner: null, createdAt: Date.now()
+  };
+  
+  try {
+    await window._gachaSet(window._gachaRef(window._gachaDb, 'gacha/battles/' + battleId), battleData);
+    currentBattleId = battleId;
+    const shortCode = battleId.slice(-6);
+    document.getElementById('battle-status').innerHTML = '✅ Partita creata!<br>📋 Codice: <strong style="color:#e040fb">' + shortCode + '</strong><br>⏳ In attesa dell\'avversario...';
+    document.getElementById('battle-status').style.display = 'block';
+    waitForPlayer(battleId);
+  } catch(e) { console.error(e); showToast('Errore nella creazione della partita'); }
+}
+
+function waitForPlayer(battleId) {
+  if (battleUnsubscribe) battleUnsubscribe();
+  const battleRef = window._gachaRef(window._gachaDb, 'gacha/battles/' + battleId);
+  battleUnsubscribe = window._gachaOnValue(battleRef, (snapshot) => {
+    const battle = snapshot.val();
+    if (battle && battle.status === 'active' && battle.player2.userId) {
+      if (battleUnsubscribe) battleUnsubscribe();
+      battleUnsubscribe = null;
+      document.getElementById('battle-status').innerHTML = '🎮 Avversario trovato! La battaglia inizia...';
+      setTimeout(() => {
+        document.getElementById('battle-status').style.display = 'none';
+        startMultiplayerBattle(battle, battleId);
+      }, 1000);
+    }
+  });
+}
+
+async function joinBattle() {
+  const code = document.getElementById('battle-code').value.trim();
+  if (!code) { showToast('Inserisci il codice partita!'); return; }
+  if (playerDeck.length < 3) { showToast('Seleziona 3 carte prima di unirti!'); return; }
+  if (!window._gachaReady) { showToast('Firebase non è pronto.'); return; }
+  
+  const snapshot = await window._gachaGet(window._gachaChild(window._gachaRef(window._gachaDb), 'gacha/battles'));
+  let foundBattle = null, foundId = null;
+  
+  if (snapshot.exists()) {
+    snapshot.forEach((childSnap) => {
+      const battle = childSnap.val();
+      const battleId = childSnap.key;
+      if (battleId.endsWith(code) && battle.status === 'waiting') {
+        foundBattle = battle;
+        foundId = battleId;
+      }
+    });
+  }
+  
+  if (!foundBattle) { showToast('Partita non trovata o già iniziata!'); return; }
+  
+  const userId = getUserId();
+  await window._gachaUpdate(window._gachaRef(window._gachaDb, 'gacha/battles/' + foundId), {
+    'player2/userId': userId,
+    'player2/deck': playerDeck.map(c => ({
+      id: c.id, name: c.name, atk: c.atk, def: c.def, spd: c.spd,
+      img: c.img, ability: c.ability || 'Attacco Speciale'
+    })),
+    'player2/ready': true,
+    'status': 'active'
+  });
+  
+  document.getElementById('battle-status').innerHTML = '✅ Sei entrato in partita! Inizio...';
+  document.getElementById('battle-code').value = '';
+  setTimeout(() => {
+    document.getElementById('battle-status').style.display = 'none';
+    startMultiplayerBattle(foundBattle, foundId);
+  }, 1000);
+}
+
+function startMultiplayerBattle(battle, battleId) {
+  isMultiplayerMode = true;
+  currentBattleId = battleId;
+  const userId = getUserId();
+  const isPlayer1 = (battle.player1.userId === userId);
+  const myData = isPlayer1 ? battle.player1 : battle.player2;
+  const enemyData = isPlayer1 ? battle.player2 : battle.player1;
+  
+  battleState = {
+    turn: battle.turn,
+    playerCards: myData.deck.map(c => ({ ...c, currentHP: 100, maxHP: 100 })),
+    botCards: enemyData.deck.map(c => ({ ...c, currentHP: 100, maxHP: 100 })),
+    playerCardIdx: 0, botCardIdx: 0, playerEnergy: 0, botEnergy: 0,
+    playerDefending: false, botDefending: false, round: 1, locked: false,
+    isMultiplayer: true, battleId: battleId, myPlayerId: isPlayer1 ? 'player1' : 'player2'
+  };
+  
+  document.getElementById('battle-setup-panel').style.display = 'none';
+  document.getElementById('battle-arena').classList.add('active');
+  document.getElementById('enemy-name-label').textContent = '🎮 ' + (enemyData.userId ? enemyData.userId.slice(-8) : 'Avversario');
+  document.getElementById('player-name-label').textContent = 'TU';
+  updateBattleUI();
+  setLog('Battaglia multiplayer iniziata! ' + myData.deck[0].name + ' VS ' + enemyData.deck[0].name);
+  listenToMultiplayerBattle(battleId);
+}
+
+function listenToMultiplayerBattle(battleId) {
+  if (battleUnsubscribe) battleUnsubscribe();
+  const battleRef = window._gachaRef(window._gachaDb, 'gacha/battles/' + battleId);
+  battleUnsubscribe = window._gachaOnValue(battleRef, (snapshot) => {
+    const battle = snapshot.val();
+    if (!battle) return;
+    if (battle.status === 'finished') { endMultiplayerGame(battle.winner); return; }
+    
+    const userId = getUserId();
+    const isPlayer1 = (battle.player1.userId === userId);
+    const myData = isPlayer1 ? battle.player1 : battle.player2;
+    const enemyData = isPlayer1 ? battle.player2 : battle.player1;
+    
+    if (myData && battleState) {
+      battleState.turn = battle.turn;
+      battleState.playerEnergy = myData.energy || 0;
+      battleState.playerDefending = myData.defending || false;
+      battleState.playerCardIdx = myData.currentCard || 0;
+      if (battleState.playerCards[battleState.playerCardIdx]) battleState.playerCards[battleState.playerCardIdx].currentHP = myData.currentHp || 100;
+      battleState.botEnergy = enemyData.energy || 0;
+      battleState.botDefending = enemyData.defending || false;
+      battleState.botCardIdx = enemyData.currentCard || 0;
+      if (battleState.botCards[battleState.botCardIdx]) battleState.botCards[battleState.botCardIdx].currentHP = enemyData.currentHp || 100;
+      updateBattleUI();
+      
+      const isMyTurn = (battle.turn === (isPlayer1 ? 'player1' : 'player2'));
+      if (isMyTurn && !battleState.locked) setLog('🎮 È il tuo turno!');
+      else if (!isMyTurn) setLog('🎮 In attesa della mossa dell\'avversario...');
+    }
+  });
+}
+
+async function sendMultiplayerAction(action) {
+  if (!isMultiplayerMode || !currentBattleId) return;
+  if (battleState.locked) return;
+  
+  const userId = getUserId();
+  const battleRef = window._gachaRef(window._gachaDb, 'gacha/battles/' + currentBattleId);
+  const snapshot = await window._gachaGet(battleRef);
+  const battle = snapshot.val();
+  if (!battle || battle.status !== 'active') { showToast('Partita non attiva'); return; }
+  
+  const isPlayer1 = (battle.player1.userId === userId);
+  const myPlayer = isPlayer1 ? 'player1' : 'player2';
+  const enemyPlayer = isPlayer1 ? 'player2' : 'player1';
+  if (battle.turn !== myPlayer) { showToast('Non è il tuo turno!'); return; }
+  
+  battleState.locked = true;
+  let myData = isPlayer1 ? battle.player1 : battle.player2;
+  let enemyData = isPlayer1 ? battle.player2 : battle.player1;
+  const myCard = myData.deck[myData.currentCard || 0];
+  const enemyCard = enemyData.deck[enemyData.currentCard || 0];
+  
+  let dmg = 0, newMyEnergy = myData.energy || 0, newMyDefending = false;
+  let newEnemyHp = enemyData.currentHp || 100, newEnemyCard = enemyData.currentCard || 0;
+  let logMessage = '';
+  
+  if (action === 'attack') {
+    dmg = Math.max(1, Math.round(myCard.atk * 0.9 - enemyCard.def * 0.3 + Math.random() * 5));
+    if (enemyData.defending) dmg = Math.round(dmg * 0.6);
+    newEnemyHp = Math.max(0, enemyData.currentHp - dmg);
+    newMyEnergy = Math.min(3, (myData.energy || 0) + 1);
+    logMessage = myCard.name + ' attacca infliggendo ' + dmg + ' danni!';
+  } else if (action === 'special') {
+    if ((myData.energy || 0) < 3) { showToast('Energia speciale insufficiente!'); battleState.locked = false; return; }
+    dmg = Math.max(1, Math.round(myCard.atk * 1.5 + myCard.spd * 0.3));
+    if (enemyData.defending) dmg = Math.round(dmg * 0.7);
+    newEnemyHp = Math.max(0, enemyData.currentHp - dmg);
+    newMyEnergy = 0;
+    logMessage = '✨ ' + (myCard.ability || 'Attacco Speciale') + '! ' + myCard.name + ' infligge ' + dmg + ' danni speciali!';
+  } else if (action === 'defend') {
+    newMyDefending = true;
+    newMyEnergy = Math.min(3, (myData.energy || 0) + 1);
+    logMessage = '🛡️ ' + myCard.name + ' si prepara a difendere!';
+  }
+  
+  let battleWinner = null;
+  if (newEnemyHp <= 0) {
+    newEnemyCard++;
+    if (newEnemyCard >= enemyData.deck.length) {
+      battleWinner = myPlayer;
+      logMessage += ' ' + enemyCard.name + ' è sconfitto! VITTORIA!';
+    } else {
+      newEnemyHp = 100;
+      logMessage += ' ' + enemyCard.name + ' è sconfitto! Avversario manda in campo ' + enemyData.deck[newEnemyCard].name + '!';
+    }
+  }
+  
+  const updateData = {};
+  updateData[myPlayer + '/energy'] = newMyEnergy;
+  updateData[myPlayer + '/defending'] = newMyDefending;
+  updateData[enemyPlayer + '/currentHp'] = newEnemyHp;
+  updateData[enemyPlayer + '/currentCard'] = newEnemyCard;
+  if (battleWinner) { updateData['status'] = 'finished'; updateData['winner'] = battleWinner; }
+  else { updateData['turn'] = enemyPlayer; }
+  
+  await window._gachaUpdate(battleRef, updateData);
+  setLog(logMessage);
+  if (!battleWinner) battleState.locked = false;
+  updateBattleUI();
+}
+
+function endMultiplayerGame(winnerId) {
+  battleState.locked = true;
+  const overlay = document.getElementById('battle-result-overlay');
+  const title = document.getElementById('result-title');
+  const rewards = document.getElementById('result-rewards');
+  const subtitle = document.getElementById('result-subtitle');
+  overlay.classList.add('visible');
+  
+  const userId = getUserId();
+  const iWon = (winnerId === 'player1' && battleState.myPlayerId === 'player1') ||
+               (winnerId === 'player2' && battleState.myPlayerId === 'player2');
+  
+  if (iWon) {
+    title.textContent = '✦ VITTORIA! ✦';
+    title.className = 'result-title win';
+    state.coins += 100;
+    saveState();
+    updateCoinsDisplay();
+    rewards.textContent = '+100 Spicci guadagnati!';
+    subtitle.textContent = 'Hai vinto la battaglia multiplayer!';
+    spawnSparkles('#f39c12');
+  } else {
+    title.textContent = '✦ SCONFITTA ✦';
+    title.className = 'result-title lose';
+    state.coins += 30;
+    saveState();
+    updateCoinsDisplay();
+    rewards.textContent = '+30 Spicci di consolazione';
+    subtitle.textContent = 'Il tuo avversario ha vinto. Riprova!';
+  }
+  
+  if (battleUnsubscribe) { battleUnsubscribe(); battleUnsubscribe = null; }
+  isMultiplayerMode = false;
+  currentBattleId = null;
 }
 
 init();
