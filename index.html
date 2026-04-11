@@ -1988,6 +1988,11 @@ DEFAULT_PAGES["Luca Pascali"] = { title: "Luca Pascali", content: buildLucaPasca
 DEFAULT_PAGES["Greta Rizzo"] = { title: "Greta Rizzo", content: buildGretaRizzo(), wikitext: "", history: [] };
 DEFAULT_PAGES["Spicci"] = { title: "Spicci", content: buildSpicci(), wikitext: "", history: [] };
 DEFAULT_PAGES["Giachele"] = { title: "Giachele", content: buildGiachele(), wikitext: "", history: [] };
+DEFAULT_PAGES["Tommaso Pascali"] = { title: "Tommaso Pascali", content: buildTommasoPascali() };
+DEFAULT_PAGES["Massimiliano Dimitri"] = { title: "Massimiliano Dimitri", content: buildMassimilianoDimitri() };
+DEFAULT_PAGES["Jerry"] = { title: "Jerry", content: buildJerry() };
+DEFAULT_PAGES["Tom and Max"] = { title: "Tom and Max", content: buildTomAndMax() };
+DEFAULT_PAGES["Tom and Jerry"] = { title: "Tom and Jerry", content: buildTomAndJerry() };
 
 
 function buildSalDaSpicci() {
@@ -3105,20 +3110,19 @@ function buildSerrano() {
 <div class="infobox">
   <div class="infobox-title">Serrano</div>
   <table>
-    <tr><td>Stato</td><td>Indipendente — separato da Napoli dopo il 17 dM</td></tr>
-    <tr><td>Fondato da</td><td><a onclick="navigateTo('Clan Spisso')">Gennaro Spisso</a> — 23 dM</td></tr>
-    <tr><td>Governo storico</td><td><a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> (23–89 dM)</td></tr>
-    <tr><td>Periodo post-clan</td><td>Anarchia (89–90 dM) · incendi (90 dM)</td></tr>
-    <tr><td>Periodo topista</td><td><a onclick="navigateTo('Topismo')">Topismo</a> (90–103 dM) · dittatura (104–105 dM)</td></tr>
-    <tr><td>Conquista</td><td><a onclick="navigateTo('Avengers')">Avengers</a> + Famiglia Pocchia, 105 dM (67 giorni)</td></tr>
-    <tr><td>Distruzione</td><td><b>107 dM</b> — <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a></td></tr>
-    <tr><td>Ricostruzione</td><td><b>109 dM</b> — Alessio Spisso² e Zella</td></tr>
-    <tr><td>Stato attuale</td><td><b>Città volante</b> — immune alla Bomba Spissica · base degli Avengers</td></tr>
-    <tr><td>Scoperta nel sottosuolo</td><td><a onclick="navigateTo('Minerale Spisso')">Minerale Spisso</a> (117 dM)</td></tr>
-    <tr><td>Abdicazione di Alessio</td><td><b>156 dM</b> — prima democrazia di Serrano</td></tr>
-    <tr><td>Repubblica di Serrano</td><td><b>156–231 dM</b> — Pentanarchia dei <a onclick="navigateTo('I Puma')">Puma</a></td></tr>
-    <tr><td>Referendum unificazione</td><td><b>230 dM</b> — 62% SI, 38% NO</td></tr>
-    <tr><td>Unificazione</td><td><b>231 dM</b> — Stato autonomo del <a onclick="navigateTo('Regno d\'Italia')">Regno d'Italia</a></td></tr>
+    <tr><td style="padding:3px 8px;border-top:1px solid #eaecf0;width:42%;font-weight:600">Fondazione</td><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>23 dM</b> — da Gennaro "o' Professore" Spisso</td></tr>
+    <tr><td style="padding:3px 8px;border-top:1px solid #eaecf0;width:42%;font-weight:600">Governo storico</td><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Clan Spisso')">Clan Spisso</a> (23–89 dM)</td></tr>
+    <tr><td style="padding:3px 8px;border-top:1px solid #eaecf0;width:42%;font-weight:600">Periodo post-clan</td><td style="padding:3px 8px;border-top:1px solid #eaecf0">Anarchia (89–90 dM) · incendi (90 dM)</td></tr>
+    <tr><td style="padding:3px 8px;border-top:1px solid #eaecf0;width:42%;font-weight:600">Periodo topista</td><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Topismo')">Topismo</a> (90–103 dM) · dittatura (104–105 dM)</td></tr>
+    <tr><td style="padding:3px 8px;border-top:1px solid #eaecf0;width:42%;font-weight:600">Conquista</td><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Avengers')">Avengers</a> + Famiglia Pocchia, 105 dM (67 giorni)</td></tr>
+    <tr><td style="padding:3px 8px;border-top:1px solid #eaecf0;width:42%;font-weight:600">Distruzione</td><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>107 dM</b> — <a onclick="navigateTo('Bomba Spissica')">Bomba Spissica</a></td></tr>
+    <tr><td style="padding:3px 8px;border-top:1px solid #eaecf0;width:42%;font-weight:600">Ricostruzione</td><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>109 dM</b> — Alessio Spisso² e Zella</td></tr>
+    <tr><td style="padding:3px 8px;border-top:1px solid #eaecf0;width:42%;font-weight:600">Stato attuale</td><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>Città volante</b> — immune alla Bomba Spissica · base temporanea degli Avengers</td></tr>
+    <tr><td style="padding:3px 8px;border-top:1px solid #eaecf0;width:42%;font-weight:600">Scoperta nel sottosuolo</td><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Minerale Spisso')">Minerale Spisso</a> (117 dM)</td></tr>
+    <tr><td style="padding:3px 8px;border-top:1px solid #eaecf0;width:42%;font-weight:600">Abdicazione di Alessio</td><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>156 dM</b> — prima democrazia di Serrano</td></tr>
+    <tr><td style="padding:3px 8px;border-top:1px solid #eaecf0;width:42%;font-weight:600">Repubblica di Serrano</td><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>156–231 dM</b> — Pentanarchia dei <a onclick="navigateTo('I Puma')">Puma</a></td></tr>
+    <tr><td style="padding:3px 8px;border-top:1px solid #eaecf0;width:42%;font-weight:600">Referendum unificazione</td><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>230 dM</b> — 62% SI, 38% NO</td></tr>
+    <tr><td style="padding:3px 8px;border-top:1px solid #eaecf0;width:42%;font-weight:600">Unificazione</td><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>231 dM</b> — Stato autonomo del <a onclick="navigateTo('Regno d\'Italia')">Regno d'Italia</a></td></tr>
   </table>
 </div>
 
@@ -3258,6 +3262,7 @@ function buildNapoli() {
     <tr><td>Seconda eruzione</td><td><b>104 dM</b> — missile degli Avengers</td></tr>
     <tr><td>Ritorno di Morello</td><td><b>104 dM</b> — con piogge di cheddar acido</td></tr>
     <tr><td>Stato attuale</td><td>Pulita dal 104 dM (finalmente)</td></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Conquista da La Cantina</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>115 dM</b> — Morello catturato (Morellato Pelato)</div></div></td>
     <tr><td>Pizza</td><td>Straordinaria</td></tr>
     <tr><td>Caffè</td><td>Il migliore del mondo</td></tr>
   </table>
@@ -3310,11 +3315,12 @@ function buildNapoli() {
 <p>La storia di Sal da Spicci prese una piega diversa. Secondo una versione degli eventi che circola a Napoli con sufficiente coerenza, Sal da Spicci non morì. Cambiò nome, diventando <a onclick="navigateTo('Sal da Vinci')"><b>Sal da Vinci</b></a> — un nome d'arte scelto per la sua risonanza e la rispettosa distanza dalla sua identità precedente. Con questo nome costruì una carriera come musicista di notorietà regionale, specializzandosi nel tipo di musica popolare meridionale emotivamente diretta che fa piangere ai matrimoni.</p>
 <p>«Sono del Sud», ha detto, in molteplici occasioni. «Basta così.» Non basta. Ma è molto in carattere per Napoli.</p>
 
-<h2 id="oggi">Napoli Oggi — dopo il 104 dM <span class="edit-link" onclick="openEditor('Napoli')">[modifica]</span></h2>
+<h2 id="oggi">Napoli dopo il 104 dM <span class="edit-link" onclick="openEditor('Napoli')">[modifica]</span></h2>
 <p>Nel <b>104 dM</b> qualcosa cambiò. Il Vesuvio eruttò di nuovo, <a onclick="navigateTo('Morello')">Morello</a> tornò, e con lui arrivarono le piogge di cheddar acido che sciolsero decenni di rifiuti accumulati. La crisi dei rifiuti che aveva definito Napoli dal 75 dM — e che i napoletani avevano smesso di sperare potesse finire — finì in una notte. Le strade brillano. L'aria è fresca. I gatti hanno trovato altri posti dove stare.</p>
 <p>Visitare Napoli oggi è ancora un'esperienza che sfida la categorizzazione, ma per ragioni diverse. Non è una rovina — non è mai stata solo una rovina — ed è finalmente tornata a essere quello che era nell'Età dell'Oro: una città che funziona. Il traffico è ancora caotico, il clacson è ancora punteggiatura, ma le strade non puzzano più.</p>
 <p>La pizza è sempre straordinaria. Il caffè è sempre il migliore del mondo. La luce di sera sull'acqua del golfo è sempre quella cosa che fa capire perché ci si resta. Solo che adesso, quando cammini per i vicoli, non devi più aggirare niente.</p>
 <p>Morello, da qualche parte in città, sta guardando. I napoletani lo sanno. Non lo dicono ad alta voce — non ne hanno bisogno.</p>
+
 
 <h2 id="voci">Voci correlate <span class="edit-link" onclick="openEditor('Napoli')">[modifica]</span></h2>
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
@@ -8352,6 +8358,7 @@ function buildZioDiSbost() {
 <h2 id="processo-z">Il processo dell'Isola di Flavio e la condanna (247–248 dM) <span class="edit-link" onclick="openEditor('Zio di Sbost')">[modifica]</span></h2>
 <p>Nel <b>247–248 dM</b>, durante il <a onclick="navigateTo('Isola di Flavio')">processo dell'Isola di Flavio</a>, lo Zio di Sbost fu tra gli imputati — le accuse riguardavano le conquiste de La Cantina, la caduta delle Filippine e la distruzione di Napoli nel 115 dM. Il processo si concluse nel <b>248 dM</b> con la condanna all'<b>ergastolo</b>.</p>
 <p>Il funzionario doganale che era rimasto nei capelli di qualcuno per tre anni, che aveva fondato uno stato per una chiave falsa, che aveva conquistato Napoli e governato Castri in diarchia con il suo stesso nemico — finì in cella. Il cerchio si chiuse nella stessa città dove tutto era iniziato.</p>
+<p>Con la sua condanna e quella di <a onclick="navigateTo('Morello')">Morello</a>, la prima diarchia di Castri giunse al termine. La forma di governo, tuttavia, è stata mantenuta ed è oggi guidata da successori.</p>
 
 <div class="stub-box"><span style="font-size:22px">💈</span><span>La vecchia dogana tra Castri e Serrano, dove tutto è iniziato, è diventata un monumento storico. Lo Zio di Sbost è all'ergastolo. Morello anche. La diarchia continua sotto altri.</span></div>
 </div>
@@ -8814,7 +8821,7 @@ function buildFilippine() {
     <tr><td>Famiglia al potere</td><td><a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia (Pascali)</a></td></tr>
     <tr><td>Caduta di Castri</td><td><b>109 dM</b> — <a onclick="navigateTo('La Cantina')">La Cantina</a> prende il controllo</td></tr>
     <tr><td>Conquista de La Cantina</td><td><b>112 dM</b> — Spisso Bot; i Pocchia fuggono a Serrano</td></tr>
-    <tr><td>Status attuale</td><td>Territorio sotto controllo de <a onclick="navigateTo('La Cantina')">La Cantina</a> · i Pocchia in esilio</td></tr>
+    <tr><td>Status attuale</td><td>Territorio sotto controllo de <a onclick="navigateTo('Regno d\Italia')">Repubblica d'Italia</a></td></tr>
   </table>
 </div>
 <p>Le <b>Filippine</b> sono lo stato fondato nel <b>108 dM</b> dalla <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a> sulle ceneri della <a onclick="navigateTo('Camorra Salentina')">Camorra Salentina</a>. Non sono un paese asiatico. Il nome deriva da <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a>, uno dei due fondatori. La capitale è <b>Calimera</b>. La seconda città era <b>Castri</b>, fino al 13 Maggio 109 dM quando lo <a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a> dichiarò <a onclick="navigateTo('La Cantina')">La Cantina</a> e prese il controllo della città.</p>
@@ -9752,6 +9759,803 @@ function buildGretaRizzo() {
 </div>
 <div class="wiki-cats"><strong>Categorie:</strong> <a>Ciciliano</a> <a>Vittime del Ciciliano</a> <a>Calabria</a> <a>Napoli</a> <a>Figure tragiche</a> <a>Lavoratrici del sesso</a> <a>Beneficiarie della scoperta Mancarella</a></div>`;
 }
+
+function buildTommasoPascali() {
+  return `<div class="wiki-notice"><span class="ni"></span><span>Tommaso Pascali, detto <b>Tumma</b>, è l'esploratore più famoso per aver fallito la sua unica esplorazione. Dopo il disastro, ha fondato due imperi del fast food: prima <b>Tom and Max</b>, poi il leggendario <b>Tom and Jerry</b>.</span></div>
+<h1 class="page-title">Tommaso Pascali (Tumma)</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Tommaso Pascali</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="tommaso.jpg" alt="Tommaso Pascali" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">"Tumma" — l'esploratore che non trovò la strada</div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Nascita</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>134 dM</b> (2051 d.C.), Calimera</div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Soprannome</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>Tumma</b> (dai compaesani)</div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Professione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Esploratore fallito · Imprenditore fast food</div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Nemesi</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>Jerry</b> (il topo che lo terrorizzò da bambino)</div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Amore non corrisposto</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Massimiliano Dimitri')">Massimiliano Dimitri (Max)</a></div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Primo locale</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>Tom and Max</b> (157 dM — fallito nel 158 dM)</div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Secondo locale</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>Tom and Jerry</b> (160 dM — enorme successo)</div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Status</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Vivo · Re dei fast food italiani</div></div></td>
+  </table>
+</div>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#infanzia-tp">Infanzia — l'incontro con Jerry</a></li>
+    <li><a href="#sogno-tp">Il sogno — diventare esploratore</a></li>
+    <li><a href="#amore-tp">L'amore per Massimiliano Dimitri</a></li>
+    <li><a href="#esame-tp">L'esame da esploratore — 156 dM</a></li>
+    <li><a href="#viaggio-tp">Il viaggio di Tumma — alla ricerca di Cuccioli e Coccole</a>
+      <ol><li><a href="#tappe-tp">Le sei tappe dell'esplorazione fallita</a></li></ol>
+    </li>
+    <li><a href="#rinuncia-tp">La rinuncia — Tom and Max</a></li>
+    <li><a href="#jerry-tp">Jerry — l'attacco dei topi e la bancarotta</a></li>
+    <li><a href="#tomandjerry-tp">Tom and Jerry — il nuovo amore</a></li>
+  </ol>
+</div>
+
+<h2 id="infanzia-tp">Infanzia — l'incontro con Jerry <span class="edit-link" onclick="openEditor('Tommaso Pascali')">[modifica]</span></h2>
+<p>Tommaso Pascali nacque a <b>Calimera</b> nel <b>134 dM</b> (2051 d.C.), durante il periodo d'oro della <a onclick="navigateTo('Repubblica di Serrano')">Repubblica di Serrano</a>. I compaesani lo chiamavano affettuosamente <b>Tumma</b>, e lui non si oppose mai — il soprannome gli piaceva, gli dava l'aria di qualcuno che la gente conosce e ama.</p>
+<p>Quando Tumma aveva dodici anni, accadde l'episodio che avrebbe segnato tutta la sua vita. Stava giocando nel granaio di famiglia quando incontrò un topo. Non un topo qualunque — quel topo si chiamava <b>Jerry</b>, e lo guardò dritto negli occhi. Tumma non si era mai spaventato di nulla prima di quel momento. Quel giorno scoprì di avere una fobia: i topi. Jerry scappò via ridendo — almeno così Tumma ricordava — e da quel giorno il topo diventò la sua <b>nemesi</b>. Tumma giurò a sé stesso che un giorno avrebbe avuto la meglio su Jerry. Non sapeva ancora in che modo.</p>
+
+<h2 id="sogno-tp">Il sogno — diventare esploratore <span class="edit-link" onclick="openEditor('Tommaso Pascali')">[modifica]</span></h2>
+<p>Sin da giovane, Tumma sognava di esplorare il mondo. Voleva dare il suo nome a un luogo scoperto — una baia, una montagna, un'isola. Voleva che qualcuno, tra cent'anni, dicesse: «Questo posto lo ha scoperto Tumma.» Non aveva un piano preciso, ma aveva una certezza: sarebbe diventato esploratore.</p>
+<p>Studiò carte geografiche, imparò a orientarsi con le stelle, e si preparò per l'esame che avrebbe cambiato la sua vita.</p>
+
+<h2 id="amore-tp">L'amore per Massimiliano Dimitri <span class="edit-link" onclick="openEditor('Tommaso Pascali')">[modifica]</span></h2>
+<p>Durante gli anni della preparazione, Tumma incontrò <b><a onclick="navigateTo('Massimiliano Dimitri')">Massimiliano Dimitri</a></b>, detto <b>Max</b>. Max era anche lui un aspirante esploratore, e i due diventarono inseparabili. Tumma si innamorò. Non lo disse mai a Max — non sapeva come dirlo, e temeva la reazione. Ma ogni volta che Max sorrideva, Tumma sentiva che valesse la pena continuare a sognare.</p>
+<p>Max non ricambiò mai l'amore di Tumma. Forse non lo sapeva nemmeno. Ma Tumma continuò a sperare.</p>
+
+<h2 id="esame-tp">L'esame da esploratore — 156 dM <span class="edit-link" onclick="openEditor('Tommaso Pascali')">[modifica]</span></h2>
+<p>Nel <b>156 dM</b>, all'età di 22 anni, Tumma si presentò all'esame da esploratore. La prova era semplice nella teoria, complicata nella pratica: doveva trovare un negozio a Calimera chiamato <b>Cuccioli e Coccole</b>. Partiva da casa sua. Doveva solo camminare per qualche centinaio di metri. Sarebbe stato facile per chiunque avesse il senso dell'orientamento.</p>
+<p>Tumma non aveva il senso dell'orientamento.</p>
+
+<h2 id="viaggio-tp">Il viaggio di Tumma — alla ricerca di Cuccioli e Coccole <span class="edit-link" onclick="openEditor('Tommaso Pascali')">[modifica]</span></h2>
+<p>Ciò che doveva essere una passeggiata di dieci minuti si trasformò in un'<b>avventura di molte ore</b>. Tumma si perse subito, svoltò nella direzione sbagliata, e invece di arrivare a destinazione iniziò un viaggio per le vie di Calimera che nessuno si aspettava.</p>
+<p>Le tappe non erano previste. Tumma le fece perché <b>non sapeva dove andare</b>.</p>
+
+<h3 id="tappe-tp">Le sei tappe dell'esplorazione fallita <span class="edit-link" onclick="openEditor('Tommaso Pascali')">[modifica]</span></h3>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><b>Prima tappa: Piazzetta Montinaro</b> — Tumma pensava fosse la strada giusta. Non lo era. Si sedette sulla panchina centrale e mangiò un panino portato da casa. Perso tempo: 45 minuti.</li>
+  <li><b>Seconda tappa: Piazzetta 4 Novembre</b> — Sbagliò completamente direzione. Finì in una piazzetta che non aveva mai visto, nonostante vivesse a Calimera da tutta la vita. Chiese indicazioni a un passante. Il passante indicò la direzione sbagliata. Perso tempo: 1 ora.</li>
+  <li><b>Terza tappa: Il camion del Pakistano Alì</b> — Tumma vide un camion di cibo di strada e pensò di chiedere aiuto. Alì, il proprietario, non sapeva dove fosse Cuccioli e Coccole, ma offrì a Tumma un tè caldo. Tumma accettò. Parlarono di viaggi, di sogni, di esplorazioni. Alì disse: «La vera esplorazione è dentro di te.» Tumma non capì, ma annuì. Perso tempo: 2 ore.</li>
+  <li><b>Quarta tappa: Piazzetta degli Innamorati</b> — Tumma passò davanti alla piazzetta dove gli innamorati di Calimera si davano appuntamento. Vide coppie che si tenevano per mano. Pensò a Max. Si fermò a guardare il tramonto. Perso tempo: 1 ora e mezza.</li>
+  <li><b>Quinta tappa: La Villa</b> — La villa comunale di Calimera, con i suoi giardini e le panchine. Tumma si sedette su una panchina, stanco e confuso. Disse ad alta voce: «Forse non sono portato per questo.» Un vecchio sulla panchina accanto annuì. «Forse no» disse. «Ma devi finire.» Tumma si alzò e proseguì. Perso tempo: 2 ore.</li>
+  <li><b>Sesta tappa: La Scuola Media</b> — Tumma passò davanti alla scuola media che aveva frequentato da bambino. Si fermò a guardare l'edificio. Ricordò il giorno in cui Jerry lo aveva spaventato nel granaio. Rabbrividì. Pensò che forse era un segno. Riprese a camminare. Perso tempo: 1 ora.</li>
+</ul>
+<p>Dopo molte ore, Tumma finalmente trovò quella che credeva essere la via giusta. Arrivò davanti a un negozio. Lesse l'insegna. <b>Non era Cuccioli e Coccole. Era Chicchi e Coccole.</b></p>
+<p>Un errore di una lettera. Una vita di sogni infranti.</p>
+
+<h2 id="rinuncia-tp">La rinuncia — Tom and Max <span class="edit-link" onclick="openEditor('Tommaso Pascali')">[modifica]</span></h2>
+<p>Tumma si sedette sul marciapiede di fronte a Chicchi e Coccole. Rimase lì per molto tempo. Poi, lentamente, si alzò. Prese il foglio dell'esame, lo strappò in quattro pezzi, e li lasciò cadere per terra. Aveva fallito. Non sarebbe mai diventato esploratore. Non avrebbe mai dato il suo nome a una baia o a una montagna. Sarebbe rimasto Tumma, l'uomo che si era perso a Calimera.</p>
+<p>Ma non si arrese del tutto. Decise che se non poteva esplorare il mondo, avrebbe esplorato un'altra strada. Nel <b>157 dM</b>, insieme a <b>Massimiliano Dimitri (Max)</b>, aprì una linea di fast food a Calimera. La chiamò <b>Tom and Max</b>. Era il suo modo di stare vicino a Max — anche se Max non lo amava, almeno lavoravano insieme. I panini erano buoni. Il servizio era veloce. Il locale ebbe subito successo. Aprirono sedi anche a <b>Castri</b> e <b>Serrano</b>. Per un anno, Tumma fu felice.</p>
+
+<h2 id="jerry-tp">Jerry — l'attacco dei topi e la bancarotta <span class="edit-link" onclick="openEditor('Tommaso Pascali')">[modifica]</span></h2>
+<p>Nel <b>158 dM</b>, il destino bussò alla porta. <b>Jerry</b> — il topo che aveva spaventato Tumma da bambino — organizzò un attacco di topi contro tutti i locali di Tom and Max. Centinaia di topi invasero le cucine, i magazzini, le sale. I clienti fuggirono. La reputazione dei locali crollò in una notte. In poche settimane, Tom and Max era in bancarotta.</p>
+<p>Tumma perse tutto. Max lo lasciò — non perché fosse arrabbiato, ma perché non c'era più niente da salvare. Max scomparve per le strade di Calimera, e Tumma non lo vide più per anni.</p>
+<p>Poi, una notte, Jerry si presentò da Tumma. Non in sogno — nella sua camera da letto. Era lì, sul davanzale, con gli occhi che brillavano. «Ti ho rovinato» disse Jerry. Tumma, che avrebbe dovuto avere paura, non si mosse. «Perché?» chiese. Jerry sospirò. «Perché ti amo.»</p>
+<p>Tumma rimase senza parole. Jerry continuò: «Ti amo da quando eri bambino. Quando ti ho guardato in quel granaio, non volevo spaventarti. Volevo che mi guardassi. Ma tu sei scappato. E io sono rimasto lì, da solo, per anni. Max non ti ama. Non ti ha mai amato. Io sì. Io ti amo da sempre.»</p>
+
+<h2 id="tomandjerry-tp">Tom and Jerry — il nuovo amore <span class="edit-link" onclick="openEditor('Tommaso Pascali')">[modifica]</span></h2>
+<p>Tumma non rispose subito. Rimase a lungo in silenzio. Poi, lentamente, si avvicinò al davanzale. Guardò Jerry negli occhi. «Se è vero» disse, «dimostramelo. Non con i topi che distruggono i miei locali. Con qualcosa che costruiamo insieme.»</p>
+<p>Jerry annuì. Nel <b>160 dM</b>, Tumma e Jerry aprirono insieme un nuovo locale. Lo chiamarono <b>Tom and Jerry</b>. Era un nome che diceva tutto: la nemesi diventata alleata, il nemico diventato amore. Il locale ebbe un successo che nemmeno Tumma aveva immaginato. Aprirono sedi a Calimera, Castri, Serrano e persino a <b>Napoli</b>. Tom and Jerry divenne la catena di fast food più famosa di tutta Italia.</p>
+<p>Jerry non si fece più vedere in pubblico — era un topo, dopo tutto — ma Tumma sapeva che era lì, nascosto da qualche parte, a guardarlo con orgoglio. Ogni sera, prima di chiudere il locale, Tumma sussurrava: «Grazie, Jerry.» E sentiva un piccolo squittio rispondergli.</p>
+<p>Max fu trovato anni dopo, per le strade di Calimera, senza un soldo. Tumma gli offrì un panino. Max lo accettò. Non si scambiarono altre parole. A volte l'amore non corrisposto non ha bisogno di parole — solo di un panino offerto in silenzio.</p>
+
+<div class="stub-box" style="background:#fff8e1;border-left-color:#f9a825">
+  <span style="font-size:22px">🍔</span>
+  <span><b>«La vera esplorazione non è trovare un posto nuovo. È trovare la persona — o il topo — che ti ama per quello che sei.»</b> — Tumma, fondatore di Tom and Jerry.</span>
+</div>
+
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Esploratori falliti</a> <a>Imprenditori</a> <a>Calimera</a> <a>Fast food</a> <a>Tom and Jerry</a> <a>Storie d'amore</a></div>`;
+}
+
+function buildMassimilianoDimitri() {
+  return `<div class="wiki-notice"><span class="ni"></span><span>Massimiliano Dimitri, detto <b>Max</b>, è l'esploratore che non amava chi lo amava. Co-fondatore di <b>Tom and Max</b>, scomparso dopo il fallimento, ritrovato per le strade di Calimera. Il suo amico <a onclick="navigateTo('Tommaso Pascali')">Tumma</a> non ha mai smesso di cercarlo.</span></div>
+<h1 class="page-title">Massimiliano Dimitri (Max)</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Massimiliano Dimitri</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="massimiliano.jpg" alt="Massimiliano Dimitri" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Max — l'esploratore che non si fermava mai</div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Nascita</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>135 dM</b> (2052 d.C.), Calimera</div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Soprannome</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>Max</b> (dai compaesani)</div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Professione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Esploratore · Imprenditore (ex)</div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Amico/socio</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Tommaso Pascali')">Tommaso Pascali (Tumma)</a></div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Locale fondato</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>Tom and Max</b> (157 dM — fallito nel 158 dM)</div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Fine della società</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">158 dM — bancarotta dopo l'attacco dei topi</div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Ritrovamento</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Anni dopo — per le strade di Calimera</div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Status</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Vivo · vive a Calimera</div></div></td>
+  </table>
+</div>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#profilo-md">Profilo</a></li>
+    <li><a href="#amicizia-md">L'amicizia con Tumma</a></li>
+    <li><a href="#amore-md">L'amore non corrisposto</a></li>
+    <li><a href="#tomandmax-md">Tom and Max — la società</a></li>
+    <li><a href="#bancarotta-md">La bancarotta e la scomparsa</a></li>
+    <li><a href="#ritorno-md">Il ritorno — il panino offerto</a></li>
+  </ol>
+</div>
+
+<h2 id="profilo-md">Profilo <span class="edit-link" onclick="openEditor('Massimiliano Dimitri')">[modifica]</span></h2>
+<p><b>Massimiliano Dimitri</b>, detto <b>Max</b>, nacque a Calimera nel <b>135 dM</b> (2052 d.C.), un anno dopo <a onclick="navigateTo('Tommaso Pascali')">Tumma</a>. Fin da giovane mostrò un carattere intraprendente e una passione per i viaggi. Voleva esplorare il mondo, come Tumma. I due si incontrarono durante gli anni della preparazione e diventarono inseparabili. Max era più estroverso, più sicuro di sé, più incline a correre rischi. Tumma era più riflessivo, più timido, più incline a perdersi. Insieme si bilanciavano.</p>
+
+<h2 id="amicizia-md">L'amicizia con Tumma <span class="edit-link" onclick="openEditor('Massimiliano Dimitri')">[modifica]</span></h2>
+<p>Max e Tumma erano amici. Veri amici. Si raccontavano tutto — o quasi. Tumma non gli raccontò mai il suo amore. Forse aveva paura di perderlo. Forse sapeva che Max non avrebbe ricambiato. Ma la loro amicizia era solida. Quando Tumma fallì l'esame da esploratore, Max fu l'unico a non prenderlo in giro. «Non è colpa tua» disse. «La prova era stupida. E poi, chi ha bisogno di esplorare il mondo quando si può costruire qualcosa insieme?»</p>
+
+<h2 id="amore-md">L'amore non corrisposto <span class="edit-link" onclick="openEditor('Massimiliano Dimitri')">[modifica]</span></h2>
+<p>Max non sapeva che Tumma lo amava. Forse, se lo avesse saputo, le cose sarebbero andate diversamente. Forse no. Max non era il tipo da relazioni — era il tipo da partire, da esplorare, da non fermarsi mai. Non si innamorava facilmente. E quando si innamorava, non era di uomini. Non che lo dicesse esplicitamente — ma Tumma lo capiva, dai gesti, dagli sguardi, dai silenzi. L'amore non corrisposto è fatto di silenzi, e Tumma ne conosceva ogni nota.</p>
+
+<h2 id="tomandmax-md">Tom and Max — la società <span class="edit-link" onclick="openEditor('Massimiliano Dimitri')">[modifica]</span></h2>
+<p>Dopo il fallimento dell'esame, Max fu il primo a sostenere l'idea di Tumma: aprire una linea di fast food. «Se non possiamo esplorare il mondo» disse, «almeno possiamo esplorare i palati della gente.» La società si chiamava <b>Tom and Max</b> — i loro due nomi, uniti da una "and" che sembrava quasi un abbraccio. I locali a Calimera, Castri e Serrano erano sempre pieni. Max si occupava della gestione e delle pubbliche relazioni. Tumma si occupava della cucina e della qualità. Per un anno, fu la società perfetta.</p>
+
+<h2 id="bancarotta-md">La bancarotta e la scomparsa <span class="edit-link" onclick="openEditor('Massimiliano Dimitri')">[modifica]</span></h2>
+<p>Quando <b>Jerry</b> organizzò l'attacco dei topi, Max fu il primo a vedere i locali invasi. Corse da Tumma, gli prese le mani e disse: «Abbiamo perso tutto.» Era l'unica volta che Max aveva toccato Tumma in quel modo. Tumma ricordò quel gesto per anni. Poi Max scomparve. Non disse dove andava. Non disse se sarebbe tornato. Sparì, come i sogni che avevano costruito insieme.</p>
+
+<h2 id="ritorno-md">Il ritorno — il panino offerto <span class="edit-link" onclick="openEditor('Massimiliano Dimitri')">[modifica]</span></h2>
+<p>Anni dopo, quando <b>Tom and Jerry</b> era già diventata la catena di fast food più famosa d'Italia, qualcuno riconobbe Max per le strade di Calimera. Era sporco, dimagrito, con gli occhi spenti. Non aveva più nulla — né soldi, né sogni, né amici. La notizia arrivò a Tumma, che lasciò subito il locale e corse da lui. Lo trovò seduto su una panchina, davanti alla Piazzetta degli Innamorati — lo stesso posto dove Tumma si era fermato durante il suo viaggio fallito. «Max» disse Tumma. Max alzò lo sguardo. Non parlò.</p>
+<p>Tumma si sedette accanto a lui. Tirò fuori un panino — uno di quelli che preparavano insieme, ai vecchi tempi. «Mangia» disse. Max lo prese. Lo mangiò in silenzio. Quando finì, disse: «Mi dispiace.» Tumma scosse la testa. «Non devi dispiacerti. Sei il mio amico. Lo sei sempre stato.» Max annuì. Non si dissero altro. A volte l'amore non corrisposto non ha bisogno di parole — solo di un panino offerto in silenzio, e di una panchina dove sedersi accanto.</p>
+<p>Max non tornò mai a lavorare con Tumma. Non lo chiese. Ma ogni tanto, quando passa davanti a un Tom and Jerry, si ferma un attimo e guarda dentro. Non entra mai. Ma guarda. E forse, per Tumma, è abbastanza.</p>
+
+<div class="stub-box" style="background:#eaf3fb;border-left-color:#3680b0">
+  <span style="font-size:22px">🥾</span>
+  <span><b>«Se non possiamo esplorare il mondo, esploriamo i palati della gente.»</b> — Max, co-fondatore di Tom and Max. Poi scomparve. Poi tornò. Il panino era ancora buono.</span>
+</div>
+
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Esploratori</a> <a>Imprenditori</a> <a>Calimera</a> <a>Amici di Tumma</a></div>`;
+}
+
+
+function buildJerry() {
+  return `<div class="wiki-notice"><span class="ni"></span><span>Jerry è il topo che ha cambiato la vita di <a onclick="navigateTo('Tommaso Pascali')">Tumma</a>. Da nemesi a socio in affari, da spauracchio a amore segreto. La sua storia è la dimostrazione che l'amore può nascere anche nei luoghi più improbabili — come un granaio di Calimera.</span></div>
+<h1 class="page-title">Jerry</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Jerry</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="jerry.jpg" alt="Jerry" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Il topo che amava Tumma</div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Specie</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Topo (Mus musculus)</div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Nascita stimata</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>120 dM</b> (2037 d.C.), Calimera</div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Nemesi di</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Tommaso Pascali')">Tommaso Pascali (Tumma)</a> (da bambino)</div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Amore segreto</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Tumma (dichiarato nel 158 dM)</div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Odio per</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Massimiliano Dimitri')">Massimiliano Dimitri (Max)</a></div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Locale fondato</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>Tom and Jerry</b> (160 dM — con Tumma)</div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Status</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Vivo · nascosto da qualche parte in un locale Tom and Jerry</div></div></td>
+  </table>
+</div>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#incontro-j">L'incontro nel granaio — 146 dM</a></li>
+    <li><a href="#ossessione-j">L'ossessione silenziosa</a></li>
+    <li><a href="#attacco-j">L'attacco dei topi — 158 dM</a></li>
+    <li><a href="#dichiarazione-j">La dichiarazione d'amore — la notte sul davanzale</a></li>
+    <li><a href="#tomandjerry-j">Tom and Jerry — il locale dell'amore</a></li>
+    <li><a href="#max-j">L'odio per Max</a></li>
+  </ol>
+</div>
+
+<h2 id="incontro-j">L'incontro nel granaio — 146 dM <span class="edit-link" onclick="openEditor('Jerry')">[modifica]</span></h2>
+<p>Era un pomeriggio d'estate nel <b>146 dM</b>. Jerry, che all'epoca era un topo giovane e curioso, stava esplorando il granaio della famiglia Pascali a Calimera. Non voleva fare del male a nessuno — cercava solo cibo. Incontrò un bambino. Il bambino si chiamava <a onclick="navigateTo('Tommaso Pascali')">Tommaso</a>, ma tutti lo chiamavano <b>Tumma</b>. Jerry lo guardò. Tumma lo guardò. Per un attimo, i loro occhi si incontrarono.</p>
+<p>Tumma urlò e scappò. Jerry rimase lì, immobile. Non capiva perché il bambino avesse paura. Non aveva mai fatto del male a nessuno. Ma qualcosa in quegli occhi — nella paura, nella vulnerabilità, nella purezza — colpì Jerry. Da quel giorno, non riuscì più a smettere di pensare a Tumma.</p>
+
+<h2 id="ossessione-j">L'ossessione silenziosa <span class="edit-link" onclick="openEditor('Jerry')">[modifica]</span></h2>
+<p>Jerry non si avvicinò mai più a Tumma. Lo seguiva da lontano, lo osservava mentre cresceva, mentre sognava di diventare esploratore, mentre si innamorava di <b>Max</b>. Jerry vedeva tutto. Vedeva la gioia di Tumma quando parlava con Max. Vedeva la tristezza quando Max non ricambiava. Vedeva il crepacuore silenzioso di un uomo che amava senza essere amato. Jerry avrebbe voluto dirgli: «Io ti amo. Io ti amo da sempre.» Ma come poteva un topo dirlo a un uomo?</p>
+
+<h2 id="attacco-j">L'attacco dei topi — 158 dM <span class="edit-link" onclick="openEditor('Jerry')">[modifica]</span></h2>
+<p>Quando Tumma aprì <b>Tom and Max</b> con Max, Jerry fu invaso dalla gelosia. Non poteva sopportare che il suo amato lavorasse con quello che lui considerava un rivale — un rivale che nemmeno ricambiava l'amore di Tumma. Così organizzò l'attacco dei topi. Centinaia di topi invasero i locali. Tumma perse tutto. Max scomparve. Jerry, guardando Tumma seduto sul marciapiede di fronte al locale fallito, provò un senso di vuoto. Aveva ottenuto ciò che voleva — Max se n'era andato — ma Tumma era distrutto. «Forse» pensò Jerry, «ho sbagliato.»</p>
+
+<h2 id="dichiarazione-j">La dichiarazione d'amore — la notte sul davanzale <span class="edit-link" onclick="openEditor('Jerry')">[modifica]</span></h2>
+<p>Una notte, Jerry prese coraggio. Saltò sul davanzale della camera di Tumma. Tumma era sveglio, a letto, che guardava il soffitto. Jerry si fece vedere. Tumma sussultò — la paura dell'infanzia era ancora lì — ma non urlò. Non scappò. Jerry parlò. «Ti amo» disse. «Ti amo da quando eri bambino. Quando ti ho guardato in quel granaio, non volevo spaventarti. Volevo che mi guardassi. Ma tu sei scappato. E io sono rimasto lì, da solo, per anni. Max non ti ama. Non ti ha mai amato. Io sì. Io ti amo da sempre.»</p>
+<p>Tumma non rispose subito. Rimase a lungo in silenzio. Poi, lentamente, si avvicinò al davanzale. Guardò Jerry negli occhi. «Se è vero» disse, «dimostramelo. Non con i topi che distruggono i miei locali. Con qualcosa che costruiamo insieme.» Jerry annuì. «Lo farò.»</p>
+
+<h2 id="tomandjerry-j">Tom and Jerry — il locale dell'amore <span class="edit-link" onclick="openEditor('Jerry')">[modifica]</span></h2>
+<p>Nel <b>160 dM</b>, Tumma e Jerry aprirono insieme un nuovo locale. Lo chiamarono <b>Tom and Jerry</b>. Era un nome che diceva tutto: la nemesi diventata alleata, il nemico diventato amore. Jerry non si fece mai vedere in pubblico — era un topo, dopo tutto — ma ogni notte, dopo la chiusura, scendeva dai nascondigli e controllava che tutto fosse in ordine. Tumma lasciava sempre un pezzo di formaggio sul bancone, per ringraziarlo. Jerry lo mangiava in silenzio, felice.</p>
+<p>Tom and Jerry divenne la catena di fast food più famosa d'Italia. Aveva sedi a Calimera, Castri, Serrano e Napoli. Tumma era ricco, famoso, realizzato. E Jerry era al suo fianco — non fisicamente, ma nello spirito. Ogni sera, prima di chiudere, Tumma sussurrava: «Grazie, Jerry.» E sentiva un piccolo squittio rispondergli.</p>
+
+<h2 id="max-j">L'odio per Max <span class="edit-link" onclick="openEditor('Jerry')">[modifica]</span></h2>
+<p>Jerry non ha mai smesso di odiare Max. Lo odiava per aver tenuto Tumma in un limbo di amore non corrisposto. Lo odiava per essere scomparso e aver lasciato Tumma da solo. Quando Max fu ritrovato per le strade di Calimera, Jerry si nascose e osservò. Vide Tumma offrirgli un panino. Vide Max mangiarlo in silenzio. Vide i due che si guardavano senza parlare. Jerry non intervenne. Non perché non volesse — ma perché capì che quell'incontro era necessario. Tumma aveva bisogno di chiudere quel capitolo. E Jerry, da lontano, lo guardava con amore. «È il mio uomo» pensò Jerry. «E lo sarà per sempre.»</p>
+
+<div class="stub-box" style="background:#fff8e1;border-left-color:#f9a825">
+  <span style="font-size:22px">🐭</span>
+  <span><b>«Ti amo da quando eri bambino. Max non ti ama. Io sì.»</b> — Jerry, dichiarazione d'amore a Tumma, 158 dM.</span>
+</div>
+
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Topi</a> <a>Nemesi</a> <a>Amori segreti</a> <a>Calimera</a> <a>Tom and Jerry</a></div>`;
+}
+
+
+function buildTomAndMax() {
+  return `<div class="wiki-notice"><span class="ni"></span><span>Tom and Max fu la prima avventura imprenditoriale di <a onclick="navigateTo('Tommaso Pascali')">Tumma</a> e <a onclick="navigateTo('Massimiliano Dimitri')">Max</a>. Durò un anno. Fu distrutta dai topi di <b>Jerry</b>. Ma senza il suo fallimento, non sarebbe nato il successo di <b>Tom and Jerry</b>.</span></div>
+<h1 class="page-title">Tom and Max</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Tom and Max</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="tomandmax.jpg" alt="Logo Tom and Max" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Il fast food che durò un anno</div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Fondazione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>157 dM</b> — Calimera</div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Fondatori</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Tommaso Pascali')">Tommaso Pascali (Tumma)</a> · <a onclick="navigateTo('Massimiliano Dimitri')">Massimiliano Dimitri (Max)</a></div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Sedi</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Calimera · Castri · Serrano</div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Durata</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>157–158 dM</b> (1 anno)</div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Causa del fallimento</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Attacco di topi organizzato da <b>Jerry</b></div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Eredità</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">L'esperienza che portò alla nascita di <b>Tom and Jerry</b></div></div></td>
+  </tr>
+</div>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#nascita-tm">La nascita — 157 dM</a></li>
+    <li><a href="#menu-tm">Il menu</a></li>
+    <li><a href="#successo-tm">Il successo iniziale</a></li>
+    <li><a href="#attacco-tm">L'attacco dei topi — 158 dM</a></li>
+    <li><a href="#fine-tm">La fine</a></li>
+    <li><a href="#eredita-tm">L'eredità</a></li>
+  </ol>
+</div>
+
+<h2 id="nascita-tm">La nascita — 157 dM <span class="edit-link" onclick="openEditor('Tom and Max')">[modifica]</span></h2>
+<p>Dopo il fallimento dell'esame da esploratore, <a onclick="navigateTo('Tommaso Pascali')">Tumma</a> era disperato. <a onclick="navigateTo('Massimiliano Dimitri')">Max</a>, il suo amico e socio, lo trovò seduto sul marciapiede di fronte a Chicchi e Coccole — il negozio che aveva distrutto i suoi sogni. «Non piangere» disse Max. «Se non puoi esplorare il mondo, esplora i palati della gente.»</p>
+<p>Così nacque <b>Tom and Max</b>. Il nome era semplice: i loro due nomi, uniti da una "and" che sembrava quasi un abbraccio. Il logo era due sagome stilizzate — una alta (Max) e una bassa (Tumma) — che si stringevano la mano. Il motto: «Esplora il gusto.»</p>
+
+<h2 id="menu-tm">Il menu <span class="edit-link" onclick="openEditor('Tom and Max')">[modifica]</span></h2>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><b>Panino dell'Esploratore</b> — pane artigianale, hamburger di manzo, cheddar fuso, lattuga, pomodoro e salsa segreta.</li>
+  <li><b>Patatine della Piazzetta</b> — patatine tagliate a mano, fritte due volte, servite con maionese alle erbe.</li>
+  <li><b>Shake di Calimera</b> — frullato di latte e biscotti al Cheddar, omaggio alla pasticceria di <a onclick="navigateTo('Giulia Donno')">Giulia Donno</a>.</li>
+  <li><b>Il Menu del Perduto</b> — un panino più piccolo, per chi si era perso (come Tumma). Era ironico. Funzionava.</li>
+</ul>
+
+<h2 id="successo-tm">Il successo iniziale <span class="edit-link" onclick="openEditor('Tom and Max')">[modifica]</span></h2>
+<p>Il primo locale aprì a Calimera nel <b>157 dM</b>. La fila era lunga fin dal primo giorno. I calimeresi, curiosi, volevano assaggiare il fast food dell'esploratore fallito. Il cibo era buono. Il servizio veloce. I prezzi onesti. In pochi mesi, Tom and Max aprì sedi anche a <b>Castri</b> e <b>Serrano</b>. Tumma era felice. Max era felice. Per un anno, fu la società perfetta.</p>
+
+<h2 id="attacco-tm">L'attacco dei topi — 158 dM <span class="edit-link" onclick="openEditor('Tom and Max')">[modifica]</span></h2>
+<p>Una notte, centinaia di topi invasero i locali di Tom and Max. Entrarono dalle cucine, dai magazzini, dalle porte sul retro. Rosicchiarono i sacchi di farina, contaminarono gli ingredienti, corsero tra i tavoli. I clienti fuggirono. Le recensioni crollarono. La reputazione dei locali fu distrutta in una notte.</p>
+<p>L'attacco fu organizzato da <b>Jerry</b>, il topo che aveva spaventato Tumma da bambino. Jerry era geloso di Max. Voleva che Tumma fosse solo suo. L'attacco fu la sua dichiarazione di guerra — e la sua dichiarazione d'amore.</p>
+
+<h2 id="fine-tm">La fine <span class="edit-link" onclick="openEditor('Tom and Max')">[modifica]</span></h2>
+<p>In poche settimane, Tom and Max era in bancarotta. Tumma perse tutto. Max scomparve. I locali chiusero uno dopo l'altro. L'ultimo a chiudere fu quello di Calimera, il primo che avevano aperto. Tumma si sedette sul marciapiede di fronte, come aveva fatto dopo l'esame fallito. Pensò che forse era destino: non era portato per essere un esploratore, non era portato per essere un imprenditore. Forse non era portato per niente.</p>
+
+<h2 id="eredita-tm">L'eredità <span class="edit-link" onclick="openEditor('Tom and Max')">[modifica]</span></h2>
+<p>Tom and Max durò solo un anno. Ma senza il suo fallimento, non sarebbe nato il successo di <b>Tom and Jerry</b>. L'attacco dei topi, la bancarotta, la scomparsa di Max — tutto portò Tumma a incontrare Jerry in un modo nuovo, a perdonarlo, a costruire qualcosa insieme.</p>
+<p>Oggi, dei locali di Tom and Max non rimane nulla. Ma i calimeresi più anziani ricordano ancora il sapore del Panino dell'Esploratore. «Era buono» dicono. «Peccato per i topi.»</p>
+
+<div class="stub-box" style="background:#fff8e1;border-left-color:#f9a825">
+  <span style="font-size:22px">🍔</span>
+  <span><b>«Se non puoi esplorare il mondo, esplora i palati della gente.»</b> — Max, fondatore di Tom and Max. Poi i topi distrussero tutto. Ma il gusto, a volte, sopravvive.</span>
+</div>
+
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Fast food</a> <a>Aziende fallite</a> <a>Calimera</a> <a>Tommaso Pascali</a> <a>Massimiliano Dimitri</a></div>`;
+}
+
+
+function buildTomAndJerry() {
+  return `<div class="wiki-notice"><span class="ni">🐭🍔</span><span>Tom and Jerry è la catena di fast food più famosa d'Italia. Nata dall'amore tra <a onclick="navigateTo('Tommaso Pascali')">Tumma</a> e il topo <b>Jerry</b>, ha rivoluzionato il concetto di cibo veloce. Il nome è un omaggio alla loro storia — e una sfida a chi pensa che l'amore non possa nascere dove meno te lo aspetti.</span></div>
+<h1 class="page-title">Tom and Jerry</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Tom and Jerry</div>
+  <div style="text-align:center;padding:8px 6px 4px"><img src="tomandjerry.jpg" alt="Logo Tom and Jerry" style="width:100%;max-width:230px;display:block;margin:0 auto;border:1px solid #a2a9b1" onerror="this.style.display='none'"></div>
+  <div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">Il fast food che unì un uomo e un topo</div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Fondazione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>160 dM</b> — Calimera</div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Fondatori</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Tommaso Pascali')">Tommaso Pascali (Tumma)</a> · <a onclick="navigateTo('Jerry')">Jerry</a> (topo)</div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Sedi</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Calimera · Castri · Serrano · Napoli</div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Specialità</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Panini gourmet · Cheddar fuso · Formaggio per topi (offerto)</div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Status</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Attivo — la catena più famosa d'Italia</div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left">Motto</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><i>«L'amore è più forte di qualsiasi ostacolo — anche se è un topo.»</i></div></div></td>
+  </table>
+</div>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#nascita-tj">La nascita — 160 dM</a></li>
+    <li><a href="#menu-tj">Il menu — il formaggio per topi</a></li>
+    <li><a href="#successo-tj">Il successo — da Calimera all'Italia</a></li>
+    <li><a href="#jerry-tj">Il ruolo di Jerry — il socio invisibile</a></li>
+    <li><a href="#oggi-tj">Tom and Jerry oggi</a></li>
+  </ol>
+</div>
+
+<h2 id="nascita-tj">La nascita — 160 dM <span class="edit-link" onclick="openEditor('Tom and Jerry')">[modifica]</span></h2>
+<p>Dopo la bancarotta di <b>Tom and Max</b> e la dichiarazione d'amore di Jerry, <a onclick="navigateTo('Tommaso Pascali')">Tumma</a> era confuso. Un topo lo amava. Un topo aveva distrutto i suoi locali per gelosia. Un topo gli chiedeva una seconda possibilità. Tumma ci pensò a lungo. Poi decise: «Costruiamo qualcosa insieme.»</p>
+<p>Nel <b>160 dM</b>, aprì il primo locale di <b>Tom and Jerry</b> a Calimera, nello stesso edificio dove sorgeva il fallito Tom and Max. Il nome era una sfida — e un omaggio. Tom era lui. Jerry era il topo. Insieme, avrebbero dimostrato che l'amore può nascere anche nei luoghi più improbabili.</p>
+
+<h2 id="menu-tj">Il menu — il formaggio per topi <span class="edit-link" onclick="openEditor('Tom and Jerry')">[modifica]</span></h2>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><b>Panino Jerry Special</b> — pane al formaggio, hamburger di manzo, doppio cheddar fuso, cipolle caramellate e salsa al pepe.</li>
+  <li><b>Patatine del Granaio</b> — patatine fritte servite con una spolverata di formaggio stagionato.</li>
+  <li><b>Il Formaggio di Jerry</b> — un piccolo piatto di formaggio offerto gratuitamente a ogni cliente. Non si sa perché. Tumma non lo spiega mai. Ma i clienti lo adorano.</li>
+  <li><b>Lo Shake dell'Amore</b> — frullato al formaggio e cioccolato. Sembra strano. È delizioso.</li>
+</ul>
+
+<h2 id="successo-tj">Il successo — da Calimera all'Italia <span class="edit-link" onclick="openEditor('Tom and Jerry')">[modifica]</span></h2>
+<p>Il locale ebbe subito successo. I calimeresi, che avevano amato Tom and Max, tornarono per assaggiare il nuovo menu. Il passaparola fece il resto. In pochi anni, Tom and Jerry aprì sedi a <b>Castri</b>, <b>Serrano</b> e infine a <b>Napoli</b>. La catena divenne la più famosa d'Italia. I turisti venivano da lontano per assaggiare il Panino Jerry Special e per lasciare un pezzo di formaggio sul bancone — un gesto che nessuno spiegava, ma che tutti facevano.</p>
+
+<h2 id="jerry-tj">Il ruolo di Jerry — il socio invisibile <span class="edit-link" onclick="openEditor('Tom and Jerry')">[modifica]</span></h2>
+<p>Jerry non si fa mai vedere in pubblico. È un topo, dopo tutto. Ma ogni notte, dopo la chiusura, scende dai nascondigli e controlla che tutto sia in ordine. Ispeziona le cucine, assaggia il formaggio, si assicura che nessun topo rivale abbia preso possesso del locale. È il guardiano invisibile di Tom and Jerry. Tumma lascia sempre un pezzo di formaggio sul bancone, per ringraziarlo. Jerry lo mangia in silenzio, felice.</p>
+<p>I dipendenti sanno dell'esistenza di Jerry. Non lo vedono mai, ma lo sentono — un piccolo squittio notturno, il rumore di zampe sul pavimento, il formaggio che scompare. Nessuno ne parla con i clienti. Fa parte del mistero del locale.</p>
+
+<h2 id="oggi-tj">Tom and Jerry oggi <span class="edit-link" onclick="openEditor('Tom and Jerry')">[modifica]</span></h2>
+<p>Tom and Jerry è la catena di fast food più famosa d'Italia. Le sue sedi sono sempre piene. I critici gastronomici lodano la qualità degli ingredienti. I clienti lodano l'atmosfera — c'è qualcosa di magico in quei locali, qualcosa che non si può spiegare. Forse è il formaggio. Forse è la storia. Forse è Jerry, che da qualche parte, nascosto, veglia su tutto.</p>
+<p>Tumma, ormai anziano, si siede ogni sera nel locale di Calimera, quello originale. Ordina un Panino Jerry Special, lo mangia lentamente, poi lascia un pezzo di formaggio sul bancone. «Buonanotte, Jerry» sussurra. E sente un piccolo squittio rispondergli. L'amore, a volte, non ha bisogno di parole. A volte basta un pezzo di formaggio e un topo che ti aspetta dietro l'angolo.</p>
+
+<div class="stub-box" style="background:#fff8e1;border-left-color:#f9a825">
+  <span style="font-size:22px">🐭🍔</span>
+  <span><b>«L'amore è più forte di qualsiasi ostacolo — anche se è un topo.»</b> — Tumma, fondatore di Tom and Jerry.</span>
+</div>
+
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Fast food</a> <a>Aziende italiane</a> <a>Calimera</a> <a>Castri</a> <a>Serrano</a> <a>Napoli</a> <a>Tommaso Pascali</a> <a>Jerry</a></div>`;
+}
+
+DEFAULT_PAGES["Seconda Guerra Pocchiana"] = { title: "Seconda Guerra Pocchiana", content: buildSecondaGuerraPocchiana(), wikitext: "", history: [] };
+
+function buildSecondaGuerraPocchiana() {
+  return `<div class="wiki-notice"><span class="ni">⚔️</span><span>La Seconda Guerra Pocchiana (246–257 dM) fu l'ultimo grande conflitto dell'era post-unificazione. Vide l'Impero di <a onclick="navigateTo('Anna Colella')">Anna Colella</a> contro una coalizione formata da <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a>, ribelli americani (ex-Avengers) e le stesse governatrici dei distretti imperiali. Si concluse con lo scioglimento dell'Impero e la nascita di due regni indipendenti.</span></div>
+<h1 class="page-title">Seconda Guerra Pocchiana</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Seconda Guerra Pocchiana</div>
+  <div style="text-align:center;padding:8px 6px 4px;font-size:48px">⚔️🌍🔥</div>
+  <div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">L'ultima guerra dell'era coloniale</div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Periodo</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>246–257 dM</b> (2063–2074 d.C.)</div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Luogo</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Africa (colonie imperiali) · America (costa orientale) · Europa (confinante)</div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Causa</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Restrizioni imperiali sulla Nigeria · Colonizzazione forzata dei territori intorno alla Nigeria</div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Coalizione anti-imperiale</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> · Ribelli americani (ex-Avengers) · Governatrici dei distretti (dal 256 dM)</div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Impero</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('The United Kingdom of Great Britain and France')">Regno Unito di Gran Bretagna e Francia</a> (<a onclick="navigateTo('Anna Colella')">Anna Colella</a>)</div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Esito</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Vittoria della coalizione · Scioglimento dell'Impero · Nascita del <b>Regno Unito di Inghilterra e Scozia</b> e del <b>Regno Francese</b></div></div></tr>
+  </table>
+</div>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#contesto-sgp">Il contesto — dopo la Guerra Americana</a></li>
+    <li><a href="#tensioni-sgp">Le tensioni — il primo "no" della Nigeria (246 dM)</a></li>
+    <li><a href="#colonizzazione-sgp">La colonizzazione dell'Impero (246–250 dM)</a>
+      <ol><li><a href="#reazione-sgp">La reazione nigeriana</a></li></ol>
+    </li>
+    <li><a href="#africa-sgp">Lo scoppio della guerra — Africa (251 dM)</a>
+      <ol><li><a href="#battaglie-africa-sgp">Le battaglie africane — vittorie nigeriane</a></li></ol>
+    </li>
+    <li><a href="#america-sgp">Il fronte americano — la rivolta degli ex-Avengers (251–254 dM)</a>
+      <ol><li><a href="#battaglie-america-sgp">Le battaglie americane — la riconquista</a></li></ol>
+    </li>
+    <li><a href="#crisi-sgp">La crisi dell'Impero (254–256 dM)</a></li>
+    <li><a href="#ribellione-sgp">La ribellione delle governatrici (256–257 dM)</a></li>
+    <li><a href="#arresto-sgp">L'arresto di Anna Colella (257 dM)</a></li>
+    <li><a href="#divisione-sgp">La divisione — due regni indipendenti</a></li>
+    <li><a href="#conseguenze-sgp">Le conseguenze</a></li>
+  </ol>
+</div>
+
+<h2 id="contesto-sgp">Il contesto — dopo la Guerra Americana <span class="edit-link" onclick="openEditor('Seconda Guerra Pocchiana')">[modifica]</span></h2>
+<p>Dopo la <a onclick="navigateTo('Guerra Americana')">Guerra Americana</a> (236–237 dM) e la vittoria dell'Impero di <a onclick="navigateTo('Anna Colella')">Anna Colella</a> sugli <a onclick="navigateTo('Avengers')">Avengers</a>, l'Imperatrice era all'apice del suo potere. La sua flotta di <b>Calassi volanti</b> dominava i cieli. Il <b>Raggio Nero perfezionato</b> aveva neutralizzato i poteri degli Avengers per sempre. L'America era in ginocchio. L'Italia era alleata ma vigile. La <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a>, che aveva fornito la tecnologia del Raggio Nero, era diventata un partner commerciale privilegiato.</p>
+<p>Ma Anna Colella non si accontentava di alleati. Voleva il controllo. E la Nigeria, orgogliosa e indipendente, non era disposta a piegarsi.</p>
+
+<h2 id="tensioni-sgp">Le tensioni — il primo "no" della Nigeria (246 dM) <span class="edit-link" onclick="openEditor('Seconda Guerra Pocchiana')">[modifica]</span></h2>
+<p>Nel <b>246 dM</b>, Anna Colella inviò un ultimatum alla Nigeria Spartiana. Chiedeva la cessione permanente di alcune basi militari imperiali presenti sul territorio nigeriano, trasformandole da "basi in affitto" a "territori imperiali a tutti gli effetti". La Nigeria avrebbe perso sovranità su quelle aree.</p>
+<p>La risposta nigeriana fu secca, chiara, e per la prima volta nella storia dei rapporti tra i due stati: <b>no</b>.</p>
+<p>Il rifiuto fu comunicato personalmente da <b>Renna</b> (Rennino104), l'ultimo dei <a onclick="navigateTo('104 Nigeriani')">104 Nigeriani</a>, ormai anziano ma ancora lucido. La sua dichiarazione divenne celebre:</p>
+
+<blockquote style="margin:16px 24px;padding:12px 16px;border-left:3px solid #6a1b9a;background:#f3e5f5;color:#4a1a6a">
+  <p style="margin:0;font-style:italic">«La Nigeria Spartiana non è una colonia. Non lo è mai stata. Non lo sarà mai. Le vostre basi sono qui con il nostro permesso, non con il vostro diritto. Se volete cambiarle le regole, dovete prima chiederci il permesso. E noi non lo diamo.»</p>
+  <footer style="margin-top:6px;font-size:11px;color:#6a1b9a">— Renna, 246 dM</footer>
+</blockquote>
+
+<p>Anna Colella non commentò pubblicamente. Ma nei suoi diari personali, ritrovati anni dopo, scrisse: <i>«L'Africa deve essere controllata. La Nigeria è l'ostacolo. L'ostacolo va rimosso.»</i></p>
+
+<h2 id="colonizzazione-sgp">La colonizzazione dell'Impero (246–250 dM) <span class="edit-link" onclick="openEditor('Seconda Guerra Pocchiana')">[modifica]</span></h2>
+<p>Dal <b>246 dM</b> in poi, Anna Colella iniziò una campagna di <b>colonizzazione sistematica</b> di tutti i territori intorno alla Nigeria. Stati e regioni vicine — Benin, Togo, Ghana, parte del Camerun — furono invase o costrette a firmare trattati di protettorato. L'Impero si espanse a macchia d'olio, circondando la Nigeria da ovest, est e nord.</p>
+<p>L'obiettivo era chiaro: accerchiare la Nigeria, soffocarla economicamente, e infine costringerla a cedere.</p>
+
+<h3 id="reazione-sgp">La reazione nigeriana</h3>
+<p>La Nigeria Spartiana non rimase a guardare. Il governo nigeriano, guidato dal Consiglio dei 104 (ora ridotto a pochi superstiti), emanò un decreto di mobilitazione generale. Il <b>Raggio Nero</b> fu riattivato e potenziato. Furono costruite nuove postazioni difensive lungo i confini. E, cosa più importante, la Nigeria iniziò a cercare alleati.</p>
+<p>Li trovò in due posti inaspettati: in America e all'interno dello stesso Impero.</p>
+
+<h2 id="africa-sgp">Lo scoppio della guerra — Africa (251 dM) <span class="edit-link" onclick="openEditor('Seconda Guerra Pocchiana')">[modifica]</span></h2>
+<p>Il <b>251 dM</b>, una colonna di truppe imperiali attraversò il confine del Benin (protettorato imperiale) e attaccò una postazione nigeriana di frontiera. La Nigeria rispose. La guerra era iniziata.</p>
+<p>Le prime battaglie si svolsero nella regione del <b>Delta del Niger</b>, dove le paludi e la fitta vegetazione favorivano i difensori nigeriani. L'esercito imperiale, abituato ai campi aperti dell'Europa, subì pesanti perdite.</p>
+
+<h3 id="battaglie-africa-sgp">Le battaglie africane — vittorie nigeriane</h3>
+
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><b>Battaglia di Port Harcourt (251 dM):</b> Le truppe imperiali tentarono uno sbarco anfibio. I nigeriani, avvisati da ricognitori locali, li accolsero con il Raggio Nero montato su navi corazzate. L'intera flotta imperiale fu disabilitata in meno di un'ora. I superstiti si arresero.</li>
+  <li><b>Battaglia di Kano (252 dM):</b> L'esercito imperiale tentò un'avanzata via terra da nord. I nigeriani usarono tattiche di guerriglia: colpivano e si ritiravano, logorando le colonne nemiche. Dopo tre mesi, l'esercito imperiale si ritirò, avendo perso il 40% degli uomini.</li>
+  <li><b>Battaglia di Lagos (253 dM):</b> L'ultimo grande sforzo imperiale. Anna Colella inviò i <b>Calassi volanti</b> per bombardare la capitale nigeriana. Ma la Nigeria aveva sviluppato un <b>contromisura</b> — un Raggio Nero ad ampio spettro che colpiva non solo i poteri ma anche i sistemi di galleggiamento dei Calassi. Tre Calassi caddero dal cielo. Gli altri si ritirarono. Fu la più grande sconfitta dell'Impero dalla Guerra Americana.</li>
+</ul>
+
+<p>Dopo Lagos, la Nigeria Spartiana non fu più attaccata direttamente. L'esercito imperiale si limitò a difendere i territori colonizzati, senza più tentare di avanzare.</p>
+
+<h2 id="america-sgp">Il fronte americano — la rivolta degli ex-Avengers (251–254 dM) <span class="edit-link" onclick="openEditor('Seconda Guerra Pocchiana')">[modifica]</span></h2>
+<p>Mentre l'Africa bruciava, in America un'altra fiamma si accendeva. Gli ex-Avengers, ormai privi di poteri ma non di esperienza bellica, si riunirono in segreto. <a onclick="navigateTo('Zella')">Zella</a>, ormai anziano, declinò il comando, ma benedisse l'operazione. Il nuovo leader fu <b>Emanuele Pascali</b>, che aveva conservato parte della sua abilità di volo (non poteri, ma abilità tecnica con gli aliante).</p>
+<p>L'obiettivo era cacciare l'Impero dall'America. Le basi imperiali sulla costa orientale — eredità della Guerra Americana — erano presidi da truppe francesi e inglesi. Ma molte di quelle truppe erano stanche della guerra lontano da casa.</p>
+
+<h3 id="battaglie-america-sgp">Le battaglie americane — la riconquista</h3>
+
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><b>Battaglia di Boston (252 dM):</b> I ribelli americani, guidati da ex-Avengers, attaccarono di notte la base imperiale di Boston. Usarono tattiche mordi-e-fuggi, sfruttando la loro conoscenza del territorio. La base cadde dopo tre giorni di combattimenti. Fu la prima vittoria americana dalla Guerra Americana.</li>
+  <li><b>Battaglia di New York (253 dM):</b> New York, ribattezzata <b>New London</b> dall'Impero, era la roccaforte imperiale in America. I ribelli la assediarono per sei mesi. Alla fine, le truppe imperiali, isolate e senza rifornimenti, si arresero. La città fu restituita al governo americano.</li>
+  <li><b>Battaglia di Terranova (254 dM):</b> L'ultima roccaforte imperiale in Nord America. I ribelli, supportati dalla flotta nigeriana (arrivata via mare), attaccarono l'isola. I Calassi volanti di stanza a Terranova furono danneggiati dal Raggio Nero nigeriano e costretti a ritirarsi. La guarnigione imperiale si arrese. L'America era libera.</li>
+</ul>
+
+<p>La liberazione dell'America fu accolta con enorme entusiasmo. Zella, pur non avendo partecipato direttamente, tenne un discorso alla nazione: <i>«Non abbiamo più poteri. Ma abbiamo dimostrato che non servono. La libertà è più forte di qualsiasi raggio, di qualsiasi bomba, di qualsiasi impero.»</i></p>
+
+<h2 id="crisi-sgp">La crisi dell'Impero (254–256 dM) <span class="edit-link" onclick="openEditor('Seconda Guerra Pocchiana')">[modifica]</span></h2>
+<p>Le sconfitte in Africa e in America misero a dura prova l'Impero. L'economia era in crisi. Le truppe erano stanche. E, cosa più grave, i due distretti dell'Impero — Gran Bretagna e Francia — cominciavano a guardare con crescente insofferenza alla loro Imperatrice.</p>
+<p>Anna Colella tentò di riprendere il controllo. Aumentò le tasse. Richiamò truppe dalle colonie per difendere i confini europei. Ma ogni mossa peggiorava la situazione. Il consenso, che l'Imperatrice aveva saputo costruire per decenni, si stava erodendo.</p>
+<p>Le governatrici dei distretti — <a onclick="navigateTo('Maria Marzo')">Maria Marzo</a> in Gran Bretagna e <a onclick="navigateTo('Calogiuri')">Calogiuri</a> in Francia — iniziarono a incontrarsi in segreto. Il sistema di Anna Colella aveva un punto debole: troppo potere era stato delegato ai distretti. Ora quel potere si sarebbe rivoltato contro di lei.</p>
+
+<h2 id="ribellione-sgp">La ribellione delle governatrici (256–257 dM) <span class="edit-link" onclick="openEditor('Seconda Guerra Pocchiana')">[modifica]</span></h2>
+<p>Nel <b>256 dM</b>, Maria Marzo e Calogiuri firmarono un patto segreto a Calais, la stessa città dove anni prima avevano discusso i loro metodi educativi. Questa volta, l'oggetto della discussione non erano i Calassi, ma la sopravvivenza stessa dell'Impero.</p>
+<p>Il patto prevedeva:</p>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li>La sospensione degli ordini di Anna Colella nei rispettivi territori</li>
+  <li>La creazione di un comando militare congiunto per difendere i confini europei senza coinvolgere le colonie</li>
+  <li>L'obiettivo finale: costringere Anna Colella a negoziare la divisione dell'Impero</li>
+</ul>
+<p>Quando Anna Colella venne a conoscenza del patto, fu furiosa. Convocò le governatrici a Londra per un'interrogazione pubblica. Maria Marzo e Calogiuri rifiutarono. «Non siamo più sue suddite» dichiarò Maria Marzo in una trasmissione pubblica. «Siamo capi di stato indipendenti. E non riconosciamo più la sua autorità.»</p>
+<p>Fu la goccia che fece traboccare il vaso. Anna Colella ordinò l'arresto delle governatrici. Ma i messaggeri non partirono mai. I loro ufficiali, stanchi della guerra, si rifiutarono di obbedire. L'Impero si stava sfaldando dall'interno.</p>
+
+<h2 id="arresto-sgp">L'arresto di Anna Colella (257 dM) <span class="edit-link" onclick="openEditor('Seconda Guerra Pocchiana')">[modifica]</span></h2>
+<p>Il <b>257 dM</b>, un contingente misto di truppe inglesi e francesi — fedeli alle governatrici, non all'Imperatrice — entrò nel palazzo reale di Londra. Anna Colella fu trovata nel suo studio, seduta alla scrivania, che scriveva l'ennesimo ordine del giorno. Non oppose resistenza.</p>
+<p>«Avete vinto» disse alle governatrici, che erano entrate insieme. «L'Impero è vostro. O meglio, è finito.»</p>
+<p>Maria Marzo rispose: «Non volevamo vincere. Volevamo che smettesse. E alla fine ha smesso.»</p>
+<p>Anna Colella fu arrestata e portata in una residenza sorvegliata nella campagna inglese. Non fu processata — le governatrici decisero che un processo avrebbe riaperto vecchie ferite. Visse i suoi ultimi anni in isolamento, dedicandosi alla scrittura delle sue memorie. Morì nel <b>262 dM</b>, all'età di 104 anni.</p>
+
+<h2 id="divisione-sgp">La divisione — due regni indipendenti <span class="edit-link" onclick="openEditor('Seconda Guerra Pocchiana')">[modifica]</span></h2>
+<p>Con Anna Colella fuori gioco, l'Impero fu ufficialmente sciolto. Al suo posto nacquero due stati indipendenti:</p>
+<ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
+  <li><b>Il Regno Unito di Inghilterra e Scozia</b> — sotto la guida di <a onclick="navigateTo('Maria Marzo')">Maria Marzo</a>, che assunse il titolo di <b>Reggente a vita</b> (rifiutò la corona, preferendo mantenere il suo ruolo di governatrice).</li>
+  <li><b>Il Regno Francese</b> — sotto la guida di <a onclick="navigateTo('Calogiuri')">Calogiuri</a>, che assunse il titolo di <b>Protettrice della Repubblica Francese</b> (anche lei rifiutò il titolo regale, preferendo una forma di governo repubblicana con poteri forti).</li>
+</ul>
+<p>I due nuovi stati firmarono un trattato di mutua difesa e cooperazione economica. I Calassi, le scuole create da Anna Colella, rimasero in funzione in entrambi i paesi come sua eredità più duratura — e più positiva.</p>
+<p>La Nigeria Spartiana, uscita vincitrice dal conflitto, non chiese territori né riparazioni. Chiese solo che l'Impero riconoscesse la piena sovranità nigeriana su tutti i territori contestati. La richiesta fu accolta. Il Raggio Nero fu smantellato (ufficialmente). La Nigeria tornò a essere una potenza regionale, ma non più una superpotenza globale.</p>
+<p>L'America, liberata, tornò sotto il governo di Zella, che uscì dalla pensione per guidare la ricostruzione. Gli ex-Avengers furono onorati come eroi nazionali. Ma i loro poteri non tornarono mai più.</p>
+
+<h2 id="conseguenze-sgp">Le conseguenze <span class="edit-link" onclick="openEditor('Seconda Guerra Pocchiana')">[modifica]</span></h2>
+<p>La Seconda Guerra Pocchiana segnò la fine dell'ultimo grande impero dell'era post-unificazione. Il mondo entrò in una fase di stabilità, con tre potenze principali (Italia, Nigeria, America) e due stati europei indipendenti (Inghilterra-Scozia e Francia). Non ci sarebbero più state guerre di conquista per decenni.</p>
+<p>Anna Colella, un tempo celebrata come la più grande riformatrice dell'istruzione, fu ricordata anche come l'ultima imperatrice colonialista. La sua eredità rimase ambivalente: i Calassi continuarono a educare milioni di bambini; ma il suo sogno imperiale era finito in un arresto senza colpi di scena, in uno studio, con una penna in mano.</p>
+<p>Maria Marzo e Calogiuri governarono i loro nuovi stati per altri vent'anni, prima di ritirarsi. Non si incontrarono mai più dopo la divisione, ma si scrivevano lettere ogni anno, il giorno dell'arresto di Anna Colella. «Ti ricordi?» scriveva Maria. «Sempre» rispondeva Calogiuri.</p>
+
+<div class="stub-box" style="background:#eaf3fb;border-left-color:#3680b0">
+  <span style="font-size:22px">⚔️</span>
+  <span><b>«Non volevamo vincere. Volevamo che smettesse. E alla fine ha smesso.»</b> — Maria Marzo, dopo l'arresto di Anna Colella, 257 dM.</span>
+</div>
+
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Guerre</a> <a>Seconda Guerra Pocchiana</a> <a>Anna Colella</a> <a>Nigeria Spartiana</a> <a>Avengers</a> <a>Maria Marzo</a> <a>Calogiuri</a> <a>246 dM</a> <a>257 dM</a></div>`;
+}
+
+DEFAULT_PAGES["Trio Pocchia"] = { title: "Trio Pocchia", content: buildTrioPocchia(), wikitext: "", history: [] };
+
+function buildTrioPocchia() {
+  return `<div class="wiki-notice"><span class="ni">✨</span><span>Il Trio Pocchia è l'entità divina nata dalla fusione di <a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a>, <a onclick="navigateTo('Morello')">Morello</a> e <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a> oltre i <a onclick="navigateTo('I Mille Occhi di Ludo')">Mille Occhi di Ludo</a>. È la conclusione del ciclo iniziato con la creazione del mondo.</span></div>
+<h1 class="page-title">Trio Pocchia</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">Trio Pocchia</div>
+  <div style="text-align:center;padding:8px 6px 4px">
+    <img src="trio_pocchia.jpg" alt="Il Trio Pocchia" style="width:100%;max-width:300px;display:block;margin:0 auto;border:2px solid #ffaa44;border-radius:50%;box-shadow:0 0 20px rgba(255,170,68,0.5)" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=\\"font-size:80px;background:#1a1f2a;border-radius:50%;width:200px;height:200px;display:flex;align-items:center;justify-content:center;margin:0 auto\\">✨👑🐀</div>'">
+    <div style="font-size:11px;color:#ffaa66;margin-top:8px">✨ Il Trio Pocchia — tre entità, una sola coscienza ✨</div>
+  </div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Nascita</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>401 dM</b> — oltre i <a onclick="navigateTo('I Mille Occhi di Ludo')">Mille Occhi di Ludo</a></div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Componenti</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> (Ludo) · <a onclick="navigateTo('Morello')">Morello</a> · <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a></div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Natura</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Entità divina trinitaria · coscienza collettiva</div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Origine del nome</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Da <b>Filippo Pascali</b> (il più grosso dei tre) e dalla <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia</a></div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Simbolo</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Tre cerchi intrecciati — uno per ciascun membro</div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Status</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Attivo — osserva il cosmo oltre il confine</div></div></tr>
+  </table>
+</div>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#nascita-tp">La nascita — oltre i Mille Occhi</a></li>
+    <li><a href="#componenti-tp">I tre componenti</a>
+      <ol><li><a href="#ludo-tp">Ludovico Pio Tommasi — il Creatore</a></li><li><a href="#morello-tp">Morello — l'Architetto del caos</a></li><li><a href="#filippo-tp">Filippo Pascali — il Testimone silenzioso</a></li></ol>
+    </li>
+    <li><a href="#nome-tp">Perché "Pocchia"</a></li>
+    <li><a href="#natura-tp">La natura del Trio</a></li>
+    <li><a href="#significato-tp">Il significato teologico</a></li>
+    <li><a href="#eredita-tp">L'eredità — il ricordo sulla Luna</a></li>
+  </ol>
+</div>
+
+<h2 id="nascita-tp">La nascita — oltre i Mille Occhi <span class="edit-link" onclick="openEditor('Trio Pocchia')">[modifica]</span></h2>
+<p>Nel <b>401 dM</b>, mentre il <a onclick="navigateTo('Pianeta Pocchia')">Pianeta Pocchia</a> veniva distrutto dall'impatto con il <a onclick="navigateTo('Pianeta Zecca')">Pianeta Zecca</a>, un piccolo razzo si allontanava verso i confini del cosmo. A bordo c'erano <a onclick="navigateTo('Morello')">Morello</a> e <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a>. La loro destinazione non era la <a onclick="navigateTo('Luna')">Luna</a>, come per gli altri superstiti. Morello voleva vedere cosa c'era oltre.</p>
+<p>Il razzo attraversò l'orbita del Pianeta Zecca, superò i pianeti esterni, e si diresse verso il muro di <a onclick="navigateTo('I Mille Occhi di Ludo')">I Mille Occhi di Ludo</a> — le stelle fisse che da sempre segnavano il confine del cosmo. Morello accelerò. Il razzo bucò il muro di stelle. Per un istante, le stelle si spensero. Poi, dall'altra parte, c'era solo buio. E in quel buio, c'era <b>Lui</b>.</p>
+<p><a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> — il Cheddar, il Re dei topi, il Dio creatore — li aspettava. La loro venuta, spiegò Ludo, era stata profetizzata dall'inizio dei tempi. Non dal <a onclick="navigateTo('Topus Maximus')">Topus Maximus</a> — quello era un impostore — ma dalle stelle stesse, dai Mille Occhi che Morello e Filippo avevano appena attraversato. Il ciclo era completo. Era il momento di fondersi.</p>
+
+<blockquote style="margin:16px 24px;padding:12px 16px;border-left:3px solid #ffaa44;background:#fff8e1;color:#5a3a1a">
+  <p style="margin:0;font-style:italic">«Non sarete dei. Sarete qualcosa di diverso. Sarete parte di me, come io sarò parte di voi. Insieme formeremo una nuova entità. Una trinità. Non quella falsa del Topismo — ma una vera, nata dalla fine di tutto.»</p>
+  <footer style="margin-top:6px;font-size:11px;color:#b87c2e">— Ludo, prima della fusione</footer>
+</blockquote>
+
+<p>Morello e Filippo annuirono. I tre si fusero in un'unica entità: il <b>Trio Pocchia</b>.</p>
+
+<h2 id="componenti-tp">I tre componenti <span class="edit-link" onclick="openEditor('Trio Pocchia')">[modifica]</span></h2>
+
+<h3 id="ludo-tp">Ludovico Pio Tommasi — il Creatore <span class="edit-link" onclick="openEditor('Trio Pocchia')">[modifica]</span></h3>
+<p>Ludo era l'inizio di tutto. Aveva creato il mondo nell'anno <b>104670000 pM</b> con l'assistenza di suo padre <a onclick="navigateTo('VitoCarlo Tommasi')">VitoCarlo</a>. Per eoni aveva osservato il suo universo da lontano, senza mai intervenire — fino a quando il ciclo non si era compiuto. Nel Trio Pocchia, Ludo porta la saggezza dell'antichità, il potere della creazione, e la pazienza di chi ha aspettato per sempre.</p>
+
+<h3 id="morello-tp">Morello — l'Architetto del caos <span class="edit-link" onclick="openEditor('Trio Pocchia')">[modifica]</span></h3>
+<p>Morello era stato governatore di Napoli, fondatore della Camorra Salentina, diarco di Castri, prigioniero politico, fuggiasco, e infine esploratore dell'ignoto. Nel Trio Pocchia, Morello porta l'esperienza del caos — la capacità di trasformare il disordine in ordine, di trovare soluzioni dove altri vedono solo problemi, di sopravvivere a qualsiasi cosa l'universo gli lanci contro.</p>
+
+<h3 id="filippo-tp">Filippo Pascali — il Testimone silenzioso <span class="edit-link" onclick="openEditor('Trio Pocchia')">[modifica]</span></h3>
+<p>Filippo era stato il meno appariscente dei tre. Amico d'infanzia di Morello, militare decorato, marito di Alice Sportella, padre di tre figli con sindrome di Down. Non aveva mai cercato il potere. Non aveva mai voluto essere al centro dell'attenzione. Eppure, era sempre stato lì — a testimoniare, a ricordare, a tenere insieme le cose quando tutto sembrava cadere a pezzi. Nel Trio Pocchia, Filippo porta la memoria, la lealtà, e la capacità di vedere l'essenziale oltre le apparenze.</p>
+
+<h2 id="nome-tp">Perché "Pocchia" <span class="edit-link" onclick="openEditor('Trio Pocchia')">[modifica]</span></h2>
+<p>Il nome fu scelto da Ludo. «Pocchia» disse, «perché tu, Filippo, sei un Pocchia. E perché Morello, senza saperlo, lo è sempre stato — per amicizia, per destino, per scelta.»</p>
+<p>Filippo era il più grosso fisicamente dei tre, e portava il nome della sua famiglia — la <a onclick="navigateTo('Famiglia Pocchia')">Famiglia Pocchia (Pascali)</a>. Ma il significato andava oltre. Tutta la storia del mondo, rifletté Ludo, era stata in un modo o nell'altro la storia della Famiglia Pocchia. Era giusto che l'entità finale portasse quel nome.</p>
+<p>Il Trio Pocchia. Tre entità, una sola coscienza. Così sarebbero stati ricordati, se qualcuno ancora avesse ricordato qualcosa.</p>
+
+<h2 id="natura-tp">La natura del Trio <span class="edit-link" onclick="openEditor('Trio Pocchia')">[modifica]</span></h2>
+<p>Il Trio Pocchia non è una divinità tradizionale. Non ha un tempio, non ha sacerdoti, non richiede preghiere. È una <b>coscienza collettiva</b> — tre individui che hanno scelto di fondersi in un'unica entità, mantenendo ciascuno la propria individualità pur essendo parte di un tutto più grande.</p>
+<p>Dal punto di vista dei superstiti sulla Luna, il Trio Pocchia è una leggenda. Alcuni ci credono, altri no. Ma tutti raccontano la storia: oltre i Mille Occhi di Ludo, dove il tempo e lo spazio non esistono più, tre figure vegliano sul cosmo. Ludo, il creatore. Morello, l'architetto del caos. Filippo, il testimone silenzioso. Insieme, il Trio Pocchia.</p>
+<p>Si dice che ogni tanto, quando un bambino lunare guarda il cielo e si chiede da dove viene, qualcuno gli risponda: «Da lì. Da oltre le stelle. Da dove il Trio Pocchia ci osserva.»</p>
+
+<h2 id="significato-tp">Il significato teologico <span class="edit-link" onclick="openEditor('Trio Pocchia')">[modifica]</span></h2>
+<p>La nascita del Trio Pocchia ha profonde implicazioni teologiche. Per i pochi <a onclick="navigateTo('Topismo')">Ludotopici</a> sopravvissuti alla fine del mondo, rappresenta la vera trinità — non quella falsa del Topus Maximus e di Bomber, ma quella autentica, nata dalla fusione di Ludo con due esseri umani che avevano dimostrato di essere degni.</p>
+<p>Per gli <a onclick="navigateTo('Ebraismo')">Ebrei</a>, seguaci di Nestola, la questione è più complessa. Alcuni rifiutano l'idea che Ludo possa fondersi con degli umani, considerandola un'eresia. Altri, invece, vedono nel Trio Pocchia il compimento della profezia del 401 — il numero che annunciava la fine e l'inizio, il vero significato del segno apparso nel cielo.</p>
+<p>Nestola, prima di morire, aveva detto: «Ludo è lassù. Noi siamo quaggiù. Se un giorno si avvicinerà, lo sapremo. E se sceglierà di camminare tra noi, lo accoglieremo.» Morello e Filippo non erano «tra noi». Erano andati oltre. Ma forse, pensano gli Ebrei più aperti, questo è esattamente ciò che Nestola intendeva.</p>
+
+<h2 id="eredita-tp">L'eredità — il ricordo sulla Luna <span class="edit-link" onclick="openEditor('Trio Pocchia')">[modifica]</span></h2>
+<p>Sulla Luna, la civiltà fondata da <a onclick="navigateTo('Alessio Spisso')">Alessio</a> e <a onclick="navigateTo('MariaTeresa Friolo')">Maria</a> non ha dimenticato il Trio Pocchia. Nella <b>Pocchiaciclopedia della Luna</b>, l'ultimo capitolo è dedicato a loro. È scritto in caratteri d'oro, su una pagina che nessuno può modificare. Dice:</p>
+
+<blockquote style="margin:16px 24px;padding:12px 16px;border-left:3px solid #ffaa44;background:#0a1a2a;color:#ffdd99">
+  <p style="margin:0;font-style:italic">«E così, oltre i Mille Occhi di Ludo, oltre il confine del cosmo, oltre il tempo e lo spazio, il Trio Pocchia veglia. Ludo, Morello e Filippo. Il Creatore, l'Architetto del caos, il Testimone silenzioso. Tre che sono uno. Uno che è tre. E da lassù, guardano il vuoto dove una volta c'era il Pianeta Pocchia. E sorridono. Perché la fine non è mai veramente la fine. È solo l'inizio di qualcos'altro.»</p>
+</blockquote>
+
+<p>Ogni anno, il 15 Luglio, i lunari accendono tre candele — una per Ludo, una per Morello, una per Filippo — e raccontano la loro storia ai bambini. Così il Trio Pocchia non viene dimenticato. Così la memoria sopravvive.</p>
+
+<div class="stub-box" style="background:#0a1a2a;border-left-color:#ffaa44;color:#ffdd99">
+  <span style="font-size:22px">✨👑🐀</span>
+  <span><b>«Tre che sono uno. Uno che è tre. E da lassù, guardano il vuoto dove una volta c'era il Pianeta Pocchia. E sorridono.»</b> — Dalla Pocchiaciclopedia della Luna.</span>
+</div>
+
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Divinità</a> <a>Trio Pocchia</a> <a>Ludovico Pio Tommasi</a> <a>Morello</a> <a>Filippo Pascali</a> <a>401 dM</a> <a>Fine del mondo</a> <a>Luna</a> <a>Mille Occhi di Ludo</a></div>`;
+}
+
+DEFAULT_PAGES["La Fine del Pianeta Pocchia (401 dM)"] = { title: "La Fine del Pianeta Pocchia (401 dM)", content: buildLaFineDelMondo(), wikitext: "", history: [] };
+
+function buildLaFineDelMondo() {
+  return `<div class="wiki-notice"><span class="ni">💥</span><span>Questa voce descrive gli eventi conclusivi dell'anno 401 dM — la fine del Pianeta Pocchia e la dispersione dei suoi abitanti nello spazio. È l'ultimo capitolo della storia documentata.</span></div>
+<h1 class="page-title">La Fine del Pianeta Pocchia (401 dM)</h1>
+<div class="page-subtitle">Da Pocchiaciclopedia, l'enciclopedia (quasi) libera — ultimo capitolo.</div>
+<div class="wiki-article-body clearfix">
+<div class="infobox">
+  <div class="infobox-title">La Fine del Pianeta Pocchia</div>
+  <div style="text-align:center;padding:8px 6px 4px;font-size:48px">💥🌍✨</div>
+  <div style="text-align:center;font-size:11px;color:#54595d;padding:2px 0 4px">L'anno 401 dM — la fine e l'inizio</div>
+  <table style="width:100%;border-collapse:collapse">
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Data</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>401 dM</b> (2318 d.C.)</div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Evento</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Distruzione del Pianeta Pocchia per impatto con il <a onclick="navigateTo('Pianeta Zecca')">Pianeta Zecca</a></div></div></td>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Segno premonitore</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Apparizione del numero <b>401</b> nel cielo — il contrario del 104</div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Superstiti</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Alessio Spisso')">Alessio</a> e <a onclick="navigateTo('MariaTeresa Friolo')">Maria</a> (diretti sulla Luna) · <a onclick="navigateTo('Morello')">Morello</a> e <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a> (oltre i Mille Occhi)</div></div></tr>
+    <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Esito</th><td style="padding:3px 8px;border-top:1px solid #eaecf0">Nascita di una nuova civiltà sulla Luna · Nascita del <b>Trio Pocchia</b> oltre il confine del cosmo</div></div></tr>
+  </table>
+</div>
+
+<div class="toc-box">
+  <div class="toc-title">Indice</div>
+  <ol>
+    <li><a href="#premesse-fm">Le premesse — l'anno 400 dM</a></li>
+    <li><a href="#segno-fm">Il segno — il numero 401 nel cielo</a></li>
+    <li><a href="#zecca-fm">Il Pianeta Zecca — la minaccia imminente</a></li>
+    <li><a href="#esodo-fm">L'esodo — i razzi verso la Luna</a>
+      <ol><li><a href="#alessio-fm">Alessio e Maria — la nuova civiltà lunare</a></li><li><a href="#morello-fm">Morello e Filippo — l'oltre</a></li></ol>
+    </li>
+    <li><a href="#collisione-fm">La collisione — la fine del Pianeta Pocchia</a></li>
+    <li><a href="#oltre-fm">Oltre i Mille Occhi — l'incontro con Ludo</a></li>
+    <li><a href="#trio-fm">Il Trio Pocchia — la nuova entità divina</a></li>
+    <li><a href="#eredita-fm">L'eredità — la Pocchiaciclopedia della Luna</a></li>
+  </ol>
+</div>
+
+<h2 id="premesse-fm">Le premesse — l'anno 400 dM <span class="edit-link" onclick="openEditor('La Fine del Pianeta Pocchia (401 dM)')">[modifica]</span></h2>
+<p>L'anno <b>400 dM</b> (2317 d.C.) era un anno di pace apparente. Il mondo della Pocchiaciclopedia — che alcuni ormai chiamavano <b>Pianeta Pocchia</b> — aveva conosciuto oltre un secolo di stabilità dopo la fine delle grandi guerre. La <b>Repubblica Italiana</b> governava la penisola con mano leggera. Gli stati autonomi di <a onclick="navigateTo('Serrano')">Serrano</a>, <a onclick="navigateTo('Castri')">Castri</a> e <a onclick="navigateTo('Corigliano')">Corigliano</a> prosperavano. L'<a onclick="navigateTo('America (Avengers)')">America</a> era una potenza in declino ma pacifica. La <a onclick="navigateTo('Nigeria Spartiana')">Nigeria Spartiana</a> si era ritirata nei suoi confini. L'<a onclick="navigateTo('The United Kingdom of Great Britain and France')">Impero di Anna Colella</a> non esisteva più, sostituito dalle nazioni indipendenti di Gran Bretagna e Francia.</p>
+<p><a onclick="navigateTo('Zella')">Zella</a>, l'antico capo degli Avengers, era in pensione. Viveva in una piccola casa sulla costa orientale dell'America, dove ogni mattina guardava l'orizzonte nella direzione di Terranova. Non aveva più poteri. Non ne aveva bisogno.</p>
+<p><a onclick="navigateTo('Alessio Spisso')">Alessio Spisso</a> e <a onclick="navigateTo('MariaTeresa Friolo')">Maria</a> vivevano in pace a Serrano volante. Lui aveva smesso di combattere. Lei continuava a innaffiare il giardino. La rosa che Maria gli aveva dato era ancora lì, piantata accanto agli sparaseed, a ricordare che anche in un mondo di guerre c'era spazio per la bellezza.</p>
+<p><a onclick="navigateTo('AleDoria')">AleDoria</a>, l'inventore di Castri, era diventato un vecchio saggio. Non costruiva più Bot. Passava le giornate a osservare il cielo insieme a <a onclick="navigateTo('Nestola')">Nestola</a>, il Medico Nano, ormai ultracentenario ma ancora lucido. I due si chiedevano da anni una cosa: <b>che cos'è il cielo?</b></p>
+
+<h2 id="segno-fm">Il segno — il numero 401 nel cielo <span class="edit-link" onclick="openEditor('La Fine del Pianeta Pocchia (401 dM)')">[modifica]</span></h2>
+<p>Una notte, mentre AleDoria e Nestola osservavano le stelle, notarono qualcosa di strano. Tra i <a onclick="navigateTo('I Mille Occhi di Ludo')">Mille Occhi di Ludo</a>, le stelle fisse che da sempre segnavano il confine del cosmo, una nuova illuminazione era apparsa. Non era una stella. Era una formazione luminosa che disegnava un numero: <b>401</b>.</p>
+<p>Nestola trattenne il respiro. «Il 104» mormorò. «Era il numero che annunciò la Fine, il Compleanno di Ludo, la seconda eruzione del Vesuvio. Il 104 era l'inizio della fine. Questo è il contrario. 401. È il vero inizio? O è la fine di tutto?»</p>
+<p>AleDoria non rispose. Continuò a osservare il cielo. Il numero 401 brillava tra le stelle, immobile, come un occhio che guardava il mondo. Molti <a onclick="navigateTo('Ebraismo')">Ebrei</a>, i seguaci della fede di Nestola, interpretarono il segno come l'annuncio della fine. Alcuni si prepararono. Altri pregarono. Altri ancora, come AleDoria e Nestola, si limitarono a osservare e a chiedersi.</p>
+<p>Il 401 era il contrario del 104. Il 104 aveva portato la seconda eruzione del Vesuvio e il ritorno di Morello. Cosa avrebbe portato il 401?</p>
+
+<h2 id="zecca-fm">Il Pianeta Zecca — la minaccia imminente <span class="edit-link" onclick="openEditor('La Fine del Pianeta Pocchia (401 dM)')">[modifica]</span></h2>
+<p>Il <a onclick="navigateTo('Pianeta Zecca')">Pianeta Zecca</a> — l'enorme massa orbitante che un tempo era stata <a onclick="navigateTo('Giovanni Zecca')">Giovanni Zecca</a> — era diventato troppo grande. Per secoli aveva continuato a crescere, alimentato da ogni «Ciccione» pronunciato sulla Terra. La sua massa era ormai di <b>due terzi</b> di quella del Pianeta Pocchia. Nel <b>378 dM</b>, durante un viaggio nello spazio che aveva portato l'esploratore <b>Pocchia</b> (da cui il pianeta aveva preso il nome) a contatto con l'orbita di Zecca, era stata misurata per l'ultima volta la sua crescita. Non si era fermata.</p>
+<p>Ora, nell'anno 401 dM, il Pianeta Zecca aveva iniziato ad avvicinarsi. La sua orbita, un tempo ellittica e stabile, si era deteriorata. La massa era troppa. La gravità attirava Zecca verso il Pianeta Pocchia con una lentezza inesorabile. I calcoli di Nestola erano precisi: <b>l'impatto sarebbe avvenuto entro l'anno</b>.</p>
+<p>La notizia si sparse in poche ore. Il panico fu mondiale. Ma non c'era modo di fermare Zecca. Nessuna bomba, nessun raggio, nessun potere avrebbe potuto deviare una massa di due terzi del pianeta. L'unica speranza era fuggire.</p>
+
+<h2 id="esodo-fm">L'esodo — i razzi verso la Luna <span class="edit-link" onclick="openEditor('La Fine del Pianeta Pocchia (401 dM)')">[modifica]</span></h2>
+<p>Nei mesi precedenti alla collisione, furono costruiti in fretta e furia diversi razzi spaziali. La tecnologia, ereditata dagli antichi progetti di AleDoria e dagli Spisso Bot, era sufficiente per viaggi interplanetari brevi. L'obiettivo era la <a onclick="navigateTo('Luna')">Luna</a>, l'unico corpo celeste abbastanza vicino da essere raggiunto in tempo.</p>
+<p>Non tutti potevano partire. I razzi erano pochi. La scelta di chi sarebbe salito a bordo fu dolorosa. Alla fine, solo pochi eletti ebbero la possibilità di fuggire.</p>
+
+<h3 id="alessio-fm">Alessio e Maria — la nuova civiltà lunare</h3>
+<p><a onclick="navigateTo('Alessio Spisso')">Alessio</a> e <a onclick="navigateTo('MariaTeresa Friolo')">Maria</a> furono tra i primi a salire a bordo di un razzo. Non perché si sentissero più importanti degli altri — ma perché Alessio, con la sua esperienza di volo e la sua conoscenza delle L.E.G.G.I., era l'unico che poteva pilotare il razzo con sicurezza. Maria portò con sé una valigia di semi. «Per il giardino» disse. «Sulla Luna non c'è terra. Ma la terra si porta con sé.»</p>
+<p>Il loro razzo partì il <b>14 Luglio 401 dM</b>, un giorno prima della collisione prevista. Alessio pilotò con mano ferma. Maria guardò indietro, verso il Pianeta Pocchia che si allontanava, e non pianse. Sapeva che non sarebbe tornata.</p>
+<p>Sulla Luna, Alessio e Maria trovarono un ambiente ostile ma non impossibile. Usando le tecnologie di AleDoria e le conoscenze di Nestola, costruirono una base sotterranea. Piantarono i semi di Maria in serre artificiali. Col tempo, le piante crescerono. E con loro, crebbe una nuova civiltà.</p>
+<p>Alessio e Maria ebbero dei figli. I loro figli ebbero altri figli. In poche generazioni, la Luna fu ripopolata. La nuova società lunare si organizzò in piccole comunità, ciascuna dedicata a un aspetto della conoscenza: l'agricoltura, l'astronomia, la storia.</p>
+<p>E tra le prime cose che fecero, ci fu la creazione di una nuova enciclopedia. La chiamarono <b>Pocchiaciclopedia</b>, in onore del pianeta che avevano perduto. Raccontava tutta la storia del Pianeta Pocchia — dalle guerre degli Avengers alla Bomba Spissica, dalle rivolte democratiche alla nascita della Repubblica, dai personaggi che avevano popolato quel mondo ormai scomparso. Era un omaggio. Era un ricordo. Era l'unico modo per non dimenticare.</p>
+
+<h3 id="morello-fm">Morello e Filippo — l'oltre</h3>
+<p>Un secondo razzo fu preso da <a onclick="navigateTo('Morello')">Morello</a> e dal suo vecchio amico <a onclick="navigateTo('Filippo Pascali')">Filippo Pascali</a>. Morello era stato liberato dalla prigione di Castri durante l'evacuazione di massa — non c'era più ragione di tenere un uomo in cella se il mondo stava per finire. Filippo, che aveva passato gli ultimi decenni a Serrano con Alice e i figli, decise di seguire Morello. «Se devo morire» disse, «preferisco morire viaggiando.»</p>
+<p>Il loro razzo però non puntò verso la Luna. Morello aveva una destinazione diversa. «Voglio vedere cosa c'è oltre» disse. «Oltre i Mille Occhi. Oltre il confine del cosmo. Oltre tutto ciò che abbiamo mai conosciuto.» Filippo non oppose resistenza. «Dopo tutto quello che abbiamo passato» rispose, «perché no?»</p>
+<p>Il razzo di Morello e Filippo accelerò oltre i limiti conosciuti. Attraversò l'orbita del <a onclick="navigateTo('Pianeta Zecca')">Pianeta Zecca</a> poco prima che questo iniziasse la sua caduta finale. Poi continuò, sempre più veloce, verso il bordo del sistema solare. E poi, oltre.</p>
+
+<h2 id="collisione-fm">La collisione — la fine del Pianeta Pocchia <span class="edit-link" onclick="openEditor('La Fine del Pianeta Pocchia (401 dM)')">[modifica]</span></h2>
+<p>Il <b>15 Luglio 401 dM</b>, il <a onclick="navigateTo('Pianeta Zecca')">Pianeta Zecca</a> colpì il Pianeta Pocchia. L'impatto fu catastrofico. La massa di due terzi del pianeta si schiantò contro la superficie a velocità inconcepibili. La crosta si frantumò. Il nucleo si espanse. In pochi minuti, il Pianeta Pocchia — il mondo che aveva ospitato Morello e Sal da Spicci, gli Avengers e il Clan Spisso, i Puma e i Pocchia, le guerre e le paci, le bombe e le rose — cessò di esistere.</p>
+<p>Dalla Luna, Alessio e Maria videro l'esplosione. Un lampo bianco accecante, poi un anello di detriti che si espandeva nello spazio. Alessio strinse la mano di Maria. Non disse nulla. Non c'era niente da dire.</p>
+<p>Sulla superficie lunare, i primi coloni iniziarono a costruire. Avevano un mondo nuovo da abitare. E una storia da non dimenticare.</p>
+
+<h2 id="oltre-fm">Oltre i Mille Occhi — l'incontro con Ludo <span class="edit-link" onclick="openEditor('La Fine del Pianeta Pocchia (401 dM)')">[modifica]</span></h2>
+<p>Il razzo di Morello e Filippo continuò a viaggiare per giorni, settimane, mesi. O forse anni — nel vuoto oltre il confine del cosmo, il tempo stesso perdeva significato. Alla fine, raggiunsero il muro di <a onclick="navigateTo('I Mille Occhi di Ludo')">I Mille Occhi di Ludo</a>. Le stelle fisse che da sempre segnavano il confine del cosmo brillavano davanti a loro, immobili, eterne.</p>
+<p>Morello non esitò. Accelerò. Il razzo attraversò il muro di stelle — e lo bucò. Per un istante, le stelle si spensero. Poi, dall'altra parte, c'era solo buio. Un buio profondo, infinito, diverso da qualsiasi cosa avessero mai visto. E in quel buio, c'era <b>Lui</b>.</p>
+<p><a onclick="navigateTo('Ludovico Pio Tommasi')">Ludovico Pio Tommasi</a> — il Cheddar, il Re dei topi, il Dio creatore di questo mondo — era lì. Non aveva una forma definita. Era una presenza, una luce, una voce che risuonava direttamente nella mente.</p>
+<p>Morello e Filippo uscirono dal razzo. Non avevano bisogno di tute spaziali — oltre il confine, le leggi della fisica non esistevano più. Camminarono (galleggiarono? volarono?) verso Ludo. La voce del Dio riempì il vuoto.</p>
+
+<blockquote style="margin:16px 24px;padding:12px 16px;border-left:3px solid #ffaa44;background:#fff8e1;color:#5a3a1a">
+  <p style="margin:0;font-style:italic">«Vi ho aspettati. Per più tempo di quanto possiate immaginare. Voi due — l'architetto del caos e il testimone silenzioso — siete sempre stati al centro di tutto. Morello, tu che hai governato Napoli, fondato la Camorra Salentina, sfidato la morte e i capelli. Filippo, tu che hai combattuto per la tua famiglia, che hai creduto nell'amicizia quando tutto sembrava perduto. Il vostro incontro con me era scritto. Era profetizzato. Non dal Topus Maximus — quello era un impostore — ma dalle stelle stesse, dai Mille Occhi che avete appena attraversato. Siete qui perché dovevate esserci. È il momento di completare il cerchio.»</p>
+  <footer style="margin-top:6px;font-size:11px;color:#b87c2e">— Ludo, oltre i Mille Occhi, 401 dM</footer>
+</blockquote>
+
+<h2 id="trio-fm">Il Trio Pocchia — la nuova entità divina <span class="edit-link" onclick="openEditor('La Fine del Pianeta Pocchia (401 dM)')">[modifica]</span></h2>
+<p>Ludo spiegò loro che il ciclo era completo. Il mondo che avevano conosciuto era finito. Ma qualcosa di nuovo poteva nascere. Lui stesso, dopo eoni di esistenza solitaria, sentiva il bisogno di compagnia. Non di sudditi — di pari. E Morello e Filippo, per la loro storia, per le loro scelte, per il loro legame indissolubile, erano degni di stare al suo fianco.</p>
+<p>«Non sarete dei» disse Ludo. «Sarete qualcosa di diverso. Sarete parte di me, come io sarò parte di voi. Insieme formeremo una nuova entità. Una trinità. Non quella falsa del Topismo — ma una vera, nata dalla fine di tutto.»</p>
+<p>Morello guardò Filippo. Filippo guardò Morello. Poi entrambi annuirono. «E come ci chiameremo?» chiese Filippo.</p>
+<p>Ludo rise. Era una risata antica, profonda, che sembrava venire dall'inizio del tempo. «Pocchia» disse. «Perché tu, Filippo, sei un Pocchia. E perché Morello, senza saperlo, lo è sempre stato — per amicizia, per destino, per scelta. Il Trio Pocchia. Così sarete ricordati, se qualcuno ancora ricorderà qualcosa.»</p>
+<p>I tre si fusero. Morello, Filippo e Ludo diventarono una sola entità — il <b>Trio Pocchia</b>. Non erano più individui separati. Erano una presenza diffusa nell'universo, una coscienza collettiva che osservava il cosmo da una prospettiva che nessun essere umano avrebbe mai potuto comprendere.</p>
+<p>Il nome «Pocchia» fu scelto perché Filippo, il più grosso dei tre fisicamente, era un Pocchia. E perché, in fondo, tutta la storia era sempre stata, in un modo o nell'altro, la storia della Famiglia Pocchia.</p>
+
+<h2 id="eredita-fm">L'eredità — la Pocchiaciclopedia della Luna <span class="edit-link" onclick="openEditor('La Fine del Pianeta Pocchia (401 dM)')">[modifica]</span></h2>
+<p>Sulla Luna, la civiltà fondata da Alessio e Maria prosperava. I loro figli, e i figli dei loro figli, costruirono città nelle profondità dei crateri, coltivarono piante in serre pressurizzate, e non dimenticarono mai da dove venivano. Ogni anno, il 15 Luglio, commemoravano la fine del Pianeta Pocchia. Accendevano candele, raccontavano storie, e aprivano la <b>Pocchiaciclopedia della Luna</b> — l'enciclopedia che avevano creato per non dimenticare.</p>
+<p>Le sue pagine raccontavano di Morello e Sal da Spicci, di Napoli e dell'Età dell'Oro. Raccontavano degli Avengers e delle loro guerre, di Zella e della sua spada laser, di Alex Spisso e della Bomba Spissica. Raccontavano di Serrano volante e della sua ricostruzione, della Grande Spaccatura degli Sbost, della democrazia di Charlie Sbirk e della sua caduta. Raccontavano dei Puma e dei loro muri dipinti, di Nestola e dell'Ebraismo, di Anna Colella e dei suoi Calassi. Raccontavano del Pianeta Zecca e della sua fine, di Giovanni Zecca che aveva portato con sé il peso di tutti i «Ciccione» del mondo. Raccontavano di Alessio e Maria, che avevano fondato una nuova civiltà sulla Luna. Raccontavano di Morello e Filippo, che erano partiti per l'ignoto e non erano mai tornati.</p>
+<p>E raccontavano, in una pagina scritta in caratteri d'oro, la leggenda del <b>Trio Pocchia</b> — l'entità divina nata dalla fusione di Ludo, Morello e Filippo, che da qualche parte oltre i Mille Occhi osservava il cosmo e sorrideva.</p>
+<p>La Pocchiaciclopedia della Luna non fu mai completata. Perché una storia, quando è finita, non ha bisogno di essere completata. Ha solo bisogno di essere ricordata.</p>
+
+<div class="stub-box" style="background:#0a1a2a;border-left-color:#ffaa44;color:#ffdd99">
+  <span style="font-size:22px">✨</span>
+  <span><b>«Il 104 era l'inizio della fine. Il 401 era la fine dell'inizio. E dopo la fine, c'è sempre un nuovo inizio.»</b> — Dalla prefazione della Pocchiaciclopedia della Luna.</span>
+</div>
+
+</div>
+<div class="wiki-cats"><strong>Categorie:</strong> <a>Fine del mondo</a> <a>401 dM</a> <a>Pianeta Zecca</a> <a>Luna</a> <a>Mille Occhi di Ludo</a> <a>Trio Pocchia</a> <a>Ludovico Pio Tommasi</a> <a>Morello</a> <a>Filippo Pascali</a> <a>Alessio Spisso</a> <a>MariaTeresa Friolo</a></div>`;
+}
+
+/* 1. Seconda Guerra Pocchiana (251–254 dM)
+Causa: Anna Colella tenta di estendere il controllo dell'Impero su tutto il mondo dopo la morte del suo erede designato.
+
+Coalizione anti-imperiale: Repubblica Italiana (guidata dal Parlamento), Nigeria Spartiana (con il Raggio Nero perfezionato), ribelli americani (ex-Avengers senza poteri ma con esperienza bellica).
+
+Svolgimento: Guerra su tre fronti – Europa (Italia vs Francia), Africa (Nigeria vs colonie francesi), America (ribelli vs basi imperiali).
+
+Svolta: Le governatrici Maria Marzo (GB) e Calogiuri (Francia) si ribellano ad Anna Colella, rifiutandosi di continuare a combattere per la sua egemonia.
+
+Fine: 254 dM – Anna Colella abdica. L'Impero si scioglie. Gran Bretagna a Maria Marzo, Francia a Calogiuri. L'Italia esce rafforzata.
+
+Conseguenze: Fine dell'egemonia europea. Inizio dell'era delle nazioni indipendenti.
+
+2. Rivolta delle Governatrici (250 dM)
+Protagoniste: Maria Marzo (governatrice del distretto inglese), Calogiuri (governatrice del distretto francese).
+
+Motivo: Anna Colella ordina una nuova leva di massa per invadere l'Italia. Maria e Calogiuri rifiutano.
+
+Evento: Le due governatrici si incontrano segretamente a Calais e firmano un patto di ribellione.
+
+Conseguenze: L'Impero perde il controllo sui suoi due distretti più importanti. Anna Colella tenta di reprimere la rivolta, ma le sue truppe si rifiutano di sparare contro i propri connazionali.
+
+Esito: Anna Colella è costretta a negoziare. Le governatrici ottengono l'autonomia dei loro territori.
+
+3. Fuga dei Prigionieri (253 dM)
+Contesto: Durante il caos della Seconda Guerra Pocchiana, le prigioni italiane vengono evacuate per mancanza di personale.
+
+Fuggitivi: Morello, Zio di Sbost, e altri prigionieri politici della dittatura di Charlie Sbirk.
+
+Modalità: Un attentato (mai rivendicato) fa saltare una sezione del muro di cinta della prigione di Castri. Morello e Zio di Sbost scappano insieme, per la prima volta collaborando senza secondi fini.
+
+Destino: I due si separano dopo la fuga. Morello scompare nella campagna italiana. Zio di Sbost torna a Castri, dove vive in clandestinità per anni.
+
+Nota storica: Nessuno dei due fu mai riacciuffato. Le autorità della Repubblica Italiana, impegnate nella guerra, non diedero priorità alla loro ricerca.
+
+4. Divisione dell'Impero (254 dM)
+Evento: Dopo la ribellione delle governatrici e la fine della guerra, l'Impero di Anna Colella viene ufficialmente sciolto.
+
+Nuovi stati: Gran Bretagna (sotto Maria Marzo) – Francia (sotto Calogiuri).
+
+Trattato di pace: Firmato a Ginevra tra Italia, Gran Bretagna, Francia, Nigeria e America.
+
+Clausole: Confini inviolabili, libero commercio, impegno a non riarmarsi per scopi offensivi.
+
+Eredità: I Calassi (scuole) rimangono in funzione in entrambi i paesi. L'alfabetizzazione rimane al 99%.
+
+5. Esplorazione Spaziale di Filippo e Gino (255 dM – 378 dM)
+Prima missione (255 dM): "Pocchia 1" – orbita terrestre, sorvolo della Luna. Durata: 14 giorni.
+
+Seconda missione (258 dM): "Pocchia 2" – sorvolo di Marte (Cheddar gelato). Durata: 8 mesi.
+
+Terza missione (262 dM): "Pocchia 3" – esplorazione della fascia degli asteroidi. Scoperta di nuovi minerali.
+
+Missioni successive (270–378 dM): Esplorazione dei pianeti esterni, mappatura del Sistema Cheddar.
+
+Gino Pascali: Figlio di Filippo, con sindrome di Down, dimostra abilità straordinarie nella navigazione spaziale (memoria fotografica delle rotte). Diventa il navigatore ufficiale di tutte le missioni.
+
+Ridenominazione del pianeta (378 dM): Durante un viaggio nello spazio, Filippo e Gino osservano il pianeta da lontano. Filippo dice: «Sembra un piccolo mondo. Un piccolo Pocchia.» Il nome rimane. Da quel momento, il pianeta viene chiamato Pianeta Pocchia.
+
+6. Marco Specchia (ex Carla Pascali) – Transizione e fuga (256 dM)
+Nome di nascita: Carla Pascali (figlia di Filippo Pascali e Alice Sportella).
+
+Anno della transizione: 256 dM.
+
+Nuovo nome: Marco Specchia (il cognome "Specchia" in omaggio allo pseudonimo di Gildo Spisso).
+
+Motivazione: Marco dichiara di non essersi mai sentito a suo agio nel proprio corpo. La sua famiglia (Filippo, Alice, i fratelli) lo sostiene pienamente.
+
+Fuga: Marco lascia Serrano per inseguire il sogno dell'arte. Si trasferisce in Italia continentale.
+
+Incontro con Apollonio Scardino: Marco vede un video di Apollonio che dipinge con lo spazzolino in bocca e rimane folgorato. Lo contatta. Apollonio lo prende sotto la sua ala.
+
+Carriera: Marco diventa un apprezzato artista digitale, noto per i suoi ritratti onirici. Non dimentica mai le sue origini.
+
+7. Apollonio Scardino (ascesa dal 257 dM)
+Nascita: 210 dM (circa), in Puglia.
+
+Professione: Artista, YouTuber, performer.
+
+Tecnica: Dipinge esclusivamente con lo spazzolino da denti in bocca. Non usa mai le mani.
+
+Canale YouTube: "ScardinoArt" – fondato nel 245 dM. Raggiunge milioni di follower in tutta Italia entro il 257 dM.
+
+Stile: Astratto, colori vivaci, spesso raffigura volti deformati e paesaggi onirici. Le sue opere più famose sono la serie "Mille Bocche" (256 dM) e "L'Ultimo Spazzolino" (260 dM).
+
+Frase celebre: «Le mani sono sopravvalutate. La bocca è l'ultimo confine dell'arte.»
+
+Incontro con Marco Specchia: 256 dM – Marco lo contatta. Apollonio, colpito dalla sua determinazione, lo prende come allievo.
+
+Eredità: Apollonio muore nel 290 dM, ma la sua scuola artistica sopravvive. Marco Specchia ne diventa il principale erede.
+
+8. La Fine del Pianeta Pocchia (401 dM) – già scritta nella pagina precedente
+Situazione nel 400 dM: Zella in pensione, Alessio e Maria vivono in pace a Serrano, AleDoria e Nestola studiano il cielo.
+
+Il segno del 401: Nel cielo appare il numero 401 – il contrario del 104 che aveva annunciato la seconda eruzione del Vesuvio.
+
+Il Pianeta Zecca: Diventato troppo grande (due terzi della massa del Pianeta Pocchia), inizia ad avvicinarsi.
+
+L'esodo: Razzi verso la Luna (Alessio e Maria) e verso l'ignoto (Morello e Filippo).
+
+La collisione: 15 Luglio 401 dM – il Pianeta Zecca colpisce il Pianeta Pocchia. Distruzione totale.
+
+Oltre i Mille Occhi: Morello e Filippo incontrano Ludo. I tre si fondono nel Trio Pocchia.
+
+Sulla Luna: Alessio e Maria fondano una nuova civiltà e creano la Pocchiaciclopedia della Luna. */
 
 // ══════════════════════════════════════════════════════
 //  GLOBO INTERATTIVO — pagina principale
@@ -19220,7 +20024,7 @@ function buildLaCantina() {
      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Fondazione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>13 Maggio 109 dM</b></td></tr>
      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Fondatore</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Zio di Sbost')">Zio di Sbost</a></td></tr>
      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Capitale</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Castri')">Castri</a></td></tr>
-     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Forma di governo</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>Diarchia</b> (Morello + Zio di Sbost) — dal 158 dM</td></tr>
+     <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Forma di governo</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>Diarchia</b> (Morello + Zio di Sbost) — <b>158–248 dM</b> <br> (dal 248 dM, governo di successori)</div></div></td>
      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Conquiste storiche</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><a onclick="navigateTo('Filippine')">Filippine</a> (112 dM) · <a onclick="navigateTo('Napoli')">Napoli</a> (115 dM)</td></tr>
      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Referendum 230 dM</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>89% SI</b> · 11% NO — adesione al <a onclick="navigateTo('Regno d\'Italia')">Regno d'Italia</a></td></tr>
      <tr><th style="padding:3px 8px;border-top:1px solid #eaecf0;text-align:left;font-size:12px">Unificazione</th><td style="padding:3px 8px;border-top:1px solid #eaecf0"><b>231 dM</b> — con autonomia garantita</td></tr>
@@ -19283,14 +20087,14 @@ function buildLaCantina() {
 <h2 id="unificazione-lc">L'unificazione del 231 dM e l'autonomia <span class="edit-link" onclick="openEditor('La Cantina')">[modifica]</span></h2>
 <p>Il <b>15 Luglio 231 dM</b>, i rappresentanti di Castri firmarono l'atto di unificazione con il Regno d'Italia. <a onclick="navigateTo('AleDoria')">AleDoria I</a>, nel suo discorso, annunciò che Castri sarebbe diventato uno <b>stato autonomo</b> all'interno del Regno, mantenendo:</p>
 <ul style="margin:0 0 12px 24px;font-family:sans-serif;font-size:13px;line-height:2">
-  <li>La Diarchia (Morello e Zio di Sbost) come forma di governo locale</li>
+  <li>La Diarchia come forma di governo locale</li>
   <li>Le proprie leggi e amministrazione</li>
   <li>La propria identità culturale</li>
 </ul>
 <p>Castri conservò anche la propria rappresentanza nel Parlamento italiano, con seggi riservati.</p>
 
 <h2 id="oggi-lc">Castri oggi <span class="edit-link" onclick="openEditor('La Cantina')">[modifica]</span></h2>
-<p>Oggi Castri è uno stato autonomo del <a onclick="navigateTo('Regno d\'Italia')">Regno d'Italia</a>. La diarchia Morello-Zio di Sbost è ancora in vigore. La vecchia dogana tra Castri e Serrano è diventata un monumento storico. I Bot di AleDoria sono ancora in funzione in molti negozi e case. E ogni anno, il giorno della fondazione de La Cantina, i cittadini si riuniscono per ricordare l'uomo che fondò uno stato per una chiave falsa — e che poi, dopo aver conquistato Napoli, scelse di unirsi all'Italia.</p>
+<p>Oggi Castri è uno stato autonomo del <a onclick="navigateTo('Regno d\'Italia')">Regno d'Italia</a>. La diarchia, sebbene i suoi fondatori <a onclick="navigateTo('Morello')">Morello</a> e <a onclick="navigateTo('Zio di Sbost')">lo Zio di Sbost</a> siano stati condannati all'ergastolo nel <a onclick="navigateTo('Isola di Flavio')">248 dM</a>, è ancora la forma di governo della regione, oggi guidata da successori che ne portano avanti l'eredità. La vecchia dogana tra Castri e Serrano è diventata un monumento storico. I Bot di AleDoria sono ancora in funzione in molti negozi e case. E ogni anno, il giorno della fondazione de La Cantina, i cittadini si riuniscono per ricordare l'uomo che fondò uno stato per una chiave falsa — e che poi, dopo aver conquistato Napoli, scelse di unirsi all'Italia.</p>
 
 <div class="stub-box"><span style="font-size:22px">🍷</span><span>Lo Zio di Sbost voleva solo entrare in casa di Morello. Alla fine ci è riuscito. Poi, dopo un referendum, ha deciso che l'Italia non era male.</span></div>
 </div>
